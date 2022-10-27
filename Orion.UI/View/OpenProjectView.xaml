@@ -1,0 +1,192 @@
+﻿<UserControl x:Class="Orion.UI.View.OpenProjectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Orion.UI.View"
+             mc:Ignorable="d" 
+             xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             dialog:DialogParticipation.Register="{Binding}"
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks" 
+             xmlns:vm="clr-namespace:Orion.UI.ViewModel"
+             xmlns:view="clr-namespace:Orion.UI.View"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+             d:DesignHeight="600" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type=vm:OpenProjectViewModel}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadDataCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}"/>
+        </i:EventTrigger>
+        <!--<i:EventTrigger SourceObject="{Binding RelativeSource={RelativeSource AncestorType=ctrl:MetroWindow}}" EventName="Closed">
+            <i:InvokeCommandAction Command="{Binding ExitCommand}" />
+        </i:EventTrigger>-->
+    </i:Interaction.Triggers>
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding Path=SearchCommand}" Key="Enter"/>
+    </UserControl.InputBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Width="200">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+
+            <GroupBox Header="Search Options" 
+                      ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                                  Margin="5,5,0,5">
+                <StackPanel Orientation="Vertical">
+                    <TextBox  
+                             Grid.Column="0"
+                             ctrl:TextBoxHelper.Watermark="Project Name"                          
+                             ToolTip="Press ENTER to update searching"
+                             ctrl:TextBoxHelper.ClearTextButton="True"
+                             ctrl:TextBoxHelper.ButtonCommand="{Binding ResetSearchCommand}"
+                             Text="{Binding ProjectName, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+
+
+
+                    <Button Grid.Column="1"  
+                        Margin="1"
+                                        Command="{Binding ReloadCommand}"
+                             Background="#93C039"
+                            
+                        ToolTip="Reload">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Content="Reload Projects"/>
+
+                                <icon:PackIconMaterial Kind="Reload" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                    <icon:PackIconMaterial.LayoutTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                        </TransformGroup>
+                                    </icon:PackIconMaterial.LayoutTransform>
+                                </icon:PackIconMaterial>
+
+                            </Grid>
+                        </Button.Content>
+
+                    </Button>
+
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Actions" 
+                      ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                      Grid.Row="2"
+                                  Margin="5,0,0,5">
+
+                <Button Grid.Column="1"  
+                        Margin="1"
+                            Background="Orange"
+                                        Command="{Binding CloseCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0" Content="Back"/>
+
+                            <icon:PackIconMaterial Kind="KeyboardReturn" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                <icon:PackIconMaterial.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                    </TransformGroup>
+                                </icon:PackIconMaterial.LayoutTransform>
+                            </icon:PackIconMaterial>
+
+                        </Grid>
+                    </Button.Content>
+
+                </Button>
+            </GroupBox>
+
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="5,5,5,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Margin="0,0,0,5" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
+                <Label Content="All Projects" HorizontalAlignment="Center" FontSize="12" />
+            </Border>
+
+            <DataGrid Grid.Row="1" 
+                          ItemsSource="{Binding Projects}"  
+                          SelectedItem="{Binding ProjectSelected}"          
+                      Style="{StaticResource DGridStyle}"
+                FrozenColumnCount="2">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding OpenProjectCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button ToolTip="Open Project"  Background="#FF252525" Command="{Binding DataContext.OpenProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}">
+                                    <icon:PackIconFontAwesome Kind="PencilAltSolid" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                    </icon:PackIconFontAwesome>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button ToolTip="Delete Project"  Background="IndianRed" Command="{Binding DataContext.DeleteProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+                                    <icon:PackIconMaterial Kind="Delete" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                    </icon:PackIconMaterial>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" CanUserResize="False"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Project Number" Binding="{Binding Number}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Project Name" Binding="{Binding Name}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Sales Person" Binding="{Binding User.Name}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>
