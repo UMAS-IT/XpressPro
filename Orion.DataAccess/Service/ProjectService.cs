@@ -63,6 +63,10 @@ namespace Orion.DataAccess.Service
                 currentProject.Number = projectSelected.Number;
                 currentProject.Name = projectSelected.Name;
                 currentProject.Notes = projectSelected.Notes;
+                currentProject.Contractor = projectSelected.Contractor;
+                currentProject.Engineer = projectSelected.Engineer;
+                currentProject.Contact = projectSelected.Contact;
+                currentProject.Location = projectSelected.Location;
 
                 context.Projects.Update(currentProject);
                 context.SaveChanges();
@@ -84,6 +88,7 @@ namespace Orion.DataAccess.Service
                 return context.Projects.Include(x => x.User).FirstOrDefault(p => p.Id == projectId);
             }
         }
+
         public async Task DeleteProject(int projectId)
         {
             using (GlobalDbContext context = new GlobalDbContext())
@@ -100,8 +105,9 @@ namespace Orion.DataAccess.Service
             {
                 return context.Projects.AsNoTracking()
                     .Include(p => p.User)
-                    .Include(x => x.Units).ThenInclude(x => x.UnitItemAirCooledChillers).ThenInclude(x => x.ItemAirCooledChiller)
-                    .Include(x => x.Units).ThenInclude(x => x.UnitItemPumps).ThenInclude(x => x.ItemPump)
+                    .Include(x => x.Quotes).ThenInclude(x => x.ItemAirCooledChillers).ThenInclude(x => x.ItemAirCooledChillerCatalogAirCooledChillers).ThenInclude(x => x.CatalogAirCooledChiller)
+                    .Include(x => x.Quotes).ThenInclude(x => x.ItemPumps).ThenInclude(x => x.ItemPumpCatalogPumps).ThenInclude(x => x.CatalogPump)
+                    .Include(x => x.Quotes).ThenInclude(x => x.ItemUnits).ThenInclude(x => x.ItemUnitCatalogUnits).ThenInclude(x => x.CatalogUnit)
                     .FirstOrDefault(x => x.Id == projectId);
             }
         }

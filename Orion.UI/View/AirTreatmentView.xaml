@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Orientation="Vertical" Background="#0CFFFFFF" VerticalAlignment="Center">
-        <Image Source="/Resource/SquareLogo.png" Stretch="Uniform" Width="200" Height="200" HorizontalAlignment="Center"/>
-        <Label Content="XpressPro" FontSize="40" Padding="0"   HorizontalAlignment="Center"/>
+        <Image Source="/Resource/AtcSquareLogo.png" Stretch="Uniform" Margin="0,5,0,0"  Width="150" Height="150" HorizontalAlignment="Center"/>
+        <Label Content="XpressPro" FontSize="35" Foreground="#0DFFFFFF" Padding="0"   HorizontalAlignment="Center"/>
     </StackPanel>
 </UserControl>

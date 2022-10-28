@@ -32,8 +32,32 @@
         <StackPanel>
 
             <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Name" 
+                             ctrl:TextBoxHelper.Watermark="Project Name" 
                              Text="{Binding Project.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+            </TextBox>
+
+            <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Contractor" 
+                             Text="{Binding Project.Contractor, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+            </TextBox>
+
+            <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Engineer" 
+                             Text="{Binding Project.Engineer, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+            </TextBox>
+
+            <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Contact" 
+                             Text="{Binding Project.Contact, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+            </TextBox>
+
+            <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Location" 
+                             Text="{Binding Project.Location, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                              Style="{DynamicResource TxtStyle}">
             </TextBox>
 

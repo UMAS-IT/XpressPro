@@ -73,7 +73,7 @@
 
 
 
-                <TabItem Header="Unit Tags"  Width="180"  Height="39" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <TabItem Header="Quotes"  Width="180"  Height="39" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Grid HorizontalAlignment="Center">
@@ -81,16 +81,16 @@
                                     <ColumnDefinition Width="40"/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <icon:PackIconModern Kind="Tag" 
+                                <icon:PackIconFontAwesome Kind="FileInvoiceDollarSolid" 
                                                         Grid.Column="0" 
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
-                                    <icon:PackIconModern.LayoutTransform>
+                                    <icon:PackIconFontAwesome.LayoutTransform>
                                         <TransformGroup>
                                             <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
                                         </TransformGroup>
-                                    </icon:PackIconModern.LayoutTransform>
-                                </icon:PackIconModern>
+                                    </icon:PackIconFontAwesome.LayoutTransform>
+                                </icon:PackIconFontAwesome>
                                 <TextBlock Grid.Column="1" Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabItem}}, Path=Header}"
                                            VerticalAlignment="Center" FontSize="15">
                                     <TextBlock.Style>

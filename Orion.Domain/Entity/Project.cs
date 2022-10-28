@@ -36,6 +36,34 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _notes, value);
         }
 
+        private string _contractor;
+        public string Contractor
+        {
+            get => _contractor;
+            set => SetProperty(ref _contractor, value);
+        }
+
+        private string _engineer;
+        public string Engineer
+        {
+            get => _engineer;
+            set => SetProperty(ref _engineer, value);
+        }
+
+        private string _contact;
+        public string Contact
+        {
+            get => _contact;
+            set => SetProperty(ref _contact, value);
+        }
+
+        private string _location;
+        public string Location
+        {
+            get => _location;
+            set => SetProperty(ref _location, value);
+        }
+
         private int _userId;
         public int UserId
         {
@@ -50,11 +78,11 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _user, value);
         }
 
-        private IList<Unit> _units;
-        public IList<Unit> Units
+        private IList<Quote> _quotes;
+        public IList<Quote> Quotes
         {
-            get => _units;
-            set => SetProperty(ref _units, value);
+            get => _quotes;
+            set => SetProperty(ref _quotes, value);
         }
 
         private DateTime _creationDate;
@@ -66,7 +94,12 @@ namespace Orion.Domain.Entity
 
         public Project()
         {
-            Units = new ObservableCollection<Unit>();
+            Quotes = new ObservableCollection<Quote>();
+            Notes = "";
+            Contractor = "";
+            Engineer = "";
+            Contact = "";
+            Location = "";
         }
     }
 }

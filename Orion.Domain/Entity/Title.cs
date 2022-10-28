@@ -1,8 +1,6 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
-using Orion.Domain.EntityAirCooledCondenser;
-using Orion.Domain.EntityAirHandler;
-using Orion.Domain.EntityPump;
+using Orion.Domain.EntityCatalog;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -24,54 +22,69 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _name, value);
         }
 
-        private int? _itemAirCooledChillerId;
-        public int? ItemAirCooledChillerId
-        {
-            get => _itemAirCooledChillerId;
-            set => SetProperty(ref _itemAirCooledChillerId, value);
-        }
-
-        private ItemAirCooledChiller _itemAirCooledChiller;
-        public ItemAirCooledChiller ItemAirCooledChiller
-        {
-            get => _itemAirCooledChiller;
-            set => SetProperty(ref _itemAirCooledChiller, value);
-        }
-
-        private int? _itemPumpId;
-        public int? ItemPumpId
-        {
-            get => _itemPumpId;
-            set => SetProperty(ref _itemPumpId, value);
-        }
-
-        private ItemPump _itemPump;
-        public ItemPump ItemPump
-        {
-            get => _itemPump;
-            set => SetProperty(ref _itemPump, value);
-        }
-
-        private int? _itemAirHandlerId;
-        public int? ItemAirHandlerId
-        {
-            get => _itemAirHandlerId;
-            set => SetProperty(ref _itemAirHandlerId, value);
-        }
-
-        private ItemAirHandler _itemAirHandler;
-        public ItemAirHandler ItemAirHandler
-        {
-            get => _itemAirHandler;
-            set => SetProperty(ref _itemAirHandler, value);
-        }
-
         private IList<Spec> _specs;
         public IList<Spec> Specs
         {
             get => _specs;
             set => SetProperty(ref _specs, value);
         }
+
+        private int? _catalogAirCooledChillerId;
+        public int? CatalogAirCooledChillerId
+        {
+            get => _catalogAirCooledChillerId;
+            set => SetProperty(ref _catalogAirCooledChillerId, value);
+        }
+
+        private CatalogAirCooledChiller _catalogAirColledChiller;
+        public CatalogAirCooledChiller CatalogAirCooledChiller
+        {
+            get => _catalogAirColledChiller;
+            set => SetProperty(ref _catalogAirColledChiller, value);
+        }
+
+        private int? _catalogUnitId;
+        public int? CatalogUnitId
+        {
+            get => _catalogUnitId;
+            set => SetProperty(ref _catalogUnitId, value);
+        }
+
+        private CatalogUnit _catalogUnit;
+        public CatalogUnit CatalogUnit
+        {
+            get => _catalogUnit;
+            set => SetProperty(ref _catalogUnit, value);
+        }
+
+        private int? _catalogPumpId;
+        public int? CatalogPumpId
+        {
+            get => _catalogPumpId;
+            set => SetProperty(ref _catalogPumpId, value);
+        }
+
+        private CatalogPump _catalogPump;
+        public CatalogPump CatalogPump
+        {
+            get => _catalogPump;
+            set => SetProperty(ref _catalogPump, value);
+        }
+
+        private int? _catalogVdfId;
+        public int? CatalogVfdId
+        {
+            get => _catalogVdfId;
+            set => SetProperty(ref _catalogVdfId, value);
+        }
+
+        private CatalogVfd _catalogVfd;
+        public CatalogVfd CatalogVfd
+        {
+            get => _catalogVfd;
+            set => SetProperty(ref _catalogVfd, value);
+        }
+
         public Title()
         {
             Specs = new ObservableCollection<Spec>();

@@ -51,12 +51,10 @@ namespace Orion.UI.ViewModel
             switch (destination)
             {
                 case "Project Information":
-                    //CurrentViewModel = new ProjectInformationViewModel(dialogCoordinator, userId, projectId, mw);
-                    CurrentViewModel = new ComingSoonViewModel();
+                    CurrentViewModel = new ProjectInformationViewModel(dialogCoordinator, userId, projectId, mw);
                     break;
-                case "Unit Tags":
-                    //CurrentViewModel = new UnitTagViewModel(dialogCoordinator, userId, projectId, mw);
-                    CurrentViewModel = new ComingSoonViewModel();
+                case "Quotes":
+                    CurrentViewModel = new QuoteViewModel(dialogCoordinator, userId, projectId, mw);
                     break;
                 case "Reports":
                     //CurrentViewModel = new ReportsViewModel(dialogCoordinator, userId, projectId, mw);

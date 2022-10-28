@@ -83,6 +83,7 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Microsoft
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Microsoft.Extensions.Logging.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Microsoft.Extensions.Options.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Orion.Binding.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Orion.Domain.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Orion.Helper.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Remotion.Linq.dll
@@ -95,7 +96,7 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\System.In
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\System.Memory.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Orion.Binding.dll
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Orion.Binding.pdb
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Orion.Domain.pdb
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Orion.Domain.dll.config
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Orion.Helper.pdb
@@ -123,8 +124,8 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\System.In
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\System.Memory.xml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\bin\Debug\Orion.Binding.pdb
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\obj\Debug\Orion.DataAccess.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\obj\Debug\Orion.DataAccess.csproj.SuggestedBindingRedirects.cache
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\obj\Debug\Orion.DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\obj\Debug\Orion.DataAccess.csproj.CopyComplete
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.DataAccess\obj\Debug\Orion.DataAccess.dll

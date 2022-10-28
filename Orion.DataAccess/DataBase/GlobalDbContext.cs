@@ -1,14 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orion.Domain.Entity;
-using Orion.Domain.EntityAirCooledChiller;
-using Orion.Domain.EntityAirCooledCondenser;
-using Orion.Domain.EntityAirHandler;
-using Orion.Domain.EntityPump;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Orion.Domain.EntityCatalog;
+using Orion.Domain.EntityItem;
+using Orion.Domain.EntityItemCatalog;
 
 namespace Orion.DataAccess.DataBase
 {
@@ -16,25 +10,25 @@ namespace Orion.DataAccess.DataBase
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Project> Projects { get; set; }
-        public DbSet<Unit> Units { get; set; }
+        public DbSet<Quote> Quotes { get; set; }
         public DbSet<Title> Titles { get; set; }
         public DbSet<Spec> Specs { get; set; }
 
         public DbSet<CatalogAirCooledChiller> CatalogAirCooledChillers { get; set; }
         public DbSet<ItemAirCooledChiller> ItemAirCooledChillers { get; set; }
         public DbSet<ItemAirCooledChillerCatalogAirCooledChiller> ItemAirCooledChillerCatalogAirCooledChillers { get; set; }
-        public DbSet<UnitItemAirCooledChiller> UnitItemAirCooledChillers { get; set; }
 
         public DbSet<CatalogPump> CatalogPumps { get; set; }
         public DbSet<ItemPumpCatalogPump> ItemPumpCatalogPumps { get; set; }
         public DbSet<ItemPump> ItemPumps { get; set; }
-        public DbSet<UnitItemPump> UnitItemPumps { get; set; }
 
-        public DbSet<CatalogAirHandler> CatalogAirHandlers { get; set; }
-        public DbSet<ItemAirHandlerCatalogAirHandler> ItemAirHandlerCatalogAirHandlers { get; set; }
-        public DbSet<ItemAirHandler> ItemAirHandlers { get; set; }
-        public DbSet<UnitItemAirHandler> UnitItemAirHandlers { get; set; }
+        public DbSet<CatalogUnit> CatalogUnits { get; set; }
+        public DbSet<ItemUnitCatalogUnit> ItemUnitCatalogUnits { get; set; }
+        public DbSet<ItemUnit> ItemUnits { get; set; }
 
+        public DbSet<CatalogVfd> CatalogVfds { get; set; }
+        public DbSet<ItemVfdCatalogVfd> ItemVfdCatalogVfds { get; set; }
+        public DbSet<ItemVfd> ItemVfds { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -51,44 +45,64 @@ namespace Orion.DataAccess.DataBase
                         .HasForeignKey(m => m.UserId);
 
             modelBuilder.Entity<Project>()
-                        .HasMany(p => p.Units)
+                        .HasMany(p => p.Quotes)
                         .WithOne(m => m.Project)
                         .HasForeignKey(m => m.ProjectId);
 
-            modelBuilder.Entity<UnitItemAirCooledChiller>()
-            .HasKey(x => new { x.UnitId, x.ItemAirCooledChillerId });
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemUnits)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemPumps)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
 
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemAirCooledChillers)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemVfds)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<ItemUnitCatalogUnit>()
+            .HasKey(x => new { x.ItemUnitId, x.CatalogUnitId });
+            
+            modelBuilder.Entity<ItemPumpCatalogPump>()
+            .HasKey(x => new { x.ItemPumpId, x.CatalogPumpId });
+            
             modelBuilder.Entity<ItemAirCooledChillerCatalogAirCooledChiller>()
             .HasKey(x => new { x.ItemAirCooledChillerId, x.CatalogAirCooledChillerId });
 
-            modelBuilder.Entity<UnitItemPump>()
-            .HasKey(x => new { x.UnitId, x.ItemPumpId });
-
-            modelBuilder.Entity<ItemPumpCatalogPump>()
-            .HasKey(x => new { x.ItemPumpId, x.CatalogPumpId });
-
-            modelBuilder.Entity<UnitItemAirHandler>()
-            .HasKey(x => new { x.UnitId, x.ItemAirHandlerId });
-
-            modelBuilder.Entity<ItemAirHandlerCatalogAirHandler>()
-            .HasKey(x => new { x.ItemAirHandlerId, x.CatalogAirHandlerId });
+            modelBuilder.Entity<ItemVfdCatalogVfd>()
+            .HasKey(x => new { x.ItemVfdId, x.CatalogVfdId });
 
             modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.ItemAirCooledChiller)
+                        entry.HasOne(d => d.CatalogUnit)
                         .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.ItemAirCooledChillerId)
+                        .HasForeignKey(y => y.CatalogUnitId)
                         .OnDelete(DeleteBehavior.Restrict));
 
             modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.ItemPump)
+                        entry.HasOne(d => d.CatalogPump)
                         .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.ItemPumpId)
+                        .HasForeignKey(y => y.CatalogPumpId)
                         .OnDelete(DeleteBehavior.Restrict));
 
             modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.ItemAirHandler)
+                        entry.HasOne(d => d.CatalogAirCooledChiller)
                         .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.ItemAirHandlerId)
+                        .HasForeignKey(y => y.CatalogAirCooledChillerId)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.CatalogVfd)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.CatalogVfdId)
                         .OnDelete(DeleteBehavior.Restrict));
 
             modelBuilder.Entity<Title>()

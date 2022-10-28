@@ -19,13 +19,13 @@
             <i:InvokeCommandAction Command="{Binding LoadDataCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid  VerticalAlignment="Center"  HorizontalAlignment="Center">
+    <Grid  VerticalAlignment="Center"  HorizontalAlignment="Center" Background="#0CFFFFFF">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Image Grid.Row="0" Source="/Resource/RectangleLogo.png" Margin="-5,0,-5,5" Stretch="Uniform" Width="400"/>
+        <Image Grid.Row="0" Source="/Resource/AtcRectangleLogo.png" Stretch="Uniform" Width="400"/>
 
 
         <!--<GroupBox Grid.Row="1" Header="Welcome" FocusManager.FocusedElement="{Binding ElementName=UsernameBox}" Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" ctrl:ControlsHelper.ContentCharacterCasing="Normal">-->

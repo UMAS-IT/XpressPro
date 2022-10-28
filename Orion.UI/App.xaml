@@ -38,6 +38,22 @@
             <DataTemplate DataType="{x:Type vm:ComingSoonViewModel}">
                 <view:ComingSoonView/>
             </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vm:ProjectInformationViewModel}">
+                <view:ProjectInformationView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:QuoteViewModel}">
+                <view:QuoteView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:CreateQuoteViewModel}">
+                <view:CreateQuoteView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ItemViewModel}">
+                <view:ItemView/>
+            </DataTemplate>
 
             <Style  x:Key="TxtStyle" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}">
                 <Setter Property="ctrl:TextBoxHelper.UseFloatingWatermark" Value="True"/>
