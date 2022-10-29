@@ -4,6 +4,7 @@ using Orion.Domain.EntityItemCatalog;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace Orion.Domain.EntityItem
 {
@@ -46,6 +47,9 @@ namespace Orion.Domain.EntityItem
             get => _itemPumpCatalogPumps;
             set => SetProperty(ref _itemPumpCatalogPumps, value);
         }
+
+        [NotMapped]
+        public bool HasItems { get { return ItemPumpCatalogPumps.Any(); } }
 
         public ItemPump()
         {

@@ -51,6 +51,9 @@ namespace Orion.Domain.EntityItem
             set => SetProperty(ref _itemvfdCatalogVfds, value);
         }
 
+        [NotMapped]
+        public bool HasItems { get { return ItemVfdCatalogVfds.Any(); } }
+
         public ItemVfd()
         {
             ItemVfdCatalogVfds = new ObservableCollection<ItemVfdCatalogVfd>();

@@ -97,7 +97,7 @@
                                                         HorizontalAlignment="Center">
                             <icon:PackIconMaterial.LayoutTransform>
                                 <TransformGroup>
-                                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                 </TransformGroup>
                             </icon:PackIconMaterial.LayoutTransform>
                         </icon:PackIconMaterial>

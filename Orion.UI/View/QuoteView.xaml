@@ -53,7 +53,7 @@
                     <Label Content="Quotes"
                                Foreground="White"
                                VerticalAlignment="Center"/>
-                    <Button Grid.Column="1" Width="35" Height="35"
+                    <Button Grid.Column="1"
                                 Command="{Binding CreateQuoteCommand}" Background="#93C039"
                             ToolTip="Create a new quote">
                         <Button.Content>
@@ -62,7 +62,7 @@
                                                         HorizontalAlignment="Center">
                                 <icon:PackIconModern.LayoutTransform>
                                     <TransformGroup>
-                                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                        <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                     </TransformGroup>
                                 </icon:PackIconModern.LayoutTransform>
                             </icon:PackIconModern>
@@ -75,7 +75,7 @@
                 <ItemsControl ItemsSource="{Binding Quotes}">
                     <ItemsControl.ItemTemplate>
                         <ItemContainerTemplate>
-                            <Border Margin="5" BorderThickness="1" BorderBrush="White" Background="{StaticResource MahApps.Brushes.Accent}">
+                            <Border Margin="1" BorderThickness="1" BorderBrush="White" Background="{StaticResource MahApps.Brushes.Accent}">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
@@ -96,7 +96,7 @@
                                                 <icon:PackIconMaterial Kind="Delete">
                                                     <icon:PackIconMaterial.LayoutTransform>
                                                         <TransformGroup>
-                                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                                         </TransformGroup>
                                                     </icon:PackIconMaterial.LayoutTransform>
                                                 </icon:PackIconMaterial>
@@ -110,7 +110,7 @@
                                                 <icon:PackIconFontAwesome Kind="CloneSolid">
                                                     <icon:PackIconFontAwesome.LayoutTransform>
                                                         <TransformGroup>
-                                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                                         </TransformGroup>
                                                     </icon:PackIconFontAwesome.LayoutTransform>
                                                 </icon:PackIconFontAwesome>
@@ -123,7 +123,7 @@
                                                 <icon:PackIconMaterial Kind="FileTree">
                                                     <icon:PackIconMaterial.LayoutTransform>
                                                         <TransformGroup>
-                                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                                         </TransformGroup>
                                                     </icon:PackIconMaterial.LayoutTransform>
                                                 </icon:PackIconMaterial>

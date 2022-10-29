@@ -1,4 +1,5 @@
-﻿using Orion.Binding.Binding;
+﻿using Microsoft.EntityFrameworkCore.Internal;
+using Orion.Binding.Binding;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityItemCatalog;
 using System.Collections.Generic;
@@ -46,6 +47,9 @@ namespace Orion.Domain.EntityItem
             get => _itemAirCooledChillerCatalogAirCooledChillers;
             set => SetProperty(ref _itemAirCooledChillerCatalogAirCooledChillers, value);
         }
+
+        [NotMapped]
+        public bool HasItems { get { return ItemAirCooledChillerCatalogAirCooledChillers.Any(); } }
 
         public ItemAirCooledChiller()
         {

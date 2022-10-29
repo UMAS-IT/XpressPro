@@ -34,10 +34,10 @@
             <GroupBox Margin="5" Header="Create Item" ctrl:ControlsHelper.ContentCharacterCasing="Normal" >
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                     <StackPanel Orientation="Vertical">
-                        <Button Content="Air Cooled Chiller" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="1" Command="{Binding AddItemAirCooledChillerCommand}"/>
-                        <Button Content="Vfd" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="1" Command="{Binding AddItemVfdCommand}"/>
-                        <Button Content="Pump" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="1" Command="{Binding AddItemPumpCommand}"/>
-                        <Button Content="Unit" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="1" Command="{Binding AddItemUnitCommand}"/>
+                        <Button Content="Air Cooled Chiller" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="1" Background="DarkSlateBlue" Command="{Binding AddItemAirCooledChillerCommand}"/>
+                        <Button Content="Pump" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="1" Background="DarkMagenta" Command="{Binding AddItemPumpCommand}"/>
+                        <Button Content="Unit" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="1" Background="DarkSalmon" Command="{Binding AddItemUnitCommand}"/>
+                        <Button Content="Vfd" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="1" Background="DarkCyan" Command="{Binding AddItemVfdCommand}"/>
                     </StackPanel>
                 </ScrollViewer>
             </GroupBox>
@@ -58,7 +58,7 @@
                                                         HorizontalAlignment="Center">
                                     <icon:PackIconMaterial.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                         </TransformGroup>
                                     </icon:PackIconMaterial.LayoutTransform>
                                 </icon:PackIconMaterial>
@@ -79,7 +79,7 @@
                                                         HorizontalAlignment="Center">
                                     <icon:PackIconMaterial.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                         </TransformGroup>
                                     </icon:PackIconMaterial.LayoutTransform>
                                 </icon:PackIconMaterial>
@@ -96,55 +96,39 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="0" Margin="0,5,5,5" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
+            <Border Grid.Row="0" Margin="0,5,5,0" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
                 <Label Content="Quote Items" HorizontalAlignment="Center" FontSize="12" />
             </Border>
             <!--<Border BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Accent}" Margin="5" Grid.Row="1">-->
 
                 <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="1">
-                    <StackPanel Orientation="Vertical" Grid.Row="1">
+                    <StackPanel Orientation="Vertical">
 
-                    <GroupBox ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,0,5,0">
-                        <GroupBox.Header>
+                    <Expander ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,5,0" IsExpanded="True" MaxHeight="300">
+                        <Expander.Style>
+                            <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Quote.ItemAirCooledChiller.HasItems, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Value="False">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Expander.Style>
+                        <Expander.Header>
                             <Grid>
                                 <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition Width="auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Content="{Binding Quote.ItemAirCooledChiller.DefaultItemName}" VerticalAlignment="Center"/>
-                                        <Label Content=":" VerticalAlignment="Center"/>
-                                        <TextBox Text="{Binding Quote.ItemAirCooledChiller.Name,
+                                    <Label Content="{Binding Quote.ItemAirCooledChiller.DefaultItemName}" VerticalAlignment="Center"/>
+                                    <Label Content=":" VerticalAlignment="Center" Margin="100,0,0,0"/>
+                                    <TextBox Text="{Binding Quote.ItemAirCooledChiller.Name,
                                             UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                                                  MaxWidth="300" 
                                                  MinWidth="300" 
-                                                 ctrl:TextBoxHelper.Watermark="Item Name"/>
-                                    </StackPanel>
-                                    
-                                    <Button
-                                    Grid.Column="2"
-                                    ToolTip="Add Air Cooled Chiller"
-                                    HorizontalAlignment="Right"
-                                                        Background="#FF87B036" Margin="5,0,0,0"
-                                    Command="{Binding Path=DataContext.AddAirCooledChillerCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
-                                        <icon:PackIconModern Kind="Add" 
-                                                        Grid.Column="1" 
-                                                        VerticalAlignment="Center" 
-                                                        HorizontalAlignment="Center">
-
-                                            <icon:PackIconModern.LayoutTransform>
-                                                <TransformGroup>
-                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
-                                                </TransformGroup>
-                                            </icon:PackIconModern.LayoutTransform>
-                                        </icon:PackIconModern>
-
-                                    </Button>
-
+                                                 Background="DarkSlateBlue"
+                                                 ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
                                 </Grid>
                             </Grid>
-                        </GroupBox.Header>
+                        </Expander.Header>
 
 
                         <DataGrid
@@ -157,40 +141,120 @@
                                     <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-
-                                            </DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="Orange"
+                                                        ToolTip="Move To Start"
+                                                        Command="{Binding Path=DataContext.MoveToStartCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconBoxIcons Kind="SolidArrowToTop">
+                                                    <icon:PackIconBoxIcons.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconBoxIcons.LayoutTransform>
+                                                </icon:PackIconBoxIcons>
+                                            </Button>
+                                        </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
-
-                                    <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button ToolTip="Delete Item"  Background="IndianRed" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}">
-                                                <icon:PackIconMaterial Kind="Delete" 
-                                                        Grid.Column="1" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
+                                            <Button Grid.Row="0"
+                                                        Background="{StaticResource MahApps.Brushes.Accent}"
+                                                        ToolTip="Move To Up"
+                                                        Command="{Binding Path=DataContext.MoveToUpCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconFontAwesome Kind="CaretUpSolid">
+                                                    <icon:PackIconFontAwesome.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconFontAwesome.LayoutTransform>
+                                                </icon:PackIconFontAwesome>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                    
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button ToolTip="Delete Item"  Background="DarkRed" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}">
+                                                <icon:PackIconMaterial Kind="Delete">
+                                                    <icon:PackIconMaterial.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconMaterial.LayoutTransform>
                                                 </icon:PackIconMaterial>
+
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
 
-                                <DataGridCheckBoxColumn Header="Exclude" Binding="{Binding IsExcluded, UpdateSourceTrigger=PropertyChanged}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"     IsReadOnly="True" Width="auto">
-                                    <DataGridCheckBoxColumn.ElementStyle>
-                                        <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
-                                            <Setter Property="IsHitTestVisible" Value="False"/>
-                                            <Setter Property="VerticalAlignment" Value="Center"/>
-                                            <Setter Property="VerticalContentAlignment" Value="Center"/>
-                                            <Setter Property="HorizontalAlignment" Value="Center"/>
-                                            <Setter Property="LayoutTransform">
-                                                <Setter.Value>
-                                                    <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </DataGridCheckBoxColumn.ElementStyle>
-                                </DataGridCheckBoxColumn>
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="{StaticResource MahApps.Brushes.Accent}"
+                                                        ToolTip="Move To Down"
+                                                        Command="{Binding Path=DataContext.MoveToDownCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconFontAwesome Kind="CaretDownSolid">
+                                                    <icon:PackIconFontAwesome.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconFontAwesome.LayoutTransform>
+                                                </icon:PackIconFontAwesome>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="Orange"
+                                                        ToolTip="Move To End"
+                                                        Command="{Binding Path=DataContext.MoveToEndCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconBoxIcons Kind="SolidArrowToBottom" >
+                                                    <icon:PackIconBoxIcons.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconBoxIcons.LayoutTransform>
+                                                </icon:PackIconBoxIcons>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Exclude">
+                                    <DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}"/>
+                                    </DataGridTemplateColumn.HeaderStyle>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsChecked="{Binding IsExcluded, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                                <CheckBox.Style>
+                                                    <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                        <Setter Property="LayoutTransform">
+                                                            <Setter.Value>
+                                                                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </CheckBox.Style>
+                                            </CheckBox>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
 
                                 <DataGridTemplateColumn Header="Quantity">
                                     <DataGridTemplateColumn.HeaderStyle>
@@ -212,9 +276,524 @@
                                 <DataGridTextColumn Header="Voltage" Binding="{Binding CatalogAirCooledChiller.Voltage}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                             </DataGrid.Columns>
                         </DataGrid>
-                    </GroupBox>
+                    </Expander>
 
-                    </StackPanel>
+                    <Expander ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,5,0" IsExpanded="True" MaxHeight="300" >
+                        <Expander.Style>
+                            <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Quote.ItemPump.HasItems, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Value="False">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Expander.Style>
+                        <Expander.Header>
+                            <Grid>
+                                <Grid>
+                                    <Label Content="{Binding Quote.ItemPump.DefaultItemName}" VerticalAlignment="Center"/>
+                                    <Label Content=":" VerticalAlignment="Center" Margin="100,0,0,0"/>
+                                    <TextBox Text="{Binding Quote.ItemPump.Name,
+                                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                                 MaxWidth="300" 
+                                                 MinWidth="300" 
+                                                 Background="DarkMagenta"
+                                                 ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
+                                </Grid>
+                            </Grid>
+                        </Expander.Header>
+
+
+                        <DataGrid
+                            ItemsSource="{Binding Quote.ItemPump.ItemPumpCatalogPumps}"  
+                            Style="{StaticResource DGridStyle}"
+                            FrozenColumnCount="2">
+
+                            <DataGrid.Columns>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="Orange"
+                                                        ToolTip="Move To Start"
+                                                        Command="{Binding Path=DataContext.MoveToStartCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconBoxIcons Kind="SolidArrowToTop">
+                                                    <icon:PackIconBoxIcons.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconBoxIcons.LayoutTransform>
+                                                </icon:PackIconBoxIcons>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="{StaticResource MahApps.Brushes.Accent}"
+                                                        ToolTip="Move To Up"
+                                                        Command="{Binding Path=DataContext.MoveToUpCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconFontAwesome Kind="CaretUpSolid">
+                                                    <icon:PackIconFontAwesome.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconFontAwesome.LayoutTransform>
+                                                </icon:PackIconFontAwesome>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button ToolTip="Delete Item"  Background="DarkRed" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}">
+                                                <icon:PackIconMaterial Kind="Delete">
+                                                    <icon:PackIconMaterial.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconMaterial.LayoutTransform>
+                                                </icon:PackIconMaterial>
+
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="{StaticResource MahApps.Brushes.Accent}"
+                                                        ToolTip="Move To Down"
+                                                        Command="{Binding Path=DataContext.MoveToDownCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconFontAwesome Kind="CaretDownSolid">
+                                                    <icon:PackIconFontAwesome.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconFontAwesome.LayoutTransform>
+                                                </icon:PackIconFontAwesome>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="Orange"
+                                                        ToolTip="Move To End"
+                                                        Command="{Binding Path=DataContext.MoveToEndCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconBoxIcons Kind="SolidArrowToBottom" >
+                                                    <icon:PackIconBoxIcons.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconBoxIcons.LayoutTransform>
+                                                </icon:PackIconBoxIcons>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Exclude">
+                                    <DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}"/>
+                                    </DataGridTemplateColumn.HeaderStyle>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsChecked="{Binding IsExcluded, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                                <CheckBox.Style>
+                                                    <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                        <Setter Property="LayoutTransform">
+                                                            <Setter.Value>
+                                                                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </CheckBox.Style>
+                                            </CheckBox>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Quantity">
+                                    <DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}"/>
+                                    </DataGridTemplateColumn.HeaderStyle>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ctrl:NumericUpDown Minimum="1" Interval="1" Value="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTextColumn Header="Name" Binding="{Binding CatalogPump.Name}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Model" Binding="{Binding CatalogPump.Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Flow" Binding="{Binding CatalogPump.Flow}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Head" Binding="{Binding CatalogPump.Head}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Hp" Binding="{Binding CatalogPump.hp}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Motor" Binding="{Binding CatalogPump.Motor}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Expander>
+
+                    <Expander ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,5,0" IsExpanded="True" MaxHeight="300">
+                        <Expander.Style>
+                            <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Quote.ItemUnit.HasItems, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Value="False">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Expander.Style>
+                        <Expander.Header>
+                            <Grid>
+                                <Grid>
+                                    <Label Content="{Binding Quote.ItemUnit.DefaultItemName}" VerticalAlignment="Center"/>
+                                    <Label Content=":" VerticalAlignment="Center" Margin="100,0,0,0"/>
+                                    <TextBox Text="{Binding Quote.ItemUnit.Name,
+                                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                                 MaxWidth="300" 
+                                                 MinWidth="300" 
+                                                 Background="DarkSalmon"
+                                                 ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
+                                </Grid>
+                            </Grid>
+                        </Expander.Header>
+
+
+                        <DataGrid
+                            ItemsSource="{Binding Quote.ItemUnit.ItemUnitCatalogUnits}"  
+                            Style="{StaticResource DGridStyle}"
+                            FrozenColumnCount="2">
+
+                            <DataGrid.Columns>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="Orange"
+                                                        ToolTip="Move To Start"
+                                                        Command="{Binding Path=DataContext.MoveToStartCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconBoxIcons Kind="SolidArrowToTop">
+                                                    <icon:PackIconBoxIcons.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconBoxIcons.LayoutTransform>
+                                                </icon:PackIconBoxIcons>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="{StaticResource MahApps.Brushes.Accent}"
+                                                        ToolTip="Move To Up"
+                                                        Command="{Binding Path=DataContext.MoveToUpCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconFontAwesome Kind="CaretUpSolid">
+                                                    <icon:PackIconFontAwesome.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconFontAwesome.LayoutTransform>
+                                                </icon:PackIconFontAwesome>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button ToolTip="Delete Item"  Background="DarkRed" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}">
+                                                <icon:PackIconMaterial Kind="Delete">
+                                                    <icon:PackIconMaterial.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconMaterial.LayoutTransform>
+                                                </icon:PackIconMaterial>
+
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="{StaticResource MahApps.Brushes.Accent}"
+                                                        ToolTip="Move To Down"
+                                                        Command="{Binding Path=DataContext.MoveToDownCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconFontAwesome Kind="CaretDownSolid">
+                                                    <icon:PackIconFontAwesome.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconFontAwesome.LayoutTransform>
+                                                </icon:PackIconFontAwesome>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="Orange"
+                                                        ToolTip="Move To End"
+                                                        Command="{Binding Path=DataContext.MoveToEndCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconBoxIcons Kind="SolidArrowToBottom" >
+                                                    <icon:PackIconBoxIcons.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconBoxIcons.LayoutTransform>
+                                                </icon:PackIconBoxIcons>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Exclude">
+                                    <DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}"/>
+                                    </DataGridTemplateColumn.HeaderStyle>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsChecked="{Binding IsExcluded, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                                <CheckBox.Style>
+                                                    <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                        <Setter Property="LayoutTransform">
+                                                            <Setter.Value>
+                                                                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </CheckBox.Style>
+                                            </CheckBox>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Quantity">
+                                    <DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}"/>
+                                    </DataGridTemplateColumn.HeaderStyle>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ctrl:NumericUpDown Minimum="1" Interval="1" Value="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTextColumn Header="Name" Binding="{Binding CatalogUnit.Name}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="CFM" Binding="{Binding CatalogUnit.Cfm}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Flow" Binding="{Binding CatalogUnit.Voltage}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Expander>
+
+                    <Expander ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,5,0" IsExpanded="True" MaxHeight="300" >
+                        <Expander.Style>
+                            <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Quote.ItemVfd.HasItems, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Value="False">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Expander.Style>
+                        <Expander.Header>
+                            <Grid>
+                                <Grid>
+                                    <Label Content="{Binding Quote.ItemVfd.DefaultItemName}" VerticalAlignment="Center"/>
+                                    <Label Content=":" VerticalAlignment="Center" Margin="100,0,0,0"/>
+                                    <TextBox Text="{Binding Quote.ItemVfd.Name,
+                                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                                 MaxWidth="300" 
+                                                 MinWidth="300" 
+                                                 Background="DarkCyan"
+                                                 ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
+                                </Grid>
+                            </Grid>
+                        </Expander.Header>
+
+
+                        <DataGrid
+                            ItemsSource="{Binding Quote.ItemVfd.ItemVfdCatalogVfds}"  
+                            Style="{StaticResource DGridStyle}"
+                            FrozenColumnCount="2">
+
+                            <DataGrid.Columns>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="Orange"
+                                                        ToolTip="Move To Start"
+                                                        Command="{Binding Path=DataContext.MoveToStartCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconBoxIcons Kind="SolidArrowToTop">
+                                                    <icon:PackIconBoxIcons.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconBoxIcons.LayoutTransform>
+                                                </icon:PackIconBoxIcons>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="{StaticResource MahApps.Brushes.Accent}"
+                                                        ToolTip="Move To Up"
+                                                        Command="{Binding Path=DataContext.MoveToUpCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconFontAwesome Kind="CaretUpSolid">
+                                                    <icon:PackIconFontAwesome.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconFontAwesome.LayoutTransform>
+                                                </icon:PackIconFontAwesome>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button ToolTip="Delete Item"  Background="DarkRed" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}">
+                                                <icon:PackIconMaterial Kind="Delete">
+                                                    <icon:PackIconMaterial.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconMaterial.LayoutTransform>
+                                                </icon:PackIconMaterial>
+
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="{StaticResource MahApps.Brushes.Accent}"
+                                                        ToolTip="Move To Down"
+                                                        Command="{Binding Path=DataContext.MoveToDownCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconFontAwesome Kind="CaretDownSolid">
+                                                    <icon:PackIconFontAwesome.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconFontAwesome.LayoutTransform>
+                                                </icon:PackIconFontAwesome>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Grid.Row="0"
+                                                        Background="Orange"
+                                                        ToolTip="Move To End"
+                                                        Command="{Binding Path=DataContext.MoveToEndCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" >
+                                                <icon:PackIconBoxIcons Kind="SolidArrowToBottom" >
+                                                    <icon:PackIconBoxIcons.LayoutTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                        </TransformGroup>
+                                                    </icon:PackIconBoxIcons.LayoutTransform>
+                                                </icon:PackIconBoxIcons>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Exclude">
+                                    <DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}"/>
+                                    </DataGridTemplateColumn.HeaderStyle>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsChecked="{Binding IsExcluded, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                                <CheckBox.Style>
+                                                    <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                        <Setter Property="LayoutTransform">
+                                                            <Setter.Value>
+                                                                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </CheckBox.Style>
+                                            </CheckBox>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn Header="Quantity">
+                                    <DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}"/>
+                                    </DataGridTemplateColumn.HeaderStyle>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ctrl:NumericUpDown Minimum="1" Interval="1" Value="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTextColumn Header="Name" Binding="{Binding CatalogVfd.Name}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Model" Binding="{Binding CatalogVfd.Model}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Hp" Binding="{Binding CatalogVfd.Hp}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Voltage" Binding="{Binding CatalogVfd.Voltage}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Enclosure" Binding="{Binding CatalogVfd.Enclosure}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Expander>
+
+                </StackPanel>
 
             </ScrollViewer>
             <!--</Border>-->
