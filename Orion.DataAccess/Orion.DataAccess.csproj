@@ -125,33 +125,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase\GlobalDbContext.cs" />
-    <Compile Include="Migrations\20221026210708_mig-01.cs" />
-    <Compile Include="Migrations\20221026210708_mig-01.designer.cs">
-      <DependentUpon>20221026210708_mig-01.cs</DependentUpon>
+    <Compile Include="Migrations\20221028221354_mig-01.cs" />
+    <Compile Include="Migrations\20221028221354_mig-01.designer.cs">
+      <DependentUpon>20221028221354_mig-01.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20221027063033_mig-02.cs" />
-    <Compile Include="Migrations\20221027063033_mig-02.designer.cs">
-      <DependentUpon>20221027063033_mig-02.cs</DependentUpon>
+    <Compile Include="Migrations\20221028225248_mig-02.cs" />
+    <Compile Include="Migrations\20221028225248_mig-02.designer.cs">
+      <DependentUpon>20221028225248_mig-02.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20221027201135_mig-03.cs" />
-    <Compile Include="Migrations\20221027201135_mig-03.designer.cs">
-      <DependentUpon>20221027201135_mig-03.cs</DependentUpon>
+    <Compile Include="Migrations\20221029004419_mig-03.cs" />
+    <Compile Include="Migrations\20221029004419_mig-03.designer.cs">
+      <DependentUpon>20221029004419_mig-03.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20221027202037_mig-04.cs" />
-    <Compile Include="Migrations\20221027202037_mig-04.designer.cs">
-      <DependentUpon>20221027202037_mig-04.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20221027203950_mig-05.cs" />
-    <Compile Include="Migrations\20221027203950_mig-05.designer.cs">
-      <DependentUpon>20221027203950_mig-05.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20221028020604_mig-06.cs" />
-    <Compile Include="Migrations\20221028020604_mig-06.designer.cs">
-      <DependentUpon>20221028020604_mig-06.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20221028054922_mig-07.cs" />
-    <Compile Include="Migrations\20221028054922_mig-07.designer.cs">
-      <DependentUpon>20221028054922_mig-07.cs</DependentUpon>
+    <Compile Include="Migrations\20221029004553_mig-04.cs" />
+    <Compile Include="Migrations\20221029004553_mig-04.designer.cs">
+      <DependentUpon>20221029004553_mig-04.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\GlobalDbContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

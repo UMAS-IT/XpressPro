@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls.Dialogs;
 using Orion.Binding.Binding;
+using Orion.DataAccess.DataBase;
 using Orion.UI.Command;
 using Orion.UI.Service;
 using System;
@@ -67,6 +68,7 @@ namespace Orion.UI.ViewModel
             LoadDataCommand = new RelayCommand(OnLoadData);
             NewProjectCommand = new RelayCommand<object>(OnNewProject);
             OpenProjectCommand = new RelayCommand<object>(OnOpenProject);
+
         }
 
         private void OnLoadData()

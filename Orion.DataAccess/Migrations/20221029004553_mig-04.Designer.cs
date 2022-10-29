@@ -10,7 +10,7 @@ using Orion.DataAccess.DataBase;
 namespace Orion.DataAccess.Migrations
 {
     [DbContext(typeof(GlobalDbContext))]
-    [Migration("20221027202037_mig-04")]
+    [Migration("20221029004553_mig-04")]
     partial class mig04
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,7 +27,15 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Contact");
+
+                    b.Property<string>("Contractor");
+
                     b.Property<DateTime>("CreationDate");
+
+                    b.Property<string>("Engineer");
+
+                    b.Property<string>("Location");
 
                     b.Property<string>("Name");
 
@@ -90,6 +98,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int?>("CatalogUnitId");
 
+                    b.Property<int?>("CatalogVfdId");
+
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
@@ -99,6 +109,8 @@ namespace Orion.DataAccess.Migrations
                     b.HasIndex("CatalogPumpId");
 
                     b.HasIndex("CatalogUnitId");
+
+                    b.HasIndex("CatalogVfdId");
 
                     b.ToTable("Titles");
                 });
@@ -134,6 +146,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Model");
 
+                    b.Property<string>("Name");
+
                     b.Property<double>("NominalCapacity");
 
                     b.Property<string>("Voltage");
@@ -157,6 +171,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Motor");
 
+                    b.Property<string>("Name");
+
                     b.Property<double>("hp");
 
                     b.HasKey("Id");
@@ -170,9 +186,36 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<double>("Cfm");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Voltage");
+
                     b.HasKey("Id");
 
-                    b.ToTable("CatalogAirHandlers");
+                    b.ToTable("CatalogUnits");
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityCatalog.CatalogVfd", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Enclosure");
+
+                    b.Property<double>("Hp");
+
+                    b.Property<string>("Model");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Voltage");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CatalogVfds");
                 });
 
             modelBuilder.Entity("Orion.Domain.EntityItem.ItemAirCooledChiller", b =>
@@ -187,7 +230,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("QuoteId");
+                    b.HasIndex("QuoteId")
+                        .IsUnique();
 
                     b.ToTable("ItemAirCooledChillers");
                 });
@@ -204,7 +248,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("QuoteId");
+                    b.HasIndex("QuoteId")
+                        .IsUnique();
 
                     b.ToTable("ItemPumps");
                 });
@@ -221,48 +266,112 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("QuoteId");
+                    b.HasIndex("QuoteId")
+                        .IsUnique();
 
-                    b.ToTable("ItemAirHandlers");
+                    b.ToTable("ItemUnits");
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityItem.ItemVfd", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("QuoteId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuoteId")
+                        .IsUnique();
+
+                    b.ToTable("ItemVfds");
                 });
 
             modelBuilder.Entity("Orion.Domain.EntityItemCatalog.ItemAirCooledChillerCatalogAirCooledChiller", b =>
                 {
-                    b.Property<int>("ItemAirCooledChillerId");
+                    b.Property<int>("ItemId");
 
-                    b.Property<int>("CatalogAirCooledChillerId");
+                    b.Property<int>("CatalogId");
 
-                    b.HasKey("ItemAirCooledChillerId", "CatalogAirCooledChillerId");
+                    b.Property<int>("DesignIndex");
 
-                    b.HasIndex("CatalogAirCooledChillerId");
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<int>("Quantity");
+
+                    b.HasKey("ItemId", "CatalogId");
+
+                    b.HasIndex("CatalogId");
 
                     b.ToTable("ItemAirCooledChillerCatalogAirCooledChillers");
                 });
 
             modelBuilder.Entity("Orion.Domain.EntityItemCatalog.ItemPumpCatalogPump", b =>
                 {
-                    b.Property<int>("ItemPumpId");
+                    b.Property<int>("ItemId");
 
-                    b.Property<int>("CatalogPumpId");
+                    b.Property<int>("CatalogId");
 
-                    b.HasKey("ItemPumpId", "CatalogPumpId");
+                    b.Property<int>("DesignIndex");
 
-                    b.HasIndex("CatalogPumpId");
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<int>("Quantity");
+
+                    b.HasKey("ItemId", "CatalogId");
+
+                    b.HasIndex("CatalogId");
 
                     b.ToTable("ItemPumpCatalogPumps");
                 });
 
             modelBuilder.Entity("Orion.Domain.EntityItemCatalog.ItemUnitCatalogUnit", b =>
                 {
-                    b.Property<int>("ItemUnitId");
+                    b.Property<int>("ItemId");
 
-                    b.Property<int>("CatalogUnitId");
+                    b.Property<int>("CatalogId");
 
-                    b.HasKey("ItemUnitId", "CatalogUnitId");
+                    b.Property<int>("DesignIndex");
 
-                    b.HasIndex("CatalogUnitId");
+                    b.Property<bool>("IsActive");
 
-                    b.ToTable("ItemAirHandlerCatalogAirHandlers");
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<int>("Quantity");
+
+                    b.HasKey("ItemId", "CatalogId");
+
+                    b.HasIndex("CatalogId");
+
+                    b.ToTable("ItemUnitCatalogUnits");
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityItemCatalog.ItemVfdCatalogVfd", b =>
+                {
+                    b.Property<int>("ItemId");
+
+                    b.Property<int>("CatalogId");
+
+                    b.Property<int>("DesignIndex");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<int>("Quantity");
+
+                    b.HasKey("ItemId", "CatalogId");
+
+                    b.HasIndex("CatalogId");
+
+                    b.ToTable("ItemVfdCatalogVfds");
                 });
 
             modelBuilder.Entity("Orion.Domain.Entity.Project", b =>
@@ -305,29 +414,42 @@ namespace Orion.DataAccess.Migrations
                         .WithMany("Titles")
                         .HasForeignKey("CatalogUnitId")
                         .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.EntityCatalog.CatalogVfd", "CatalogVfd")
+                        .WithMany("Titles")
+                        .HasForeignKey("CatalogVfdId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Orion.Domain.EntityItem.ItemAirCooledChiller", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.Quote", "Quote")
-                        .WithMany("ItemAirCooledChillers")
-                        .HasForeignKey("QuoteId")
+                        .WithOne("ItemAirCooledChiller")
+                        .HasForeignKey("Orion.Domain.EntityItem.ItemAirCooledChiller", "QuoteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Orion.Domain.EntityItem.ItemPump", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.Quote", "Quote")
-                        .WithMany("ItemPumps")
-                        .HasForeignKey("QuoteId")
+                        .WithOne("ItemPump")
+                        .HasForeignKey("Orion.Domain.EntityItem.ItemPump", "QuoteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Orion.Domain.EntityItem.ItemUnit", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.Quote", "Quote")
-                        .WithMany("ItemUnits")
-                        .HasForeignKey("QuoteId")
+                        .WithOne("ItemUnit")
+                        .HasForeignKey("Orion.Domain.EntityItem.ItemUnit", "QuoteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityItem.ItemVfd", b =>
+                {
+                    b.HasOne("Orion.Domain.Entity.Quote", "Quote")
+                        .WithOne("ItemVfd")
+                        .HasForeignKey("Orion.Domain.EntityItem.ItemVfd", "QuoteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -335,12 +457,12 @@ namespace Orion.DataAccess.Migrations
                 {
                     b.HasOne("Orion.Domain.EntityCatalog.CatalogAirCooledChiller", "CatalogAirCooledChiller")
                         .WithMany("ItemAirCooledChillerCatalogAirCooledChillers")
-                        .HasForeignKey("CatalogAirCooledChillerId")
+                        .HasForeignKey("CatalogId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Orion.Domain.EntityItem.ItemAirCooledChiller", "ItemAirCooledChiller")
                         .WithMany("ItemAirCooledChillerCatalogAirCooledChillers")
-                        .HasForeignKey("ItemAirCooledChillerId")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -348,25 +470,38 @@ namespace Orion.DataAccess.Migrations
                 {
                     b.HasOne("Orion.Domain.EntityCatalog.CatalogPump", "CatalogPump")
                         .WithMany("ItemPumpCatalogPumps")
-                        .HasForeignKey("CatalogPumpId")
+                        .HasForeignKey("CatalogId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Orion.Domain.EntityItem.ItemPump", "ItemPump")
                         .WithMany("ItemPumpCatalogPumps")
-                        .HasForeignKey("ItemPumpId")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Orion.Domain.EntityItemCatalog.ItemUnitCatalogUnit", b =>
                 {
                     b.HasOne("Orion.Domain.EntityCatalog.CatalogUnit", "CatalogUnit")
-                        .WithMany("ItemAirHandlerCatalogAirHandlers")
-                        .HasForeignKey("CatalogUnitId")
+                        .WithMany("ItemUnitCatalogUnits")
+                        .HasForeignKey("CatalogId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Orion.Domain.EntityItem.ItemUnit", "ItemUnit")
                         .WithMany("ItemUnitCatalogUnits")
-                        .HasForeignKey("ItemUnitId")
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityItemCatalog.ItemVfdCatalogVfd", b =>
+                {
+                    b.HasOne("Orion.Domain.EntityCatalog.CatalogVfd", "CatalogVfd")
+                        .WithMany("ItemVfdCatalogVfds")
+                        .HasForeignKey("CatalogId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Orion.Domain.EntityItem.ItemVfd", "ItemVfd")
+                        .WithMany("ItemVfdCatalogVfds")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

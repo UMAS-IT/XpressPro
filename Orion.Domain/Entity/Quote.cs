@@ -37,40 +37,40 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _project, value);
         }
 
-        private IList<ItemAirCooledChiller> _itemAirCooledChillers;
-        public IList<ItemAirCooledChiller> ItemAirCooledChillers
+        private ItemAirCooledChiller _itemAirCooledChiller;
+        public ItemAirCooledChiller ItemAirCooledChiller
         {
-            get => _itemAirCooledChillers;
-            set => SetProperty(ref _itemAirCooledChillers, value);
+            get => _itemAirCooledChiller;
+            set => SetProperty(ref _itemAirCooledChiller, value);
         }
 
-        private IList<ItemPump> _itemPumps;
-        public IList<ItemPump> ItemPumps
+        private ItemPump _itemPump;
+        public ItemPump ItemPump
         {
-            get => _itemPumps;
-            set => SetProperty(ref _itemPumps, value);
+            get => _itemPump;
+            set => SetProperty(ref _itemPump, value);
         }
 
-        private IList<ItemUnit> _itemUnits;
-        public IList<ItemUnit> ItemUnits
+        private ItemUnit _itemUnit;
+        public ItemUnit ItemUnit
         {
-            get => _itemUnits;
-            set => SetProperty(ref _itemUnits, value);
+            get => _itemUnit;
+            set => SetProperty(ref _itemUnit, value);
         }
 
-        private IList<ItemVfd> _itemVfds;
-        public IList<ItemVfd> ItemVfds
+        private ItemVfd _itemVfd;
+        public ItemVfd ItemVfd
         {
-            get => _itemVfds;
-            set => SetProperty(ref _itemVfds, value);
+            get => _itemVfd;
+            set => SetProperty(ref _itemVfd, value);
         }
 
         public Quote()
         {
-            ItemAirCooledChillers = new ObservableCollection<ItemAirCooledChiller>();
-            ItemPumps = new ObservableCollection<ItemPump>();
-            ItemUnits = new ObservableCollection<ItemUnit>();
-            ItemVfds = new ObservableCollection<ItemVfd>();
+            ItemAirCooledChiller = new ItemAirCooledChiller();
+            ItemPump = new ItemPump();
+            ItemUnit = new ItemUnit();
+            ItemVfd = new ItemVfd();
         }
     }
     

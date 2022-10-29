@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Orion.Helper.Extension;
 using System.Web.UI.WebControls;
 using Orion.Domain.EntityItem;
+using Orion.Domain.EntityItemCatalog;
 
 namespace Orion.UI.ViewModel
 {
@@ -41,13 +42,6 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _item, value);
         }
 
-        //private bool _visible;
-        //public bool Visible
-        //{
-        //    get => _visible;
-        //    set => SetProperty(ref _visible, value);
-        //}
-
         private Project _project;
         public Project Project
         {
@@ -62,19 +56,47 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _quote, value);
         }
 
-        private IList<IItem> _items;
-        public IList<IItem> Items
+        //private ObservableCollection<IItemICatalog> _itemICatalogs;
+        //public ObservableCollection<IItemICatalog> ItemICatalogs
+        //{
+        //    get => _itemICatalogs;
+        //    set => SetProperty(ref _itemICatalogs, value);
+        //}
+
+        private ObservableCollection<IItemICatalog> _itemICatalogsRemoved;
+        public ObservableCollection<IItemICatalog> ItemICatalogsRemoved
         {
-            get => _items;
-            set => SetProperty(ref _items, value);
+            get => _itemICatalogsRemoved;
+            set => SetProperty(ref _itemICatalogsRemoved, value);
         }
 
-        private ObservableCollection<IItem> _itemsRemoved;
-        public ObservableCollection<IItem> ItemsRemoved
-        {
-            get => _itemsRemoved;
-            set => SetProperty(ref _itemsRemoved, value);
-        }
+        //private ObservableCollection<IItemICatalog> _airCooledChillers;
+        //public ObservableCollection<IItemICatalog> AirCooledChillers
+        //{
+        //    get => _airCooledChillers;
+        //    set => SetProperty(ref _airCooledChillers, value);
+        //}
+
+        //private ObservableCollection<IItemICatalog> _units;
+        //public ObservableCollection<IItemICatalog> Units
+        //{
+        //    get => _units;
+        //    set => SetProperty(ref _units, value);
+        //}
+
+        //private ObservableCollection<IItemICatalog> _pumps;
+        //public ObservableCollection<IItemICatalog> Pumps
+        //{
+        //    get => _pumps;
+        //    set => SetProperty(ref _pumps, value);
+        //}
+
+        //private ObservableCollection<IItemICatalog> _vfds;
+        //public ObservableCollection<IItemICatalog> Vfds
+        //{
+        //    get => _vfds;
+        //    set => SetProperty(ref _vfds, value);
+        //}
 
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand AddItemAirCooledChillerCommand { get; set; }
@@ -175,18 +197,19 @@ namespace Orion.UI.ViewModel
             {
                 await messageService.StartMessage("Quote Items", "Getting items belong to this quote, please wait...");
 
+                NeedUpdate = false;
+                ItemICatalogsRemoved = new ObservableCollection<IItemICatalog>();
+
                 Project = projectService.GetProjectById(projectId);
                 Quote = quoteService.GetQuoteByQuoteId(quoteId);
                 mw.Title = $@"XpressPro ({Project.Name} / {Quote.Name})";
-                
-                Items = new ObservableCollection<IItem>();
-                Items.Add(new ItemAirCooledChiller());
-                Items.Add(new ItemPump());
-                Items.Add(new ItemUnit());
-                Items.Add(new ItemVfd());
 
-
-                //Items = itemService.GetItemsByQuoteId(quoteId).ToObservableCollection();
+                ItemICatalogsRemoved = new ObservableCollection<IItemICatalog>();
+                //ItemICatalogs = itemService.GetItemCatalogsByQuoteId(quoteId).ToObservableCollection();
+                //AirCooledChillers = ItemICatalogs.Where(x => x.Item is ItemAirCooledChiller).ToObservableCollection();
+                //Units = ItemICatalogs.Where(x => x.Item is ItemUnit).ToObservableCollection();
+                //Pumps = ItemICatalogs.Where(x => x.Item is ItemPump).ToObservableCollection();
+                //Vfds = ItemICatalogs.Where(x => x.Item is ItemVfd).ToObservableCollection();
 
                 await messageService.EndMessage("Quote Items", "Items belong to this unit have been loaded");
             }
@@ -209,8 +232,8 @@ namespace Orion.UI.ViewModel
             {
                 await messageService.StartMessage("Quote Items", "Saving current quote items configuration, please wait...");
 
-                Items = itemService.UpdateItems(Items, quoteId).ToObservableCollection();
-                ItemsRemoved.Clear();
+                //Items = itemService.UpdateItems(Items, quoteId).ToObservableCollection();
+                ItemICatalogsRemoved.Clear();
                 NeedUpdate = false;
 
                 await messageService.EndMessage("Quote Items", "Quote items configuration saved successfully");

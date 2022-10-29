@@ -23,15 +23,8 @@ namespace Orion.Domain.EntityItem
             set => SetProperty(ref _name, value);
         }
 
-        private int _designIndex;
-        public int DesignIndex
-        {
-            get => _designIndex;
-            set => SetProperty(ref _designIndex, value);
-        }
-        
         [NotMapped]
-        public string DefaultItemName { get { return "Pump"; } }
+        public string DefaultItemName { get { return "Pumps"; } }
 
         private int _quoteId;
         public int QuoteId

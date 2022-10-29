@@ -11,13 +11,20 @@ using System.Threading.Tasks;
 
 namespace Orion.Domain.EntityCatalog
 {
-    public class CatalogUnit : ValidatableBindableBase, IEntity
+    public class CatalogUnit : ValidatableBindableBase, ICatalog
     {
         private int _id;
         public int Id
         {
             get => _id;
             set => SetProperty(ref _id, value);
+        }
+
+        private string _name;
+        public string Name
+        {
+            get => _name;
+            set => SetProperty(ref _name, value);
         }
 
         private double _cfm;
@@ -41,16 +48,17 @@ namespace Orion.Domain.EntityCatalog
             set => SetProperty(ref _titles, value);
         }
 
-        private IList<ItemUnitCatalogUnit> _itemAirHandlerCatalogAirHandlers;
-        public IList<ItemUnitCatalogUnit> ItemAirHandlerCatalogAirHandlers
+
+        private IList<ItemUnitCatalogUnit> _itemUnitCatalogUnits;
+        public IList<ItemUnitCatalogUnit> ItemUnitCatalogUnits
         {
-            get => _itemAirHandlerCatalogAirHandlers;
-            set => SetProperty(ref _itemAirHandlerCatalogAirHandlers, value);
+            get => _itemUnitCatalogUnits;
+            set => SetProperty(ref _itemUnitCatalogUnits, value);
         }
 
         public CatalogUnit()
         {
-            ItemAirHandlerCatalogAirHandlers = new ObservableCollection<ItemUnitCatalogUnit>();
+            ItemUnitCatalogUnits = new ObservableCollection<ItemUnitCatalogUnit>();
         }
     }
 }

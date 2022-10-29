@@ -8,13 +8,20 @@ using System.Collections.ObjectModel;
 
 namespace Orion.Domain.EntityCatalog
 {
-    public class CatalogAirCooledChiller: ValidatableBindableBase, IEntity
+    public class CatalogAirCooledChiller: ValidatableBindableBase, ICatalog
     {
         private int _id;
         public int Id
         {
             get => _id;
             set => SetProperty(ref _id, value);
+        }
+
+        private string _name;
+        public string Name
+        {
+            get => _name;
+            set => SetProperty(ref _name, value);
         }
 
         private string _model;

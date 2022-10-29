@@ -90,8 +90,138 @@
                 </StackPanel>
             </GroupBox>
         </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-        <Border Grid.Column="1" Margin="0,5,5,5" BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
+            <Border Grid.Row="0" Margin="0,5,5,5" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
+                <Label Content="Quote Items" HorizontalAlignment="Center" FontSize="12" />
+            </Border>
+            <!--<Border BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Accent}" Margin="5" Grid.Row="1">-->
+
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                    <StackPanel Orientation="Vertical" Grid.Row="1">
+
+                    <GroupBox ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,0,5,0">
+                        <GroupBox.Header>
+                            <Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="{Binding Quote.ItemAirCooledChiller.DefaultItemName}" VerticalAlignment="Center"/>
+                                        <Label Content=":" VerticalAlignment="Center"/>
+                                        <TextBox Text="{Binding Quote.ItemAirCooledChiller.Name,
+                                            UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                                 MaxWidth="300" 
+                                                 MinWidth="300" 
+                                                 ctrl:TextBoxHelper.Watermark="Item Name"/>
+                                    </StackPanel>
+                                    
+                                    <Button
+                                    Grid.Column="2"
+                                    ToolTip="Add Air Cooled Chiller"
+                                    HorizontalAlignment="Right"
+                                                        Background="#FF87B036" Margin="5,0,0,0"
+                                    Command="{Binding Path=DataContext.AddAirCooledChillerCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                        <icon:PackIconModern Kind="Add" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center" 
+                                                        HorizontalAlignment="Center">
+
+                                            <icon:PackIconModern.LayoutTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                </TransformGroup>
+                                            </icon:PackIconModern.LayoutTransform>
+                                        </icon:PackIconModern>
+
+                                    </Button>
+
+                                </Grid>
+                            </Grid>
+                        </GroupBox.Header>
+
+
+                        <DataGrid
+                            ItemsSource="{Binding Quote.ItemAirCooledChiller.ItemAirCooledChillerCatalogAirCooledChillers}"  
+                            Style="{StaticResource DGridStyle}"
+                            FrozenColumnCount="2">
+
+                                <DataGrid.Columns>
+                                    
+                                    <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                    <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button ToolTip="Delete Item"  Background="IndianRed" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}">
+                                                <icon:PackIconMaterial Kind="Delete" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                                </icon:PackIconMaterial>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridCheckBoxColumn Header="Exclude" Binding="{Binding IsExcluded, UpdateSourceTrigger=PropertyChanged}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"     IsReadOnly="True" Width="auto">
+                                    <DataGridCheckBoxColumn.ElementStyle>
+                                        <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                                            <Setter Property="IsHitTestVisible" Value="False"/>
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                                            <Setter Property="LayoutTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </DataGridCheckBoxColumn.ElementStyle>
+                                </DataGridCheckBoxColumn>
+
+                                <DataGridTemplateColumn Header="Quantity">
+                                    <DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}"/>
+                                    </DataGridTemplateColumn.HeaderStyle>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ctrl:NumericUpDown Minimum="1" Interval="1" Value="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTextColumn Header="Name" Binding="{Binding CatalogAirCooledChiller.Name}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Model" Binding="{Binding CatalogAirCooledChiller.Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Nominal Capacity" Binding="{Binding CatalogAirCooledChiller.NominalCapacity}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="CHW/GPM" Binding="{Binding CatalogAirCooledChiller.ChwGpm}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="CHW EWT/LWT" Binding="{Binding CatalogAirCooledChiller.ChwEwtLwt}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Ambient" Binding="{Binding CatalogAirCooledChiller.Ambient}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                <DataGridTextColumn Header="Voltage" Binding="{Binding CatalogAirCooledChiller.Voltage}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+
+                    </StackPanel>
+
+            </ScrollViewer>
+            <!--</Border>-->
+
+        </Grid>
+
+        <!--<Border Grid.Column="1" Margin="0,5,5,5" BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
             <Grid>
                 <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                     <ItemsControl ItemsSource="{Binding Items}" HorizontalAlignment="Center">
@@ -245,6 +375,6 @@
                     </TextBlock>
                 </StackPanel>
             </Grid>
-        </Border>
+        </Border>-->
     </Grid>
 </UserControl>

@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orion.DataAccess.DataBase;
 using Orion.Domain.Entity;
+using Orion.Domain.EntityCatalog;
 using Orion.Domain.EntityItem;
+using Orion.Domain.EntityItemCatalog;
 using Orion.Helper.Extension;
 using Orion.Helper.Misc;
 using System;
@@ -16,24 +18,34 @@ namespace Orion.DataAccess.Service
 {
     public class ItemService
     {
-        public IList<IItem> GetItemsByQuoteId(int quoteId)
+        public IList<IItemICatalog> GetItemCatalogsByQuoteId(int quoteId)
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                List<IItem> items = new List<IItem>();
-                List<ItemAirCooledChiller> itemAirCooledChillers = context.ItemAirCooledChillers.Include(x => x.Quote).Where(x => x.QuoteId == quoteId).ToList();
-                List<ItemPump> itemPumps = context.ItemPumps.Include(x => x.Quote).Where(x => x.QuoteId == quoteId).ToList();
-                List<ItemUnit> itemUnits = context.ItemUnits.Include(x => x.Quote).Where(x => x.QuoteId == quoteId).ToList();
-                List<ItemVfd> itemVfds = context.ItemVfds.Include(x => x.Quote).Where(x => x.QuoteId == quoteId).ToList();
+                List<IItemICatalog> itemICatalogs = new List<IItemICatalog>();
 
-                items.AddRange(itemAirCooledChillers);
-                items.AddRange(itemPumps);
-                items.AddRange(itemUnits);
-                items.AddRange(itemVfds);
+                Quote quote = context.Quotes.Include(x => x.ItemAirCooledChiller)
+                                            .Include(x => x.ItemPump)
+                                            .Include(x => x.ItemUnit)
+                                            .Include(x => x.ItemVfd)
+                                            .FirstOrDefault(x => x.Id == quoteId);
 
-                items = items.OrderBy(x => x.DesignIndex).ToList();
+                IList<ItemAirCooledChillerCatalogAirCooledChiller> airCooledChillerItems = context.ItemAirCooledChillerCatalogAirCooledChillers.Include(x => x.ItemAirCooledChiller).Include(x => x.CatalogAirCooledChiller).Where(x => x.ItemId == quote.ItemAirCooledChiller.Id).ToList();
 
-                return items;
+                IList<ItemUnitCatalogUnit> itemUnitCatalogUnits = context.ItemUnitCatalogUnits.Include(x => x.ItemUnit).Include(x => x.CatalogUnit).Where(x => x.ItemId == quote.ItemUnit.Id).ToList();
+
+                IList<ItemPumpCatalogPump> itemPumpCatalogPumps = context.ItemPumpCatalogPumps.Include(x => x.ItemPump).Include(x => x.CatalogPump).Where(x => x.ItemId == quote.ItemPump.Id).ToList();
+
+                IList<ItemVfdCatalogVfd> itemVfdCatalogVfds = context.ItemVfdCatalogVfds.Include(x => x.ItemVfd).Include(x => x.CatalogVfd).Where(x => x.ItemId == quote.ItemVfd.Id).ToList();
+
+                itemICatalogs.AddRange(airCooledChillerItems);
+                itemICatalogs.AddRange(itemUnitCatalogUnits);
+                itemICatalogs.AddRange(itemPumpCatalogPumps);
+                itemICatalogs.AddRange(itemVfdCatalogVfds);
+
+                itemICatalogs = itemICatalogs.OrderBy(x => x.DesignIndex).ToList();
+
+                return itemICatalogs;
             }
         }
 
