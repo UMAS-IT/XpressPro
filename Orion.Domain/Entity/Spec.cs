@@ -1,5 +1,6 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace Orion.Domain.Entity
 {
@@ -31,6 +32,10 @@ namespace Orion.Domain.Entity
         {
             get => _title;
             set => SetProperty(ref _title, value);
+        }
+        public Spec()
+        {
+            Name = "Default Spec Name";
         }
     }
 }

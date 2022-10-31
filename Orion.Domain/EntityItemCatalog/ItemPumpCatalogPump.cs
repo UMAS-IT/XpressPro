@@ -86,5 +86,16 @@ namespace Orion.Domain.EntityItemCatalog
             get => _isDeleted;
             set => SetProperty(ref _isDeleted, value);
         }
+
+        private string _tag;
+        public string Tag
+        {
+            get => _tag;
+            set => SetProperty(ref _tag, value);
+        }
+        public ItemPumpCatalogPump()
+        {
+            Tag = "";
+        }
     }
 }

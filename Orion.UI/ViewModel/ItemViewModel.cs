@@ -14,6 +14,7 @@ using Orion.Helper.Extension;
 using System.Web.UI.WebControls;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemCatalog;
+using System.Windows.Media.Media3D;
 
 namespace Orion.UI.ViewModel
 {
@@ -24,22 +25,24 @@ namespace Orion.UI.ViewModel
         private ItemService itemService;
         private ProjectService projectService;
         private QuoteService quoteService;
+        private TitleService titleService;
         private MainWindowViewModel mw;
         private int projectId;
         private int quoteId;
 
-        private bool _needUpdate;
-        public bool NeedUpdate
+        private bool _itemTitlesActive;
+        public bool ItemTitlesActive
         {
-            get => _needUpdate;
-            set => SetProperty(ref _needUpdate, value);
+            get => _itemTitlesActive;
+            set => SetProperty(ref _itemTitlesActive, value);
         }
 
-        private IItem _item;
-        public IItem Item
+
+        private IItemICatalog _itemIcatalogSelected;
+        public IItemICatalog ItemICatalogSeleced
         {
-            get => _item;
-            set => SetProperty(ref _item, value);
+            get => _itemIcatalogSelected;
+            set => SetProperty(ref _itemIcatalogSelected, value);
         }
 
         private Project _project;
@@ -49,19 +52,19 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _project, value);
         }
 
+        private ObservableCollection<Title> _titles;
+        public ObservableCollection<Title> Titles
+        {
+            get => _titles;
+            set => SetProperty(ref _titles, value);
+        }
+
         private Quote _quote;
         public Quote Quote
         {
             get => _quote;
             set => SetProperty(ref _quote, value);
         }
-
-        //private ObservableCollection<IItemICatalog> _itemICatalogs;
-        //public ObservableCollection<IItemICatalog> ItemICatalogs
-        //{
-        //    get => _itemICatalogs;
-        //    set => SetProperty(ref _itemICatalogs, value);
-        //}
 
         private ObservableCollection<IItemICatalog> _itemICatalogsRemoved;
         public ObservableCollection<IItemICatalog> ItemICatalogsRemoved
@@ -70,48 +73,26 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _itemICatalogsRemoved, value);
         }
 
-        //private ObservableCollection<IItemICatalog> _airCooledChillers;
-        //public ObservableCollection<IItemICatalog> AirCooledChillers
-        //{
-        //    get => _airCooledChillers;
-        //    set => SetProperty(ref _airCooledChillers, value);
-        //}
-
-        //private ObservableCollection<IItemICatalog> _units;
-        //public ObservableCollection<IItemICatalog> Units
-        //{
-        //    get => _units;
-        //    set => SetProperty(ref _units, value);
-        //}
-
-        //private ObservableCollection<IItemICatalog> _pumps;
-        //public ObservableCollection<IItemICatalog> Pumps
-        //{
-        //    get => _pumps;
-        //    set => SetProperty(ref _pumps, value);
-        //}
-
-        //private ObservableCollection<IItemICatalog> _vfds;
-        //public ObservableCollection<IItemICatalog> Vfds
-        //{
-        //    get => _vfds;
-        //    set => SetProperty(ref _vfds, value);
-        //}
-
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand AddItemAirCooledChillerCommand { get; set; }
         public RelayCommand AddItemPumpCommand { get; set; }
         public RelayCommand AddItemUnitCommand { get; set; }
         public RelayCommand AddItemVfdCommand { get; set; }
 
-        public RelayCommand<IItem> EditItemCommand { get; set; }
-        public RelayCommand<IItem> MoveToStartCommand { get; set; }
-        public RelayCommand<IItem> MoveToUpCommand { get; set; }
-        public RelayCommand<IItem> DeleteItemCommand { get; set; }
-        public RelayCommand<IItem> MoveToDownCommand { get; set; }
-        public RelayCommand<IItem> MoveToEndCommand { get; set; }
+        public RelayCommand<IItemICatalog> MoveToStartCommand { get; set; }
+        public RelayCommand<IItemICatalog> MoveToUpCommand { get; set; }
+        public RelayCommand<IItemICatalog> DeleteItemCommand { get; set; }
+        public RelayCommand<IItemICatalog> ShowItemTitlesCommand { get; set; }
+        public RelayCommand<IItemICatalog> MoveToDownCommand { get; set; }
+        public RelayCommand<IItemICatalog> MoveToEndCommand { get; set; }
         public RelayCommand BackCommand { get; set; }
         public RelayCommand UpdateCommand { get; set; }
+
+
+        public RelayCommand AddTitleCommand { get; set; }
+        public RelayCommand<Title> AddSpecCommand { get; set; }
+        public RelayCommand UpdateItemTitlesCommand { get; set; }
+        public RelayCommand BackFromTitlesCommand { get; set; }
 
         public Action OnUpdateItemsRequested = delegate { };
 
@@ -127,41 +108,122 @@ namespace Orion.UI.ViewModel
             AddItemPumpCommand = new RelayCommand(OnAddItemPump);
             AddItemUnitCommand = new RelayCommand(OnAddItemUnit);
             AddItemVfdCommand = new RelayCommand(OnAddItemVdf);
-            EditItemCommand = new RelayCommand<IItem>(OnEditItem);
-            MoveToStartCommand = new RelayCommand<IItem>(OnMoveToStart);
-            MoveToUpCommand = new RelayCommand<IItem>(OnMoveToUp);
-            DeleteItemCommand = new RelayCommand<IItem>(OnDeleteItem);
-            MoveToDownCommand = new RelayCommand<IItem>(OnMoveToDown);
-            MoveToEndCommand = new RelayCommand<IItem>(OnMoveToEnd);
+
+            MoveToStartCommand = new RelayCommand<IItemICatalog>(OnMoveToStart);
+            MoveToUpCommand = new RelayCommand<IItemICatalog>(OnMoveToUp);
+            DeleteItemCommand = new RelayCommand<IItemICatalog>(OnDeleteItem);
+            ShowItemTitlesCommand = new RelayCommand<IItemICatalog>(OnShowItemTitles);
+            MoveToDownCommand = new RelayCommand<IItemICatalog>(OnMoveToDown);
+            MoveToEndCommand = new RelayCommand<IItemICatalog>(OnMoveToEnd);
             BackCommand = new RelayCommand(OnBack);
+
+            AddTitleCommand = new RelayCommand(OnAddTitle);
+            AddSpecCommand = new RelayCommand<Title>(OnAddSpec);
+            UpdateItemTitlesCommand = new RelayCommand(OnUpdateItemTitles);
+            BackFromTitlesCommand = new RelayCommand(OnBackFromItemTitles);
 
             itemService = new ItemService();
             projectService = new ProjectService();
             quoteService = new QuoteService();
+            titleService = new TitleService();
             messageService = new MessageService(dialogCoordinator, this);
         }
 
-        private void OnMoveToEnd(IItem obj)
+        private void OnAddSpec(Title title)
+        {
+            title.Specs.Add(new Spec());
+        }
+
+        private void OnAddTitle()
+        {
+            Titles.Add(new Title());
+        }
+
+        private void OnBackFromItemTitles()
+        {
+            ItemTitlesActive = false;
+        }
+
+        private async void OnUpdateItemTitles()
+        {
+            try
+            {
+                await messageService.StartMessage("Item Specs", "Saving item specs, please wait...");
+
+
+                if (!await CanUpdateTitles())
+                    return;
+
+                Titles = titleService.UpdateTitles(ItemICatalogSeleced, Titles).ToObservableCollection();
+
+                await messageService.EndMessage("Item Specs", "Item specs has been saved");
+            }
+            catch (Exception ex)
+            {
+                await messageService.ExceptionMessage(ex);
+                return;
+            }
+        }
+
+        private async Task<bool> CanUpdateTitles()
+        {
+            if (Titles.Any(x => string.IsNullOrWhiteSpace(x.Name)))
+            {
+                await messageService.ResultMessage("Error", "Some titles name are empty, please review your titles information");
+                return false;
+            }
+
+            if (Titles.SelectMany(x => x.Specs).Any(x => string.IsNullOrWhiteSpace(x.Name)))
+            {
+                await messageService.ResultMessage("Error", "Some specs name are empty, please review your specs information");
+                return false;
+            }
+
+            return true;
+        }
+
+        private async void OnShowItemTitles(IItemICatalog item)
+        {
+            if (item is null)
+                return;
+
+            try
+            {
+                await messageService.StartMessage("Item Specs", "Loading item specs, please wait...");
+
+                ItemTitlesActive = true;
+                ItemICatalogSeleced = item;
+                Titles = titleService.GetTitles(item).ToObservableCollection();
+
+                await messageService.EndMessage("Item Specs", "Item specs has been loaded");
+            }
+            catch (Exception ex)
+            {
+                await messageService.ExceptionMessage(ex);
+            }
+        }
+
+        private void OnMoveToEnd(IItemICatalog obj)
         {
             throw new NotImplementedException();
         }
 
-        private void OnMoveToDown(IItem obj)
+        private void OnMoveToDown(IItemICatalog obj)
         {
             throw new NotImplementedException();
         }
 
-        private void OnDeleteItem(IItem obj)
+        private void OnDeleteItem(IItemICatalog obj)
         {
             throw new NotImplementedException();
         }
 
-        private void OnMoveToUp(IItem obj)
+        private void OnMoveToUp(IItemICatalog obj)
         {
             throw new NotImplementedException();
         }
 
-        private void OnMoveToStart(IItem obj)
+        private void OnMoveToStart(IItemICatalog obj)
         {
             throw new NotImplementedException();
         }
@@ -197,19 +259,13 @@ namespace Orion.UI.ViewModel
             {
                 await messageService.StartMessage("Quote Items", "Getting items belong to this quote, please wait...");
 
-                NeedUpdate = false;
                 ItemICatalogsRemoved = new ObservableCollection<IItemICatalog>();
 
                 Project = projectService.GetProjectById(projectId);
                 Quote = quoteService.GetQuoteByQuoteId(quoteId);
                 mw.Title = $@"XpressPro ({Project.Name} / {Quote.Name})";
-
+                Titles = new ObservableCollection<Title>();
                 ItemICatalogsRemoved = new ObservableCollection<IItemICatalog>();
-                //ItemICatalogs = itemService.GetItemCatalogsByQuoteId(quoteId).ToObservableCollection();
-                //AirCooledChillers = ItemICatalogs.Where(x => x.Item is ItemAirCooledChiller).ToObservableCollection();
-                //Units = ItemICatalogs.Where(x => x.Item is ItemUnit).ToObservableCollection();
-                //Pumps = ItemICatalogs.Where(x => x.Item is ItemPump).ToObservableCollection();
-                //Vfds = ItemICatalogs.Where(x => x.Item is ItemVfd).ToObservableCollection();
 
                 await messageService.EndMessage("Quote Items", "Items belong to this unit have been loaded");
             }
@@ -234,7 +290,6 @@ namespace Orion.UI.ViewModel
 
                 //Items = itemService.UpdateItems(Items, quoteId).ToObservableCollection();
                 ItemICatalogsRemoved.Clear();
-                NeedUpdate = false;
 
                 await messageService.EndMessage("Quote Items", "Quote items configuration saved successfully");
             }

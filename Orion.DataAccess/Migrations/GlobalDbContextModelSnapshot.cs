@@ -302,6 +302,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("Quantity");
 
+                    b.Property<string>("Tag");
+
                     b.HasKey("ItemId", "CatalogId");
 
                     b.HasIndex("CatalogId");
@@ -322,6 +324,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<bool>("IsExcluded");
 
                     b.Property<int>("Quantity");
+
+                    b.Property<string>("Tag");
 
                     b.HasKey("ItemId", "CatalogId");
 
@@ -344,6 +348,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("Quantity");
 
+                    b.Property<string>("Tag");
+
                     b.HasKey("ItemId", "CatalogId");
 
                     b.HasIndex("CatalogId");
@@ -364,6 +370,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<bool>("IsExcluded");
 
                     b.Property<int>("Quantity");
+
+                    b.Property<string>("Tag");
 
                     b.HasKey("ItemId", "CatalogId");
 

@@ -1,4 +1,5 @@
 ﻿using Orion.Binding.Interfaces;
+using Orion.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace Orion.Domain.EntityCatalog
     public interface ICatalog : IEntity
     {
         string Name { get; set; }
+        IList<Title> Titles { get; set; }
     }
 }

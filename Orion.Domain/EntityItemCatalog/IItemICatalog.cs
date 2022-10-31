@@ -23,5 +23,6 @@ namespace Orion.Domain.EntityItemCatalog
         bool IsExcluded { get; set; }
         [NotMapped]
         bool IsDeleted { get; set; }
+        string Tag { get; set; }
     }
 }

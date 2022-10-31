@@ -71,6 +71,7 @@ namespace Orion.Domain.Entity
             ItemPump = new ItemPump();
             ItemUnit = new ItemUnit();
             ItemVfd = new ItemVfd();
+            Name = "";
         }
     }
     

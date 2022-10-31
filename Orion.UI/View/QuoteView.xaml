@@ -34,14 +34,14 @@
             <GroupBox.Style>
                 <Style TargetType="GroupBox" BasedOn="{StaticResource MahApps.Styles.GroupBox}">
                     <Setter Property="IsEnabled" Value="{Binding IsEnabled}"/>
-                    <!--<Style.Triggers>
+                    <Style.Triggers>
                         <DataTrigger Binding="{Binding IsVisible}" Value="true">
                             <Setter Property="Visibility" Value="Visible"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding IsVisible}" Value="false">
                             <Setter Property="Visibility" Value="Collapsed"/>
                         </DataTrigger>
-                    </Style.Triggers>-->
+                    </Style.Triggers>
                 </Style>
             </GroupBox.Style>
             <GroupBox.Header>

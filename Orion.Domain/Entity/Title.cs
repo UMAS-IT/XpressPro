@@ -3,6 +3,8 @@ using Orion.Binding.Interfaces;
 using Orion.Domain.EntityCatalog;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Orion.Domain.Entity
 {
@@ -85,9 +87,18 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _catalogVfd, value);
         }
 
+        private bool _saved;
+        [NotMapped]
+        public bool Saved
+        {
+            get => _saved;
+            set => SetProperty(ref _saved, value);
+        }
+
         public Title()
         {
             Specs = new ObservableCollection<Spec>();
+            Name = "Default Title Name";
         }
     }
 }

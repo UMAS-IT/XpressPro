@@ -38,12 +38,12 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _currentViewModel, value);
         }
 
-        //private bool _isVisible;
-        //public bool IsVisible
-        //{
-        //    get => _isVisible;
-        //    set => SetProperty(ref _isVisible, value);
-        //}
+        private bool _isVisible;
+        public bool IsVisible
+        {
+            get => _isVisible;
+            set => SetProperty(ref _isVisible, value);
+        }
 
         private bool _isEnabled;
         public bool IsEnabled
@@ -95,7 +95,7 @@ namespace Orion.UI.ViewModel
             {
                 await messageService.StartMessage("Project Information", "Loading related quotes to this project");
 
-                //IsVisible = true;
+                IsVisible = true;
                 IsEnabled = true;
                 Quotes = quoteService.GetQuotesByProjectId(projectId).ToObservableCollection();
                 Project = new ProjectService().GetProjectById(projectId);
@@ -184,7 +184,7 @@ namespace Orion.UI.ViewModel
                 return;
 
             IsEnabled = false;
-            //IsVisible = false;
+            IsVisible = false;
             CurrentViewModel = null;
             await Task.Delay(100);
 
@@ -196,7 +196,7 @@ namespace Orion.UI.ViewModel
         private async void OnCloseQuoteRequested()
         {
             mw.Title = $@"XpressPro ({Project.Name})";
-            //IsVisible = true;
+            IsVisible = true;
             IsEnabled = true;
             CurrentViewModel = null;
             await Task.Delay(100);
