@@ -37,7 +37,6 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _itemTitlesActive, value);
         }
 
-
         private IItemICatalog _itemIcatalogSelected;
         public IItemICatalog ItemICatalogSeleced
         {
@@ -66,18 +65,43 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _quote, value);
         }
 
-        private ObservableCollection<IItemICatalog> _itemICatalogsRemoved;
-        public ObservableCollection<IItemICatalog> ItemICatalogsRemoved
+        private ObservableCollection<IItemICatalog> _itemICatalogs;
+        public ObservableCollection<IItemICatalog> ItemICatalogs
         {
-            get => _itemICatalogsRemoved;
-            set => SetProperty(ref _itemICatalogsRemoved, value);
+            get => _itemICatalogs;
+            set => SetProperty(ref _itemICatalogs, value);
+        }
+
+        private ObservableCollection<IItemICatalog> _airCooledChillers;
+        public ObservableCollection<IItemICatalog> AirCooledChillers
+        {
+            get => _airCooledChillers;
+            set => SetProperty(ref _airCooledChillers, value);
+        }
+
+        private ObservableCollection<IItemICatalog> _units;
+        public ObservableCollection<IItemICatalog> Units
+        {
+            get => _units;
+            set => SetProperty(ref _units, value);
+        }
+
+        private ObservableCollection<IItemICatalog> _pumps;
+        public ObservableCollection<IItemICatalog> Pumps
+        {
+            get => _pumps;
+            set => SetProperty(ref _pumps, value);
+        }
+
+        private ObservableCollection<IItemICatalog> _vfds;
+        public ObservableCollection<IItemICatalog> Vfds
+        {
+            get => _vfds;
+            set => SetProperty(ref _vfds, value);
         }
 
         public RelayCommand LoadDataCommand { get; set; }
-        public RelayCommand AddItemAirCooledChillerCommand { get; set; }
-        public RelayCommand AddItemPumpCommand { get; set; }
-        public RelayCommand AddItemUnitCommand { get; set; }
-        public RelayCommand AddItemVfdCommand { get; set; }
+        public RelayCommand<IItem> EditItemsCommand { get; set; }
 
         public RelayCommand<IItemICatalog> MoveToStartCommand { get; set; }
         public RelayCommand<IItemICatalog> MoveToUpCommand { get; set; }
@@ -91,6 +115,8 @@ namespace Orion.UI.ViewModel
 
         public RelayCommand AddTitleCommand { get; set; }
         public RelayCommand<Title> AddSpecCommand { get; set; }
+        public RelayCommand<Title> DeleteTitleCommand { get; set; }
+        public RelayCommand<Spec> DeleteSpecCommand { get; set; }
         public RelayCommand UpdateItemTitlesCommand { get; set; }
         public RelayCommand BackFromTitlesCommand { get; set; }
 
@@ -104,10 +130,7 @@ namespace Orion.UI.ViewModel
             this.mw = mw;
 
             LoadDataCommand = new RelayCommand(OnLoadData);
-            AddItemAirCooledChillerCommand = new RelayCommand(OnAddItemAirCooledChiller);
-            AddItemPumpCommand = new RelayCommand(OnAddItemPump);
-            AddItemUnitCommand = new RelayCommand(OnAddItemUnit);
-            AddItemVfdCommand = new RelayCommand(OnAddItemVdf);
+            EditItemsCommand = new RelayCommand<IItem>(OnEditItems);
 
             MoveToStartCommand = new RelayCommand<IItemICatalog>(OnMoveToStart);
             MoveToUpCommand = new RelayCommand<IItemICatalog>(OnMoveToUp);
@@ -119,6 +142,8 @@ namespace Orion.UI.ViewModel
 
             AddTitleCommand = new RelayCommand(OnAddTitle);
             AddSpecCommand = new RelayCommand<Title>(OnAddSpec);
+            DeleteTitleCommand = new RelayCommand<Title>(OnDeleteTitle);
+            DeleteSpecCommand = new RelayCommand<Spec>(OnDeleteSpec);
             UpdateItemTitlesCommand = new RelayCommand(OnUpdateItemTitles);
             BackFromTitlesCommand = new RelayCommand(OnBackFromItemTitles);
 
@@ -127,6 +152,46 @@ namespace Orion.UI.ViewModel
             quoteService = new QuoteService();
             titleService = new TitleService();
             messageService = new MessageService(dialogCoordinator, this);
+        }
+
+        private void OnEditItems(IItem item)
+        {
+            if (item is ItemAirCooledChiller)
+            {
+
+            }
+            else if (item is ItemUnit)
+            {
+
+            }
+            else if (item is ItemPump)
+            {
+
+            }
+            else if (item is ItemVfd)
+            {
+
+            }
+        }
+
+        private void OnDeleteTitle(Title title)
+        {
+            if (title is null)
+                return;
+
+            Titles.Remove(title);
+        }
+
+        private void OnDeleteSpec(Spec obj)
+        {
+            if (obj is null)
+                return;
+
+                int titleIndex = Titles.IndexOf(obj.Title);
+
+            Title selectedTitle = Titles[titleIndex];
+
+            selectedTitle.Specs.Remove(obj);
         }
 
         private void OnAddSpec(Title title)
@@ -182,9 +247,9 @@ namespace Orion.UI.ViewModel
             return true;
         }
 
-        private async void OnShowItemTitles(IItemICatalog item)
+        private async void OnShowItemTitles(IItemICatalog itemICatalog)
         {
-            if (item is null)
+            if (itemICatalog is null)
                 return;
 
             try
@@ -192,8 +257,8 @@ namespace Orion.UI.ViewModel
                 await messageService.StartMessage("Item Specs", "Loading item specs, please wait...");
 
                 ItemTitlesActive = true;
-                ItemICatalogSeleced = item;
-                Titles = titleService.GetTitles(item).ToObservableCollection();
+                ItemICatalogSeleced = itemICatalog;
+                Titles = titleService.GetTitles(itemICatalog).ToObservableCollection();
 
                 await messageService.EndMessage("Item Specs", "Item specs has been loaded");
             }
@@ -203,54 +268,88 @@ namespace Orion.UI.ViewModel
             }
         }
 
-        private void OnMoveToEnd(IItemICatalog obj)
+        private void OnMoveToEnd(IItemICatalog itemICatalog)
         {
-            throw new NotImplementedException();
+            if (itemICatalog is null)
+                return;
+
+            ObservableCollection<IItemICatalog> currentItemICatalogs = GetSelectedItemICatalogs(itemICatalog);
+            
+            int sectionIndex = currentItemICatalogs.IndexOf(itemICatalog);
+            int lastIndex = currentItemICatalogs.IndexOf(currentItemICatalogs.Last());
+            
+            currentItemICatalogs.Move(sectionIndex, lastIndex);
+            currentItemICatalogs.ToList().ForEach(s => s.DesignIndex = currentItemICatalogs.IndexOf(s));
         }
 
-        private void OnMoveToDown(IItemICatalog obj)
+        private void OnMoveToDown(IItemICatalog itemICatalog)
         {
-            throw new NotImplementedException();
+            if (itemICatalog is null)
+                return;
+
+            ObservableCollection<IItemICatalog> currentItemICatalogs = GetSelectedItemICatalogs(itemICatalog);
+
+            int oldIndex = currentItemICatalogs.IndexOf(itemICatalog);
+            int lastIndex = currentItemICatalogs.IndexOf(currentItemICatalogs.Last());
+
+            if (oldIndex == lastIndex)
+                return;
+
+            currentItemICatalogs.Move(oldIndex, oldIndex + 1);
+            currentItemICatalogs.ToList().ForEach(s => s.DesignIndex = currentItemICatalogs.IndexOf(s));
         }
 
-        private void OnDeleteItem(IItemICatalog obj)
+        private void OnDeleteItem(IItemICatalog itemICatalog)
         {
-            throw new NotImplementedException();
+            ObservableCollection<IItemICatalog> currentItemICatalogs = GetSelectedItemICatalogs(itemICatalog);
+
+            currentItemICatalogs.Remove(itemICatalog);
+            currentItemICatalogs.ToList().ForEach(s => s.DesignIndex = currentItemICatalogs.IndexOf(s));
         }
 
-        private void OnMoveToUp(IItemICatalog obj)
+        private void OnMoveToUp(IItemICatalog itemICatalog)
         {
-            throw new NotImplementedException();
+            if (itemICatalog is null)
+                return;
+
+            ObservableCollection<IItemICatalog> currentItemICatalogs = GetSelectedItemICatalogs(itemICatalog);
+            
+            int oldIndex = currentItemICatalogs.IndexOf(itemICatalog);
+            
+            if (oldIndex == 0)
+                return;
+
+            currentItemICatalogs.Move(oldIndex, oldIndex - 1);
+            currentItemICatalogs.ToList().ForEach(s => s.DesignIndex = currentItemICatalogs.IndexOf(s));
         }
 
-        private void OnMoveToStart(IItemICatalog obj)
+        private void OnMoveToStart(IItemICatalog itemICatalog)
         {
-            throw new NotImplementedException();
+            if (itemICatalog is null)
+                return;
+
+            ObservableCollection<IItemICatalog> currentItemICatalogs= GetSelectedItemICatalogs(itemICatalog);
+           
+            int sectionIndex = currentItemICatalogs.IndexOf(itemICatalog);
+            int firstIndex = currentItemICatalogs.IndexOf(currentItemICatalogs.First());
+           
+            currentItemICatalogs.Move(sectionIndex, firstIndex);
+            currentItemICatalogs.ToList().ForEach(s => s.DesignIndex = currentItemICatalogs.IndexOf(s));
         }
 
-        private void OnAddItemVdf()
+        private ObservableCollection<IItemICatalog> GetSelectedItemICatalogs(IItemICatalog itemICatalog)
         {
-            throw new NotImplementedException();
-        }
+            ObservableCollection<IItemICatalog> selectedItemICatalogs = null;
 
-        private void OnAddItemUnit()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void OnAddItemPump()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void OnAddItemAirCooledChiller()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void OnEditItem(IItem item)
-        {
-            throw new NotImplementedException();
+            if (itemICatalog is ItemAirCooledChillerCatalogAirCooledChiller)
+                selectedItemICatalogs = AirCooledChillers;
+            else if (itemICatalog is ItemUnitCatalogUnit)
+                selectedItemICatalogs = Units;
+            else if (itemICatalog is ItemPumpCatalogPump)
+                selectedItemICatalogs = Pumps;
+            else if (itemICatalog is ItemVfdCatalogVfd)
+                selectedItemICatalogs = Vfds;
+            return selectedItemICatalogs;
         }
 
         private async void OnLoadData()
@@ -259,13 +358,16 @@ namespace Orion.UI.ViewModel
             {
                 await messageService.StartMessage("Quote Items", "Getting items belong to this quote, please wait...");
 
-                ItemICatalogsRemoved = new ObservableCollection<IItemICatalog>();
 
                 Project = projectService.GetProjectById(projectId);
                 Quote = quoteService.GetQuoteByQuoteId(quoteId);
                 mw.Title = $@"XpressPro ({Project.Name} / {Quote.Name})";
                 Titles = new ObservableCollection<Title>();
-                ItemICatalogsRemoved = new ObservableCollection<IItemICatalog>();
+                ItemICatalogs = itemService.GetItemCatalogsByQuoteId(quoteId).ToObservableCollection();
+                AirCooledChillers = ItemICatalogs.Where(x => x is ItemAirCooledChillerCatalogAirCooledChiller).ToObservableCollection();
+                Units = ItemICatalogs.Where(x => x is ItemUnitCatalogUnit).ToObservableCollection();
+                Pumps = ItemICatalogs.Where(x => x is ItemPumpCatalogPump).ToObservableCollection();
+                Vfds = ItemICatalogs.Where(x => x is ItemVfdCatalogVfd).ToObservableCollection();
 
                 await messageService.EndMessage("Quote Items", "Items belong to this unit have been loaded");
             }
@@ -289,7 +391,6 @@ namespace Orion.UI.ViewModel
                 await messageService.StartMessage("Quote Items", "Saving current quote items configuration, please wait...");
 
                 //Items = itemService.UpdateItems(Items, quoteId).ToObservableCollection();
-                ItemICatalogsRemoved.Clear();
 
                 await messageService.EndMessage("Quote Items", "Quote items configuration saved successfully");
             }

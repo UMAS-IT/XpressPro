@@ -1,6 +1,7 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Orion.Domain.Entity
 {
@@ -32,6 +33,14 @@ namespace Orion.Domain.Entity
         {
             get => _title;
             set => SetProperty(ref _title, value);
+        }
+
+        private bool _saved;
+        [NotMapped]
+        public bool Saved
+        {
+            get => _saved;
+            set => SetProperty(ref _saved, value);
         }
         public Spec()
         {

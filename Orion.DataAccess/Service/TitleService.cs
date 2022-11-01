@@ -96,75 +96,52 @@ namespace Orion.DataAccess.Service
 
                 foreach (Title title in titles)
                 {
-                    if (itemICatalog is ItemAirCooledChillerCatalogAirCooledChiller)
+                    if (dbCatalog.Titles.Any(x => x.Id == title.Id && !x.Saved))
                     {
-                        //Title exist in DB only needs update
-                        if (dbCatalog.Titles.Any(x => x.Id == title.Id && !x.Saved))
-                        {
-                            Title dbTitle = dbCatalog.Titles.FirstOrDefault(x => x.Id == title.Id && !x.Saved);
-                            dbTitle.Name = title.Name;
+                        Title dbTitle = dbCatalog.Titles.FirstOrDefault(x => x.Id == title.Id && !x.Saved);
+                        dbTitle.Name = title.Name;
 
-                            foreach (Spec spec in title.Specs)          
+                        foreach (Spec spec in title.Specs)
+                        {
+                            if (dbTitle.Specs.Any(x => x.Id == spec.Id && !x.Saved))
                             {
-                                if (dbTitle.Specs.Any(x => x.Id == spec.Id))
-                                {
-                                    Spec dbSpec = dbTitle.Specs.FirstOrDefault(x => x.Id == spec.Id);
-                                    dbSpec.Name = spec.Name;
-                                }
-                                else if (spec.Id == 0)
-                                {
-                                    dbTitle.Specs.Add(spec);
-                                }
-                                else
-                                {
-                                    Spec specToDelete = dbTitle.Specs.FirstOrDefault(x => x.Id == spec.Id);
-                                    context.Remove(specToDelete);
-                                    context.Entry(specToDelete).State = EntityState.Deleted;
-                                }
+                                Spec dbSpec = dbTitle.Specs.FirstOrDefault(x => x.Id == spec.Id);
+                                dbSpec.Name = spec.Name;
+                                dbSpec.Saved = true;
+                            }
+                            else
+                            {
+                                spec.Saved = true;
+                                dbTitle.Specs.Add(spec);
                             }
                         }
-                        else if (title.Id == 0)
-                        {
-                            title.Saved = true;
-                            dbCatalog.Titles.Add(title);
-                        }
                     }
-                }
-
-                if (dbCatalog is ItemAirCooledChillerCatalogAirCooledChiller)
-                {
-                    foreach (Title title in dbCatalog.Titles)
+                    else if (title.Id == 0)
                     {
-                        if (!titles.ToList().Exists(sf => sf.CatalogAirCooledChillerId == dbCatalog.Id))
-                        {
-                            context.Remove(title);
-                        }
+                        title.Saved = true;
+                        dbCatalog.Titles.Add(title);
                     }
                 }
 
-
-
-                //foreach (Title title in dbCatalog.Titles)
-                //{
-                //    context.Remove(title);
-                //    context.Entry(title).State = EntityState.Deleted;
-                //}
-
-                //dbCatalog.Titles = new List<Title>();
-
-                //foreach (Title title in titles)
-                //{
-                //    Title newTitle = new Title();
-                //    newTitle.Name = title.Name;
-
-                //    foreach (Spec spec in title.Specs)
-                //    {
-                //        Spec newSpec = new Spec();
-                //        newSpec.Name = spec.Name;
-                //        newTitle.Specs.Add(newSpec);
-                //    }
-                //    dbCatalog.Titles.Add(newTitle);
-                //}
+                foreach (Title title in dbCatalog.Titles.Where(x => !x.Saved))
+                {
+                    if (!titles.ToList().Exists(sf => sf.Id == title.Id))
+                    {
+                        context.Remove(title);
+                        context.Entry(title).State = EntityState.Deleted;
+                    }
+                    else
+                    {
+                        foreach (Spec spec in title.Specs)
+                        {
+                            if (!titles.SelectMany(x => x.Specs).ToList().Exists(sf => sf.Id == spec.Id))
+                            {
+                                context.Remove(spec);
+                                context.Entry(spec).State = EntityState.Deleted;
+                            }
+                        }
+                    }
+                }
 
                 context.Update(dbCatalog);
 

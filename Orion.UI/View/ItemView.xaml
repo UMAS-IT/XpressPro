@@ -12,7 +12,7 @@
              xmlns:vm="clr-namespace:Orion.UI.ViewModel"
              xmlns:view="clr-namespace:Orion.UI.View"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
-             d:DesignHeight="500" d:DesignWidth="1000"
+             d:DesignHeight="500" d:DesignWidth="1200"
              d:DataContext="{d:DesignInstance Type=vm:ItemViewModel}">
     
     <i:Interaction.Triggers>
@@ -57,16 +57,6 @@
                 <StackPanel Orientation="Vertical" Grid.Row="1">
 
                     <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,0,0" IsExpanded="True">
-                        <Expander.Style>
-                            <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
-                                <Setter Property="Visibility" Value="Visible"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Quote.ItemAirCooledChiller.HasItems, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Value="False">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Expander.Style>
                         <Expander.Header>
                             <Grid>
                                 <Label Content="{Binding Quote.ItemAirCooledChiller.DefaultItemName}" VerticalAlignment="Center"/>
@@ -79,18 +69,18 @@
 
 
                                 <Button HorizontalAlignment="Right"
-                                Command="{Binding AddItemAirCooledChillerCommand}" Background="#93C039"
-                            ToolTip="Add Item">
+                                Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="{Binding Quote.ItemAirCooledChiller}"
+                            ToolTip="Edit Air Cooler Chillers">
                                     <Button.Content>
-                                        <icon:PackIconModern Kind="Add"   
+                                        <icon:PackIconMaterial Kind="PencilPlus"   
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
-                                            <icon:PackIconModern.LayoutTransform>
+                                            <icon:PackIconMaterial.LayoutTransform>
                                                 <TransformGroup>
                                                     <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                                 </TransformGroup>
-                                            </icon:PackIconModern.LayoutTransform>
-                                        </icon:PackIconModern>
+                                            </icon:PackIconMaterial.LayoutTransform>
+                                        </icon:PackIconMaterial>
                                     </Button.Content>
                                 </Button>
                             </Grid>
@@ -98,7 +88,7 @@
 
 
                         <DataGrid
-                            ItemsSource="{Binding Quote.ItemAirCooledChiller.ItemAirCooledChillerCatalogAirCooledChillers, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
+                            ItemsSource="{Binding AirCooledChillers, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
                             Style="{StaticResource DGridStyle}"
                             FrozenColumnCount="6">
 
@@ -285,8 +275,8 @@
                                                  ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
 
                                 <Button HorizontalAlignment="Right"
-                                Command="{Binding AddItemPumpCommand}" Background="#93C039"
-                            ToolTip="Add Item">
+                                Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="{Binding Quote.ItemPump}"
+                            ToolTip="Edit Pumps">
                                     <Button.Content>
                                         <icon:PackIconModern Kind="Add"   
                                                         VerticalAlignment="Center"
@@ -304,7 +294,7 @@
 
 
                         <DataGrid
-                            ItemsSource="{Binding Quote.ItemPump.ItemPumpCatalogPumps, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"  
+                            ItemsSource="{Binding Pumps, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"  
                             Style="{StaticResource DGridStyle}"
                             FrozenColumnCount="6">
 
@@ -481,16 +471,6 @@
                     </Expander>
 
                     <Expander Grid.Row="2" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,0,0" IsExpanded="True">
-                        <Expander.Style>
-                            <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
-                                <Setter Property="Visibility" Value="Visible"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Quote.ItemUnit.HasItems, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Value="False">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Expander.Style>
                         <Expander.Header>
                             <Grid>
                                 <Label Content="{Binding Quote.ItemUnit.DefaultItemName}" VerticalAlignment="Center"/>
@@ -502,8 +482,8 @@
                                                  ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
 
                                 <Button HorizontalAlignment="Right"
-                                Command="{Binding AddItemUnitCommand}" Background="#93C039"
-                            ToolTip="Add Item">
+                                Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="{Binding Quote.ItemUnit}"
+                            ToolTip="Add Units">
                                     <Button.Content>
                                         <icon:PackIconModern Kind="Add"   
                                                         VerticalAlignment="Center"
@@ -521,7 +501,7 @@
 
 
                         <DataGrid
-                            ItemsSource="{Binding Quote.ItemUnit.ItemUnitCatalogUnits, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"  
+                            ItemsSource="{Binding Units, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"  
                             Style="{StaticResource DGridStyle}"
                             FrozenColumnCount="6">
 
@@ -694,16 +674,6 @@
                     </Expander>
 
                     <Expander Grid.Row="3" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,0,0" IsExpanded="True">
-                        <Expander.Style>
-                            <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
-                                <Setter Property="Visibility" Value="Visible"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Quote.ItemVfd.HasItems, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Value="False">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Expander.Style>
                         <Expander.Header>
                             <Grid>
                                 <Label Content="{Binding Quote.ItemVfd.DefaultItemName}" VerticalAlignment="Center"/>
@@ -714,8 +684,8 @@
                                                  Background="DarkCyan"
                                                  ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
                                 <Button HorizontalAlignment="Right"
-                                Command="{Binding AddItemVfdCommand}" Background="#93C039"
-                            ToolTip="Add Item">
+                                Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="{Binding Quote.ItemVfd}"
+                            ToolTip="Add Vfds">
                                     <Button.Content>
                                         <icon:PackIconModern Kind="Add"   
                                                         VerticalAlignment="Center"
@@ -733,7 +703,7 @@
 
 
                         <DataGrid
-                            ItemsSource="{Binding Quote.ItemVfd.ItemVfdCatalogVfds, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"  
+                            ItemsSource="{Binding Vfds, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"  
                             Style="{StaticResource DGridStyle}"
                             FrozenColumnCount="6">
 
