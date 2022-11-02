@@ -59,9 +59,9 @@
                     <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,0,0" IsExpanded="True">
                         <Expander.Header>
                             <Grid>
-                                <Label Content="{Binding Quote.ItemAirCooledChiller.DefaultItemName}" VerticalAlignment="Center"/>
+                                <Label Content="Air Cooled Chillers" VerticalAlignment="Center"/>
                                 <Label Content=":" VerticalAlignment="Center" Margin="100,0,0,0"/>
-                                <TextBox Text="{Binding Quote.ItemAirCooledChiller.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                <TextBox Text="{Binding Quote.ItemAirCooledChillersName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                                                  MaxWidth="300" 
                                                  MinWidth="300" 
                                                  Background="DarkSlateBlue"
@@ -69,7 +69,7 @@
 
 
                                 <Button HorizontalAlignment="Right"
-                                Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="{Binding Quote.ItemAirCooledChiller}"
+                                Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="Air Cooled Chillers"
                             ToolTip="Edit Air Cooler Chillers">
                                     <Button.Content>
                                         <icon:PackIconMaterial Kind="PencilPlus"   
@@ -90,6 +90,7 @@
                         <DataGrid
                             ItemsSource="{Binding AirCooledChillers, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
                             Style="{StaticResource DGridStyle}"
+                            CanUserSortColumns="False"
                             FrozenColumnCount="6">
 
                             <DataGrid.Columns>
@@ -248,7 +249,7 @@
                                     </DataGridTemplateColumn.HeaderStyle>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBox Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                            <TextBox Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="20" CharacterCasing="Upper"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
@@ -266,27 +267,27 @@
                     <Expander Grid.Row="1" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,0,0" IsExpanded="True">
                         <Expander.Header>
                             <Grid>
-                                <Label Content="{Binding Quote.ItemPump.DefaultItemName}" VerticalAlignment="Center"/>
+                                <Label Content="Pumps" VerticalAlignment="Center"/>
                                 <Label Content=":" VerticalAlignment="Center" Margin="100,0,0,0"/>
-                                <TextBox Text="{Binding Quote.ItemPump.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                <TextBox Text="{Binding Quote.ItemPumpsName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                                                  MaxWidth="300" 
                                                  MinWidth="300" 
                                                  Background="DarkMagenta"
                                                  ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
 
                                 <Button HorizontalAlignment="Right"
-                                Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="{Binding Quote.ItemPump}"
+                                Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="Pumps"
                             ToolTip="Edit Pumps">
                                     <Button.Content>
-                                        <icon:PackIconModern Kind="Add"   
+                                        <icon:PackIconMaterial Kind="PencilPlus"   
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
-                                            <icon:PackIconModern.LayoutTransform>
+                                            <icon:PackIconMaterial.LayoutTransform>
                                                 <TransformGroup>
                                                     <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                                 </TransformGroup>
-                                            </icon:PackIconModern.LayoutTransform>
-                                        </icon:PackIconModern>
+                                            </icon:PackIconMaterial.LayoutTransform>
+                                        </icon:PackIconMaterial>
                                     </Button.Content>
                                 </Button>
                             </Grid>
@@ -296,6 +297,7 @@
                         <DataGrid
                             ItemsSource="{Binding Pumps, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"  
                             Style="{StaticResource DGridStyle}"
+                            CanUserSortColumns="False"
                             FrozenColumnCount="6">
 
                             <DataGrid.Columns>
@@ -456,7 +458,7 @@
                                     </DataGridTemplateColumn.HeaderStyle>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBox Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                            <TextBox Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="20" CharacterCasing="Upper"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
@@ -473,27 +475,27 @@
                     <Expander Grid.Row="2" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,0,0" IsExpanded="True">
                         <Expander.Header>
                             <Grid>
-                                <Label Content="{Binding Quote.ItemUnit.DefaultItemName}" VerticalAlignment="Center"/>
+                                <Label Content="Units" VerticalAlignment="Center"/>
                                 <Label Content=":" VerticalAlignment="Center" Margin="100,0,0,0"/>
-                                <TextBox Text="{Binding Quote.ItemUnit.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                <TextBox Text="{Binding Quote.ItemUnitsName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                                                  MaxWidth="300" 
                                                  MinWidth="300" 
                                                  Background="DarkSalmon"
                                                  ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
 
                                 <Button HorizontalAlignment="Right"
-                                Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="{Binding Quote.ItemUnit}"
-                            ToolTip="Add Units">
+                                Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="Units"
+                            ToolTip="Edit Units">
                                     <Button.Content>
-                                        <icon:PackIconModern Kind="Add"   
+                                        <icon:PackIconMaterial Kind="PencilPlus"   
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
-                                            <icon:PackIconModern.LayoutTransform>
+                                            <icon:PackIconMaterial.LayoutTransform>
                                                 <TransformGroup>
                                                     <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                                 </TransformGroup>
-                                            </icon:PackIconModern.LayoutTransform>
-                                        </icon:PackIconModern>
+                                            </icon:PackIconMaterial.LayoutTransform>
+                                        </icon:PackIconMaterial>
                                     </Button.Content>
                                 </Button>
                             </Grid>
@@ -503,6 +505,7 @@
                         <DataGrid
                             ItemsSource="{Binding Units, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"  
                             Style="{StaticResource DGridStyle}"
+                            CanUserSortColumns="False"
                             FrozenColumnCount="6">
 
                             <DataGrid.Columns>
@@ -662,7 +665,7 @@
                                     </DataGridTemplateColumn.HeaderStyle>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBox Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                            <TextBox Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="20" CharacterCasing="Upper"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
@@ -676,26 +679,26 @@
                     <Expander Grid.Row="3" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,0,0" IsExpanded="True">
                         <Expander.Header>
                             <Grid>
-                                <Label Content="{Binding Quote.ItemVfd.DefaultItemName}" VerticalAlignment="Center"/>
+                                <Label Content="Vfds" VerticalAlignment="Center"/>
                                 <Label Content=":" VerticalAlignment="Center" Margin="100,0,0,0"/>
-                                <TextBox Text="{Binding Quote.ItemVfd.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                <TextBox Text="{Binding Quote.ItemVfdsName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                                                  MaxWidth="300" 
                                                  MinWidth="300" 
                                                  Background="DarkCyan"
                                                  ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
                                 <Button HorizontalAlignment="Right"
-                                Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="{Binding Quote.ItemVfd}"
-                            ToolTip="Add Vfds">
+                                Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="Vfds"
+                            ToolTip="Edit Vfds">
                                     <Button.Content>
-                                        <icon:PackIconModern Kind="Add"   
+                                        <icon:PackIconMaterial Kind="PencilPlus"   
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
-                                            <icon:PackIconModern.LayoutTransform>
+                                            <icon:PackIconMaterial.LayoutTransform>
                                                 <TransformGroup>
                                                     <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                                 </TransformGroup>
-                                            </icon:PackIconModern.LayoutTransform>
-                                        </icon:PackIconModern>
+                                            </icon:PackIconMaterial.LayoutTransform>
+                                        </icon:PackIconMaterial>
                                     </Button.Content>
                                 </Button>
                             </Grid>
@@ -705,6 +708,7 @@
                         <DataGrid
                             ItemsSource="{Binding Vfds, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"  
                             Style="{StaticResource DGridStyle}"
+                            CanUserSortColumns="False"
                             FrozenColumnCount="6">
 
                             <DataGrid.Columns>
@@ -864,7 +868,7 @@
                                     </DataGridTemplateColumn.HeaderStyle>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBox Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                            <TextBox Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="20" CharacterCasing="Upper"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
@@ -887,7 +891,7 @@
                     <Button 
                                     Margin="1"
                                     Background="#FF87B036"
-                                    Command="{Binding UpdateCommand}"
+                                    Command="{Binding UpdateQuoteItemsCommand}"
                                     ToolTip="Save / Update items" >
                         <Button.Content>
                             <StackPanel Orientation="Vertical">
@@ -962,7 +966,14 @@
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0" Margin="0,5,5,0" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
-                <Label Content="Item Specifications" HorizontalAlignment="Center" FontSize="12" />
+                <!--<Label Content="Item Specifications" HorizontalAlignment="Center" FontSize="12" />-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Content="Item Specs (" Padding="0" VerticalAlignment="Center"/>
+                    <Label Content="{Binding ItemSelected.DefaultItemName}" Padding="0" VerticalAlignment="Center"/>
+                    <Label Content=" / Tag: " Padding="0" VerticalAlignment="Center"/>
+                    <Label Content="{Binding ItemSelected.Tag}" Padding="0" VerticalAlignment="Center"/>
+                    <Label Content=")" Padding="0" VerticalAlignment="Center"/>
+                </StackPanel>
             </Border>
 
             <Border Grid.Row="1" BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Accent}" Margin="0,5,5,0">

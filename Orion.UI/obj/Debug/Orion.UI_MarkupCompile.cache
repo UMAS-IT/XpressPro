@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\
 Orion.UI
 none
 false
 DEBUG;TRACE
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\App.xaml
-1188327326
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\App.xaml
+15-1389252565
 
-2995806647
-1611997833530
-View\AirTreatmentView.xaml;View\ComingSoonView.xaml;View\CreateQuoteView.xaml;View\ItemView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\NewProjectView.xaml;View\OpenProjectView.xaml;View\ProjectInformationView.xaml;View\QuoteView.xaml;
+37-727593089
+161-1862270248
+View\AirTreatmentView.xaml;View\ComingSoonView.xaml;View\CreateQuoteView.xaml;View\ItemView.xaml;View\EditItemView\EditItemAirCooledChillerView.xaml;View\EditItemView\EditItemPumpView.xaml;View\EditItemView\EditItempVfdView.xaml;View\EditItemView\EditItemUnitView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\NewProjectView.xaml;View\OpenProjectView.xaml;View\ProjectInformationView.xaml;View\QuoteView.xaml;
 
 False
 

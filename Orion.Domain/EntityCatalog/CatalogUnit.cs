@@ -1,13 +1,7 @@
 ﻿using Orion.Binding.Binding;
-using Orion.Binding.Interfaces;
 using Orion.Domain.Entity;
-using Orion.Domain.EntityItemCatalog;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Orion.Domain.EntityCatalog
 {
@@ -20,11 +14,11 @@ namespace Orion.Domain.EntityCatalog
             set => SetProperty(ref _id, value);
         }
 
-        private string _name;
-        public string Name
+        private string _model;
+        public string Model
         {
-            get => _name;
-            set => SetProperty(ref _name, value);
+            get => _model;
+            set => SetProperty(ref _model, value);
         }
 
         private double _cfm;
@@ -48,17 +42,9 @@ namespace Orion.Domain.EntityCatalog
             set => SetProperty(ref _titles, value);
         }
 
-
-        private IList<ItemUnitCatalogUnit> _itemUnitCatalogUnits;
-        public IList<ItemUnitCatalogUnit> ItemUnitCatalogUnits
-        {
-            get => _itemUnitCatalogUnits;
-            set => SetProperty(ref _itemUnitCatalogUnits, value);
-        }
-
         public CatalogUnit()
         {
-            ItemUnitCatalogUnits = new ObservableCollection<ItemUnitCatalogUnit>();
+            Titles = new ObservableCollection<Title>();
         }
     }
 }

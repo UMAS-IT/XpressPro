@@ -10,7 +10,7 @@ namespace Orion.Domain.EntityCatalog
 {
     public interface ICatalog : IEntity
     {
-        string Name { get; set; }
+        string Model { get; set; }
         IList<Title> Titles { get; set; }
     }
 }

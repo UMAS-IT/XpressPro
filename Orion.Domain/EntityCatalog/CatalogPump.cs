@@ -1,8 +1,5 @@
 ﻿using Orion.Binding.Binding;
-using Orion.Binding.Interfaces;
 using Orion.Domain.Entity;
-using Orion.Domain.EntityItemCatalog;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -15,13 +12,6 @@ namespace Orion.Domain.EntityCatalog
         {
             get => _id;
             set => SetProperty(ref _id, value);
-        }
-
-        private string _name;
-        public string Name
-        {
-            get => _name;
-            set => SetProperty(ref _name, value);
         }
 
         private string _model;
@@ -66,15 +56,9 @@ namespace Orion.Domain.EntityCatalog
             set => SetProperty(ref _titles, value);
         }
 
-        private IList<ItemPumpCatalogPump> _itemPumpCatalogPumps;
-        public IList<ItemPumpCatalogPump> ItemPumpCatalogPumps
-        {
-            get => _itemPumpCatalogPumps;
-            set => SetProperty(ref _itemPumpCatalogPumps, value);
-        }
         public CatalogPump()
         {
-            ItemPumpCatalogPumps = new ObservableCollection<ItemPumpCatalogPump>();
+            Titles = new ObservableCollection<Title>();
         }
     }
 }

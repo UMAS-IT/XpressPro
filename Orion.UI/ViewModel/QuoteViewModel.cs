@@ -101,7 +101,7 @@ namespace Orion.UI.ViewModel
                 Project = new ProjectService().GetProjectById(projectId);
                 mw.Title = $@"XpressPro ({Project.Name})";
                 CurrentViewModel = airTreatmentViewModel;
-                await messageService.EndMessage("Project Information", "Quote(s) has/have been loaded");
+                await messageService.EndMessage("Project Information", "Quote(s) has been loaded");
             }
             catch (Exception ex)
             {

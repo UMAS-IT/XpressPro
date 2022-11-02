@@ -128,16 +128,11 @@
     <Compile Include="EntityCatalog\CatalogUnit.cs" />
     <Compile Include="EntityCatalog\CatalogVfd.cs" />
     <Compile Include="EntityCatalog\ICatalog.cs" />
-    <Compile Include="EntityItemCatalog\IItemICatalog.cs" />
-    <Compile Include="EntityItemCatalog\ItemVfdCatalogVfd.cs" />
     <Compile Include="EntityItem\ItemUnit.cs" />
-    <Compile Include="EntityItemCatalog\ItemUnitCatalogUnit.cs" />
     <Compile Include="EntityCatalog\CatalogPump.cs" />
-    <Compile Include="EntityItemCatalog\ItemPumpCatalogPump.cs" />
     <Compile Include="EntityItem\ItemVfd.cs" />
     <Compile Include="EntityItem\IItem.cs" />
     <Compile Include="EntityItem\ItemAirCooledChiller.cs" />
-    <Compile Include="EntityItemCatalog\ItemAirCooledChillerCatalogAirCooledChiller.cs" />
     <Compile Include="EntityItem\ItemPump.cs" />
     <Compile Include="Entity\Spec.cs" />
     <Compile Include="Entity\Title.cs" />

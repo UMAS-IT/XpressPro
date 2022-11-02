@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Orion.UI.View.EditItemView.EditItempVfdView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             dialog:DialogParticipation.Register="{Binding}"
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks" 
+             xmlns:vm="clr-namespace:Orion.UI.ViewModel.EditItemViewModel"
+             xmlns:view="clr-namespace:Orion.UI.View.EditItemView"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+             d:DesignHeight="500" d:DesignWidth="1200"
+             d:DataContext="{d:DesignInstance Type=vm:EditItemVfdViewModel}">
+    <Grid>
+            
+    </Grid>
+</UserControl>

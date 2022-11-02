@@ -10,14 +10,14 @@ namespace Orion.UI.Service
 {
     public class WindowService
     {
-        public void AddDoorWindow(object viewModel, string title)
+        public void EditItemsWndow(object viewModel, string title)
         {
             var win = new MetroWindow
             {
-                Height = 324,
-                MinHeight = 324,
-                Width = 250,
-                MinWidth = 250,
+                Height = 500,
+                MinHeight = 500,
+                Width = 1200,
+                MinWidth = 1200,
                 TitleCharacterCasing = System.Windows.Controls.CharacterCasing.Normal,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen,
                 ResizeMode = ResizeMode.NoResize,

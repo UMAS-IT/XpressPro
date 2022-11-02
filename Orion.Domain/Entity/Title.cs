@@ -1,6 +1,7 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
 using Orion.Domain.EntityCatalog;
+using Orion.Domain.EntityItem;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
@@ -85,6 +86,62 @@ namespace Orion.Domain.Entity
         {
             get => _catalogVfd;
             set => SetProperty(ref _catalogVfd, value);
+        }
+
+        private int? _itemAirCooledChillerId;
+        public int? ItemAirCooledChillerId
+        {
+            get => _itemAirCooledChillerId;
+            set => SetProperty(ref _itemAirCooledChillerId, value);
+        }
+
+        private ItemAirCooledChiller _itemAirColledChiller;
+        public ItemAirCooledChiller ItemAirCooledChiller
+        {
+            get => _itemAirColledChiller;
+            set => SetProperty(ref _itemAirColledChiller, value);
+        }
+
+        private int? _itemUnitId;
+        public int? ItemUnitId
+        {
+            get => _itemUnitId;
+            set => SetProperty(ref _itemUnitId, value);
+        }
+
+        private ItemUnit _itemUnit;
+        public ItemUnit ItemUnit
+        {
+            get => _itemUnit;
+            set => SetProperty(ref _itemUnit, value);
+        }
+
+        private int? _itemPumpId;
+        public int? ItemPumpId
+        {
+            get => _itemPumpId;
+            set => SetProperty(ref _itemPumpId, value);
+        }
+
+        private ItemPump _itemPump;
+        public ItemPump ItemPump
+        {
+            get => _itemPump;
+            set => SetProperty(ref _itemPump, value);
+        }
+
+        private int? _itemVfdId;
+        public int? ItemVfdId
+        {
+            get => _itemVfdId;
+            set => SetProperty(ref _itemVfdId, value);
+        }
+
+        private ItemVfd _itemVfd;
+        public ItemVfd ItemVfd
+        {
+            get => _itemVfd;
+            set => SetProperty(ref _itemVfd, value);
         }
 
         private bool _saved;

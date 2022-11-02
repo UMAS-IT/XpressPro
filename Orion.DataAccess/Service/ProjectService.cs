@@ -99,18 +99,18 @@ namespace Orion.DataAccess.Service
             }
         }
 
-        public Project GetProjectData(int projectId)
-        {
-            using (GlobalDbContext context = new GlobalDbContext())
-            {
-                return context.Projects.AsNoTracking()
-                    .Include(p => p.User)
-                    .Include(x => x.Quotes).ThenInclude(x => x.ItemAirCooledChiller).ThenInclude(x => x.ItemAirCooledChillerCatalogAirCooledChillers).ThenInclude(x => x.Catalog)
-                    .Include(x => x.Quotes).ThenInclude(x => x.ItemPump).ThenInclude(x => x.ItemPumpCatalogPumps).ThenInclude(x => x.CatalogPump)
-                    .Include(x => x.Quotes).ThenInclude(x => x.ItemUnit).ThenInclude(x => x.ItemUnitCatalogUnits).ThenInclude(x => x.CatalogUnit)
-                    .Include(x => x.Quotes).ThenInclude(x => x.ItemVfd).ThenInclude(x => x.ItemVfdCatalogVfds).ThenInclude(x => x.CatalogVfd)
-                    .FirstOrDefault(x => x.Id == projectId);
-            }
-        }
+        //public Project GetProjectData(int projectId)
+        //{
+        //    using (GlobalDbContext context = new GlobalDbContext())
+        //    {
+        //        return context.Projects.AsNoTracking()
+        //            .Include(p => p.User)
+        //            .Include(x => x.Quotes).ThenInclude(x => x.ItemAirCooledChiller).ThenInclude(x => x.ItemAirCooledChillerCatalogAirCooledChillers).ThenInclude(x => x.Catalog)
+        //            .Include(x => x.Quotes).ThenInclude(x => x.ItemPump).ThenInclude(x => x.ItemPumpCatalogPumps).ThenInclude(x => x.CatalogPump)
+        //            .Include(x => x.Quotes).ThenInclude(x => x.ItemUnit).ThenInclude(x => x.ItemUnitCatalogUnits).ThenInclude(x => x.CatalogUnit)
+        //            .Include(x => x.Quotes).ThenInclude(x => x.ItemVfd).ThenInclude(x => x.ItemVfdCatalogVfds).ThenInclude(x => x.CatalogVfd)
+        //            .FirstOrDefault(x => x.Id == projectId);
+        //    }
+        //}
     }
 }

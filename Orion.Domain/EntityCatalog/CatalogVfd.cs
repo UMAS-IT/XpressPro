@@ -1,13 +1,7 @@
 ﻿using Orion.Binding.Binding;
-using Orion.Binding.Interfaces;
 using Orion.Domain.Entity;
-using Orion.Domain.EntityItemCatalog;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Orion.Domain.EntityCatalog
 {
@@ -20,11 +14,11 @@ namespace Orion.Domain.EntityCatalog
             set => SetProperty(ref _id, value);
         }
 
-        private string _name;
-        public string Name
+        private string _modelModel;
+        public string Model
         {
-            get => _name;
-            set => SetProperty(ref _name, value);
+            get => _modelModel;
+            set => SetProperty(ref _modelModel, value);
         }
 
         private double _hp;
@@ -41,13 +35,6 @@ namespace Orion.Domain.EntityCatalog
             set => SetProperty(ref _voltage, value);
         }
 
-        private string _model;
-        public string Model
-        {
-            get => _model;
-            set => SetProperty(ref _model, value);
-        }
-
         private string _enclosure;
         public string Enclosure
         {
@@ -62,16 +49,9 @@ namespace Orion.Domain.EntityCatalog
             set => SetProperty(ref _titles, value);
         }
 
-        private IList<ItemVfdCatalogVfd> _itemvfdCatalogVfds;
-        public IList<ItemVfdCatalogVfd> ItemVfdCatalogVfds
-        {
-            get => _itemvfdCatalogVfds;
-            set => SetProperty(ref _itemvfdCatalogVfds, value);
-        }
-
         public CatalogVfd()
         {
-            ItemVfdCatalogVfds = new ObservableCollection<ItemVfdCatalogVfd>();
+            Titles = new ObservableCollection<Title>();
         }
 
     }

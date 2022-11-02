@@ -6,6 +6,8 @@
              xmlns:Dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
              xmlns:vm="clr-namespace:Orion.UI.ViewModel"
              xmlns:view="clr-namespace:Orion.UI.View"
+             xmlns:vmEdit="clr-namespace:Orion.UI.ViewModel.EditItemViewModel"
+             xmlns:viewEdit="clr-namespace:Orion.UI.View.EditItemView"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -53,6 +55,22 @@
 
             <DataTemplate DataType="{x:Type vm:ItemViewModel}">
                 <view:ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmEdit:EditItemAirCooledChillerViewModel}">
+                <viewEdit:EditItemAirCooledChillerView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmEdit:EditItemPumpViewModel}">
+                <viewEdit:EditItemPumpView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vmEdit:EditItemUnitViewModel}">
+                <viewEdit:EditItemUnitView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmEdit:EditItemVfdViewModel}">
+                <viewEdit:EditItempVfdView/>
             </DataTemplate>
 
             <Style  x:Key="TxtStyle" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}">

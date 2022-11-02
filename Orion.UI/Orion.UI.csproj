@@ -175,6 +175,10 @@
     <Compile Include="ViewModel\ComingSoonViewModel.cs" />
     <Compile Include="ViewModel\CreateQuoteViewModel.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
+    <Compile Include="ViewModel\EditItemViewModel\EditItemAirCooledChillerViewModel.cs" />
+    <Compile Include="ViewModel\EditItemViewModel\EditItemPumpViewModel.cs" />
+    <Compile Include="ViewModel\EditItemViewModel\EditItemUnitViewModel.cs" />
+    <Compile Include="ViewModel\EditItemViewModel\EditItemVfdViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\NewProjectViewModel.cs" />
     <Compile Include="ViewModel\OpenProjectViewModel.cs" />
@@ -188,6 +192,18 @@
     </Compile>
     <Compile Include="View\ItemView.xaml.cs">
       <DependentUpon>ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditItemView\EditItemAirCooledChillerView.xaml.cs">
+      <DependentUpon>EditItemAirCooledChillerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditItemView\EditItemPumpView.xaml.cs">
+      <DependentUpon>EditItemPumpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditItemView\EditItempVfdView.xaml.cs">
+      <DependentUpon>EditItempVfdView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditItemView\EditItemUnitView.xaml.cs">
+      <DependentUpon>EditItemUnitView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
@@ -217,6 +233,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditItemView\EditItemAirCooledChillerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditItemView\EditItemPumpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditItemView\EditItempVfdView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditItemView\EditItemUnitView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -327,5 +359,6 @@
   <ItemGroup>
     <Resource Include="Resource\AtcRectangleLogo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

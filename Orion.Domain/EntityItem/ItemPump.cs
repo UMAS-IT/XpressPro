@@ -1,27 +1,47 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Domain.Entity;
-using Orion.Domain.EntityItemCatalog;
+using Orion.Domain.EntityCatalog;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 
 namespace Orion.Domain.EntityItem
 {
     public class ItemPump : ValidatableBindableBase, IItem
     {
-        private int _id;
+        private int _Id;
         public int Id
         {
-            get => _id;
-            set => SetProperty(ref _id, value);
+            get => _Id;
+            set => SetProperty(ref _Id, value);
         }
 
-        private string _name;
-        public string Name
+        private string _tag;
+        public string Tag
         {
-            get => _name;
-            set => SetProperty(ref _name, value);
+            get => _tag;
+            set => SetProperty(ref _tag, value);
+        }
+
+        private int _designIndex;
+        public int DesignIndex
+        {
+            get => _designIndex;
+            set => SetProperty(ref _designIndex, value);
+        }
+
+        private int _quantity;
+        public int Quantity
+        {
+            get => _quantity;
+            set => SetProperty(ref _quantity, value);
+        }
+
+        private bool _isExclded;
+        public bool IsExcluded
+        {
+            get => _isExclded;
+            set => SetProperty(ref _isExclded, value);
         }
 
         [NotMapped]
@@ -41,19 +61,37 @@ namespace Orion.Domain.EntityItem
             set => SetProperty(ref _quote, value);
         }
 
-        private IList<ItemPumpCatalogPump> _itemPumpCatalogPumps;
-        public IList<ItemPumpCatalogPump> ItemPumpCatalogPumps
+        private int? _catalogPumpId;
+        public int? CatalogPumpId
         {
-            get => _itemPumpCatalogPumps;
-            set => SetProperty(ref _itemPumpCatalogPumps, value);
+            get => _catalogPumpId;
+            set => SetProperty(ref _catalogPumpId, value);
+        }
+
+        private CatalogPump _catalogPump;
+        public CatalogPump CatalogPump
+        {
+            get => _catalogPump;
+            set => SetProperty(ref _catalogPump, value);
         }
 
         [NotMapped]
-        public bool HasItems { get { return ItemPumpCatalogPumps.Any(); } }
+        public ICatalog Catalog { get { return CatalogPump; } }
+
+        [NotMapped]
+        public int? CatalogId { get { return CatalogPumpId; } }
+
+        private IList<Title> _titles;
+        public IList<Title> Titles
+        {
+            get => _titles;
+            set => SetProperty(ref _titles, value);
+        }
 
         public ItemPump()
         {
-            ItemPumpCatalogPumps = new ObservableCollection<ItemPumpCatalogPump>();
+            Tag = "";
+            Titles = new ObservableCollection<Title>();
         }
     }
 }

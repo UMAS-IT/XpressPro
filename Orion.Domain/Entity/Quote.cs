@@ -37,40 +37,68 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _project, value);
         }
 
-        private ItemAirCooledChiller _itemAirCooledChiller;
-        public ItemAirCooledChiller ItemAirCooledChiller
+        private string _itemAirCooledChillersName;
+        public string ItemAirCooledChillersName
         {
-            get => _itemAirCooledChiller;
-            set => SetProperty(ref _itemAirCooledChiller, value);
+            get => _itemAirCooledChillersName;
+            set => SetProperty(ref _itemAirCooledChillersName, value);
         }
 
-        private ItemPump _itemPump;
-        public ItemPump ItemPump
+        private IList<ItemAirCooledChiller> _itemAirCooledChillers;
+        public IList<ItemAirCooledChiller> ItemAirCooledChillers
         {
-            get => _itemPump;
-            set => SetProperty(ref _itemPump, value);
+            get => _itemAirCooledChillers;
+            set => SetProperty(ref _itemAirCooledChillers, value);
         }
 
-        private ItemUnit _itemUnit;
-        public ItemUnit ItemUnit
+        private string _itemUnitsName;
+        public string ItemUnitsName
         {
-            get => _itemUnit;
-            set => SetProperty(ref _itemUnit, value);
+            get => _itemUnitsName;
+            set => SetProperty(ref _itemUnitsName, value);
         }
 
-        private ItemVfd _itemVfd;
-        public ItemVfd ItemVfd
+        private IList<ItemUnit> _itemUnits;
+        public IList<ItemUnit> ItemUnits
         {
-            get => _itemVfd;
-            set => SetProperty(ref _itemVfd, value);
+            get => _itemUnits;
+            set => SetProperty(ref _itemUnits, value);
+        }
+
+        private string _itemPumpsName;
+        public string ItemPumpsName
+        {
+            get => _itemPumpsName;
+            set => SetProperty(ref _itemPumpsName, value);
+        }
+
+        private IList<ItemPump> _itemPumps;
+        public IList<ItemPump> ItemPumps
+        {
+            get => _itemPumps;
+            set => SetProperty(ref _itemPumps, value);
+        }
+
+        private string _itemVfdsName;
+        public string ItemVfdsName
+        {
+            get => _itemVfdsName;
+            set => SetProperty(ref _itemVfdsName, value);
+        }
+
+        private IList<ItemVfd> _itemVfds;
+        public IList<ItemVfd> ItemVfds
+        {
+            get => _itemVfds;
+            set => SetProperty(ref _itemVfds, value);
         }
 
         public Quote()
         {
-            ItemAirCooledChiller = new ItemAirCooledChiller();
-            ItemPump = new ItemPump();
-            ItemUnit = new ItemUnit();
-            ItemVfd = new ItemVfd();
+            ItemAirCooledChillers = new ObservableCollection<ItemAirCooledChiller>();
+            ItemUnits = new ObservableCollection<ItemUnit>();
+            ItemPumps = new ObservableCollection<ItemPump>();
+            ItemVfds = new ObservableCollection<ItemVfd>();
             Name = "";
         }
     }
