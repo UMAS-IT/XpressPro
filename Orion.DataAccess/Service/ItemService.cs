@@ -12,7 +12,7 @@ namespace Orion.DataAccess.Service
 {
     public class ItemService
     {
-        public IList<IItem> GetItemByQuoteId(int quoteId)
+        public IList<IItem> GetAllItemByQuoteId(int quoteId)
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
@@ -37,7 +37,7 @@ namespace Orion.DataAccess.Service
             }
         }
 
-        public IList<IItem> UpdateQuoteItems(Quote quote, IList<IItem> items)
+        public IList<IItem> UpdateQuoteAllItems(Quote quote, IList<IItem> items)
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
@@ -94,6 +94,8 @@ namespace Orion.DataAccess.Service
                         dbItem.DesignIndex = item.DesignIndex;
                         dbItem.Tag = item.Tag;
                         dbItem.IsExcluded = item.IsExcluded;
+                        dbItem.OverridePrice = item.OverridePrice;
+                        dbItem.Price = item.Price;
                     }
                     else
                     {
@@ -164,8 +166,10 @@ namespace Orion.DataAccess.Service
                 context.SaveChanges();
             }
 
-            return GetItemByQuoteId(quote.Id);
+            return GetAllItemByQuoteId(quote.Id);
         }
+
+
 
         public IList<IItem> UpdateAirCooledChillerItems(Quote quote, IList<IItem> items)
         {
@@ -177,38 +181,37 @@ namespace Orion.DataAccess.Service
                     .Include(x => x.ItemAirCooledChillers).ThenInclude(x => x.CatalogAirCooledChiller)
                     .FirstOrDefault(x => x.Id == quote.Id);
 
-                List<CatalogAirCooledChiller> catalogs = context.CatalogAirCooledChillers.ToList();
+                IList<ICatalog> catalogs = context.CatalogAirCooledChillers.ToList<ICatalog>();
 
                 foreach (IItem item in items)
                 {
-                    IItem dbItem = null;
-
                     if (item.QuoteId == dbQuote.Id)
                     {
-                        ItemAirCooledChiller itemAirCooledChiller = dbQuote.ItemAirCooledChillers.FirstOrDefault(x => x.Id == item.Id);
-                        dbItem = itemAirCooledChiller;
+                        IItem dbItem = dbQuote.ItemAirCooledChillers.FirstOrDefault(x => x.Id == item.Id);
                         dbItem.Quantity = item.Quantity;
                         dbItem.DesignIndex = item.DesignIndex;
                         dbItem.Tag = item.Tag;
                         dbItem.IsExcluded = item.IsExcluded;
+                        dbItem.OverridePrice = item.OverridePrice;
+                        dbItem.Price = item.Price;
                     }
                     else
                     {
                         if (item is ItemAirCooledChiller)
                         {
-                            ItemAirCooledChiller newItemAirCooledChiller = item as ItemAirCooledChiller;
-                            newItemAirCooledChiller.CatalogAirCooledChiller = catalogs.OfType<CatalogAirCooledChiller>().FirstOrDefault(x => x.Id == item.CatalogId);
-                            dbQuote.ItemAirCooledChillers.Add(newItemAirCooledChiller);
+                            ItemAirCooledChiller newItem = item as ItemAirCooledChiller;
+                            newItem.CatalogAirCooledChiller = catalogs.OfType<CatalogAirCooledChiller>().FirstOrDefault(x => x.Id == item.CatalogId);
+                            dbQuote.ItemAirCooledChillers.Add(newItem);
                         }
                     }
                 }
 
-                foreach (ItemAirCooledChiller dbAirCooledChiller in dbQuote.ItemAirCooledChillers)
+                foreach (IItem dbItem in dbQuote.ItemAirCooledChillers)
                 {
-                    if (!items.OfType<ItemAirCooledChiller>().ToList().Exists(x => x.Id == dbAirCooledChiller.Id))
+                    if (!items.ToList().Exists(x => x.Id == dbItem.Id))
                     {
-                        context.Remove(dbAirCooledChiller);
-                        context.Entry(dbAirCooledChiller).State = EntityState.Deleted;
+                        context.Remove(dbItem);
+                        context.Entry(dbItem).State = EntityState.Deleted;
                     }
                 }
 
@@ -219,20 +222,201 @@ namespace Orion.DataAccess.Service
             return GetAirCooledChillerItemsByQuoteId(quote.Id);
         }
 
+        public IList<IItem> UpdatePumpItems(Quote quote, IList<IItem> items)
+        {
+            items.ToList().ForEach(s => s.DesignIndex = items.IndexOf(s));
+
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                Quote dbQuote = context.Quotes
+                    .Include(x => x.ItemPumps).ThenInclude(x => x.CatalogPump)
+                    .FirstOrDefault(x => x.Id == quote.Id);
+
+                IList<ICatalog> catalogs = context.CatalogPumps.ToList<ICatalog>();
+
+                foreach (IItem item in items)
+                {
+                    if (item.QuoteId == dbQuote.Id)
+                    {
+                        IItem dbItem = dbQuote.ItemPumps.FirstOrDefault(x => x.Id == item.Id);
+                        dbItem.Quantity = item.Quantity;
+                        dbItem.DesignIndex = item.DesignIndex;
+                        dbItem.Tag = item.Tag;
+                        dbItem.IsExcluded = item.IsExcluded;
+                        dbItem.OverridePrice = item.OverridePrice;
+                        dbItem.Price = item.Price;
+                    }
+                    else
+                    {
+                        if (item is ItemPump)
+                        {
+                            ItemPump newItem = item as ItemPump;
+                            newItem.CatalogPump = catalogs.OfType<CatalogPump>().FirstOrDefault(x => x.Id == item.CatalogId);
+                            dbQuote.ItemPumps.Add(newItem);
+                        }
+                    }
+                }
+
+                foreach (IItem dbItem in dbQuote.ItemPumps)
+                {
+                    if (!items.ToList().Exists(x => x.Id == dbItem.Id))
+                    {
+                        context.Remove(dbItem);
+                        context.Entry(dbItem).State = EntityState.Deleted;
+                    }
+                }
+
+                context.Quotes.Update(dbQuote);
+                context.SaveChanges();
+            }
+
+            return GetPumpItemsByQuoteId(quote.Id);
+        }
+
+        public IList<IItem> UpdateUnitItems(Quote quote, IList<IItem> items)
+        {
+            items.ToList().ForEach(s => s.DesignIndex = items.IndexOf(s));
+
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                Quote dbQuote = context.Quotes
+                    .Include(x => x.ItemUnits).ThenInclude(x => x.CatalogUnit)
+                    .FirstOrDefault(x => x.Id == quote.Id);
+
+                IList<ICatalog> catalogs = context.CatalogUnits.ToList<ICatalog>();
+
+                foreach (IItem item in items)
+                {
+                    if (item.QuoteId == dbQuote.Id)
+                    {
+                        IItem dbItem = dbQuote.ItemUnits.FirstOrDefault(x => x.Id == item.Id);
+                        dbItem.Quantity = item.Quantity;
+                        dbItem.DesignIndex = item.DesignIndex;
+                        dbItem.Tag = item.Tag;
+                        dbItem.IsExcluded = item.IsExcluded;
+                        dbItem.OverridePrice = item.OverridePrice;
+                        dbItem.Price = item.Price;
+                    }
+                    else
+                    {
+                        if (item is ItemUnit)
+                        {
+                            ItemUnit newItem = item as ItemUnit;
+                            newItem.CatalogUnit = catalogs.OfType<CatalogUnit>().FirstOrDefault(x => x.Id == item.CatalogId);
+                            dbQuote.ItemUnits.Add(newItem);
+                        }
+                    }
+                }
+
+                foreach (IItem dbItem in dbQuote.ItemUnits)
+                {
+                    if (!items.ToList().Exists(x => x.Id == dbItem.Id))
+                    {
+                        context.Remove(dbItem);
+                        context.Entry(dbItem).State = EntityState.Deleted;
+                    }
+                }
+
+                context.Quotes.Update(dbQuote);
+                context.SaveChanges();
+            }
+
+            return GetUnitItemsByQuoteId(quote.Id);
+        }
+
+        public IList<IItem> UpdateVfdItems(Quote quote, IList<IItem> items)
+        {
+            items.ToList().ForEach(s => s.DesignIndex = items.IndexOf(s));
+
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                Quote dbQuote = context.Quotes
+                    .Include(x => x.ItemVfds).ThenInclude(x => x.CatalogVfd                                                                                                     )
+                    .FirstOrDefault(x => x.Id == quote.Id);
+
+                IList<ICatalog> catalogs = context.CatalogVfds.ToList<ICatalog>();
+
+                foreach (IItem item in items)
+                {
+                    if (item.QuoteId == dbQuote.Id)
+                    {
+                        IItem dbItem = dbQuote.ItemVfds.FirstOrDefault(x => x.Id == item.Id);
+                        dbItem.Quantity = item.Quantity;
+                        dbItem.DesignIndex = item.DesignIndex;
+                        dbItem.Tag = item.Tag;
+                        dbItem.IsExcluded = item.IsExcluded;
+                        dbItem.OverridePrice = item.OverridePrice;
+                        dbItem.Price = item.Price;
+                    }
+                    else
+                    {
+                        if (item is ItemVfd)
+                        {
+                            ItemVfd newItem = item as ItemVfd;
+                            newItem.CatalogVfd = catalogs.OfType<CatalogVfd>().FirstOrDefault(x => x.Id == item.CatalogId);
+                            dbQuote.ItemVfds.Add(newItem);
+                        }
+                    }
+                }
+
+                foreach (IItem dbItem in dbQuote.ItemVfds)
+                {
+                    if (!items.ToList().Exists(x => x.Id == dbItem.Id))
+                    {
+                        context.Remove(dbItem);
+                        context.Entry(dbItem).State = EntityState.Deleted;
+                    }
+                }
+
+                context.Quotes.Update(dbQuote);
+                context.SaveChanges();
+            }
+
+            return GetVfdItemsByQuoteId(quote.Id);
+        }
+
+
+
         private IList<IItem> GetAirCooledChillerItemsByQuoteId(int quoteId)
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
                 List<IItem> items = new List<IItem>();
 
-                IList<ItemAirCooledChiller> itemAirCooledChillers = context.ItemAirCooledChillers.Include(x => x.CatalogAirCooledChiller).Where(x => x.QuoteId == quoteId).ToList();
-
-                items.AddRange(itemAirCooledChillers);
-
-                items = items.OrderBy(x => x.DesignIndex).ToList();
-
-                return items;
+                return context.ItemAirCooledChillers.Include(x => x.CatalogAirCooledChiller).Where(x => x.QuoteId == quoteId).ToList<IItem>();
             }
         }
+
+        private IList<IItem> GetUnitItemsByQuoteId(int quoteId)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                List<IItem> items = new List<IItem>();
+
+                return context.ItemUnits.Include(x => x.CatalogUnit).Where(x => x.QuoteId == quoteId).ToList<IItem>();
+            }
+        }
+
+        private IList<IItem> GetPumpItemsByQuoteId(int quoteId)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                List<IItem> items = new List<IItem>();
+
+                return context.ItemPumps.Include(x => x.CatalogPump).Where(x => x.QuoteId == quoteId).ToList<IItem>();
+            }
+        }
+
+        private IList<IItem> GetVfdItemsByQuoteId(int quoteId)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                List<IItem> items = new List<IItem>();
+
+                return context.ItemVfds.Include(x => x.CatalogVfd).Where(x => x.QuoteId == quoteId).ToList<IItem>();
+            }
+        }
+
+
     }
 }

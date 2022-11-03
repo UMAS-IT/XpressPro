@@ -154,7 +154,7 @@
                             ItemsSource="{Binding Items, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
                             Style="{StaticResource DGridStyle}"
                             CanUserSortColumns="False"
-                            FrozenColumnCount="1">
+                            FrozenColumnCount="7">
 
                 <DataGrid.Columns>
 
@@ -176,14 +176,38 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-
                     <DataGridTemplateColumn Header="Exclude">
                         <DataGridTemplateColumn.HeaderStyle>
                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}"/>
                         </DataGridTemplateColumn.HeaderStyle>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsExcluded, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                <CheckBox ToolTip="Exclude item from quote" IsChecked="{Binding IsExcluded, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                    <CheckBox.Style>
+                                        <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                            <Setter Property="LayoutTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="1.25" ScaleY="1.25" />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </CheckBox.Style>
+                                </CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Override">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}"/>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox ToolTip="Override item prices" IsChecked="{Binding OverridePrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                                     <CheckBox.Style>
                                         <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
                                             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -209,6 +233,19 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <ctrl:NumericUpDown Minimum="1" Interval="1" Value="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Price">
+                        <DataGridTemplateColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
+                                <Setter Property="Width" Value="auto"/>
+                            </Style>
+                        </DataGridTemplateColumn.HeaderStyle>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding Price, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -247,7 +284,7 @@
             </Border>
 
             <DataGrid       Grid.Row="1"
-                            Margin="5,5,0,5"
+                            Margin="5,5,5,5"
                             ItemsSource="{Binding Catalogs, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
                             Style="{StaticResource DGridStyle}"
                             CanUserSortColumns="False"
@@ -275,6 +312,7 @@
                     </DataGridTemplateColumn>
 
                     <DataGridTextColumn Header="Model" Binding="{Binding Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                     <DataGridTextColumn Header="Nominal Capacity" Binding="{Binding NominalCapacity}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                     <DataGridTextColumn Header="CHW/GPM" Binding="{Binding ChwGpm}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                     <DataGridTextColumn Header="CHW EWT/LWT" Binding="{Binding ChwEwtLwt}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>

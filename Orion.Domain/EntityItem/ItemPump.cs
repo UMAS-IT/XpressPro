@@ -88,6 +88,33 @@ namespace Orion.Domain.EntityItem
             set => SetProperty(ref _titles, value);
         }
 
+        private bool _overridePrice;
+        public bool OverridePrice
+        {
+            get => _overridePrice;
+            set
+            {
+                if (!value && Catalog != null)
+                {
+                    Price = Catalog.Price;
+                }
+                SetProperty(ref _overridePrice, value);
+            }
+        }
+
+        private double _price;
+        public double Price
+        {
+            get => _price;
+            set
+            {
+                if (!OverridePrice && Catalog != null)
+                    value = Catalog.Price;
+
+                SetProperty(ref _price, value);
+            }
+        }
+
         public ItemPump()
         {
             Tag = "";

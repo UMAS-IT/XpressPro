@@ -22,6 +22,8 @@ namespace Orion.Domain.EntityItem
         [NotMapped]
         int? CatalogId { get; }
         IList<Title> Titles { get; set; }
+        bool OverridePrice { get; set; }
+        double Price { get; set; }
     }
 }
 

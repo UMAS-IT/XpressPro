@@ -133,8 +133,6 @@ namespace Orion.UI.ViewModel.EditItemViewModel
 
             ItemAirCooledChiller itemAirCooledChiller = new ItemAirCooledChiller()
             {
-                //Quote = Quote,
-                //QuoteId = Quote.Id,
                 CatalogAirCooledChiller = catalog as CatalogAirCooledChiller,
                 CatalogAirCooledChillerId = catalog.Id,
             };

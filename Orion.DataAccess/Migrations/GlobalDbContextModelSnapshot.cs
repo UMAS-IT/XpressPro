@@ -83,6 +83,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<double>("Price");
+
                     b.Property<int>("TitleId");
 
                     b.HasKey("Id");
@@ -170,6 +172,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<double>("NominalCapacity");
 
+                    b.Property<double>("Price");
+
                     b.Property<string>("Voltage");
 
                     b.HasKey("Id");
@@ -191,6 +195,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Motor");
 
+                    b.Property<double>("Price");
+
                     b.Property<double>("hp");
 
                     b.HasKey("Id");
@@ -207,6 +213,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("Cfm");
 
                     b.Property<string>("Model");
+
+                    b.Property<double>("Price");
 
                     b.Property<string>("Voltage");
 
@@ -227,6 +235,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Model");
 
+                    b.Property<double>("Price");
+
                     b.Property<string>("Voltage");
 
                     b.HasKey("Id");
@@ -245,6 +255,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<int>("DesignIndex");
 
                     b.Property<bool>("IsExcluded");
+
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<double>("Price");
 
                     b.Property<int>("Quantity");
 
@@ -273,6 +287,10 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<bool>("IsExcluded");
 
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<double>("Price");
+
                     b.Property<int>("Quantity");
 
                     b.Property<int>("QuoteId");
@@ -300,6 +318,10 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<bool>("IsExcluded");
 
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<double>("Price");
+
                     b.Property<int>("Quantity");
 
                     b.Property<int>("QuoteId");
@@ -326,6 +348,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<int>("DesignIndex");
 
                     b.Property<bool>("IsExcluded");
+
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<double>("Price");
 
                     b.Property<int>("Quantity");
 

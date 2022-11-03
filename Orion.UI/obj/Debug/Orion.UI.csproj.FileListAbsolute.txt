@@ -604,3 +604,11 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.csproj.C
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.csproj.CopyComplete
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.exe
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.pdb
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditItemView\EditItemAirCooledChillerView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditItemView\EditItemPumpView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditItemView\EditItempVfdView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditItemView\EditItemUnitView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditItemView\EditItemAirCooledChillerView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditItemView\EditItemPumpView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditItemView\EditItempVfdView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditItemView\EditItemUnitView.baml

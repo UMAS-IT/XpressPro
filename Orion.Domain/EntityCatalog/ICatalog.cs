@@ -12,5 +12,6 @@ namespace Orion.Domain.EntityCatalog
     {
         string Model { get; set; }
         IList<Title> Titles { get; set; }
+        double Price { get; set; }
     }
 }

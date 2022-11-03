@@ -103,6 +103,7 @@ namespace Orion.DataAccess.Service
                             {
                                 Spec dbSpec = dbTitle.Specs.FirstOrDefault(x => x.Id == spec.Id);
                                 dbSpec.Name = spec.Name;
+                                dbSpec.Price = spec.Price;
                                 dbSpec.Saved = true;
                             }
                             else
@@ -187,6 +188,7 @@ namespace Orion.DataAccess.Service
                             {
                                 Spec dbSpec = dbTitle.Specs.FirstOrDefault(x => x.Id == spec.Id);
                                 dbSpec.Name = spec.Name;
+                                dbSpec.Price = spec.Price;
                                 dbSpec.Saved = true;
                             }
                             else

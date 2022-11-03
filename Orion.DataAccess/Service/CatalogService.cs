@@ -15,10 +15,31 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                List<ICatalog> catalogs = new List<ICatalog>();
-                 IList<CatalogAirCooledChiller> catalogAirCooledChillers = context.CatalogAirCooledChillers.ToList();
-                catalogs.AddRange(catalogAirCooledChillers);
-                return catalogs;
+                 return context.CatalogAirCooledChillers.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogPumps()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogPumps.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogUnits()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogUnits.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogVfds()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogVfds.ToList<ICatalog>();
             }
         }
     }

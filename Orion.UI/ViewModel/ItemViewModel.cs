@@ -35,13 +35,6 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _itemTitlesActive, value);
         }
 
-        //private IItemICatalog _itemIcatalogSelected;
-        //public IItemICatalog ItemICatalogSeleced
-        //{
-        //    get => _itemIcatalogSelected;
-        //    set => SetProperty(ref _itemIcatalogSelected, value);
-        //}
-
         private IItem _itemSelected;
         public IItem ItemSelected
         {
@@ -69,13 +62,6 @@ namespace Orion.UI.ViewModel
             get => _quote;
             set => SetProperty(ref _quote, value);
         }
-
-        //private ObservableCollection<IItemICatalog> _itemICatalogs;
-        //public ObservableCollection<IItemICatalog> ItemICatalogs
-        //{
-        //    get => _itemICatalogs;
-        //    set => SetProperty(ref _itemICatalogs, value);
-        //}
 
         private ObservableCollection<IItem> _items;
         public ObservableCollection<IItem> Items
@@ -192,11 +178,11 @@ namespace Orion.UI.ViewModel
                 items.AddRange(Pumps);
                 items.AddRange(Vfds);
 
-                Items = itemService.UpdateQuoteItems(Quote, items).ToObservableCollection();
+                Items = itemService.UpdateQuoteAllItems(Quote, items).ToObservableCollection();
 
                 LoadItemLists();
 
-                await messageService.EndMessage("Item Specs", "Quote items has been saved");
+                await messageService.EndMessage("Quote Items", "Quote items has been saved");
             }
             catch (Exception ex)
             {
@@ -271,16 +257,37 @@ namespace Orion.UI.ViewModel
             }
             else if (itemsName.ToFormat() == "units")
             {
-
+                EditItemUnitViewModel editItemUnitViewModel = new EditItemUnitViewModel(dialogCoordinator, Quote, Units);
+                editItemUnitViewModel.OnItemsSavedRequested += OnUnitsSaved;
+                windowService.EditItemsWndow(editItemUnitViewModel, "Edit Units");
             }
             else if (itemsName.ToFormat() == "pumps")
             {
-
+                EditItemPumpViewModel editItemPumpViewModel = new EditItemPumpViewModel(dialogCoordinator, Quote, Pumps);
+                editItemPumpViewModel.OnItemsSavedRequested += OnPumpsSaved;
+                windowService.EditItemsWndow(editItemPumpViewModel, "Edit Pumps");
             }
             else if (itemsName.ToFormat() == "vfds")
             {
-
+                EditItemVfdViewModel editItemVfdViewModel = new EditItemVfdViewModel(dialogCoordinator, Quote, Vfds);
+                editItemVfdViewModel.OnItemsSavedRequested += OnVfdsSaved;
+                windowService.EditItemsWndow(editItemVfdViewModel, "Edit Vfds");
             }
+        }
+
+        private void OnVfdsSaved(IList<IItem> editedItems)
+        {
+            Vfds = editedItems.ToObservableCollection();
+        }
+
+        private void OnUnitsSaved(IList<IItem> editedItems)
+        {
+            Units = editedItems.ToObservableCollection();
+        }
+
+        private void OnPumpsSaved(IList<IItem> editedItems)
+        {
+            Pumps = editedItems.ToObservableCollection();
         }
 
         private void OnAirCooledChillersSaved(IList<IItem> editedItems)
@@ -477,7 +484,7 @@ namespace Orion.UI.ViewModel
                 Quote = quoteService.GetQuoteByQuoteId(quoteId);
                 mw.Title = $@"XpressPro ({Project.Name} / {Quote.Name})";
                 Titles = new ObservableCollection<Title>();
-                Items = itemService.GetItemByQuoteId(quoteId).ToObservableCollection();
+                Items = itemService.GetAllItemByQuoteId(quoteId).ToObservableCollection();
                 LoadItemLists();
 
                 await messageService.EndMessage("Quote Items", "Items has been loaded");

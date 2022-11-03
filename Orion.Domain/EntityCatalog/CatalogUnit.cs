@@ -42,6 +42,13 @@ namespace Orion.Domain.EntityCatalog
             set => SetProperty(ref _titles, value);
         }
 
+        private double _price;
+        public double Price
+        {
+            get => _price;
+            set => SetProperty(ref _price, value);
+        }
+
         public CatalogUnit()
         {
             Titles = new ObservableCollection<Title>();

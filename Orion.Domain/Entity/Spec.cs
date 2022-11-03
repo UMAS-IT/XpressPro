@@ -21,6 +21,13 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _name, value);
         }
 
+        private double _price;
+        public double Price
+        {
+            get => _price;
+            set => SetProperty(ref _price, value);
+        }
+
         private int _titleId;
         public int TitleId
         {
