@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace Orion.UI.ViewModel.EditItemViewModel
 {
@@ -71,7 +72,7 @@ namespace Orion.UI.ViewModel.EditItemViewModel
         public EditItemAirCooledChillerViewModel(IDialogCoordinator dialogCoordinator, Quote quote, IList<IItem> items)
         {
             Quote = quote;
-            Items = items.ToObservableCollection();
+            Items = items.Clone().ToObservableCollection();
 
             LoadDataCommand = new RelayCommand(OnLoadData);
             BackCommand = new RelayCommand<dynamic>(OnBack);
@@ -102,6 +103,9 @@ namespace Orion.UI.ViewModel.EditItemViewModel
             {
                 await messageService.StartMessage("Quote Items", "Saving items, please wait...");
 
+                if (!await CanUpdateQuoteItems())
+                    return;
+
                 Items = itemService.UpdateAirCooledChillerItems(Quote, Items).ToObservableCollection();
 
                 await messageService.EndMessage("Quote Items", "Items has been saved");
@@ -111,10 +115,21 @@ namespace Orion.UI.ViewModel.EditItemViewModel
             catch (Exception ex)
             {
                 await messageService.ExceptionMessage(ex);
-            }finally
-            {
-                window.Close();
             }
+
+            window.Close();
+        }
+
+        private async Task<bool> CanUpdateQuoteItems()
+        {
+
+            if (Items.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
+            {
+                await messageService.ResultMessage("Error", "Some one tag is empty, please review this information");
+                return false;
+            }
+
+            return true;
         }
 
         private void OnRemoveItem(IItem item)

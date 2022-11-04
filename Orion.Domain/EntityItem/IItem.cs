@@ -1,13 +1,14 @@
 ﻿using Orion.Binding.Interfaces;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalog;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Orion.Domain.EntityItem
 {
-    public interface IItem : IEntity
+    public interface IItem : IEntity, ICloneable
     {
         [NotMapped]
         string DefaultItemName { get; }
@@ -24,6 +25,7 @@ namespace Orion.Domain.EntityItem
         IList<Title> Titles { get; set; }
         bool OverridePrice { get; set; }
         double Price { get; set; }
+
     }
 }
 

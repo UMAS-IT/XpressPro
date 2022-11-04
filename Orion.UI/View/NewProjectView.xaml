@@ -77,11 +77,11 @@
             </Grid.ColumnDefinitions>
 
             <Button 
-                    Grid.Column="0"
+                    Grid.Column="1"
                     
                         Margin="1"
                    
-                            Background="#FF87B036"
+                            Background="{StaticResource MahApps.Brushes.Accent}"
                                         Command="{Binding CreateProjectCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}"
                         ToolTip="Save / Create New Project">
@@ -91,14 +91,13 @@
                             <ColumnDefinition/>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="Save"/>
                         <icon:PackIconMaterial Kind="ContentSave" 
                                                         Grid.Column="1" 
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
                             <icon:PackIconMaterial.LayoutTransform>
                                 <TransformGroup>
-                                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                 </TransformGroup>
                             </icon:PackIconMaterial.LayoutTransform>
                         </icon:PackIconMaterial>
@@ -107,7 +106,7 @@
             </Button>
 
             <Button 
-                    Grid.Column="1"
+                    Grid.Column="0"
                         Margin="1"
             CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}"
                             Background="Orange"
@@ -119,14 +118,13 @@
                             <ColumnDefinition/>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="Back"/>
                         <icon:PackIconMaterial Kind="KeyboardReturn" 
                                                         Grid.Column="1" 
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
                             <icon:PackIconMaterial.LayoutTransform>
                                 <TransformGroup>
-                                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                 </TransformGroup>
                             </icon:PackIconMaterial.LayoutTransform>
                         </icon:PackIconMaterial>

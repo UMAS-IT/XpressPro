@@ -12,7 +12,7 @@
              xmlns:vm="clr-namespace:Orion.UI.ViewModel"
              xmlns:view="clr-namespace:Orion.UI.View"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
-             d:DesignHeight="500" d:DesignWidth="1200"
+             d:DesignHeight="500" d:DesignWidth="2000"
              d:DataContext="{d:DesignInstance Type=vm:ItemViewModel}">
     
     <i:Interaction.Triggers>
@@ -68,7 +68,7 @@
                                                  ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
 
 
-                                <Button HorizontalAlignment="Right"
+                                <Button HorizontalAlignment="Right" Width="65"
                                 Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="Air Cooled Chillers"
                             ToolTip="Edit Air Cooler Chillers">
                                     <Button.Content>
@@ -312,7 +312,7 @@
                                                  Background="DarkMagenta"
                                                  ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
 
-                                <Button HorizontalAlignment="Right"
+                                <Button HorizontalAlignment="Right" Width="65"
                                 Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="Pumps"
                             ToolTip="Edit Pumps">
                                     <Button.Content>
@@ -555,7 +555,7 @@
                                                  Background="DarkSalmon"
                                                  ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
 
-                                <Button HorizontalAlignment="Right"
+                                <Button HorizontalAlignment="Right" Width="65"
                                 Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="Units"
                             ToolTip="Edit Units">
                                     <Button.Content>
@@ -794,7 +794,7 @@
                                                  MinWidth="300" 
                                                  Background="DarkCyan"
                                                  ctrl:TextBoxHelper.Watermark="Item Name" HorizontalAlignment="Left" Margin="110,0,0,0"/>
-                                <Button HorizontalAlignment="Right"
+                                <Button HorizontalAlignment="Right" Width="65"
                                 Command="{Binding EditItemsCommand}" Background="#93C039" CommandParameter="Vfds"
                             ToolTip="Edit Vfds">
                                     <Button.Content>
@@ -1032,14 +1032,16 @@
             <GroupBox Grid.Row="2" Header="Actions" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,0,5">
                 <StackPanel Orientation="Horizontal">
 
+
                     <Button 
                                     Margin="1"
-                                    Background="#FF87B036"
-                                    Command="{Binding UpdateQuoteItemsCommand}"
-                                    ToolTip="Save / Update items" >
+                                    Background="Orange"
+                                    Width="65"
+                                    Command="{Binding BackCommand}"
+                                    ToolTip="Back" >
                         <Button.Content>
                             <StackPanel Orientation="Vertical">
-                                <icon:PackIconMaterial Kind="ContentSave" 
+                                <icon:PackIconMaterial Kind="KeyboardReturn" 
                                                         Grid.Column="1" 
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
@@ -1055,12 +1057,13 @@
 
                     <Button 
                                     Margin="1"
-                                    Background="Orange"
-                                    Command="{Binding BackCommand}"
-                                    ToolTip="Back" >
+                                    Background="{StaticResource MahApps.Brushes.Accent}"
+                                    Width="65"
+                                    Command="{Binding UpdateQuoteItemsCommand}"
+                                    ToolTip="Save / Update items" >
                         <Button.Content>
                             <StackPanel Orientation="Vertical">
-                                <icon:PackIconMaterial Kind="KeyboardReturn" 
+                                <icon:PackIconMaterial Kind="ContentSave" 
                                                         Grid.Column="1" 
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
@@ -1112,7 +1115,7 @@
             <Border Grid.Row="0" Margin="0,5,5,0" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
                 <!--<Label Content="Item Specifications" HorizontalAlignment="Center" FontSize="12" />-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Label Content="Item Specs (" Padding="0" VerticalAlignment="Center"/>
+                    <Label Content="Item Specs ("  VerticalAlignment="Center"/>
                     <Label Content="{Binding ItemSelected.DefaultItemName}" Padding="0" VerticalAlignment="Center"/>
                     <Label Content=" / Tag: " Padding="0" VerticalAlignment="Center"/>
                     <Label Content="{Binding ItemSelected.Tag}" Padding="0" VerticalAlignment="Center"/>
@@ -1244,6 +1247,7 @@
                     <Button     HorizontalAlignment="Left"
                                     Margin="1"
                                     Background="#FF87B036"
+                                    Width="65"
                                     Command="{Binding AddTitleCommand}"
                                     ToolTip="Add Title" >
                         <Button.Content>
@@ -1263,14 +1267,17 @@
                     </Button>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+
                         <Button 
                                     Margin="1"
-                                    Background="#FF87B036"
-                                    Command="{Binding UpdateItemTitlesCommand}"
-                                    ToolTip="Save / Update Specs" >
+                                    Background="Orange"
+                                    Width="65"
+                                    Command="{Binding BackFromTitlesCommand}"
+                                    ToolTip="Back" >
                             <Button.Content>
                                 <StackPanel Orientation="Vertical">
-                                    <icon:PackIconMaterial Kind="ContentSave" 
+                                    <icon:PackIconMaterial Kind="KeyboardReturn" 
                                                         Grid.Column="1" 
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
@@ -1286,12 +1293,13 @@
 
                         <Button 
                                     Margin="1"
-                                    Background="Orange"
-                                    Command="{Binding BackFromTitlesCommand}"
-                                    ToolTip="Back" >
+                                    Background="{StaticResource MahApps.Brushes.Accent}"
+                                    Width="65"
+                                    Command="{Binding UpdateItemTitlesCommand}"
+                                    ToolTip="Save / Update Specs" >
                             <Button.Content>
                                 <StackPanel Orientation="Vertical">
-                                    <icon:PackIconMaterial Kind="KeyboardReturn" 
+                                    <icon:PackIconMaterial Kind="ContentSave" 
                                                         Grid.Column="1" 
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">

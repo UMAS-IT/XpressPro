@@ -54,6 +54,7 @@
                                Foreground="White"
                                VerticalAlignment="Center"/>
                     <Button Grid.Column="1"
+                            Width="65"
                                 Command="{Binding CreateQuoteCommand}" Background="#93C039"
                             ToolTip="Create a new quote">
                         <Button.Content>

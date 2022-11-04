@@ -59,12 +59,12 @@
 
 
 
-                    <Button Grid.Column="1"  
+                    <Button Grid.Column="1"  Visibility="Collapsed"
                         Margin="1"
                                         Command="{Binding ReloadCommand}"
                              Background="#93C039"
                             
-                        ToolTip="Reload">
+                        ToolTip="Reload Projects">
                         <Button.Content>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -109,7 +109,7 @@
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
 
-                            <Label Grid.Column="0" Content="Back"/>
+                            <!--<Label Grid.Column="0" Content="Back"/>-->
 
                             <icon:PackIconMaterial Kind="KeyboardReturn" 
                                                         Grid.Column="1" 
@@ -117,7 +117,7 @@
                                                         HorizontalAlignment="Center">
                                 <icon:PackIconMaterial.LayoutTransform>
                                     <TransformGroup>
-                                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                        <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
                                     </TransformGroup>
                                 </icon:PackIconMaterial.LayoutTransform>
                             </icon:PackIconMaterial>

@@ -126,41 +126,10 @@ namespace Orion.DataAccess.Service
                     }
                 }
 
-                foreach (ItemAirCooledChiller dbAirCooledChiller in dbQuote.ItemAirCooledChillers)
-                {
-                    if (!items.OfType<ItemAirCooledChiller>().ToList().Exists(x => x.Id == dbAirCooledChiller.Id))
-                    {
-                        context.Remove(dbAirCooledChiller);
-                        context.Entry(dbAirCooledChiller).State = EntityState.Deleted;
-                    }
-                }
-
-                foreach (ItemUnit dbUnit in dbQuote.ItemUnits)
-                {
-                    if (!items.OfType<ItemUnit>().ToList().Exists(x => x.Id == dbUnit.Id))
-                    {
-                        context.Remove(dbUnit);
-                        context.Entry(dbUnit).State = EntityState.Deleted;
-                    }
-                }
-
-                foreach (ItemPump dbPump in dbQuote.ItemPumps)
-                {
-                    if (!items.OfType<ItemPump>().ToList().Exists(x => x.Id == dbPump.Id))
-                    {
-                        context.Remove(dbPump);
-                        context.Entry(dbPump).State = EntityState.Deleted;
-                    }
-                }
-
-                foreach (ItemVfd dbVfd in dbQuote.ItemVfds)
-                {
-                    if (!items.OfType<ItemVfd>().ToList().Exists(x => x.Id == dbVfd.Id))
-                    {
-                        context.Remove(dbVfd);
-                        context.Entry(dbVfd).State = EntityState.Deleted;
-                    }
-                }
+                DeleteItems(context, dbQuote.ItemAirCooledChillers.ToList<IItem>(), items.OfType<ItemAirCooledChiller>().ToList<IItem>());
+                DeleteItems(context, dbQuote.ItemPumps.ToList<IItem>(), items.OfType<ItemPump>().ToList<IItem>());
+                DeleteItems(context, dbQuote.ItemUnits.ToList<IItem>(), items.OfType<ItemUnit>().ToList<IItem>());
+                DeleteItems(context, dbQuote.ItemVfds.ToList<IItem>(), items.OfType<ItemVfd>().ToList<IItem>());
 
                 context.Quotes.Update(dbQuote);
                 context.SaveChanges();
@@ -179,6 +148,7 @@ namespace Orion.DataAccess.Service
             {
                 Quote dbQuote = context.Quotes
                     .Include(x => x.ItemAirCooledChillers).ThenInclude(x => x.CatalogAirCooledChiller)
+                    .Include(x => x.ItemAirCooledChillers).ThenInclude(x => x.Titles)
                     .FirstOrDefault(x => x.Id == quote.Id);
 
                 IList<ICatalog> catalogs = context.CatalogAirCooledChillers.ToList<ICatalog>();
@@ -206,14 +176,7 @@ namespace Orion.DataAccess.Service
                     }
                 }
 
-                foreach (IItem dbItem in dbQuote.ItemAirCooledChillers)
-                {
-                    if (!items.ToList().Exists(x => x.Id == dbItem.Id))
-                    {
-                        context.Remove(dbItem);
-                        context.Entry(dbItem).State = EntityState.Deleted;
-                    }
-                }
+                DeleteItems(context, dbQuote.ItemAirCooledChillers.ToList<IItem>(), items);
 
                 context.Quotes.Update(dbQuote);
                 context.SaveChanges();
@@ -230,6 +193,7 @@ namespace Orion.DataAccess.Service
             {
                 Quote dbQuote = context.Quotes
                     .Include(x => x.ItemPumps).ThenInclude(x => x.CatalogPump)
+                    .Include(x => x.ItemPumps).ThenInclude(x => x.Titles)
                     .FirstOrDefault(x => x.Id == quote.Id);
 
                 IList<ICatalog> catalogs = context.CatalogPumps.ToList<ICatalog>();
@@ -257,14 +221,7 @@ namespace Orion.DataAccess.Service
                     }
                 }
 
-                foreach (IItem dbItem in dbQuote.ItemPumps)
-                {
-                    if (!items.ToList().Exists(x => x.Id == dbItem.Id))
-                    {
-                        context.Remove(dbItem);
-                        context.Entry(dbItem).State = EntityState.Deleted;
-                    }
-                }
+                DeleteItems(context, dbQuote.ItemPumps.ToList<IItem>(), items);
 
                 context.Quotes.Update(dbQuote);
                 context.SaveChanges();
@@ -281,6 +238,7 @@ namespace Orion.DataAccess.Service
             {
                 Quote dbQuote = context.Quotes
                     .Include(x => x.ItemUnits).ThenInclude(x => x.CatalogUnit)
+                    .Include(x => x.ItemUnits).ThenInclude(x => x.Titles)
                     .FirstOrDefault(x => x.Id == quote.Id);
 
                 IList<ICatalog> catalogs = context.CatalogUnits.ToList<ICatalog>();
@@ -308,14 +266,8 @@ namespace Orion.DataAccess.Service
                     }
                 }
 
-                foreach (IItem dbItem in dbQuote.ItemUnits)
-                {
-                    if (!items.ToList().Exists(x => x.Id == dbItem.Id))
-                    {
-                        context.Remove(dbItem);
-                        context.Entry(dbItem).State = EntityState.Deleted;
-                    }
-                }
+                DeleteItems(context, dbQuote.ItemUnits.ToList<IItem>(), items);
+
 
                 context.Quotes.Update(dbQuote);
                 context.SaveChanges();
@@ -331,7 +283,8 @@ namespace Orion.DataAccess.Service
             using (GlobalDbContext context = new GlobalDbContext())
             {
                 Quote dbQuote = context.Quotes
-                    .Include(x => x.ItemVfds).ThenInclude(x => x.CatalogVfd                                                                                                     )
+                    .Include(x => x.ItemVfds).ThenInclude(x => x.CatalogVfd)
+                    .Include(x => x.ItemVfds).ThenInclude(x => x.Titles)
                     .FirstOrDefault(x => x.Id == quote.Id);
 
                 IList<ICatalog> catalogs = context.CatalogVfds.ToList<ICatalog>();
@@ -359,20 +312,31 @@ namespace Orion.DataAccess.Service
                     }
                 }
 
-                foreach (IItem dbItem in dbQuote.ItemVfds)
-                {
-                    if (!items.ToList().Exists(x => x.Id == dbItem.Id))
-                    {
-                        context.Remove(dbItem);
-                        context.Entry(dbItem).State = EntityState.Deleted;
-                    }
-                }
+                DeleteItems(context, dbQuote.ItemVfds.ToList<IItem>(), items);
 
                 context.Quotes.Update(dbQuote);
                 context.SaveChanges();
             }
 
             return GetVfdItemsByQuoteId(quote.Id);
+        }
+
+
+
+        private void DeleteItems(DbContext context, IList<IItem> dbItems, IList<IItem> items)
+        {
+            foreach (IItem dbItem in dbItems)
+            {
+                if (!items.ToList().Exists(x => x.Id == dbItem.Id))
+                {
+                    foreach (Title title in dbItem.Titles)
+                    {
+                        context.Remove(title);
+                    }
+                    context.Remove(dbItem);
+                    context.Entry(dbItem).State = EntityState.Deleted;
+                }
+            }
         }
 
 

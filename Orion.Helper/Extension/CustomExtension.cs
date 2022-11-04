@@ -18,6 +18,11 @@ namespace Orion.Helper.Extension
             return c;
         }
 
+        public static IList<T> Clone<T>(this IList<T> listToClone) where T : ICloneable
+        {
+            return listToClone.Select(item => (T)item.Clone()).ToList();
+        }
+
         public static T SetEntity<T>(this IEnumerable<T> entities, IEntity entity) where T : IEntity
         {
             return entity != null ? entities.FirstOrDefault(x => x.Id == entity.Id) : entities.FirstOrDefault();

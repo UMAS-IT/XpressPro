@@ -19,6 +19,33 @@ namespace Orion.DataAccess.Service
             }
         }
 
+        public ICatalog GetCatalogByCatalogId(ICatalog catalog)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                if (catalog is CatalogAirCooledChiller)
+                {
+                    return context.CatalogAirCooledChillers.FirstOrDefault(x => x.Id == catalog.Id);
+                }
+                else if (catalog is CatalogPump)
+                {
+                    return context.CatalogPumps.FirstOrDefault(x => x.Id == catalog.Id);
+                }
+                else if (catalog is CatalogUnit)
+                {
+                    return context.CatalogUnits.FirstOrDefault(x => x.Id == catalog.Id);
+                }
+                else if (catalog is CatalogVfd)
+                {
+                    return context.CatalogVfds.FirstOrDefault(x => x.Id == catalog.Id);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
         public IList<ICatalog> GetCatalogPumps()
         {
             using (GlobalDbContext context = new GlobalDbContext())

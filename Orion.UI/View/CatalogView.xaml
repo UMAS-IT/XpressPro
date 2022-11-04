@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="Orion.UI.View.CatalogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Orion.UI.View"
+             mc:Ignorable="d" 
+             xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             dialog:DialogParticipation.Register="{Binding}"
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks" 
+             xmlns:vm="clr-namespace:Orion.UI.ViewModel"
+             xmlns:view="clr-namespace:Orion.UI.View"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+             d:DesignHeight="600" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type=vm:CatalogViewModel}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadDataCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Column="0" Header="Catalogs" Margin="5,5,0,5" ctrl:ControlsHelper.ContentCharacterCasing="Normal">
+            <GroupBox.Style>
+                <Style TargetType="GroupBox" BasedOn="{StaticResource MahApps.Styles.GroupBox}">
+                    <Setter Property="Visibility" Value="Visible"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding MenuVisible}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </GroupBox.Style>
+            <StackPanel Orientation="Vertical">
+                <Button Content="Air Cooled Chillers"
+                        ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                        Margin="1"
+                        Background="DarkSlateBlue"
+                        Command="{Binding CatalogAirCooledChillerCommand}"/>
+                <Button Content="Pumps"
+                        ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                        Margin="1"
+                        Background="DarkMagenta"
+                        Command="{Binding CatalogPumpCommand}"/>
+                <Button Content="Units"
+                        ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                        Margin="1"
+                        Background="DarkSalmon"
+                        Command="{Binding CatalogUnitCommand}"/>
+                <Button Content="Vfds"
+                        ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                        Margin="1"
+                        Background="DarkCyan"
+                        Command="{Binding CatalogVfdCommand}"/>
+            </StackPanel>
+        </GroupBox>
+        <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}"/>
+    </Grid>
+</UserControl>

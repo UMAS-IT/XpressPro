@@ -70,7 +70,7 @@ namespace Orion.UI.ViewModel.EditItemViewModel
         public EditItemUnitViewModel(IDialogCoordinator dialogCoordinator, Quote quote, IList<IItem> items)
         {
             Quote = quote;
-            Items = items.ToObservableCollection();
+            Items = items.Clone().ToObservableCollection();
 
             LoadDataCommand = new RelayCommand(OnLoadData);
             BackCommand = new RelayCommand<dynamic>(OnBack);
@@ -101,6 +101,9 @@ namespace Orion.UI.ViewModel.EditItemViewModel
             {
                 await messageService.StartMessage("Quote Items", "Saving items, please wait...");
 
+                if (!await CanUpdateQuoteItems())
+                    return;
+
                 Items = itemService.UpdateUnitItems(Quote, Items).ToObservableCollection();
 
                 await messageService.EndMessage("Quote Items", "Items has been saved");
@@ -115,6 +118,18 @@ namespace Orion.UI.ViewModel.EditItemViewModel
             {
                 window.Close();
             }
+        }
+
+        private async Task<bool> CanUpdateQuoteItems()
+        {
+
+            if (Items.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
+            {
+                await messageService.ResultMessage("Error", "Some one tag is empty, please review this information");
+                return false;
+            }
+
+            return true;
         }
 
         private void OnRemoveItem(IItem item)

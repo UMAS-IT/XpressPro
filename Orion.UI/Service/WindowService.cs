@@ -14,10 +14,10 @@ namespace Orion.UI.Service
         {
             var win = new MetroWindow
             {
-                Height = 500,
-                MinHeight = 500,
-                Width = 1400,
-                MinWidth = 1400,
+                Height = 700,
+                MinHeight = 700,
+                Width = 1000,
+                MinWidth = 1000,
                 TitleCharacterCasing = System.Windows.Controls.CharacterCasing.Normal,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen,
                 ResizeMode = ResizeMode.CanResizeWithGrip,

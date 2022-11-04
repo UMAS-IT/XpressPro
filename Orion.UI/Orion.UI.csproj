@@ -172,8 +172,17 @@
     </ApplicationDefinition>
     <Compile Include="Service\MessageService.cs" />
     <Compile Include="Service\WindowService.cs" />
+    <Compile Include="ViewModel\CatalogListViewModel\CatalogPumpListViewModel.cs" />
+    <Compile Include="ViewModel\CatalogListViewModel\CatalogUnitListViewModel.cs" />
+    <Compile Include="ViewModel\CatalogListViewModel\CatalogVfdListViewModel.cs" />
+    <Compile Include="ViewModel\CatalogViewModel.cs" />
     <Compile Include="ViewModel\ComingSoonViewModel.cs" />
     <Compile Include="ViewModel\CreateQuoteViewModel.cs" />
+    <Compile Include="ViewModel\CatalogListViewModel\CatalogAirCooledChillerListViewModel.cs" />
+    <Compile Include="ViewModel\EditCatalogItemViewModel\EditAirCooledChillerViewModel.cs" />
+    <Compile Include="ViewModel\EditCatalogItemViewModel\EditPumpViewModel.cs" />
+    <Compile Include="ViewModel\EditCatalogItemViewModel\EditUnitViewModel.cs" />
+    <Compile Include="ViewModel\EditCatalogItemViewModel\EditVfdViewModel.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
     <Compile Include="ViewModel\EditItemViewModel\EditItemAirCooledChillerViewModel.cs" />
     <Compile Include="ViewModel\EditItemViewModel\EditItemPumpViewModel.cs" />
@@ -184,11 +193,39 @@
     <Compile Include="ViewModel\OpenProjectViewModel.cs" />
     <Compile Include="ViewModel\ProjectInformationViewModel.cs" />
     <Compile Include="ViewModel\QuoteViewModel.cs" />
+    <Compile Include="ViewModel\TitleViewModel.cs" />
+    <Compile Include="View\CatalogListView\CatalogPumpListView.xaml.cs">
+      <DependentUpon>CatalogPumpListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CatalogListView\CatalogUnitListView.xaml.cs">
+      <DependentUpon>CatalogUnitListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CatalogListView\CatalogVfdListView.xaml.cs">
+      <DependentUpon>CatalogVfdListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CatalogView.xaml.cs">
+      <DependentUpon>CatalogView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ComingSoonView.xaml.cs">
       <DependentUpon>ComingSoonView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CreateQuoteView.xaml.cs">
       <DependentUpon>CreateQuoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CatalogListView\CatalogAirCooledChillerListView.xaml.cs">
+      <DependentUpon>CatalogAirCooledChillerListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditCatalogItemView\EditAirCooledChillerView.xaml.cs">
+      <DependentUpon>EditAirCooledChillerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditCatalogItemView\EditPumpView.xaml.cs">
+      <DependentUpon>EditPumpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditCatalogItemView\EditUnitView.xaml.cs">
+      <DependentUpon>EditUnitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditCatalogItemView\EditVfdView.xaml.cs">
+      <DependentUpon>EditVfdView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ItemView.xaml.cs">
       <DependentUpon>ItemView.xaml</DependentUpon>
@@ -220,7 +257,26 @@
     <Compile Include="View\QuoteView.xaml.cs">
       <DependentUpon>QuoteView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TitleView.xaml.cs">
+      <DependentUpon>TitleView.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\AirTreatmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CatalogListView\CatalogPumpListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CatalogListView\CatalogUnitListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CatalogListView\CatalogVfdListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CatalogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,6 +285,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CreateQuoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CatalogListView\CatalogAirCooledChillerListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditCatalogItemView\EditAirCooledChillerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditCatalogItemView\EditPumpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditCatalogItemView\EditUnitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditCatalogItemView\EditVfdView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,6 +371,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\QuoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TitleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

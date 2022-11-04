@@ -146,6 +146,42 @@
                     </TabItem.HeaderTemplate>
                     <ContentControl Content="{Binding CurrentViewModel}"/>
                 </TabItem>
+
+                <TabItem Header="Catalogs"  Width="180"  Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <icon:PackIconVaadinIcons Kind="Cog" 
+                                                        Grid.Column="0" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                    <icon:PackIconVaadinIcons.LayoutTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                        </TransformGroup>
+                                    </icon:PackIconVaadinIcons.LayoutTransform>
+                                </icon:PackIconVaadinIcons>
+                                <TextBlock Grid.Column="1" Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabItem}}, Path=Header}"
+                                           VerticalAlignment="Center" FontSize="15">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock" >
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabItem}}, Path=IsSelected}" Value="False">
+                                                    <Setter Property="Foreground" Value="White"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </TabItem.HeaderTemplate>
+                    <ContentControl Content="{Binding CurrentViewModel}"/>
+                </TabItem>
             </ctrl:MetroAnimatedSingleRowTabControl>
         </Grid>
     </Grid>

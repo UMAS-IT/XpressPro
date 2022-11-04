@@ -14,11 +14,11 @@ namespace Orion.Domain.EntityCatalog
             set => SetProperty(ref _id, value);
         }
 
-        private string _modelModel;
+        private string _model;
         public string Model
         {
-            get => _modelModel;
-            set => SetProperty(ref _modelModel, value);
+            get => _model;
+            set => SetProperty(ref _model, value);
         }
 
         private double _hp;

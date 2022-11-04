@@ -1,13 +1,14 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalog;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Orion.Domain.EntityItem
 {
-    public class ItemAirCooledChiller: ValidatableBindableBase, IItem
+    public class ItemAirCooledChiller: ValidatableBindableBase, IItem, ICloneable
     {
         private int _Id;
         public int Id
@@ -119,6 +120,11 @@ namespace Orion.Domain.EntityItem
         {
             Tag = "";
             Titles = new ObservableCollection<Title>();
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }

@@ -8,6 +8,14 @@ namespace Orion.Helper.Misc
 {
     public static class GV
     {
+        public enum ItemType
+        {
+            AirCooledChiller,
+            Pump,
+            Unit,
+            Vfd,
+        }
+
         public static int RandomProjectNumber()
         {
             Random random = new Random();

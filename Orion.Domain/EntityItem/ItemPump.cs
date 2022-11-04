@@ -115,6 +115,11 @@ namespace Orion.Domain.EntityItem
             }
         }
 
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
         public ItemPump()
         {
             Tag = "";

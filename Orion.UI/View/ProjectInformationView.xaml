@@ -81,7 +81,7 @@
                     
                         Margin="1"
                    
-                            Background="#FF87B036"
+                            Background="{StaticResource MahApps.Brushes.Accent}"
                                         Command="{Binding UpdateProjectInformationCommand}"
                         ToolTip="Save / Update Project Information">
                 <Button.Content>
@@ -90,7 +90,6 @@
                             <ColumnDefinition/>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="Save"/>
                         <icon:PackIconMaterial Kind="ContentSave" 
                                                         Grid.Column="1" 
                                                         VerticalAlignment="Center"
