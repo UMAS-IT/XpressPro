@@ -56,10 +56,10 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.Quotes.Include(x => x.ItemAirCooledChillers)
-                                     .Include(x => x.ItemPumps)
-                                     .Include(x => x.ItemUnits)
-                                     .Include(x => x.ItemVfds)
+                return context.Quotes.Include(x => x.ItemA1s)
+                                     .Include(x => x.ItemA2s)
+                                     .Include(x => x.ItemA3s)
+                                     .Include(x => x.ItemA4s)
                                      .FirstOrDefault(x => x.Id == quoteId);
             }
         }

@@ -6,12 +6,10 @@
              xmlns:Dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
              xmlns:vm="clr-namespace:Orion.UI.ViewModel"
              xmlns:view="clr-namespace:Orion.UI.View"
-             xmlns:vmEdit="clr-namespace:Orion.UI.ViewModel.EditItemViewModel"
-             xmlns:viewEdit="clr-namespace:Orion.UI.View.EditItemView"
-             xmlns:viewCatalog="clr-namespace:Orion.UI.View.CatalogListView"
-             xmlns:vmCatalog="clr-namespace:Orion.UI.ViewModel.CatalogListViewModel"
-             xmlns:vmc="clr-namespace:Orion.UI.ViewModel.EditCatalogItemViewModel"
-             xmlns:viewc ="clr-namespace:Orion.UI.View.EditCatalogItemView"
+             xmlns:vmCatalogA="clr-namespace:Orion.UI.ViewModel.Quantech.CatalogList"
+             xmlns:viewCatalogA="clr-namespace:Orion.UI.View.Quantech.CatalogList"
+             xmlns:vmItemA="clr-namespace:Orion.UI.ViewModel.Quantech.EditQuoteItem"
+             xmlns:viewItemA="clr-namespace:Orion.UI.View.Quantech.EditQuoteItem"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -61,22 +59,6 @@
                 <view:ItemView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmEdit:EditItemAirCooledChillerViewModel}">
-                <viewEdit:EditItemAirCooledChillerView/>
-            </DataTemplate>
-
-            <DataTemplate DataType="{x:Type vmEdit:EditItemPumpViewModel}">
-                <viewEdit:EditItemPumpView/>
-            </DataTemplate>
-            
-            <DataTemplate DataType="{x:Type vmEdit:EditItemUnitViewModel}">
-                <viewEdit:EditItemUnitView/>
-            </DataTemplate>
-
-            <DataTemplate DataType="{x:Type vmEdit:EditItemVfdViewModel}">
-                <viewEdit:EditItempVfdView/>
-            </DataTemplate>
-
             <DataTemplate DataType="{x:Type vm:TitleViewModel}">
                 <view:TitleView/>
             </DataTemplate>
@@ -84,39 +66,38 @@
             <DataTemplate DataType="{x:Type vm:CatalogViewModel}">
                 <view:CatalogView/>
             </DataTemplate>
-            
-            <DataTemplate DataType="{x:Type vmCatalog:CatalogAirCooledChillerListViewModel}">
-                <viewCatalog:CatalogAirCooledChillerListView/>
+
+            <DataTemplate DataType="{x:Type vmItemA:EditA1ItemViewModel}">
+                <viewItemA:EditA1ItemView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmCatalog:CatalogPumpListViewModel}">
-                <viewCatalog:CatalogPumpListView/>
+            <DataTemplate DataType="{x:Type vmItemA:EditA2ItemViewModel}">
+                <viewItemA:EditA2ItemView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmCatalog:CatalogUnitListViewModel}">
-                <viewCatalog:CatalogUnitListView/>
+            <DataTemplate DataType="{x:Type vmItemA:EditA3ItemViewModel}">
+                <viewItemA:EditA3ItemView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmCatalog:CatalogVfdListViewModel}">
-                <viewCatalog:CatalogVfdListView/>
+            <DataTemplate DataType="{x:Type vmItemA:EditA4ItemViewModel}">
+                <viewItemA:EditA4ItemView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmc:EditAirCooledChillerViewModel}">
-                <viewc:EditAirCooledChillerView/>
+            <DataTemplate DataType="{x:Type vmCatalogA:CatalogA1ListViewModel}">
+                <viewCatalogA:CatalogA1ListView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmc:EditPumpViewModel}">
-                <viewc:EditPumpView/>
+            <DataTemplate DataType="{x:Type vmCatalogA:CatalogA2ListViewModel}">
+                <viewCatalogA:CatalogA2ListView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmc:EditUnitViewModel}">
-                <viewc:EditUnitView/>
+            <DataTemplate DataType="{x:Type vmCatalogA:CatalogA3ListViewModel}">
+                <viewCatalogA:CatalogA3ListView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmc:EditVfdViewModel}">
-                <viewc:EditVfdView/>
+            <DataTemplate DataType="{x:Type vmCatalogA:CatalogA4ListViewModel}">
+                <viewCatalogA:CatalogA4ListView/>
             </DataTemplate>
-
 
             <Style  x:Key="TxtStyle" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}">
                 <Setter Property="ctrl:TextBoxHelper.UseFloatingWatermark" Value="True"/>

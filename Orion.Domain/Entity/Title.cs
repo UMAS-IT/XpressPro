@@ -1,10 +1,9 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
-using Orion.Domain.EntityCatalog;
+using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Orion.Domain.Entity
@@ -32,116 +31,116 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _specs, value);
         }
 
-        private int? _catalogAirCooledChillerId;
-        public int? CatalogAirCooledChillerId
+        private int? _itemA1Id;
+        public int? ItemA1Id
         {
-            get => _catalogAirCooledChillerId;
-            set => SetProperty(ref _catalogAirCooledChillerId, value);
+            get => _itemA1Id;
+            set => SetProperty(ref _itemA1Id, value);
         }
 
-        private CatalogAirCooledChiller _catalogAirColledChiller;
-        public CatalogAirCooledChiller CatalogAirCooledChiller
+        private ItemA1 _itemA1;
+        public ItemA1 ItemA1
         {
-            get => _catalogAirColledChiller;
-            set => SetProperty(ref _catalogAirColledChiller, value);
+            get => _itemA1;
+            set => SetProperty(ref _itemA1, value);
         }
 
-        private int? _catalogUnitId;
-        public int? CatalogUnitId
+        private int? _itemA2Id;
+        public int? ItemA2Id
         {
-            get => _catalogUnitId;
-            set => SetProperty(ref _catalogUnitId, value);
+            get => _itemA2Id;
+            set => SetProperty(ref _itemA2Id, value);
         }
 
-        private CatalogUnit _catalogUnit;
-        public CatalogUnit CatalogUnit
+        private ItemA2 _itemA2;
+        public ItemA2 ItemA2
         {
-            get => _catalogUnit;
-            set => SetProperty(ref _catalogUnit, value);
+            get => _itemA2;
+            set => SetProperty(ref _itemA2, value);
         }
 
-        private int? _catalogPumpId;
-        public int? CatalogPumpId
+        private int? _itemA3Id;
+        public int? ItemA3Id
         {
-            get => _catalogPumpId;
-            set => SetProperty(ref _catalogPumpId, value);
+            get => _itemA3Id;
+            set => SetProperty(ref _itemA3Id, value);
         }
 
-        private CatalogPump _catalogPump;
-        public CatalogPump CatalogPump
+        private ItemA3 _itemA3;
+        public ItemA3 ItemA3
         {
-            get => _catalogPump;
-            set => SetProperty(ref _catalogPump, value);
+            get => _itemA3;
+            set => SetProperty(ref _itemA3, value);
         }
 
-        private int? _catalogVdfId;
-        public int? CatalogVfdId
+        private int? _itemA4Id;
+        public int? ItemA4Id
         {
-            get => _catalogVdfId;
-            set => SetProperty(ref _catalogVdfId, value);
+            get => _itemA4Id;
+            set => SetProperty(ref _itemA4Id, value);
         }
 
-        private CatalogVfd _catalogVfd;
-        public CatalogVfd CatalogVfd
+        private ItemA4 _itemA4;
+        public ItemA4 ItemA4
         {
-            get => _catalogVfd;
-            set => SetProperty(ref _catalogVfd, value);
+            get => _itemA4;
+            set => SetProperty(ref _itemA4, value);
         }
 
-        private int? _itemAirCooledChillerId;
-        public int? ItemAirCooledChillerId
+        private int? _catalogA1Id;
+        public int? CatalogA1Id
         {
-            get => _itemAirCooledChillerId;
-            set => SetProperty(ref _itemAirCooledChillerId, value);
+            get => _catalogA1Id;
+            set => SetProperty(ref _catalogA1Id, value);
         }
 
-        private ItemAirCooledChiller _itemAirColledChiller;
-        public ItemAirCooledChiller ItemAirCooledChiller
+        private CatalogA1 _catalogA1;
+        public CatalogA1 CatalogA1
         {
-            get => _itemAirColledChiller;
-            set => SetProperty(ref _itemAirColledChiller, value);
+            get => _catalogA1;
+            set => SetProperty(ref _catalogA1, value);
         }
 
-        private int? _itemUnitId;
-        public int? ItemUnitId
+        private int? _catalogA2Id;
+        public int? CatalogA2Id
         {
-            get => _itemUnitId;
-            set => SetProperty(ref _itemUnitId, value);
+            get => _catalogA2Id;
+            set => SetProperty(ref _catalogA2Id, value);
         }
 
-        private ItemUnit _itemUnit;
-        public ItemUnit ItemUnit
+        private CatalogA2 _catalogA2;
+        public CatalogA2 CatalogA2
         {
-            get => _itemUnit;
-            set => SetProperty(ref _itemUnit, value);
+            get => _catalogA2;
+            set => SetProperty(ref _catalogA2, value);
         }
 
-        private int? _itemPumpId;
-        public int? ItemPumpId
+        private int? _catalogA3Id;
+        public int? CatalogA3Id
         {
-            get => _itemPumpId;
-            set => SetProperty(ref _itemPumpId, value);
+            get => _catalogA3Id;
+            set => SetProperty(ref _catalogA3Id, value);
         }
 
-        private ItemPump _itemPump;
-        public ItemPump ItemPump
+        private CatalogA3 _catalogA3;
+        public CatalogA3 CatalogA3
         {
-            get => _itemPump;
-            set => SetProperty(ref _itemPump, value);
+            get => _catalogA3;
+            set => SetProperty(ref _catalogA3, value);
         }
 
-        private int? _itemVfdId;
-        public int? ItemVfdId
+        private int? _catalogA4Id;
+        public int? CatalogA4Id
         {
-            get => _itemVfdId;
-            set => SetProperty(ref _itemVfdId, value);
+            get => _catalogA4Id;
+            set => SetProperty(ref _catalogA4Id, value);
         }
 
-        private ItemVfd _itemVfd;
-        public ItemVfd ItemVfd
+        private CatalogA4 _catalogA4;
+        public CatalogA4 CatalogA4
         {
-            get => _itemVfd;
-            set => SetProperty(ref _itemVfd, value);
+            get => _catalogA4;
+            set => SetProperty(ref _catalogA4, value);
         }
 
         private bool _saved;

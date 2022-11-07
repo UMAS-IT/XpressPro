@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orion.Domain.Entity;
-using Orion.Domain.EntityCatalog;
+using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
 
 namespace Orion.DataAccess.DataBase
@@ -13,17 +13,17 @@ namespace Orion.DataAccess.DataBase
         public DbSet<Title> Titles { get; set; }
         public DbSet<Spec> Specs { get; set; }
 
-        public DbSet<CatalogAirCooledChiller> CatalogAirCooledChillers { get; set; }
-        public DbSet<ItemAirCooledChiller> ItemAirCooledChillers { get; set; }
+        public DbSet<CatalogA1> CatalogA1s { get; set; }
+        public DbSet<ItemA1> ItemA1s { get; set; }
 
-        public DbSet<CatalogPump> CatalogPumps { get; set; }
-        public DbSet<ItemPump> ItemPumps { get; set; }
+        public DbSet<CatalogA2> CatalogA2s { get; set; }
+        public DbSet<ItemA2> ItemA2s { get; set; }
 
-        public DbSet<CatalogUnit> CatalogUnits { get; set; }
-        public DbSet<ItemUnit> ItemUnits { get; set; }
+        public DbSet<CatalogA3> CatalogA3s { get; set; }
+        public DbSet<ItemA3> ItemA3s { get; set; }
 
-        public DbSet<CatalogVfd> CatalogVfds { get; set; }
-        public DbSet<ItemVfd> ItemVfds { get; set; }
+        public DbSet<CatalogA4> CatalogA4s { get; set; }
+        public DbSet<ItemA4> ItemA4s { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -46,22 +46,22 @@ namespace Orion.DataAccess.DataBase
            
             #region Quote
             modelBuilder.Entity<Quote>()
-                        .HasMany(p => p.ItemAirCooledChillers)
+                        .HasMany(p => p.ItemA1s)
                         .WithOne(m => m.Quote)
                         .HasForeignKey(m => m.QuoteId);
 
             modelBuilder.Entity<Quote>()
-                        .HasMany(p => p.ItemUnits)
+                        .HasMany(p => p.ItemA2s)
                         .WithOne(m => m.Quote)
                         .HasForeignKey(m => m.QuoteId);
 
             modelBuilder.Entity<Quote>()
-                        .HasMany(p => p.ItemPumps)
+                        .HasMany(p => p.ItemA3s)
                         .WithOne(m => m.Quote)
                         .HasForeignKey(m => m.QuoteId);
             
             modelBuilder.Entity<Quote>()
-                        .HasMany(p => p.ItemPumps)
+                        .HasMany(p => p.ItemA4s)
                         .WithOne(m => m.Quote)
                         .HasForeignKey(m => m.QuoteId);
             #endregion
@@ -128,51 +128,51 @@ namespace Orion.DataAccess.DataBase
 
             #region Titles
             modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogUnit)
+                        entry.HasOne(d => d.CatalogA1)
                         .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogUnitId)
+                        .HasForeignKey(y => y.CatalogA1Id)
                         .OnDelete(DeleteBehavior.Restrict));
 
             modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogPump)
+                        entry.HasOne(d => d.CatalogA2)
                         .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogPumpId)
+                        .HasForeignKey(y => y.CatalogA2Id)
                         .OnDelete(DeleteBehavior.Restrict));
 
             modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogAirCooledChiller)
+                        entry.HasOne(d => d.CatalogA3)
                         .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogAirCooledChillerId)
+                        .HasForeignKey(y => y.CatalogA3Id)
                         .OnDelete(DeleteBehavior.Restrict));
 
             modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogVfd)
+                        entry.HasOne(d => d.CatalogA4)
                         .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogVfdId)
+                        .HasForeignKey(y => y.CatalogA4Id)
                         .OnDelete(DeleteBehavior.Restrict));
 
             modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.ItemAirCooledChiller)
+                        entry.HasOne(d => d.ItemA1)
                         .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.ItemAirCooledChillerId)
+                        .HasForeignKey(y => y.ItemA1Id)
                         .OnDelete(DeleteBehavior.Restrict));
 
             modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.ItemUnit)
+                        entry.HasOne(d => d.ItemA2)
                         .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.ItemUnitId)
+                        .HasForeignKey(y => y.ItemA2Id)
                         .OnDelete(DeleteBehavior.Restrict));
 
             modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.ItemPump)
+                        entry.HasOne(d => d.ItemA3)
                         .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.ItemPumpId)
+                        .HasForeignKey(y => y.ItemA3Id)
                         .OnDelete(DeleteBehavior.Restrict));
 
             modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.ItemVfd)
+                        entry.HasOne(d => d.ItemA4)
                         .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.ItemVfdId)
+                        .HasForeignKey(y => y.ItemA4Id)
                         .OnDelete(DeleteBehavior.Restrict));
 
             modelBuilder.Entity<Title>()

@@ -1,21 +1,42 @@
 ﻿using Orion.DataAccess.DataBase;
-using Orion.Domain.EntityCatalog;
-using System;
+using Orion.Domain.Entity;
+using Orion.Domain.EntityCatalogQuantech;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Orion.DataAccess.Service
 {
     public class CatalogService
     {
-        public IList<ICatalog> GetCatalogAirCooledChillers()
+        public IList<ICatalog> GetCatalogA1s()
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                 return context.CatalogAirCooledChillers.ToList<ICatalog>();
+                return context.CatalogA1s.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogA2s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogA2s.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogA3s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogA3s.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogA4s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogA4s.ToList<ICatalog>();
             }
         }
 
@@ -23,50 +44,26 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                if (catalog is CatalogAirCooledChiller)
+                if (catalog is CatalogA1)
                 {
-                    return context.CatalogAirCooledChillers.FirstOrDefault(x => x.Id == catalog.Id);
+                    return context.CatalogA1s.FirstOrDefault(x => x.Id == catalog.Id);
                 }
-                else if (catalog is CatalogPump)
+                else if (catalog is CatalogA2)
                 {
-                    return context.CatalogPumps.FirstOrDefault(x => x.Id == catalog.Id);
+                    return context.CatalogA2s.FirstOrDefault(x => x.Id == catalog.Id);
                 }
-                else if (catalog is CatalogUnit)
+                else if (catalog is CatalogA3)
                 {
-                    return context.CatalogUnits.FirstOrDefault(x => x.Id == catalog.Id);
+                    return context.CatalogA3s.FirstOrDefault(x => x.Id == catalog.Id);
                 }
-                else if (catalog is CatalogVfd)
+                else if (catalog is CatalogA4)
                 {
-                    return context.CatalogVfds.FirstOrDefault(x => x.Id == catalog.Id);
+                    return context.CatalogA4s.FirstOrDefault(x => x.Id == catalog.Id);
                 }
                 else
                 {
                     return null;
                 }
-            }
-        }
-
-        public IList<ICatalog> GetCatalogPumps()
-        {
-            using (GlobalDbContext context = new GlobalDbContext())
-            {
-                return context.CatalogPumps.ToList<ICatalog>();
-            }
-        }
-
-        public IList<ICatalog> GetCatalogUnits()
-        {
-            using (GlobalDbContext context = new GlobalDbContext())
-            {
-                return context.CatalogUnits.ToList<ICatalog>();
-            }
-        }
-
-        public IList<ICatalog> GetCatalogVfds()
-        {
-            using (GlobalDbContext context = new GlobalDbContext())
-            {
-                return context.CatalogVfds.ToList<ICatalog>();
             }
         }
     }

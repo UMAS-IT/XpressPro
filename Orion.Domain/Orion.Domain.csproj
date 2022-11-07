@@ -124,16 +124,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityCatalog\CatalogAirCooledChiller.cs" />
-    <Compile Include="EntityCatalog\CatalogUnit.cs" />
-    <Compile Include="EntityCatalog\CatalogVfd.cs" />
-    <Compile Include="EntityCatalog\ICatalog.cs" />
-    <Compile Include="EntityItem\ItemUnit.cs" />
-    <Compile Include="EntityCatalog\CatalogPump.cs" />
-    <Compile Include="EntityItem\ItemVfd.cs" />
-    <Compile Include="EntityItem\IItem.cs" />
-    <Compile Include="EntityItem\ItemAirCooledChiller.cs" />
-    <Compile Include="EntityItem\ItemPump.cs" />
+    <Compile Include="EntityCatalogQuantech\CatalogA1.cs" />
+    <Compile Include="EntityCatalogQuantech\CatalogA2.cs" />
+    <Compile Include="EntityCatalogQuantech\CatalogA3.cs" />
+    <Compile Include="EntityCatalogQuantech\CatalogA4.cs" />
+    <Compile Include="Entity\ICatalog.cs" />
+    <Compile Include="EntityItemQuantech\ItemA1.cs" />
+    <Compile Include="EntityItemQuantech\ItemA2.cs" />
+    <Compile Include="EntityItemQuantech\ItemA3.cs" />
+    <Compile Include="EntityItemQuantech\ItemA4.cs" />
+    <Compile Include="Entity\IItem.cs" />
+    <Compile Include="Entity\IPrice.cs" />
     <Compile Include="Entity\Spec.cs" />
     <Compile Include="Entity\Title.cs" />
     <Compile Include="Entity\Project.cs" />

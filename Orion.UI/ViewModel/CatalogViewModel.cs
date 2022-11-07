@@ -1,9 +1,9 @@
 ﻿using MahApps.Metro.Controls.Dialogs;
 using Orion.Binding.Binding;
+using Orion.Domain.EntityCatalogQuantech;
 using Orion.UI.Command;
 using Orion.UI.Service;
-using Orion.UI.ViewModel.CatalogListViewModel;
-using System;
+using Orion.UI.ViewModel.Quantech.CatalogList;
 using System.Threading.Tasks;
 
 namespace Orion.UI.ViewModel
@@ -30,10 +30,10 @@ namespace Orion.UI.ViewModel
         }
 
         public RelayCommand LoadDataCommand { get; set; }
-        public RelayCommand CatalogAirCooledChillerCommand { get; set; }
-        public RelayCommand CatalogPumpCommand { get; set; }
-        public RelayCommand CatalogUnitCommand { get; set; }
-        public RelayCommand CatalogVfdCommand { get; set; }
+        public RelayCommand CatalogA1Command { get; set; }
+        public RelayCommand CatalogA2Command { get; set; }
+        public RelayCommand CatalogA3Command { get; set; }
+        public RelayCommand CatalogA4Command { get; set; }
 
 
         public CatalogViewModel(IDialogCoordinator dialogCoordinator, MainWindowViewModel mw)
@@ -42,72 +42,72 @@ namespace Orion.UI.ViewModel
             this.mw = mw;
 
             LoadDataCommand = new RelayCommand(OnLoadData);
-            CatalogAirCooledChillerCommand = new RelayCommand(OnCatalogAirCooledChiller);
-            CatalogPumpCommand = new RelayCommand(OnCatalogPump);
-            CatalogUnitCommand = new RelayCommand(OnCatalogUnit);
-            CatalogVfdCommand = new RelayCommand(OnCatalogVfd);
+            CatalogA1Command = new RelayCommand(OnCatalogA1);
+            CatalogA2Command = new RelayCommand(OnCatalogA2);
+            CatalogA3Command = new RelayCommand(OnCatalogA3);
+            CatalogA4Command = new RelayCommand(OnCatalogA4);
 
             messageService = new MessageService(dialogCoordinator, this);
         }
 
-        private async void OnCatalogPump()
+        private async void OnCatalogA1()
         {
-            if (CurrentViewModel is CatalogPumpListViewModel)
+            if (CurrentViewModel is CatalogA1ListViewModel)
                 return;
 
             CurrentViewModel = null;
             await Task.Delay(100);
             MenuVisible = false;
 
-            CatalogPumpListViewModel catalogPumpListViewModel = new CatalogPumpListViewModel(dialogCoordinator);
-            catalogPumpListViewModel.BackRequested += OnBack;
+            CatalogA1ListViewModel catalogA1ListViewModel = new CatalogA1ListViewModel(dialogCoordinator);
+            catalogA1ListViewModel.BackRequested += OnBack;
 
-            CurrentViewModel = catalogPumpListViewModel;
+            CurrentViewModel = catalogA1ListViewModel;
         }
 
-        private async void OnCatalogUnit()
+        private async void OnCatalogA2()
         {
-            if (CurrentViewModel is CatalogUnitListViewModel)
+            if (CurrentViewModel is CatalogA2ListViewModel)
                 return;
 
             CurrentViewModel = null;
             await Task.Delay(100);
             MenuVisible = false;
 
-            CatalogUnitListViewModel catalogUnitListViewModel = new CatalogUnitListViewModel(dialogCoordinator);
-            catalogUnitListViewModel.BackRequested += OnBack;
+            CatalogA2ListViewModel catalogA2ListViewModel = new CatalogA2ListViewModel(dialogCoordinator);
+            catalogA2ListViewModel.BackRequested += OnBack;
 
-            CurrentViewModel = catalogUnitListViewModel;
+            CurrentViewModel = catalogA2ListViewModel;
         }
 
-        private async void OnCatalogVfd()
+        private async void OnCatalogA3()
         {
-            if (CurrentViewModel is CatalogVfdListViewModel)
+            if (CurrentViewModel is CatalogA3ListViewModel)
                 return;
 
             CurrentViewModel = null;
             await Task.Delay(100);
             MenuVisible = false;
 
-            CatalogVfdListViewModel catalogVfdListViewModel = new CatalogVfdListViewModel(dialogCoordinator);
-            catalogVfdListViewModel.BackRequested += OnBack;
+            CatalogA3ListViewModel catalogA3ListViewModel = new CatalogA3ListViewModel(dialogCoordinator);
+            catalogA3ListViewModel.BackRequested += OnBack;
 
-            CurrentViewModel = catalogVfdListViewModel;
+            CurrentViewModel = catalogA3ListViewModel;
         }
 
-        private async void OnCatalogAirCooledChiller()
+        private async void OnCatalogA4()
         {
-            if (CurrentViewModel is CatalogAirCooledChillerListViewModel)
+            if (CurrentViewModel is CatalogA4ListViewModel)
                 return;
 
             CurrentViewModel = null;
             await Task.Delay(100);
             MenuVisible = false;
 
-            CatalogAirCooledChillerListViewModel catalogAirCooledChillerListViewModel = new CatalogAirCooledChillerListViewModel(dialogCoordinator);
-            catalogAirCooledChillerListViewModel.BackRequested += OnBack;
+            CatalogA4ListViewModel catalogA4ListViewModel = new CatalogA4ListViewModel(dialogCoordinator);
+            catalogA4ListViewModel.BackRequested += OnBack;
 
-            CurrentViewModel = catalogAirCooledChillerListViewModel;
+            CurrentViewModel = catalogA4ListViewModel;
         }
 
         private async void OnBack()

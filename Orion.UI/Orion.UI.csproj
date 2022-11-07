@@ -172,37 +172,24 @@
     </ApplicationDefinition>
     <Compile Include="Service\MessageService.cs" />
     <Compile Include="Service\WindowService.cs" />
-    <Compile Include="ViewModel\CatalogListViewModel\CatalogPumpListViewModel.cs" />
-    <Compile Include="ViewModel\CatalogListViewModel\CatalogUnitListViewModel.cs" />
-    <Compile Include="ViewModel\CatalogListViewModel\CatalogVfdListViewModel.cs" />
     <Compile Include="ViewModel\CatalogViewModel.cs" />
     <Compile Include="ViewModel\ComingSoonViewModel.cs" />
     <Compile Include="ViewModel\CreateQuoteViewModel.cs" />
-    <Compile Include="ViewModel\CatalogListViewModel\CatalogAirCooledChillerListViewModel.cs" />
-    <Compile Include="ViewModel\EditCatalogItemViewModel\EditAirCooledChillerViewModel.cs" />
-    <Compile Include="ViewModel\EditCatalogItemViewModel\EditPumpViewModel.cs" />
-    <Compile Include="ViewModel\EditCatalogItemViewModel\EditUnitViewModel.cs" />
-    <Compile Include="ViewModel\EditCatalogItemViewModel\EditVfdViewModel.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
-    <Compile Include="ViewModel\EditItemViewModel\EditItemAirCooledChillerViewModel.cs" />
-    <Compile Include="ViewModel\EditItemViewModel\EditItemPumpViewModel.cs" />
-    <Compile Include="ViewModel\EditItemViewModel\EditItemUnitViewModel.cs" />
-    <Compile Include="ViewModel\EditItemViewModel\EditItemVfdViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\NewProjectViewModel.cs" />
     <Compile Include="ViewModel\OpenProjectViewModel.cs" />
     <Compile Include="ViewModel\ProjectInformationViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\CatalogList\CatalogA1ListViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\CatalogList\CatalogA2ListViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\CatalogList\CatalogA3ListViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\CatalogList\CatalogA4ListViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA4ItemViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA3ItemViewModel.cs" />
     <Compile Include="ViewModel\QuoteViewModel.cs" />
     <Compile Include="ViewModel\TitleViewModel.cs" />
-    <Compile Include="View\CatalogListView\CatalogPumpListView.xaml.cs">
-      <DependentUpon>CatalogPumpListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\CatalogListView\CatalogUnitListView.xaml.cs">
-      <DependentUpon>CatalogUnitListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\CatalogListView\CatalogVfdListView.xaml.cs">
-      <DependentUpon>CatalogVfdListView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\CatalogView.xaml.cs">
       <DependentUpon>CatalogView.xaml</DependentUpon>
     </Compile>
@@ -212,35 +199,8 @@
     <Compile Include="View\CreateQuoteView.xaml.cs">
       <DependentUpon>CreateQuoteView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CatalogListView\CatalogAirCooledChillerListView.xaml.cs">
-      <DependentUpon>CatalogAirCooledChillerListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\EditCatalogItemView\EditAirCooledChillerView.xaml.cs">
-      <DependentUpon>EditAirCooledChillerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\EditCatalogItemView\EditPumpView.xaml.cs">
-      <DependentUpon>EditPumpView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\EditCatalogItemView\EditUnitView.xaml.cs">
-      <DependentUpon>EditUnitView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\EditCatalogItemView\EditVfdView.xaml.cs">
-      <DependentUpon>EditVfdView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\ItemView.xaml.cs">
       <DependentUpon>ItemView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\EditItemView\EditItemAirCooledChillerView.xaml.cs">
-      <DependentUpon>EditItemAirCooledChillerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\EditItemView\EditItemPumpView.xaml.cs">
-      <DependentUpon>EditItemPumpView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\EditItemView\EditItempVfdView.xaml.cs">
-      <DependentUpon>EditItempVfdView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\EditItemView\EditItemUnitView.xaml.cs">
-      <DependentUpon>EditItemUnitView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
@@ -254,6 +214,30 @@
     <Compile Include="View\ProjectInformationView.xaml.cs">
       <DependentUpon>ProjectInformationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Quantech\CatalogList\CatalogA1ListView.xaml.cs">
+      <DependentUpon>CatalogA1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\CatalogList\CatalogA2ListView.xaml.cs">
+      <DependentUpon>CatalogA2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\CatalogList\CatalogA3ListView.xaml.cs">
+      <DependentUpon>CatalogA3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\CatalogList\CatalogA4ListView.xaml.cs">
+      <DependentUpon>CatalogA4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditQuoteItem\EditA1ItemView.xaml.cs">
+      <DependentUpon>EditA1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditQuoteItem\EditA2ItemView.xaml.cs">
+      <DependentUpon>EditA2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditQuoteItem\EditA3ItemView.xaml.cs">
+      <DependentUpon>EditA3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditQuoteItem\EditA4ItemView.xaml.cs">
+      <DependentUpon>EditA4ItemView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\QuoteView.xaml.cs">
       <DependentUpon>QuoteView.xaml</DependentUpon>
     </Compile>
@@ -261,18 +245,6 @@
       <DependentUpon>TitleView.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AirTreatmentView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\CatalogListView\CatalogPumpListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\CatalogListView\CatalogUnitListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\CatalogListView\CatalogVfdListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -288,43 +260,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CatalogListView\CatalogAirCooledChillerListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\EditCatalogItemView\EditAirCooledChillerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\EditCatalogItemView\EditPumpView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\EditCatalogItemView\EditUnitView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\EditCatalogItemView\EditVfdView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\ItemView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\EditItemView\EditItemAirCooledChillerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\EditItemView\EditItemPumpView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\EditItemView\EditItempVfdView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\EditItemView\EditItemUnitView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -367,6 +303,38 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ProjectInformationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\CatalogList\CatalogA1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\CatalogList\CatalogA2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\CatalogList\CatalogA3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\CatalogList\CatalogA4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditQuoteItem\EditA1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditQuoteItem\EditA2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditQuoteItem\EditA3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditQuoteItem\EditA4ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

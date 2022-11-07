@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Internal;
 using Orion.DataAccess.DataBase;
 using Orion.Domain.Entity;
-using Orion.Domain.EntityCatalog;
+using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,21 +17,21 @@ namespace Orion.DataAccess.Service
             {
                 List<Title> titles = new List<Title>();
 
-                if (item is ItemAirCooledChiller)
+                if (item is ItemA1)
                 {
-                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemAirCooledChillerId == item.Id).ToList();
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemA1Id == item.Id).ToList();
                 }
-                else if (item is ItemUnit)
+                else if (item is ItemA2)
                 {
-                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemUnitId == item.Id).ToList();
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemA2Id == item.Id).ToList();
                 }
-                else if (item is ItemPump)
+                else if (item is ItemA3)
                 {
-                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemPumpId == item.Id).ToList();
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemA3Id == item.Id).ToList();
                 }
-                else if (item is ItemVfd)
+                else if (item is ItemA4)
                 {
-                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemVfdId == item.Id).ToList();
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemA4Id == item.Id).ToList();
                 }
                 return titles;
             }
@@ -43,21 +43,21 @@ namespace Orion.DataAccess.Service
             {
                 List<Title> titles = new List<Title>();
 
-                if (catalog is CatalogAirCooledChiller)
+                if (catalog is CatalogA1)
                 {
-                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogAirCooledChillerId == catalog.Id).ToList();
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogA1Id == catalog.Id).ToList();
                 }
-                else if (catalog is CatalogUnit)
+                else if (catalog is  CatalogA2)
                 {
-                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogUnitId == catalog.Id).ToList();
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogA2Id == catalog.Id).ToList();
                 }
-                else if (catalog is CatalogPump)
+                else if (catalog is CatalogA3)
                 {
-                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogPumpId == catalog.Id).ToList();
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogA3Id == catalog.Id).ToList();
                 }
-                else if (catalog is CatalogVfd)
+                else if (catalog is CatalogA4)
                 {
-                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogVfdId == catalog.Id).ToList();
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogA4Id == catalog.Id).ToList();
                 }
                 return titles;
             }
@@ -69,25 +69,25 @@ namespace Orion.DataAccess.Service
             {
                 IItem dbItem = null;
 
-                if (item is ItemAirCooledChiller)
+                if (item is ItemA1)
                 {
-                    ItemAirCooledChiller itemAirCooledChiller = context.ItemAirCooledChillers.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
-                    dbItem = itemAirCooledChiller;
+                    ItemA1 itemA1 = context.ItemA1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                    dbItem = itemA1;
                 }
-                else if (item is ItemUnit)
+                else if (item is ItemA2)
                 {
-                    ItemUnit catalogUnit = context.ItemUnits.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
-                    dbItem = catalogUnit;
+                    ItemA2 itemA2 = context.ItemA2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                    dbItem = itemA2;
                 }
-                else if (item is ItemPump)
+                else if (item is ItemA3)
                 {
-                    ItemPump catalogPump = context.ItemPumps.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
-                    dbItem = catalogPump;
+                    ItemA3 itemA3 = context.ItemA3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                    dbItem = itemA3;
                 }
-                else if (item is ItemVfd)
+                else if (item is ItemA4)
                 {
-                    ItemVfd catalogVfd = context.ItemVfds.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
-                    dbItem = catalogVfd;
+                    ItemA4 itemA4 = context.ItemA4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                    dbItem = itemA4;
                 }
 
                 foreach (Title title in titles)
@@ -154,25 +154,25 @@ namespace Orion.DataAccess.Service
             {
                 ICatalog dbCatalog = null;
 
-                if (catalog is CatalogAirCooledChiller)
+                if (catalog is CatalogA1)
                 {
-                    CatalogAirCooledChiller catalogAirCooledChiller = context.CatalogAirCooledChillers.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                    dbCatalog = catalogAirCooledChiller;
+                    CatalogA1 catalogA1 = context.CatalogA1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                    dbCatalog = catalogA1;
                 }
-                else if (catalog is CatalogUnit)
+                else if (catalog is CatalogA2)
                 {
-                    CatalogUnit catalogUnit = context.CatalogUnits.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                    dbCatalog = catalogUnit;
+                    CatalogA2 catalogA2 = context.CatalogA2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                    dbCatalog = catalogA2;
                 }
-                else if (catalog is CatalogPump)
+                else if (catalog is CatalogA3)
                 {
-                    CatalogPump catalogPump = context.CatalogPumps.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                    dbCatalog = catalogPump;
+                    CatalogA3 catalogA3 = context.CatalogA3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                    dbCatalog = catalogA3;
                 }
-                else if (catalog is CatalogVfd)
+                else if (catalog is CatalogA4)
                 {
-                    CatalogVfd catalogVfd = context.CatalogVfds.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                    dbCatalog = catalogVfd;
+                    CatalogA4 catalogA4 = context.CatalogA4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                    dbCatalog = catalogA4;
                 }
 
                 foreach (Title title in titles)
