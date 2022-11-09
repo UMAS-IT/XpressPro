@@ -173,7 +173,7 @@
                 </Grid.RowDefinitions>
 
                 <Border Grid.Row="0" Margin="0,5,0,0" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
-                    <Label Content="Air Cooled Chillers" HorizontalAlignment="Center" FontSize="12" />
+                    <Label Content="Air Cooled Chillers Stock Post Coated Condenser" HorizontalAlignment="Center" FontSize="12" />
                 </Border>
 
                 <DataGrid       Grid.Row="1"
@@ -222,12 +222,14 @@
                         </DataGridTemplateColumn>
 
                         <DataGridTextColumn Header="Model" Binding="{Binding Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Price" Binding="{Binding Price}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Nominal Capacity" Binding="{Binding NominalCapacity}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="CHW/GPM" Binding="{Binding ChwGpm}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="CHW EWT/LWT" Binding="{Binding ChwEwtLwt}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Ambient" Binding="{Binding Ambient}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Voltage" Binding="{Binding Voltage}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Unit Size" Binding="{Binding UnitSize}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Voltage" Binding="{Binding Voltage}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="List Price" Binding="{Binding ListPrice}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Cost Multiplier" Binding="{Binding CostMultiplier}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Cost}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Sell Margin (%)" Binding="{Binding SellMargin}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

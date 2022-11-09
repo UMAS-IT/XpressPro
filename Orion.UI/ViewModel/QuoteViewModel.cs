@@ -189,11 +189,11 @@ namespace Orion.UI.ViewModel
             await Task.Delay(100);
 
             ItemViewModel itemViewModel = new ItemViewModel(dialogCoordinator, projectId, quote.Id, mw);
-            itemViewModel.OnUpdateItemsRequested += OnCloseQuoteRequested;
+            itemViewModel.BackToQuotesRequested += OkBackToQuote;
             CurrentViewModel = itemViewModel;
         }
 
-        private async void OnCloseQuoteRequested()
+        private async void OkBackToQuote()
         {
             mw.Title = $@"XpressPro ({Project.Name})";
             IsVisible = true;

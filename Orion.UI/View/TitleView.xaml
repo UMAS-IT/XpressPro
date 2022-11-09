@@ -121,7 +121,7 @@
                                              ctrl:TextBoxHelper.Watermark="Specification" MaxHeight="72"
                                               Margin="1"/>
 
-                                    <TextBox Grid.Column="2" Width="100" TextWrapping="Wrap" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" VerticalContentAlignment="Center" Text="{Binding Price, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}" 
+                                    <TextBox Grid.Column="2" Width="90" TextWrapping="Wrap" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" VerticalContentAlignment="Center" Text="{Binding Price, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}" 
                                              ctrl:TextBoxHelper.Watermark="Price" 
                                               Margin="1"/>
 

@@ -22,42 +22,75 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <!--<ColumnDefinition MinWidth="450" MaxWidth="450"/>-->
         </Grid.ColumnDefinitions>
-        <GroupBox Grid.Column="0" Header="Catalogs" Margin="5,5,0,5" ctrl:ControlsHelper.ContentCharacterCasing="Normal">
-            <GroupBox.Style>
-                <Style TargetType="GroupBox" BasedOn="{StaticResource MahApps.Styles.GroupBox}">
+
+        <Border Grid.Column="0" BorderThickness="1" Margin="5" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
+            <Border.Style>
+                <Style TargetType="Border">
                     <Setter Property="Visibility" Value="Visible"/>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding MenuVisible}" Value="False">
+                        <DataTrigger Binding="{Binding ProductsActive, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="False">
                             <Setter Property="Visibility" Value="Collapsed"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
-            </GroupBox.Style>
+            </Border.Style>
+            
             <StackPanel Orientation="Vertical">
-                <Button Content="Air Cooled Chillers"
-                        ctrl:ControlsHelper.ContentCharacterCasing="Normal"
-                        Margin="1"
-                        Background="DarkSlateBlue"
-                        Command="{Binding CatalogAirCooledChillerCommand}"/>
-                <Button Content="Pumps"
-                        ctrl:ControlsHelper.ContentCharacterCasing="Normal"
-                        Margin="1"
-                        Background="DarkMagenta"
-                        Command="{Binding CatalogPumpCommand}"/>
-                <Button Content="Units"
-                        ctrl:ControlsHelper.ContentCharacterCasing="Normal"
-                        Margin="1"
-                        Background="DarkSalmon"
-                        Command="{Binding CatalogUnitCommand}"/>
-                <Button Content="Vfds"
-                        ctrl:ControlsHelper.ContentCharacterCasing="Normal"
-                        Margin="1"
-                        Background="DarkCyan"
-                        Command="{Binding CatalogVfdCommand}"/>
+                <Expander Header="QUANTECH" Margin="5" Width="120">
+                    <StackPanel Orientation="Vertical">
+                        
+                        <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA1Command}">
+                            <Button.Content>
+                                <TextBlock Text="Air Cooled Chillers Factory Lead Time" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA2Command}">
+                            <Button.Content>
+                                <TextBlock Text="Air Cooled Chillers Stock Non Coated Condenser"  TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA3Command}">
+                            <Button.Content>
+                                <TextBlock Text="Air Cooled Chillers Stock Post Coated Condenser"  TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA4Command}">
+                            <Button.Content>
+                                <TextBlock Text="Water Cooled Chillers Factory Lead Time"  TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                    </StackPanel>
+                </Expander>
             </StackPanel>
-        </GroupBox>
-        <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}"/>
+        </Border>
+
+
+        <Grid Grid.Column="1">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Grid.ColumnSpan" Value="2"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ProductsActive, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="False">
+                            <Setter Property="Grid.ColumnSpan" Value="2"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding EditActive, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="True">
+                            <Setter Property="Grid.ColumnSpan" Value="1"/>
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <ContentControl Content="{Binding CurrentViewModel}" />
+        </Grid>
+
+        <ContentControl Content="{Binding EditViewModel}" Grid.Column="2"/>
     </Grid>
 </UserControl>

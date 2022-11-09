@@ -22,11 +22,25 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _currentViewModel, value);
         }
 
-        private bool _menuVisible;
-        public bool MenuVisible
+        private BindableBase _editViewModel;
+        public BindableBase EditViewModel
         {
-            get => _menuVisible;
-            set => SetProperty(ref _menuVisible, value);
+            get => _editViewModel;
+            set => SetProperty(ref _editViewModel, value);
+        }
+
+        private bool _productsActive;
+        public bool ProductsActive
+        {
+            get => _productsActive;
+            set => SetProperty(ref _productsActive, value);
+        }
+
+        private bool _editActive;
+        public bool EditActive
+        {
+            get => _editActive;
+            set => SetProperty(ref _editActive, value);
         }
 
         public RelayCommand LoadDataCommand { get; set; }
@@ -57,10 +71,10 @@ namespace Orion.UI.ViewModel
 
             CurrentViewModel = null;
             await Task.Delay(100);
-            MenuVisible = false;
+            ProductsActive = false;
 
             CatalogA1ListViewModel catalogA1ListViewModel = new CatalogA1ListViewModel(dialogCoordinator);
-            catalogA1ListViewModel.BackRequested += OnBack;
+            catalogA1ListViewModel.BackRequested += OnBackToProducts;
 
             CurrentViewModel = catalogA1ListViewModel;
         }
@@ -72,10 +86,10 @@ namespace Orion.UI.ViewModel
 
             CurrentViewModel = null;
             await Task.Delay(100);
-            MenuVisible = false;
+            ProductsActive = false;
 
             CatalogA2ListViewModel catalogA2ListViewModel = new CatalogA2ListViewModel(dialogCoordinator);
-            catalogA2ListViewModel.BackRequested += OnBack;
+            catalogA2ListViewModel.BackRequested += OnBackToProducts;
 
             CurrentViewModel = catalogA2ListViewModel;
         }
@@ -87,10 +101,10 @@ namespace Orion.UI.ViewModel
 
             CurrentViewModel = null;
             await Task.Delay(100);
-            MenuVisible = false;
+            ProductsActive = false;
 
             CatalogA3ListViewModel catalogA3ListViewModel = new CatalogA3ListViewModel(dialogCoordinator);
-            catalogA3ListViewModel.BackRequested += OnBack;
+            catalogA3ListViewModel.BackRequested += OnBackToProducts;
 
             CurrentViewModel = catalogA3ListViewModel;
         }
@@ -102,17 +116,17 @@ namespace Orion.UI.ViewModel
 
             CurrentViewModel = null;
             await Task.Delay(100);
-            MenuVisible = false;
+            ProductsActive = false;
 
             CatalogA4ListViewModel catalogA4ListViewModel = new CatalogA4ListViewModel(dialogCoordinator);
-            catalogA4ListViewModel.BackRequested += OnBack;
+            catalogA4ListViewModel.BackRequested += OnBackToProducts;
 
             CurrentViewModel = catalogA4ListViewModel;
         }
 
-        private async void OnBack()
+        private async void OnBackToProducts()
         {
-            MenuVisible = true;
+            ProductsActive = true;
             CurrentViewModel = null;
             await Task.Delay(100);
             CurrentViewModel = airTreatmentViewModel;
@@ -120,7 +134,7 @@ namespace Orion.UI.ViewModel
 
         private void OnLoadData()
         {
-            MenuVisible = true;
+            ProductsActive = true;
                 mw.Title = "XpressPro";
             CurrentViewModel = airTreatmentViewModel;
         }

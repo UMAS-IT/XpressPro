@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\App.xaml
-21-475965141
+23-249801721
 
-50-285187516
+54450760652
 57-664459963
-View\AirTreatmentView.xaml;View\CatalogView.xaml;View\ComingSoonView.xaml;View\CreateQuoteView.xaml;View\ItemView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\NewProjectView.xaml;View\OpenProjectView.xaml;View\ProjectInformationView.xaml;View\Quantech\CatalogList\CatalogA1ListView.xaml;View\Quantech\CatalogList\CatalogA2ListView.xaml;View\Quantech\CatalogList\CatalogA3ListView.xaml;View\Quantech\CatalogList\CatalogA4ListView.xaml;View\Quantech\EditQuoteItem\EditA1ItemView.xaml;View\Quantech\EditQuoteItem\EditA2ItemView.xaml;View\Quantech\EditQuoteItem\EditA3ItemView.xaml;View\Quantech\EditQuoteItem\EditA4ItemView.xaml;View\QuoteView.xaml;View\TitleView.xaml;
+View\AirTreatmentView.xaml;View\CatalogView.xaml;View\ComingSoonView.xaml;View\CreateQuoteView.xaml;View\ItemView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\NewProjectView.xaml;View\OpenProjectView.xaml;View\ProjectInformationView.xaml;View\Quantech\AQuoteItemListView.xaml;View\Quantech\CatalogList\CatalogA1ListView.xaml;View\Quantech\CatalogList\CatalogA2ListView.xaml;View\Quantech\CatalogList\CatalogA3ListView.xaml;View\Quantech\CatalogList\CatalogA4ListView.xaml;View\Quantech\EditQuoteItem\EditA1ItemView.xaml;View\Quantech\EditQuoteItem\EditA2ItemView.xaml;View\Quantech\EditQuoteItem\EditA3ItemView.xaml;View\Quantech\EditQuoteItem\EditA4ItemView.xaml;View\QuoteView.xaml;View\TitleFromItemView.xaml;View\TitleView.xaml;
 
 False
 

@@ -148,6 +148,11 @@ namespace Orion.UI.ViewModel.Quantech.EditQuoteItem
             {
                 CatalogA2 = catalog as CatalogA2,
                 CatalogA2Id = catalog.Id,
+                ListPrice = catalog.ListPrice,
+                SellPrice = catalog.SellPrice,
+                Cost = catalog.Cost,
+                SellMargin = catalog.SellMargin,
+                CostMultiplier = catalog.CostMultiplier,
             };
 
             Items.Add(itemA2);

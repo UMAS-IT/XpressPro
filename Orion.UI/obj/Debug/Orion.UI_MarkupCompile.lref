@@ -1,4 +1,4 @@
-﻿C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\GeneratedInternalTypeHelper.g.cs
+﻿
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\App.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\AirTreatmentView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\CatalogView.xaml;;
@@ -11,6 +11,7 @@ FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\MenuView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\NewProjectView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\OpenProjectView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ProjectInformationView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Quantech\AQuoteItemListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Quantech\CatalogList\CatalogA1ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Quantech\CatalogList\CatalogA2ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Quantech\CatalogList\CatalogA3ListView.xaml;;
@@ -20,5 +21,6 @@ FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Quantech\EditQuoteIte
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Quantech\EditQuoteItem\EditA3ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Quantech\EditQuoteItem\EditA4ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\QuoteView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\TitleFromItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\TitleView.xaml;;
 

@@ -624,3 +624,7 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\Edi
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\EditQuoteItem\EditA2ItemView.baml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\EditQuoteItem\EditA3ItemView.baml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\EditQuoteItem\EditA4ItemView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\AQuoteItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\AQuoteItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\TitleFromItemView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\TitleFromItemView.baml

@@ -42,9 +42,13 @@ namespace Orion.DataAccess.Service
             {
                 Quote dbQuote = context.Quotes
                     .Include(x => x.ItemA1s).ThenInclude(x => x.CatalogA1)
+                    .Include(x => x.ItemA1s).ThenInclude(x => x.Titles)
                     .Include(x => x.ItemA2s).ThenInclude(x => x.CatalogA2)
+                    .Include(x => x.ItemA2s).ThenInclude(x => x.Titles)
                     .Include(x => x.ItemA3s).ThenInclude(x => x.CatalogA3)
+                    .Include(x => x.ItemA3s).ThenInclude(x => x.Titles)
                     .Include(x => x.ItemA4s).ThenInclude(x => x.CatalogA4)
+                    .Include(x => x.ItemA4s).ThenInclude(x => x.Titles)
                     .FirstOrDefault(x => x.Id == quote.Id);
 
                 List<CatalogA1> catalogA1s = context.CatalogA1s.ToList();
@@ -189,7 +193,7 @@ namespace Orion.DataAccess.Service
                 context.SaveChanges();
             }
 
-            return GetA4ItemsByQuoteId(quote.Id);
+            return GetA1ItemsByQuoteId(quote.Id);
         }
         public IList<IItem> UpdateA2Items(Quote quote, IList<IItem> items)
         {

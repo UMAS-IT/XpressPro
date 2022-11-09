@@ -10,6 +10,9 @@
              xmlns:viewCatalogA="clr-namespace:Orion.UI.View.Quantech.CatalogList"
              xmlns:vmItemA="clr-namespace:Orion.UI.ViewModel.Quantech.EditQuoteItem"
              xmlns:viewItemA="clr-namespace:Orion.UI.View.Quantech.EditQuoteItem"
+             
+             xmlns:vmQuoteA="clr-namespace:Orion.UI.ViewModel.Quantech"
+             xmlns:viewQuoteA="clr-namespace:Orion.UI.View.Quantech"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -63,6 +66,10 @@
                 <view:TitleView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type vm:TitleFromItemViewModel}">
+                <view:TitleFromItemView/>
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type vm:CatalogViewModel}">
                 <view:CatalogView/>
             </DataTemplate>
@@ -97,6 +104,10 @@
 
             <DataTemplate DataType="{x:Type vmCatalogA:CatalogA4ListViewModel}">
                 <viewCatalogA:CatalogA4ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmQuoteA:AQuoteItemListViewModel}">
+                <viewQuoteA:AQuoteItemListView/>
             </DataTemplate>
 
             <Style  x:Key="TxtStyle" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}">
