@@ -10,7 +10,7 @@ using Orion.DataAccess.DataBase;
 namespace Orion.DataAccess.Migrations
 {
     [DbContext(typeof(GlobalDbContext))]
-    [Migration("20221107101814_mig-01")]
+    [Migration("20221110011703_mig-01")]
     partial class mig01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

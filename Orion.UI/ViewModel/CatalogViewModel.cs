@@ -1,9 +1,12 @@
 ﻿using MahApps.Metro.Controls.Dialogs;
 using Orion.Binding.Binding;
+using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.UI.Command;
 using Orion.UI.Service;
 using Orion.UI.ViewModel.Quantech.CatalogList;
+using Orion.UI.ViewModel.Quantech.EditCatalogItem;
+using System;
 using System.Threading.Tasks;
 
 namespace Orion.UI.ViewModel
@@ -74,9 +77,38 @@ namespace Orion.UI.ViewModel
             ProductsActive = false;
 
             CatalogA1ListViewModel catalogA1ListViewModel = new CatalogA1ListViewModel(dialogCoordinator);
-            catalogA1ListViewModel.BackRequested += OnBackToProducts;
+            catalogA1ListViewModel.BackToProductsRequested += OnBackToProducts;
+            catalogA1ListViewModel.OnEditCatalogTitlesRequested += OnEditCatalogTitles;
+            catalogA1ListViewModel.OnEditCatalogItemRequested += OnEditA1CatalogItem;
 
             CurrentViewModel = catalogA1ListViewModel;
+        }
+
+        private void OnEditA1CatalogItem(ICatalog catalog)
+        {
+            EditActive = true;
+
+            EditA1CatalogViewModel editA1CatalogViewModel = new EditA1CatalogViewModel(dialogCoordinator, catalog);
+            editA1CatalogViewModel.BackFromEditRequested += OnBackFromEdit;
+
+            EditViewModel = editA1CatalogViewModel;
+        }
+
+        private void OnEditCatalogTitles(ICatalog catalog)
+        {
+            EditActive = true;
+
+            TitleViewModel titleViewModel = new TitleViewModel(dialogCoordinator, catalog);
+            titleViewModel.BackRequested += OnBackFromEdit;
+
+            EditViewModel = titleViewModel; 
+        }
+
+        private async void OnBackFromEdit()
+        {
+            EditActive = false;
+            EditViewModel = null;
+            await Task.Delay(100);
         }
 
         private async void OnCatalogA2()

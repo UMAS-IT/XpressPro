@@ -23,7 +23,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
-            <!--<ColumnDefinition MinWidth="450" MaxWidth="450"/>-->
+            <ColumnDefinition MinWidth="450" MaxWidth="450"/>
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="0" BorderThickness="1" Margin="5" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
@@ -39,7 +39,7 @@
             </Border.Style>
             
             <StackPanel Orientation="Vertical">
-                <Expander Header="QUANTECH" Margin="5" Width="120">
+                <Expander Header="QUANTECH" Margin="5" Width="120" IsExpanded="True">
                     <StackPanel Orientation="Vertical">
                         
                         <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA1Command}">

@@ -185,6 +185,10 @@
     <Compile Include="ViewModel\Quantech\CatalogList\CatalogA2ListViewModel.cs" />
     <Compile Include="ViewModel\Quantech\CatalogList\CatalogA3ListViewModel.cs" />
     <Compile Include="ViewModel\Quantech\CatalogList\CatalogA4ListViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditCatalogItem\EditA1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditCatalogItem\EditA2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditCatalogItem\EditA3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditCatalogItem\EditA4CatalogViewModel.cs" />
     <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA1ItemViewModel.cs" />
     <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA2ItemViewModel.cs" />
     <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA4ItemViewModel.cs" />
@@ -230,6 +234,18 @@
     </Compile>
     <Compile Include="View\Quantech\CatalogList\CatalogA4ListView.xaml.cs">
       <DependentUpon>CatalogA4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditCatalogItem\EditA1CatalogView.xaml.cs">
+      <DependentUpon>EditA1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditCatalogItem\EditA2CatalogView.xaml.cs">
+      <DependentUpon>EditA2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditCatalogItem\EditA3CatalogView.xaml.cs">
+      <DependentUpon>EditA3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditCatalogItem\EditA4CatalogView.xaml.cs">
+      <DependentUpon>EditA4CatalogView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Quantech\EditQuoteItem\EditA1ItemView.xaml.cs">
       <DependentUpon>EditA1ItemView.xaml</DependentUpon>
@@ -331,6 +347,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Quantech\CatalogList\CatalogA4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditCatalogItem\EditA1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditCatalogItem\EditA2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditCatalogItem\EditA3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditCatalogItem\EditA4CatalogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

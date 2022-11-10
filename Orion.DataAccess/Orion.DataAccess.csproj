@@ -125,9 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase\GlobalDbContext.cs" />
-    <Compile Include="Migrations\20221107101814_mig-01.cs" />
-    <Compile Include="Migrations\20221107101814_mig-01.designer.cs">
-      <DependentUpon>20221107101814_mig-01.cs</DependentUpon>
+    <Compile Include="Migrations\20221110011703_mig-01.cs" />
+    <Compile Include="Migrations\20221110011703_mig-01.designer.cs">
+      <DependentUpon>20221110011703_mig-01.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\GlobalDbContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
