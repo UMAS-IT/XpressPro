@@ -282,7 +282,7 @@
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Header="Cost">
+                                    <!--<DataGridTemplateColumn Header="Cost">
                                         <DataGridTemplateColumn.HeaderStyle>
                                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
                                                 <Setter Property="Width" Value="auto"/>
@@ -293,9 +293,11 @@
                                                 <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding Cost, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
+                                    </DataGridTemplateColumn>-->
 
-                                    <DataGridTemplateColumn Header="Sell Margin (%)">
+                                <DataGridTextColumn Header="Cost" Binding="{Binding Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                                <DataGridTemplateColumn Header="Sell Margin (%)">
                                         <DataGridTemplateColumn.HeaderStyle>
                                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
                                                 <Setter Property="Width" Value="auto"/>
@@ -308,7 +310,7 @@
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Header="Sell Price">
+                                    <!--<DataGridTemplateColumn Header="Sell Price">
                                         <DataGridTemplateColumn.HeaderStyle>
                                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
                                                 <Setter Property="Width" Value="auto"/>
@@ -319,8 +321,10 @@
                                                 <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding SellPrice, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                </DataGrid.Columns>
+                                    </DataGridTemplateColumn>-->
+                                <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                            </DataGrid.Columns>
                             </DataGrid>
                         </Expander>
 
@@ -571,7 +575,7 @@
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Header="Cost">
+                                    <!--<DataGridTemplateColumn Header="Cost">
                                         <DataGridTemplateColumn.HeaderStyle>
                                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
                                                 <Setter Property="Width" Value="auto"/>
@@ -582,9 +586,11 @@
                                                 <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding Cost, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
+                                    </DataGridTemplateColumn>-->
 
-                                    <DataGridTemplateColumn Header="Sell Margin (%)">
+                                <DataGridTextColumn Header="Cost" Binding="{Binding Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                                <DataGridTemplateColumn Header="Sell Margin (%)">
                                         <DataGridTemplateColumn.HeaderStyle>
                                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
                                                 <Setter Property="Width" Value="auto"/>
@@ -597,7 +603,7 @@
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Header="Sell Price">
+                                    <!--<DataGridTemplateColumn Header="Sell Price">
                                         <DataGridTemplateColumn.HeaderStyle>
                                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
                                                 <Setter Property="Width" Value="auto"/>
@@ -608,8 +614,11 @@
                                                 <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding SellPrice, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                </DataGrid.Columns>
+                                    </DataGridTemplateColumn>-->
+
+                                <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                            </DataGrid.Columns>
                             </DataGrid>
                         </Expander>
 
@@ -860,7 +869,7 @@
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Header="Cost">
+                                    <!--<DataGridTemplateColumn Header="Cost">
                                         <DataGridTemplateColumn.HeaderStyle>
                                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
                                                 <Setter Property="Width" Value="auto"/>
@@ -871,9 +880,11 @@
                                                 <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding Cost, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
+                                    </DataGridTemplateColumn>-->
 
-                                    <DataGridTemplateColumn Header="Sell Margin (%)">
+                                <DataGridTextColumn Header="Cost" Binding="{Binding Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                                <DataGridTemplateColumn Header="Sell Margin (%)">
                                         <DataGridTemplateColumn.HeaderStyle>
                                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
                                                 <Setter Property="Width" Value="auto"/>
@@ -886,7 +897,7 @@
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Header="Sell Price">
+                                    <!--<DataGridTemplateColumn Header="Sell Price">
                                         <DataGridTemplateColumn.HeaderStyle>
                                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
                                                 <Setter Property="Width" Value="auto"/>
@@ -897,8 +908,11 @@
                                                 <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding SellPrice, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                </DataGrid.Columns>
+                                    </DataGridTemplateColumn>-->
+
+                                <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                            </DataGrid.Columns>
                             </DataGrid>
                         </Expander>
 
@@ -1149,7 +1163,7 @@
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Header="Cost">
+                                    <!--<DataGridTemplateColumn Header="Cost">
                                         <DataGridTemplateColumn.HeaderStyle>
                                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
                                                 <Setter Property="Width" Value="auto"/>
@@ -1160,9 +1174,11 @@
                                                 <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding Cost, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
+                                    </DataGridTemplateColumn>-->
 
-                                    <DataGridTemplateColumn Header="Sell Margin (%)">
+                                <DataGridTextColumn Header="Cost" Binding="{Binding Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                                <DataGridTemplateColumn Header="Sell Margin (%)">
                                         <DataGridTemplateColumn.HeaderStyle>
                                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
                                                 <Setter Property="Width" Value="auto"/>
@@ -1175,7 +1191,7 @@
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Header="Sell Price">
+                                    <!--<DataGridTemplateColumn Header="Sell Price">
                                         <DataGridTemplateColumn.HeaderStyle>
                                             <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
                                                 <Setter Property="Width" Value="auto"/>
@@ -1186,8 +1202,11 @@
                                                 <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding SellPrice, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
-                                    </DataGridTemplateColumn>
-                                </DataGrid.Columns>
+                                    </DataGridTemplateColumn>-->
+
+                                <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                            </DataGrid.Columns>
                             </DataGrid>
                         </Expander>
                     </StackPanel>

@@ -32,16 +32,6 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Width="150">
-            <Grid.Style>
-                <Style TargetType="Grid">
-                    <Setter Property="IsEnabled" Value="True"/>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ItemTitlesActive}" Value="True">
-                            <Setter Property="IsEnabled" Value="False"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -62,7 +52,7 @@
                     <Button 
                                     Margin="1"
                                     Background="Orange"
-                                    Command="{Binding BackCommand}"
+                                    Command="{Binding BackToProductsCommand}"
                                     ToolTip="Back" >
                         <Button.Content>
                             <StackPanel Orientation="Vertical">
@@ -144,243 +134,73 @@
         </Grid>
 
         <Grid Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition MinWidth="400" MaxWidth="400"/>
-            </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="0">
-                <Grid.Style>
-                    <Style TargetType="Grid">
-                        <Setter Property="IsEnabled" Value="False"/>
-                        <Setter Property="Grid.ColumnSpan" Value="1"/>
-                        <Setter Property="Margin" Value="5,0,0,0"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ItemTitlesActive}" Value="false">
-                                <Setter Property="IsEnabled" Value="True"/>
-                                <Setter Property="Grid.ColumnSpan" Value="3"/>
-                                <Setter Property="Margin" Value="5,0,5,0"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Grid.Style>
+            <Border Grid.Row="0" Margin="5,5,5,0" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
+                <Label Content="Water Cooled Chillers Factory Lead Time" HorizontalAlignment="Center" FontSize="12" />
+            </Border>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <Border Grid.Row="0" Margin="0,5,0,0" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
-                    <Label Content="Water Cooled Chillers Factory Lead Time" HorizontalAlignment="Center" FontSize="12" />
-                </Border>
-
-                <DataGrid       Grid.Row="1"
-                            Margin="0,5,0,5"
+            <DataGrid       Grid.Row="1"
+                            Margin="5,5,5,5"
                             ItemsSource="{Binding Catalogs, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
                             Style="{StaticResource DGridStyle}"
                             CanUserSortColumns="False"
                             FrozenColumnCount="2">
 
-                    <DataGrid.Columns>
+                <DataGrid.Columns>
 
-                        <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Grid.Row="0"
+                    <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Grid.Row="0"
                                                         Background="{StaticResource MahApps.Brushes.Accent}"
                                                         ToolTip="Edit"
                                                         Command="{Binding Path=DataContext.EditCatalogItemCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" >
-                                        <icon:PackIconForkAwesome Kind="Pencil" >
-                                            <icon:PackIconForkAwesome.LayoutTransform>
-                                                <TransformGroup>
-                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
-                                                </TransformGroup>
-                                            </icon:PackIconForkAwesome.LayoutTransform>
-                                        </icon:PackIconForkAwesome>
-                                    </Button>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                                    <icon:PackIconForkAwesome Kind="Pencil" >
+                                        <icon:PackIconForkAwesome.LayoutTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            </TransformGroup>
+                                        </icon:PackIconForkAwesome.LayoutTransform>
+                                    </icon:PackIconForkAwesome>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button ToolTip="Item Info" Command="{Binding DataContext.EditCatalogTitlesCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}">
-                                        <icon:PackIconFontAwesome Kind="InfoSolid">
-                                            <icon:PackIconFontAwesome.LayoutTransform>
-                                                <TransformGroup>
-                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
-                                                </TransformGroup>
-                                            </icon:PackIconFontAwesome.LayoutTransform>
-                                        </icon:PackIconFontAwesome>
+                    <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button ToolTip="Item Info" Command="{Binding DataContext.EditCatalogTitlesCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}">
+                                    <icon:PackIconFontAwesome Kind="InfoSolid">
+                                        <icon:PackIconFontAwesome.LayoutTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            </TransformGroup>
+                                        </icon:PackIconFontAwesome.LayoutTransform>
+                                    </icon:PackIconFontAwesome>
 
-                                    </Button>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
-                        <DataGridTextColumn Header="Model" Binding="{Binding Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Unit Size" Binding="{Binding UnitSize}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Description" Binding="{Binding Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Voltage" Binding="{Binding Voltage}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="List Price" Binding="{Binding ListPrice}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Cost Multiplier" Binding="{Binding CostMultiplier}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Cost" Binding="{Binding Cost}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Sell Margin (%)" Binding="{Binding SellMargin}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-
-            <GridSplitter Grid.Column="1"  Width="5" Margin="5" Background="{StaticResource MahApps.Brushes.Accent}" BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
-                <GridSplitter.Style>
-                    <Style TargetType="GridSplitter" BasedOn="{StaticResource MahApps.Styles.GridSplitter}">
-                        <Setter Property="Visibility" Value="Visible"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ItemTitlesActive}" Value="False">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </GridSplitter.Style>
-            </GridSplitter>
-
-            <ContentControl Content="{Binding CurrentViewModel}" Grid.Column="2">
-                <ContentControl.Style>
-                    <Style TargetType="ContentControl">
-                        <Setter Property="Visibility" Value="Visible"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ItemTitlesActive}" Value="False">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </ContentControl.Style>
-            </ContentControl>
-
-            <Grid Grid.Column="2">
-                <Grid.Style>
-                    <Style TargetType="Grid">
-                        <Setter Property="Visibility" Value="Visible"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ItemTitlesActive}" Value="False">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Grid.Style>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-
-                <Border Grid.Row="0" Margin="0,5,5,0" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Label Content="Model :"  VerticalAlignment="Center"/>
-                        <Label Content="{Binding Catalog.Model}"  VerticalAlignment="Center"/>
-                    </StackPanel>
-                </Border>
-
-                <Border Grid.Row="1" BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Accent}" Margin="0,5,5,0">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto">
-                        <StackPanel Orientation="Vertical">
-                            <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Model" 
-                             Text="{Binding Catalog.Model, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-                            </TextBox>
-                            <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Price" 
-                             Background="#32B974"
-                             Text="{Binding Catalog.Price, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-                            </TextBox>
-                            <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Nominal Capacity" 
-                             Text="{Binding Catalog.NominalCapacity, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-                            </TextBox>
-                            <TextBox  
-                             ctrl:TextBoxHelper.Watermark="CHW / GPM" 
-                             Text="{Binding Catalog.ChwGpm, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-                            </TextBox>
-                            <TextBox  
-                             ctrl:TextBoxHelper.Watermark="CHW EWT / LWT" 
-                             Text="{Binding Catalog.ChwEwtLwt, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-                            </TextBox>
-                            <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Ambient" 
-                             Text="{Binding Catalog.Ambient, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-                            </TextBox>
-                            <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Voltage" 
-                             Text="{Binding Catalog.Voltage, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-                            </TextBox>
-
-                        </StackPanel>
-
-                    </ScrollViewer>
-                </Border>
-
-                <GroupBox Grid.Row="2" Header="Actions" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,5,5">
-                    <Grid>
-
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button 
-                                    Margin="1"
-                                    Background="Orange"
-                                    Width="65"
-                                    Command="{Binding BackCommand}"
-                                    ToolTip="Back" >
-                                <Button.Content>
-                                    <StackPanel Orientation="Vertical">
-                                        <icon:PackIconMaterial Kind="KeyboardReturn" 
-                                                        Grid.Column="1" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
-                                            <icon:PackIconMaterial.LayoutTransform>
-                                                <TransformGroup>
-                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
-                                                </TransformGroup>
-                                            </icon:PackIconMaterial.LayoutTransform>
-                                        </icon:PackIconMaterial>
-                                    </StackPanel>
-                                </Button.Content>
-                            </Button>
-
-                            <Button 
-                                    Margin="1"
-                                    Background="{StaticResource MahApps.Brushes.Accent}"
-                                    Width="65"
-                                    Command="{Binding SaveCatalogCommand}"
-                                    ToolTip="Save / Update Catalog Item" >
-                                <Button.Content>
-                                    <StackPanel Orientation="Vertical">
-                                        <icon:PackIconMaterial Kind="ContentSave" 
-                                                        Grid.Column="1" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
-                                            <icon:PackIconMaterial.LayoutTransform>
-                                                <TransformGroup>
-                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
-                                                </TransformGroup>
-                                            </icon:PackIconMaterial.LayoutTransform>
-                                        </icon:PackIconMaterial>
-                                    </StackPanel>
-                                </Button.Content>
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-                </GroupBox>
-            </Grid>
+                    <DataGridTextColumn Header="Model" Binding="{Binding Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Unit Size" Binding="{Binding UnitSize}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Voltage" Binding="{Binding Voltage}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="List Price" Binding="{Binding ListPrice}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Cost Multiplier" Binding="{Binding CostMultiplier}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Cost" Binding="{Binding Cost}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Sell Margin (%)" Binding="{Binding SellMargin}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
+
     </Grid>
 </UserControl>

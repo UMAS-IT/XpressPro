@@ -129,6 +129,10 @@
     <Compile Include="Migrations\20221110011703_mig-01.designer.cs">
       <DependentUpon>20221110011703_mig-01.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20221110052031_mig-02.cs" />
+    <Compile Include="Migrations\20221110052031_mig-02.designer.cs">
+      <DependentUpon>20221110052031_mig-02.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GlobalDbContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CatalogService.cs" />

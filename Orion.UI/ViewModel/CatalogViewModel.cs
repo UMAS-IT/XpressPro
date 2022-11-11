@@ -90,25 +90,20 @@ namespace Orion.UI.ViewModel
 
             EditA1CatalogViewModel editA1CatalogViewModel = new EditA1CatalogViewModel(dialogCoordinator, catalog);
             editA1CatalogViewModel.BackFromEditRequested += OnBackFromEdit;
+            editA1CatalogViewModel.BackFromEditItemSavedRequested += OnBackFromEditItemSaved;
 
             EditViewModel = editA1CatalogViewModel;
         }
 
-        private void OnEditCatalogTitles(ICatalog catalog)
+        private void OnBackFromEditItemSaved(ICatalog catalog)
         {
-            EditActive = true;
+            if (CurrentViewModel is CatalogA1ListViewModel)
+            {
+                CatalogA1ListViewModel viewModel = CurrentViewModel as CatalogA1ListViewModel;
+                viewModel.Catalogs.Clear();
+            }
 
-            TitleViewModel titleViewModel = new TitleViewModel(dialogCoordinator, catalog);
-            titleViewModel.BackRequested += OnBackFromEdit;
-
-            EditViewModel = titleViewModel; 
-        }
-
-        private async void OnBackFromEdit()
-        {
-            EditActive = false;
-            EditViewModel = null;
-            await Task.Delay(100);
+            OnBackFromEdit();
         }
 
         private async void OnCatalogA2()
@@ -121,7 +116,9 @@ namespace Orion.UI.ViewModel
             ProductsActive = false;
 
             CatalogA2ListViewModel catalogA2ListViewModel = new CatalogA2ListViewModel(dialogCoordinator);
-            catalogA2ListViewModel.BackRequested += OnBackToProducts;
+            catalogA2ListViewModel.BackToProductsRequested += OnBackToProducts;
+            catalogA2ListViewModel.OnEditCatalogTitlesRequested += OnEditCatalogTitles;
+            //catalogA2ListViewModel.OnEditCatalogItemRequested += OnEditA1CatalogItem;
 
             CurrentViewModel = catalogA2ListViewModel;
         }
@@ -136,7 +133,9 @@ namespace Orion.UI.ViewModel
             ProductsActive = false;
 
             CatalogA3ListViewModel catalogA3ListViewModel = new CatalogA3ListViewModel(dialogCoordinator);
-            catalogA3ListViewModel.BackRequested += OnBackToProducts;
+            catalogA3ListViewModel.BackToProductsRequested += OnBackToProducts;
+            catalogA3ListViewModel.OnEditCatalogTitlesRequested += OnEditCatalogTitles;
+            //catalogA3ListViewModel.OnEditCatalogItemRequested += OnEditA1CatalogItem;
 
             CurrentViewModel = catalogA3ListViewModel;
         }
@@ -151,9 +150,28 @@ namespace Orion.UI.ViewModel
             ProductsActive = false;
 
             CatalogA4ListViewModel catalogA4ListViewModel = new CatalogA4ListViewModel(dialogCoordinator);
-            catalogA4ListViewModel.BackRequested += OnBackToProducts;
+            catalogA4ListViewModel.BackToProductsRequested += OnBackToProducts;
+            catalogA4ListViewModel.OnEditCatalogTitlesRequested += OnEditCatalogTitles;
+            //catalogA4ListViewModel.OnEditCatalogItemRequested += OnEditA1CatalogItem;
 
             CurrentViewModel = catalogA4ListViewModel;
+        }
+
+        private void OnLoadData()
+        {
+            ProductsActive = true;
+                mw.Title = "XpressPro";
+            CurrentViewModel = airTreatmentViewModel;
+        }
+
+        private void OnEditCatalogTitles(ICatalog catalog)
+        {
+            EditActive = true;
+
+            TitleViewModel titleViewModel = new TitleViewModel(dialogCoordinator, catalog);
+            titleViewModel.BackRequested += OnBackFromEdit;
+
+            EditViewModel = titleViewModel;
         }
 
         private async void OnBackToProducts()
@@ -164,11 +182,12 @@ namespace Orion.UI.ViewModel
             CurrentViewModel = airTreatmentViewModel;
         }
 
-        private void OnLoadData()
+        private async void OnBackFromEdit()
         {
-            ProductsActive = true;
-                mw.Title = "XpressPro";
-            CurrentViewModel = airTreatmentViewModel;
+            EditActive = false;
+            EditViewModel = null;
+            await Task.Delay(100);
         }
+
     }
 }

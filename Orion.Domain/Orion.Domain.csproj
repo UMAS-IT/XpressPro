@@ -147,6 +147,10 @@
       <Project>{6c9fd30b-658a-416b-b60f-b75240f3b06e}</Project>
       <Name>Orion.Binding</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Orion.Helper\Orion.Helper.csproj">
+      <Project>{D9E23B8F-1A1B-467D-A46F-07D97A7112F5}</Project>
+      <Name>Orion.Helper</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

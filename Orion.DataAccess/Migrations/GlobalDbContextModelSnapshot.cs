@@ -154,8 +154,6 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Cost");
-
                     b.Property<double>("CostMultiplier");
 
                     b.Property<string>("Description");
@@ -165,8 +163,6 @@ namespace Orion.DataAccess.Migrations
                     b.Property<string>("Model");
 
                     b.Property<double>("SellMargin");
-
-                    b.Property<double>("SellPrice");
 
                     b.Property<string>("UnitSize");
 
@@ -183,8 +179,6 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Cost");
-
                     b.Property<double>("CostMultiplier");
 
                     b.Property<string>("Description");
@@ -194,8 +188,6 @@ namespace Orion.DataAccess.Migrations
                     b.Property<string>("Model");
 
                     b.Property<double>("SellMargin");
-
-                    b.Property<double>("SellPrice");
 
                     b.Property<string>("UnitSize");
 
@@ -212,8 +204,6 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Cost");
-
                     b.Property<double>("CostMultiplier");
 
                     b.Property<string>("Description");
@@ -223,8 +213,6 @@ namespace Orion.DataAccess.Migrations
                     b.Property<string>("Model");
 
                     b.Property<double>("SellMargin");
-
-                    b.Property<double>("SellPrice");
 
                     b.Property<string>("UnitSize");
 
@@ -241,8 +229,6 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Cost");
-
                     b.Property<double>("CostMultiplier");
 
                     b.Property<string>("Description");
@@ -252,8 +238,6 @@ namespace Orion.DataAccess.Migrations
                     b.Property<string>("Model");
 
                     b.Property<double>("SellMargin");
-
-                    b.Property<double>("SellPrice");
 
                     b.Property<string>("UnitSize");
 
@@ -272,8 +256,6 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int?>("CatalogA1Id");
 
-                    b.Property<double>("Cost");
-
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
@@ -289,8 +271,6 @@ namespace Orion.DataAccess.Migrations
                     b.Property<int>("QuoteId");
 
                     b.Property<double>("SellMargin");
-
-                    b.Property<double>("SellPrice");
 
                     b.Property<string>("Tag");
 
@@ -311,8 +291,6 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int?>("CatalogA2Id");
 
-                    b.Property<double>("Cost");
-
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
@@ -328,8 +306,6 @@ namespace Orion.DataAccess.Migrations
                     b.Property<int>("QuoteId");
 
                     b.Property<double>("SellMargin");
-
-                    b.Property<double>("SellPrice");
 
                     b.Property<string>("Tag");
 
@@ -350,8 +326,6 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int?>("CatalogA3Id");
 
-                    b.Property<double>("Cost");
-
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
@@ -367,8 +341,6 @@ namespace Orion.DataAccess.Migrations
                     b.Property<int>("QuoteId");
 
                     b.Property<double>("SellMargin");
-
-                    b.Property<double>("SellPrice");
 
                     b.Property<string>("Tag");
 
@@ -389,8 +361,6 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int?>("CatalogA4Id");
 
-                    b.Property<double>("Cost");
-
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
@@ -406,8 +376,6 @@ namespace Orion.DataAccess.Migrations
                     b.Property<int>("QuoteId");
 
                     b.Property<double>("SellMargin");
-
-                    b.Property<double>("SellPrice");
 
                     b.Property<string>("Tag");
 

@@ -111,9 +111,10 @@ namespace Orion.Domain.EntityItem
         }
 
         private double _cost;
+        [NotMapped]
         public double Cost
         {
-            get => _cost;
+            get => ListPrice * CostMultiplier;
             set
             {
                 if (!OverridePrice && Catalog != null)
@@ -137,9 +138,10 @@ namespace Orion.Domain.EntityItem
         }
 
         private double _sellPrice;
+        [NotMapped]
         public double SellPrice
         {
-            get => _sellPrice;
+            get => Cost / (1 - (SellMargin / 100));
             set
             {
                 if (!OverridePrice && Catalog != null)

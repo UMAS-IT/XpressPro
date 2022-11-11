@@ -25,8 +25,11 @@ namespace Orion.UI.ViewModel.Quantech.EditCatalogItem
         }
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand BackFromEditCommand { get; set; }
+        public RelayCommand UpdateCatalogItemCommand { get; set; }
 
         public Action BackFromEditRequested = delegate { };
+
+        public Action<ICatalog> BackFromEditItemSavedRequested = delegate { };
 
         public EditA1CatalogViewModel(IDialogCoordinator dialogCoordinator, ICatalog catalog)
         {
@@ -34,9 +37,35 @@ namespace Orion.UI.ViewModel.Quantech.EditCatalogItem
 
             LoadDataCommand = new RelayCommand(OnLoadData);
             BackFromEditCommand = new RelayCommand(OnBackFromEdit);
+            UpdateCatalogItemCommand = new RelayCommand(OnUpdateCatalogItem);
 
             catalogService = new CatalogService();
             messageService = new MessageService(dialogCoordinator, this);
+        }
+
+        private async void OnUpdateCatalogItem()
+        {
+            try
+            {
+                await messageService.StartMessage("Catalog Items", "Saving catalog item, please wait...");
+
+                if(!await CanUpdate())
+
+                Catalog = catalogService.UpdateCatalogItem(Catalog);
+
+                await messageService.EndMessage("Catalog Items", "Catalog item has been saved");
+            }
+            catch (Exception ex)
+            {
+                await messageService.ExceptionMessage(ex);
+            }
+            BackFromEditItemSavedRequested(Catalog);
+        }
+
+        private async Task<bool> CanUpdate()
+        {
+
+            return true;
         }
 
         private void OnBackFromEdit()

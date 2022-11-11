@@ -28,15 +28,79 @@
 
         <Border Grid.Row="0" Margin="0,5,5,0" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Content="Item Specs (" Padding="0,5,0,5" VerticalAlignment="Center"/>
-                <Label Content=" Model: " Padding="0" VerticalAlignment="Center"/>
+                <Label Content=" Model: "  VerticalAlignment="Center"/>
                 <Label Content="{Binding Catalog.Model}"  VerticalAlignment="Center"/>
-                <Label Content=")" Padding="0" VerticalAlignment="Center"/>
             </StackPanel>
         </Border>
 
         <Border Grid.Row="1" BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Accent}" Margin="0,5,5,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <StackPanel Orientation="Vertical">
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Model" 
+                             Text="{Binding Catalog.Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Unit Size" 
+                             Text="{Binding Catalog.UnitSize, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
 
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Description" 
+                             Text="{Binding Catalog.Description, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Voltage" 
+                             Text="{Binding Catalog.Voltage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="List Price" 
+                             Background="DarkSlateBlue"
+                             PreviewTextInput="IsDouble"
+                             Text="{Binding Catalog.ListPrice, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Cost Multiplier" 
+                             Background="DarkSlateBlue"
+                             PreviewTextInput="IsDouble"
+                             Text="{Binding Catalog.CostMultiplier, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Cost" 
+                             Background="DarkOrange"
+                             IsReadOnly="True"
+                             Text="{Binding Catalog.Cost, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Sell Margin" 
+                             Background="DarkSlateBlue"
+                             PreviewTextInput="IsDouble"
+                             Text="{Binding Catalog.SellMargin, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Sell Price" 
+                             Background="DarkOrange"
+                             IsReadOnly="True"
+                             Text="{Binding Catalog.SellPrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+                </StackPanel>
+
+            </ScrollViewer>
         </Border>
 
         <GroupBox Grid.Row="2" Header="Actions" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,5,5">
@@ -69,7 +133,7 @@
                                     Margin="1"
                                     Background="{StaticResource MahApps.Brushes.Accent}"
                                     Width="65"
-                                    Command="{Binding UpdateTitlesCommand}"
+                                    Command="{Binding UpdateCatalogItemCommand}"
                                     ToolTip="Save / Update Specs" >
                         <Button.Content>
                             <StackPanel Orientation="Vertical">

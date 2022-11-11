@@ -18,13 +18,6 @@ namespace Orion.UI.ViewModel.Quantech.CatalogList
         MessageService messageService;
         CatalogService catalogService;
 
-        private BindableBase _currentViewModel;
-        public BindableBase CurrentViewModel
-        {
-            get => _currentViewModel;
-            set => SetProperty(ref _currentViewModel, value);
-        }
-
         private ObservableCollection<ICatalog> _catalogs;
         public ObservableCollection<ICatalog> Catalogs
         {
@@ -37,13 +30,6 @@ namespace Orion.UI.ViewModel.Quantech.CatalogList
         {
             get => _catalogsBase;
             set => SetProperty(ref _catalogsBase, value);
-        }
-
-        private bool _itemTitlesActive;
-        public bool ItemTitlesActive
-        {
-            get => _itemTitlesActive;
-            set => SetProperty(ref _itemTitlesActive, value);
         }
 
         private string _model;
@@ -59,8 +45,11 @@ namespace Orion.UI.ViewModel.Quantech.CatalogList
         public RelayCommand AddCatalogItemCommand { get; set; }
         public RelayCommand<ICatalog> EditCatalogItemCommand { get; set; }
         public RelayCommand<ICatalog> EditCatalogTitlesCommand { get; set; }
-        public RelayCommand BackCommand { get; set; }
-        public Action BackRequested = delegate { };
+        public RelayCommand BackToProductsCommand { get; set; }
+
+        public Action BackToProductsRequested = delegate { };
+        public Action<ICatalog> OnEditCatalogItemRequested = delegate { };
+        public Action<ICatalog> OnEditCatalogTitlesRequested = delegate { };
 
         public CatalogA3ListViewModel(IDialogCoordinator dialogCoordinator)
         {
@@ -72,72 +61,32 @@ namespace Orion.UI.ViewModel.Quantech.CatalogList
             AddCatalogItemCommand = new RelayCommand(OnAddCatalogItem);
             EditCatalogItemCommand = new RelayCommand<ICatalog>(OnEditCatalogItem);
             EditCatalogTitlesCommand = new RelayCommand<ICatalog>(OnEditCatalogTitles);
-            BackCommand = new RelayCommand(OnBack);
+            BackToProductsCommand = new RelayCommand(OnBackToProducts);
 
             catalogService = new CatalogService();
             messageService = new MessageService(dialogCoordinator, this);
 
         }
 
-        private void OnBack()
+        private void OnBackToProducts()
         {
-            BackRequested();
+            BackToProductsRequested();
         }
 
-        private async void OnEditCatalogTitles(ICatalog catalog)
+        private void OnEditCatalogTitles(ICatalog catalog)
         {
             if (catalog == null)
                 return;
 
-            CurrentViewModel = null;
-            await Task.Delay(100);
-            ItemTitlesActive = true;
-
-            TitleViewModel titleViewModel = new TitleViewModel(dialogCoordinator, catalog);
-            titleViewModel.BackRequested += OnBackFromEdit;
-
-            CurrentViewModel = titleViewModel;
+            OnEditCatalogTitlesRequested(catalog);
         }
 
-        private async void OnBackFromEdit()
+        private void OnEditCatalogItem(ICatalog catalog)
         {
-            ItemTitlesActive = false;
-            CurrentViewModel = null;
-            await Task.Delay(100);
-        }
+            if (catalog == null)
+                return;
 
-        private async void OnEditCatalogItem(ICatalog catalog)
-        {
-            //if (catalog == null)
-            //    return;
-
-            //CurrentViewModel = null;
-            //await Task.Delay(100);
-            //ItemTitlesActive = true;
-
-            //EditAirCooledChillerViewModel editAirCooledChillerViewModel = new EditAirCooledChillerViewModel(dialogCoordinator, catalog);
-            //editAirCooledChillerViewModel.CatalogSavedRequested += OnCatalogSaved;
-            //editAirCooledChillerViewModel.BackRequested += OnBackFromEdit;
-
-            //CurrentViewModel = editAirCooledChillerViewModel;
-        }
-
-        private void OnCatalogSaved(ICatalog catalog)
-        {
-            //update
-            if (Catalogs.Any(x => x.Id == catalog.Id))
-            {
-                int index = Catalogs.ToList().FindIndex(x => x.Id == catalog.Id);
-
-                Catalogs[index] = catalog;
-            }
-            else
-            {
-                //new
-                Catalogs.Insert(0, catalog);
-            }
-
-            ItemTitlesActive = false;
+            OnEditCatalogItemRequested(catalog);
         }
 
         private void OnAddCatalogItem()

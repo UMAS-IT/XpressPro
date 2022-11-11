@@ -67,5 +67,40 @@ namespace Orion.DataAccess.Service
                 }
             }
         }
+
+        public ICatalog UpdateCatalogItem(ICatalog catalog)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                ICatalog dbCatalog = null;
+
+                if (catalog is CatalogA1)
+                {
+                    if (catalog.Id != 0)
+                    {
+                        CatalogA1 catalogA1 = catalog as CatalogA1;
+                        CatalogA1 dbCatalogA1 = context.CatalogA1s.FirstOrDefault(x => x.Id == catalog.Id);
+                        
+                        dbCatalogA1.Model = catalogA1.Model;
+                        dbCatalogA1.ListPrice = catalogA1.ListPrice;
+                        dbCatalogA1.CostMultiplier = catalogA1.CostMultiplier;
+                        dbCatalogA1.SellMargin = catalogA1.SellMargin;
+                        dbCatalogA1.UnitSize = catalogA1.UnitSize;
+                        dbCatalogA1.Description = catalogA1.Description;
+                        dbCatalogA1.Voltage = catalogA1.Voltage;
+
+                        context.CatalogA1s.Update(dbCatalogA1);
+                        dbCatalog = dbCatalogA1;
+                    }
+                    else
+                    {
+                        context.CatalogA1s.Add(catalog as CatalogA1);
+                    }
+                }
+                context.SaveChanges();
+
+                return dbCatalog;
+            }
+        }
     }
 }

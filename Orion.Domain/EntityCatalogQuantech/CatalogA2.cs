@@ -2,6 +2,7 @@
 using Orion.Domain.Entity;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Orion.Domain.EntityCatalogQuantech
 {
@@ -37,9 +38,10 @@ namespace Orion.Domain.EntityCatalogQuantech
         }
 
         private double _cost;
+        [NotMapped]
         public double Cost
         {
-            get => _cost;
+            get => ListPrice * CostMultiplier;
             set => SetProperty(ref _cost, value);
         }
 
@@ -51,9 +53,10 @@ namespace Orion.Domain.EntityCatalogQuantech
         }
 
         private double _SellPrice;
+        [NotMapped]
         public double SellPrice
         {
-            get => _SellPrice;
+            get => Cost / (1 - (SellMargin / 100));
             set => SetProperty(ref _SellPrice, value);
         }
 
