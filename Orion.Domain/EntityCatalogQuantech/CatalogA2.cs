@@ -1,5 +1,6 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Domain.Entity;
+using Orion.Helper.Extension;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -27,21 +28,31 @@ namespace Orion.Domain.EntityCatalogQuantech
         public double ListPrice
         {
             get => _listPrice;
-            set => SetProperty(ref _listPrice, value);
+            set
+            {
+                SetProperty(ref _listPrice, value);
+                Cost = value * CostMultiplier;
+                SellPrice = Cost / (1 - (SellMargin / 100));
+            }
         }
 
         private double _costMultiplier;
         public double CostMultiplier
         {
             get => _costMultiplier;
-            set => SetProperty(ref _costMultiplier, value);
+            set
+            {
+                SetProperty(ref _costMultiplier, value);
+                Cost = value * ListPrice;
+                SellPrice = Cost / (1 - (SellMargin / 100));
+            }
         }
 
         private double _cost;
         [NotMapped]
         public double Cost
         {
-            get => ListPrice * CostMultiplier;
+            get => (ListPrice * CostMultiplier).Truncate(2);
             set => SetProperty(ref _cost, value);
         }
 
@@ -49,14 +60,18 @@ namespace Orion.Domain.EntityCatalogQuantech
         public double SellMargin
         {
             get => _sellMargin;
-            set => SetProperty(ref _sellMargin, value);
+            set
+            {
+                SetProperty(ref _sellMargin, value);
+                SellPrice = Cost / (1 - (value / 100));
+            }
         }
 
         private double _SellPrice;
         [NotMapped]
         public double SellPrice
         {
-            get => Cost / (1 - (SellMargin / 100));
+            get => (Cost / (1 - (SellMargin / 100))).Truncate(2);
             set => SetProperty(ref _SellPrice, value);
         }
 

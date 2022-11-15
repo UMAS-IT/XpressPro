@@ -1,6 +1,7 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogQuantech;
+using Orion.Helper.Extension;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -84,6 +85,7 @@ namespace Orion.Domain.EntityItem
             set => SetProperty(ref _titles, value);
         }
 
+
         private double _listPrice;
         public double ListPrice
         {
@@ -94,6 +96,9 @@ namespace Orion.Domain.EntityItem
                     value = Catalog.ListPrice;
 
                 SetProperty(ref _listPrice, value);
+                Cost = value * CostMultiplier;
+                SellPrice = Cost / (1 - (SellMargin / 100));
+
             }
         }
 
@@ -107,6 +112,8 @@ namespace Orion.Domain.EntityItem
                     value = Catalog.CostMultiplier;
 
                 SetProperty(ref _costMultiplier, value);
+                Cost = value * ListPrice;
+                SellPrice = Cost / (1 - (SellMargin / 100));
             }
         }
 
@@ -114,7 +121,7 @@ namespace Orion.Domain.EntityItem
         [NotMapped]
         public double Cost
         {
-            get => ListPrice * CostMultiplier;
+            get => (ListPrice * CostMultiplier).Truncate(2);
             set
             {
                 if (!OverridePrice && Catalog != null)
@@ -134,6 +141,7 @@ namespace Orion.Domain.EntityItem
                     value = Catalog.SellMargin;
 
                 SetProperty(ref _sellMargin, value);
+                SellPrice = Cost / (1 - (value / 100));
             }
         }
 
@@ -141,7 +149,7 @@ namespace Orion.Domain.EntityItem
         [NotMapped]
         public double SellPrice
         {
-            get => Cost / (1 - (SellMargin / 100));
+            get => (Cost / (1 - (SellMargin / 100))).Truncate(2);
             set
             {
                 if (!OverridePrice && Catalog != null)
@@ -150,6 +158,7 @@ namespace Orion.Domain.EntityItem
                 SetProperty(ref _sellPrice, value);
             }
         }
+
 
         private int? _catalogA4Id;
         public int? CatalogA4Id

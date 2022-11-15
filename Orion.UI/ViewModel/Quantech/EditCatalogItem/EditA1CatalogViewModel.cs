@@ -2,6 +2,7 @@
 using Orion.Binding.Binding;
 using Orion.DataAccess.Service;
 using Orion.Domain.Entity;
+using Orion.Domain.EntityCatalogQuantech;
 using Orion.UI.Command;
 using Orion.UI.Service;
 using System;
@@ -16,6 +17,7 @@ namespace Orion.UI.ViewModel.Quantech.EditCatalogItem
     {
         MessageService messageService;
         CatalogService catalogService;
+        private bool isUpdated;
 
         private ICatalog _catalog;
         public ICatalog Catalog
@@ -29,7 +31,7 @@ namespace Orion.UI.ViewModel.Quantech.EditCatalogItem
 
         public Action BackFromEditRequested = delegate { };
 
-        public Action<ICatalog> BackFromEditItemSavedRequested = delegate { };
+        public Action<ICatalog, bool> BackFromEditItemSavedRequested = delegate { };
 
         public EditA1CatalogViewModel(IDialogCoordinator dialogCoordinator, ICatalog catalog)
         {
@@ -50,6 +52,7 @@ namespace Orion.UI.ViewModel.Quantech.EditCatalogItem
                 await messageService.StartMessage("Catalog Items", "Saving catalog item, please wait...");
 
                 if(!await CanUpdate())
+                    return;
 
                 Catalog = catalogService.UpdateCatalogItem(Catalog);
 
@@ -59,11 +62,27 @@ namespace Orion.UI.ViewModel.Quantech.EditCatalogItem
             {
                 await messageService.ExceptionMessage(ex);
             }
-            BackFromEditItemSavedRequested(Catalog);
+            BackFromEditItemSavedRequested(Catalog, isUpdated);
         }
 
         private async Task<bool> CanUpdate()
         {
+            CatalogA1 catalog = Catalog as CatalogA1;
+
+            if (string.IsNullOrWhiteSpace(catalog.Model)
+                || string.IsNullOrWhiteSpace(catalog.UnitSize)
+                || string.IsNullOrWhiteSpace(catalog.Description)
+                || string.IsNullOrWhiteSpace(catalog.Voltage))
+            {
+                await messageService.ResultMessage("Error", "Please verify and complete your input information");
+                return false;
+            }
+
+            if (catalogService.CatalogModelNameExist(Catalog))
+            {
+                await messageService.ResultMessage("Error", "This Model Name already exist in this catalog");
+                return false;
+            }
 
             return true;
         }
@@ -79,7 +98,17 @@ namespace Orion.UI.ViewModel.Quantech.EditCatalogItem
             {
                 await messageService.StartMessage("Catalog Items", "Loading catalog items, please wait...");
 
-                Catalog = catalogService.GetCatalogByCatalogId(Catalog);
+                if (Catalog == null || Catalog.Id == 0)
+                {
+                    Catalog = new CatalogA1();
+                    isUpdated = false;
+                }
+                else
+                {
+                    Catalog = catalogService.GetCatalogByCatalogId(Catalog);
+                    isUpdated = true;
+                }
+
 
                 await messageService.EndMessage("Catalog Items", "Catalog items has been loaded");
             }

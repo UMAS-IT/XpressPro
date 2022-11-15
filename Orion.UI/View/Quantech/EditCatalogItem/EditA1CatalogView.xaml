@@ -63,7 +63,7 @@
                              ctrl:TextBoxHelper.Watermark="List Price" 
                              Background="DarkSlateBlue"
                              PreviewTextInput="IsDouble"
-                             Text="{Binding Catalog.ListPrice, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
+                             Text="{Binding Catalog.ListPrice, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
                     </TextBox>
 
@@ -71,7 +71,7 @@
                              ctrl:TextBoxHelper.Watermark="Cost Multiplier" 
                              Background="DarkSlateBlue"
                              PreviewTextInput="IsDouble"
-                             Text="{Binding Catalog.CostMultiplier, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
+                             Text="{Binding Catalog.CostMultiplier, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
                     </TextBox>
 
@@ -79,7 +79,7 @@
                              ctrl:TextBoxHelper.Watermark="Cost" 
                              Background="DarkOrange"
                              IsReadOnly="True"
-                             Text="{Binding Catalog.Cost, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Text="{Binding Catalog.Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c},  Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
                     </TextBox>
 
@@ -87,7 +87,7 @@
                              ctrl:TextBoxHelper.Watermark="Sell Margin" 
                              Background="DarkSlateBlue"
                              PreviewTextInput="IsDouble"
-                             Text="{Binding Catalog.SellMargin, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
+                             Text="{Binding Catalog.SellMargin, UpdateSourceTrigger=LostFocus, StringFormat={}{0}%, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
                     </TextBox>
 
@@ -95,7 +95,7 @@
                              ctrl:TextBoxHelper.Watermark="Sell Price" 
                              Background="DarkOrange"
                              IsReadOnly="True"
-                             Text="{Binding Catalog.SellPrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Text="{Binding Catalog.SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
                     </TextBox>
                 </StackPanel>

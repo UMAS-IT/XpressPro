@@ -1217,30 +1217,8 @@
 
             <GroupBox Grid.Row="2" Header="Actions" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="5,0,5,5">
                 <Grid>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <!--<Button 
-                                    Margin="1"
-                                    Background="Orange"
-                                    Width="65"
-                                    Command="{Binding BackToProductsCommand}"
-                                    ToolTip="Back" >
-                            <Button.Content>
-                                <StackPanel Orientation="Vertical">
-                                    <icon:PackIconMaterial Kind="KeyboardReturn" 
-                                                        Grid.Column="1" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
-                                        <icon:PackIconMaterial.LayoutTransform>
-                                            <TransformGroup>
-                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
-                                            </TransformGroup>
-                                        </icon:PackIconMaterial.LayoutTransform>
-                                    </icon:PackIconMaterial>
-                                </StackPanel>
-                            </Button.Content>
-                        </Button>-->
-
-                        <Button 
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button 
                                     Margin="1"
                                     Background="{StaticResource MahApps.Brushes.Accent}"
                                     Width="65"

@@ -2,11 +2,16 @@
 using Orion.Binding.Binding;
 using Orion.DataAccess.Service;
 using Orion.Domain.Entity;
+using Orion.Domain.EntityItem;
+using Orion.Helper.Extension;
 using Orion.UI.Command;
 using Orion.UI.Service;
 using Orion.UI.ViewModel.Quantech;
+using Orion.UI.ViewModel.Quantech.EditQuoteItem;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Orion.UI.ViewModel
@@ -17,19 +22,12 @@ namespace Orion.UI.ViewModel
         private MessageService messageService;
         private ProjectService projectService;
         private QuoteService quoteService;
+        ItemService itemService;
         private MainWindowViewModel mw;
         WindowService windowService;
         private int projectId;
         private int quoteId;
         private readonly AirTreatmentViewModel airTreatmentViewModel = new AirTreatmentViewModel();
-
-
-        private BindableBase _currentViewModel;
-        public BindableBase CurrentViewModel
-        {
-            get => _currentViewModel;
-            set => SetProperty(ref _currentViewModel, value);
-        }
 
         private BindableBase _titlesViewModel;
         public BindableBase TitlesViewModel
@@ -44,13 +42,6 @@ namespace Orion.UI.ViewModel
             get => _titlesActive;
             set => SetProperty(ref _titlesActive, value);
         }
-
-        //private bool _productsActive;
-        //public bool ProductsActive
-        //{
-        //    get => _productsActive;
-        //    set => SetProperty(ref _productsActive, value);
-        //}
 
         private Project _project;
         public Project Project
@@ -110,13 +101,16 @@ namespace Orion.UI.ViewModel
 
         public RelayCommand BackToQuotesCommad { get; set; }
         public RelayCommand LoadDataCommand { get; set; }
-
-        public RelayCommand ACommand { get; set; }
-        public RelayCommand BCommand { get; set; }
-        public RelayCommand CCommand { get; set; }
-
+        public RelayCommand<string> EditItemsCommand { get; set; }
+        public RelayCommand UpdateQuoteItemsCommand { get; set; }
 
         public Action BackToQuotesRequested = delegate { };
+        public RelayCommand<IItem> MoveToStartCommand { get; set; }
+        public RelayCommand<IItem> MoveToUpCommand { get; set; }
+        public RelayCommand<IItem> DeleteItemCommand { get; set; }
+        public RelayCommand<IItem> ShowItemTitlesCommand { get; set; }
+        public RelayCommand<IItem> MoveToDownCommand { get; set; }
+        public RelayCommand<IItem> MoveToEndCommand { get; set; }
 
         public ItemViewModel(IDialogCoordinator dialogCoordinator, int projectId, int quoteId, MainWindowViewModel mw)
         {
@@ -127,78 +121,142 @@ namespace Orion.UI.ViewModel
 
             LoadDataCommand = new RelayCommand(OnLoadData);
             BackToQuotesCommad = new RelayCommand(OnBackToQuotes);
-
-            ACommand = new RelayCommand(OnA);
-            BCommand = new RelayCommand(OnB);
-            CCommand = new RelayCommand(OnC);
+            EditItemsCommand = new RelayCommand<string>(OnEditItems);
+            MoveToStartCommand = new RelayCommand<IItem>(OnMoveToStart);
+            MoveToUpCommand = new RelayCommand<IItem>(OnMoveToUp);
+            DeleteItemCommand = new RelayCommand<IItem>(OnDeleteItem);
+            ShowItemTitlesCommand = new RelayCommand<IItem>(OnShowItemTitles);
+            MoveToDownCommand = new RelayCommand<IItem>(OnMoveToDown);
+            MoveToEndCommand = new RelayCommand<IItem>(OnMoveToEnd);
+            UpdateQuoteItemsCommand = new RelayCommand(OnUpdateQuoteItems);
 
             projectService = new ProjectService();
             quoteService = new QuoteService();
             messageService = new MessageService(dialogCoordinator, this);
             windowService = new WindowService();
+            itemService = new ItemService();
         }
 
-        private async void OnB()
+        private void LoadItemLists()
         {
-            //if (CurrentViewModel is AQuoteItemListViewModel)
-            //    return;
-
-            //ProductsActive = false;
-
-            //CurrentViewModel = null;
-            //await Task.Delay(100);
-
-            //AQuoteItemListViewModel aQuoteItemListViewModel = new AQuoteItemListViewModel(dialogCoordinator, quoteId);
-
-            //aQuoteItemListViewModel.ShowItemTitlesRequested += OnShowItemTitles;
-            //aQuoteItemListViewModel.BackToProductsRequested += OnBackToProducts;
-
-            //CurrentViewModel = aQuoteItemListViewModel;
+            ItemA1s = Items.Where(x => x is ItemA1).ToObservableCollection();
+            ItemA2s = Items.Where(x => x is ItemA2).ToObservableCollection();
+            ItemA3s = Items.Where(x => x is ItemA3).ToObservableCollection();
+            ItemA4s = Items.Where(x => x is ItemA4).ToObservableCollection();
         }
 
-        private async void OnC()
+        private async void OnUpdateQuoteItems()
         {
-            //if (CurrentViewModel is AQuoteItemListViewModel)
-            //    return;
+            try
+            {
+                await messageService.StartMessage("Quote Items", "Saving quote items, please wait...");
 
-            //ProductsActive = false;
 
-            //CurrentViewModel = null;
-            //await Task.Delay(100);
+                if (!await CanUpdateQuoteItems())
+                    return;
 
-            //AQuoteItemListViewModel aQuoteItemListViewModel = new AQuoteItemListViewModel(dialogCoordinator, quoteId);
+                List<IItem> items = new List<IItem>();
 
-            //aQuoteItemListViewModel.ShowItemTitlesRequested += OnShowItemTitles;
-            //aQuoteItemListViewModel.BackToProductsRequested += OnBackToProducts;
+                // last set of DesignIndex
+                ItemA1s.ToList().ForEach(x => x.DesignIndex = ItemA1s.IndexOf(x));
+                ItemA2s.ToList().ForEach(x => x.DesignIndex = ItemA2s.IndexOf(x));
+                ItemA3s.ToList().ForEach(x => x.DesignIndex = ItemA3s.IndexOf(x));
+                ItemA4s.ToList().ForEach(x => x.DesignIndex = ItemA4s.IndexOf(x));
 
-            //CurrentViewModel = aQuoteItemListViewModel;
-        }
+                //add all items in one list
+                items.AddRange(ItemA1s);
+                items.AddRange(ItemA2s);
+                items.AddRange(ItemA3s);
+                items.AddRange(ItemA4s);
 
-        private async void OnA()
-        {
-            if (CurrentViewModel is AQuoteItemListViewModel)
+                Items = itemService.UpdateQuoteAllItems(Quote, items).ToObservableCollection();
+
+                LoadItemLists();
+
+                await messageService.EndMessage("Quote Items", "Quote items has been saved");
+            }
+            catch (Exception ex)
+            {
+                await messageService.ExceptionMessage(ex);
                 return;
-
-            //ProductsActive = false;
-
-            CurrentViewModel = null;
-            await Task.Delay(100);
-
-            AQuoteItemListViewModel aQuoteItemListViewModel = new AQuoteItemListViewModel(dialogCoordinator, quoteId);
-
-            aQuoteItemListViewModel.ShowItemTitlesRequested += OnShowItemTitles;
-            //aQuoteItemListViewModel.BackToProductsRequested += OnBackToProducts;
-
-            CurrentViewModel = aQuoteItemListViewModel;
+            }
         }
 
-        //private async void OnBackToProducts()
-        //{
-        //    //ProductsActive = true;
-        //    CurrentViewModel = null;
-        //    await Task.Delay(100);
-        //    CurrentViewModel = airTreatmentViewModel;
-        //}
+        private async Task<bool> CanUpdateQuoteItems()
+        {
+            if (ItemA1s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
+            {
+                await messageService.ResultMessage("Error", "Air Cooled Factory Lead Time tag is empty, please review this information");
+                return false;
+            }
+
+            if (ItemA2s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
+            {
+                await messageService.ResultMessage("Error", "Air Cooled Stock Non Coated tag is empty, please review this information");
+                return false;
+            }
+
+            if (ItemA3s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
+            {
+                await messageService.ResultMessage("Error", "Air cooled Stock Post Coated tag is empty, please review this information");
+                return false;
+            }
+
+            if (ItemA4s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
+            {
+                await messageService.ResultMessage("Error", "Water Cooled Chiller tag is empty, please review this information");
+                return false;
+            }
+            return true;
+        }
+
+        private void OnEditItems(string itemsName)
+        {
+            if (itemsName.ToFormat() == "a1")
+            {
+                EditA1ItemViewModel editA1ItemViewModel = new EditA1ItemViewModel(dialogCoordinator, Quote, ItemA1s);
+                editA1ItemViewModel.OnItemsSavedRequested += OnItemA1Saved;
+                windowService.EditItemsWndow(editA1ItemViewModel, "Edit air cooled chillers factory lead time");
+            }
+            else if (itemsName.ToFormat() == "a2")
+            {
+                EditA2ItemViewModel editA2ItemViewModel = new EditA2ItemViewModel(dialogCoordinator, Quote, ItemA2s);
+                editA2ItemViewModel.OnItemsSavedRequested += OnItemA2Saved;
+                windowService.EditItemsWndow(editA2ItemViewModel, "Edit air cooled chillers stock non coated condenser");
+            }
+            else if (itemsName.ToFormat() == "a3")
+            {
+                EditA3ItemViewModel editA3ItemViewModel = new EditA3ItemViewModel(dialogCoordinator, Quote, ItemA3s);
+                editA3ItemViewModel.OnItemsSavedRequested += OnItemA3Saved;
+                windowService.EditItemsWndow(editA3ItemViewModel, "Edit air cooled chillers stock post coated condenser");
+            }
+            else if (itemsName.ToFormat() == "a4")
+            {
+                EditA4ItemViewModel editA4ItemViewModel = new EditA4ItemViewModel(dialogCoordinator, Quote, ItemA4s);
+                editA4ItemViewModel.OnItemsSavedRequested += OnItemA4Saved;
+                windowService.EditItemsWndow(editA4ItemViewModel, "Edit water cooled chillers factory lead time");
+            }
+        }
+
+        private void OnItemA1Saved(IList<IItem> editedItems)
+        {
+            ItemA1s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemA2Saved(IList<IItem> editedItems)
+        {
+            ItemA2s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemA3Saved(IList<IItem> editedItems)
+        {
+            ItemA3s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemA4Saved(IList<IItem> editedItems)
+        {
+            ItemA4s = editedItems.ToObservableCollection();
+        }
 
         private async void OnShowItemTitles(IItem item)
         {
@@ -224,7 +282,6 @@ namespace Orion.UI.ViewModel
             await Task.Delay(100);
         }
 
-
         private async void OnLoadData()
         {
             try
@@ -235,7 +292,8 @@ namespace Orion.UI.ViewModel
                 Project = projectService.GetProjectById(projectId);
                 Quote = quoteService.GetQuoteByQuoteId(quoteId);
                 mw.Title = $@"XpressPro ({Project.Name} / {Quote.Name})";
-                CurrentViewModel = airTreatmentViewModel;
+                Items = itemService.GetAllItemByQuoteId(quoteId).ToObservableCollection();
+                LoadItemLists();
 
                 await messageService.EndMessage("Quote Items", "Items has been loaded");
             }
@@ -249,5 +307,90 @@ namespace Orion.UI.ViewModel
         {
             BackToQuotesRequested();
         }
+
+        private void OnMoveToEnd(IItem item)
+        {
+            if (item is null)
+                return;
+
+            ObservableCollection<IItem> currentItemICatalogs = GetSelectedItems(item);
+
+            int sectionIndex = currentItemICatalogs.IndexOf(item);
+            int lastIndex = currentItemICatalogs.IndexOf(currentItemICatalogs.Last());
+
+            currentItemICatalogs.Move(sectionIndex, lastIndex);
+            currentItemICatalogs.ToList().ForEach(s => s.DesignIndex = currentItemICatalogs.IndexOf(s));
+        }
+
+        private void OnMoveToDown(IItem item)
+        {
+            if (item is null)
+                return;
+
+            ObservableCollection<IItem> currentItemICatalogs = GetSelectedItems(item);
+
+            int oldIndex = currentItemICatalogs.IndexOf(item);
+            int lastIndex = currentItemICatalogs.IndexOf(currentItemICatalogs.Last());
+
+            if (oldIndex == lastIndex)
+                return;
+
+            currentItemICatalogs.Move(oldIndex, oldIndex + 1);
+            currentItemICatalogs.ToList().ForEach(s => s.DesignIndex = currentItemICatalogs.IndexOf(s));
+        }
+
+        private void OnDeleteItem(IItem item)
+        {
+            ObservableCollection<IItem> currentItems = GetSelectedItems(item);
+
+            currentItems.Remove(item);
+            currentItems.ToList().ForEach(s => s.DesignIndex = currentItems.IndexOf(s));
+        }
+
+        private void OnMoveToUp(IItem item)
+        {
+            if (item is null)
+                return;
+
+            ObservableCollection<IItem> currentItems = GetSelectedItems(item);
+
+            int oldIndex = currentItems.IndexOf(item);
+
+            if (oldIndex == 0)
+                return;
+
+            currentItems.Move(oldIndex, oldIndex - 1);
+            currentItems.ToList().ForEach(s => s.DesignIndex = currentItems.IndexOf(s));
+        }
+
+        private void OnMoveToStart(IItem item)
+        {
+            if (item is null)
+                return;
+
+            ObservableCollection<IItem> currentItems = GetSelectedItems(item);
+
+            int sectionIndex = currentItems.IndexOf(item);
+            int firstIndex = currentItems.IndexOf(currentItems.First());
+
+            currentItems.Move(sectionIndex, firstIndex);
+            currentItems.ToList().ForEach(s => s.DesignIndex = currentItems.IndexOf(s));
+        }
+
+        private ObservableCollection<IItem> GetSelectedItems(IItem item)
+        {
+            ObservableCollection<IItem> selectedItems = null;
+
+            if (item is ItemA1)
+                selectedItems = ItemA1s;
+            else if (item is ItemA2)
+                selectedItems = ItemA2s;
+            else if (item is ItemA3)
+                selectedItems = ItemA3s;
+            else if (item is ItemA4)
+                selectedItems = ItemA4s;
+            return selectedItems;
+        }
+
     }
 }

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Orion.UI.ViewModel.Quantech.CatalogList
 {
-    public class CatalogA3ListViewModel : BindableBase
+    public class CatalogA3ListViewModel : BindableBase, ICatalogListViewModel
     {
         IDialogCoordinator dialogCoordinator;
         MessageService messageService;
@@ -91,7 +91,8 @@ namespace Orion.UI.ViewModel.Quantech.CatalogList
 
         private void OnAddCatalogItem()
         {
-
+            ICatalog catalog = null;
+            OnEditCatalogItemRequested(catalog);
         }
 
         private async void OnLoadData()
