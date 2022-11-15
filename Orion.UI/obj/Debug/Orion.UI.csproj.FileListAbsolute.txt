@@ -660,3 +660,5 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\Edi
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\EditCatalogItem\EditA2CatalogView.baml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\EditCatalogItem\EditA3CatalogView.baml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\EditCatalogItem\EditA4CatalogView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\QuoteItemsView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\QuoteItemsView.baml

@@ -193,6 +193,7 @@
     <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA2ItemViewModel.cs" />
     <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA4ItemViewModel.cs" />
     <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA3ItemViewModel.cs" />
+    <Compile Include="ViewModel\QuoteItemsViewModel.cs" />
     <Compile Include="ViewModel\QuoteViewModel.cs" />
     <Compile Include="ViewModel\TitleFromItemViewModel.cs" />
     <Compile Include="ViewModel\TitleViewModel.cs" />
@@ -258,6 +259,9 @@
     </Compile>
     <Compile Include="View\Quantech\EditQuoteItem\EditA4ItemView.xaml.cs">
       <DependentUpon>EditA4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\QuoteItemsView.xaml.cs">
+      <DependentUpon>QuoteItemsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\QuoteView.xaml.cs">
       <DependentUpon>QuoteView.xaml</DependentUpon>
@@ -379,6 +383,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Quantech\EditQuoteItem\EditA4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\QuoteItemsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

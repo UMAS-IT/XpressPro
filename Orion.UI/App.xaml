@@ -127,6 +127,10 @@
                 <viewECA:EditA4CatalogView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type vm:QuoteItemsViewModel}">
+                <view:QuoteItemsView/>
+            </DataTemplate>
+
             <Style  x:Key="TxtStyle" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}">
                 <Setter Property="ctrl:TextBoxHelper.UseFloatingWatermark" Value="True"/>
                 <Setter Property="ctrl:TextBoxHelper.SelectAllOnFocus" Value="True"/>

@@ -50,6 +50,36 @@
 
                 <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                     <StackPanel Orientation="Vertical">
+
+                        <Expander Header="QUANTECH" Margin="5" Width="120" IsExpanded="True">
+                            <StackPanel Orientation="Vertical">
+
+                                <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA1Command}">
+                                    <Button.Content>
+                                        <TextBlock Text="Air Cooled Chillers Factory Lead Time" TextWrapping="Wrap"/>
+                                    </Button.Content>
+                                </Button>
+
+                                <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA2Command}">
+                                    <Button.Content>
+                                        <TextBlock Text="Air Cooled Chillers Stock Non Coated Condenser"  TextWrapping="Wrap"/>
+                                    </Button.Content>
+                                </Button>
+
+                                <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA3Command}">
+                                    <Button.Content>
+                                        <TextBlock Text="Air Cooled Chillers Stock Post Coated Condenser"  TextWrapping="Wrap"/>
+                                    </Button.Content>
+                                </Button>
+
+                                <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA4Command}">
+                                    <Button.Content>
+                                        <TextBlock Text="Water Cooled Chillers Factory Lead Time"  TextWrapping="Wrap"/>
+                                    </Button.Content>
+                                </Button>
+
+                            </StackPanel>
+                        </Expander>
                         <Button Content="QUANTECH" 
                                 Background="DarkSlateBlue"
                                 ctrl:ControlsHelper.ContentCharacterCasing="Normal"
