@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orion.Binding", "Orion.Bind
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orion.Helper", "Orion.Helper\Orion.Helper.csproj", "{D9E23B8F-1A1B-467D-A46F-07D97A7112F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orion.Report", "Orion.Report\Orion.Report.csproj", "{5DA6F26F-1695-490D-A655-368C967E5BB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D9E23B8F-1A1B-467D-A46F-07D97A7112F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9E23B8F-1A1B-467D-A46F-07D97A7112F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9E23B8F-1A1B-467D-A46F-07D97A7112F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DA6F26F-1695-490D-A655-368C967E5BB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DA6F26F-1695-490D-A655-368C967E5BB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DA6F26F-1695-490D-A655-368C967E5BB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DA6F26F-1695-490D-A655-368C967E5BB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

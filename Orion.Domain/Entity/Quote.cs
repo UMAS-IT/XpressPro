@@ -4,6 +4,7 @@ using Orion.Domain.EntityItem;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Orion.Domain.Entity
 {
@@ -62,6 +63,15 @@ namespace Orion.Domain.Entity
         {
             get => _itemA4s;
             set => SetProperty(ref _itemA4s, value);
+        }
+
+
+        private bool _isSelected;
+        [NotMapped]
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set => SetProperty(ref _isSelected, value);
         }
 
         public Quote()

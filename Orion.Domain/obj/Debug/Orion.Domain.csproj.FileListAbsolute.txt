@@ -183,3 +183,5 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Domain\obj\Debug\Orion.Domain.
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Domain\obj\Debug\Orion.Domain.pdb
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Domain\bin\Debug\Orion.Helper.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Domain\bin\Debug\Orion.Helper.pdb
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Domain\bin\Debug\Orion.Helper.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Domain\bin\Debug\Orion.Helper.pdb

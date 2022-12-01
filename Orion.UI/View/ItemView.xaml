@@ -222,7 +222,6 @@
                             Style="{StaticResource DGridStyle}"
                             CanUserSortColumns="False"
                             FrozenColumnCount="6">
-
                                         <DataGrid.Columns>
                                             <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
                                                 <DataGridTemplateColumn.CellTemplate>
@@ -421,7 +420,19 @@
                                                 </DataGridTemplateColumn.HeaderStyle>
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding ListPrice, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
+                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding ListPrice, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}">
+                                                            <TextBox.Style>
+                                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                                    <Setter Property="IsReadOnly" Value="True"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                                                                            <Setter Property="Background" Value="#32B974"/>
+                                                                            <Setter Property="IsReadOnly" Value="False"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBox.Style>
+                                                        </TextBox>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
@@ -434,7 +445,19 @@
                                                 </DataGridTemplateColumn.HeaderStyle>
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding CostMultiplier, UpdateSourceTrigger=LostFocus , Mode=TwoWay}"/>
+                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding CostMultiplier, UpdateSourceTrigger=LostFocus , Mode=TwoWay}">
+                                                            <TextBox.Style>
+                                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                                    <Setter Property="IsReadOnly" Value="True"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                                                                            <Setter Property="Background" Value="#32B974"/>
+                                                                            <Setter Property="IsReadOnly" Value="False"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBox.Style>
+                                                        </TextBox>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
@@ -449,7 +472,19 @@
                                                 </DataGridTemplateColumn.HeaderStyle>
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding SellMargin, UpdateSourceTrigger=LostFocus,StringFormat={}{0}% , Mode=TwoWay}"/>
+                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding SellMargin, UpdateSourceTrigger=LostFocus,StringFormat={}{0}% , Mode=TwoWay}">
+                                                            <TextBox.Style>
+                                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                                    <Setter Property="IsReadOnly" Value="True"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                                                                            <Setter Property="Background" Value="#32B974"/>
+                                                                            <Setter Property="IsReadOnly" Value="False"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBox.Style>
+                                                        </TextBox>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
@@ -498,7 +533,7 @@
                             ItemsSource="{Binding ItemA2s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
                             Style="{StaticResource DGridStyle}"
                             CanUserSortColumns="False"
-                            FrozenColumnCount="12">
+                            FrozenColumnCount="6">
 
                                         <DataGrid.Columns>
                                             <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
@@ -698,7 +733,19 @@
                                                 </DataGridTemplateColumn.HeaderStyle>
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding ListPrice, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
+                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding ListPrice, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}">
+                                                            <TextBox.Style>
+                                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                                    <Setter Property="IsReadOnly" Value="True"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                                                                            <Setter Property="Background" Value="#32B974"/>
+                                                                            <Setter Property="IsReadOnly" Value="False"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBox.Style>
+                                                        </TextBox>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
@@ -711,7 +758,19 @@
                                                 </DataGridTemplateColumn.HeaderStyle>
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding CostMultiplier, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"/>
+                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding CostMultiplier, UpdateSourceTrigger=LostFocus , Mode=TwoWay}">
+                                                            <TextBox.Style>
+                                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                                    <Setter Property="IsReadOnly" Value="True"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                                                                            <Setter Property="Background" Value="#32B974"/>
+                                                                            <Setter Property="IsReadOnly" Value="False"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBox.Style>
+                                                        </TextBox>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
@@ -726,7 +785,19 @@
                                                 </DataGridTemplateColumn.HeaderStyle>
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding SellMargin, UpdateSourceTrigger=LostFocus,StringFormat={}{0}%  , Mode=TwoWay}"/>
+                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding SellMargin, UpdateSourceTrigger=LostFocus,StringFormat={}{0}% , Mode=TwoWay}">
+                                                            <TextBox.Style>
+                                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                                    <Setter Property="IsReadOnly" Value="True"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                                                                            <Setter Property="Background" Value="#32B974"/>
+                                                                            <Setter Property="IsReadOnly" Value="False"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBox.Style>
+                                                        </TextBox>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
@@ -775,7 +846,7 @@
                             ItemsSource="{Binding ItemA3s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
                             Style="{StaticResource DGridStyle}"
                             CanUserSortColumns="False"
-                            FrozenColumnCount="12">
+                            FrozenColumnCount="6">
 
                                         <DataGrid.Columns>
                                             <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
@@ -966,7 +1037,6 @@
                                             <DataGridTextColumn Header="Unit Size" Binding="{Binding Catalog.UnitSize}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                             <DataGridTextColumn Header="Description" Binding="{Binding Catalog.Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                             <DataGridTextColumn Header="Voltage" Binding="{Binding Catalog.Voltage}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-
                                             <DataGridTemplateColumn Header="List Price">
                                                 <DataGridTemplateColumn.HeaderStyle>
                                                     <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
@@ -975,7 +1045,19 @@
                                                 </DataGridTemplateColumn.HeaderStyle>
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding ListPrice, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
+                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding ListPrice, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}">
+                                                            <TextBox.Style>
+                                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                                    <Setter Property="IsReadOnly" Value="True"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                                                                            <Setter Property="Background" Value="#32B974"/>
+                                                                            <Setter Property="IsReadOnly" Value="False"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBox.Style>
+                                                        </TextBox>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
@@ -988,7 +1070,19 @@
                                                 </DataGridTemplateColumn.HeaderStyle>
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding CostMultiplier, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"/>
+                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding CostMultiplier, UpdateSourceTrigger=LostFocus , Mode=TwoWay}">
+                                                            <TextBox.Style>
+                                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                                    <Setter Property="IsReadOnly" Value="True"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                                                                            <Setter Property="Background" Value="#32B974"/>
+                                                                            <Setter Property="IsReadOnly" Value="False"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBox.Style>
+                                                        </TextBox>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
@@ -1003,7 +1097,19 @@
                                                 </DataGridTemplateColumn.HeaderStyle>
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding SellMargin, UpdateSourceTrigger=LostFocus,StringFormat={}{0}%  , Mode=TwoWay}"/>
+                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding SellMargin, UpdateSourceTrigger=LostFocus,StringFormat={}{0}% , Mode=TwoWay}">
+                                                            <TextBox.Style>
+                                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                                    <Setter Property="IsReadOnly" Value="True"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                                                                            <Setter Property="Background" Value="#32B974"/>
+                                                                            <Setter Property="IsReadOnly" Value="False"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBox.Style>
+                                                        </TextBox>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
@@ -1052,7 +1158,7 @@
                             ItemsSource="{Binding ItemA4s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
                             Style="{StaticResource DGridStyle}"
                             CanUserSortColumns="False"
-                            FrozenColumnCount="12">
+                            FrozenColumnCount="6">
 
                                         <DataGrid.Columns>
                                             <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
@@ -1243,7 +1349,6 @@
                                             <DataGridTextColumn Header="Unit Size" Binding="{Binding Catalog.UnitSize}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                             <DataGridTextColumn Header="Description" Binding="{Binding Catalog.Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                             <DataGridTextColumn Header="Voltage" Binding="{Binding Catalog.Voltage}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-
                                             <DataGridTemplateColumn Header="List Price">
                                                 <DataGridTemplateColumn.HeaderStyle>
                                                     <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource ColumnHeaderStyle}">
@@ -1252,7 +1357,19 @@
                                                 </DataGridTemplateColumn.HeaderStyle>
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding ListPrice, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}"/>
+                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding ListPrice, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}">
+                                                            <TextBox.Style>
+                                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                                    <Setter Property="IsReadOnly" Value="True"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                                                                            <Setter Property="Background" Value="#32B974"/>
+                                                                            <Setter Property="IsReadOnly" Value="False"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBox.Style>
+                                                        </TextBox>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
@@ -1265,7 +1382,19 @@
                                                 </DataGridTemplateColumn.HeaderStyle>
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding CostMultiplier, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"/>
+                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding CostMultiplier, UpdateSourceTrigger=LostFocus , Mode=TwoWay}">
+                                                            <TextBox.Style>
+                                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                                    <Setter Property="IsReadOnly" Value="True"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                                                                            <Setter Property="Background" Value="#32B974"/>
+                                                                            <Setter Property="IsReadOnly" Value="False"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBox.Style>
+                                                        </TextBox>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
@@ -1280,7 +1409,19 @@
                                                 </DataGridTemplateColumn.HeaderStyle>
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding SellMargin, UpdateSourceTrigger=LostFocus,StringFormat={}{0}% , Mode=TwoWay}"/>
+                                                        <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding SellMargin, UpdateSourceTrigger=LostFocus,StringFormat={}{0}% , Mode=TwoWay}">
+                                                            <TextBox.Style>
+                                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                                    <Setter Property="IsReadOnly" Value="True"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                                                                            <Setter Property="Background" Value="#32B974"/>
+                                                                            <Setter Property="IsReadOnly" Value="False"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBox.Style>
+                                                        </TextBox>
                                                     </DataTemplate>
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>

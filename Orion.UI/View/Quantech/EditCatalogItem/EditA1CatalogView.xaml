@@ -71,7 +71,7 @@
                              ctrl:TextBoxHelper.Watermark="Cost Multiplier" 
                              Background="DarkSlateBlue"
                              PreviewTextInput="IsDouble"
-                             Text="{Binding Catalog.CostMultiplier, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}"
+                             Text="{Binding Catalog.CostMultiplier, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
                     </TextBox>
 
