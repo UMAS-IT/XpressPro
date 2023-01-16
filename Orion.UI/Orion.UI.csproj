@@ -146,6 +146,12 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="Spire.Doc, Version=10.11.9.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.Doc.10.11.9\lib\net40\Spire.Doc.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=8.11.10.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.Doc.10.11.9\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -194,6 +200,7 @@
     <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA4ItemViewModel.cs" />
     <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA3ItemViewModel.cs" />
     <Compile Include="ViewModel\QuoteViewModel.cs" />
+    <Compile Include="ViewModel\ReportsViewModel.cs" />
     <Compile Include="ViewModel\TitleFromItemViewModel.cs" />
     <Compile Include="ViewModel\TitleViewModel.cs" />
     <Compile Include="View\CatalogView.xaml.cs">
@@ -261,6 +268,9 @@
     </Compile>
     <Compile Include="View\QuoteView.xaml.cs">
       <DependentUpon>QuoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportsView.xaml.cs">
+      <DependentUpon>ReportsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TitleFromItemView.xaml.cs">
       <DependentUpon>TitleFromItemView.xaml</DependentUpon>
@@ -386,6 +396,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ReportsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TitleFromItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -438,6 +452,10 @@
     <ProjectReference Include="..\Orion.Helper\Orion.Helper.csproj">
       <Project>{d9e23b8f-1a1b-467d-a46f-07d97a7112f5}</Project>
       <Name>Orion.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orion.Report\Orion.Report.csproj">
+      <Project>{5da6f26f-1695-490d-a655-368c967e5bb1}</Project>
+      <Name>Orion.Report</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

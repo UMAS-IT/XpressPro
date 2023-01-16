@@ -137,11 +137,15 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Email");
+
                     b.Property<string>("LoginName");
 
                     b.Property<string>("Name");
 
                     b.Property<string>("PassKey");
+
+                    b.Property<string>("Telephone");
 
                     b.HasKey("Id");
 

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\
 Orion.UI
 none
 false
 DEBUG;TRACE
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\App.xaml
-271166100085
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\App.xaml
+281019994872
 
-61-218962505
-1611997833530
-View\AirTreatmentView.xaml;View\CatalogView.xaml;View\ComingSoonView.xaml;View\CreateQuoteView.xaml;View\ItemView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\NewProjectView.xaml;View\OpenProjectView.xaml;View\ProjectInformationView.xaml;View\Quantech\AQuoteItemListView.xaml;View\Quantech\CatalogList\CatalogA1ListView.xaml;View\Quantech\CatalogList\CatalogA2ListView.xaml;View\Quantech\CatalogList\CatalogA3ListView.xaml;View\Quantech\CatalogList\CatalogA4ListView.xaml;View\Quantech\EditCatalogItem\EditA1CatalogView.xaml;View\Quantech\EditCatalogItem\EditA2CatalogView.xaml;View\Quantech\EditCatalogItem\EditA3CatalogView.xaml;View\Quantech\EditCatalogItem\EditA4CatalogView.xaml;View\Quantech\EditQuoteItem\EditA1ItemView.xaml;View\Quantech\EditQuoteItem\EditA2ItemView.xaml;View\Quantech\EditQuoteItem\EditA3ItemView.xaml;View\Quantech\EditQuoteItem\EditA4ItemView.xaml;View\QuoteView.xaml;View\TitleFromItemView.xaml;View\TitleView.xaml;
+63313788667
+1641736160960
+View\AirTreatmentView.xaml;View\CatalogView.xaml;View\ComingSoonView.xaml;View\CreateQuoteView.xaml;View\ItemView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\NewProjectView.xaml;View\OpenProjectView.xaml;View\ProjectInformationView.xaml;View\Quantech\AQuoteItemListView.xaml;View\Quantech\CatalogList\CatalogA1ListView.xaml;View\Quantech\CatalogList\CatalogA2ListView.xaml;View\Quantech\CatalogList\CatalogA3ListView.xaml;View\Quantech\CatalogList\CatalogA4ListView.xaml;View\Quantech\EditCatalogItem\EditA1CatalogView.xaml;View\Quantech\EditCatalogItem\EditA2CatalogView.xaml;View\Quantech\EditCatalogItem\EditA3CatalogView.xaml;View\Quantech\EditCatalogItem\EditA4CatalogView.xaml;View\Quantech\EditQuoteItem\EditA1ItemView.xaml;View\Quantech\EditQuoteItem\EditA2ItemView.xaml;View\Quantech\EditQuoteItem\EditA3ItemView.xaml;View\Quantech\EditQuoteItem\EditA4ItemView.xaml;View\QuoteView.xaml;View\ReportsView.xaml;View\TitleFromItemView.xaml;View\TitleView.xaml;
 
 False
 

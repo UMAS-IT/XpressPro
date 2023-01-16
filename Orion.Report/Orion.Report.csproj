@@ -35,7 +35,7 @@
       <HintPath>..\packages\Spire.Doc.10.11.9\lib\net40\Spire.Doc.dll</HintPath>
     </Reference>
     <Reference Include="Spire.Pdf, Version=8.11.10.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
-      <HintPath>..\packages\Spire.PDF.8.11.10\lib\net40\Spire.Pdf.dll</HintPath>
+      <HintPath>..\packages\Spire.Doc.10.11.9\lib\net40\Spire.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,17 +49,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pricing\PricingA.cs" />
+    <Compile Include="Pricing\PricingItem.cs" />
     <Compile Include="Pricing\PricingReport.cs" />
     <Compile Include="Pricing\ReportSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <EmbeddedResource Include="ResourcePricing\PricingTemplate.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResourcePricing\TermsAndConditionsTemplate.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Orion.Binding\Orion.Binding.csproj">
+      <Project>{6C9FD30B-658A-416B-B60F-B75240F3B06E}</Project>
+      <Name>Orion.Binding</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Orion.Domain\Orion.Domain.csproj">
       <Project>{bc860056-a6ed-4785-bc94-2f84135ff8ce}</Project>
       <Name>Orion.Domain</Name>

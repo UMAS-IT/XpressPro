@@ -74,6 +74,14 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _isSelected, value);
         }
 
+        private bool _canCreateReports;
+        [NotMapped]
+        public bool CanCreateReports
+        {
+            get => _canCreateReports;
+            set => SetProperty(ref _canCreateReports, value);
+        }
+
         public Quote()
         {
             ItemA1s = new ObservableCollection<ItemA1>();

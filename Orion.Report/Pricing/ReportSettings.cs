@@ -1,10 +1,15 @@
-﻿using Orion.Domain.Entity;
+﻿using Microsoft.SqlServer.Server;
+using Orion.Domain.Entity;
 using Orion.Helper.Extension;
 using Orion.Helper.Misc;
 using Spire.Doc;
 using Spire.Doc.Collections;
 using Spire.Doc.Documents;
+using Spire.Doc.Fields;
+using Spire.Doc.Formatting;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,6 +24,82 @@ namespace Orion.Report.Pricing
 
         public string pricingFilePath = Environment.CurrentDirectory + @"\ResourcePricing\PricingTemplate.docx";
 
+        public void CreateItemTable(Section docSection, int itemsQuantity, string[] sectionTitle, string[] Header, string[][] data)
+        {
+            Table table = docSection.AddTable(true);
+            table.TableFormat.IsBreakAcrossPages = false;
+
+            table.ResetCells(itemsQuantity + 2, Header.Length);
+            table.TableFormat.HorizontalAlignment = RowAlignment.Center;
+
+            TableRow titleRow = table.Rows[0];
+
+            titleRow.RowFormat.BackColor = Color.FromArgb(155, 194, 230);
+
+            Paragraph tp = titleRow.Cells[0].AddParagraph();
+            titleRow.Cells[0].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+            tp.Format.HorizontalAlignment = HorizontalAlignment.Center;
+            tp.Format.BeforeSpacing = 0;
+            tp.Format.AfterSpacing = 0;
+            tp.Format.LineSpacing = 10;
+            TextRange tRange = tp.AppendText(sectionTitle[0]);
+            tRange.CharacterFormat.FontName = "Calibri";
+            tRange.CharacterFormat.FontSize = 10;
+            tRange.CharacterFormat.TextColor = Color.Black;
+            tRange.CharacterFormat.Bold = true;
+
+            table.ApplyHorizontalMerge(0, 0, Header.Count() - 1);
+
+            TableRow headerRow = table.Rows[1];
+
+            headerRow.RowFormat.BackColor = Color.FromArgb(155, 194, 230);
+
+
+            for (int i = 0; i < Header.Length; i++)
+            {
+
+                table.Rows[0].Cells[i].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+
+                TableCell cell = headerRow.Cells[i];
+                cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+                Paragraph paragraph = headerRow.Cells[i].AddParagraph();
+                paragraph.Format.HorizontalAlignment = HorizontalAlignment.Center;
+                paragraph.Format.BeforeSpacing = 0;
+                paragraph.Format.AfterSpacing = 0;
+                paragraph.Format.LineSpacing = 10;
+                TextRange textRange = paragraph.AppendText(Header[i]);
+                textRange.CharacterFormat.FontName = "Calibri";
+                textRange.CharacterFormat.FontSize = 10;
+                textRange.CharacterFormat.TextColor = Color.Black;
+                textRange.CharacterFormat.Bold = true;
+            }
+
+
+            for (int r = 0; r < data.Length; r++)
+            {
+                TableRow DataRow = table.Rows[r + 2];
+
+                for (int c = 0; c < data[r].Length; c++)
+                {
+                    TableCell cell = DataRow.Cells[c];
+
+                    cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+
+                    Paragraph p2 = DataRow.Cells[c].AddParagraph();
+
+                    TextRange TR2 = p2.AppendText(data[r][c]);
+
+                    p2.Format.HorizontalAlignment = HorizontalAlignment.Left;
+                    p2.Format.BeforeSpacing = 0;
+                    p2.Format.AfterSpacing = 0;
+                    p2.Format.LineSpacing = 10;
+                    TR2.CharacterFormat.FontName = "Calibri";
+                    TR2.CharacterFormat.FontSize = 10;
+                    TR2.CharacterFormat.TextColor = Color.Black;
+                }
+            }
+            table.AutoFit(AutoFitBehaviorType.AutoFitToWindow);
+        }
 
         public void SaveAndConvertToPdf(Document document, string filePath)
         {
@@ -245,26 +326,27 @@ namespace Orion.Report.Pricing
             }
         }
 
-        public void LoadStarupData(Document document, Project project)
+        public void LoadStarupData(Document document, Project project, Quote quote)
         {
-            AddText(InitBk.projectName, project.Name, ParaStyle.style20, document);
-            //AddText(InitBk.tags, project.Tags, ParaStyle.style18, document);
-            //AddText(InitBk.jobNumber, project.Number.ToString(), ParaStyle.style18, document);
-            //AddText(InitBk.salesOffice, project.User.SalesOffice.Name, ParaStyle.style14, document);
-            //AddText(InitBk.salesRepresentative, project.User.Name, ParaStyle.style14, document);
-            //AddText(InitBk.salesEngineer, project.SalesEngineer, ParaStyle.style14, document);
-            //AddText(InitBk.projectEngineer, project.ProjectEngineer != null ? project.ProjectEngineer.Name : "", ParaStyle.style14, document);
-            //AddText(InitBk.designEngineer, project.DesignEngineer != null ? project.DesignEngineer.Name : "", ParaStyle.style14, document);
+            AddText(InitBk.projectName, project.Name, ParaStyle.style10, document);
+            AddText(InitBk.to, project.Contractor, ParaStyle.style10, document);
+            AddText(InitBk.attention, project.Engineer, ParaStyle.style10, document);
+            AddText(InitBk.from, project.User.Name, ParaStyle.style10, document);
+            AddText(InitBk.email, project.User.Email, ParaStyle.style10, document);
+            AddText(InitBk.telephone, project.Contact, ParaStyle.style10, document);
+            AddText(InitBk.date, project.CreationDate.ToShortDateString(), ParaStyle.style10, document);
+            AddText(InitBk.quote, quote.Name, ParaStyle.style10, document);
+            AddText(InitBk.revision, "1", ParaStyle.style10, document);
         }
 
-        public string CreateFolders(Project project)
+        public string CreateFolders(Project project, IList<Quote> quotes)
         {
             string currentProjectPath = ProjectsPath + $@"\ {project.Name}({DateTime.Now.ToString("MM-dd-yy HH.mm.ss")})";
             Directory.CreateDirectory(ProjectsPath);
             Directory.CreateDirectory(currentProjectPath);
             Directory.CreateDirectory(currentProjectPath + $@"\Pricing");
 
-            foreach (Quote quote in project.Quotes.Where(x => x.IsSelected))
+            foreach (Quote quote in quotes.Where(x => x.IsSelected))
             {
                 File.Copy(pricingFilePath, currentProjectPath + $@"\Pricing\{quote.Name.ToUpper()}.docx", true);
             }
@@ -275,13 +357,14 @@ namespace Orion.Report.Pricing
         public enum InitBk
         {
             projectName,
-            tags,
-            jobNumber,
-            salesOffice,
-            salesRepresentative,
-            salesEngineer,
-            projectEngineer,
-            designEngineer,
+            to,
+            attention,
+            from,
+            email,
+            telephone,
+            date,
+            quote,
+            revision,
         }
 
         public enum ParaStyle

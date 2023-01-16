@@ -63,5 +63,31 @@ namespace Orion.DataAccess.Service
                                      .FirstOrDefault(x => x.Id == quoteId);
             }
         }
+
+        public IList<Quote> GetQuotesForReportsByProjectId(int projectId)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                List<Quote> quotes = context.Quotes
+                    .Include(x => x.ItemA1s).ThenInclude(x => x.CatalogA1)
+                    .Include(x => x.ItemA1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemA2s).ThenInclude(x => x.CatalogA2)
+                    .Include(x => x.ItemA2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemA3s).ThenInclude(x => x.CatalogA3)
+                    .Include(x => x.ItemA3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemA4s).ThenInclude(x => x.CatalogA4)
+                    .Include(x => x.ItemA4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Where(u => u.ProjectId == projectId).ToList();
+
+                quotes.ForEach(u =>
+                {
+                    u.CanCreateReports = true;
+                    if (!u.ItemA1s.Any() && !u.ItemA2s.Any() && !u.ItemA3s.Any() && !u.ItemA4s.Any())
+                        u.CanCreateReports = false;
+                });
+
+                return quotes;
+            }
+        }
     }
 }

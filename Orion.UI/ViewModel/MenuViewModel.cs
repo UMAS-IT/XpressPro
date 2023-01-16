@@ -60,9 +60,7 @@ namespace Orion.UI.ViewModel
                     CurrentViewModel = new CatalogViewModel(dialogCoordinator,  mw);
                     break;
                 case "Reports":
-                    //CurrentViewModel = new ReportsViewModel(dialogCoordinator, userId, projectId, mw);
-                    CurrentViewModel = new ComingSoonViewModel();
-
+                    CurrentViewModel = new ReportsViewModel(dialogCoordinator, userId, projectId, mw);
                     break;
                 default:
                     CurrentViewModel = new ComingSoonViewModel();

@@ -74,6 +74,10 @@
             <DataTemplate DataType="{x:Type vm:CatalogViewModel}">
                 <view:CatalogView/>
             </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vm:ReportsViewModel}">
+                <view:ReportsView/>
+            </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemA:EditA1ItemViewModel}">
                 <viewItemA:EditA1ItemView/>

@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Spire.Doc;
 using System.Windows;
 
 namespace Orion.UI
@@ -13,5 +14,9 @@ namespace Orion.UI
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            Spire.License.LicenseProvider.SetLicenseKey("dEP6X6yaWa6k0hdfqAEAROB7tKTQopQFqrGIUVl/9c1mbL7WwUftjDJGc6QnAv3YcfcACteL3N0BvBE7OdAeuHgMawlZ3anC3HpnoiwPAg/7ylJF8io7qpIzBcbRUMSEVCD8ZL0oDFVQliahumBKOhRPafn4uIiv66WrFOBHjj62+XfBorl1O8Su4J8YheFRT6ajLpk5qOU2hX5ubYRVWkFO/z/9xR7wSMEO5Ngt79XUxryfl7uqXX+E1+PP+uOxomXJmaG/aw4SSlUz3jpk2JNSQDp9gzUBBxKtw2AlkgwONP/fCHzZHFTalR+mhW4thvYAYYDBp+DIyIZg2uW4ANSEx7ZXX3yJEJzV67C9PwhqbGh4MFBdAljj3xxc7I4hw7hqrxGDB9pfwhUi5ceItTHUdskoFJXuWvSkJScDK2MMzD4OtAatz8vlwIMRomzFUPC2Gku+Y/a/CrDjFInmEi9hysg/dTWBloNBIYTS/X3e5VlirWM/Xx07V1kGxsETnkNtgJnrkgCITIdD+2Js642xaR4+6iqLUTBMwgUZopeTsrhcXLjnbiLsxdNr8srZ8eF/kV8/LZTGGrg22zp9pKrbP6n630TQwgZXHfTvIvHC9FDZBexkeSq2rR5w9OWmcx9GrgoqWslZSktZimQe5diUoWR8lcCvfEPx5xJoU15oIJ0456ms6xNG9M1pzBCTe+apywdT/pjuNj2pEpa/EvibpN5MWHMRVpNI5wZf9ySD0/r79xXWVtVf3G4A2UlWZhXUUKopJ/BJXfRfz/O1BmnyljWpbnyhQvJBuXIlzZf8N2eweEqDofOvvmmo3Eqnh0evTdH0AJPG76l0DNqT55HATKJuA/2wlQabwiUkUrLbRWlYs18TTzO4Qq4FDgcnaiAbC2bCnnqRQJI+NQ33zZZWa2JQegPhYEltaDp02GucnYJxCE0F5Jr/m6mqKCzB9HgDGvggHeeeWo07/WW3aaWcsyc2MKqa4RTjejGoJ1R1e/KrGOMLQqpg8TN09tcmNEJySISPJkumuYEfO7loVb/IDhq7ChHyIFn390fag8L8hBPNDNIqKn5RU9hfXL8u3yBf1UrLoU4n6D7qnttyIxlTLtKDRWGtgY3AUsQ0g37dg8OXoqUtxAaEk+EwUXaFqJZpGdoNM7yRYLT4kU4SU6iB910JCG9Jbqo/HoJuw5XBXxMUHqiPP9Ui8BJF9EVeWIXeY9CWIqAeZ8tPplAYcK7Q+xz9Yc0IbJ2JtMPBglB5unTHfw6ynHYqSVbxyJ3Osix66acxUX+jhxFY30UJ1+0UumC3KbAupavMbOsmLRmSdhNvwWt6T5b4A0BS5FwyLOyfL3Gzn4I/2hbz85pyReWbV3CEpdWo73Vm2peEnce3gmDcYTmcxmhWEdLz3lsx6zOiI1MS7Hd2jrNSyPF0N2ByBk75HPhclp2u4F7wwp5rTkMAbafzejyMkikzC+cnE0HnLzIyz+QJrYj7ALRn5XZSpffmNP5e6EkWXiH8mjmwQRODe1b4PNAK2fKBVxUn2/Cr9m3Qc8lnt3G2ZjvaaF+/uHh4uqjm2X7umtYEipt4lI6G/37hA5ZK0jplyOrl6k2PAQOT/jtEQyM2ZYqSNWbs4fHb2N8A");
+        }
     }
 }

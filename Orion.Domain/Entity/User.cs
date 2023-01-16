@@ -28,6 +28,20 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _loginName, value);
         }
 
+        private string _email;
+        public string Email
+        {
+            get => _email;
+            set => SetProperty(ref _email, value);
+        }
+
+        private string _telephone;
+        public string Telephone
+        {
+            get => _telephone;
+            set => SetProperty(ref _telephone, value);
+        }
+
         private string _passKey;
         public string PassKey
         {

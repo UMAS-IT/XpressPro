@@ -183,6 +183,7 @@ namespace Orion.Domain.EntityItem
         public ItemA4()
         {
             Titles = new ObservableCollection<Title>();
+            Quantity = 1;
         }
         public object Clone()
         {
