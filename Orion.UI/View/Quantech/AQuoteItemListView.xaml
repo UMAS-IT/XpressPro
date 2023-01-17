@@ -10,7 +10,7 @@
              dialog:DialogParticipation.Register="{Binding}"
              xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
-             d:DesignHeight="600" d:DesignWidth="2000"
+             d:DesignHeight="600" d:DesignWidth="1500"
              d:DataContext="{d:DesignInstance Type=vm:AQuoteItemListViewModel}"
              xmlns:vm="clr-namespace:Orion.UI.ViewModel.Quantech"
              xmlns:view="clr-namespace:Orion.UI.View.Quantech">

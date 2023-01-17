@@ -672,3 +672,15 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.exe
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.pdb
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.Report.dll.config
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ResourcePricing\TermsAndConditionsTemplate.docx
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ResourcePricing\PricingTemplate.docx
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ResourcePricing\TermsAndConditionsTemplate.docx
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.Report.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Spire.Doc.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Spire.Pdf.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Microsoft.mshtml.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.Report.pdb
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.Report.dll.config
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Spire.Doc.xml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Spire.Pdf.xml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ReportsView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ReportsView.baml

@@ -61,6 +61,13 @@ namespace Orion.Domain.EntityItem
             set => SetProperty(ref _quantity, value);
         }
 
+        private IList<Title> _titles;
+        public IList<Title> Titles
+        {
+            get => _titles;
+            set => SetProperty(ref _titles, value);
+        }
+
         private bool _overridePrice;
         public bool OverridePrice
         {
@@ -77,13 +84,6 @@ namespace Orion.Domain.EntityItem
                 }
                 SetProperty(ref _overridePrice, value);
             }
-        }
-
-        private IList<Title> _titles;
-        public IList<Title> Titles
-        {
-            get => _titles;
-            set => SetProperty(ref _titles, value);
         }
 
         private double _listPrice;
@@ -157,6 +157,14 @@ namespace Orion.Domain.EntityItem
 
                 SetProperty(ref _sellPrice, value);
             }
+        }
+
+        private double _totalPrice;
+        [NotMapped]
+        public double TotalPrice
+        {
+            get => (SellPrice * Quantity).Truncate(2);
+            set => SetProperty(ref _totalPrice, value);
         }
 
         private int? _catalogA1Id;

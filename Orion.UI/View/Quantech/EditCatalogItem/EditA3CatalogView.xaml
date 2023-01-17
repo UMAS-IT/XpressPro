@@ -61,7 +61,7 @@
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="List Price" 
-                             Background="DarkSlateBlue"
+                             Background="#32B974"
                              PreviewTextInput="IsDouble"
                              Text="{Binding Catalog.ListPrice, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
@@ -69,7 +69,7 @@
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Cost Multiplier" 
-                             Background="DarkSlateBlue"
+                             Background="#32B974"
                              PreviewTextInput="IsDouble"
                              Text="{Binding Catalog.CostMultiplier, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
@@ -85,7 +85,7 @@
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Sell Margin" 
-                             Background="DarkSlateBlue"
+                             Background="#32B974"
                              PreviewTextInput="IsDouble"
                              Text="{Binding Catalog.SellMargin, UpdateSourceTrigger=LostFocus, StringFormat={}{0}%, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
