@@ -124,10 +124,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityCatalogABB\CatalogB1.cs" />
+    <Compile Include="EntityCatalogABB\CatalogB2.cs" />
+    <Compile Include="EntityCatalogABB\CatalogB3.cs" />
+    <Compile Include="EntityCatalogABB\CatalogB4.cs" />
+    <Compile Include="EntityCatalogABB\CatalogB5.cs" />
     <Compile Include="EntityCatalogQuantech\CatalogA1.cs" />
     <Compile Include="EntityCatalogQuantech\CatalogA2.cs" />
     <Compile Include="EntityCatalogQuantech\CatalogA3.cs" />
     <Compile Include="EntityCatalogQuantech\CatalogA4.cs" />
+    <Compile Include="EntityItemABB\ItemB1.cs" />
+    <Compile Include="EntityItemABB\ItemB2.cs" />
+    <Compile Include="EntityItemABB\ItemB3.cs" />
+    <Compile Include="EntityItemABB\ItemB4.cs" />
+    <Compile Include="EntityItemABB\ItemB5.cs" />
+    <Compile Include="EntityItemQuantech\ItemB5.cs" />
     <Compile Include="Entity\ICatalog.cs" />
     <Compile Include="EntityItemQuantech\ItemA1.cs" />
     <Compile Include="EntityItemQuantech\ItemA2.cs" />
@@ -156,6 +167,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

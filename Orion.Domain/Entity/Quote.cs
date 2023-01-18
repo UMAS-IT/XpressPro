@@ -1,6 +1,7 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
 using Orion.Domain.EntityItem;
+using Orion.Domain.EntityItemABB;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,6 +39,7 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _project, value);
         }
 
+        #region Quantech Items
         private IList<ItemA1> _itemA1s;
         public IList<ItemA1> ItemA1s
         {
@@ -64,7 +66,45 @@ namespace Orion.Domain.Entity
             get => _itemA4s;
             set => SetProperty(ref _itemA4s, value);
         }
+        #endregion
 
+        #region ABB Items
+
+        private IList<ItemB1> _itemB1s;
+        public IList<ItemB1> ItemB1s
+        {
+            get => _itemB1s;
+            set => SetProperty(ref _itemB1s, value);
+        }
+
+        private IList<ItemB2> _itemB2s;
+        public IList<ItemB2> ItemB2s
+        {
+            get => _itemB2s;
+            set => SetProperty(ref _itemB2s, value);
+        }
+
+        private IList<ItemB3> _itemB3s;
+        public IList<ItemB3> ItemB3s
+        {
+            get => _itemB3s;
+            set => SetProperty(ref _itemB3s, value);
+        }
+
+        private IList<ItemB4> _itemB4s;
+        public IList<ItemB4> ItemB4s
+        {
+            get => _itemB4s;
+            set => SetProperty(ref _itemB4s, value);
+        }
+
+        private IList<ItemB5> _itemB5s;
+        public IList<ItemB5> ItemB5s
+        {
+            get => _itemB5s;
+            set => SetProperty(ref _itemB5s, value);
+        }
+        #endregion
 
         private bool _isSelected;
         [NotMapped]

@@ -53,18 +53,22 @@ namespace Orion.Domain.EntityItem
             set => SetProperty(ref _designIndex, value);
         }
 
-        private int _quantity;
-        public int Quantity
-        {
-            get => _quantity;
-            set => SetProperty(ref _quantity, value);
-        }
-
         private IList<Title> _titles;
         public IList<Title> Titles
         {
             get => _titles;
             set => SetProperty(ref _titles, value);
+        }
+
+        private int _quantity;
+        public int Quantity
+        {
+            get => _quantity;
+            set
+            {
+                SetProperty(ref _quantity, value);
+                TotalPrice = SellPrice * value;
+            }
         }
 
         private bool _overridePrice;
@@ -80,11 +84,11 @@ namespace Orion.Domain.EntityItem
                     Cost = Catalog.Cost;
                     SellMargin = Catalog.SellMargin;
                     SellPrice = Catalog.SellPrice;
+                    TotalPrice = Catalog.SellPrice * Quantity;
                 }
                 SetProperty(ref _overridePrice, value);
             }
         }
-
 
         private double _listPrice;
         public double ListPrice
@@ -98,6 +102,7 @@ namespace Orion.Domain.EntityItem
                 SetProperty(ref _listPrice, value);
                 Cost = value * CostMultiplier;
                 SellPrice = Cost / (1 - (SellMargin / 100));
+                TotalPrice = SellPrice * Quantity;
 
             }
         }
@@ -114,6 +119,7 @@ namespace Orion.Domain.EntityItem
                 SetProperty(ref _costMultiplier, value);
                 Cost = value * ListPrice;
                 SellPrice = Cost / (1 - (SellMargin / 100));
+                TotalPrice = SellPrice * Quantity;
             }
         }
 
@@ -142,6 +148,7 @@ namespace Orion.Domain.EntityItem
 
                 SetProperty(ref _sellMargin, value);
                 SellPrice = Cost / (1 - (value / 100));
+                TotalPrice = SellPrice * Quantity;
             }
         }
 
@@ -164,8 +171,15 @@ namespace Orion.Domain.EntityItem
         public double TotalPrice
         {
             get => (SellPrice * Quantity).Truncate(2);
-            set => SetProperty(ref _totalPrice, value);
+            set
+            {
+                if (!OverridePrice && Catalog != null)
+                    value = Catalog.SellPrice * Quantity;
+
+                SetProperty(ref _totalPrice, value);
+            }
         }
+
 
         private int? _catalogA2Id;
         public int? CatalogA2Id

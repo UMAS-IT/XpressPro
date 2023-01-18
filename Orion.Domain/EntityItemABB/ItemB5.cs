@@ -1,17 +1,19 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Domain.Entity;
-using Orion.Domain.EntityCatalogQuantech;
+using Orion.Domain.EntityCatalogABB;
 using Orion.Helper.Extension;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Orion.Domain.EntityItem
+namespace Orion.Domain.EntityItemABB
 {
-    //QUANTECH - Air Cooled Factory Lead Time
-    public class ItemA1 : ValidatableBindableBase , IItem
+    public class ItemB5 : ValidatableBindableBase, IItem
     {
-
         private int _id;
         public int Id
         {
@@ -181,27 +183,27 @@ namespace Orion.Domain.EntityItem
             }
         }
 
-        private int? _catalogA1Id;
-        public int? CatalogA1Id
+        private int? _catalogB5Id;
+        public int? CatalogB5Id
         {
-            get => _catalogA1Id;
-            set => SetProperty(ref _catalogA1Id, value);
+            get => _catalogB5Id;
+            set => SetProperty(ref _catalogB5Id, value);
         }
 
-        private CatalogA1 _catalogA1;
-        public CatalogA1 CatalogA1
+        private CatalogB5 _catalogB5;
+        public CatalogB5 CatalogB5
         {
-            get => _catalogA1;
-            set => SetProperty(ref _catalogA1, value);
+            get => _catalogB5;
+            set => SetProperty(ref _catalogB5, value);
         }
 
         [NotMapped]
-        public ICatalog Catalog { get { return CatalogA1; } }
+        public ICatalog Catalog { get { return CatalogB5; } }
 
         [NotMapped]
-        public int? CatalogId { get { return CatalogA1Id; } }
+        public int? CatalogId { get { return CatalogB5Id; } }
 
-        public ItemA1()
+        public ItemB5()
         {
             Titles = new ObservableCollection<Title>();
             Quantity = 1;

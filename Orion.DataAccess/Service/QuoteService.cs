@@ -60,6 +60,11 @@ namespace Orion.DataAccess.Service
                                      .Include(x => x.ItemA2s)
                                      .Include(x => x.ItemA3s)
                                      .Include(x => x.ItemA4s)
+                                     .Include(x => x.ItemB1s)
+                                     .Include(x => x.ItemB2s)
+                                     .Include(x => x.ItemB3s)
+                                     .Include(x => x.ItemB4s)
+                                     .Include(x => x.ItemB5s)
                                      .FirstOrDefault(x => x.Id == quoteId);
             }
         }
@@ -77,6 +82,17 @@ namespace Orion.DataAccess.Service
                     .Include(x => x.ItemA3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                     .Include(x => x.ItemA4s).ThenInclude(x => x.CatalogA4)
                     .Include(x => x.ItemA4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+                    .Include(x => x.ItemB1s).ThenInclude(x => x.CatalogB1)
+                    .Include(x => x.ItemB1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemB2s).ThenInclude(x => x.CatalogB2)
+                    .Include(x => x.ItemB2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemB3s).ThenInclude(x => x.CatalogB3)
+                    .Include(x => x.ItemB3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemB4s).ThenInclude(x => x.CatalogB4)
+                    .Include(x => x.ItemB4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemB5s).ThenInclude(x => x.CatalogB5)
+                    .Include(x => x.ItemB5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                     .Where(u => u.ProjectId == projectId).ToList();
 
                 quotes.ForEach(u =>

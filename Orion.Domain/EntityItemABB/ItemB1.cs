@@ -1,15 +1,19 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Domain.Entity;
+using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Helper.Extension;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Orion.Domain.EntityItem
+namespace Orion.Domain.EntityItemABB
 {
-    //QUANTECH - Air Cooled Factory Lead Time
-    public class ItemA1 : ValidatableBindableBase , IItem
+    public class ItemB1 : ValidatableBindableBase, IItem
     {
 
         private int _id;
@@ -60,6 +64,7 @@ namespace Orion.Domain.EntityItem
             get => _titles;
             set => SetProperty(ref _titles, value);
         }
+
 
         private int _quantity;
         public int Quantity
@@ -181,27 +186,27 @@ namespace Orion.Domain.EntityItem
             }
         }
 
-        private int? _catalogA1Id;
-        public int? CatalogA1Id
+        private int? _catalogB1Id;
+        public int? CatalogB1Id
         {
-            get => _catalogA1Id;
-            set => SetProperty(ref _catalogA1Id, value);
+            get => _catalogB1Id;
+            set => SetProperty(ref _catalogB1Id, value);
         }
 
-        private CatalogA1 _catalogA1;
-        public CatalogA1 CatalogA1
+        private CatalogB1 _catalogB1;
+        public CatalogB1 CatalogB1
         {
-            get => _catalogA1;
-            set => SetProperty(ref _catalogA1, value);
+            get => _catalogB1;
+            set => SetProperty(ref _catalogB1, value);
         }
 
         [NotMapped]
-        public ICatalog Catalog { get { return CatalogA1; } }
+        public ICatalog Catalog { get { return CatalogB1; } }
 
         [NotMapped]
-        public int? CatalogId { get { return CatalogA1Id; } }
+        public int? CatalogId { get { return CatalogB1Id; } }
 
-        public ItemA1()
+        public ItemB1()
         {
             Titles = new ObservableCollection<Title>();
             Quantity = 1;

@@ -1,5 +1,6 @@
 ﻿using Orion.DataAccess.DataBase;
 using Orion.Domain.Entity;
+using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Helper.Extension;
 using System;
@@ -22,6 +23,16 @@ namespace Orion.DataAccess.Service
                     return context.CatalogA3s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else if (catalog is CatalogA4)
                     return context.CatalogA4s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogB1)
+                    return context.CatalogB1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogB2)
+                    return context.CatalogB2s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogB3)
+                    return context.CatalogB3s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogB4)
+                    return context.CatalogB4s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogB5)
+                    return context.CatalogB5s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else
                     return true;
             }
@@ -59,6 +70,46 @@ namespace Orion.DataAccess.Service
             }
         }
 
+        public IList<ICatalog> GetCatalogB1s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogB1s.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogB2s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogB2s.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogB3s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogB3s.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogB4s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogB4s.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogB5s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogB5s.ToList<ICatalog>();
+            }
+        }
+
         public ICatalog GetCatalogByCatalogId(ICatalog catalog)
         {
             using (GlobalDbContext context = new GlobalDbContext())
@@ -78,6 +129,26 @@ namespace Orion.DataAccess.Service
                 else if (catalog is CatalogA4)
                 {
                     return context.CatalogA4s.FirstOrDefault(x => x.Id == catalog.Id);
+                }
+                else if (catalog is CatalogB1)
+                {
+                    return context.CatalogB1s.FirstOrDefault(x => x.Id == catalog.Id);
+                }
+                else if (catalog is CatalogB2)
+                {
+                    return context.CatalogB2s.FirstOrDefault(x => x.Id == catalog.Id);
+                }
+                else if (catalog is CatalogB3)
+                {
+                    return context.CatalogB3s.FirstOrDefault(x => x.Id == catalog.Id);
+                }
+                else if (catalog is CatalogB4)
+                {
+                    return context.CatalogB4s.FirstOrDefault(x => x.Id == catalog.Id);
+                }
+                else if (catalog is CatalogB5)
+                {
+                    return context.CatalogB5s.FirstOrDefault(x => x.Id == catalog.Id);
                 }
                 else
                 {
@@ -185,6 +256,111 @@ namespace Orion.DataAccess.Service
                     else
                     {
                         context.CatalogA4s.Add(catalog as CatalogA4);
+                        dbCatalog = catalog;
+                    }
+                }
+                else if (catalog is CatalogB1)
+                {
+                    if (catalog.Id != 0)
+                    {
+                        CatalogB1 catalogB1 = catalog as CatalogB1;
+                        CatalogB1 dbCatalogB1 = context.CatalogB1s.FirstOrDefault(x => x.Id == catalog.Id);
+
+                        dbCatalogB1.Model = catalogB1.Model;
+                        dbCatalogB1.ListPrice = catalogB1.ListPrice;
+                        dbCatalogB1.CostMultiplier = catalogB1.CostMultiplier;
+                        dbCatalogB1.SellMargin = catalogB1.SellMargin;
+
+                        context.CatalogB1s.Update(dbCatalogB1);
+                        dbCatalog = dbCatalogB1;
+                    }
+                    else
+                    {
+                        context.CatalogB1s.Add(catalog as CatalogB1);
+                        dbCatalog = catalog;
+                    }
+                }
+                else if (catalog is CatalogB2)
+                {
+                    if (catalog.Id != 0)
+                    {
+                        CatalogB2 catalogB2 = catalog as CatalogB2;
+                        CatalogB2 dbCatalogB2 = context.CatalogB2s.FirstOrDefault(x => x.Id == catalog.Id);
+
+                        dbCatalogB2.Model = catalogB2.Model;
+                        dbCatalogB2.ListPrice = catalogB2.ListPrice;
+                        dbCatalogB2.CostMultiplier = catalogB2.CostMultiplier;
+                        dbCatalogB2.SellMargin = catalogB2.SellMargin;
+
+                        context.CatalogB2s.Update(dbCatalogB2);
+                        dbCatalog = dbCatalogB2;
+                    }
+                    else
+                    {
+                        context.CatalogB2s.Add(catalog as CatalogB2);
+                        dbCatalog = catalog;
+                    }
+                }
+                else if (catalog is CatalogB3)
+                {
+                    if (catalog.Id != 0)
+                    {
+                        CatalogB3 catalogB3 = catalog as CatalogB3;
+                        CatalogB3 dbCatalogB3 = context.CatalogB3s.FirstOrDefault(x => x.Id == catalog.Id);
+
+                        dbCatalogB3.Model = catalogB3.Model;
+                        dbCatalogB3.ListPrice = catalogB3.ListPrice;
+                        dbCatalogB3.CostMultiplier = catalogB3.CostMultiplier;
+                        dbCatalogB3.SellMargin = catalogB3.SellMargin;
+
+                        context.CatalogB3s.Update(dbCatalogB3);
+                        dbCatalog = dbCatalogB3;
+                    }
+                    else
+                    {
+                        context.CatalogB3s.Add(catalog as CatalogB3);
+                        dbCatalog = catalog;
+                    }
+                }
+                else if (catalog is CatalogB4)
+                {
+                    if (catalog.Id != 0)
+                    {
+                        CatalogB4 catalogB4 = catalog as CatalogB4;
+                        CatalogB4 dbCatalogB4 = context.CatalogB4s.FirstOrDefault(x => x.Id == catalog.Id);
+
+                        dbCatalogB4.Model = catalogB4.Model;
+                        dbCatalogB4.ListPrice = catalogB4.ListPrice;
+                        dbCatalogB4.CostMultiplier = catalogB4.CostMultiplier;
+                        dbCatalogB4.SellMargin = catalogB4.SellMargin;
+
+                        context.CatalogB4s.Update(dbCatalogB4);
+                        dbCatalog = dbCatalogB4;
+                    }
+                    else
+                    {
+                        context.CatalogB4s.Add(catalog as CatalogB4);
+                        dbCatalog = catalog;
+                    }
+                }
+                else if (catalog is CatalogB5)
+                {
+                    if (catalog.Id != 0)
+                    {
+                        CatalogB5 catalogB5 = catalog as CatalogB5;
+                        CatalogB5 dbCatalogB5 = context.CatalogB5s.FirstOrDefault(x => x.Id == catalog.Id);
+
+                        dbCatalogB5.Model = catalogB5.Model;
+                        dbCatalogB5.ListPrice = catalogB5.ListPrice;
+                        dbCatalogB5.CostMultiplier = catalogB5.CostMultiplier;
+                        dbCatalogB5.SellMargin = catalogB5.SellMargin;
+
+                        context.CatalogB5s.Update(dbCatalogB5);
+                        dbCatalog = dbCatalogB5;
+                    }
+                    else
+                    {
+                        context.CatalogB5s.Add(catalog as CatalogB5);
                         dbCatalog = catalog;
                     }
                 }

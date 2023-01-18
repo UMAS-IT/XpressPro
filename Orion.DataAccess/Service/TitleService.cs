@@ -2,8 +2,10 @@
 using Microsoft.EntityFrameworkCore.Internal;
 using Orion.DataAccess.DataBase;
 using Orion.Domain.Entity;
+using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
+using Orion.Domain.EntityItemABB;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,6 +35,26 @@ namespace Orion.DataAccess.Service
                 {
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemA4Id == item.Id).ToList();
                 }
+                else if (item is ItemB1)
+                {
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemB1Id == item.Id).ToList();
+                }
+                else if (item is ItemB2)
+                {
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemB2Id == item.Id).ToList();
+                }
+                else if (item is ItemB3)
+                {
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemB3Id == item.Id).ToList();
+                }
+                else if (item is ItemB4)
+                {
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemB4Id == item.Id).ToList();
+                }
+                else if (item is ItemB5)
+                {
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemB5Id == item.Id).ToList();
+                }
                 return titles;
             }
         }
@@ -58,6 +80,26 @@ namespace Orion.DataAccess.Service
                 else if (catalog is CatalogA4)
                 {
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogA4Id == catalog.Id).ToList();
+                }
+                else if (catalog is CatalogB1)
+                {
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogB1Id == catalog.Id).ToList();
+                }
+                else if (catalog is CatalogB2)
+                {
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogB2Id == catalog.Id).ToList();
+                }
+                else if (catalog is CatalogB3)
+                {
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogB3Id == catalog.Id).ToList();
+                }
+                else if (catalog is CatalogB4)
+                {
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogB4Id == catalog.Id).ToList();
+                }
+                else if (catalog is CatalogB5)
+                {
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogB5Id == catalog.Id).ToList();
                 }
                 return titles;
             }
@@ -88,6 +130,31 @@ namespace Orion.DataAccess.Service
                 {
                     ItemA4 itemA4 = context.ItemA4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
                     dbItem = itemA4;
+                }
+                else if (item is ItemB1)
+                {
+                    ItemB1 itemB1 = context.ItemB1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                    dbItem = itemB1;
+                }
+                else if (item is ItemB2)
+                {
+                    ItemB2 itemB2 = context.ItemB2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                    dbItem = itemB2;
+                }
+                else if (item is ItemB3)
+                {
+                    ItemB3 itemB3 = context.ItemB3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                    dbItem = itemB3;
+                }
+                else if (item is ItemB4)
+                {
+                    ItemB4 itemB4 = context.ItemB4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                    dbItem = itemB4;
+                }
+                else if (item is ItemB5)
+                {
+                    ItemB5 itemB5 = context.ItemB5s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                    dbItem = itemB5;
                 }
 
                 foreach (Title title in titles)
@@ -173,6 +240,31 @@ namespace Orion.DataAccess.Service
                 {
                     CatalogA4 catalogA4 = context.CatalogA4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
                     dbCatalog = catalogA4;
+                }
+                else if (catalog is CatalogB1)
+                {
+                    CatalogB1 catalogB1 = context.CatalogB1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                    dbCatalog = catalogB1;
+                }
+                else if (catalog is CatalogB2)
+                {
+                    CatalogB2 catalogB2 = context.CatalogB2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                    dbCatalog = catalogB2;
+                }
+                else if (catalog is CatalogB3)
+                {
+                    CatalogB3 catalogB3 = context.CatalogB3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                    dbCatalog = catalogB3;
+                }
+                else if (catalog is CatalogB4)
+                {
+                    CatalogB4 catalogB4 = context.CatalogB4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                    dbCatalog = catalogB4;
+                }
+                else if (catalog is CatalogB5)
+                {
+                    CatalogB5 catalogB5 = context.CatalogB5s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                    dbCatalog = catalogB5;
                 }
 
                 foreach (Title title in titles)

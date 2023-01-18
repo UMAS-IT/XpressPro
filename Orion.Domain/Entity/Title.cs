@@ -1,7 +1,9 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
+using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
+using Orion.Domain.EntityItemABB;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -31,6 +33,7 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _specs, value);
         }
 
+        #region Quantech Items Id
         private int? _itemA1Id;
         public int? ItemA1Id
         {
@@ -86,7 +89,9 @@ namespace Orion.Domain.Entity
             get => _itemA4;
             set => SetProperty(ref _itemA4, value);
         }
+        #endregion
 
+        #region Quantech Catalogs Id
         private int? _catalogA1Id;
         public int? CatalogA1Id
         {
@@ -142,6 +147,152 @@ namespace Orion.Domain.Entity
             get => _catalogA4;
             set => SetProperty(ref _catalogA4, value);
         }
+        #endregion
+
+        #region ABB Items Id
+        private int? _itemB1Id;
+        public int? ItemB1Id
+        {
+            get => _itemB1Id;
+            set => SetProperty(ref _itemB1Id, value);
+        }
+
+        private ItemB1 _itemB1;
+        public ItemB1 ItemB1
+        {
+            get => _itemB1;
+            set => SetProperty(ref _itemB1, value);
+        }
+
+        private int? _itemB2Id;
+        public int? ItemB2Id
+        {
+            get => _itemB2Id;
+            set => SetProperty(ref _itemB2Id, value);
+        }
+
+        private ItemB2 _itemB2;
+        public ItemB2 ItemB2
+        {
+            get => _itemB2;
+            set => SetProperty(ref _itemB2, value);
+        }
+
+        private int? _itemB3Id;
+        public int? ItemB3Id
+        {
+            get => _itemB3Id;
+            set => SetProperty(ref _itemB3Id, value);
+        }
+
+        private ItemB3 _itemB3;
+        public ItemB3 ItemB3
+        {
+            get => _itemB3;
+            set => SetProperty(ref _itemB3, value);
+        }
+
+        private int? _itemB4Id;
+        public int? ItemB4Id
+        {
+            get => _itemB4Id;
+            set => SetProperty(ref _itemB4Id, value);
+        }
+
+        private ItemB4 _itemB4;
+        public ItemB4 ItemB4
+        {
+            get => _itemB4;
+            set => SetProperty(ref _itemB4, value);
+        }
+
+        private int? _itemB5Id;
+        public int? ItemB5Id
+        {
+            get => _itemB5Id;
+            set => SetProperty(ref _itemB5Id, value);
+        }
+
+        private ItemB5 _itemB5;
+        public ItemB5 ItemB5
+        {
+            get => _itemB5;
+            set => SetProperty(ref _itemB5, value);
+        }
+        #endregion
+
+        #region ABB Catalogs Id
+
+        private int? _catalogB1Id;
+        public int? CatalogB1Id
+        {
+            get => _catalogB1Id;
+            set => SetProperty(ref _catalogB1Id, value);
+        }
+
+        private CatalogB1 _catalogB1;
+        public CatalogB1 CatalogB1
+        {
+            get => _catalogB1;
+            set => SetProperty(ref _catalogB1, value);
+        }
+
+        private int? _catalogB2Id;
+        public int? CatalogB2Id
+        {
+            get => _catalogB2Id;
+            set => SetProperty(ref _catalogB2Id, value);
+        }
+
+        private CatalogB2 _catalogB2;
+        public CatalogB2 CatalogB2
+        {
+            get => _catalogB2;
+            set => SetProperty(ref _catalogB2, value);
+        }
+
+        private int? _catalogB3Id;
+        public int? CatalogB3Id
+        {
+            get => _catalogB3Id;
+            set => SetProperty(ref _catalogB3Id, value);
+        }
+
+        private CatalogB3 _catalogB3;
+        public CatalogB3 CatalogB3
+        {
+            get => _catalogB3;
+            set => SetProperty(ref _catalogB3, value);
+        }
+
+        private int? _catalogB4Id;
+        public int? CatalogB4Id
+        {
+            get => _catalogB4Id;
+            set => SetProperty(ref _catalogB4Id, value);
+        }
+
+        private CatalogB4 _catalogB4;
+        public CatalogB4 CatalogB4
+        {
+            get => _catalogB4;
+            set => SetProperty(ref _catalogB4, value);
+        }
+
+        private int? _catalogB5Id;
+        public int? CatalogB5Id
+        {
+            get => _catalogB5Id;
+            set => SetProperty(ref _catalogB5Id, value);
+        }
+
+        private CatalogB5 _catalogB5;
+        public CatalogB5 CatalogB5
+        {
+            get => _catalogB5;
+            set => SetProperty(ref _catalogB5, value);
+        }
+        #endregion
 
         private bool _saved;
         [NotMapped]
