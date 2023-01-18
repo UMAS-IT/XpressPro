@@ -14,14 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Orion.UI.View.Quantech
+namespace Orion.UI.View.ABB.EditCatalogItem
 {
     /// <summary>
-    /// Interaction logic for AQuoteItemListView.xaml
+    /// Interaction logic for EditB3CatalogView.xaml
     /// </summary>
-    public partial class AQuoteItemListView : UserControl
+    public partial class EditB3CatalogView : UserControl
     {
-        public AQuoteItemListView()
+        public EditB3CatalogView()
         {
             InitializeComponent();
         }

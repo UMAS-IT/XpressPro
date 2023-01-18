@@ -178,6 +178,21 @@
     </ApplicationDefinition>
     <Compile Include="Service\MessageService.cs" />
     <Compile Include="Service\WindowService.cs" />
+    <Compile Include="ViewModel\ABB\CatalogList\CatalogB1ListViewModel.cs" />
+    <Compile Include="ViewModel\ABB\CatalogList\CatalogB2ListViewModel.cs" />
+    <Compile Include="ViewModel\ABB\CatalogList\CatalogB3ListViewModel.cs" />
+    <Compile Include="ViewModel\ABB\CatalogList\CatalogB4ListViewModel.cs" />
+    <Compile Include="ViewModel\ABB\CatalogList\CatalogB5ListViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditCatalogItem\EditB1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditCatalogItem\EditB2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditCatalogItem\EditB3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditCatalogItem\EditB4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditCatalogItem\EditB5CatalogViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditQuoteItem\EditB1ItemViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditQuoteItem\EditB2ItemViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditQuoteItem\EditB3ItemViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditQuoteItem\EditB4ItemViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditQuoteItem\EditB5ItemViewModel.cs" />
     <Compile Include="ViewModel\CatalogViewModel.cs" />
     <Compile Include="ViewModel\ComingSoonViewModel.cs" />
     <Compile Include="ViewModel\CreateQuoteViewModel.cs" />
@@ -203,6 +218,51 @@
     <Compile Include="ViewModel\ReportsViewModel.cs" />
     <Compile Include="ViewModel\TitleFromItemViewModel.cs" />
     <Compile Include="ViewModel\TitleViewModel.cs" />
+    <Compile Include="View\ABB\CatalogList\CatalogB1ListView.xaml.cs">
+      <DependentUpon>CatalogB1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\CatalogList\CatalogB2ListView.xaml.cs">
+      <DependentUpon>CatalogB2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\CatalogList\CatalogB3ListView.xaml.cs">
+      <DependentUpon>CatalogB3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\CatalogList\CatalogB4ListView.xaml.cs">
+      <DependentUpon>CatalogB4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\CatalogList\CatalogB5ListView.xaml.cs">
+      <DependentUpon>CatalogB5ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditCatalogItem\EditB1CatalogView.xaml.cs">
+      <DependentUpon>EditB1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditCatalogItem\EditB2CatalogView.xaml.cs">
+      <DependentUpon>EditB2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditCatalogItem\EditB3CatalogView.xaml.cs">
+      <DependentUpon>EditB3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditCatalogItem\EditB4CatalogView.xaml.cs">
+      <DependentUpon>EditB4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditCatalogItem\EditB5CatalogView.xaml.cs">
+      <DependentUpon>EditB5CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditQuoteItem\EditB1ItemView.xaml.cs">
+      <DependentUpon>EditB1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditQuoteItem\EditB2ItemView.xaml.cs">
+      <DependentUpon>EditB2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditQuoteItem\EditB3ItemView.xaml.cs">
+      <DependentUpon>EditB3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditQuoteItem\EditB4ItemView.xaml.cs">
+      <DependentUpon>EditB4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditQuoteItem\EditB5ItemView.xaml.cs">
+      <DependentUpon>EditB5ItemView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CatalogView.xaml.cs">
       <DependentUpon>CatalogView.xaml</DependentUpon>
     </Compile>
@@ -226,9 +286,6 @@
     </Compile>
     <Compile Include="View\ProjectInformationView.xaml.cs">
       <DependentUpon>ProjectInformationView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Quantech\AQuoteItemListView.xaml.cs">
-      <DependentUpon>AQuoteItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Quantech\CatalogList\CatalogA1ListView.xaml.cs">
       <DependentUpon>CatalogA1ListView.xaml</DependentUpon>
@@ -278,6 +335,66 @@
     <Compile Include="View\TitleView.xaml.cs">
       <DependentUpon>TitleView.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\ABB\CatalogList\CatalogB1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\CatalogList\CatalogB2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\CatalogList\CatalogB3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\CatalogList\CatalogB4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\CatalogList\CatalogB5ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditCatalogItem\EditB1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditCatalogItem\EditB2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditCatalogItem\EditB3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditCatalogItem\EditB4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditCatalogItem\EditB5CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditQuoteItem\EditB1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditQuoteItem\EditB2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditQuoteItem\EditB3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditQuoteItem\EditB4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditQuoteItem\EditB5ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AirTreatmentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -337,10 +454,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ProjectInformationView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Quantech\AQuoteItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

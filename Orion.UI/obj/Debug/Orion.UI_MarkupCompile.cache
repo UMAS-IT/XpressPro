@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\App.xaml
-281019994872
+42-1739299078
 
-63313788667
+92-661879060
 164-2068275373
-View\AirTreatmentView.xaml;View\CatalogView.xaml;View\ComingSoonView.xaml;View\CreateQuoteView.xaml;View\ItemView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\NewProjectView.xaml;View\OpenProjectView.xaml;View\ProjectInformationView.xaml;View\Quantech\AQuoteItemListView.xaml;View\Quantech\CatalogList\CatalogA1ListView.xaml;View\Quantech\CatalogList\CatalogA2ListView.xaml;View\Quantech\CatalogList\CatalogA3ListView.xaml;View\Quantech\CatalogList\CatalogA4ListView.xaml;View\Quantech\EditCatalogItem\EditA1CatalogView.xaml;View\Quantech\EditCatalogItem\EditA2CatalogView.xaml;View\Quantech\EditCatalogItem\EditA3CatalogView.xaml;View\Quantech\EditCatalogItem\EditA4CatalogView.xaml;View\Quantech\EditQuoteItem\EditA1ItemView.xaml;View\Quantech\EditQuoteItem\EditA2ItemView.xaml;View\Quantech\EditQuoteItem\EditA3ItemView.xaml;View\Quantech\EditQuoteItem\EditA4ItemView.xaml;View\QuoteView.xaml;View\ReportsView.xaml;View\TitleFromItemView.xaml;View\TitleView.xaml;
+View\ABB\CatalogList\CatalogB1ListView.xaml;View\ABB\CatalogList\CatalogB2ListView.xaml;View\ABB\CatalogList\CatalogB3ListView.xaml;View\ABB\CatalogList\CatalogB4ListView.xaml;View\ABB\CatalogList\CatalogB5ListView.xaml;View\ABB\EditCatalogItem\EditB1CatalogView.xaml;View\ABB\EditCatalogItem\EditB2CatalogView.xaml;View\ABB\EditCatalogItem\EditB3CatalogView.xaml;View\ABB\EditCatalogItem\EditB4CatalogView.xaml;View\ABB\EditCatalogItem\EditB5CatalogView.xaml;View\ABB\EditQuoteItem\EditB1ItemView.xaml;View\ABB\EditQuoteItem\EditB2ItemView.xaml;View\ABB\EditQuoteItem\EditB3ItemView.xaml;View\ABB\EditQuoteItem\EditB4ItemView.xaml;View\ABB\EditQuoteItem\EditB5ItemView.xaml;View\AirTreatmentView.xaml;View\CatalogView.xaml;View\ComingSoonView.xaml;View\CreateQuoteView.xaml;View\ItemView.xaml;View\LoginView.xaml;View\MainWindow.xaml;View\MenuView.xaml;View\NewProjectView.xaml;View\OpenProjectView.xaml;View\ProjectInformationView.xaml;View\Quantech\CatalogList\CatalogA1ListView.xaml;View\Quantech\CatalogList\CatalogA2ListView.xaml;View\Quantech\CatalogList\CatalogA3ListView.xaml;View\Quantech\CatalogList\CatalogA4ListView.xaml;View\Quantech\EditCatalogItem\EditA1CatalogView.xaml;View\Quantech\EditCatalogItem\EditA2CatalogView.xaml;View\Quantech\EditCatalogItem\EditA3CatalogView.xaml;View\Quantech\EditCatalogItem\EditA4CatalogView.xaml;View\Quantech\EditQuoteItem\EditA1ItemView.xaml;View\Quantech\EditQuoteItem\EditA2ItemView.xaml;View\Quantech\EditQuoteItem\EditA3ItemView.xaml;View\Quantech\EditQuoteItem\EditA4ItemView.xaml;View\QuoteView.xaml;View\ReportsView.xaml;View\TitleFromItemView.xaml;View\TitleView.xaml;
 
 False
 

@@ -1,19 +1,26 @@
 ﻿<Application x:Class="Orion.UI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Orion.UI"
              xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
-             xmlns:Dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-             xmlns:vm="clr-namespace:Orion.UI.ViewModel"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:view="clr-namespace:Orion.UI.View"
-             xmlns:vmCatalogA="clr-namespace:Orion.UI.ViewModel.Quantech.CatalogList"
+             xmlns:vm="clr-namespace:Orion.UI.ViewModel"
+             
              xmlns:viewCatalogA="clr-namespace:Orion.UI.View.Quantech.CatalogList"
-             xmlns:vmItemA="clr-namespace:Orion.UI.ViewModel.Quantech.EditQuoteItem"
-             xmlns:viewItemA="clr-namespace:Orion.UI.View.Quantech.EditQuoteItem"
-             xmlns:vmQuoteA="clr-namespace:Orion.UI.ViewModel.Quantech"
-             xmlns:viewQuoteA="clr-namespace:Orion.UI.View.Quantech"
-             xmlns:vmECA="clr-namespace:Orion.UI.ViewModel.Quantech.EditCatalogItem"
              xmlns:viewECA="clr-namespace:Orion.UI.View.Quantech.EditCatalogItem"
+             xmlns:viewItemA="clr-namespace:Orion.UI.View.Quantech.EditQuoteItem"
+             
+             xmlns:vmCatalogA="clr-namespace:Orion.UI.ViewModel.Quantech.CatalogList"
+             xmlns:vmECA="clr-namespace:Orion.UI.ViewModel.Quantech.EditCatalogItem"
+             xmlns:vmItemA="clr-namespace:Orion.UI.ViewModel.Quantech.EditQuoteItem"
+                          
+             xmlns:viewCatalogB="clr-namespace:Orion.UI.View.ABB.CatalogList"
+             xmlns:viewECB="clr-namespace:Orion.UI.View.ABB.EditCatalogItem"
+             xmlns:viewItemB="clr-namespace:Orion.UI.View.ABB.EditQuoteItem"
+             
+             xmlns:vmCatalogB="clr-namespace:Orion.UI.ViewModel.ABB.CatalogList"
+             xmlns:vmECB="clr-namespace:Orion.UI.ViewModel.ABB.EditCatalogItem"
+             xmlns:vmItemB="clr-namespace:Orion.UI.ViewModel.ABB.EditQuoteItem"
+             
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -111,10 +118,6 @@
                 <viewCatalogA:CatalogA4ListView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmQuoteA:AQuoteItemListViewModel}">
-                <viewQuoteA:AQuoteItemListView/>
-            </DataTemplate>
-
             <DataTemplate DataType="{x:Type vmECA:EditA1CatalogViewModel}">
                 <viewECA:EditA1CatalogView/>
             </DataTemplate>
@@ -130,6 +133,73 @@
             <DataTemplate DataType="{x:Type vmECA:EditA4CatalogViewModel}">
                 <viewECA:EditA4CatalogView/>
             </DataTemplate>
+
+
+
+
+
+
+
+            <DataTemplate DataType="{x:Type vmItemB:EditB1ItemViewModel}">
+                <viewItemB:EditB1ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemB:EditB2ItemViewModel}">
+                <viewItemB:EditB2ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemB:EditB3ItemViewModel}">
+                <viewItemB:EditB3ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemB:EditB4ItemViewModel}">
+                <viewItemB:EditB4ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemB:EditB5ItemViewModel}">
+                <viewItemB:EditB5ItemView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vmCatalogB:CatalogB1ListViewModel}">
+                <viewCatalogB:CatalogB1ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogB:CatalogB2ListViewModel}">
+                <viewCatalogB:CatalogB2ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogB:CatalogB3ListViewModel}">
+                <viewCatalogB:CatalogB3ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogB:CatalogB4ListViewModel}">
+                <viewCatalogB:CatalogB4ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogB:CatalogB5ListViewModel}">
+                <viewCatalogB:CatalogB5ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECB:EditB1CatalogViewModel}">
+                <viewECB:EditB1CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECB:EditB2CatalogViewModel}">
+                <viewECB:EditB2CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECB:EditB3CatalogViewModel}">
+                <viewECB:EditB3CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECB:EditB4CatalogViewModel}">
+                <viewECB:EditB4CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECB:EditB5CatalogViewModel}">
+                <viewECB:EditB5CatalogView/>
+            </DataTemplate>
+
 
             <Style  x:Key="TxtStyle" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}">
                 <Setter Property="ctrl:TextBoxHelper.UseFloatingWatermark" Value="True"/>
