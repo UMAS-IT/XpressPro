@@ -188,6 +188,20 @@ namespace Orion.UI.Command
     public interface ICatalogListViewModel
     {
         ObservableCollection<ICatalog> Catalogs { get; set; }
+        Action BackToProductsRequested { get; set; }
+        Action<ICatalog> OnEditCatalogItemRequested { get; set; }
+        Action<ICatalog> OnEditCatalogTitlesRequested { get; set; }
+    }
+
+    public interface IEditCatalogViewModel
+    {
+        Action BackFromEditRequested { get; set; }
+        Action<ICatalog, bool> BackFromEditItemSavedRequested {get;set;}
+    }
+
+    public interface IEditItemViewModel
+    {
+        Action<IList<IItem>, string> OnItemsSavedRequested { get; set; }
     }
 
 }

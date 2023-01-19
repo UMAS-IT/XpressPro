@@ -1803,7 +1803,7 @@
                                     </DataGrid>
                                 </Expander>
 
-                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,0,0,0" IsExpanded="True">
+                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,5,0,0" IsExpanded="True">
                                     <Expander.Style>
                                         <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
                                             <Style.Triggers>
@@ -1818,7 +1818,7 @@
                                             <Label Content="VCR"  VerticalAlignment="Center"/>
 
                                             <Button HorizontalAlignment="Right" Width="65" 
-                                Command="{Binding EditItemsCommand}"  Background="DarkCyan" CommandParameter="B1"
+                                Command="{Binding EditItemsCommand}"  Background="DarkCyan" CommandParameter="B2"
                             ToolTip="Edit VCR's">
                                                 <Button.Content>
                                                     <icon:PackIconMaterial Kind="PencilPlus"   
@@ -2112,7 +2112,7 @@
                                     </DataGrid>
                                 </Expander>
 
-                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,0,0,0" IsExpanded="True">
+                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,5,0,0" IsExpanded="True">
                                     <Expander.Style>
                                         <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
                                             <Style.Triggers>
@@ -2127,7 +2127,7 @@
                                             <Label Content="PCR"  VerticalAlignment="Center"/>
 
                                             <Button HorizontalAlignment="Right" Width="65" 
-                                Command="{Binding EditItemsCommand}"  Background="DarkCyan" CommandParameter="B1"
+                                Command="{Binding EditItemsCommand}"  Background="DarkCyan" CommandParameter="B3"
                             ToolTip="Edit PCR's">
                                                 <Button.Content>
                                                     <icon:PackIconMaterial Kind="PencilPlus"   
@@ -2421,7 +2421,7 @@
                                     </DataGrid>
                                 </Expander>
 
-                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,0,0,0" IsExpanded="True">
+                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,5,0,0" IsExpanded="True">
                                     <Expander.Style>
                                         <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
                                             <Style.Triggers>
@@ -2436,7 +2436,7 @@
                                             <Label Content="BCR"  VerticalAlignment="Center"/>
 
                                             <Button HorizontalAlignment="Right" Width="65" 
-                                Command="{Binding EditItemsCommand}"  Background="DarkCyan" CommandParameter="B1"
+                                Command="{Binding EditItemsCommand}"  Background="DarkCyan" CommandParameter="B4"
                             ToolTip="Edit BCR's">
                                                 <Button.Content>
                                                     <icon:PackIconMaterial Kind="PencilPlus"   
@@ -2730,7 +2730,7 @@
                                     </DataGrid>
                                 </Expander>
 
-                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,0,0,0" IsExpanded="True">
+                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,5,0,0" IsExpanded="True">
                                     <Expander.Style>
                                         <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
                                             <Style.Triggers>
@@ -2745,7 +2745,7 @@
                                             <Label Content="Accesories"  VerticalAlignment="Center"/>
 
                                             <Button HorizontalAlignment="Right" Width="65" 
-                                Command="{Binding EditItemsCommand}"  Background="DarkCyan" CommandParameter="B1"
+                                Command="{Binding EditItemsCommand}"  Background="DarkCyan" CommandParameter="B5"
                             ToolTip="Edit Accesories">
                                                 <Button.Content>
                                                     <icon:PackIconMaterial Kind="PencilPlus"   

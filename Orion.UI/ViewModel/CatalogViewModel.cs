@@ -2,11 +2,15 @@
 using Orion.Binding.Binding;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogQuantech;
+using Orion.Helper.Extension;
 using Orion.UI.Command;
 using Orion.UI.Service;
+using Orion.UI.ViewModel.ABB.CatalogList;
+using Orion.UI.ViewModel.ABB.EditCatalogItem;
 using Orion.UI.ViewModel.Quantech.CatalogList;
 using Orion.UI.ViewModel.Quantech.EditCatalogItem;
 using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
@@ -49,10 +53,8 @@ namespace Orion.UI.ViewModel
         }
 
         public RelayCommand LoadDataCommand { get; set; }
-        public RelayCommand CatalogA1Command { get; set; }
-        public RelayCommand CatalogA2Command { get; set; }
-        public RelayCommand CatalogA3Command { get; set; }
-        public RelayCommand CatalogA4Command { get; set; }
+
+        public RelayCommand<string> OpenCatalogCommand { get; set; }
 
 
         public CatalogViewModel(IDialogCoordinator dialogCoordinator, MainWindowViewModel mw)
@@ -61,10 +63,7 @@ namespace Orion.UI.ViewModel
             this.mw = mw;
 
             LoadDataCommand = new RelayCommand(OnLoadData);
-            CatalogA1Command = new RelayCommand(OnCatalogA1);
-            CatalogA2Command = new RelayCommand(OnCatalogA2);
-            CatalogA3Command = new RelayCommand(OnCatalogA3);
-            CatalogA4Command = new RelayCommand(OnCatalogA4);
+            OpenCatalogCommand = new RelayCommand<string>(OnOpenCatalog);
 
             messageService = new MessageService(dialogCoordinator, this);
         }
@@ -73,34 +72,30 @@ namespace Orion.UI.ViewModel
         {
             EditActive = true;
 
+            IEditCatalogViewModel viewModel = null;
+
             if (CurrentViewModel is CatalogA1ListViewModel)
-            {
-                EditA1CatalogViewModel viewModel = new EditA1CatalogViewModel(dialogCoordinator, catalog);
-                viewModel.BackFromEditRequested += OnBackFromEdit;
-                viewModel.BackFromEditItemSavedRequested += OnBackFromEditItemSaved;
-                EditViewModel = viewModel;
-            }
+                viewModel = new EditA1CatalogViewModel(dialogCoordinator, catalog);
             else if (CurrentViewModel is CatalogA2ListViewModel)
-            {
-                EditA2CatalogViewModel viewModel = new EditA2CatalogViewModel(dialogCoordinator, catalog);
-                viewModel.BackFromEditRequested += OnBackFromEdit;
-                viewModel.BackFromEditItemSavedRequested += OnBackFromEditItemSaved;
-                EditViewModel = viewModel;
-            }
+                viewModel = new EditA2CatalogViewModel(dialogCoordinator, catalog);
             else if (CurrentViewModel is CatalogA3ListViewModel)
-            {
-                EditA3CatalogViewModel viewModel = new EditA3CatalogViewModel(dialogCoordinator, catalog);
-                viewModel.BackFromEditRequested += OnBackFromEdit;
-                viewModel.BackFromEditItemSavedRequested += OnBackFromEditItemSaved;
-                EditViewModel = viewModel;
-            }
+                viewModel = new EditA3CatalogViewModel(dialogCoordinator, catalog);
             else if (CurrentViewModel is CatalogA4ListViewModel)
-            {
-                EditA4CatalogViewModel viewModel = new EditA4CatalogViewModel(dialogCoordinator, catalog);
-                viewModel.BackFromEditRequested += OnBackFromEdit;
-                viewModel.BackFromEditItemSavedRequested += OnBackFromEditItemSaved;
-                EditViewModel = viewModel;
-            }
+                viewModel = new EditA4CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogB1ListViewModel)
+                viewModel = new EditB1CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogB2ListViewModel)
+                viewModel = new EditB2CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogB3ListViewModel)
+                viewModel = new EditB3CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogB4ListViewModel)
+                viewModel = new EditB4CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogB5ListViewModel)
+                viewModel = new EditB5CatalogViewModel(dialogCoordinator, catalog);
+
+            viewModel.BackFromEditRequested += OnBackFromEdit;
+            viewModel.BackFromEditItemSavedRequested += OnBackFromEditItemSaved;
+            EditViewModel = (BindableBase)viewModel;
 
         }
 
@@ -109,21 +104,23 @@ namespace Orion.UI.ViewModel
             ICatalogListViewModel viewModel = null;
 
             if (CurrentViewModel is CatalogA1ListViewModel)
-            {
                 viewModel = CurrentViewModel as CatalogA1ListViewModel;
-            }
             else if (CurrentViewModel is CatalogA2ListViewModel)
-            {
                 viewModel = CurrentViewModel as CatalogA2ListViewModel;
-            }
             else if (CurrentViewModel is CatalogA3ListViewModel)
-            {
                 viewModel = CurrentViewModel as CatalogA3ListViewModel;
-            }
             else if (CurrentViewModel is CatalogA4ListViewModel)
-            {
                 viewModel = CurrentViewModel as CatalogA4ListViewModel;
-            }
+            else if (CurrentViewModel is CatalogB1ListViewModel)
+                viewModel = CurrentViewModel as CatalogB1ListViewModel;
+            else if (CurrentViewModel is CatalogB2ListViewModel)
+                viewModel = CurrentViewModel as CatalogB2ListViewModel;
+            else if (CurrentViewModel is CatalogB3ListViewModel)
+                viewModel = CurrentViewModel as CatalogB3ListViewModel;
+            else if (CurrentViewModel is CatalogB4ListViewModel)
+                viewModel = CurrentViewModel as CatalogB4ListViewModel;
+            else if (CurrentViewModel is CatalogB5ListViewModel)
+                viewModel = CurrentViewModel as CatalogB5ListViewModel;
 
             if (isUpdated)
             {
@@ -143,72 +140,43 @@ namespace Orion.UI.ViewModel
             OnBackFromEdit();
         }
 
-        private async void OnCatalogA1()
+        private async void OnOpenCatalog(string catalogName)
         {
-            if (CurrentViewModel is CatalogA1ListViewModel)
-                return;
-
             CurrentViewModel = null;
             await Task.Delay(100);
             ProductsActive = false;
 
-            CatalogA1ListViewModel catalogA1ListViewModel = new CatalogA1ListViewModel(dialogCoordinator);
-            catalogA1ListViewModel.BackToProductsRequested += OnBackToProducts;
-            catalogA1ListViewModel.OnEditCatalogTitlesRequested += OnEditCatalogTitles;
-            catalogA1ListViewModel.OnEditCatalogItemRequested += OnEditCatalogItem;
+            catalogName = catalogName.ToFormat();
 
-            CurrentViewModel = catalogA1ListViewModel;
-        }
+            ICatalogListViewModel viewModel = null;
 
-        private async void OnCatalogA2()
-        {
-            if (CurrentViewModel is CatalogA2ListViewModel)
-                return;
+            if (catalogName == "a1")
+                viewModel = new CatalogA1ListViewModel(dialogCoordinator);
+            else if (catalogName == "a2")
+                viewModel = new CatalogA2ListViewModel(dialogCoordinator);
+            else if (catalogName == "a3")
+                viewModel = new CatalogA3ListViewModel(dialogCoordinator);
+            else if (catalogName == "a4")
+                viewModel = new CatalogA4ListViewModel(dialogCoordinator);
+            else if (catalogName == "b1")
+                viewModel = new CatalogB1ListViewModel(dialogCoordinator);
+            else if (catalogName == "b2")
+                viewModel = new CatalogB2ListViewModel(dialogCoordinator);
+            else if (catalogName == "b3")
+                viewModel = new CatalogB3ListViewModel(dialogCoordinator);
+            else if (catalogName == "b4")
+                viewModel = new CatalogB4ListViewModel(dialogCoordinator);
+            else if (catalogName == "b5")
+                viewModel = new CatalogB5ListViewModel(dialogCoordinator);
 
-            CurrentViewModel = null;
-            await Task.Delay(100);
-            ProductsActive = false;
+            if (viewModel != null)
+            {
+                viewModel.BackToProductsRequested += OnBackToProducts;
+                viewModel.OnEditCatalogTitlesRequested += OnEditCatalogTitles;
+                viewModel.OnEditCatalogItemRequested += OnEditCatalogItem;
 
-            CatalogA2ListViewModel catalogA2ListViewModel = new CatalogA2ListViewModel(dialogCoordinator);
-            catalogA2ListViewModel.BackToProductsRequested += OnBackToProducts;
-            catalogA2ListViewModel.OnEditCatalogTitlesRequested += OnEditCatalogTitles;
-            catalogA2ListViewModel.OnEditCatalogItemRequested += OnEditCatalogItem;
-
-            CurrentViewModel = catalogA2ListViewModel;
-        }
-
-        private async void OnCatalogA3()
-        {
-            if (CurrentViewModel is CatalogA3ListViewModel)
-                return;
-
-            CurrentViewModel = null;
-            await Task.Delay(100);
-            ProductsActive = false;
-
-            CatalogA3ListViewModel catalogA3ListViewModel = new CatalogA3ListViewModel(dialogCoordinator);
-            catalogA3ListViewModel.BackToProductsRequested += OnBackToProducts;
-            catalogA3ListViewModel.OnEditCatalogTitlesRequested += OnEditCatalogTitles;
-            catalogA3ListViewModel.OnEditCatalogItemRequested += OnEditCatalogItem;
-
-            CurrentViewModel = catalogA3ListViewModel;
-        }
-
-        private async void OnCatalogA4()
-        {
-            if (CurrentViewModel is CatalogA4ListViewModel)
-                return;
-
-            CurrentViewModel = null;
-            await Task.Delay(100);
-            ProductsActive = false;
-
-            CatalogA4ListViewModel catalogA4ListViewModel = new CatalogA4ListViewModel(dialogCoordinator);
-            catalogA4ListViewModel.BackToProductsRequested += OnBackToProducts;
-            catalogA4ListViewModel.OnEditCatalogTitlesRequested += OnEditCatalogTitles;
-            catalogA4ListViewModel.OnEditCatalogItemRequested += OnEditCatalogItem;
-
-            CurrentViewModel = catalogA4ListViewModel;
+                CurrentViewModel = (BindableBase)viewModel;
+            }
         }
 
         private void OnLoadData()

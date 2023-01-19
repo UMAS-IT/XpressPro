@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Orion.UI.ViewModel.Quantech.EditCatalogItem
 {
-    public class EditA2CatalogViewModel : BindableBase
+    public class EditA2CatalogViewModel : BindableBase, IEditCatalogViewModel
     {
         MessageService messageService;
         CatalogService catalogService;
@@ -29,9 +29,9 @@ namespace Orion.UI.ViewModel.Quantech.EditCatalogItem
         public RelayCommand BackFromEditCommand { get; set; }
         public RelayCommand UpdateCatalogItemCommand { get; set; }
 
-        public Action BackFromEditRequested = delegate { };
+        public Action BackFromEditRequested { get; set; } = delegate { };
 
-        public Action<ICatalog, bool> BackFromEditItemSavedRequested = delegate { };
+        public Action<ICatalog, bool> BackFromEditItemSavedRequested { get; set; } = delegate { };
 
         public EditA2CatalogViewModel(IDialogCoordinator dialogCoordinator, ICatalog catalog)
         {

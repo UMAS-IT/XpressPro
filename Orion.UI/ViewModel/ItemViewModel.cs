@@ -348,11 +348,12 @@ namespace Orion.UI.ViewModel
             }
             else if (itemsName.ToFormat() == "b5")
             {
-                EditB5ItemViewModel editB5ItemViewModel = new EditB5ItemViewModel(dialogCoordinator, Quote, ItemB4s);
+                EditB5ItemViewModel editB5ItemViewModel = new EditB5ItemViewModel(dialogCoordinator, Quote, ItemB5s);
                 editB5ItemViewModel.OnItemsSavedRequested += OnItemB5Saved;
                 windowService.EditItemsWndow(editB5ItemViewModel, "Edit Accesories");
             }
         }
+
 
         private void OnItemA1Saved(IList<IItem> editedItems)
         {

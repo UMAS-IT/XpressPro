@@ -49,9 +49,9 @@ namespace Orion.UI.ViewModel.ABB.CatalogList
         public RelayCommand<ICatalog> EditCatalogTitlesCommand { get; set; }
         public RelayCommand BackToProductsCommand { get; set; }
 
-        public Action BackToProductsRequested = delegate { };
-        public Action<ICatalog> OnEditCatalogItemRequested = delegate { };
-        public Action<ICatalog> OnEditCatalogTitlesRequested = delegate { };
+        public Action BackToProductsRequested { get; set; } = delegate { };
+        public Action<ICatalog> OnEditCatalogItemRequested { get; set; } = delegate { };
+        public Action<ICatalog> OnEditCatalogTitlesRequested { get; set; } = delegate { };
 
         public CatalogB5ListViewModel(IDialogCoordinator dialogCoordinator)
         {

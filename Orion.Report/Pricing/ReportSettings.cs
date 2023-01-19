@@ -24,6 +24,33 @@ namespace Orion.Report.Pricing
 
         public string pricingFilePath = Environment.CurrentDirectory + @"\ResourcePricing\PricingTemplate.docx";
 
+        public string JoinTags(IList<IItem> items)
+        {
+            string tags = "";
+
+            items.ToList().ForEach(x => tags += $"[{x.Tag}] ");
+
+            return tags;
+        }
+        public int JoinQuantities(IList<IItem> items)
+        {
+            int qty = 0;
+
+            items.ToList().ForEach(x => qty += x.Quantity);
+
+            return qty;
+        }
+
+        public double JoinSellPrices(IList<IItem> items)
+        {
+            double sellPrice = 0;
+
+            items.ToList().ForEach(x => sellPrice += x.OverridePrice ? x.Quantity * x.SellPrice : x.Quantity * x.Catalog.SellPrice);
+
+            return sellPrice;
+
+        }
+
         public void CreateItemTable(Section docSection, int itemsQuantity, string[] sectionTitle, string[] Header, string[][] data)
         {
             Table table = docSection.AddTable(true);

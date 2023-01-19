@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Orion.UI.ViewModel.ABB.EditCatalogItem
 {
-    public class EditB4CatalogViewModel : BindableBase
+    public class EditB4CatalogViewModel : BindableBase, IEditCatalogViewModel
     {
         MessageService messageService;
         CatalogService catalogService;
@@ -30,9 +30,9 @@ namespace Orion.UI.ViewModel.ABB.EditCatalogItem
         public RelayCommand BackFromEditCommand { get; set; }
         public RelayCommand UpdateCatalogItemCommand { get; set; }
 
-        public Action BackFromEditRequested = delegate { };
+        public Action BackFromEditRequested { get; set; } = delegate { };
 
-        public Action<ICatalog, bool> BackFromEditItemSavedRequested = delegate { };
+        public Action<ICatalog, bool> BackFromEditItemSavedRequested { get; set; } = delegate { };
 
         public EditB4CatalogViewModel(IDialogCoordinator dialogCoordinator, ICatalog catalog)
         {
@@ -68,7 +68,7 @@ namespace Orion.UI.ViewModel.ABB.EditCatalogItem
 
         private async Task<bool> CanUpdate()
         {
-            CatalogA1 catalog = Catalog as CatalogA1;
+            CatalogB4 catalog = Catalog as CatalogB4;
 
             if (string.IsNullOrWhiteSpace(catalog.Model))
             {

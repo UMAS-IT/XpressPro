@@ -167,7 +167,7 @@ namespace Orion.UI.ViewModel
 
                 Quotes = quoteService.GetQuotesForReportsByProjectId(projectId).ToObservableCollection();
 
-                mw.Title = $"ENIGMA ({projectService.GetProjectById(projectId).Name})";
+                mw.Title = $"XpressPro ({projectService.GetProjectById(projectId).Name})";
 
                 await messageService.EndMessage("Loaded");
             }

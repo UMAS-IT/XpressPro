@@ -176,6 +176,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\TwoParametersConverter.cs" />
     <Compile Include="Service\MessageService.cs" />
     <Compile Include="Service\WindowService.cs" />
     <Compile Include="ViewModel\ABB\CatalogList\CatalogB1ListViewModel.cs" />

@@ -42,27 +42,63 @@
                 <Expander Header="QUANTECH" Margin="5" Width="120" IsExpanded="True">
                     <StackPanel Orientation="Vertical">
                         
-                        <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA1Command}">
+                        <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="a1">
                             <Button.Content>
                                 <TextBlock Text="Air Cooled Chillers Factory Lead Time" TextWrapping="Wrap"/>
                             </Button.Content>
                         </Button>
 
-                        <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA2Command}">
+                        <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="a2">
                             <Button.Content>
                                 <TextBlock Text="Air Cooled Chillers Stock Non Coated Condenser"  TextWrapping="Wrap"/>
                             </Button.Content>
                         </Button>
 
-                        <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA3Command}">
+                        <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="a3">
                             <Button.Content>
                                 <TextBlock Text="Air Cooled Chillers Stock Post Coated Condenser"  TextWrapping="Wrap"/>
                             </Button.Content>
                         </Button>
 
-                        <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding CatalogA4Command}">
+                        <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="a4">
                             <Button.Content>
                                 <TextBlock Text="Water Cooled Chillers Factory Lead Time"  TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                    </StackPanel>
+                </Expander>
+
+                <Expander Header="ABB" Margin="5" Width="120" IsExpanded="True">
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b1">
+                            <Button.Content>
+                                <TextBlock Text="BARE" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+                        
+                        <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b2">
+                            <Button.Content>
+                                <TextBlock Text="VCR" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b3">
+                            <Button.Content>
+                                <TextBlock Text="PCR" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b4">
+                            <Button.Content>
+                                <TextBlock Text="BCR" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b5">
+                            <Button.Content>
+                                <TextBlock Text="Accesories" TextWrapping="Wrap"/>
                             </Button.Content>
                         </Button>
 

@@ -224,11 +224,11 @@ namespace Orion.DataAccess.Service
                 DeleteItems(context, dbQuote.ItemA2s.ToList<IItem>(), items.OfType<ItemA2>().ToList<IItem>());
                 DeleteItems(context, dbQuote.ItemA3s.ToList<IItem>(), items.OfType<ItemA3>().ToList<IItem>());
                 DeleteItems(context, dbQuote.ItemA4s.ToList<IItem>(), items.OfType<ItemA4>().ToList<IItem>());
-                DeleteItems(context, dbQuote.ItemB1s.ToList<IItem>(), items.OfType<ItemA1>().ToList<IItem>());
-                DeleteItems(context, dbQuote.ItemB2s.ToList<IItem>(), items.OfType<ItemA2>().ToList<IItem>());
-                DeleteItems(context, dbQuote.ItemB3s.ToList<IItem>(), items.OfType<ItemA3>().ToList<IItem>());
-                DeleteItems(context, dbQuote.ItemB4s.ToList<IItem>(), items.OfType<ItemA4>().ToList<IItem>());
-                DeleteItems(context, dbQuote.ItemB5s.ToList<IItem>(), items.OfType<ItemA4>().ToList<IItem>());
+                DeleteItems(context, dbQuote.ItemB1s.ToList<IItem>(), items.OfType<ItemB1>().ToList<IItem>());
+                DeleteItems(context, dbQuote.ItemB2s.ToList<IItem>(), items.OfType<ItemB2>().ToList<IItem>());
+                DeleteItems(context, dbQuote.ItemB3s.ToList<IItem>(), items.OfType<ItemB3>().ToList<IItem>());
+                DeleteItems(context, dbQuote.ItemB4s.ToList<IItem>(), items.OfType<ItemB4>().ToList<IItem>());
+                DeleteItems(context, dbQuote.ItemB5s.ToList<IItem>(), items.OfType<ItemB5>().ToList<IItem>());
                 context.Quotes.Update(dbQuote);
                 context.SaveChanges();
             }

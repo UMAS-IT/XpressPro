@@ -20,6 +20,7 @@ namespace Orion.Report.Pricing
         public void Create(Project project, IList<Quote> quotes)
         {
             PricingA pricingA = new PricingA();
+            PricingB pricingB = new PricingB();
             List<PricingItem> pricingItems = new List<PricingItem>();
 
             currentProjectPath = CreateFolders(project, quotes);
@@ -56,6 +57,31 @@ namespace Orion.Report.Pricing
                     pricingItems.Add(pricingA.CreateA4ItemTable(quote.ItemA4s, mainDocument, docSection, itemNumber++));
                     AddBlankLine(mainDocument, docSection);
                 }
+                if (quote.ItemB1s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.Add(pricingB.CreateB1ItemTable(quote.ItemB1s, mainDocument, docSection, itemNumber++));
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemB2s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.Add(pricingB.CreateB2ItemTable(quote.ItemB2s, mainDocument, docSection, itemNumber++));
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemB3s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.Add(pricingB.CreateB3ItemTable(quote.ItemB3s, mainDocument, docSection, itemNumber++));
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemB4s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.Add(pricingB.CreateB4ItemTable(quote.ItemB4s, mainDocument, docSection, itemNumber++));
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemB5s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.Add(pricingB.CreateB5ItemTable(quote.ItemB5s, mainDocument, docSection, itemNumber++));
+                    AddBlankLine(mainDocument, docSection);
+                }
 
                 CreatePricingTable(pricingItems, docSection);
 
@@ -79,7 +105,7 @@ namespace Orion.Report.Pricing
             int itemsQuantity = pricingItems.Count;
 
             String[] title = { $"Pricing" };
-            String[] Header = { "Item", "Description", "Price Per Line" };
+            String[] Header = { "Item", "Tags", "Quantity", "Description", "Price Per Line" };
 
             string[][] data = new string[pricingItems.Count][];
 
@@ -87,7 +113,7 @@ namespace Orion.Report.Pricing
             {
                 PricingItem pricingItem = pricingItems[i];
 
-                data[i] = new string[3] { $"#{pricingItem.ItemNumber}", pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+                data[i] = new string[5] { $"#{pricingItem.ItemNumber}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
             }
 
             CreateItemTable(docSection, itemsQuantity, title, Header, data);
