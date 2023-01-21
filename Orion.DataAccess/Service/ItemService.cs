@@ -2,9 +2,11 @@
 using Orion.DataAccess.DataBase;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
+using Orion.Domain.EntityCatalogAmericanWheatley;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
+using Orion.Domain.EntityItemAmericanWheatley;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +32,11 @@ namespace Orion.DataAccess.Service
                 IList<ItemB4> itemB4s = context.ItemB4s.Include(x => x.CatalogB4).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemB5> itemB5s = context.ItemB5s.Include(x => x.CatalogB5).Where(x => x.QuoteId == quoteId).ToList();
 
+                IList<ItemC1> itemC1s = context.ItemC1s.Include(x => x.CatalogC1).Where(x => x.QuoteId == quoteId).ToList();
+                IList<ItemC2> itemC2s = context.ItemC2s.Include(x => x.CatalogC2).Where(x => x.QuoteId == quoteId).ToList();
+                IList<ItemC3> itemC3s = context.ItemC3s.Include(x => x.CatalogC3).Where(x => x.QuoteId == quoteId).ToList();
+                IList<ItemC4> itemC4s = context.ItemC4s.Include(x => x.CatalogC4).Where(x => x.QuoteId == quoteId).ToList();
+
                 items.AddRange(itemA1s);
                 items.AddRange(itemA2s);
                 items.AddRange(itemA3s);
@@ -39,6 +46,10 @@ namespace Orion.DataAccess.Service
                 items.AddRange(itemB3s);
                 items.AddRange(itemB4s);
                 items.AddRange(itemB5s);
+                items.AddRange(itemC1s);
+                items.AddRange(itemC2s);
+                items.AddRange(itemC3s);
+                items.AddRange(itemC4s);
 
                 items = items.OrderBy(x => x.DesignIndex).ToList();
 
@@ -69,6 +80,14 @@ namespace Orion.DataAccess.Service
                     .Include(x => x.ItemB4s).ThenInclude(x => x.Titles)
                     .Include(x => x.ItemB5s).ThenInclude(x => x.CatalogB5)
                     .Include(x => x.ItemB5s).ThenInclude(x => x.Titles)
+                    .Include(x => x.ItemC1s).ThenInclude(x => x.CatalogC1)
+                    .Include(x => x.ItemC1s).ThenInclude(x => x.Titles)
+                    .Include(x => x.ItemC2s).ThenInclude(x => x.CatalogC2)
+                    .Include(x => x.ItemC2s).ThenInclude(x => x.Titles)
+                    .Include(x => x.ItemC3s).ThenInclude(x => x.CatalogC3)
+                    .Include(x => x.ItemC3s).ThenInclude(x => x.Titles)
+                    .Include(x => x.ItemC4s).ThenInclude(x => x.CatalogC4)
+                    .Include(x => x.ItemC4s).ThenInclude(x => x.Titles)
                     .FirstOrDefault(x => x.Id == quote.Id);
 
                 List<CatalogA1> catalogA1s = context.CatalogA1s.ToList();
@@ -82,20 +101,28 @@ namespace Orion.DataAccess.Service
                 List<CatalogB4> catalogB4s = context.CatalogB4s.ToList();
                 List<CatalogB5> catalogB5s = context.CatalogB5s.ToList();
 
+                List<CatalogC1> catalogC1s = context.CatalogC1s.ToList();
+                List<CatalogC2> catalogC2s = context.CatalogC2s.ToList();
+                List<CatalogC3> catalogC3s = context.CatalogC3s.ToList();
+                List<CatalogC4> catalogC4s = context.CatalogC4s.ToList();
+
                 List<ICatalog> catalogs = new List<ICatalog>();
+
                 catalogs.AddRange(catalogA1s);
                 catalogs.AddRange(catalogA2s);
                 catalogs.AddRange(catalogA3s);
                 catalogs.AddRange(catalogA4s);
+
                 catalogs.AddRange(catalogB1s);
                 catalogs.AddRange(catalogB2s);
                 catalogs.AddRange(catalogB3s);
                 catalogs.AddRange(catalogB4s);
                 catalogs.AddRange(catalogB5s);
-                //dbQuote.ItemAirCooledChillersName = quote.ItemAirCooledChillersName;
-                //dbQuote.ItemUnitsName = quote.ItemUnitsName;
-                //dbQuote.ItemPumpsName = quote.ItemPumpsName;
-                //dbQuote.ItemVfdsName = quote.ItemVfdsName;
+                
+                catalogs.AddRange(catalogC1s);
+                catalogs.AddRange(catalogC2s);
+                catalogs.AddRange(catalogC3s);
+                catalogs.AddRange(catalogC4s);
 
                 foreach (IItem item in items)
                 {
@@ -104,51 +131,33 @@ namespace Orion.DataAccess.Service
                     if (item.QuoteId == dbQuote.Id)
                     {
                         if (item is ItemA1)
-                        {
-                            ItemA1 itemA1 = dbQuote.ItemA1s.FirstOrDefault(x => x.Id == item.Id);
-                            dbItem = itemA1;
-                        }
+                            dbItem = dbQuote.ItemA1s.FirstOrDefault(x => x.Id == item.Id);
                         if (item is ItemA2)
-                        {
-                            ItemA2 itemA2 = dbQuote.ItemA2s.FirstOrDefault(x => x.Id == item.Id);
-                            dbItem = itemA2;
-                        }
+                            dbItem = dbQuote.ItemA2s.FirstOrDefault(x => x.Id == item.Id);
                         if (item is ItemA3)
-                        {
-                            ItemA3 itemA3 = dbQuote.ItemA3s.FirstOrDefault(x => x.Id == item.Id);
-                            dbItem = itemA3;
-                        }
+                            dbItem = dbQuote.ItemA3s.FirstOrDefault(x => x.Id == item.Id);
                         if (item is ItemA4)
-                        {
-                            ItemA4 itemA4 = dbQuote.ItemA4s.FirstOrDefault(x => x.Id == item.Id);
-                            dbItem = itemA4;
-                        }
+                            dbItem = dbQuote.ItemA4s.FirstOrDefault(x => x.Id == item.Id);
 
                         if (item is ItemB1)
-                        {
-                            ItemB1 itemB1 = dbQuote.ItemB1s.FirstOrDefault(x => x.Id == item.Id);
-                            dbItem = itemB1;
-                        }
+                            dbItem = dbQuote.ItemB1s.FirstOrDefault(x => x.Id == item.Id);
                         if (item is ItemB2)
-                        {
-                            ItemB2 itemB2 = dbQuote.ItemB2s.FirstOrDefault(x => x.Id == item.Id);
-                            dbItem = itemB2;
-                        }
+                            dbItem = dbQuote.ItemB2s.FirstOrDefault(x => x.Id == item.Id);
                         if (item is ItemB3)
-                        {
-                            ItemB3 itemB3 = dbQuote.ItemB3s.FirstOrDefault(x => x.Id == item.Id);
-                            dbItem = itemB3;
-                        }
+                            dbItem = dbQuote.ItemB3s.FirstOrDefault(x => x.Id == item.Id);
                         if (item is ItemB4)
-                        {
-                            ItemB4 itemB4 = dbQuote.ItemB4s.FirstOrDefault(x => x.Id == item.Id);
-                            dbItem = itemB4;
-                        }
+                            dbItem = dbQuote.ItemB4s.FirstOrDefault(x => x.Id == item.Id);
                         if (item is ItemB5)
-                        {
-                            ItemB5 itemB5 = dbQuote.ItemB5s.FirstOrDefault(x => x.Id == item.Id);
-                            dbItem = itemB5;
-                        }
+                            dbItem = dbQuote.ItemB5s.FirstOrDefault(x => x.Id == item.Id);
+
+                        if (item is ItemC1)
+                            dbItem = dbQuote.ItemC1s.FirstOrDefault(x => x.Id == item.Id);
+                        if (item is ItemC2)
+                            dbItem = dbQuote.ItemC2s.FirstOrDefault(x => x.Id == item.Id);
+                        if (item is ItemC3)
+                            dbItem = dbQuote.ItemC3s.FirstOrDefault(x => x.Id == item.Id);
+                        if (item is ItemC4)
+                            dbItem = dbQuote.ItemC4s.FirstOrDefault(x => x.Id == item.Id);
 
                         dbItem.Quantity = item.Quantity;
                         dbItem.DesignIndex = item.DesignIndex;
@@ -187,6 +196,7 @@ namespace Orion.DataAccess.Service
                             newItemA4.CatalogA4 = catalogs.OfType<CatalogA4>().FirstOrDefault(x => x.Id == item.CatalogId);
                             dbQuote.ItemA4s.Add(newItemA4);
                         }
+
                         if (item is ItemB1)
                         {
                             ItemB1 newItemB1 = item as ItemB1;
@@ -217,6 +227,31 @@ namespace Orion.DataAccess.Service
                             newItemB5.CatalogB5 = catalogs.OfType<CatalogB5>().FirstOrDefault(x => x.Id == item.CatalogId);
                             dbQuote.ItemB5s.Add(newItemB5);
                         }
+
+                        if (item is ItemC1)
+                        {
+                            ItemC1 newItemC1 = item as ItemC1;
+                            newItemC1.CatalogC1 = catalogs.OfType<CatalogC1>().FirstOrDefault(x => x.Id == item.CatalogId);
+                            dbQuote.ItemC1s.Add(newItemC1);
+                        }
+                        if (item is ItemC2)
+                        {
+                            ItemC2 newItemC2 = item as ItemC2;
+                            newItemC2.CatalogC2 = catalogs.OfType<CatalogC2>().FirstOrDefault(x => x.Id == item.CatalogId);
+                            dbQuote.ItemC2s.Add(newItemC2);
+                        }
+                        if (item is ItemC3)
+                        {
+                            ItemC3 newItemC3 = item as ItemC3;
+                            newItemC3.CatalogC3 = catalogs.OfType<CatalogC3>().FirstOrDefault(x => x.Id == item.CatalogId);
+                            dbQuote.ItemC3s.Add(newItemC3);
+                        }
+                        if (item is ItemC4)
+                        {
+                            ItemC4 newItemC4 = item as ItemC4;
+                            newItemC4.CatalogC4 = catalogs.OfType<CatalogC4>().FirstOrDefault(x => x.Id == item.CatalogId);
+                            dbQuote.ItemC4s.Add(newItemC4);
+                        }
                     }
                 }
 
@@ -224,11 +259,18 @@ namespace Orion.DataAccess.Service
                 DeleteItems(context, dbQuote.ItemA2s.ToList<IItem>(), items.OfType<ItemA2>().ToList<IItem>());
                 DeleteItems(context, dbQuote.ItemA3s.ToList<IItem>(), items.OfType<ItemA3>().ToList<IItem>());
                 DeleteItems(context, dbQuote.ItemA4s.ToList<IItem>(), items.OfType<ItemA4>().ToList<IItem>());
+
                 DeleteItems(context, dbQuote.ItemB1s.ToList<IItem>(), items.OfType<ItemB1>().ToList<IItem>());
                 DeleteItems(context, dbQuote.ItemB2s.ToList<IItem>(), items.OfType<ItemB2>().ToList<IItem>());
                 DeleteItems(context, dbQuote.ItemB3s.ToList<IItem>(), items.OfType<ItemB3>().ToList<IItem>());
                 DeleteItems(context, dbQuote.ItemB4s.ToList<IItem>(), items.OfType<ItemB4>().ToList<IItem>());
                 DeleteItems(context, dbQuote.ItemB5s.ToList<IItem>(), items.OfType<ItemB5>().ToList<IItem>());
+
+                DeleteItems(context, dbQuote.ItemC1s.ToList<IItem>(), items.OfType<ItemC1>().ToList<IItem>());
+                DeleteItems(context, dbQuote.ItemC2s.ToList<IItem>(), items.OfType<ItemC2>().ToList<IItem>());
+                DeleteItems(context, dbQuote.ItemC3s.ToList<IItem>(), items.OfType<ItemC3>().ToList<IItem>());
+                DeleteItems(context, dbQuote.ItemC4s.ToList<IItem>(), items.OfType<ItemC4>().ToList<IItem>());
+
                 context.Quotes.Update(dbQuote);
                 context.SaveChanges();
             }
@@ -670,6 +712,199 @@ namespace Orion.DataAccess.Service
             return GetB5ItemsByQuoteId(quote.Id);
         }
 
+        public IList<IItem> UpdateC1Items(Quote quote, IList<IItem> items)
+        {
+            items.ToList().ForEach(s => s.DesignIndex = items.IndexOf(s));
+
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                Quote dbQuote = context.Quotes
+                    .Include(x => x.ItemC1s).ThenInclude(x => x.CatalogC1)
+                    .Include(x => x.ItemC1s).ThenInclude(x => x.Titles)
+                    .FirstOrDefault(x => x.Id == quote.Id);
+
+                IList<ICatalog> catalogs = context.CatalogC1s.ToList<ICatalog>();
+
+                foreach (IItem item in items)
+                {
+                    if (item.QuoteId == dbQuote.Id)
+                    {
+                        IItem dbItem = dbQuote.ItemC1s.FirstOrDefault(x => x.Id == item.Id);
+                        dbItem.Quantity = item.Quantity;
+                        dbItem.DesignIndex = item.DesignIndex;
+                        dbItem.Tag = item.Tag;
+                        dbItem.IsExcluded = item.IsExcluded;
+                        dbItem.OverridePrice = item.OverridePrice;
+                        dbItem.ListPrice = item.ListPrice;
+                        dbItem.CostMultiplier = item.CostMultiplier;
+                        dbItem.Cost = item.Cost;
+                        dbItem.SellMargin = item.SellMargin;
+                        dbItem.SellPrice = item.SellPrice;
+                    }
+                    else
+                    {
+                        if (item is ItemC1)
+                        {
+                            ItemC1 newItem = item as ItemC1;
+                            newItem.CatalogC1 = catalogs.OfType<CatalogC1>().FirstOrDefault(x => x.Id == item.CatalogId);
+                            dbQuote.ItemC1s.Add(newItem);
+                        }
+                    }
+                }
+
+                DeleteItems(context, dbQuote.ItemC1s.ToList<IItem>(), items);
+
+                context.Quotes.Update(dbQuote);
+                context.SaveChanges();
+            }
+
+            return GetC1ItemsCyQuoteId(quote.Id);
+        }
+        public IList<IItem> UpdateC2Items(Quote quote, IList<IItem> items)
+        {
+            items.ToList().ForEach(s => s.DesignIndex = items.IndexOf(s));
+
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                Quote dbQuote = context.Quotes
+                    .Include(x => x.ItemC2s).ThenInclude(x => x.CatalogC2)
+                    .Include(x => x.ItemC2s).ThenInclude(x => x.Titles)
+                    .FirstOrDefault(x => x.Id == quote.Id);
+
+                IList<ICatalog> catalogs = context.CatalogC2s.ToList<ICatalog>();
+
+                foreach (IItem item in items)
+                {
+                    if (item.QuoteId == dbQuote.Id)
+                    {
+                        IItem dbItem = dbQuote.ItemC2s.FirstOrDefault(x => x.Id == item.Id);
+                        dbItem.Quantity = item.Quantity;
+                        dbItem.DesignIndex = item.DesignIndex;
+                        dbItem.Tag = item.Tag;
+                        dbItem.IsExcluded = item.IsExcluded;
+                        dbItem.OverridePrice = item.OverridePrice;
+                        dbItem.ListPrice = item.ListPrice;
+                        dbItem.CostMultiplier = item.CostMultiplier;
+                        dbItem.Cost = item.Cost;
+                        dbItem.SellMargin = item.SellMargin;
+                        dbItem.SellPrice = item.SellPrice;
+                    }
+                    else
+                    {
+                        if (item is ItemC2)
+                        {
+                            ItemC2 newItem = item as ItemC2;
+                            newItem.CatalogC2 = catalogs.OfType<CatalogC2>().FirstOrDefault(x => x.Id == item.CatalogId);
+                            dbQuote.ItemC2s.Add(newItem);
+                        }
+                    }
+                }
+
+                DeleteItems(context, dbQuote.ItemC2s.ToList<IItem>(), items);
+
+                context.Quotes.Update(dbQuote);
+                context.SaveChanges();
+            }
+
+            return GetC2ItemsCyQuoteId(quote.Id);
+        }
+        public IList<IItem> UpdateC3Items(Quote quote, IList<IItem> items)
+        {
+            items.ToList().ForEach(s => s.DesignIndex = items.IndexOf(s));
+
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                Quote dbQuote = context.Quotes
+                    .Include(x => x.ItemC3s).ThenInclude(x => x.CatalogC3)
+                    .Include(x => x.ItemC3s).ThenInclude(x => x.Titles)
+                    .FirstOrDefault(x => x.Id == quote.Id);
+
+                IList<ICatalog> catalogs = context.CatalogC3s.ToList<ICatalog>();
+
+                foreach (IItem item in items)
+                {
+                    if (item.QuoteId == dbQuote.Id)
+                    {
+                        IItem dbItem = dbQuote.ItemC3s.FirstOrDefault(x => x.Id == item.Id);
+                        dbItem.Quantity = item.Quantity;
+                        dbItem.DesignIndex = item.DesignIndex;
+                        dbItem.Tag = item.Tag;
+                        dbItem.IsExcluded = item.IsExcluded;
+                        dbItem.OverridePrice = item.OverridePrice;
+                        dbItem.ListPrice = item.ListPrice;
+                        dbItem.CostMultiplier = item.CostMultiplier;
+                        dbItem.Cost = item.Cost;
+                        dbItem.SellMargin = item.SellMargin;
+                        dbItem.SellPrice = item.SellPrice;
+                    }
+                    else
+                    {
+                        if (item is ItemC3)
+                        {
+                            ItemC3 newItem = item as ItemC3;
+                            newItem.CatalogC3 = catalogs.OfType<CatalogC3>().FirstOrDefault(x => x.Id == item.CatalogId);
+                            dbQuote.ItemC3s.Add(newItem);
+                        }
+                    }
+                }
+
+                DeleteItems(context, dbQuote.ItemC3s.ToList<IItem>(), items);
+
+                context.Quotes.Update(dbQuote);
+                context.SaveChanges();
+            }
+
+            return GetC3ItemsCyQuoteId(quote.Id);
+        }
+        public IList<IItem> UpdateC4Items(Quote quote, IList<IItem> items)
+        {
+            items.ToList().ForEach(s => s.DesignIndex = items.IndexOf(s));
+
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                Quote dbQuote = context.Quotes
+                    .Include(x => x.ItemC4s).ThenInclude(x => x.CatalogC4)
+                    .Include(x => x.ItemC4s).ThenInclude(x => x.Titles)
+                    .FirstOrDefault(x => x.Id == quote.Id);
+
+                IList<ICatalog> catalogs = context.CatalogC4s.ToList<ICatalog>();
+
+                foreach (IItem item in items)
+                {
+                    if (item.QuoteId == dbQuote.Id)
+                    {
+                        IItem dbItem = dbQuote.ItemC4s.FirstOrDefault(x => x.Id == item.Id);
+                        dbItem.Quantity = item.Quantity;
+                        dbItem.DesignIndex = item.DesignIndex;
+                        dbItem.Tag = item.Tag;
+                        dbItem.IsExcluded = item.IsExcluded;
+                        dbItem.OverridePrice = item.OverridePrice;
+                        dbItem.ListPrice = item.ListPrice;
+                        dbItem.CostMultiplier = item.CostMultiplier;
+                        dbItem.Cost = item.Cost;
+                        dbItem.SellMargin = item.SellMargin;
+                        dbItem.SellPrice = item.SellPrice;
+                    }
+                    else
+                    {
+                        if (item is ItemC4)
+                        {
+                            ItemC4 newItem = item as ItemC4;
+                            newItem.CatalogC4 = catalogs.OfType<CatalogC4>().FirstOrDefault(x => x.Id == item.CatalogId);
+                            dbQuote.ItemC4s.Add(newItem);
+                        }
+                    }
+                }
+
+                DeleteItems(context, dbQuote.ItemC4s.ToList<IItem>(), items);
+
+                context.Quotes.Update(dbQuote);
+                context.SaveChanges();
+            }
+
+            return GetC4ItemsCyQuoteId(quote.Id);
+        }
+
         private void DeleteItems(DbContext context, IList<IItem> dbItems, IList<IItem> items)
         {
             foreach (IItem dbItem in dbItems)
@@ -766,6 +1001,43 @@ namespace Orion.DataAccess.Service
                 List<IItem> items = new List<IItem>();
 
                 return context.ItemB5s.Include(x => x.CatalogB5).Where(x => x.QuoteId == quoteId).ToList<IItem>();
+            }
+        }
+
+        private IList<IItem> GetC1ItemsCyQuoteId(int quoteId)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                List<IItem> items = new List<IItem>();
+
+                return context.ItemC1s.Include(x => x.CatalogC1).Where(x => x.QuoteId == quoteId).ToList<IItem>();
+            }
+        }
+        private IList<IItem> GetC2ItemsCyQuoteId(int quoteId)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                List<IItem> items = new List<IItem>();
+
+                return context.ItemC2s.Include(x => x.CatalogC2).Where(x => x.QuoteId == quoteId).ToList<IItem>();
+            }
+        }
+        private IList<IItem> GetC3ItemsCyQuoteId(int quoteId)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                List<IItem> items = new List<IItem>();
+
+                return context.ItemC3s.Include(x => x.CatalogC3).Where(x => x.QuoteId == quoteId).ToList<IItem>();
+            }
+        }
+        private IList<IItem> GetC4ItemsCyQuoteId(int quoteId)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                List<IItem> items = new List<IItem>();
+
+                return context.ItemC4s.Include(x => x.CatalogC4).Where(x => x.QuoteId == quoteId).ToList<IItem>();
             }
         }
     }

@@ -7,6 +7,8 @@ using Orion.UI.Command;
 using Orion.UI.Service;
 using Orion.UI.ViewModel.ABB.CatalogList;
 using Orion.UI.ViewModel.ABB.EditCatalogItem;
+using Orion.UI.ViewModel.AmericanWheatley.CatalogList;
+using Orion.UI.ViewModel.AmericanWheatley.EditCatalogItem;
 using Orion.UI.ViewModel.Quantech.CatalogList;
 using Orion.UI.ViewModel.Quantech.EditCatalogItem;
 using System;
@@ -92,6 +94,14 @@ namespace Orion.UI.ViewModel
                 viewModel = new EditB4CatalogViewModel(dialogCoordinator, catalog);
             else if (CurrentViewModel is CatalogB5ListViewModel)
                 viewModel = new EditB5CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogC1ListViewModel)
+                viewModel = new EditC1CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogC2ListViewModel)
+                viewModel = new EditC2CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogC3ListViewModel)
+                viewModel = new EditC3CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogC4ListViewModel)
+                viewModel = new EditC4CatalogViewModel(dialogCoordinator, catalog);
 
             viewModel.BackFromEditRequested += OnBackFromEdit;
             viewModel.BackFromEditItemSavedRequested += OnBackFromEditItemSaved;
@@ -121,6 +131,14 @@ namespace Orion.UI.ViewModel
                 viewModel = CurrentViewModel as CatalogB4ListViewModel;
             else if (CurrentViewModel is CatalogB5ListViewModel)
                 viewModel = CurrentViewModel as CatalogB5ListViewModel;
+            else if (CurrentViewModel is CatalogC1ListViewModel)
+                viewModel = CurrentViewModel as CatalogC1ListViewModel;
+            else if (CurrentViewModel is CatalogC2ListViewModel)
+                viewModel = CurrentViewModel as CatalogC2ListViewModel;
+            else if (CurrentViewModel is CatalogC3ListViewModel)
+                viewModel = CurrentViewModel as CatalogC3ListViewModel;
+            else if (CurrentViewModel is CatalogC4ListViewModel)
+                viewModel = CurrentViewModel as CatalogC4ListViewModel;
 
             if (isUpdated)
             {
@@ -168,6 +186,14 @@ namespace Orion.UI.ViewModel
                 viewModel = new CatalogB4ListViewModel(dialogCoordinator);
             else if (catalogName == "b5")
                 viewModel = new CatalogB5ListViewModel(dialogCoordinator);
+            else if (catalogName == "c1")
+                viewModel = new CatalogC1ListViewModel(dialogCoordinator);
+            else if (catalogName == "c2")
+                viewModel = new CatalogC2ListViewModel(dialogCoordinator);
+            else if (catalogName == "c3")
+                viewModel = new CatalogC3ListViewModel(dialogCoordinator);
+            else if (catalogName == "c4")
+                viewModel = new CatalogC4ListViewModel(dialogCoordinator);
 
             if (viewModel != null)
             {

@@ -1,6 +1,7 @@
 ﻿using Orion.DataAccess.DataBase;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
+using Orion.Domain.EntityCatalogAmericanWheatley;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Helper.Extension;
 using System;
@@ -33,6 +34,14 @@ namespace Orion.DataAccess.Service
                     return context.CatalogB4s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else if (catalog is CatalogB5)
                     return context.CatalogB5s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogC1)
+                    return context.CatalogC1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogC2)
+                    return context.CatalogC2s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogC3)
+                    return context.CatalogC3s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogC4)
+                    return context.CatalogC4s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else
                     return true;
             }
@@ -110,50 +119,70 @@ namespace Orion.DataAccess.Service
             }
         }
 
+        public IList<ICatalog> GetCatalogC1s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogC1s.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogC2s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogC2s.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogC3s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogC3s.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogC4s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogC4s.ToList<ICatalog>();
+            }
+        }
+
         public ICatalog GetCatalogByCatalogId(ICatalog catalog)
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
                 if (catalog is CatalogA1)
-                {
                     return context.CatalogA1s.FirstOrDefault(x => x.Id == catalog.Id);
-                }
                 else if (catalog is CatalogA2)
-                {
                     return context.CatalogA2s.FirstOrDefault(x => x.Id == catalog.Id);
-                }
                 else if (catalog is CatalogA3)
-                {
                     return context.CatalogA3s.FirstOrDefault(x => x.Id == catalog.Id);
-                }
                 else if (catalog is CatalogA4)
-                {
                     return context.CatalogA4s.FirstOrDefault(x => x.Id == catalog.Id);
-                }
                 else if (catalog is CatalogB1)
-                {
                     return context.CatalogB1s.FirstOrDefault(x => x.Id == catalog.Id);
-                }
                 else if (catalog is CatalogB2)
-                {
                     return context.CatalogB2s.FirstOrDefault(x => x.Id == catalog.Id);
-                }
                 else if (catalog is CatalogB3)
-                {
                     return context.CatalogB3s.FirstOrDefault(x => x.Id == catalog.Id);
-                }
                 else if (catalog is CatalogB4)
-                {
                     return context.CatalogB4s.FirstOrDefault(x => x.Id == catalog.Id);
-                }
                 else if (catalog is CatalogB5)
-                {
                     return context.CatalogB5s.FirstOrDefault(x => x.Id == catalog.Id);
-                }
+                else if (catalog is CatalogC1)
+                    return context.CatalogC1s.FirstOrDefault(x => x.Id == catalog.Id);
+                else if (catalog is CatalogC2)
+                    return context.CatalogC2s.FirstOrDefault(x => x.Id == catalog.Id);
+                else if (catalog is CatalogC3)
+                    return context.CatalogC3s.FirstOrDefault(x => x.Id == catalog.Id);
+                else if (catalog is CatalogC4)
+                    return context.CatalogC4s.FirstOrDefault(x => x.Id == catalog.Id);
                 else
-                {
                     return null;
-                }
             }
         }
 
@@ -364,7 +393,90 @@ namespace Orion.DataAccess.Service
                         dbCatalog = catalog;
                     }
                 }
+                else if (catalog is CatalogC1)
+                {
+                    if (catalog.Id != 0)
+                    {
+                        CatalogC1 catalogC1 = catalog as CatalogC1;
+                        CatalogC1 dbCatalogC1 = context.CatalogC1s.FirstOrDefault(x => x.Id == catalog.Id);
 
+                        dbCatalogC1.Model = catalogC1.Model;
+                        dbCatalogC1.ListPrice = catalogC1.ListPrice;
+                        dbCatalogC1.CostMultiplier = catalogC1.CostMultiplier;
+                        dbCatalogC1.SellMargin = catalogC1.SellMargin;
+
+                        context.CatalogC1s.Update(dbCatalogC1);
+                        dbCatalog = dbCatalogC1;
+                    }
+                    else
+                    {
+                        context.CatalogC1s.Add(catalog as CatalogC1);
+                        dbCatalog = catalog;
+                    }
+                }
+                else if (catalog is CatalogC2)
+                {
+                    if (catalog.Id != 0)
+                    {
+                        CatalogC2 catalogC2 = catalog as CatalogC2;
+                        CatalogC2 dbCatalogC2 = context.CatalogC2s.FirstOrDefault(x => x.Id == catalog.Id);
+
+                        dbCatalogC2.Model = catalogC2.Model;
+                        dbCatalogC2.ListPrice = catalogC2.ListPrice;
+                        dbCatalogC2.CostMultiplier = catalogC2.CostMultiplier;
+                        dbCatalogC2.SellMargin = catalogC2.SellMargin;
+
+                        context.CatalogC2s.Update(dbCatalogC2);
+                        dbCatalog = dbCatalogC2;
+                    }
+                    else
+                    {
+                        context.CatalogC2s.Add(catalog as CatalogC2);
+                        dbCatalog = catalog;
+                    }
+                }
+                else if (catalog is CatalogC3)
+                {
+                    if (catalog.Id != 0)
+                    {
+                        CatalogC3 catalogC3 = catalog as CatalogC3;
+                        CatalogC3 dbCatalogC3 = context.CatalogC3s.FirstOrDefault(x => x.Id == catalog.Id);
+
+                        dbCatalogC3.Model = catalogC3.Model;
+                        dbCatalogC3.ListPrice = catalogC3.ListPrice;
+                        dbCatalogC3.CostMultiplier = catalogC3.CostMultiplier;
+                        dbCatalogC3.SellMargin = catalogC3.SellMargin;
+
+                        context.CatalogC3s.Update(dbCatalogC3);
+                        dbCatalog = dbCatalogC3;
+                    }
+                    else
+                    {
+                        context.CatalogC3s.Add(catalog as CatalogC3);
+                        dbCatalog = catalog;
+                    }
+                }
+                else if (catalog is CatalogC4)
+                {
+                    if (catalog.Id != 0)
+                    {
+                        CatalogC4 catalogC4 = catalog as CatalogC4;
+                        CatalogC4 dbCatalogC4 = context.CatalogC4s.FirstOrDefault(x => x.Id == catalog.Id);
+
+                        dbCatalogC4.Model = catalogC4.Model;
+                        dbCatalogC4.ListPrice = catalogC4.ListPrice;
+                        dbCatalogC4.CostMultiplier = catalogC4.CostMultiplier;
+                        dbCatalogC4.SellMargin = catalogC4.SellMargin;
+
+                        context.CatalogC4s.Update(dbCatalogC4);
+                        dbCatalog = dbCatalogC4;
+                    }
+                    else
+                    {
+                        context.CatalogC4s.Add(catalog as CatalogC4);
+                        dbCatalog = catalog;
+                    }
+                }
                 context.SaveChanges();
 
                 return dbCatalog;

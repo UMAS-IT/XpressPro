@@ -194,6 +194,18 @@
     <Compile Include="ViewModel\ABB\EditQuoteItem\EditB3ItemViewModel.cs" />
     <Compile Include="ViewModel\ABB\EditQuoteItem\EditB4ItemViewModel.cs" />
     <Compile Include="ViewModel\ABB\EditQuoteItem\EditB5ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC1ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC2ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC3ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC4ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC1ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC2ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC3ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC4ItemViewModel.cs" />
     <Compile Include="ViewModel\CatalogViewModel.cs" />
     <Compile Include="ViewModel\ComingSoonViewModel.cs" />
     <Compile Include="ViewModel\CreateQuoteViewModel.cs" />
@@ -263,6 +275,42 @@
     </Compile>
     <Compile Include="View\ABB\EditQuoteItem\EditB5ItemView.xaml.cs">
       <DependentUpon>EditB5ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC1ListView.xaml.cs">
+      <DependentUpon>CatalogC1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC2ListView.xaml.cs">
+      <DependentUpon>CatalogC2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC3ListView.xaml.cs">
+      <DependentUpon>CatalogC3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC4ListView.xaml.cs">
+      <DependentUpon>CatalogC4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC1CatalogView.xaml.cs">
+      <DependentUpon>EditC1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC2CatalogView.xaml.cs">
+      <DependentUpon>EditC2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC3CatalogView.xaml.cs">
+      <DependentUpon>EditC3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC4CatalogView.xaml.cs">
+      <DependentUpon>EditC4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC1ItemView.xaml.cs">
+      <DependentUpon>EditC1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC2ItemView.xaml.cs">
+      <DependentUpon>EditC2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC3ItemView.xaml.cs">
+      <DependentUpon>EditC3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC4ItemView.xaml.cs">
+      <DependentUpon>EditC4ItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CatalogView.xaml.cs">
       <DependentUpon>CatalogView.xaml</DependentUpon>
@@ -397,6 +445,54 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AirTreatmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC4ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

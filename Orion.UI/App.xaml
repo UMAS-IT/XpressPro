@@ -21,6 +21,14 @@
              xmlns:vmECB="clr-namespace:Orion.UI.ViewModel.ABB.EditCatalogItem"
              xmlns:vmItemB="clr-namespace:Orion.UI.ViewModel.ABB.EditQuoteItem"
              
+             xmlns:viewCatalogC="clr-namespace:Orion.UI.View.AmericanWheatley.CatalogList"
+             xmlns:viewECC="clr-namespace:Orion.UI.View.AmericanWheatley.EditCatalogItem"
+             xmlns:viewItemC="clr-namespace:Orion.UI.View.AmericanWheatley.EditQuoteItem"
+             
+             xmlns:vmCatalogC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.CatalogList"
+             xmlns:vmECC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.EditCatalogItem"
+             xmlns:vmItemC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.EditQuoteItem"
+             
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -86,6 +94,8 @@
                 <view:ReportsView/>
             </DataTemplate>
 
+            
+            
             <DataTemplate DataType="{x:Type vmItemA:EditA1ItemViewModel}">
                 <viewItemA:EditA1ItemView/>
             </DataTemplate>
@@ -199,6 +209,62 @@
             <DataTemplate DataType="{x:Type vmECB:EditB5CatalogViewModel}">
                 <viewECB:EditB5CatalogView/>
             </DataTemplate>
+
+
+
+
+
+            <DataTemplate DataType="{x:Type vmItemC:EditC1ItemViewModel}">
+                <viewItemC:EditC1ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemC:EditC2ItemViewModel}">
+                <viewItemC:EditC2ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemC:EditC3ItemViewModel}">
+                <viewItemC:EditC3ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemC:EditC4ItemViewModel}">
+                <viewItemC:EditC4ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogC:CatalogC1ListViewModel}">
+                <viewCatalogC:CatalogC1ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogC:CatalogC2ListViewModel}">
+                <viewCatalogC:CatalogC2ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogC:CatalogC3ListViewModel}">
+                <viewCatalogC:CatalogC3ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogC:CatalogC4ListViewModel}">
+                <viewCatalogC:CatalogC4ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECC:EditC1CatalogViewModel}">
+                <viewECC:EditC1CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECC:EditC2CatalogViewModel}">
+                <viewECC:EditC2CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECC:EditC3CatalogViewModel}">
+                <viewECC:EditC3CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECC:EditC4CatalogViewModel}">
+                <viewECC:EditC4CatalogView/>
+            </DataTemplate>
+            
+            
+            
+            
 
 
             <Style  x:Key="TxtStyle" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}">

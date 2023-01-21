@@ -81,6 +81,7 @@ namespace Orion.DataAccess.Service
                 return await contex.Projects.AnyAsync(p => p.Number == project.Number && p.Id != project.Id);
             }
         }
+       
         public Project GetProjectById(int projectId)
         {
             using (GlobalDbContext context = new GlobalDbContext())

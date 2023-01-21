@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
+using Orion.Domain.EntityCatalogAmericanWheatley;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
+using Orion.Domain.EntityItemAmericanWheatley;
 
 namespace Orion.DataAccess.DataBase
 {
@@ -44,6 +46,21 @@ namespace Orion.DataAccess.DataBase
         public DbSet<ItemB3> ItemB3s { get; set; }
         public DbSet<ItemB4> ItemB4s { get; set; }
         public DbSet<ItemB5> ItemB5s { get; set; }
+        #endregion
+
+
+        #region American Wheatley Catalogs
+        public DbSet<CatalogC1> CatalogC1s { get; set; }
+        public DbSet<CatalogC2> CatalogC2s { get; set; }
+        public DbSet<CatalogC3> CatalogC3s { get; set; }
+        public DbSet<CatalogC4> CatalogC4s { get; set; }
+        #endregion
+
+        #region American Wheatley Items
+        public DbSet<ItemC1> ItemC1s { get; set; }
+        public DbSet<ItemC2> ItemC2s { get; set; }
+        public DbSet<ItemC3> ItemC3s { get; set; }
+        public DbSet<ItemC4> ItemC4s { get; set; }
         #endregion
 
 
@@ -120,6 +137,30 @@ namespace Orion.DataAccess.DataBase
                         .HasForeignKey(m => m.QuoteId);
             #endregion
 
+            #region American Wheatley Quote Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemC1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemC2s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemC3s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemC4s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+
+
             #region Quantech Catalog Titles
             modelBuilder.Entity<Title>(entry =>
                         entry.HasOne(d => d.CatalogA1)
@@ -172,6 +213,8 @@ namespace Orion.DataAccess.DataBase
                         .OnDelete(DeleteBehavior.Restrict));
             #endregion
 
+
+
             #region ABB Catalog Titles
             modelBuilder.Entity<Title>(entry =>
                         entry.HasOne(d => d.CatalogB1)
@@ -204,7 +247,7 @@ namespace Orion.DataAccess.DataBase
                         .OnDelete(DeleteBehavior.Restrict));
             #endregion
 
-            #region Quantech Item Titles
+            #region ABB Item Titles
             modelBuilder.Entity<Title>(entry =>
                         entry.HasOne(d => d.ItemB1)
                         .WithMany(x => x.Titles).IsRequired(false)
@@ -233,6 +276,60 @@ namespace Orion.DataAccess.DataBase
                         entry.HasOne(d => d.ItemB5)
                         .WithMany(x => x.Titles).IsRequired(false)
                         .HasForeignKey(y => y.ItemB5Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region American Wheatley Catalog Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.CatalogC1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.CatalogC1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.CatalogC2)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.CatalogC2Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.CatalogC3)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.CatalogC3Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.CatalogC4)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.CatalogC4Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+            #region Quantech Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemC1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemC1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemC2)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemC2Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemC3)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemC3Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemC4)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemC4Id)
                         .OnDelete(DeleteBehavior.Restrict));
             #endregion
         }

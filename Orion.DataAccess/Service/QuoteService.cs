@@ -65,6 +65,10 @@ namespace Orion.DataAccess.Service
                                      .Include(x => x.ItemB3s)
                                      .Include(x => x.ItemB4s)
                                      .Include(x => x.ItemB5s)
+                                     .Include(x => x.ItemC1s)
+                                     .Include(x => x.ItemC2s)
+                                     .Include(x => x.ItemC3s)
+                                     .Include(x => x.ItemC4s)
                                      .FirstOrDefault(x => x.Id == quoteId);
             }
         }
@@ -93,12 +97,23 @@ namespace Orion.DataAccess.Service
                     .Include(x => x.ItemB4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                     .Include(x => x.ItemB5s).ThenInclude(x => x.CatalogB5)
                     .Include(x => x.ItemB5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+                    .Include(x => x.ItemC1s).ThenInclude(x => x.CatalogC1)
+                    .Include(x => x.ItemC1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemC2s).ThenInclude(x => x.CatalogC2)
+                    .Include(x => x.ItemC2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemC3s).ThenInclude(x => x.CatalogC3)
+                    .Include(x => x.ItemC3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemC4s).ThenInclude(x => x.CatalogC4)
+                    .Include(x => x.ItemC4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                     .Where(u => u.ProjectId == projectId).ToList();
 
                 quotes.ForEach(u =>
                 {
                     u.CanCreateReports = true;
-                    if (!u.ItemA1s.Any() && !u.ItemA2s.Any() && !u.ItemA3s.Any() && !u.ItemA4s.Any())
+                    if (!u.ItemA1s.Any() && !u.ItemA2s.Any() && !u.ItemA3s.Any() && !u.ItemA4s.Any()
+                        && !u.ItemB1s.Any() && !u.ItemB2s.Any() && !u.ItemB3s.Any() && !u.ItemB4s.Any() && !u.ItemB5s.Any()
+                        && !u.ItemC1s.Any() && !u.ItemC2s.Any() && !u.ItemC3s.Any() && !u.ItemC4s.Any())
                         u.CanCreateReports = false;
                 });
 

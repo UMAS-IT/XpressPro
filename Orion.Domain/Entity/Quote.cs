@@ -2,6 +2,7 @@
 using Orion.Binding.Interfaces;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
+using Orion.Domain.EntityItemAmericanWheatley;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -106,6 +107,35 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
+        #region American Wheatley Items
+        private IList<ItemC1> _itemC1s;
+        public IList<ItemC1> ItemC1s
+        {
+            get => _itemC1s;
+            set => SetProperty(ref _itemC1s, value);
+        }
+
+        private IList<ItemC2> _itemC2s;
+        public IList<ItemC2> ItemC2s
+        {
+            get => _itemC2s;
+            set => SetProperty(ref _itemC2s, value);
+        }
+
+        private IList<ItemC3> _itemC3s;
+        public IList<ItemC3> ItemC3s
+        {
+            get => _itemC3s;
+            set => SetProperty(ref _itemC3s, value);
+        }
+        private IList<ItemC4> _itemC4s;
+        public IList<ItemC4> ItemC4s
+        {
+            get => _itemC4s;
+            set => SetProperty(ref _itemC4s, value);
+        }
+        #endregion
+
         private bool _isSelected;
         [NotMapped]
         public bool IsSelected
@@ -128,6 +158,17 @@ namespace Orion.Domain.Entity
             ItemA2s = new ObservableCollection<ItemA2>();
             ItemA3s = new ObservableCollection<ItemA3>();
             ItemA4s = new ObservableCollection<ItemA4>();
+
+            ItemB1s = new ObservableCollection<ItemB1>();
+            ItemB2s = new ObservableCollection<ItemB2>();
+            ItemB3s = new ObservableCollection<ItemB3>();
+            ItemB4s = new ObservableCollection<ItemB4>();
+            ItemB5s = new ObservableCollection<ItemB5>();
+
+            ItemC1s = new ObservableCollection<ItemC1>();
+            ItemC2s = new ObservableCollection<ItemC2>();
+            ItemC3s = new ObservableCollection<ItemC3>();
+            ItemC4s = new ObservableCollection<ItemC4>();
             Name = "";
         }
     }

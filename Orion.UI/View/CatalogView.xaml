@@ -39,7 +39,10 @@
             </Border.Style>
             
             <StackPanel Orientation="Vertical">
-                <Expander Header="QUANTECH" Margin="5" Width="120" IsExpanded="True">
+                <Expander Margin="5" Width="120" IsExpanded="True">
+                    <Expander.Header>
+                        <TextBlock Text="Quantech" TextWrapping="Wrap"/>
+                    </Expander.Header>
                     <StackPanel Orientation="Vertical">
                         
                         <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="a1">
@@ -69,7 +72,7 @@
                     </StackPanel>
                 </Expander>
 
-                <Expander Header="ABB" Margin="5" Width="120" IsExpanded="True">
+                <Expander Header="ABB" Margin="5,0,5,5" Width="120" IsExpanded="True">
                     <StackPanel Orientation="Vertical">
 
                         <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b1">
@@ -99,6 +102,39 @@
                         <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b5">
                             <Button.Content>
                                 <TextBlock Text="Accesories" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                    </StackPanel>
+                </Expander>
+
+                <Expander  Margin="5,0,5,5" Width="120" IsExpanded="True">
+                    <Expander.Header>
+                        <TextBlock Text="American Wheatley" TextWrapping="Wrap"/>
+                    </Expander.Header>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Margin="1" Background="DarkMagenta" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="c1">
+                            <Button.Content>
+                                <TextBlock Text="Triple Duty Valves" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkMagenta" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="c2">
+                            <Button.Content>
+                                <TextBlock Text="Section Diffusers" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkMagenta" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="c3">
+                            <Button.Content>
+                                <TextBlock Text="Tanks" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkMagenta" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="c4">
+                            <Button.Content>
+                                <TextBlock Text="Separators" TextWrapping="Wrap"/>
                             </Button.Content>
                         </Button>
 

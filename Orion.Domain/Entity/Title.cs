@@ -1,9 +1,11 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
 using Orion.Domain.EntityCatalogABB;
+using Orion.Domain.EntityCatalogAmericanWheatley;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
+using Orion.Domain.EntityItemAmericanWheatley;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -291,6 +293,122 @@ namespace Orion.Domain.Entity
         {
             get => _catalogB5;
             set => SetProperty(ref _catalogB5, value);
+        }
+        #endregion
+
+        #region American Wheatley Items Id
+        private int? _itemC1Id;
+        public int? ItemC1Id
+        {
+            get => _itemC1Id;
+            set => SetProperty(ref _itemC1Id, value);
+        }
+
+        private ItemC1 _itemC1;
+        public ItemC1 ItemC1
+        {
+            get => _itemC1;
+            set => SetProperty(ref _itemC1, value);
+        }
+
+        private int? _itemC2Id;
+        public int? ItemC2Id
+        {
+            get => _itemC2Id;
+            set => SetProperty(ref _itemC2Id, value);
+        }
+
+        private ItemC2 _itemC2;
+        public ItemC2 ItemC2
+        {
+            get => _itemC2;
+            set => SetProperty(ref _itemC2, value);
+        }
+
+        private int? _itemC3Id;
+        public int? ItemC3Id
+        {
+            get => _itemC3Id;
+            set => SetProperty(ref _itemC3Id, value);
+        }
+
+        private ItemC3 _itemC3;
+        public ItemC3 ItemC3
+        {
+            get => _itemC3;
+            set => SetProperty(ref _itemC3, value);
+        }
+
+        private int? _itemC4Id;
+        public int? ItemC4Id
+        {
+            get => _itemC4Id;
+            set => SetProperty(ref _itemC4Id, value);
+        }
+
+        private ItemC4 _itemC4;
+        public ItemC4 ItemC4
+        {
+            get => _itemC4;
+            set => SetProperty(ref _itemC4, value);
+        }
+        #endregion
+
+        #region American Wheatley Catalogs Id
+        private int? _catalogC1Id;
+        public int? CatalogC1Id
+        {
+            get => _catalogC1Id;
+            set => SetProperty(ref _catalogC1Id, value);
+        }
+
+        private CatalogC1 _catalogC1;
+        public CatalogC1 CatalogC1
+        {
+            get => _catalogC1;
+            set => SetProperty(ref _catalogC1, value);
+        }
+
+        private int? _catalogC2Id;
+        public int? CatalogC2Id
+        {
+            get => _catalogC2Id;
+            set => SetProperty(ref _catalogC2Id, value);
+        }
+
+        private CatalogC2 _catalogC2;
+        public CatalogC2 CatalogC2
+        {
+            get => _catalogC2;
+            set => SetProperty(ref _catalogC2, value);
+        }
+
+        private int? _catalogC3Id;
+        public int? CatalogC3Id
+        {
+            get => _catalogC3Id;
+            set => SetProperty(ref _catalogC3Id, value);
+        }
+
+        private CatalogC3 _catalogC3;
+        public CatalogC3 CatalogC3
+        {
+            get => _catalogC3;
+            set => SetProperty(ref _catalogC3, value);
+        }
+
+        private int? _catalogC4Id;
+        public int? CatalogC4Id
+        {
+            get => _catalogC4Id;
+            set => SetProperty(ref _catalogC4Id, value);
+        }
+
+        private CatalogC4 _catalogC4;
+        public CatalogC4 CatalogC4
+        {
+            get => _catalogC4;
+            set => SetProperty(ref _catalogC4, value);
         }
         #endregion
 
