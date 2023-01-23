@@ -21,6 +21,8 @@ namespace Orion.Report.Pricing
         {
             PricingA pricingA = new PricingA();
             PricingB pricingB = new PricingB();
+            PricingC pricingC = new PricingC();
+            PricingD pricingD = new PricingD();
             List<PricingItem> pricingItems = new List<PricingItem>();
 
             currentProjectPath = CreateFolders(project, quotes);
@@ -57,6 +59,9 @@ namespace Orion.Report.Pricing
                     pricingItems.Add(pricingA.CreateA4ItemTable(quote.ItemA4s, mainDocument, docSection, itemNumber++));
                     AddBlankLine(mainDocument, docSection);
                 }
+
+
+
                 if (quote.ItemB1s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingB.CreateB1ItemTable(quote.ItemB1s, mainDocument, docSection, itemNumber++));
@@ -80,6 +85,41 @@ namespace Orion.Report.Pricing
                 if (quote.ItemB5s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingB.CreateB5ItemTable(quote.ItemB5s, mainDocument, docSection, itemNumber++));
+                    AddBlankLine(mainDocument, docSection);
+                }
+
+
+
+                if (quote.ItemC1s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.Add(pricingC.CreateC1ItemTable(quote.ItemC1s, mainDocument, docSection, itemNumber++));
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemC2s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.Add(pricingC.CreateC2ItemTable(quote.ItemC2s, mainDocument, docSection, itemNumber++));
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemC3s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.Add(pricingC.CreateC3ItemTable(quote.ItemC3s, mainDocument, docSection, itemNumber++));
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemC4s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.Add(pricingC.CreateC4ItemTable(quote.ItemC4s, mainDocument, docSection, itemNumber++));
+                    AddBlankLine(mainDocument, docSection);
+                }
+
+
+                if (quote.ItemD1s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.Add(pricingD.CreateD1ItemTable(quote.ItemD1s, mainDocument, docSection, itemNumber++));
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemD2s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.Add(pricingD.CreateD2ItemTable(quote.ItemD2s, mainDocument, docSection, itemNumber++));
                     AddBlankLine(mainDocument, docSection);
                 }
 

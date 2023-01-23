@@ -2,10 +2,12 @@
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
+using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
+using Orion.Domain.EntityItemPuroFlux;
 
 namespace Orion.DataAccess.DataBase
 {
@@ -48,7 +50,6 @@ namespace Orion.DataAccess.DataBase
         public DbSet<ItemB5> ItemB5s { get; set; }
         #endregion
 
-
         #region American Wheatley Catalogs
         public DbSet<CatalogC1> CatalogC1s { get; set; }
         public DbSet<CatalogC2> CatalogC2s { get; set; }
@@ -62,7 +63,16 @@ namespace Orion.DataAccess.DataBase
         public DbSet<ItemC3> ItemC3s { get; set; }
         public DbSet<ItemC4> ItemC4s { get; set; }
         #endregion
+       
+        #region Puroflux Catalogs
+        public DbSet<CatalogD1> CatalogD1s { get; set; }
+        public DbSet<CatalogD2> CatalogD2s { get; set; }
+        #endregion
 
+        #region Puroflux Items
+        public DbSet<ItemD1> ItemD1s { get; set; }
+        public DbSet<ItemD2> ItemD2s { get; set; }
+        #endregion
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -307,7 +317,7 @@ namespace Orion.DataAccess.DataBase
                         .OnDelete(DeleteBehavior.Restrict));
             #endregion
 
-            #region Quantech Item Titles
+            #region American Wheatley Item Titles
             modelBuilder.Entity<Title>(entry =>
                         entry.HasOne(d => d.ItemC1)
                         .WithMany(x => x.Titles).IsRequired(false)
@@ -330,6 +340,36 @@ namespace Orion.DataAccess.DataBase
                         entry.HasOne(d => d.ItemC4)
                         .WithMany(x => x.Titles).IsRequired(false)
                         .HasForeignKey(y => y.ItemC4Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region Puroflux Catalog Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.CatalogD1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.CatalogD1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.CatalogD2)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.CatalogD2Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+            #region Puroflux Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemD1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemD1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemD2)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemD2Id)
                         .OnDelete(DeleteBehavior.Restrict));
             #endregion
         }

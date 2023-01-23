@@ -140,6 +140,26 @@
 
                     </StackPanel>
                 </Expander>
+
+                <Expander  Margin="5,0,5,5" Width="120" IsExpanded="True">
+                    <Expander.Header>
+                        <TextBlock Text="American Wheatley" TextWrapping="Wrap"/>
+                    </Expander.Header>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Margin="1" Background="DarkSalmon" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="d1">
+                            <Button.Content>
+                                <TextBlock Text="Separators" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkSalmon" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="d2">
+                            <Button.Content>
+                                <TextBlock Text="Sand Filters" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </Expander>
             </StackPanel>
         </Border>
 

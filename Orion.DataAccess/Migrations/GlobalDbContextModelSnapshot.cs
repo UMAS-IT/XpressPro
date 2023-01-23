@@ -118,6 +118,10 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int?>("CatalogC4Id");
 
+                    b.Property<int?>("CatalogD1Id");
+
+                    b.Property<int?>("CatalogD2Id");
+
                     b.Property<int?>("ItemA1Id");
 
                     b.Property<int?>("ItemA2Id");
@@ -143,6 +147,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<int?>("ItemC3Id");
 
                     b.Property<int?>("ItemC4Id");
+
+                    b.Property<int?>("ItemD1Id");
+
+                    b.Property<int?>("ItemD2Id");
 
                     b.Property<string>("Name");
 
@@ -174,6 +182,10 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasIndex("CatalogC4Id");
 
+                    b.HasIndex("CatalogD1Id");
+
+                    b.HasIndex("CatalogD2Id");
+
                     b.HasIndex("ItemA1Id");
 
                     b.HasIndex("ItemA2Id");
@@ -199,6 +211,10 @@ namespace Orion.DataAccess.Migrations
                     b.HasIndex("ItemC3Id");
 
                     b.HasIndex("ItemC4Id");
+
+                    b.HasIndex("ItemD1Id");
+
+                    b.HasIndex("ItemD2Id");
 
                     b.ToTable("Titles");
                 });
@@ -393,6 +409,44 @@ namespace Orion.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CatalogC4s");
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityCatalogPuroflux.CatalogD1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<double>("SellMargin");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CatalogD1s");
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityCatalogPuroflux.CatalogD2", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<double>("SellMargin");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CatalogD2s");
                 });
 
             modelBuilder.Entity("Orion.Domain.EntityCatalogQuantech.CatalogA1", b =>
@@ -950,6 +1004,76 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemC4s");
                 });
 
+            modelBuilder.Entity("Orion.Domain.EntityItemPuroFlux.ItemD1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CatalogD1Id");
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int>("DesignIndex");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("QuoteId");
+
+                    b.Property<double>("SellMargin");
+
+                    b.Property<string>("Tag");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogD1Id");
+
+                    b.HasIndex("QuoteId");
+
+                    b.ToTable("ItemD1s");
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityItemPuroFlux.ItemD2", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CatalogD2Id");
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int>("DesignIndex");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("QuoteId");
+
+                    b.Property<double>("SellMargin");
+
+                    b.Property<string>("Tag");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogD2Id");
+
+                    b.HasIndex("QuoteId");
+
+                    b.ToTable("ItemD2s");
+                });
+
             modelBuilder.Entity("Orion.Domain.Entity.Project", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.User", "User")
@@ -1041,6 +1165,16 @@ namespace Orion.DataAccess.Migrations
                         .HasForeignKey("CatalogC4Id")
                         .OnDelete(DeleteBehavior.Restrict);
 
+                    b.HasOne("Orion.Domain.EntityCatalogPuroflux.CatalogD1", "CatalogD1")
+                        .WithMany("Titles")
+                        .HasForeignKey("CatalogD1Id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.EntityCatalogPuroflux.CatalogD2", "CatalogD2")
+                        .WithMany("Titles")
+                        .HasForeignKey("CatalogD2Id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Orion.Domain.EntityItem.ItemA1", "ItemA1")
                         .WithMany("Titles")
                         .HasForeignKey("ItemA1Id")
@@ -1104,6 +1238,16 @@ namespace Orion.DataAccess.Migrations
                     b.HasOne("Orion.Domain.EntityItemAmericanWheatley.ItemC4", "ItemC4")
                         .WithMany("Titles")
                         .HasForeignKey("ItemC4Id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.EntityItemPuroFlux.ItemD1", "ItemD1")
+                        .WithMany("Titles")
+                        .HasForeignKey("ItemD1Id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.EntityItemPuroFlux.ItemD2", "ItemD2")
+                        .WithMany("Titles")
+                        .HasForeignKey("ItemD2Id")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
@@ -1259,6 +1403,30 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasOne("Orion.Domain.Entity.Quote", "Quote")
                         .WithMany("ItemC4s")
+                        .HasForeignKey("QuoteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityItemPuroFlux.ItemD1", b =>
+                {
+                    b.HasOne("Orion.Domain.EntityCatalogPuroflux.CatalogD1", "CatalogD1")
+                        .WithMany()
+                        .HasForeignKey("CatalogD1Id");
+
+                    b.HasOne("Orion.Domain.Entity.Quote", "Quote")
+                        .WithMany("ItemD1s")
+                        .HasForeignKey("QuoteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityItemPuroFlux.ItemD2", b =>
+                {
+                    b.HasOne("Orion.Domain.EntityCatalogPuroflux.CatalogD2", "CatalogD2")
+                        .WithMany()
+                        .HasForeignKey("CatalogD2Id");
+
+                    b.HasOne("Orion.Domain.Entity.Quote", "Quote")
+                        .WithMany("ItemD2s")
                         .HasForeignKey("QuoteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

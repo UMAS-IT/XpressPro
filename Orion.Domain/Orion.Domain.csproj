@@ -133,6 +133,8 @@
     <Compile Include="EntityCatalogAmericanWheatley\CatalogC2.cs" />
     <Compile Include="EntityCatalogAmericanWheatley\CatalogC3.cs" />
     <Compile Include="EntityCatalogAmericanWheatley\CatalogC4.cs" />
+    <Compile Include="EntityCatalogPuroflux\CatalogD1.cs" />
+    <Compile Include="EntityCatalogPuroflux\CatalogD2.cs" />
     <Compile Include="EntityCatalogQuantech\CatalogA1.cs" />
     <Compile Include="EntityCatalogQuantech\CatalogA2.cs" />
     <Compile Include="EntityCatalogQuantech\CatalogA3.cs" />
@@ -146,6 +148,8 @@
     <Compile Include="EntityItemAmericanWheatley\ItemC2.cs" />
     <Compile Include="EntityItemAmericanWheatley\ItemC3.cs" />
     <Compile Include="EntityItemAmericanWheatley\ItemC4.cs" />
+    <Compile Include="EntityItemPuroFlux\ItemD1.cs" />
+    <Compile Include="EntityItemPuroFlux\ItemD2.cs" />
     <Compile Include="EntityItemQuantech\ItemB5.cs" />
     <Compile Include="Entity\ICatalog.cs" />
     <Compile Include="EntityItemQuantech\ItemA1.cs" />

@@ -5,11 +5,13 @@ using Orion.Domain.Entity;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
+using Orion.Domain.EntityItemPuroFlux;
 using Orion.Helper.Extension;
 using Orion.UI.Command;
 using Orion.UI.Service;
 using Orion.UI.ViewModel.ABB.EditQuoteItem;
 using Orion.UI.ViewModel.AmericanWheatley.EditQuoteItem;
+using Orion.UI.ViewModel.Puroflux.EditQuoteItem;
 using Orion.UI.ViewModel.Quantech;
 using Orion.UI.ViewModel.Quantech.EditQuoteItem;
 using System;
@@ -166,6 +168,20 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _itemC4s, value);
         }
 
+        private ObservableCollection<IItem> _itemD1s;
+        public ObservableCollection<IItem> ItemD1s
+        {
+            get => _itemD1s;
+            set => SetProperty(ref _itemD1s, value);
+        }
+
+        private ObservableCollection<IItem> _itemD2s;
+        public ObservableCollection<IItem> ItemD2s
+        {
+            get => _itemD2s;
+            set => SetProperty(ref _itemD2s, value);
+        }
+
         public RelayCommand BackToQuotesCommad { get; set; }
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand<string> EditItemsCommand { get; set; }
@@ -221,6 +237,9 @@ namespace Orion.UI.ViewModel
             ItemC2s = Items.Where(x => x is ItemC2).ToObservableCollection();
             ItemC3s = Items.Where(x => x is ItemC3).ToObservableCollection();
             ItemC4s = Items.Where(x => x is ItemC4).ToObservableCollection();
+
+            ItemD1s = Items.Where(x => x is ItemD1).ToObservableCollection();
+            ItemD2s = Items.Where(x => x is ItemD2).ToObservableCollection();
         }
 
         private async void OnUpdateQuoteItems()
@@ -254,6 +273,10 @@ namespace Orion.UI.ViewModel
                 ItemC3s.ToList().ForEach(x => x.DesignIndex = ItemC3s.IndexOf(x));
                 ItemC4s.ToList().ForEach(x => x.DesignIndex = ItemC4s.IndexOf(x));
 
+                // last set of DesignIndex
+                ItemD1s.ToList().ForEach(x => x.DesignIndex = ItemD1s.IndexOf(x));
+                ItemD2s.ToList().ForEach(x => x.DesignIndex = ItemD2s.IndexOf(x));
+
                 //add all items in one list
                 items.AddRange(ItemA1s);
                 items.AddRange(ItemA2s);
@@ -270,6 +293,9 @@ namespace Orion.UI.ViewModel
                 items.AddRange(ItemC2s);
                 items.AddRange(ItemC3s);
                 items.AddRange(ItemC4s);
+
+                items.AddRange(ItemD1s);
+                items.AddRange(ItemD2s);
 
                 Items = itemService.UpdateQuoteAllItems(Quote, items).ToObservableCollection();
 
@@ -363,6 +389,18 @@ namespace Orion.UI.ViewModel
                 await messageService.ResultMessage("Error", "Separators tag is empty, please review this information");
                 return false;
             }
+
+            if (ItemD1s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
+            {
+                await messageService.ResultMessage("Error", "Separators tag is empty, please review this information");
+                return false;
+            }
+
+            if (ItemD2s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
+            {
+                await messageService.ResultMessage("Error", "Sand Filters tag is empty, please review this information");
+                return false;
+            }
             return true;
         }
 
@@ -392,6 +430,7 @@ namespace Orion.UI.ViewModel
                 editA4ItemViewModel.OnItemsSavedRequested += OnItemA4Saved;
                 windowService.EditItemsWndow(editA4ItemViewModel, "Edit water cooled chillers factory lead time");
             }
+
             else if (itemsName.ToFormat() == "b1")
             {
                 EditB1ItemViewModel editB1ItemViewModel = new EditB1ItemViewModel(dialogCoordinator, Quote, ItemB1s);
@@ -422,6 +461,7 @@ namespace Orion.UI.ViewModel
                 editB5ItemViewModel.OnItemsSavedRequested += OnItemB5Saved;
                 windowService.EditItemsWndow(editB5ItemViewModel, "Edit Accesories");
             }
+
             else if (itemsName.ToFormat() == "c1")
             {
                 EditC1ItemViewModel editC1ItemViewModel = new EditC1ItemViewModel(dialogCoordinator, Quote, ItemC1s);
@@ -445,6 +485,19 @@ namespace Orion.UI.ViewModel
                 EditC4ItemViewModel editC4ItemViewModel = new EditC4ItemViewModel(dialogCoordinator, Quote, ItemC4s);
                 editC4ItemViewModel.OnItemsSavedRequested += OnItemC4Saved;
                 windowService.EditItemsWndow(editC4ItemViewModel, "Edit CCR");
+            }
+
+            else if (itemsName.ToFormat() == "d1")
+            {
+                EditD1ItemViewModel editD1ItemViewModel = new EditD1ItemViewModel(dialogCoordinator, Quote, ItemD1s);
+                editD1ItemViewModel.OnItemsSavedRequested += OnItemD1Saved;
+                windowService.EditItemsWndow(editD1ItemViewModel, "Edit Separators");
+            }
+            else if (itemsName.ToFormat() == "d2")
+            {
+                EditD2ItemViewModel editD2ItemViewModel = new EditD2ItemViewModel(dialogCoordinator, Quote, ItemD2s);
+                editD2ItemViewModel.OnItemsSavedRequested += OnItemD2Saved;
+                windowService.EditItemsWndow(editD2ItemViewModel, "Edit Sand Filters");
             }
         }
 
@@ -512,6 +565,16 @@ namespace Orion.UI.ViewModel
         private void OnItemC4Saved(IList<IItem> editedItems)
         {
             ItemC4s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemD1Saved(IList<IItem> editedItems)
+        {
+            ItemD1s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemD2Saved(IList<IItem> editedItems)
+        {
+            ItemD2s = editedItems.ToObservableCollection();
         }
 
         private async void OnShowItemTitles(IItem item)
@@ -645,6 +708,7 @@ namespace Orion.UI.ViewModel
                 selectedItems = ItemA3s;
             else if (item is ItemA4)
                 selectedItems = ItemA4s;
+
             else if (item is ItemB1)
                 selectedItems = ItemB1s;
             else if (item is ItemB2)
@@ -655,6 +719,7 @@ namespace Orion.UI.ViewModel
                 selectedItems = ItemB4s;
             else if (item is ItemB5)
                 selectedItems = ItemB5s;
+
             else if (item is ItemC1)
                 selectedItems = ItemC1s;
             else if (item is ItemC2)
@@ -663,6 +728,12 @@ namespace Orion.UI.ViewModel
                 selectedItems = ItemC3s;
             else if (item is ItemC4)
                 selectedItems = ItemC4s;
+
+            else if (item is ItemD1)
+                selectedItems = ItemD1s;
+            else if (item is ItemD2)
+                selectedItems = ItemC2s;
+
             return selectedItems;
         }
 

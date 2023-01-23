@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="Pricing\PricingA.cs" />
     <Compile Include="Pricing\PricingB.cs" />
+    <Compile Include="Pricing\PricingC.cs" />
+    <Compile Include="Pricing\PricingD.cs" />
     <Compile Include="Pricing\PricingItem.cs" />
     <Compile Include="Pricing\PricingReport.cs" />
     <Compile Include="Pricing\ReportSettings.cs" />

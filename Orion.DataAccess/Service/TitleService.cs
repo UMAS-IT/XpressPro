@@ -4,10 +4,12 @@ using Orion.DataAccess.DataBase;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
+using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
+using Orion.Domain.EntityItemPuroFlux;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -47,6 +49,10 @@ namespace Orion.DataAccess.Service
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemC3Id == item.Id).ToList();
                 else if (item is ItemC4)
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemC4Id == item.Id).ToList();
+                else if (item is ItemD1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemD1Id == item.Id).ToList();
+                else if (item is ItemD2)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemD2Id == item.Id).ToList();
                 return titles;
             }
         }
@@ -83,6 +89,10 @@ namespace Orion.DataAccess.Service
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogC3Id == catalog.Id).ToList();
                 else if (catalog is CatalogC4)
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogC4Id == catalog.Id).ToList();
+                else if (catalog is CatalogD1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogD1Id == catalog.Id).ToList();
+                else if (catalog is CatalogD2)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.CatalogD2Id == catalog.Id).ToList();
                 return titles;
             }
         }
@@ -119,6 +129,10 @@ namespace Orion.DataAccess.Service
                     dbItem = context.ItemC3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
                 else if (item is ItemC4)
                     dbItem = context.ItemC4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemD1)
+                    dbItem = context.ItemD1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemD2)
+                    dbItem = context.ItemD2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
 
                 foreach (Title title in titles)
                 {
@@ -210,6 +224,10 @@ namespace Orion.DataAccess.Service
                     dbCatalog = context.CatalogC3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
                 else if (catalog is CatalogC4)
                     dbCatalog = context.CatalogC4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                else if (catalog is CatalogD1)
+                    dbCatalog = context.CatalogD1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                else if (catalog is CatalogD2)
+                    dbCatalog = context.CatalogD2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
 
                 foreach (Title title in titles)
                 {

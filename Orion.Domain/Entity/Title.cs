@@ -2,10 +2,12 @@
 using Orion.Binding.Interfaces;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
+using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
+using Orion.Domain.EntityItemPuroFlux;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -409,6 +411,66 @@ namespace Orion.Domain.Entity
         {
             get => _catalogC4;
             set => SetProperty(ref _catalogC4, value);
+        }
+        #endregion
+
+        #region Puroflux Items Id
+        private int? _itemD1Id;
+        public int? ItemD1Id
+        {
+            get => _itemD1Id;
+            set => SetProperty(ref _itemD1Id, value);
+        }
+
+        private ItemD1 _itemD1;
+        public ItemD1 ItemD1
+        {
+            get => _itemD1;
+            set => SetProperty(ref _itemD1, value);
+        }
+
+        private int? _itemD2Id;
+        public int? ItemD2Id
+        {
+            get => _itemD2Id;
+            set => SetProperty(ref _itemD2Id, value);
+        }
+
+        private ItemD2 _itemD2;
+        public ItemD2 ItemD2
+        {
+            get => _itemD2;
+            set => SetProperty(ref _itemD2, value);
+        }
+        #endregion
+
+        #region Puroflux Catalogs Id
+        private int? _catalogD1Id;
+        public int? CatalogD1Id
+        {
+            get => _catalogD1Id;
+            set => SetProperty(ref _catalogD1Id, value);
+        }
+
+        private CatalogD1 _catalogD1;
+        public CatalogD1 CatalogD1
+        {
+            get => _catalogD1;
+            set => SetProperty(ref _catalogD1, value);
+        }
+
+        private int? _catalogD2Id;
+        public int? CatalogD2Id
+        {
+            get => _catalogD2Id;
+            set => SetProperty(ref _catalogD2Id, value);
+        }
+
+        private CatalogD2 _catalogD2;
+        public CatalogD2 CatalogD2
+        {
+            get => _catalogD2;
+            set => SetProperty(ref _catalogD2, value);
         }
         #endregion
 

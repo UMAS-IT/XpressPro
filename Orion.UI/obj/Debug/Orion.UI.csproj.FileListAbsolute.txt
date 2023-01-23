@@ -736,3 +736,15 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Americ
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC2ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC3ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC4ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\CatalogList\CatalogD1ListView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\CatalogList\CatalogD2ListView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditCatalogItem\EditD1CatalogView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditCatalogItem\EditD2CatalogView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditQuoteItem\EditD1ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditQuoteItem\EditD2ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\CatalogList\CatalogD1ListView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\CatalogList\CatalogD2ListView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditCatalogItem\EditD1CatalogView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditCatalogItem\EditD2CatalogView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditQuoteItem\EditD1ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditQuoteItem\EditD2ItemView.baml

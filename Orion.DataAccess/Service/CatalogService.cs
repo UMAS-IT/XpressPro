@@ -2,6 +2,7 @@
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
+using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Helper.Extension;
 using System;
@@ -24,6 +25,7 @@ namespace Orion.DataAccess.Service
                     return context.CatalogA3s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else if (catalog is CatalogA4)
                     return context.CatalogA4s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+
                 else if (catalog is CatalogB1)
                     return context.CatalogB1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else if (catalog is CatalogB2)
@@ -34,6 +36,7 @@ namespace Orion.DataAccess.Service
                     return context.CatalogB4s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else if (catalog is CatalogB5)
                     return context.CatalogB5s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+
                 else if (catalog is CatalogC1)
                     return context.CatalogC1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else if (catalog is CatalogC2)
@@ -42,6 +45,11 @@ namespace Orion.DataAccess.Service
                     return context.CatalogC3s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else if (catalog is CatalogC4)
                     return context.CatalogC4s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+
+                else if (catalog is CatalogD1)
+                    return context.CatalogD1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogD2)
+                    return context.CatalogD2s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else
                     return true;
             }
@@ -151,6 +159,22 @@ namespace Orion.DataAccess.Service
             }
         }
 
+        public IList<ICatalog> GetCatalogD1s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogD1s.ToList<ICatalog>();
+            }
+        }
+
+        public IList<ICatalog> GetCatalogD2s()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogD2s.ToList<ICatalog>();
+            }
+        }
+
         public ICatalog GetCatalogByCatalogId(ICatalog catalog)
         {
             using (GlobalDbContext context = new GlobalDbContext())
@@ -163,6 +187,7 @@ namespace Orion.DataAccess.Service
                     return context.CatalogA3s.FirstOrDefault(x => x.Id == catalog.Id);
                 else if (catalog is CatalogA4)
                     return context.CatalogA4s.FirstOrDefault(x => x.Id == catalog.Id);
+
                 else if (catalog is CatalogB1)
                     return context.CatalogB1s.FirstOrDefault(x => x.Id == catalog.Id);
                 else if (catalog is CatalogB2)
@@ -173,6 +198,7 @@ namespace Orion.DataAccess.Service
                     return context.CatalogB4s.FirstOrDefault(x => x.Id == catalog.Id);
                 else if (catalog is CatalogB5)
                     return context.CatalogB5s.FirstOrDefault(x => x.Id == catalog.Id);
+
                 else if (catalog is CatalogC1)
                     return context.CatalogC1s.FirstOrDefault(x => x.Id == catalog.Id);
                 else if (catalog is CatalogC2)
@@ -181,6 +207,11 @@ namespace Orion.DataAccess.Service
                     return context.CatalogC3s.FirstOrDefault(x => x.Id == catalog.Id);
                 else if (catalog is CatalogC4)
                     return context.CatalogC4s.FirstOrDefault(x => x.Id == catalog.Id);
+
+                else if (catalog is CatalogD1)
+                    return context.CatalogD1s.FirstOrDefault(x => x.Id == catalog.Id);
+                else if (catalog is CatalogD2)
+                    return context.CatalogD2s.FirstOrDefault(x => x.Id == catalog.Id);
                 else
                     return null;
             }
@@ -474,6 +505,48 @@ namespace Orion.DataAccess.Service
                     else
                     {
                         context.CatalogC4s.Add(catalog as CatalogC4);
+                        dbCatalog = catalog;
+                    }
+                }
+                else if (catalog is CatalogD1)
+                {
+                    if (catalog.Id != 0)
+                    {
+                        CatalogD1 catalogD1 = catalog as CatalogD1;
+                        CatalogD1 dbCatalogD1 = context.CatalogD1s.FirstOrDefault(x => x.Id == catalog.Id);
+
+                        dbCatalogD1.Model = catalogD1.Model;
+                        dbCatalogD1.ListPrice = catalogD1.ListPrice;
+                        dbCatalogD1.CostMultiplier = catalogD1.CostMultiplier;
+                        dbCatalogD1.SellMargin = catalogD1.SellMargin;
+
+                        context.CatalogD1s.Update(dbCatalogD1);
+                        dbCatalog = dbCatalogD1;
+                    }
+                    else
+                    {
+                        context.CatalogD1s.Add(catalog as CatalogD1);
+                        dbCatalog = catalog;
+                    }
+                }
+                else if (catalog is CatalogD2)
+                {
+                    if (catalog.Id != 0)
+                    {
+                        CatalogD2 catalogD2 = catalog as CatalogD2;
+                        CatalogD2 dbCatalogD2 = context.CatalogD2s.FirstOrDefault(x => x.Id == catalog.Id);
+
+                        dbCatalogD2.Model = catalogD2.Model;
+                        dbCatalogD2.ListPrice = catalogD2.ListPrice;
+                        dbCatalogD2.CostMultiplier = catalogD2.CostMultiplier;
+                        dbCatalogD2.SellMargin = catalogD2.SellMargin;
+
+                        context.CatalogD2s.Update(dbCatalogD2);
+                        dbCatalog = dbCatalogD2;
+                    }
+                    else
+                    {
+                        context.CatalogD2s.Add(catalog as CatalogD2);
                         dbCatalog = catalog;
                     }
                 }

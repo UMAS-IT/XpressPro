@@ -3,6 +3,7 @@ using Orion.Binding.Interfaces;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
+using Orion.Domain.EntityItemPuroFlux;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -136,6 +137,22 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
+        #region Puroflux Items
+        private IList<ItemD1> _itemD1s;
+        public IList<ItemD1> ItemD1s
+        {
+            get => _itemD1s;
+            set => SetProperty(ref _itemD1s, value);
+        }
+
+        private IList<ItemD2> _itemD2s;
+        public IList<ItemD2> ItemD2s
+        {
+            get => _itemD2s;
+            set => SetProperty(ref _itemD2s, value);
+        }
+        #endregion
+
         private bool _isSelected;
         [NotMapped]
         public bool IsSelected
@@ -169,6 +186,9 @@ namespace Orion.Domain.Entity
             ItemC2s = new ObservableCollection<ItemC2>();
             ItemC3s = new ObservableCollection<ItemC3>();
             ItemC4s = new ObservableCollection<ItemC4>();
+
+            ItemD1s = new ObservableCollection<ItemD1>();
+            ItemD2s = new ObservableCollection<ItemD2>();
             Name = "";
         }
     }

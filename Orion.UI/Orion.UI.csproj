@@ -214,7 +214,12 @@
     <Compile Include="ViewModel\NewProjectViewModel.cs" />
     <Compile Include="ViewModel\OpenProjectViewModel.cs" />
     <Compile Include="ViewModel\ProjectInformationViewModel.cs" />
-    <Compile Include="ViewModel\Quantech\AQuoteItemListViewModel.cs" />
+    <Compile Include="ViewModel\Puroflux\CatalogList\CatalogD1ListViewModel.cs" />
+    <Compile Include="ViewModel\Puroflux\CatalogList\CatalogD2ListViewModel.cs" />
+    <Compile Include="ViewModel\Puroflux\EditCatalogItem\EditD1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Puroflux\EditCatalogItem\EditD2CatalogViewModoel.cs" />
+    <Compile Include="ViewModel\Puroflux\EditQuoteItem\EditD1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Puroflux\EditQuoteItem\EditD2ItemViewModel.cs" />
     <Compile Include="ViewModel\Quantech\CatalogList\CatalogA1ListViewModel.cs" />
     <Compile Include="ViewModel\Quantech\CatalogList\CatalogA2ListViewModel.cs" />
     <Compile Include="ViewModel\Quantech\CatalogList\CatalogA3ListViewModel.cs" />
@@ -335,6 +340,24 @@
     </Compile>
     <Compile Include="View\ProjectInformationView.xaml.cs">
       <DependentUpon>ProjectInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\CatalogList\CatalogD1ListView.xaml.cs">
+      <DependentUpon>CatalogD1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\CatalogList\CatalogD2ListView.xaml.cs">
+      <DependentUpon>CatalogD2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\EditCatalogItem\EditD1CatalogView.xaml.cs">
+      <DependentUpon>EditD1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\EditCatalogItem\EditD2CatalogView.xaml.cs">
+      <DependentUpon>EditD2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\EditQuoteItem\EditD1ItemView.xaml.cs">
+      <DependentUpon>EditD1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\EditQuoteItem\EditD2ItemView.xaml.cs">
+      <DependentUpon>EditD2ItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Quantech\CatalogList\CatalogA1ListView.xaml.cs">
       <DependentUpon>CatalogA1ListView.xaml</DependentUpon>
@@ -551,6 +574,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ProjectInformationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\CatalogList\CatalogD1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\CatalogList\CatalogD2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\EditCatalogItem\EditD1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\EditCatalogItem\EditD2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\EditQuoteItem\EditD1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\EditQuoteItem\EditD2ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

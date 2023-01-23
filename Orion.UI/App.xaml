@@ -29,6 +29,14 @@
              xmlns:vmECC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.EditCatalogItem"
              xmlns:vmItemC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.EditQuoteItem"
              
+             xmlns:viewCatalogD="clr-namespace:Orion.UI.View.PuroFlux.CatalogList"
+             xmlns:viewECD="clr-namespace:Orion.UI.View.PuroFlux.EditCatalogItem"
+             xmlns:viewItemD="clr-namespace:Orion.UI.View.PuroFlux.EditQuoteItem"
+             
+             xmlns:vmCatalogD="clr-namespace:Orion.UI.ViewModel.Puroflux.CatalogList"
+             xmlns:vmECD="clr-namespace:Orion.UI.ViewModel.Puroflux.EditCatalogItem"
+             xmlns:vmItemD="clr-namespace:Orion.UI.ViewModel.Puroflux.EditQuoteItem"
+             
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -261,10 +269,39 @@
             <DataTemplate DataType="{x:Type vmECC:EditC4CatalogViewModel}">
                 <viewECC:EditC4CatalogView/>
             </DataTemplate>
-            
-            
-            
-            
+
+
+
+
+            <DataTemplate DataType="{x:Type vmItemD:EditD1ItemViewModel}">
+                <viewItemD:EditD1ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemD:EditD2ItemViewModel}">
+                <viewItemD:EditD2ItemView/>
+            </DataTemplate>
+
+
+            <DataTemplate DataType="{x:Type vmCatalogD:CatalogD1ListViewModel}">
+                <viewCatalogD:CatalogD1ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogD:CatalogD2ListViewModel}">
+                <viewCatalogD:CatalogD2ListView/>
+            </DataTemplate>
+
+
+            <DataTemplate DataType="{x:Type vmECD:EditD1CatalogViewModel}">
+                <viewECD:EditD1CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECD:EditD2CatalogViewModel}">
+                <viewECD:EditD2CatalogView/>
+            </DataTemplate>
+
+
+
+
 
 
             <Style  x:Key="TxtStyle" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}">
