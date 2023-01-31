@@ -3,6 +3,7 @@ using Orion.Binding.Interfaces;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
+using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using System;
 using System.Collections.Generic;
@@ -153,6 +154,59 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
+        #region ABB Items
+
+        private IList<ItemE1> _itemE1s;
+        public IList<ItemE1> ItemE1s
+        {
+            get => _itemE1s;
+            set => SetProperty(ref _itemE1s, value);
+        }
+
+        private IList<ItemE2> _itemE2s;
+        public IList<ItemE2> ItemE2s
+        {
+            get => _itemE2s;
+            set => SetProperty(ref _itemE2s, value);
+        }
+
+        private IList<ItemE3> _itemE3s;
+        public IList<ItemE3> ItemE3s
+        {
+            get => _itemE3s;
+            set => SetProperty(ref _itemE3s, value);
+        }
+
+        private IList<ItemE4> _itemE4s;
+        public IList<ItemE4> ItemE4s
+        {
+            get => _itemE4s;
+            set => SetProperty(ref _itemE4s, value);
+        }
+
+        private IList<ItemE5> _itemE5s;
+        public IList<ItemE5> ItemE5s
+        {
+            get => _itemE5s;
+            set => SetProperty(ref _itemE5s, value);
+        }
+
+        private IList<ItemE6> _itemE6s;
+        public IList<ItemE6> ItemE6s
+        {
+            get => _itemE6s;
+            set => SetProperty(ref _itemE6s, value);
+        }
+
+        private IList<ItemE7> _itemE7s;
+        public IList<ItemE7> ItemE7s
+        {
+            get => _itemE7s;
+            set => SetProperty(ref _itemE7s, value);
+        }
+        #endregion
+
+
         private bool _isSelected;
         [NotMapped]
         public bool IsSelected
@@ -189,6 +243,15 @@ namespace Orion.Domain.Entity
 
             ItemD1s = new ObservableCollection<ItemD1>();
             ItemD2s = new ObservableCollection<ItemD2>();
+
+            ItemE1s = new ObservableCollection<ItemE1>();
+            ItemE2s = new ObservableCollection<ItemE2>();
+            ItemE3s = new ObservableCollection<ItemE3>();
+            ItemE4s = new ObservableCollection<ItemE4>();
+            ItemE5s = new ObservableCollection<ItemE5>();
+            ItemE6s = new ObservableCollection<ItemE6>();
+            ItemE7s = new ObservableCollection<ItemE7>();
+
             Name = "";
         }
     }

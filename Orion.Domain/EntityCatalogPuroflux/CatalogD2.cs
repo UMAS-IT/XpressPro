@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Orion.Domain.EntityCatalogPuroflux
 {
+    // Puroflux - Sand Filters
     public class CatalogD2 : ValidatableBindableBase, ICatalog
     {
         private int _id;

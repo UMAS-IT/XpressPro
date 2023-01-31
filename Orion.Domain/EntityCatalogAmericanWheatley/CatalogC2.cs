@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Orion.Domain.EntityCatalogAmericanWheatley
 {
+    // American Wheatley - Suction Diffusers
     public class CatalogC2 : ValidatableBindableBase, ICatalog
     {
         private int _id;

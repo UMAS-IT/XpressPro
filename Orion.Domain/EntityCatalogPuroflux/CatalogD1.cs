@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Orion.Domain.EntityCatalogPuroflux
 {
+    // Puroflux - Separators
     public class CatalogD1 : ValidatableBindableBase, ICatalog
     {
         private int _id;

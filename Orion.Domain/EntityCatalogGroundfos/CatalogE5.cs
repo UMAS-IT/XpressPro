@@ -9,10 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Orion.Domain.EntityCatalogAmericanWheatley
+namespace Orion.Domain.EntityCatalogGroundfos
 {
-    // American Wheatley - Tanks
-    public class CatalogC3 : ValidatableBindableBase, ICatalog
+    // Groundfos - VL
+    public class CatalogE5 : ValidatableBindableBase, ICatalog
     {
         private int _id;
         public int Id
@@ -86,7 +86,7 @@ namespace Orion.Domain.EntityCatalogAmericanWheatley
             set => SetProperty(ref _titles, value);
         }
 
-        public CatalogC3()
+        public CatalogE5()
         {
             Titles = new ObservableCollection<Title>();
         }

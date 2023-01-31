@@ -133,6 +133,13 @@
     <Compile Include="EntityCatalogAmericanWheatley\CatalogC2.cs" />
     <Compile Include="EntityCatalogAmericanWheatley\CatalogC3.cs" />
     <Compile Include="EntityCatalogAmericanWheatley\CatalogC4.cs" />
+    <Compile Include="EntityCatalogGroundfos\CatalogE1.cs" />
+    <Compile Include="EntityCatalogGroundfos\CatalogE2.cs" />
+    <Compile Include="EntityCatalogGroundfos\CatalogE3.cs" />
+    <Compile Include="EntityCatalogGroundfos\CatalogE4.cs" />
+    <Compile Include="EntityCatalogGroundfos\CatalogE5.cs" />
+    <Compile Include="EntityCatalogGroundfos\CatalogE6.cs" />
+    <Compile Include="EntityCatalogGroundfos\CatalogE7.cs" />
     <Compile Include="EntityCatalogPuroflux\CatalogD1.cs" />
     <Compile Include="EntityCatalogPuroflux\CatalogD2.cs" />
     <Compile Include="EntityCatalogQuantech\CatalogA1.cs" />
@@ -148,6 +155,13 @@
     <Compile Include="EntityItemAmericanWheatley\ItemC2.cs" />
     <Compile Include="EntityItemAmericanWheatley\ItemC3.cs" />
     <Compile Include="EntityItemAmericanWheatley\ItemC4.cs" />
+    <Compile Include="EntityItemGroundfos\ItemE1.cs" />
+    <Compile Include="EntityItemGroundfos\ItemE2.cs" />
+    <Compile Include="EntityItemGroundfos\ItemE3.cs" />
+    <Compile Include="EntityItemGroundfos\ItemE4.cs" />
+    <Compile Include="EntityItemGroundfos\ItemE5.cs" />
+    <Compile Include="EntityItemGroundfos\ItemE6.cs" />
+    <Compile Include="EntityItemGroundfos\ItemE7.cs" />
     <Compile Include="EntityItemPuroFlux\ItemD1.cs" />
     <Compile Include="EntityItemPuroFlux\ItemD2.cs" />
     <Compile Include="EntityItemQuantech\ItemB5.cs" />

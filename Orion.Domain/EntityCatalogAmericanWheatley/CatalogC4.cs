@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Orion.Domain.EntityCatalogAmericanWheatley
 {
+    // American Wheatley - Separators
     public class CatalogC4 : ValidatableBindableBase, ICatalog
     {
         private int _id;

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Orion.Domain.EntityCatalogAmericanWheatley
 {
+    // American Wheatley - Triple Duty Valves
     public class CatalogC1 : ValidatableBindableBase, ICatalog
     {
         private int _id;

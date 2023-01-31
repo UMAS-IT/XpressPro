@@ -2,11 +2,13 @@
 using Orion.Binding.Interfaces;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
+using Orion.Domain.EntityCatalogGroundfos;
 using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
+using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -471,6 +473,207 @@ namespace Orion.Domain.Entity
         {
             get => _catalogD2;
             set => SetProperty(ref _catalogD2, value);
+        }
+        #endregion
+
+        #region Groundfos Items Id
+        private int? _itemE1Id;
+        public int? ItemE1Id
+        {
+            get => _itemE1Id;
+            set => SetProperty(ref _itemE1Id, value);
+        }
+
+        private ItemE1 _itemE1;
+        public ItemE1 ItemE1
+        {
+            get => _itemE1;
+            set => SetProperty(ref _itemE1, value);
+        }
+
+        private int? _itemE2Id;
+        public int? ItemE2Id
+        {
+            get => _itemE2Id;
+            set => SetProperty(ref _itemE2Id, value);
+        }
+
+        private ItemE2 _itemE2;
+        public ItemE2 ItemE2
+        {
+            get => _itemE2;
+            set => SetProperty(ref _itemE2, value);
+        }
+
+        private int? _itemE3Id;
+        public int? ItemE3Id
+        {
+            get => _itemE3Id;
+            set => SetProperty(ref _itemE3Id, value);
+        }
+
+        private ItemE3 _itemE3;
+        public ItemE3 ItemE3
+        {
+            get => _itemE3;
+            set => SetProperty(ref _itemE3, value);
+        }
+
+        private int? _itemE4Id;
+        public int? ItemE4Id
+        {
+            get => _itemE4Id;
+            set => SetProperty(ref _itemE4Id, value);
+        }
+
+        private ItemE4 _itemE4;
+        public ItemE4 ItemE4
+        {
+            get => _itemE4;
+            set => SetProperty(ref _itemE4, value);
+        }
+
+        private int? _itemE5Id;
+        public int? ItemE5Id
+        {
+            get => _itemE5Id;
+            set => SetProperty(ref _itemE5Id, value);
+        }
+
+        private ItemE5 _itemE5;
+        public ItemE5 ItemE5
+        {
+            get => _itemE5;
+            set => SetProperty(ref _itemE5, value);
+        }
+
+        private int? _itemE6Id;
+        public int? ItemE6Id
+        {
+            get => _itemE6Id;
+            set => SetProperty(ref _itemE6Id, value);
+        }
+
+        private ItemE6 _itemE6;
+        public ItemE6 ItemE6
+        {
+            get => _itemE6;
+            set => SetProperty(ref _itemE6, value);
+        }
+
+        private int? _itemE7Id;
+        public int? ItemE7Id
+        {
+            get => _itemE7Id;
+            set => SetProperty(ref _itemE7Id, value);
+        }
+
+        private ItemE7 _itemE7;
+        public ItemE7 ItemE7
+        {
+            get => _itemE7;
+            set => SetProperty(ref _itemE7, value);
+        }
+        #endregion
+
+        #region Groudfos Catalogs Id
+
+        private int? _catalogE1Id;
+        public int? CatalogE1Id
+        {
+            get => _catalogE1Id;
+            set => SetProperty(ref _catalogE1Id, value);
+        }
+
+        private CatalogE1 _catalogE1;
+        public CatalogE1 CatalogE1
+        {
+            get => _catalogE1;
+            set => SetProperty(ref _catalogE1, value);
+        }
+
+        private int? _catalogE2Id;
+        public int? CatalogE2Id
+        {
+            get => _catalogE2Id;
+            set => SetProperty(ref _catalogE2Id, value);
+        }
+
+        private CatalogE2 _catalogE2;
+        public CatalogE2 CatalogE2
+        {
+            get => _catalogE2;
+            set => SetProperty(ref _catalogE2, value);
+        }
+
+        private int? _catalogE3Id;
+        public int? CatalogE3Id
+        {
+            get => _catalogE3Id;
+            set => SetProperty(ref _catalogE3Id, value);
+        }
+
+        private CatalogE3 _catalogE3;
+        public CatalogE3 CatalogE3
+        {
+            get => _catalogE3;
+            set => SetProperty(ref _catalogE3, value);
+        }
+
+        private int? _catalogE4Id;
+        public int? CatalogE4Id
+        {
+            get => _catalogE4Id;
+            set => SetProperty(ref _catalogE4Id, value);
+        }
+
+        private CatalogE4 _catalogE4;
+        public CatalogE4 CatalogE4
+        {
+            get => _catalogE4;
+            set => SetProperty(ref _catalogE4, value);
+        }
+
+        private int? _catalogE5Id;
+        public int? CatalogE5Id
+        {
+            get => _catalogE5Id;
+            set => SetProperty(ref _catalogE5Id, value);
+        }
+
+        private CatalogE5 _catalogE5;
+        public CatalogE5 CatalogE5
+        {
+            get => _catalogE5;
+            set => SetProperty(ref _catalogE5, value);
+        }
+
+        private int? _catalogE6Id;
+        public int? CatalogE6Id
+        {
+            get => _catalogE6Id;
+            set => SetProperty(ref _catalogE6Id, value);
+        }
+
+        private CatalogE6 _catalogE6;
+        public CatalogE6 CatalogE6
+        {
+            get => _catalogE6;
+            set => SetProperty(ref _catalogE6, value);
+        }
+
+        private int? _catalogE7Id;
+        public int? CatalogE7Id
+        {
+            get => _catalogE7Id;
+            set => SetProperty(ref _catalogE7Id, value);
+        }
+
+        private CatalogE7 _catalogE7;
+        public CatalogE7 CatalogE7
+        {
+            get => _catalogE7;
+            set => SetProperty(ref _catalogE7, value);
         }
         #endregion
 

@@ -2,11 +2,13 @@
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
+using Orion.Domain.EntityCatalogGroundfos;
 using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
+using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 
 namespace Orion.DataAccess.DataBase
@@ -72,6 +74,26 @@ namespace Orion.DataAccess.DataBase
         #region Puroflux Items
         public DbSet<ItemD1> ItemD1s { get; set; }
         public DbSet<ItemD2> ItemD2s { get; set; }
+        #endregion
+
+        #region ABB Catalogs
+        public DbSet<CatalogE1> CatalogE1s { get; set; }
+        public DbSet<CatalogE2> CatalogE2s { get; set; }
+        public DbSet<CatalogE3> CatalogE3s { get; set; }
+        public DbSet<CatalogE4> CatalogE4s { get; set; }
+        public DbSet<CatalogE5> CatalogE5s { get; set; }
+        public DbSet<CatalogE6> CatalogE6s { get; set; }
+        public DbSet<CatalogE7> CatalogE7s { get; set; }
+        #endregion
+
+        #region ABB Items
+        public DbSet<ItemE1> ItemE1s { get; set; }
+        public DbSet<ItemE2> ItemE2s { get; set; }
+        public DbSet<ItemE3> ItemE3s { get; set; }
+        public DbSet<ItemE4> ItemE4s { get; set; }
+        public DbSet<ItemE5> ItemE5s { get; set; }
+        public DbSet<ItemE6> ItemE6s { get; set; }
+        public DbSet<ItemE7> ItemE7s { get; set; }
         #endregion
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
