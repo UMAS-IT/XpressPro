@@ -3,8 +3,11 @@ using Orion.Binding.Interfaces;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
+using Orion.Domain.EntityItemBACClosedCircuits;
+using Orion.Domain.EntityItemBACCoolingTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
+using Orion.Domain.EntityItemUvResources;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -42,6 +45,8 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _project, value);
         }
 
+
+
         #region Quantech Items
         private IList<ItemA1> _itemA1s;
         public IList<ItemA1> ItemA1s
@@ -70,6 +75,8 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _itemA4s, value);
         }
         #endregion
+
+
 
         #region ABB Items
 
@@ -109,6 +116,8 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
+
+
         #region American Wheatley Items
         private IList<ItemC1> _itemC1s;
         public IList<ItemC1> ItemC1s
@@ -138,6 +147,8 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
+
+
         #region Puroflux Items
         private IList<ItemD1> _itemD1s;
         public IList<ItemD1> ItemD1s
@@ -154,7 +165,9 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
-        #region ABB Items
+
+
+        #region Groundfos Items
 
         private IList<ItemE1> _itemE1s;
         public IList<ItemE1> ItemE1s
@@ -207,6 +220,105 @@ namespace Orion.Domain.Entity
         #endregion
 
 
+
+        #region UV Resources Items
+        private IList<ItemF1> _itemF1s;
+        public IList<ItemF1> ItemF1s
+        {
+            get => _itemF1s;
+            set => SetProperty(ref _itemF1s, value);
+        }
+        #endregion
+
+
+
+        #region BAC Cooling Towers Items
+
+        private IList<ItemG1> _itemG1s;
+        public IList<ItemG1> ItemG1s
+        {
+            get => _itemG1s;
+            set => SetProperty(ref _itemG1s, value);
+        }
+
+        private IList<ItemG2> _itemG2s;
+        public IList<ItemG2> ItemG2s
+        {
+            get => _itemG2s;
+            set => SetProperty(ref _itemG2s, value);
+        }
+
+        private IList<ItemG3> _itemG3s;
+        public IList<ItemG3> ItemG3s
+        {
+            get => _itemG3s;
+            set => SetProperty(ref _itemG3s, value);
+        }
+
+        private IList<ItemG4> _itemG4s;
+        public IList<ItemG4> ItemG4s
+        {
+            get => _itemG4s;
+            set => SetProperty(ref _itemG4s, value);
+        }
+
+        private IList<ItemG5> _itemG5s;
+        public IList<ItemG5> ItemG5s
+        {
+            get => _itemG5s;
+            set => SetProperty(ref _itemG5s, value);
+        }
+
+        private IList<ItemG6> _itemG6s;
+        public IList<ItemG6> ItemG6s
+        {
+            get => _itemG6s;
+            set => SetProperty(ref _itemG6s, value);
+        }
+        #endregion
+
+
+
+        #region BAC Closed Circuits Items
+
+        private IList<ItemH1> _itemH1s;
+        public IList<ItemH1> ItemH1s
+        {
+            get => _itemH1s;
+            set => SetProperty(ref _itemH1s, value);
+        }
+
+        private IList<ItemH2> _itemH2s;
+        public IList<ItemH2> ItemH2s
+        {
+            get => _itemH2s;
+            set => SetProperty(ref _itemH2s, value);
+        }
+
+        private IList<ItemH3> _itemH3s;
+        public IList<ItemH3> ItemH3s
+        {
+            get => _itemH3s;
+            set => SetProperty(ref _itemH3s, value);
+        }
+
+        private IList<ItemH4> _itemH4s;
+        public IList<ItemH4> ItemH4s
+        {
+            get => _itemH4s;
+            set => SetProperty(ref _itemH4s, value);
+        }
+
+        private IList<ItemH5> _itemH5s;
+        public IList<ItemH5> ItemH5s
+        {
+            get => _itemH5s;
+            set => SetProperty(ref _itemH5s, value);
+        }
+        #endregion
+
+
+
         private bool _isSelected;
         [NotMapped]
         public bool IsSelected
@@ -251,6 +363,21 @@ namespace Orion.Domain.Entity
             ItemE5s = new ObservableCollection<ItemE5>();
             ItemE6s = new ObservableCollection<ItemE6>();
             ItemE7s = new ObservableCollection<ItemE7>();
+
+            ItemF1s = new ObservableCollection<ItemF1>();
+
+            ItemG1s = new ObservableCollection<ItemG1>();
+            ItemG2s = new ObservableCollection<ItemG2>();
+            ItemG3s = new ObservableCollection<ItemG3>();
+            ItemG4s = new ObservableCollection<ItemG4>();
+            ItemG5s = new ObservableCollection<ItemG5>();
+            ItemG6s = new ObservableCollection<ItemG6>();
+
+            ItemH1s = new ObservableCollection<ItemH1>();
+            ItemH2s = new ObservableCollection<ItemH2>();
+            ItemH3s = new ObservableCollection<ItemH3>();
+            ItemH4s = new ObservableCollection<ItemH4>();
+            ItemH5s = new ObservableCollection<ItemH5>();
 
             Name = "";
         }

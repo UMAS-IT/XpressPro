@@ -2,14 +2,20 @@
 using Orion.Binding.Interfaces;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
+using Orion.Domain.EntityCatalogBACClosedCircuits;
+using Orion.Domain.EntityCatalogBACCoolingTowers;
 using Orion.Domain.EntityCatalogGroundfos;
 using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
+using Orion.Domain.EntityCatalogUvResources;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
+using Orion.Domain.EntityItemBACClosedCircuits;
+using Orion.Domain.EntityItemBACCoolingTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
+using Orion.Domain.EntityItemUvResources;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -38,6 +44,8 @@ namespace Orion.Domain.Entity
             get => _specs;
             set => SetProperty(ref _specs, value);
         }
+
+
 
         #region Quantech Items Id
         private int? _itemA1Id;
@@ -154,6 +162,8 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _catalogA4, value);
         }
         #endregion
+
+
 
         #region ABB Items Id
         private int? _itemB1Id;
@@ -300,6 +310,8 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
+
+
         #region American Wheatley Items Id
         private int? _itemC1Id;
         public int? ItemC1Id
@@ -416,6 +428,8 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
+
+
         #region Puroflux Items Id
         private int? _itemD1Id;
         public int? ItemD1Id
@@ -475,6 +489,8 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _catalogD2, value);
         }
         #endregion
+
+
 
         #region Groundfos Items Id
         private int? _itemE1Id;
@@ -674,6 +690,362 @@ namespace Orion.Domain.Entity
         {
             get => _catalogE7;
             set => SetProperty(ref _catalogE7, value);
+        }
+        #endregion
+
+
+
+        #region UV Resources Items Id
+        private int? _itemF1Id;
+        public int? ItemF1Id
+        {
+            get => _itemF1Id;
+            set => SetProperty(ref _itemF1Id, value);
+        }
+
+        private ItemF1 _itemF1;
+        public ItemF1 ItemF1
+        {
+            get => _itemF1;
+            set => SetProperty(ref _itemF1, value);
+        }
+        #endregion
+
+        #region UV Resources Catalogs Id
+        private CatalogF1 _catalogF1;
+        public CatalogF1 CatalogF1
+        {
+            get => _catalogF1;
+            set => SetProperty(ref _catalogF1, value);
+        }
+
+        private int? _catalogF1Id;
+        public int? CatalogF1Id
+        {
+            get => _catalogF1Id;
+            set => SetProperty(ref _catalogF1Id, value);
+        }
+        #endregion
+
+
+
+        #region BAC Cooling Towers Items Id
+        private int? _itemG1Id;
+        public int? ItemG1Id
+        {
+            get => _itemG1Id;
+            set => SetProperty(ref _itemG1Id, value);
+        }
+
+        private ItemG1 _itemG1;
+        public ItemG1 ItemG1
+        {
+            get => _itemG1;
+            set => SetProperty(ref _itemG1, value);
+        }
+
+        private int? _itemG2Id;
+        public int? ItemG2Id
+        {
+            get => _itemG2Id;
+            set => SetProperty(ref _itemG2Id, value);
+        }
+
+        private ItemG2 _itemG2;
+        public ItemG2 ItemG2
+        {
+            get => _itemG2;
+            set => SetProperty(ref _itemG2, value);
+        }
+
+        private int? _itemG3Id;
+        public int? ItemG3Id
+        {
+            get => _itemG3Id;
+            set => SetProperty(ref _itemG3Id, value);
+        }
+
+        private ItemG3 _itemG3;
+        public ItemG3 ItemG3
+        {
+            get => _itemG3;
+            set => SetProperty(ref _itemG3, value);
+        }
+
+        private int? _itemG4Id;
+        public int? ItemG4Id
+        {
+            get => _itemG4Id;
+            set => SetProperty(ref _itemG4Id, value);
+        }
+
+        private ItemG4 _itemG4;
+        public ItemG4 ItemG4
+        {
+            get => _itemG4;
+            set => SetProperty(ref _itemG4, value);
+        }
+
+        private int? _itemG5Id;
+        public int? ItemG5Id
+        {
+            get => _itemG5Id;
+            set => SetProperty(ref _itemG5Id, value);
+        }
+
+        private ItemG5 _itemG5;
+        public ItemG5 ItemG5
+        {
+            get => _itemG5;
+            set => SetProperty(ref _itemG5, value);
+        }
+
+        private int? _itemG6Id;
+        public int? ItemG6Id
+        {
+            get => _itemG6Id;
+            set => SetProperty(ref _itemG6Id, value);
+        }
+
+        private ItemG6 _itemG6;
+        public ItemG6 ItemG6
+        {
+            get => _itemG6;
+            set => SetProperty(ref _itemG6, value);
+        }
+        #endregion
+
+        #region BAC Cooling Towers Catalogs Id
+
+        private int? _catalogG1Id;
+        public int? CatalogG1Id
+        {
+            get => _catalogG1Id;
+            set => SetProperty(ref _catalogG1Id, value);
+        }
+
+        private CatalogG1 _catalogG1;
+        public CatalogG1 CatalogG1
+        {
+            get => _catalogG1;
+            set => SetProperty(ref _catalogG1, value);
+        }
+
+        private int? _catalogG2Id;
+        public int? CatalogG2Id
+        {
+            get => _catalogG2Id;
+            set => SetProperty(ref _catalogG2Id, value);
+        }
+
+        private CatalogG2 _catalogG2;
+        public CatalogG2 CatalogG2
+        {
+            get => _catalogG2;
+            set => SetProperty(ref _catalogG2, value);
+        }
+
+        private int? _catalogG3Id;
+        public int? CatalogG3Id
+        {
+            get => _catalogG3Id;
+            set => SetProperty(ref _catalogG3Id, value);
+        }
+
+        private CatalogG3 _catalogG3;
+        public CatalogG3 CatalogG3
+        {
+            get => _catalogG3;
+            set => SetProperty(ref _catalogG3, value);
+        }
+
+        private int? _catalogG4Id;
+        public int? CatalogG4Id
+        {
+            get => _catalogG4Id;
+            set => SetProperty(ref _catalogG4Id, value);
+        }
+
+        private CatalogG4 _catalogG4;
+        public CatalogG4 CatalogG4
+        {
+            get => _catalogG4;
+            set => SetProperty(ref _catalogG4, value);
+        }
+
+        private int? _catalogG5Id;
+        public int? CatalogG5Id
+        {
+            get => _catalogG5Id;
+            set => SetProperty(ref _catalogG5Id, value);
+        }
+
+        private CatalogG5 _catalogG5;
+        public CatalogG5 CatalogG5
+        {
+            get => _catalogG5;
+            set => SetProperty(ref _catalogG5, value);
+        }
+
+        private int? _catalogG6Id;
+        public int? CatalogG6Id
+        {
+            get => _catalogG6Id;
+            set => SetProperty(ref _catalogG6Id, value);
+        }
+
+        private CatalogG6 _catalogG6;
+        public CatalogG6 CatalogG6
+        {
+            get => _catalogG6;
+            set => SetProperty(ref _catalogG6, value);
+        }
+        #endregion
+
+
+
+        #region BAC Closed Circuits Items Id
+        private int? _itemH1Id;
+        public int? ItemH1Id
+        {
+            get => _itemH1Id;
+            set => SetProperty(ref _itemH1Id, value);
+        }
+
+        private ItemH1 _itemH1;
+        public ItemH1 ItemH1
+        {
+            get => _itemH1;
+            set => SetProperty(ref _itemH1, value);
+        }
+
+        private int? _itemH2Id;
+        public int? ItemH2Id
+        {
+            get => _itemH2Id;
+            set => SetProperty(ref _itemH2Id, value);
+        }
+
+        private ItemH2 _itemH2;
+        public ItemH2 ItemH2
+        {
+            get => _itemH2;
+            set => SetProperty(ref _itemH2, value);
+        }
+
+        private int? _itemH3Id;
+        public int? ItemH3Id
+        {
+            get => _itemH3Id;
+            set => SetProperty(ref _itemH3Id, value);
+        }
+
+        private ItemH3 _itemH3;
+        public ItemH3 ItemH3
+        {
+            get => _itemH3;
+            set => SetProperty(ref _itemH3, value);
+        }
+
+        private int? _itemH4Id;
+        public int? ItemH4Id
+        {
+            get => _itemH4Id;
+            set => SetProperty(ref _itemH4Id, value);
+        }
+
+        private ItemH4 _itemH4;
+        public ItemH4 ItemH4
+        {
+            get => _itemH4;
+            set => SetProperty(ref _itemH4, value);
+        }
+
+        private int? _itemH5Id;
+        public int? ItemH5Id
+        {
+            get => _itemH5Id;
+            set => SetProperty(ref _itemH5Id, value);
+        }
+
+        private ItemH5 _itemH5;
+        public ItemH5 ItemH5
+        {
+            get => _itemH5;
+            set => SetProperty(ref _itemH5, value);
+        }
+        #endregion
+
+        #region BAC Closed Circuits Catalogs Id
+
+        private int? _catalogH1Id;
+        public int? CatalogH1Id
+        {
+            get => _catalogH1Id;
+            set => SetProperty(ref _catalogH1Id, value);
+        }
+
+        private CatalogH1 _catalogH1;
+        public CatalogH1 CatalogH1
+        {
+            get => _catalogH1;
+            set => SetProperty(ref _catalogH1, value);
+        }
+
+        private int? _catalogH2Id;
+        public int? CatalogH2Id
+        {
+            get => _catalogH2Id;
+            set => SetProperty(ref _catalogH2Id, value);
+        }
+
+        private CatalogH2 _catalogH2;
+        public CatalogH2 CatalogH2
+        {
+            get => _catalogH2;
+            set => SetProperty(ref _catalogH2, value);
+        }
+
+        private int? _catalogH3Id;
+        public int? CatalogH3Id
+        {
+            get => _catalogH3Id;
+            set => SetProperty(ref _catalogH3Id, value);
+        }
+
+        private CatalogH3 _catalogH3;
+        public CatalogH3 CatalogH3
+        {
+            get => _catalogH3;
+            set => SetProperty(ref _catalogH3, value);
+        }
+
+        private int? _catalogH4Id;
+        public int? CatalogH4Id
+        {
+            get => _catalogH4Id;
+            set => SetProperty(ref _catalogH4Id, value);
+        }
+
+        private CatalogH4 _catalogH4;
+        public CatalogH4 CatalogH4
+        {
+            get => _catalogH4;
+            set => SetProperty(ref _catalogH4, value);
+        }
+
+        private int? _catalogH5Id;
+        public int? CatalogH5Id
+        {
+            get => _catalogH5Id;
+            set => SetProperty(ref _catalogH5Id, value);
+        }
+
+        private CatalogH5 _catalogH5;
+        public CatalogH5 CatalogH5
+        {
+            get => _catalogH5;
+            set => SetProperty(ref _catalogH5, value);
         }
         #endregion
 
