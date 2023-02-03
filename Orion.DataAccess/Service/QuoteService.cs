@@ -74,6 +74,30 @@ namespace Orion.DataAccess.Service
 
                                      .Include(x => x.ItemD1s)
                                      .Include(x => x.ItemD2s)
+
+                                     .Include(x => x.ItemE1s)
+                                     .Include(x => x.ItemE2s)
+                                     .Include(x => x.ItemE3s)
+                                     .Include(x => x.ItemE4s)
+                                     .Include(x => x.ItemE5s)
+                                     .Include(x => x.ItemE6s)
+                                     .Include(x => x.ItemE7s)
+
+                                     .Include(x => x.ItemF1s)
+
+                                     .Include(x => x.ItemG1s)
+                                     .Include(x => x.ItemG2s)
+                                     .Include(x => x.ItemG3s)
+                                     .Include(x => x.ItemG4s)
+                                     .Include(x => x.ItemG5s)
+                                     .Include(x => x.ItemG6s)
+
+                                     .Include(x => x.ItemH1s)
+                                     .Include(x => x.ItemH2s)
+                                     .Include(x => x.ItemH3s)
+                                     .Include(x => x.ItemH4s)
+                                     .Include(x => x.ItemH5s)
+
                                      .FirstOrDefault(x => x.Id == quoteId);
             }
         }
@@ -117,15 +141,64 @@ namespace Orion.DataAccess.Service
                     .Include(x => x.ItemD2s).ThenInclude(x => x.CatalogD2)
                     .Include(x => x.ItemD2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
 
+                    .Include(x => x.ItemE1s).ThenInclude(x => x.CatalogE1)
+                    .Include(x => x.ItemE1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemE2s).ThenInclude(x => x.CatalogE2)
+                    .Include(x => x.ItemE2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemE3s).ThenInclude(x => x.CatalogE3)
+                    .Include(x => x.ItemE3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemE4s).ThenInclude(x => x.CatalogE4)
+                    .Include(x => x.ItemE4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemE5s).ThenInclude(x => x.CatalogE5)
+                    .Include(x => x.ItemE5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemE6s).ThenInclude(x => x.CatalogE6)
+                    .Include(x => x.ItemE6s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemE7s).ThenInclude(x => x.CatalogE7)
+                    .Include(x => x.ItemE7s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+                    .Include(x => x.ItemF1s).ThenInclude(x => x.CatalogF1)
+                    .Include(x => x.ItemF1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+                    .Include(x => x.ItemG1s).ThenInclude(x => x.CatalogG1)
+                    .Include(x => x.ItemG1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemG2s).ThenInclude(x => x.CatalogG2)
+                    .Include(x => x.ItemG2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemG3s).ThenInclude(x => x.CatalogG3)
+                    .Include(x => x.ItemG3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemG4s).ThenInclude(x => x.CatalogG4)
+                    .Include(x => x.ItemG4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemG5s).ThenInclude(x => x.CatalogG5)
+                    .Include(x => x.ItemG5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemG6s).ThenInclude(x => x.CatalogG6)
+                    .Include(x => x.ItemG6s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                                       
+                    .Include(x => x.ItemH1s).ThenInclude(x => x.CatalogH1)
+                    .Include(x => x.ItemH1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemH2s).ThenInclude(x => x.CatalogH2)
+                    .Include(x => x.ItemH2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemH3s).ThenInclude(x => x.CatalogH3)
+                    .Include(x => x.ItemH3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemH4s).ThenInclude(x => x.CatalogH4)
+                    .Include(x => x.ItemH4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemH5s).ThenInclude(x => x.CatalogH5)
+                    .Include(x => x.ItemH5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
                     .Where(u => u.ProjectId == projectId).ToList();
 
                 quotes.ForEach(u =>
                 {
                     u.CanCreateReports = true;
-                    if (!u.ItemA1s.Any() && !u.ItemA2s.Any() && !u.ItemA3s.Any() && !u.ItemA4s.Any()
+                    if (
+                        !u.ItemA1s.Any() && !u.ItemA2s.Any() && !u.ItemA3s.Any() && !u.ItemA4s.Any()
                         && !u.ItemB1s.Any() && !u.ItemB2s.Any() && !u.ItemB3s.Any() && !u.ItemB4s.Any() && !u.ItemB5s.Any()
                         && !u.ItemC1s.Any() && !u.ItemC2s.Any() && !u.ItemC3s.Any() && !u.ItemC4s.Any()
-                        && !u.ItemD1s.Any() && !u.ItemD2s.Any())
+                        && !u.ItemD1s.Any() && !u.ItemD2s.Any()
+                        && !u.ItemE1s.Any() && !u.ItemE2s.Any() && !u.ItemE3s.Any() && !u.ItemE4s.Any() && !u.ItemE5s.Any() && !u.ItemE6s.Any() && !u.ItemE7s.Any()
+                        && !u.ItemF1s.Any()
+                        && !u.ItemG1s.Any() && !u.ItemG2s.Any() && !u.ItemG3s.Any() && !u.ItemG4s.Any() && !u.ItemG5s.Any() && !u.ItemG6s.Any()
+                        && !u.ItemH1s.Any() && !u.ItemH2s.Any() && !u.ItemH3s.Any() && !u.ItemH4s.Any() && !u.ItemH5s.Any()
+                        )
+
                         u.CanCreateReports = false;
                 });
 

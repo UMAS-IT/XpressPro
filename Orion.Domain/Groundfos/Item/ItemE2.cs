@@ -185,25 +185,25 @@ namespace Orion.Domain.EntityItemGroundfos
             }
         }
 
-        private int? _catalogE1Id;
-        public int? CatalogE1Id
+        private int? _catalogE2Id;
+        public int? CatalogE2Id
         {
-            get => _catalogE1Id;
-            set => SetProperty(ref _catalogE1Id, value);
+            get => _catalogE2Id;
+            set => SetProperty(ref _catalogE2Id, value);
         }
 
-        private CatalogE1 _catalogE1;
-        public CatalogE1 CatalogE1
+        private CatalogE2 _catalogE2;
+        public CatalogE2 CatalogE2
         {
-            get => _catalogE1;
-            set => SetProperty(ref _catalogE1, value);
+            get => _catalogE2;
+            set => SetProperty(ref _catalogE2, value);
         }
 
         [NotMapped]
-        public ICatalog Catalog { get { return CatalogE1; } }
+        public ICatalog Catalog { get { return CatalogE2; } }
 
         [NotMapped]
-        public int? CatalogId { get { return CatalogE1Id; } }
+        public int? CatalogId { get { return CatalogE2Id; } }
 
         public ItemE2()
         {

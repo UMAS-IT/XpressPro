@@ -1943,7 +1943,7 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CatalogE1Id");
+                    b.Property<int?>("CatalogE2Id");
 
                     b.Property<double>("CostMultiplier");
 
@@ -1965,7 +1965,7 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CatalogE1Id");
+                    b.HasIndex("CatalogE2Id");
 
                     b.HasIndex("QuoteId");
 
@@ -2921,9 +2921,9 @@ namespace Orion.DataAccess.Migrations
 
             modelBuilder.Entity("Orion.Domain.EntityItemGroundfos.ItemE2", b =>
                 {
-                    b.HasOne("Orion.Domain.EntityCatalogGroundfos.CatalogE1", "CatalogE1")
+                    b.HasOne("Orion.Domain.EntityCatalogGroundfos.CatalogE2", "CatalogE2")
                         .WithMany()
-                        .HasForeignKey("CatalogE1Id");
+                        .HasForeignKey("CatalogE2Id");
 
                     b.HasOne("Orion.Domain.Entity.Quote", "Quote")
                         .WithMany("ItemE2s")
