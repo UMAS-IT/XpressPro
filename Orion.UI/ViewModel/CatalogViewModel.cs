@@ -9,10 +9,18 @@ using Orion.UI.ViewModel.ABB.CatalogList;
 using Orion.UI.ViewModel.ABB.EditCatalogItem;
 using Orion.UI.ViewModel.AmericanWheatley.CatalogList;
 using Orion.UI.ViewModel.AmericanWheatley.EditCatalogItem;
+using Orion.UI.ViewModel.BACClosedCircuits.CatalogList;
+using Orion.UI.ViewModel.BACClosedCircuits.EditCatalogItem;
+using Orion.UI.ViewModel.BACCoolingTowers.CatalogList;
+using Orion.UI.ViewModel.BACCoolingTowers.EditCatalogItem;
+using Orion.UI.ViewModel.Groundfos.CatalogList;
+using Orion.UI.ViewModel.Groundfos.EditCatalogItem;
 using Orion.UI.ViewModel.Puroflux.CatalogList;
 using Orion.UI.ViewModel.Puroflux.EditCatalogItem;
 using Orion.UI.ViewModel.Quantech.CatalogList;
 using Orion.UI.ViewModel.Quantech.EditCatalogItem;
+using Orion.UI.ViewModel.UvResources.CatalogList;
+using Orion.UI.ViewModel.UvResources.EditCatalogItem;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -86,8 +94,8 @@ namespace Orion.UI.ViewModel
                 viewModel = new EditA3CatalogViewModel(dialogCoordinator, catalog);
             else if (CurrentViewModel is CatalogA4ListViewModel)
                 viewModel = new EditA4CatalogViewModel(dialogCoordinator, catalog);
+            
             else if (CurrentViewModel is CatalogB1ListViewModel)
-
                 viewModel = new EditB1CatalogViewModel(dialogCoordinator, catalog);
             else if (CurrentViewModel is CatalogB2ListViewModel)
                 viewModel = new EditB2CatalogViewModel(dialogCoordinator, catalog);
@@ -111,6 +119,49 @@ namespace Orion.UI.ViewModel
                 viewModel = new EditD1CatalogViewModel(dialogCoordinator, catalog);
             else if (CurrentViewModel is CatalogD2ListViewModel)
                 viewModel = new EditD2CatalogViewModel(dialogCoordinator, catalog);
+
+            else if (CurrentViewModel is CatalogE1ListViewModel)
+                viewModel = new EditE1CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogE2ListViewModel)
+                viewModel = new EditE2CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogE3ListViewModel)
+                viewModel = new EditE3CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogE4ListViewModel)
+                viewModel = new EditE4CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogE5ListViewModel)
+                viewModel = new EditE5CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogE6ListViewModel)
+                viewModel = new EditE6CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogE7ListViewModel)
+                viewModel = new EditE7CatalogViewModel(dialogCoordinator, catalog);
+
+            else if (CurrentViewModel is CatalogF1ListViewModel)
+                viewModel = new EditF1CatalogViewModel(dialogCoordinator, catalog);
+
+            else if (CurrentViewModel is CatalogG1ListViewModel)
+                viewModel = new EditG1CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogG2ListViewModel)
+                viewModel = new EditG2CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogG3ListViewModel)
+                viewModel = new EditG3CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogG4ListViewModel)
+                viewModel = new EditG4CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogG5ListViewModel)
+                viewModel = new EditG5CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogG6ListViewModel)
+                viewModel = new EditG6CatalogViewModel(dialogCoordinator, catalog);
+
+            else if (CurrentViewModel is CatalogH1ListViewModel)
+                viewModel = new EditH1CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogH2ListViewModel)
+                viewModel = new EditH2CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogH3ListViewModel)
+                viewModel = new EditH3CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogH4ListViewModel)
+                viewModel = new EditH4CatalogViewModel(dialogCoordinator, catalog);
+            else if (CurrentViewModel is CatalogH5ListViewModel)
+                viewModel = new EditH5CatalogViewModel(dialogCoordinator, catalog);
+
 
             viewModel.BackFromEditRequested += OnBackFromEdit;
             viewModel.BackFromEditItemSavedRequested += OnBackFromEditItemSaved;
@@ -155,6 +206,49 @@ namespace Orion.UI.ViewModel
                 viewModel = CurrentViewModel as CatalogD1ListViewModel;
             else if (CurrentViewModel is CatalogD2ListViewModel)
                 viewModel = CurrentViewModel as CatalogD2ListViewModel;
+
+            else if (CurrentViewModel is CatalogE1ListViewModel)
+                viewModel = CurrentViewModel as CatalogE1ListViewModel;
+            else if (CurrentViewModel is CatalogE2ListViewModel)
+                viewModel = CurrentViewModel as CatalogE2ListViewModel;
+            else if (CurrentViewModel is CatalogE3ListViewModel)
+                viewModel = CurrentViewModel as CatalogE3ListViewModel;
+            else if (CurrentViewModel is CatalogE4ListViewModel)
+                viewModel = CurrentViewModel as CatalogE4ListViewModel;
+            else if (CurrentViewModel is CatalogE5ListViewModel)
+                viewModel = CurrentViewModel as CatalogE5ListViewModel;
+            else if (CurrentViewModel is CatalogE6ListViewModel)
+                viewModel = CurrentViewModel as CatalogE6ListViewModel;
+            else if (CurrentViewModel is CatalogE7ListViewModel)
+                viewModel = CurrentViewModel as CatalogE7ListViewModel;
+
+            else if (CurrentViewModel is CatalogF1ListViewModel)
+                viewModel = CurrentViewModel as CatalogF1ListViewModel;
+
+            else if (CurrentViewModel is CatalogG1ListViewModel)
+                viewModel = CurrentViewModel as CatalogG1ListViewModel;
+            else if (CurrentViewModel is CatalogG2ListViewModel)
+                viewModel = CurrentViewModel as CatalogG2ListViewModel;
+            else if (CurrentViewModel is CatalogG3ListViewModel)
+                viewModel = CurrentViewModel as CatalogG3ListViewModel;
+            else if (CurrentViewModel is CatalogG4ListViewModel)
+                viewModel = CurrentViewModel as CatalogG4ListViewModel;
+            else if (CurrentViewModel is CatalogG5ListViewModel)
+                viewModel = CurrentViewModel as CatalogG5ListViewModel;
+            else if (CurrentViewModel is CatalogG6ListViewModel)
+                viewModel = CurrentViewModel as CatalogG6ListViewModel;
+
+            else if (CurrentViewModel is CatalogH1ListViewModel)
+                viewModel = CurrentViewModel as CatalogH1ListViewModel;
+            else if (CurrentViewModel is CatalogH2ListViewModel)
+                viewModel = CurrentViewModel as CatalogH2ListViewModel;
+            else if (CurrentViewModel is CatalogH3ListViewModel)
+                viewModel = CurrentViewModel as CatalogH3ListViewModel;
+            else if (CurrentViewModel is CatalogH4ListViewModel)
+                viewModel = CurrentViewModel as CatalogH4ListViewModel;
+            else if (CurrentViewModel is CatalogH5ListViewModel)
+                viewModel = CurrentViewModel as CatalogH5ListViewModel;
+
 
             if (isUpdated)
             {
@@ -217,6 +311,50 @@ namespace Orion.UI.ViewModel
                 viewModel = new CatalogD1ListViewModel(dialogCoordinator);
             else if (catalogName == "d2")
                 viewModel = new CatalogD2ListViewModel(dialogCoordinator);
+
+            else if (catalogName == "e1")
+                viewModel = new CatalogE1ListViewModel(dialogCoordinator);
+            else if (catalogName == "e2")
+                viewModel = new CatalogE2ListViewModel(dialogCoordinator);
+            else if (catalogName == "e3")
+                viewModel = new CatalogE3ListViewModel(dialogCoordinator);
+            else if (catalogName == "e4")
+                viewModel = new CatalogE4ListViewModel(dialogCoordinator);
+            else if (catalogName == "e5")
+                viewModel = new CatalogE5ListViewModel(dialogCoordinator);
+            else if (catalogName == "e6")
+                viewModel = new CatalogE6ListViewModel(dialogCoordinator);
+            else if (catalogName == "e7")
+                viewModel = new CatalogE7ListViewModel(dialogCoordinator);
+
+            else if (catalogName == "f1")
+                viewModel = new CatalogF1ListViewModel(dialogCoordinator);
+
+            else if (catalogName == "g1")
+                viewModel = new CatalogG1ListViewModel(dialogCoordinator);
+            else if (catalogName == "g2")
+                viewModel = new CatalogG2ListViewModel(dialogCoordinator);
+            else if (catalogName == "g3")
+                viewModel = new CatalogG3ListViewModel(dialogCoordinator);
+            else if (catalogName == "g4")
+                viewModel = new CatalogG4ListViewModel(dialogCoordinator);
+            else if (catalogName == "g5")
+                viewModel = new CatalogG5ListViewModel(dialogCoordinator);
+            else if (catalogName == "g6")
+                viewModel = new CatalogG6ListViewModel(dialogCoordinator);
+
+
+            else if (catalogName == "h1")
+                viewModel = new CatalogH1ListViewModel(dialogCoordinator);
+            else if (catalogName == "g2")
+                viewModel = new CatalogH2ListViewModel(dialogCoordinator);
+            else if (catalogName == "h3")
+                viewModel = new CatalogH3ListViewModel(dialogCoordinator);
+            else if (catalogName == "h4")
+                viewModel = new CatalogH4ListViewModel(dialogCoordinator);
+            else if (catalogName == "h5")
+                viewModel = new CatalogH5ListViewModel(dialogCoordinator);
+
 
             if (viewModel != null)
             {

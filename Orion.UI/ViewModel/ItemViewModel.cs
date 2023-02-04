@@ -5,7 +5,11 @@ using Orion.Domain.Entity;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
+using Orion.Domain.EntityItemBACClosedCircuits;
+using Orion.Domain.EntityItemBACCoolingTowers;
+using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
+using Orion.Domain.EntityItemUvResources;
 using Orion.Helper.Extension;
 using Orion.UI.Command;
 using Orion.UI.Service;
@@ -182,6 +186,141 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _itemD2s, value);
         }
 
+        private ObservableCollection<IItem> _itemE1s;
+        public ObservableCollection<IItem> ItemE1s
+        {
+            get => _itemE1s;
+            set => SetProperty(ref _itemE1s, value);
+        }
+
+        private ObservableCollection<IItem> _itemE2s;
+        public ObservableCollection<IItem> ItemE2s
+        {
+            get => _itemE2s;
+            set => SetProperty(ref _itemE2s, value);
+        }
+
+        private ObservableCollection<IItem> _itemE3s;
+        public ObservableCollection<IItem> ItemE3s
+        {
+            get => _itemE3s;
+            set => SetProperty(ref _itemE3s, value);
+        }
+
+        private ObservableCollection<IItem> _itemE4s;
+        public ObservableCollection<IItem> ItemE4s
+        {
+            get => _itemE4s;
+            set => SetProperty(ref _itemE4s, value);
+        }
+
+        private ObservableCollection<IItem> _itemE5s;
+        public ObservableCollection<IItem> ItemE5s
+        {
+            get => _itemE5s;
+            set => SetProperty(ref _itemE5s, value);
+        }
+
+        private ObservableCollection<IItem> _itemE6s;
+        public ObservableCollection<IItem> ItemE6s
+        {
+            get => _itemE6s;
+            set => SetProperty(ref _itemE6s, value);
+        }
+
+        private ObservableCollection<IItem> _itemE7s;
+        public ObservableCollection<IItem> ItemE7s
+        {
+            get => _itemE7s;
+            set => SetProperty(ref _itemE7s, value);
+        }
+
+        private ObservableCollection<IItem> _itemF1s;
+        public ObservableCollection<IItem> ItemF1s
+        {
+            get => _itemF1s;
+            set => SetProperty(ref _itemF1s, value);
+        }
+
+        private ObservableCollection<IItem> _itemG1s;
+        public ObservableCollection<IItem> ItemG1s
+        {
+            get => _itemG1s;
+            set => SetProperty(ref _itemG1s, value);
+        }
+
+        private ObservableCollection<IItem> _itemG2s;
+        public ObservableCollection<IItem> ItemG2s
+        {
+            get => _itemG2s;
+            set => SetProperty(ref _itemG2s, value);
+        }
+
+        private ObservableCollection<IItem> _itemG3s;
+        public ObservableCollection<IItem> ItemG3s
+        {
+            get => _itemG3s;
+            set => SetProperty(ref _itemG3s, value);
+        }
+
+        private ObservableCollection<IItem> _itemG4s;
+        public ObservableCollection<IItem> ItemG4s
+        {
+            get => _itemG4s;
+            set => SetProperty(ref _itemG4s, value);
+        }
+
+        private ObservableCollection<IItem> _itemG5s;
+        public ObservableCollection<IItem> ItemG5s
+        {
+            get => _itemG5s;
+            set => SetProperty(ref _itemG5s, value);
+        }
+
+        private ObservableCollection<IItem> _itemG6s;
+        public ObservableCollection<IItem> ItemG6s
+        {
+            get => _itemG6s;
+            set => SetProperty(ref _itemG6s, value);
+        }
+
+        private ObservableCollection<IItem> _itemH1s;
+        public ObservableCollection<IItem> ItemH1s
+        {
+            get => _itemH1s;
+            set => SetProperty(ref _itemH1s, value);
+        }
+
+        private ObservableCollection<IItem> _itemH2s;
+        public ObservableCollection<IItem> ItemH2s
+        {
+            get => _itemH2s;
+            set => SetProperty(ref _itemH2s, value);
+        }
+
+        private ObservableCollection<IItem> _itemH3s;
+        public ObservableCollection<IItem> ItemH3s
+        {
+            get => _itemH3s;
+            set => SetProperty(ref _itemH3s, value);
+        }
+
+        private ObservableCollection<IItem> _itemH4s;
+        public ObservableCollection<IItem> ItemH4s
+        {
+            get => _itemH4s;
+            set => SetProperty(ref _itemH4s, value);
+        }
+
+        private ObservableCollection<IItem> _itemH5s;
+        public ObservableCollection<IItem> ItemH5s
+        {
+            get => _itemH5s;
+            set => SetProperty(ref _itemH5s, value);
+        }
+
+
+
         public RelayCommand BackToQuotesCommad { get; set; }
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand<string> EditItemsCommand { get; set; }
@@ -240,6 +379,30 @@ namespace Orion.UI.ViewModel
 
             ItemD1s = Items.Where(x => x is ItemD1).ToObservableCollection();
             ItemD2s = Items.Where(x => x is ItemD2).ToObservableCollection();
+
+            ItemE1s = Items.Where(x => x is ItemE1).ToObservableCollection();
+            ItemE2s = Items.Where(x => x is ItemE2).ToObservableCollection();
+            ItemE3s = Items.Where(x => x is ItemE3).ToObservableCollection();
+            ItemE4s = Items.Where(x => x is ItemE4).ToObservableCollection();
+            ItemE5s = Items.Where(x => x is ItemE5).ToObservableCollection();
+            ItemE6s = Items.Where(x => x is ItemE6).ToObservableCollection();
+            ItemE7s = Items.Where(x => x is ItemE7).ToObservableCollection();
+
+            ItemF1s = Items.Where(x => x is ItemF1).ToObservableCollection();
+
+            ItemG1s = Items.Where(x => x is ItemG1).ToObservableCollection();
+            ItemG2s = Items.Where(x => x is ItemG2).ToObservableCollection();
+            ItemG3s = Items.Where(x => x is ItemG3).ToObservableCollection();
+            ItemG4s = Items.Where(x => x is ItemG4).ToObservableCollection();
+            ItemG5s = Items.Where(x => x is ItemG5).ToObservableCollection();
+            ItemG6s = Items.Where(x => x is ItemG6).ToObservableCollection();
+
+            ItemH1s = Items.Where(x => x is ItemH1).ToObservableCollection();
+            ItemH2s = Items.Where(x => x is ItemH2).ToObservableCollection();
+            ItemH3s = Items.Where(x => x is ItemH3).ToObservableCollection();
+            ItemH4s = Items.Where(x => x is ItemH4).ToObservableCollection();
+            ItemH5s = Items.Where(x => x is ItemH5).ToObservableCollection();
+
         }
 
         private async void OnUpdateQuoteItems()
@@ -276,6 +439,15 @@ namespace Orion.UI.ViewModel
                 // last set of DesignIndex
                 ItemD1s.ToList().ForEach(x => x.DesignIndex = ItemD1s.IndexOf(x));
                 ItemD2s.ToList().ForEach(x => x.DesignIndex = ItemD2s.IndexOf(x));
+
+                // last set of DesignIndex
+                ItemE1s.ToList().ForEach(x => x.DesignIndex = ItemE1s.IndexOf(x));
+                ItemE2s.ToList().ForEach(x => x.DesignIndex = ItemE2s.IndexOf(x));
+                ItemE3s.ToList().ForEach(x => x.DesignIndex = ItemE3s.IndexOf(x));
+                ItemE4s.ToList().ForEach(x => x.DesignIndex = ItemE4s.IndexOf(x));
+                ItemE5s.ToList().ForEach(x => x.DesignIndex = ItemE5s.IndexOf(x));
+                ItemE6s.ToList().ForEach(x => x.DesignIndex = ItemE6s.IndexOf(x));
+                ItemE7s.ToList().ForEach(x => x.DesignIndex = ItemE7s.IndexOf(x));
 
                 //add all items in one list
                 items.AddRange(ItemA1s);

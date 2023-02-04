@@ -206,9 +206,63 @@
     <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC2ItemViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC3ItemViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC4ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH1ListViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH2ListViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH3ListViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH4ListViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH5ListViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditCatalogItem\EditH1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditCatalogItem\EditH2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditCatalogItem\EditH3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditCatalogItem\EditH4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditCatalogItem\EditH5CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH1ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH2ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH3ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH4ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH5ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG1ListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG2ListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG3ListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG4ListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG5ListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG6ListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditCatalogItem\EditG1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditCatalogItem\EditG2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditCatalogItem\EditG3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditCatalogItem\EditG4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditCatalogItem\EditG5CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditCatalogItem\EditG6CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG1ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG2ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG3ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG4ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG5ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG6ItemViewModel.cs" />
     <Compile Include="ViewModel\CatalogViewModel.cs" />
     <Compile Include="ViewModel\ComingSoonViewModel.cs" />
     <Compile Include="ViewModel\CreateQuoteViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE1ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE2ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE3ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE4ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE5ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE6ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE7ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE5CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE6CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE7CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE3ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE4ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE5ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE6ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE7ItemViewModel.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\NewProjectViewModel.cs" />
@@ -236,6 +290,9 @@
     <Compile Include="ViewModel\ReportsViewModel.cs" />
     <Compile Include="ViewModel\TitleFromItemViewModel.cs" />
     <Compile Include="ViewModel\TitleViewModel.cs" />
+    <Compile Include="ViewModel\UvResources\CatalogList\CatalogF1ListViewModel.cs" />
+    <Compile Include="ViewModel\UvResources\EditCatalogItem\EditF1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\UvResources\EditQuoteItem\EditF1ItemViewModel.cs" />
     <Compile Include="View\ABB\CatalogList\CatalogB1ListView.xaml.cs">
       <DependentUpon>CatalogB1ListView.xaml</DependentUpon>
     </Compile>
@@ -317,6 +374,105 @@
     <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC4ItemView.xaml.cs">
       <DependentUpon>EditC4ItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\BACClosedCircuits\CatalogList\CatalogH1ListView.xaml.cs">
+      <DependentUpon>CatalogH1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\CatalogList\CatalogH2ListView.xaml.cs">
+      <DependentUpon>CatalogH2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\CatalogList\CatalogH3ListView.xaml.cs">
+      <DependentUpon>CatalogH3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\CatalogList\CatalogH4ListView.xaml.cs">
+      <DependentUpon>CatalogH4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\CatalogList\CatalogH5ListView.xaml.cs">
+      <DependentUpon>CatalogH5ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditCatalogItem\EditH1CatalogView.xaml.cs">
+      <DependentUpon>EditH1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditCatalogItem\EditH2CatalogView.xaml.cs">
+      <DependentUpon>EditH2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditCatalogItem\EditH3CatalogView.xaml.cs">
+      <DependentUpon>EditH3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditCatalogItem\EditH4CatalogView.xaml.cs">
+      <DependentUpon>EditH4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditCatalogItem\EditH5CatalogView.xaml.cs">
+      <DependentUpon>EditH5CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditQuoteItem\EditH1ItemView.xaml.cs">
+      <DependentUpon>EditH1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditQuoteItem\EditH2ItemView.xaml.cs">
+      <DependentUpon>EditH2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditQuoteItem\EditH3ItemView.xaml.cs">
+      <DependentUpon>EditH3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditQuoteItem\EditH4ItemView.xaml.cs">
+      <DependentUpon>EditH4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditQuoteItem\EditH5ItemView.xaml.cs">
+      <DependentUpon>EditH5ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG1ListView.xaml.cs">
+      <DependentUpon>CatalogG1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG2ListView.xaml.cs">
+      <DependentUpon>CatalogG2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG3ListView.xaml.cs">
+      <DependentUpon>CatalogG3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG4ListView.xaml.cs">
+      <DependentUpon>CatalogG4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG5ListView.xaml.cs">
+      <DependentUpon>CatalogG5ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG6ListView.xaml.cs">
+      <DependentUpon>CatalogG6ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditCatalogItem\EditG1CatalogView.xaml.cs">
+      <DependentUpon>EditG1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditCatalogItem\EditG2CatalogView.xaml.cs">
+      <DependentUpon>EditG2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditCatalogItem\EditG3CatalogView.xaml.cs">
+      <DependentUpon>EditG3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditCatalogItem\EditG4CatalogView.xaml.cs">
+      <DependentUpon>EditG4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditCatalogItem\EditG5CatalogView.xaml.cs">
+      <DependentUpon>EditG5CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditCatalogItem\EditG6CatalogView.xaml.cs">
+      <DependentUpon>EditG6CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG1ItemView.xaml.cs">
+      <DependentUpon>EditG1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG2ItemView.xaml.cs">
+      <DependentUpon>EditG2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG3ItemView.xaml.cs">
+      <DependentUpon>EditG3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG4ItemView.xaml.cs">
+      <DependentUpon>EditG4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG5ItemView.xaml.cs">
+      <DependentUpon>EditG5ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG6ItemView.xaml.cs">
+      <DependentUpon>EditG6ItemView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CatalogView.xaml.cs">
       <DependentUpon>CatalogView.xaml</DependentUpon>
     </Compile>
@@ -325,6 +481,69 @@
     </Compile>
     <Compile Include="View\CreateQuoteView.xaml.cs">
       <DependentUpon>CreateQuoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE1ListVew.xaml.cs">
+      <DependentUpon>CatalogE1ListVew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE2ListView.xaml.cs">
+      <DependentUpon>CatalogE2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE3ListView.xaml.cs">
+      <DependentUpon>CatalogE3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE4ListView.xaml.cs">
+      <DependentUpon>CatalogE4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE5ListView.xaml.cs">
+      <DependentUpon>CatalogE5ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE6ListView.xaml.cs">
+      <DependentUpon>CatalogE6ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE7ListView.xaml.cs">
+      <DependentUpon>CatalogE7ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE1CatalogView.xaml.cs">
+      <DependentUpon>EditE1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE2CatalogView.xaml.cs">
+      <DependentUpon>EditE2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE3CatalogView.xaml.cs">
+      <DependentUpon>EditE3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE4CatalogView.xaml.cs">
+      <DependentUpon>EditE4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE5CatalogView.xaml.cs">
+      <DependentUpon>EditE5CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE6CatalogView.xaml.cs">
+      <DependentUpon>EditE6CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE7CatalogView.xaml.cs">
+      <DependentUpon>EditE7CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE1ItemView.xaml.cs">
+      <DependentUpon>EditE1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE2ItemView.xaml.cs">
+      <DependentUpon>EditE2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE3ItemView.xaml.cs">
+      <DependentUpon>EditE3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE4ItemView.xaml.cs">
+      <DependentUpon>EditE4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE5ItemView.xaml.cs">
+      <DependentUpon>EditE5ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE6ItemView.xaml.cs">
+      <DependentUpon>EditE6ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE7ItemView.xaml.cs">
+      <DependentUpon>EditE7ItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ItemView.xaml.cs">
       <DependentUpon>ItemView.xaml</DependentUpon>
@@ -406,6 +625,15 @@
     </Compile>
     <Compile Include="View\TitleView.xaml.cs">
       <DependentUpon>TitleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UvResources\CatalogList\CatalogF1ListView.xaml.cs">
+      <DependentUpon>CatalogF1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UvResources\EditCatalogItem\EditF1CatalogView.xaml.cs">
+      <DependentUpon>EditF1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UvResources\EditQuoteItem\EditF1ItemView.xaml.cs">
+      <DependentUpon>EditF1ItemView.xaml</DependentUpon>
     </Compile>
     <Page Include="View\ABB\CatalogList\CatalogB1ListView.xaml">
       <SubType>Designer</SubType>
@@ -519,6 +747,138 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\BACClosedCircuits\CatalogList\CatalogH1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\CatalogList\CatalogH2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\CatalogList\CatalogH3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\CatalogList\CatalogH4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\CatalogList\CatalogH5ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditCatalogItem\EditH1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditCatalogItem\EditH2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditCatalogItem\EditH3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditCatalogItem\EditH4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditCatalogItem\EditH5CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditQuoteItem\EditH1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditQuoteItem\EditH2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditQuoteItem\EditH3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditQuoteItem\EditH4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditQuoteItem\EditH5ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\CatalogList\CatalogG1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\CatalogList\CatalogG2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\CatalogList\CatalogG3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\CatalogList\CatalogG4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\CatalogList\CatalogG5ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\CatalogList\CatalogG6ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditCatalogItem\EditG1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditCatalogItem\EditG2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditCatalogItem\EditG3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditCatalogItem\EditG4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditCatalogItem\EditG5CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditCatalogItem\EditG6CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditQuoteItem\EditG1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditQuoteItem\EditG2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditQuoteItem\EditG3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditQuoteItem\EditG4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditQuoteItem\EditG5ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditQuoteItem\EditG6ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CatalogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -528,6 +888,90 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CreateQuoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE1ListVew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE5ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE6ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE7ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE5CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE6CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE7CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE5ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE6ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE7ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -662,6 +1106,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TitleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UvResources\CatalogList\CatalogF1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UvResources\EditCatalogItem\EditF1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UvResources\EditQuoteItem\EditF1ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
