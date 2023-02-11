@@ -102,6 +102,14 @@ namespace Orion.Domain.EntityCatalogQuantech
             get => _voltage;
             set => SetProperty(ref _voltage, value);
         }
+
+        [NotMapped]
+        public string Company { get => "QUANTECH"; }
+        [NotMapped]
+        public string Product { get => "Air Cooled Chillers Stock Non Coated Condenser"; }
+        [NotMapped]
+        public string Index { get => "a2"; }
+
         public CatalogA2()
         {
             Titles = new ObservableCollection<Title>();

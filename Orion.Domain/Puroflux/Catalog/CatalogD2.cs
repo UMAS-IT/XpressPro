@@ -86,6 +86,13 @@ namespace Orion.Domain.EntityCatalogPuroflux
             set => SetProperty(ref _titles, value);
         }
 
+        [NotMapped]
+        public string Company { get => "Puroflux"; }
+        [NotMapped]
+        public string Product { get => "Sand Filters"; }
+        [NotMapped]
+        public string Index { get => "D2"; }
+
         public CatalogD2()
         {
             Titles = new ObservableCollection<Title>();

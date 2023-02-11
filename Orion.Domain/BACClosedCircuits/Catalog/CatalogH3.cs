@@ -86,6 +86,13 @@ namespace Orion.Domain.EntityCatalogBACClosedCircuits
             set => SetProperty(ref _titles, value);
         }
 
+        [NotMapped]
+        public string Company { get => "BAC - Closed Circuits"; }
+        [NotMapped]
+        public string Product { get => "VF1 and VFL Low Profile"; }
+        [NotMapped]
+        public string Index { get => "h3"; }
+
         public CatalogH3()
         {
             Titles = new ObservableCollection<Title>();

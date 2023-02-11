@@ -448,6 +448,25 @@ namespace Orion.UI.ViewModel
                 ItemE5s.ToList().ForEach(x => x.DesignIndex = ItemE5s.IndexOf(x));
                 ItemE6s.ToList().ForEach(x => x.DesignIndex = ItemE6s.IndexOf(x));
                 ItemE7s.ToList().ForEach(x => x.DesignIndex = ItemE7s.IndexOf(x));
+                
+                // last set of DesignIndex
+                ItemF1s.ToList().ForEach(x => x.DesignIndex = ItemF1s.IndexOf(x));
+
+                // last set of DesignIndex
+                ItemG1s.ToList().ForEach(x => x.DesignIndex = ItemG1s.IndexOf(x));
+                ItemG2s.ToList().ForEach(x => x.DesignIndex = ItemG2s.IndexOf(x));
+                ItemG3s.ToList().ForEach(x => x.DesignIndex = ItemG3s.IndexOf(x));
+                ItemG4s.ToList().ForEach(x => x.DesignIndex = ItemG4s.IndexOf(x));
+                ItemG5s.ToList().ForEach(x => x.DesignIndex = ItemG5s.IndexOf(x));
+                ItemG6s.ToList().ForEach(x => x.DesignIndex = ItemG6s.IndexOf(x));
+
+                // last set of DesignIndex
+                ItemH1s.ToList().ForEach(x => x.DesignIndex = ItemH1s.IndexOf(x));
+                ItemH2s.ToList().ForEach(x => x.DesignIndex = ItemH2s.IndexOf(x));
+                ItemH3s.ToList().ForEach(x => x.DesignIndex = ItemH3s.IndexOf(x));
+                ItemH4s.ToList().ForEach(x => x.DesignIndex = ItemH4s.IndexOf(x));
+                ItemH5s.ToList().ForEach(x => x.DesignIndex = ItemH5s.IndexOf(x));
+
 
                 //add all items in one list
                 items.AddRange(ItemA1s);
@@ -468,6 +487,29 @@ namespace Orion.UI.ViewModel
 
                 items.AddRange(ItemD1s);
                 items.AddRange(ItemD2s);
+
+                items.AddRange(ItemE1s);
+                items.AddRange(ItemE2s);
+                items.AddRange(ItemE3s);
+                items.AddRange(ItemE4s);
+                items.AddRange(ItemE5s);
+                items.AddRange(ItemE6s);
+                items.AddRange(ItemE7s);
+
+                items.AddRange(ItemF1s);
+
+                items.AddRange(ItemG1s);
+                items.AddRange(ItemG2s);
+                items.AddRange(ItemG3s);
+                items.AddRange(ItemG4s);
+                items.AddRange(ItemG5s);
+                items.AddRange(ItemG6s);
+
+                items.AddRange(ItemH1s);
+                items.AddRange(ItemH2s);
+                items.AddRange(ItemH3s);
+                items.AddRange(ItemH4s);
+                items.AddRange(ItemH5s);
 
                 Items = itemService.UpdateQuoteAllItems(Quote, items).ToObservableCollection();
 

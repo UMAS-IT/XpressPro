@@ -86,6 +86,13 @@ namespace Orion.Domain.EntityCatalogBACCoolingTowers
             set => SetProperty(ref _titles, value);
         }
 
+        [NotMapped]
+        public string Company { get => "BAC - Cooling Towers"; }
+        [NotMapped]
+        public string Product { get => "Low Profile Seires V (VT1)"; }
+        [NotMapped]
+        public string Index { get => "g6"; }
+
         public CatalogG6()
         {
             Titles = new ObservableCollection<Title>();

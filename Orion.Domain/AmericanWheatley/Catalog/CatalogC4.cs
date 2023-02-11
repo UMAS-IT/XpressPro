@@ -86,6 +86,13 @@ namespace Orion.Domain.EntityCatalogAmericanWheatley
             set => SetProperty(ref _titles, value);
         }
 
+        [NotMapped]
+        public string Company { get => "American Wheatley"; }
+        [NotMapped]
+        public string Product { get => "Separators"; }
+        [NotMapped]
+        public string Index { get => "C4"; }
+
         public CatalogC4()
         {
             Titles = new ObservableCollection<Title>();

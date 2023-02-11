@@ -86,6 +86,13 @@ namespace Orion.Domain.EntityCatalogUvResources
             set => SetProperty(ref _titles, value);
         }
 
+        [NotMapped]
+        public string Company { get => "UV Resources"; }
+        [NotMapped]
+        public string Product { get => "UV"; }
+        [NotMapped]
+        public string Index { get => "f1"; }
+
         public CatalogF1()
         {
             Titles = new ObservableCollection<Title>();

@@ -86,6 +86,13 @@ namespace Orion.Domain.EntityCatalogABB
             set => SetProperty(ref _titles, value);
         }
 
+        [NotMapped]
+        public string Company { get => "ABB"; }
+        [NotMapped]
+        public string Product { get => "VCR"; }
+        [NotMapped]
+        public string Index { get => "b2"; }
+
         public CatalogB2()
         {
             Titles = new ObservableCollection<Title>();

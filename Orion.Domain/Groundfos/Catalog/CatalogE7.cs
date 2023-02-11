@@ -86,6 +86,13 @@ namespace Orion.Domain.EntityCatalogGroundfos
             set => SetProperty(ref _titles, value);
         }
 
+        [NotMapped]
+        public string Company { get => "Grundfos"; }
+        [NotMapped]
+        public string Product { get => "KP"; }
+        [NotMapped]
+        public string Index { get => "e7"; }
+
         public CatalogE7()
         {
             Titles = new ObservableCollection<Title>();
