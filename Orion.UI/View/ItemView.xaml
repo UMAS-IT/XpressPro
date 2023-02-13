@@ -12,7 +12,7 @@
              xmlns:vm="clr-namespace:Orion.UI.ViewModel"
              xmlns:view="clr-namespace:Orion.UI.View"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
-             d:DesignHeight="2000" d:DesignWidth="2000"
+             d:DesignHeight="500" d:DesignWidth="1000"
              d:DataContext="{d:DesignInstance Type=vm:ItemViewModel}">
     
     <i:Interaction.Triggers>
@@ -9728,7 +9728,7 @@
                                             <Label Grid.Column="0" Content="FXV and FXV3"  VerticalAlignment="Center"/>
 
                                             <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
-                                Command="{Binding EditItemsCommand}"  Background="DarkSlateGray" CommandParameter="H1"
+                                Command="{Binding EditItemsCommand}"  Background="Firebrick" CommandParameter="H1"
                             ToolTip="Edit Items">
                                                 <Button.Content>
                                                     <icon:PackIconMaterial Kind="PencilPlus"   
@@ -10042,7 +10042,7 @@
                                             <Label Grid.Column="0" Content="PFi"  VerticalAlignment="Center"/>
 
                                             <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
-                                Command="{Binding EditItemsCommand}"  Background="DarkSlateGray" CommandParameter="H2"
+                                Command="{Binding EditItemsCommand}"  Background="Firebrick" CommandParameter="H2"
                             ToolTip="Edit Items">
                                                 <Button.Content>
                                                     <icon:PackIconMaterial Kind="PencilPlus"   
@@ -10356,7 +10356,7 @@
                                             <Label Grid.Column="0" Content="VF1 and VFL Low Profile"  VerticalAlignment="Center"/>
 
                                             <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
-                                Command="{Binding EditItemsCommand}"  Background="DarkSlateGray" CommandParameter="H3"
+                                Command="{Binding EditItemsCommand}"  Background="Firebrick" CommandParameter="H3"
                             ToolTip="Edit Items">
                                                 <Button.Content>
                                                     <icon:PackIconMaterial Kind="PencilPlus"   
@@ -10670,7 +10670,7 @@
                                             <Label Grid.Column="0" Content="HXV"  VerticalAlignment="Center"/>
 
                                             <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
-                                Command="{Binding EditItemsCommand}"  Background="DarkSlateGray" CommandParameter="H4"
+                                Command="{Binding EditItemsCommand}"  Background="Firebrick" CommandParameter="H4"
                             ToolTip="Edit Items">
                                                 <Button.Content>
                                                     <icon:PackIconMaterial Kind="PencilPlus"   
@@ -10984,7 +10984,7 @@
                                             <Label Grid.Column="0" Content="NEXUS"  VerticalAlignment="Center"/>
 
                                             <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
-                                Command="{Binding EditItemsCommand}"  Background="DarkSlateGray" CommandParameter="H5"
+                                Command="{Binding EditItemsCommand}"  Background="Firebrick" CommandParameter="H5"
                             ToolTip="Edit Items">
                                                 <Button.Content>
                                                     <icon:PackIconMaterial Kind="PencilPlus"   

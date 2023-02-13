@@ -15,9 +15,13 @@ using Orion.UI.Command;
 using Orion.UI.Service;
 using Orion.UI.ViewModel.ABB.EditQuoteItem;
 using Orion.UI.ViewModel.AmericanWheatley.EditQuoteItem;
+using Orion.UI.ViewModel.BACClosedCircuits.EditQuoteItem;
+using Orion.UI.ViewModel.BACCoolingTowers.EditQuoteItem;
+using Orion.UI.ViewModel.Groundfos.EditQuoteItem;
 using Orion.UI.ViewModel.Puroflux.EditQuoteItem;
 using Orion.UI.ViewModel.Quantech;
 using Orion.UI.ViewModel.Quantech.EditQuoteItem;
+using Orion.UI.ViewModel.UvResources.EditQuoteItem;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -411,10 +415,6 @@ namespace Orion.UI.ViewModel
             {
                 await messageService.StartMessage("Quote Items", "Saving quote items, please wait...");
 
-
-                if (!await CanUpdateQuoteItems())
-                    return;
-
                 List<IItem> items = new List<IItem>();
 
                 // last set of DesignIndex
@@ -511,6 +511,9 @@ namespace Orion.UI.ViewModel
                 items.AddRange(ItemH4s);
                 items.AddRange(ItemH5s);
 
+                if (!await CanUpdateQuoteItems(items))
+                    return;
+
                 Items = itemService.UpdateQuoteAllItems(Quote, items).ToObservableCollection();
 
                 LoadItemLists();
@@ -524,97 +527,24 @@ namespace Orion.UI.ViewModel
             }
         }
 
-        private async Task<bool> CanUpdateQuoteItems()
+        private async Task<bool> CanUpdateQuoteItems(List<IItem> items)
         {
-            if (ItemA1s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
+            string message = "";
+
+            foreach (IItem item in items)
             {
-                await messageService.ResultMessage("Error", "Air Cooled Factory Lead Time tag is empty, please review this information");
+                if (string.IsNullOrWhiteSpace(item.Tag))
+                {
+                    message += $"{item.Catalog.Company}, {item.Catalog.Product}, Model: {item.Catalog.Model}\n";
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(message))
+            {
+                await messageService.ResultMessage("Error", "Some Tags Are Empty \n" + message);
                 return false;
             }
 
-            if (ItemA2s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "Air Cooled Stock Non Coated tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemA3s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "Air cooled Stock Post Coated tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemA4s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "Water Cooled Chiller tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemB1s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "BARE tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemB2s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "VCR tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemB3s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "PCR tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemB4s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "BCR tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemB5s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "Accesories tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemC1s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "Triple Duty Valves tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemC2s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "Suction Diffusers tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemC3s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "Tanks tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemC4s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "Separators tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemD1s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "Separators tag is empty, please review this information");
-                return false;
-            }
-
-            if (ItemD2s.Any(x => string.IsNullOrWhiteSpace(x.Tag)))
-            {
-                await messageService.ResultMessage("Error", "Sand Filters tag is empty, please review this information");
-                return false;
-            }
             return true;
         }
 
@@ -647,33 +577,33 @@ namespace Orion.UI.ViewModel
 
             else if (itemsName.ToFormat() == "b1")
             {
-                EditB1ItemViewModel editB1ItemViewModel = new EditB1ItemViewModel(dialogCoordinator, Quote, ItemB1s);
-                editB1ItemViewModel.OnItemsSavedRequested += OnItemB1Saved;
-                windowService.EditItemsWndow(editB1ItemViewModel, "Edit BARE");
+                EditB1ItemViewModel editE1ItemViewModel = new EditB1ItemViewModel(dialogCoordinator, Quote, ItemB1s);
+                editE1ItemViewModel.OnItemsSavedRequested += OnItemB1Saved;
+                windowService.EditItemsWndow(editE1ItemViewModel, "Edit BARE");
             }
             else if (itemsName.ToFormat() == "b2")
             {
-                EditB2ItemViewModel editB2ItemViewModel = new EditB2ItemViewModel(dialogCoordinator, Quote, ItemB2s);
-                editB2ItemViewModel.OnItemsSavedRequested += OnItemB2Saved;
-                windowService.EditItemsWndow(editB2ItemViewModel, "Edit VCR");
+                EditB2ItemViewModel editE2ItemViewModel = new EditB2ItemViewModel(dialogCoordinator, Quote, ItemB2s);
+                editE2ItemViewModel.OnItemsSavedRequested += OnItemB2Saved;
+                windowService.EditItemsWndow(editE2ItemViewModel, "Edit VCR");
             }
             else if (itemsName.ToFormat() == "b3")
             {
-                EditB3ItemViewModel editB3ItemViewModel = new EditB3ItemViewModel(dialogCoordinator, Quote, ItemB3s);
-                editB3ItemViewModel.OnItemsSavedRequested += OnItemB3Saved;
-                windowService.EditItemsWndow(editB3ItemViewModel, "Edit PCR");
+                EditB3ItemViewModel editE3ItemViewModel = new EditB3ItemViewModel(dialogCoordinator, Quote, ItemB3s);
+                editE3ItemViewModel.OnItemsSavedRequested += OnItemB3Saved;
+                windowService.EditItemsWndow(editE3ItemViewModel, "Edit PCR");
             }
             else if (itemsName.ToFormat() == "b4")
             {
-                EditB4ItemViewModel editB4ItemViewModel = new EditB4ItemViewModel(dialogCoordinator, Quote, ItemB4s);
-                editB4ItemViewModel.OnItemsSavedRequested += OnItemB4Saved;
-                windowService.EditItemsWndow(editB4ItemViewModel, "Edit BCR");
+                EditB4ItemViewModel editE4ItemViewModel = new EditB4ItemViewModel(dialogCoordinator, Quote, ItemB4s);
+                editE4ItemViewModel.OnItemsSavedRequested += OnItemB4Saved;
+                windowService.EditItemsWndow(editE4ItemViewModel, "Edit BCR");
             }
             else if (itemsName.ToFormat() == "b5")
             {
-                EditB5ItemViewModel editB5ItemViewModel = new EditB5ItemViewModel(dialogCoordinator, Quote, ItemB5s);
-                editB5ItemViewModel.OnItemsSavedRequested += OnItemB5Saved;
-                windowService.EditItemsWndow(editB5ItemViewModel, "Edit Accesories");
+                EditB5ItemViewModel editE5ItemViewModel = new EditB5ItemViewModel(dialogCoordinator, Quote, ItemB5s);
+                editE5ItemViewModel.OnItemsSavedRequested += OnItemB5Saved;
+                windowService.EditItemsWndow(editE5ItemViewModel, "Edit Accesories");
             }
 
             else if (itemsName.ToFormat() == "c1")
@@ -713,8 +643,125 @@ namespace Orion.UI.ViewModel
                 editD2ItemViewModel.OnItemsSavedRequested += OnItemD2Saved;
                 windowService.EditItemsWndow(editD2ItemViewModel, "Edit Sand Filters");
             }
-        }
 
+            else if (itemsName.ToFormat() == "e1")
+            {
+                EditE1ItemViewModel editE1ItemViewModel = new EditE1ItemViewModel(dialogCoordinator, Quote, ItemE1s);
+                editE1ItemViewModel.OnItemsSavedRequested += OnItemE1Saved;
+                windowService.EditItemsWndow(editE1ItemViewModel, "Edit NBS");
+            }
+            else if (itemsName.ToFormat() == "e2")
+            {
+                EditE2ItemViewModel editE2ItemViewModel = new EditE2ItemViewModel(dialogCoordinator, Quote, ItemE2s);
+                editE2ItemViewModel.OnItemsSavedRequested += OnItemE2Saved;
+                windowService.EditItemsWndow(editE2ItemViewModel, "Edit LCS");
+            }
+            else if (itemsName.ToFormat() == "e3")
+            {
+                EditE3ItemViewModel editE3ItemViewModel = new EditE3ItemViewModel(dialogCoordinator, Quote, ItemE3s);
+                editE3ItemViewModel.OnItemsSavedRequested += OnItemE3Saved;
+                windowService.EditItemsWndow(editE3ItemViewModel, "Edit LC");
+            }
+            else if (itemsName.ToFormat() == "e4")
+            {
+                EditE4ItemViewModel editE4ItemViewModel = new EditE4ItemViewModel(dialogCoordinator, Quote, ItemE4s);
+                editE4ItemViewModel.OnItemsSavedRequested += OnItemE4Saved;
+                windowService.EditItemsWndow(editE4ItemViewModel, "Edit LF");
+            }
+            else if (itemsName.ToFormat() == "e5")
+            {
+                EditE5ItemViewModel editE5ItemViewModel = new EditE5ItemViewModel(dialogCoordinator, Quote, ItemE5s);
+                editE5ItemViewModel.OnItemsSavedRequested += OnItemE5Saved;
+                windowService.EditItemsWndow(editE5ItemViewModel, "Edit VL");
+            }
+            else if (itemsName.ToFormat() == "e6")
+            {
+                EditE6ItemViewModel editE6ItemViewModel = new EditE6ItemViewModel(dialogCoordinator, Quote, ItemE6s);
+                editE6ItemViewModel.OnItemsSavedRequested += OnItemE6Saved;
+                windowService.EditItemsWndow(editE6ItemViewModel, "Edit VLS");
+            }
+            else if (itemsName.ToFormat() == "e7")
+            {
+                EditE7ItemViewModel editE7ItemViewModel = new EditE7ItemViewModel(dialogCoordinator, Quote, ItemE7s);
+                editE7ItemViewModel.OnItemsSavedRequested += OnItemE7Saved;
+                windowService.EditItemsWndow(editE7ItemViewModel, "Edit KP");
+            }
+
+            else if (itemsName.ToFormat() == "f1")
+            {
+                EditF1ItemViewModel editF1ItemViewModel = new EditF1ItemViewModel(dialogCoordinator, Quote, ItemE7s);
+                editF1ItemViewModel.OnItemsSavedRequested += OnItemF1Saved;
+                windowService.EditItemsWndow(editF1ItemViewModel, "Edit UV");
+            }
+
+            else if (itemsName.ToFormat() == "g1")
+            {
+                EditG1ItemViewModel editG1ItemViewModel = new EditG1ItemViewModel(dialogCoordinator, Quote, ItemG1s);
+                editG1ItemViewModel.OnItemsSavedRequested += OnItemG1Saved;
+                windowService.EditItemsWndow(editG1ItemViewModel, "Edit Series 300");
+            }
+            else if (itemsName.ToFormat() == "g2")
+            {
+                EditG2ItemViewModel editG2ItemViewModel = new EditG2ItemViewModel(dialogCoordinator, Quote, ItemG2s);
+                editG2ItemViewModel.OnItemsSavedRequested += OnItemG2Saved;
+                windowService.EditItemsWndow(editG2ItemViewModel, "Edit Series 1500");
+            }
+            else if (itemsName.ToFormat() == "g3")
+            {
+                EditG3ItemViewModel editG3ItemViewModel = new EditG3ItemViewModel(dialogCoordinator, Quote, ItemG3s);
+                editG3ItemViewModel.OnItemsSavedRequested += OnItemG3Saved;
+                windowService.EditItemsWndow(editG3ItemViewModel, "Edit PT2");
+            }
+            else if (itemsName.ToFormat() == "g4")
+            {
+                EditG4ItemViewModel editG4ItemViewModel = new EditG4ItemViewModel(dialogCoordinator, Quote, ItemG4s);
+                editG4ItemViewModel.OnItemsSavedRequested += OnItemG4Saved;
+                windowService.EditItemsWndow(editG4ItemViewModel, "Edit FXT");
+            }
+            else if (itemsName.ToFormat() == "g5")
+            {
+                EditG5ItemViewModel editG5ItemViewModel = new EditG5ItemViewModel(dialogCoordinator, Quote, ItemG5s);
+                editG5ItemViewModel.OnItemsSavedRequested += OnItemG5Saved;
+                windowService.EditItemsWndow(editG5ItemViewModel, "Edit Series V (VT0 / VT1)");
+            }
+            else if (itemsName.ToFormat() == "g6")
+            {
+                EditG6ItemViewModel editG6ItemViewModel = new EditG6ItemViewModel(dialogCoordinator, Quote, ItemG6s);
+                editG6ItemViewModel.OnItemsSavedRequested += OnItemG6Saved;
+                windowService.EditItemsWndow(editG6ItemViewModel, "Edit Low Profile Series V (VTL)");
+            }
+
+            else if (itemsName.ToFormat() == "h1")
+            {
+                EditH1ItemViewModel editH1ItemViewModel = new EditH1ItemViewModel(dialogCoordinator, Quote, ItemH1s);
+                editH1ItemViewModel.OnItemsSavedRequested += OnItemH1Saved;
+                windowService.EditItemsWndow(editH1ItemViewModel, "Edit Series 300");
+            }
+            else if (itemsName.ToFormat() == "h2")
+            {
+                EditH2ItemViewModel editH2ItemViewModel = new EditH2ItemViewModel(dialogCoordinator, Quote, ItemH2s);
+                editH2ItemViewModel.OnItemsSavedRequested += OnItemH2Saved;
+                windowService.EditItemsWndow(editH2ItemViewModel, "Edit Series 1500");
+            }
+            else if (itemsName.ToFormat() == "h3")
+            {
+                EditH3ItemViewModel editH3ItemViewModel = new EditH3ItemViewModel(dialogCoordinator, Quote, ItemH3s);
+                editH3ItemViewModel.OnItemsSavedRequested += OnItemH3Saved;
+                windowService.EditItemsWndow(editH3ItemViewModel, "Edit PT2");
+            }
+            else if (itemsName.ToFormat() == "h4")
+            {
+                EditH4ItemViewModel editH4ItemViewModel = new EditH4ItemViewModel(dialogCoordinator, Quote, ItemH4s);
+                editH4ItemViewModel.OnItemsSavedRequested += OnItemH4Saved;
+                windowService.EditItemsWndow(editH4ItemViewModel, "Edit FXT");
+            }
+            else if (itemsName.ToFormat() == "h5")
+            {
+                EditH5ItemViewModel editH5ItemViewModel = new EditH5ItemViewModel(dialogCoordinator, Quote, ItemH5s);
+                editH5ItemViewModel.OnItemsSavedRequested += OnItemH5Saved;
+                windowService.EditItemsWndow(editH5ItemViewModel, "Edit Series V (VT0 / VT1)");
+            }
+        }
 
         private void OnItemA1Saved(IList<IItem> editedItems)
         {
@@ -789,6 +836,101 @@ namespace Orion.UI.ViewModel
         private void OnItemD2Saved(IList<IItem> editedItems)
         {
             ItemD2s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemE1Saved(IList<IItem> editedItems)
+        {
+            ItemE1s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemE2Saved(IList<IItem> editedItems)
+        {
+            ItemE2s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemE3Saved(IList<IItem> editedItems)
+        {
+            ItemE3s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemE4Saved(IList<IItem> editedItems)
+        {
+            ItemE4s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemE5Saved(IList<IItem> editedItems)
+        {
+            ItemE5s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemE6Saved(IList<IItem> editedItems)
+        {
+            ItemE6s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemE7Saved(IList<IItem> editedItems)
+        {
+            ItemE7s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemF1Saved(IList<IItem> editedItems)
+        {
+            ItemF1s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemG1Saved(IList<IItem> editedItems)
+        {
+            ItemG1s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemG2Saved(IList<IItem> editedItems)
+        {
+            ItemG2s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemG3Saved(IList<IItem> editedItems)
+        {
+            ItemG3s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemG4Saved(IList<IItem> editedItems)
+        {
+            ItemG4s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemG5Saved(IList<IItem> editedItems)
+        {
+            ItemG5s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemG6Saved(IList<IItem> editedItems)
+        {
+            ItemG6s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemH1Saved(IList<IItem> editedItems)
+        {
+            ItemH1s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemH2Saved(IList<IItem> editedItems)
+        {
+            ItemH2s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemH3Saved(IList<IItem> editedItems)
+        {
+            ItemH3s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemH4Saved(IList<IItem> editedItems)
+        {
+            ItemH4s = editedItems.ToObservableCollection();
+        }
+
+        private void OnItemH5Saved(IList<IItem> editedItems)
+        {
+            ItemH5s = editedItems.ToObservableCollection();
         }
 
         private async void OnShowItemTitles(IItem item)
@@ -947,6 +1089,48 @@ namespace Orion.UI.ViewModel
                 selectedItems = ItemD1s;
             else if (item is ItemD2)
                 selectedItems = ItemC2s;
+
+            else if (item is ItemE1)
+                selectedItems = ItemE1s;
+            else if (item is ItemE2)
+                selectedItems = ItemE2s;
+            else if (item is ItemE3)
+                selectedItems = ItemE3s;
+            else if (item is ItemE4)
+                selectedItems = ItemE4s;
+            else if (item is ItemE5)
+                selectedItems = ItemE5s;
+            else if (item is ItemE6)
+                selectedItems = ItemE6s;
+            else if (item is ItemE7)
+                selectedItems = ItemE7s;
+
+            else if (item is ItemF1)
+                selectedItems = ItemF1s;
+
+            else if (item is ItemG1)
+                selectedItems = ItemG1s;
+            else if (item is ItemG2)
+                selectedItems = ItemG2s;
+            else if (item is ItemG3)
+                selectedItems = ItemG3s;
+            else if (item is ItemG4)
+                selectedItems = ItemG4s;
+            else if (item is ItemG5)
+                selectedItems = ItemG5s;
+            else if (item is ItemG6)
+                selectedItems = ItemG6s;
+
+            else if (item is ItemH1)
+                selectedItems = ItemH1s;
+            else if (item is ItemH2)
+                selectedItems = ItemH2s;
+            else if (item is ItemH3)
+                selectedItems = ItemH3s;
+            else if (item is ItemH4)
+                selectedItems = ItemH4s;
+            else if (item is ItemH5)
+                selectedItems = ItemH5s;
 
             return selectedItems;
         }

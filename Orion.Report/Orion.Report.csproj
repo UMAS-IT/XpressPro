@@ -52,6 +52,10 @@
     <Compile Include="Pricing\PricingB.cs" />
     <Compile Include="Pricing\PricingC.cs" />
     <Compile Include="Pricing\PricingD.cs" />
+    <Compile Include="Pricing\PricingE.cs" />
+    <Compile Include="Pricing\PricingF.cs" />
+    <Compile Include="Pricing\PricingG.cs" />
+    <Compile Include="Pricing\PricingH.cs" />
     <Compile Include="Pricing\PricingItem.cs" />
     <Compile Include="Pricing\PricingReport.cs" />
     <Compile Include="Pricing\ReportSettings.cs" />

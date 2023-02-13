@@ -1,6 +1,4 @@
 ﻿using Orion.Binding.Interfaces;
-using Orion.Domain.Entity;
-using Orion.Domain.EntityCatalogQuantech;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;

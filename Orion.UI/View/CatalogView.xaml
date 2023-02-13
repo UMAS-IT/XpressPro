@@ -39,7 +39,7 @@
             </Border.Style>
             
             <StackPanel Orientation="Vertical">
-                <Expander Margin="5" Width="120" IsExpanded="True">
+                <Expander Margin="5" Width="120" IsExpanded="False">
                     <Expander.Header>
                         <TextBlock Text="Quantech" TextWrapping="Wrap"/>
                     </Expander.Header>
@@ -72,7 +72,7 @@
                     </StackPanel>
                 </Expander>
 
-                <Expander Header="ABB" Margin="5,0,5,5" Width="120" IsExpanded="True">
+                <Expander Header="ABB" Margin="5,0,5,5" Width="120" IsExpanded="False">
                     <StackPanel Orientation="Vertical">
 
                         <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b1">
@@ -108,7 +108,8 @@
                     </StackPanel>
                 </Expander>
 
-                <Expander  Margin="5,0,5,5" Width="120" IsExpanded="True">
+
+                <Expander  Margin="0,0,0,5" Width="120" IsExpanded="False">
                     <Expander.Header>
                         <TextBlock Text="American Wheatley" TextWrapping="Wrap"/>
                     </Expander.Header>
@@ -141,9 +142,10 @@
                     </StackPanel>
                 </Expander>
 
-                <Expander  Margin="5,0,5,5" Width="120" IsExpanded="True">
+
+                <Expander  Margin="0,0,0,5" Width="120" IsExpanded="False">
                     <Expander.Header>
-                        <TextBlock Text="American Wheatley" TextWrapping="Wrap"/>
+                        <TextBlock Text="Puroflux" TextWrapping="Wrap"/>
                     </Expander.Header>
                     <StackPanel Orientation="Vertical">
 
@@ -156,6 +158,152 @@
                         <Button Margin="1" Background="DarkSalmon" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="d2">
                             <Button.Content>
                                 <TextBlock Text="Sand Filters" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </Expander>
+
+                <Expander  Margin="0,0,0,5" Width="120" IsExpanded="False">
+                    <Expander.Header>
+                        <TextBlock Text="Groundfos" TextWrapping="Wrap"/>
+                    </Expander.Header>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="e1">
+                            <Button.Content>
+                                <TextBlock Text="NBS" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="e2">
+                            <Button.Content>
+                                <TextBlock Text="LCS" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="e3">
+                            <Button.Content>
+                                <TextBlock Text="LC" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="e4">
+                            <Button.Content>
+                                <TextBlock Text="LF" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="e5">
+                            <Button.Content>
+                                <TextBlock Text="VL" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="e6">
+                            <Button.Content>
+                                <TextBlock Text="VLS" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="e7">
+                            <Button.Content>
+                                <TextBlock Text="KP" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </Expander>
+
+                <Expander  Margin="0,0,0,5" Width="120" IsExpanded="False">
+                    <Expander.Header>
+                        <TextBlock Text="UV Resources" TextWrapping="Wrap"/>
+                    </Expander.Header>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Margin="1" Background="DeepSkyBlue" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="f1">
+                            <Button.Content>
+                                <TextBlock Text="UV" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </Expander>
+
+                <Expander  Margin="0,0,0,5" Width="120" IsExpanded="False">
+                    <Expander.Header>
+                        <TextBlock Text="BAC - Cooling Towers" TextWrapping="Wrap"/>
+                    </Expander.Header>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Margin="1" Background="DarkSlateGray" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="g1">
+                            <Button.Content>
+                                <TextBlock Text="Series 300" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkSlateGray" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="g2">
+                            <Button.Content>
+                                <TextBlock Text="Series 1500" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkSlateGray" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="g3">
+                            <Button.Content>
+                                <TextBlock Text="PT2" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkSlateGray" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="g4">
+                            <Button.Content>
+                                <TextBlock Text="FXT" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkSlateGray" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="g5">
+                            <Button.Content>
+                                <TextBlock Text="Series V (VT0 / VT1)" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="DarkSlateGray" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="g6">
+                            <Button.Content>
+                                <TextBlock Text="Low Profile Series V (VTL)" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </Expander>
+
+                <Expander  Margin="0,0,0,5" Width="120" IsExpanded="False">
+                    <Expander.Header>
+                        <TextBlock Text="BAC - Closed Circuits" TextWrapping="Wrap"/>
+                    </Expander.Header>
+                    <StackPanel Orientation="Vertical">
+
+                        <Button Margin="1" Background="Firebrick" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="h1">
+                            <Button.Content>
+                                <TextBlock Text="FXV and FXV3" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="Firebrick" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="h2">
+                            <Button.Content>
+                                <TextBlock Text="PFi" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="Firebrick" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="h3">
+                            <Button.Content>
+                                <TextBlock Text="VF1 And VFL Low Profile" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="Firebrick" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="h4">
+                            <Button.Content>
+                                <TextBlock Text="HXV" TextWrapping="Wrap"/>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Margin="1" Background="Firebrick" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="h5">
+                            <Button.Content>
+                                <TextBlock Text="NEXUS" TextWrapping="Wrap"/>
                             </Button.Content>
                         </Button>
                     </StackPanel>

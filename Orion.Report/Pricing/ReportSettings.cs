@@ -24,6 +24,11 @@ namespace Orion.Report.Pricing
 
         public string pricingFilePath = Environment.CurrentDirectory + @"\ResourcePricing\PricingTemplate.docx";
 
+        public String[] CreateSectionTitle(IItem item, int itemNumber)
+        {
+            return new[] { $"Item #{itemNumber}) {item.Catalog.Company} : {item.Catalog.Product}" };
+        }
+
         public string JoinTags(IList<IItem> items)
         {
             string tags = "";

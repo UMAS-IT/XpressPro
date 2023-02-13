@@ -18,9 +18,9 @@ namespace Orion.Report.Pricing
 
             int itemsQuantity = items.Count;
 
-            string itemName = $"BARE";
+            IItem tempItem = items.First();
 
-            String[] sectionTitle = { $"Item #{itemNumber}) {itemName}" };
+            String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
             String[] Header = { "Quantity", "Tag", "Model"};
 
             string[][] data = new string[items.Count][];
@@ -34,7 +34,7 @@ namespace Orion.Report.Pricing
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, itemName, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
         }
 
         public PricingItem CreateB2ItemTable(IList<ItemB2> items, Document document, Section docSection, int itemNumber)
@@ -43,9 +43,9 @@ namespace Orion.Report.Pricing
 
             int itemsQuantity = items.Count;
 
-            string itemName = $"VCR";
+            IItem tempItem = items.First();
 
-            String[] sectionTitle = { $"Item #{itemNumber}) {itemName}" };
+            String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
             String[] Header = { "Quantity", "Tag", "Model" };
 
             string[][] data = new string[items.Count][];
@@ -59,7 +59,7 @@ namespace Orion.Report.Pricing
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, itemName, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
         }
 
         public PricingItem CreateB3ItemTable(IList<ItemB3> items, Document document, Section docSection, int itemNumber)
@@ -68,9 +68,9 @@ namespace Orion.Report.Pricing
 
             int itemsQuantity = items.Count;
 
-            string itemName = $"PCR";
+            IItem tempItem = items.First();
 
-            String[] sectionTitle = { $"Item #{itemNumber}) {itemName}" };
+            String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
             String[] Header = { "Quantity", "Tag", "Model" };
 
             string[][] data = new string[items.Count][];
@@ -84,7 +84,7 @@ namespace Orion.Report.Pricing
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, itemName, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
         }
 
         public PricingItem CreateB4ItemTable(IList<ItemB4> items, Document document, Section docSection, int itemNumber)
@@ -93,9 +93,9 @@ namespace Orion.Report.Pricing
 
             int itemsQuantity = items.Count;
 
-            string itemName = $"BCR";
+            IItem tempItem = items.First();
 
-            String[] sectionTitle = { $"Item #{itemNumber}) {itemName}" };
+            String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
             String[] Header = { "Quantity", "Tag", "Model" };
 
             string[][] data = new string[items.Count][];
@@ -109,7 +109,7 @@ namespace Orion.Report.Pricing
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, itemName, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
         }
 
         public PricingItem CreateB5ItemTable(IList<ItemB5> items, Document document, Section docSection, int itemNumber)
@@ -118,9 +118,9 @@ namespace Orion.Report.Pricing
 
             int itemsQuantity = items.Count;
 
-            string itemName = $"Accesories";
+            IItem tempItem = items.First();
 
-            String[] sectionTitle = { $"Item #{itemNumber}) {itemName}" };
+            String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
             String[] Header = { "Quantity", "Tag", "Model" };
 
             string[][] data = new string[items.Count][];
@@ -134,7 +134,7 @@ namespace Orion.Report.Pricing
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, itemName, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
         }
     }
 }

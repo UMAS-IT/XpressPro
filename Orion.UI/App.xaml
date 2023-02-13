@@ -37,6 +37,38 @@
              xmlns:vmECD="clr-namespace:Orion.UI.ViewModel.Puroflux.EditCatalogItem"
              xmlns:vmItemD="clr-namespace:Orion.UI.ViewModel.Puroflux.EditQuoteItem"
              
+             xmlns:viewCatalogE="clr-namespace:Orion.UI.View.Groundfos.CatalogList"
+             xmlns:viewECE="clr-namespace:Orion.UI.View.Groundfos.EditCatalogItem"
+             xmlns:viewItemE="clr-namespace:Orion.UI.View.Groundfos.EditQuoteItem"
+             
+             xmlns:vmCatalogE="clr-namespace:Orion.UI.ViewModel.Groundfos.CatalogList"
+             xmlns:vmECE="clr-namespace:Orion.UI.ViewModel.Groundfos.EditCatalogItem"
+             xmlns:vmItemE="clr-namespace:Orion.UI.ViewModel.Groundfos.EditQuoteItem"
+             
+             xmlns:viewCatalogF="clr-namespace:Orion.UI.View.UvResources.CatalogList"
+             xmlns:viewECF="clr-namespace:Orion.UI.View.UvResources.EditCatalogItem"
+             xmlns:viewItemF="clr-namespace:Orion.UI.View.UvResources.EditQuoteItem"
+             
+             xmlns:vmCatalogF="clr-namespace:Orion.UI.ViewModel.UvResources.CatalogList"
+             xmlns:vmECF="clr-namespace:Orion.UI.ViewModel.UvResources.EditCatalogItem"
+             xmlns:vmItemF="clr-namespace:Orion.UI.ViewModel.UvResources.EditQuoteItem"
+             
+             xmlns:viewCatalogG="clr-namespace:Orion.UI.View.BACCoolingTowers.CatalogList"
+             xmlns:viewECG="clr-namespace:Orion.UI.View.BACCoolingTowers.EditCatalogItem"
+             xmlns:viewItemG="clr-namespace:Orion.UI.View.BACCoolingTowers.EditQuoteItem"
+             
+             xmlns:vmCatalogG="clr-namespace:Orion.UI.ViewModel.BACCoolingTowers.CatalogList"
+             xmlns:vmECG="clr-namespace:Orion.UI.ViewModel.BACCoolingTowers.EditCatalogItem"
+             xmlns:vmItemG="clr-namespace:Orion.UI.ViewModel.BACCoolingTowers.EditQuoteItem"
+             
+             xmlns:viewCatalogH="clr-namespace:Orion.UI.View.BACClosedCircuits.CatalogList"
+             xmlns:viewECH="clr-namespace:Orion.UI.View.BACClosedCircuits.EditCatalogItem"
+             xmlns:viewItemH="clr-namespace:Orion.UI.View.BACClosedCircuits.EditQuoteItem"
+             
+             xmlns:vmCatalogH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.CatalogList"
+             xmlns:vmECH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.EditCatalogItem"
+             xmlns:vmItemH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.EditQuoteItem"
+             
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -302,6 +334,255 @@
 
 
 
+
+            <DataTemplate DataType="{x:Type vmItemE:EditE1ItemViewModel}">
+                <viewItemE:EditE1ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemE:EditE2ItemViewModel}">
+                <viewItemE:EditE2ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemE:EditE3ItemViewModel}">
+                <viewItemE:EditE3ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemE:EditE4ItemViewModel}">
+                <viewItemE:EditE4ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemE:EditE5ItemViewModel}">
+                <viewItemE:EditE5ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemE:EditE6ItemViewModel}">
+                <viewItemE:EditE6ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemE:EditE7ItemViewModel}">
+                <viewItemE:EditE7ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogE:CatalogE1ListViewModel}">
+                <viewCatalogE:CatalogE1ListVew/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogE:CatalogE2ListViewModel}">
+                <viewCatalogE:CatalogE2ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogE:CatalogE3ListViewModel}">
+                <viewCatalogE:CatalogE3ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogE:CatalogE4ListViewModel}">
+                <viewCatalogE:CatalogE4ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogE:CatalogE5ListViewModel}">
+                <viewCatalogE:CatalogE5ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogE:CatalogE6ListViewModel}">
+                <viewCatalogE:CatalogE6ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogE:CatalogE7ListViewModel}">
+                <viewCatalogE:CatalogE7ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECE:EditE1CatalogViewModel}">
+                <viewECE:EditE1CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECE:EditE2CatalogViewModel}">
+                <viewECE:EditE2CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECE:EditE3CatalogViewModel}">
+                <viewECE:EditE3CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECE:EditE4CatalogViewModel}">
+                <viewECE:EditE4CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECE:EditE5CatalogViewModel}">
+                <viewECE:EditE5CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECE:EditE6CatalogViewModel}">
+                <viewECE:EditE6CatalogView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vmECE:EditE7CatalogViewModel}">
+                <viewECE:EditE7CatalogView/>
+            </DataTemplate>
+
+
+
+
+
+
+            <DataTemplate DataType="{x:Type vmItemF:EditF1ItemViewModel}">
+                <viewItemF:EditF1ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogF:CatalogF1ListViewModel}">
+                <viewCatalogF:CatalogF1ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECF:EditF1CatalogViewModel}">
+                <viewECF:EditF1CatalogView/>
+            </DataTemplate>
+
+
+
+
+
+
+
+
+
+            <DataTemplate DataType="{x:Type vmItemG:EditG1ItemViewModel}">
+                <viewItemG:EditG1ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemG:EditG2ItemViewModel}">
+                <viewItemG:EditG2ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemG:EditG3ItemViewModel}">
+                <viewItemG:EditG3ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemG:EditG4ItemViewModel}">
+                <viewItemG:EditG4ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemG:EditG5ItemViewModel}">
+                <viewItemG:EditG5ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemG:EditG6ItemViewModel}">
+                <viewItemG:EditG6ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogG:CatalogG1ListViewModel}">
+                <viewCatalogG:CatalogG1ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogG:CatalogG2ListViewModel}">
+                <viewCatalogG:CatalogG2ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogG:CatalogG3ListViewModel}">
+                <viewCatalogG:CatalogG3ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogG:CatalogG4ListViewModel}">
+                <viewCatalogG:CatalogG4ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogG:CatalogG5ListViewModel}">
+                <viewCatalogG:CatalogG5ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogG:CatalogG6ListViewModel}">
+                <viewCatalogG:CatalogG6ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECG:EditG1CatalogViewModel}">
+                <viewECG:EditG1CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECG:EditG2CatalogViewModel}">
+                <viewECG:EditG2CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECG:EditG3CatalogViewModel}">
+                <viewECG:EditG3CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECG:EditG4CatalogViewModel}">
+                <viewECG:EditG4CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECG:EditG5CatalogViewModel}">
+                <viewECG:EditG5CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECG:EditG6CatalogViewModel}">
+                <viewECG:EditG6CatalogView/>
+            </DataTemplate>
+
+
+
+
+
+
+
+
+
+            <DataTemplate DataType="{x:Type vmItemH:EditH1ItemViewModel}">
+                <viewItemH:EditH1ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemH:EditH2ItemViewModel}">
+                <viewItemH:EditH2ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemH:EditH3ItemViewModel}">
+                <viewItemH:EditH3ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemH:EditH4ItemViewModel}">
+                <viewItemH:EditH4ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemH:EditH5ItemViewModel}">
+                <viewItemH:EditH5ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogH:CatalogH1ListViewModel}">
+                <viewCatalogH:CatalogH1ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogH:CatalogH2ListViewModel}">
+                <viewCatalogH:CatalogH2ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogH:CatalogH3ListViewModel}">
+                <viewCatalogH:CatalogH3ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogH:CatalogH4ListViewModel}">
+                <viewCatalogH:CatalogH4ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogH:CatalogH5ListViewModel}">
+                <viewCatalogH:CatalogH5ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECH:EditH1CatalogViewModel}">
+                <viewECH:EditH1CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECH:EditH2CatalogViewModel}">
+                <viewECH:EditH2CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECH:EditH3CatalogViewModel}">
+                <viewECH:EditH3CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECH:EditH4CatalogViewModel}">
+                <viewECH:EditH4CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECH:EditH5CatalogViewModel}">
+                <viewECH:EditH5CatalogView/>
+            </DataTemplate>
 
 
             <Style  x:Key="TxtStyle" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}">

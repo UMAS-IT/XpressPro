@@ -17,10 +17,10 @@ namespace Orion.Report.Pricing
             items = items.Where(x => !x.IsExcluded).OrderBy(x => x.DesignIndex).ToList();
 
             int itemsQuantity = items.Count;
+            
+            IItem tempItem = items.First();
 
-            string itemName = $"Separators";
-
-            String[] sectionTitle = { $"Item #{itemNumber}) {itemName}" };
+            String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
             String[] Header = { "Quantity", "Tag", "Model" };
 
             string[][] data = new string[items.Count][];
@@ -34,7 +34,7 @@ namespace Orion.Report.Pricing
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, itemName, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
         }
 
         public PricingItem CreateD2ItemTable(IList<ItemD2> items, Document document, Section docSection, int itemNumber)
@@ -43,9 +43,9 @@ namespace Orion.Report.Pricing
 
             int itemsQuantity = items.Count;
 
-            string itemName = $"Sand Filters";
+            IItem tempItem = items.First();
 
-            String[] sectionTitle = { $"Item #{itemNumber}) {itemName}" };
+            String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
             String[] Header = { "Quantity", "Tag", "Model" };
 
             string[][] data = new string[items.Count][];
@@ -59,7 +59,7 @@ namespace Orion.Report.Pricing
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, itemName, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
         }
 
     }
