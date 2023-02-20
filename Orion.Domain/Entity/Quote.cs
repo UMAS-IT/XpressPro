@@ -335,6 +335,15 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _canCreateReports, value);
         }
 
+
+        private IList<IItem> _items;
+        [NotMapped]
+        public IList<IItem> Items
+        {
+            get => _items;
+            set => SetProperty(ref _items, value);
+        }
+
         public Quote()
         {
             ItemA1s = new ObservableCollection<ItemA1>();

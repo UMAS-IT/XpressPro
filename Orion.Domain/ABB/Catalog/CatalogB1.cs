@@ -28,6 +28,62 @@ namespace Orion.Domain.EntityCatalogABB
             set => SetProperty(ref _model, value);
         }
 
+        private double _Hp;
+        public double Hp
+        {
+            get => _Hp;
+            set => SetProperty(ref _Hp, value);
+        }
+
+        private string _description;
+        public string Description
+        {
+            get => _description;
+            set => SetProperty(ref _description, value);
+        }
+
+        private string _nema;
+        public string Nema
+        {
+            get => _nema;
+            set => SetProperty(ref _nema, value);
+        }
+
+        private bool _bypass;
+        public bool Bypass
+        {
+            get => _bypass;
+            set => SetProperty(ref _bypass, value);
+        }
+
+        private bool _circuitBreakerDisconnect;
+        public bool CircuitBreakerDisconnect
+        {
+            get => _circuitBreakerDisconnect;
+            set => SetProperty(ref _circuitBreakerDisconnect, value);
+        }
+
+        private string _voltage;
+        public string Voltage
+        {
+            get => _voltage;
+            set => SetProperty(ref _voltage, value);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private double _listPrice;
         public double ListPrice
         {

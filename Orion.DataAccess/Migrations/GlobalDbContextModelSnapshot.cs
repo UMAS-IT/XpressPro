@@ -398,13 +398,25 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Bypass");
+
+                    b.Property<bool>("CircuitBreakerDisconnect");
+
                     b.Property<double>("CostMultiplier");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("Hp");
 
                     b.Property<double>("ListPrice");
 
                     b.Property<string>("Model");
 
+                    b.Property<string>("Nema");
+
                     b.Property<double>("SellMargin");
+
+                    b.Property<string>("Voltage");
 
                     b.HasKey("Id");
 
@@ -417,13 +429,25 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Bypass");
+
+                    b.Property<bool>("CircuitBreakerDisconnect");
+
                     b.Property<double>("CostMultiplier");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("Hp");
 
                     b.Property<double>("ListPrice");
 
                     b.Property<string>("Model");
 
+                    b.Property<string>("Nema");
+
                     b.Property<double>("SellMargin");
+
+                    b.Property<string>("Voltage");
 
                     b.HasKey("Id");
 
@@ -436,13 +460,25 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Bypass");
+
+                    b.Property<bool>("CircuitBreakerDisconnect");
+
                     b.Property<double>("CostMultiplier");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("Hp");
 
                     b.Property<double>("ListPrice");
 
                     b.Property<string>("Model");
 
+                    b.Property<string>("Nema");
+
                     b.Property<double>("SellMargin");
+
+                    b.Property<string>("Voltage");
 
                     b.HasKey("Id");
 
@@ -455,13 +491,25 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Bypass");
+
+                    b.Property<bool>("CircuitBreakerDisconnect");
+
                     b.Property<double>("CostMultiplier");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("Hp");
 
                     b.Property<double>("ListPrice");
 
                     b.Property<string>("Model");
 
+                    b.Property<string>("Nema");
+
                     b.Property<double>("SellMargin");
+
+                    b.Property<string>("Voltage");
 
                     b.HasKey("Id");
 
@@ -475,6 +523,8 @@ namespace Orion.DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<double>("CostMultiplier");
+
+                    b.Property<string>("Description");
 
                     b.Property<double>("ListPrice");
 

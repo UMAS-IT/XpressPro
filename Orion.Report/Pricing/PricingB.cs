@@ -1,6 +1,8 @@
 ﻿using Orion.Domain.Entity;
+using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
+using Orion.Helper.Extension;
 using Spire.Doc;
 using System;
 using System.Collections.Generic;
@@ -21,7 +23,7 @@ namespace Orion.Report.Pricing
             IItem tempItem = items.First();
 
             String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
-            String[] Header = { "Quantity", "Tag", "Model"};
+            String[] Header = { "Quantity", "Tag", "Model", "HP", "Description", "Nema", "Bypass", "Disconnect", "Voltage" };
 
             string[][] data = new string[items.Count][];
 
@@ -29,7 +31,9 @@ namespace Orion.Report.Pricing
             {
                 ItemB1 item = items[i];
 
-                data[i] = new string[3] { item.Quantity.ToString(), item.Tag, item.CatalogB1.Model };
+                CatalogB1 catalog = item.CatalogB1;
+
+                data[i] = new string[9] { item.Quantity.ToString(), item.Tag, catalog.Model, catalog.Hp.ToString(), catalog.Description, catalog.Nema, catalog.Bypass.ToYesNo(), catalog.CircuitBreakerDisconnect.ToYesNo(), catalog.Voltage };
             }
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
@@ -46,7 +50,7 @@ namespace Orion.Report.Pricing
             IItem tempItem = items.First();
 
             String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
-            String[] Header = { "Quantity", "Tag", "Model" };
+            String[] Header = { "Quantity", "Tag", "Model", "HP", "Description", "Nema", "Bypass", "Disconnect", "Voltage"};
 
             string[][] data = new string[items.Count][];
 
@@ -54,7 +58,9 @@ namespace Orion.Report.Pricing
             {
                 ItemB2 item = items[i];
 
-                data[i] = new string[3] { item.Quantity.ToString(), item.Tag, item.CatalogB2.Model };
+                CatalogB2 catalog = item.CatalogB2;
+
+                data[i] = new string[9] { item.Quantity.ToString(), item.Tag, catalog.Model, catalog.Hp.ToString(), catalog.Description, catalog.Nema, catalog.Bypass.ToYesNo(), catalog.CircuitBreakerDisconnect.ToYesNo(), catalog.Voltage};
             }
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
@@ -71,7 +77,7 @@ namespace Orion.Report.Pricing
             IItem tempItem = items.First();
 
             String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
-            String[] Header = { "Quantity", "Tag", "Model" };
+            String[] Header = { "Quantity", "Tag", "Model", "HP", "Description", "Nema", "Bypass", "Disconnect", "Voltage" };
 
             string[][] data = new string[items.Count][];
 
@@ -79,7 +85,9 @@ namespace Orion.Report.Pricing
             {
                 ItemB3 item = items[i];
 
-                data[i] = new string[3] { item.Quantity.ToString(), item.Tag, item.CatalogB3.Model };
+                CatalogB3 catalog = item.CatalogB3;
+
+                data[i] = new string[9] { item.Quantity.ToString(), item.Tag, catalog.Model, catalog.Hp.ToString(), catalog.Description, catalog.Nema, catalog.Bypass.ToYesNo(), catalog.CircuitBreakerDisconnect.ToYesNo(), catalog.Voltage };
             }
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
@@ -96,7 +104,7 @@ namespace Orion.Report.Pricing
             IItem tempItem = items.First();
 
             String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
-            String[] Header = { "Quantity", "Tag", "Model" };
+            String[] Header = { "Quantity", "Tag", "Model", "HP", "Description", "Nema", "Bypass", "Disconnect", "Voltage" };
 
             string[][] data = new string[items.Count][];
 
@@ -104,7 +112,9 @@ namespace Orion.Report.Pricing
             {
                 ItemB4 item = items[i];
 
-                data[i] = new string[3] { item.Quantity.ToString(), item.Tag, item.CatalogB4.Model };
+                CatalogB4 catalog = item.CatalogB4;
+
+                data[i] = new string[9] { item.Quantity.ToString(), item.Tag, catalog.Model, catalog.Hp.ToString(), catalog.Description, catalog.Nema, catalog.Bypass.ToYesNo(), catalog.CircuitBreakerDisconnect.ToYesNo(), catalog.Voltage };
             }
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
@@ -121,15 +131,16 @@ namespace Orion.Report.Pricing
             IItem tempItem = items.First();
 
             String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
-            String[] Header = { "Quantity", "Tag", "Model" };
+            String[] Header = { "Quantity", "Tag", "Model", "Description" };
 
             string[][] data = new string[items.Count][];
 
             for (int i = 0; i < items.Count; i++)
             {
                 ItemB5 item = items[i];
+                CatalogB5 catalog = item.CatalogB5;
 
-                data[i] = new string[3] { item.Quantity.ToString(), item.Tag, item.CatalogB5.Model };
+                data[i] = new string[4] { item.Quantity.ToString(), item.Tag, catalog.Model, catalog.Description };
             }
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);

@@ -5,8 +5,10 @@ using Orion.Helper.Misc;
 using Spire.Doc;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -230,12 +232,18 @@ namespace Orion.Report.Pricing
                     AddBlankLine(mainDocument, docSection);
                 }
 
-
                 CreatePricingTable(pricingItems, docSection);
+                
+                AddBlankLine(mainDocument, docSection);
+
+                CreateGrandTotalPriceTable(pricingItems, docSection);
 
                 AddTermsAndConditions();
 
                 SaveAndConvertToPdf(mainDocument, currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.docx");
+
+                System.Diagnostics.Process.Start(currentProjectPath + $@"\Pricing");
+                System.Diagnostics.Process.Start(currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.pdf");
             }
         }
 
@@ -266,6 +274,18 @@ namespace Orion.Report.Pricing
 
             CreateItemTable(docSection, itemsQuantity, title, Header, data);
         }
+
+
+        private void CreateGrandTotalPriceTable(List<PricingItem> pricingItems, Section docSection)
+        {
+            string[][] data = new string[1][];
+
+            data[0] = new string[1] { $"{string.Format("{0:C}", Convert.ToDecimal(pricingItems.Sum(x => x.Price.ToDecimal().Truncate(2))))}" };
+
+            CreateResultTable(docSection, data);
+
+        }
+
 
     }
 }

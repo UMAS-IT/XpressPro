@@ -133,6 +133,59 @@ namespace Orion.Report.Pricing
             table.AutoFit(AutoFitBehaviorType.AutoFitToWindow);
         }
 
+
+        public void CreateResultTable(Section docSection, string[][] data)
+        {
+            Table table = docSection.AddTable(true);
+            table.TableFormat.IsBreakAcrossPages = false;
+
+            table.ResetCells(2, 1);
+            table.TableFormat.HorizontalAlignment = RowAlignment.Center;
+
+            TableRow titleRow = table.Rows[0];
+
+            titleRow.RowFormat.BackColor = Color.FromArgb(155, 194, 230);
+
+            Paragraph tp = titleRow.Cells[0].AddParagraph();
+            titleRow.Cells[0].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+            tp.Format.HorizontalAlignment = HorizontalAlignment.Center;
+            tp.Format.BeforeSpacing = 0;
+            tp.Format.AfterSpacing = 0;
+            tp.Format.LineSpacing = 10;
+            TextRange tRange = tp.AppendText("Grand Total");
+            tRange.CharacterFormat.FontName = "Calibri";
+            tRange.CharacterFormat.FontSize = 10;
+            tRange.CharacterFormat.TextColor = Color.Black;
+            tRange.CharacterFormat.Bold = true;
+
+            for (int r = 0; r < data.Length; r++)
+            {
+                TableRow DataRow = table.Rows[r + 1];
+
+                for (int c = 0; c < data[r].Length; c++)
+                {
+                    TableCell cell = DataRow.Cells[c];
+
+                    cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+
+                    Paragraph p2 = DataRow.Cells[c].AddParagraph();
+
+                    TextRange TR2 = p2.AppendText(data[r][c]);
+
+                    p2.Format.HorizontalAlignment = HorizontalAlignment.Left;
+                    p2.Format.BeforeSpacing = 0;
+                    p2.Format.AfterSpacing = 0;
+                    p2.Format.LineSpacing = 10;
+                    TR2.CharacterFormat.FontName = "Calibri";
+                    TR2.CharacterFormat.FontSize = 10;
+                    TR2.CharacterFormat.TextColor = Color.Black;
+                }
+            }
+            table.TableFormat.HorizontalAlignment = RowAlignment.Right;
+            table.AutoFit(AutoFitBehaviorType.AutoFitToContents);
+        }
+
+
         public void SaveAndConvertToPdf(Document document, string filePath)
         {
             document.SaveToFile(filePath, FileFormat.Docx);

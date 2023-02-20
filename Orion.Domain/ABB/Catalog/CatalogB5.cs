@@ -28,6 +28,28 @@ namespace Orion.Domain.EntityCatalogABB
             set => SetProperty(ref _model, value);
         }
 
+        private string _description;
+        public string Description
+        {
+            get => _description;
+            set => SetProperty(ref _description, value);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private double _listPrice;
         public double ListPrice
         {
