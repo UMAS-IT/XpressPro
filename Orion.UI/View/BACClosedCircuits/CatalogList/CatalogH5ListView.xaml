@@ -194,7 +194,7 @@
                     <DataGridTextColumn Header="Cost Multiplier" Binding="{Binding CostMultiplier}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                     <DataGridTextColumn Header="Cost" Binding="{Binding Cost, StringFormat={}{0:c}}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                     <DataGridTextColumn Header="Sell Margin" Binding="{Binding SellMargin, StringFormat={}{0}% }"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                    <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, StringFormat={}{0:c}}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, StringFormat={}{0:c}}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

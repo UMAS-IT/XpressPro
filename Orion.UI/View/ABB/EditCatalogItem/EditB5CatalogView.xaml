@@ -75,7 +75,7 @@
                     </TextBox>
 
                     <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Sell Price" 
+                             ctrl:TextBoxHelper.Watermark="Unit Sell Price" 
                              Background="DarkOrange"
                              IsReadOnly="True"
                              Text="{Binding Catalog.SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}"

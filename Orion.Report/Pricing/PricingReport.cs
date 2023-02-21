@@ -242,8 +242,8 @@ namespace Orion.Report.Pricing
 
                 SaveAndConvertToPdf(mainDocument, currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.docx");
 
-                System.Diagnostics.Process.Start(currentProjectPath + $@"\Pricing");
-                System.Diagnostics.Process.Start(currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.pdf");
+                Process.Start(currentProjectPath + $@"\Pricing");
+                Process.Start(currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.pdf");
             }
         }
 

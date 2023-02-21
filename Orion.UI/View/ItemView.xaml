@@ -730,7 +730,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -1049,7 +1049,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -1368,7 +1368,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -1687,7 +1687,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -2024,7 +2024,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -2338,7 +2338,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -2652,7 +2652,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -2966,7 +2966,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -3280,7 +3280,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -3616,7 +3616,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -3930,7 +3930,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -4244,7 +4244,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -4558,7 +4558,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -4892,7 +4892,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -5206,7 +5206,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -5546,7 +5546,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -5860,7 +5860,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -6174,7 +6174,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -6488,7 +6488,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -6802,7 +6802,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -7116,7 +7116,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -7430,7 +7430,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -7763,7 +7763,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -8102,7 +8102,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -8416,7 +8416,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -8730,7 +8730,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -9044,7 +9044,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -9358,7 +9358,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -9672,7 +9672,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -10015,7 +10015,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -10329,7 +10329,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -10643,7 +10643,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -10957,7 +10957,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
@@ -11271,7 +11271,7 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
-                                            <DataGridTextColumn Header="Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                                         </DataGrid.Columns>
