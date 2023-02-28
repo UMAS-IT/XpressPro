@@ -186,6 +186,12 @@
                         </DataGridTemplateColumn>
 
                         <DataGridTextColumn Header="Model" Binding="{Binding Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="HP" Binding="{Binding Hp}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Nema" Binding="{Binding Nema}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Bypass" Binding="{Binding Bypass,Converter={StaticResource BoolToYesNoCoverter}}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Disconnect" Binding="{Binding CircuitBreakerDisconnect,Converter={StaticResource BoolToYesNoCoverter}}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Votlage" Binding="{Binding Voltage}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                         <DataGridTextColumn Header="List Price" Binding="{Binding ListPrice, StringFormat={}{0:c}}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                         <DataGridTextColumn Header="Cost Multiplier" Binding="{Binding CostMultiplier}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                         <DataGridTextColumn Header="Cost" Binding="{Binding Cost, StringFormat= {}{0:c}}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
@@ -309,6 +315,12 @@
                         </DataGridTemplateColumn>
 
                         <DataGridTextColumn Header="Model" Binding="{Binding Catalog.Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="HP" Binding="{Binding Catalog.Hp}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Catalog.Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Nema" Binding="{Binding Catalog.Nema}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Bypass" Binding="{Binding Catalog.Bypass,Converter={StaticResource BoolToYesNoCoverter}}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Disconnect" Binding="{Binding Catalog.CircuitBreakerDisconnect,Converter={StaticResource BoolToYesNoCoverter}}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Votlage" Binding="{Binding Catalog.Voltage}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                         <DataGridTemplateColumn Header="List Price">
                             <DataGridTemplateColumn.HeaderStyle>

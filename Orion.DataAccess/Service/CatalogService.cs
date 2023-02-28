@@ -569,6 +569,14 @@ namespace Orion.DataAccess.Service
                         CatalogB1 dbCatalogB1 = context.CatalogB1s.FirstOrDefault(x => x.Id == catalog.Id);
 
                         dbCatalogB1.Model = catalogB1.Model;
+                        dbCatalogB1.Hp = catalogB1.Hp;
+                        dbCatalogB1.Description = catalogB1.Description;
+                        dbCatalogB1.Nema = catalogB1.Nema;
+                        dbCatalogB1.Bypass = catalogB1.Bypass;
+                        dbCatalogB1.CircuitBreakerDisconnect = catalogB1.CircuitBreakerDisconnect;
+                        dbCatalogB1.Voltage = catalogB1.Voltage;
+
+
                         dbCatalogB1.ListPrice = catalogB1.ListPrice;
                         dbCatalogB1.CostMultiplier = catalogB1.CostMultiplier;
                         dbCatalogB1.SellMargin = catalogB1.SellMargin;
@@ -590,6 +598,7 @@ namespace Orion.DataAccess.Service
                         CatalogB2 dbCatalogB2 = context.CatalogB2s.FirstOrDefault(x => x.Id == catalog.Id);
 
                         dbCatalogB2.Model = catalogB2.Model;
+                        dbCatalogB2.Description = catalogB2.Description;
                         dbCatalogB2.ListPrice = catalogB2.ListPrice;
                         dbCatalogB2.CostMultiplier = catalogB2.CostMultiplier;
                         dbCatalogB2.SellMargin = catalogB2.SellMargin;

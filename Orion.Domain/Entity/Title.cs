@@ -1049,6 +1049,25 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
+
+        #region Company Id
+
+        private int? _companyId;
+        public int? CompanyId
+        {
+            get => _companyId;
+            set => SetProperty(ref _companyId, value);
+        }
+
+        private Company _company;
+        public Company Company
+        {
+            get => _company;
+            set => SetProperty(ref _company, value);
+        }
+
+        #endregion
+
         private bool _saved;
         [NotMapped]
         public bool Saved

@@ -43,6 +43,12 @@
                     </TextBox>
 
                     <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Description" 
+                             Text="{Binding Catalog.Description, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
+                    <TextBox  
                              ctrl:TextBoxHelper.Watermark="List Price" 
                              Background="#32B974"
                              PreviewTextInput="IsDouble"

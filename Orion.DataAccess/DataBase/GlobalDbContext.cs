@@ -26,6 +26,7 @@ namespace Orion.DataAccess.DataBase
         public DbSet<Quote> Quotes { get; set; }
         public DbSet<Title> Titles { get; set; }
         public DbSet<Spec> Specs { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
 
 
@@ -164,11 +165,11 @@ namespace Orion.DataAccess.DataBase
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             #region Local Server
-            //optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = OrionDb; Trusted_Connection = True; ");
+            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = OrionDb; Trusted_Connection = True; ");
 
 
 
-            optionsBuilder.UseSqlServer("Server=tcp:umas-server.database.windows.net,1433;Initial Catalog=OrionDb;Persist Security Info=False;User ID=umasAdb;Password=Umas2022.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            //optionsBuilder.UseSqlServer("Server=tcp:umas-server.database.windows.net,1433;Initial Catalog=OrionDb;Persist Security Info=False;User ID=umasAdb;Password=Umas2022.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             #endregion
         }
 
@@ -189,7 +190,11 @@ namespace Orion.DataAccess.DataBase
                         .WithOne(m => m.Title)
                         .HasForeignKey(m => m.TitleId);
 
-
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.Company)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.CompanyId)
+                        .OnDelete(DeleteBehavior.Restrict));
 
             #region Quantech Quote Items
             modelBuilder.Entity<Quote>()

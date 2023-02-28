@@ -118,6 +118,7 @@ namespace Orion.Domain.EntityCatalogABB
         public CatalogB5()
         {
             Titles = new ObservableCollection<Title>();
+            Description = "";
         }
     }
 }

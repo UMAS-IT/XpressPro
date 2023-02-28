@@ -37,11 +37,66 @@
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                 <StackPanel Orientation="Vertical">
                     <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Model" 
+                             ctrl:TextBoxHelper.Watermark="Model"
                              Text="{Binding Catalog.Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
                     </TextBox>
-                    
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="HP" 
+                             PreviewTextInput="IsDouble"
+                             Text="{Binding Catalog.Hp, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Description" 
+                             Text="{Binding Catalog.Description, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Nema" 
+                             Text="{Binding Catalog.Nema, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
+                    <Border BorderThickness="1" BorderBrush="White" Margin="1">
+                        <CheckBox Margin="1" Content="Bypass" IsChecked="{Binding Catalog.Bypass}" >
+                            <CheckBox.Style>
+                                <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                                    <Setter Property="FontSize" Value="10"/>
+                                    <Setter Property="LayoutTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </CheckBox.Style>
+                        </CheckBox>
+                    </Border>
+
+                    <Border BorderThickness="1" BorderBrush="White" Margin="1">
+                        <CheckBox Margin="1" Content="Disconnect" IsChecked="{Binding Catalog.CircuitBreakerDisconnect}" >
+                            <CheckBox.Style>
+                                <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                                    <Setter Property="FontSize" Value="10"/>
+                                    <Setter Property="LayoutTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </CheckBox.Style>
+                        </CheckBox>
+                    </Border>
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Voltage" 
+                             Text="{Binding Catalog.Voltage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="List Price" 
                              Background="#32B974"

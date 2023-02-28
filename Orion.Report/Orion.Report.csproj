@@ -76,6 +76,10 @@
       <Project>{6C9FD30B-658A-416B-B60F-B75240F3B06E}</Project>
       <Name>Orion.Binding</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Orion.DataAccess\Orion.DataAccess.csproj">
+      <Project>{816C5680-10A4-439A-9B27-6276460D85D8}</Project>
+      <Name>Orion.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Orion.Domain\Orion.Domain.csproj">
       <Project>{bc860056-a6ed-4785-bc94-2f84135ff8ce}</Project>
       <Name>Orion.Domain</Name>

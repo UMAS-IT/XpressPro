@@ -84,16 +84,19 @@
                             </StackPanel>
                         </Expander>
 
-                        <Expander Header="ABB" Margin="0,0,0,5" Width="120" IsExpanded="False">
+                        <Expander Margin="0,0,0,5" Width="120" IsExpanded="False">
+                            <Expander.Header>
+                                <TextBlock Text="ABB" TextWrapping="Wrap"/>
+                            </Expander.Header>
                             <StackPanel Orientation="Vertical">
 
                                 <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="B1">
                                     <Button.Content>
-                                        <TextBlock Text="BARE" TextWrapping="Wrap"/>
+                                        <TextBlock Text="VFD's Drive" TextWrapping="Wrap"/>
                                     </Button.Content>
                                 </Button>
 
-                                <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="B2">
+                                <!--<Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="B2">
                                     <Button.Content>
                                         <TextBlock Text="VCR"  TextWrapping="Wrap"/>
                                     </Button.Content>
@@ -109,7 +112,7 @@
                                     <Button.Content>
                                         <TextBlock Text="BCR"  TextWrapping="Wrap"/>
                                     </Button.Content>
-                                </Button>
+                                </Button>-->
 
                                 <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="B5">
                                     <Button.Content>
@@ -1734,7 +1737,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
 
-                                            <Label Grid.Column="0" Content="BARE"  VerticalAlignment="Center"/>
+                                            <Label Grid.Column="0" Content="VFD's Drive"  VerticalAlignment="Center"/>
 
                                             <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
                                 Command="{Binding EditItemsCommand}"  Background="DarkCyan" CommandParameter="B1"
@@ -1946,6 +1949,12 @@
                                             </DataGridTemplateColumn>
 
                                             <DataGridTextColumn Header="Model" Binding="{Binding Catalog.Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="HP" Binding="{Binding Catalog.Hp}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Description" Binding="{Binding Catalog.Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Nema" Binding="{Binding Catalog.Nema}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Bypass" Binding="{Binding Catalog.Bypass,Converter={StaticResource BoolToYesNoCoverter}}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Disconnect" Binding="{Binding Catalog.CircuitBreakerDisconnect,Converter={StaticResource BoolToYesNoCoverter}}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Votlage" Binding="{Binding Catalog.Voltage}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTemplateColumn Header="List Price">
                                                 <DataGridTemplateColumn.HeaderStyle>
@@ -3202,6 +3211,7 @@
                                             </DataGridTemplateColumn>
 
                                             <DataGridTextColumn Header="Model" Binding="{Binding Catalog.Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Description" Binding="{Binding Catalog.Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                                             <DataGridTemplateColumn Header="List Price">
                                                 <DataGridTemplateColumn.HeaderStyle>

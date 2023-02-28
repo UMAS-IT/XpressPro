@@ -19,6 +19,23 @@ namespace Orion.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Orion.Domain.Entity.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Index");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Product");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Companies");
+                });
+
             modelBuilder.Entity("Orion.Domain.Entity.Project", b =>
                 {
                     b.Property<int>("Id")
@@ -160,6 +177,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int?>("CatalogH5Id");
 
+                    b.Property<int?>("CompanyId");
+
                     b.Property<int?>("ItemA1Id");
 
                     b.Property<int?>("ItemA2Id");
@@ -299,6 +318,8 @@ namespace Orion.DataAccess.Migrations
                     b.HasIndex("CatalogH4Id");
 
                     b.HasIndex("CatalogH5Id");
+
+                    b.HasIndex("CompanyId");
 
                     b.HasIndex("ItemA1Id");
 
@@ -2496,6 +2517,11 @@ namespace Orion.DataAccess.Migrations
                     b.HasOne("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH5", "CatalogH5")
                         .WithMany("Titles")
                         .HasForeignKey("CatalogH5Id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.Entity.Company", "Company")
+                        .WithMany("Titles")
+                        .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Orion.Domain.EntityItem.ItemA1", "ItemA1")

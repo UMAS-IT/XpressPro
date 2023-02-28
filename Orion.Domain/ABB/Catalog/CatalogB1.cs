@@ -145,13 +145,17 @@ namespace Orion.Domain.EntityCatalogABB
         [NotMapped]
         public string Company { get => "ABB"; }
         [NotMapped]
-        public string Product { get => "BARE"; }
+        public string Product { get => "VFD's Drive"; }
         [NotMapped]
         public string Index { get => "b1"; }
 
         public CatalogB1()
         {
             Titles = new ObservableCollection<Title>();
+            Model = "";
+            Description = "";
+            Nema = "";
+            Voltage = "";
         }
     }
 }

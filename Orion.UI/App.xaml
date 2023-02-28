@@ -69,8 +69,11 @@
              xmlns:vmECH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.EditCatalogItem"
              xmlns:vmItemH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.EditQuoteItem"
              
+             xmlns:converters="clr-namespace:Orion.UI.Converters"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
+
+
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
@@ -194,7 +197,7 @@
                 <viewItemB:EditB1ItemView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmItemB:EditB2ItemViewModel}">
+            <!--<DataTemplate DataType="{x:Type vmItemB:EditB2ItemViewModel}">
                 <viewItemB:EditB2ItemView/>
             </DataTemplate>
 
@@ -204,7 +207,7 @@
 
             <DataTemplate DataType="{x:Type vmItemB:EditB4ItemViewModel}">
                 <viewItemB:EditB4ItemView/>
-            </DataTemplate>
+            </DataTemplate>-->
 
             <DataTemplate DataType="{x:Type vmItemB:EditB5ItemViewModel}">
                 <viewItemB:EditB5ItemView/>
@@ -214,7 +217,7 @@
                 <viewCatalogB:CatalogB1ListView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmCatalogB:CatalogB2ListViewModel}">
+            <!--<DataTemplate DataType="{x:Type vmCatalogB:CatalogB2ListViewModel}">
                 <viewCatalogB:CatalogB2ListView/>
             </DataTemplate>
 
@@ -224,7 +227,7 @@
 
             <DataTemplate DataType="{x:Type vmCatalogB:CatalogB4ListViewModel}">
                 <viewCatalogB:CatalogB4ListView/>
-            </DataTemplate>
+            </DataTemplate>-->
 
             <DataTemplate DataType="{x:Type vmCatalogB:CatalogB5ListViewModel}">
                 <viewCatalogB:CatalogB5ListView/>
@@ -234,7 +237,7 @@
                 <viewECB:EditB1CatalogView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vmECB:EditB2CatalogViewModel}">
+            <!--<DataTemplate DataType="{x:Type vmECB:EditB2CatalogViewModel}">
                 <viewECB:EditB2CatalogView/>
             </DataTemplate>
 
@@ -244,7 +247,7 @@
 
             <DataTemplate DataType="{x:Type vmECB:EditB4CatalogViewModel}">
                 <viewECB:EditB4CatalogView/>
-            </DataTemplate>
+            </DataTemplate>-->
 
             <DataTemplate DataType="{x:Type vmECB:EditB5CatalogViewModel}">
                 <viewECB:EditB5CatalogView/>
@@ -726,6 +729,11 @@
                 </Setter>
             </Style>
 
+            <converters:BoolToYesNoCoverter x:Key="BoolToYesNoCoverter"/>
+
+
         </ResourceDictionary>
+
+
     </Application.Resources>
 </Application>

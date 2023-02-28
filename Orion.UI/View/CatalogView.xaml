@@ -77,11 +77,11 @@
 
                         <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b1">
                             <Button.Content>
-                                <TextBlock Text="BARE" TextWrapping="Wrap"/>
+                                <TextBlock Text="VFD's Drive" TextWrapping="Wrap"/>
                             </Button.Content>
                         </Button>
                         
-                        <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b2">
+                        <!--<Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b2">
                             <Button.Content>
                                 <TextBlock Text="VCR" TextWrapping="Wrap"/>
                             </Button.Content>
@@ -97,7 +97,7 @@
                             <Button.Content>
                                 <TextBlock Text="BCR" TextWrapping="Wrap"/>
                             </Button.Content>
-                        </Button>
+                        </Button>-->
 
                         <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b5">
                             <Button.Content>

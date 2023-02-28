@@ -186,6 +186,7 @@
                         </DataGridTemplateColumn>
 
                         <DataGridTextColumn Header="Model" Binding="{Binding Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                         <DataGridTextColumn Header="List Price" Binding="{Binding ListPrice, StringFormat={}{0:c}}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                         <DataGridTextColumn Header="Cost Multiplier" Binding="{Binding CostMultiplier}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                         <DataGridTextColumn Header="Cost" Binding="{Binding Cost, StringFormat= {}{0:c}}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
@@ -309,6 +310,7 @@
                         </DataGridTemplateColumn>
 
                         <DataGridTextColumn Header="Model" Binding="{Binding Catalog.Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Catalog.Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                         <DataGridTemplateColumn Header="List Price">
                             <DataGridTemplateColumn.HeaderStyle>

@@ -1,4 +1,5 @@
-﻿using Orion.Domain.Entity;
+﻿using Orion.DataAccess.Service;
+using Orion.Domain.Entity;
 using Orion.Domain.EntityItem;
 using Orion.Helper.Extension;
 using Orion.Helper.Misc;
@@ -18,6 +19,12 @@ namespace Orion.Report.Pricing
     {
         private string currentProjectPath;
         private Document mainDocument;
+        private CompanyService companyService;
+
+        public PricingReport()
+        {
+            companyService = new CompanyService();
+        }
 
         public void Create(Project project, IList<Quote> quotes)
         {
@@ -30,6 +37,8 @@ namespace Orion.Report.Pricing
             PricingG pricingG = new PricingG();
             PricingH pricingH = new PricingH();
             List<PricingItem> pricingItems = new List<PricingItem>();
+
+            List<Company> companies = companyService.GetCompanies().ToList();
 
             currentProjectPath = CreateFolders(project, quotes);
 
@@ -48,21 +57,25 @@ namespace Orion.Report.Pricing
                 if (quote.ItemA1s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingA.CreateA1ItemTable(quote.ItemA1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemA1s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemA2s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingA.CreateA2ItemTable(quote.ItemA2s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemA2s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemA3s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingA.CreateA3ItemTable(quote.ItemA3s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemA3s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemA4s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingA.CreateA4ItemTable(quote.ItemA4s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemA4s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
 
@@ -70,27 +83,32 @@ namespace Orion.Report.Pricing
 
                 if (quote.ItemB1s.Any(x => !x.IsExcluded))
                 {
-                    pricingItems.Add(pricingB.CreateB1ItemTable(quote.ItemB1s, mainDocument, docSection, itemNumber++));
+                    pricingItems.AddRange(pricingB.CreateB1ItemTable(quote.ItemB1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemB1s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemB2s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingB.CreateB2ItemTable(quote.ItemB2s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemB2s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemB3s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingB.CreateB3ItemTable(quote.ItemB3s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemB3s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemB4s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingB.CreateB4ItemTable(quote.ItemB4s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemB4s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemB5s.Any(x => !x.IsExcluded))
                 {
-                    pricingItems.Add(pricingB.CreateB5ItemTable(quote.ItemB5s, mainDocument, docSection, itemNumber++));
+                    pricingItems.AddRange(pricingB.CreateB5ItemTable(quote.ItemB5s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemB5s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
 
@@ -99,21 +117,25 @@ namespace Orion.Report.Pricing
                 if (quote.ItemC1s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingC.CreateC1ItemTable(quote.ItemC1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemC1s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemC2s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingC.CreateC2ItemTable(quote.ItemC2s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemC2s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemC3s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingC.CreateC3ItemTable(quote.ItemC3s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemC3s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemC4s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingC.CreateC4ItemTable(quote.ItemC4s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemC4s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
 
@@ -121,11 +143,13 @@ namespace Orion.Report.Pricing
                 if (quote.ItemD1s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingD.CreateD1ItemTable(quote.ItemD1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemD1s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemD2s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingD.CreateD2ItemTable(quote.ItemD2s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemD2s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
 
@@ -133,36 +157,43 @@ namespace Orion.Report.Pricing
                 if (quote.ItemE1s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingE.CreateE1ItemTable(quote.ItemE1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemE1s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemE2s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingE.CreateE2ItemTable(quote.ItemE2s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemE2s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemE3s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingE.CreateE3ItemTable(quote.ItemE3s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemE3s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemE4s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingE.CreateE4ItemTable(quote.ItemE4s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemE4s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemE5s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingE.CreateE5ItemTable(quote.ItemE5s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemE5s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemE6s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingE.CreateE6ItemTable(quote.ItemE6s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemE6s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemE7s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingE.CreateE7ItemTable(quote.ItemE7s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemE7s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
 
@@ -170,6 +201,7 @@ namespace Orion.Report.Pricing
                 if (quote.ItemF1s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingF.CreateF1ItemTable(quote.ItemF1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemF1s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
 
@@ -177,31 +209,37 @@ namespace Orion.Report.Pricing
                 if (quote.ItemG1s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingG.CreateG1ItemTable(quote.ItemG1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemG1s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemG2s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingG.CreateG2ItemTable(quote.ItemG2s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemG2s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemG3s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingG.CreateG3ItemTable(quote.ItemG3s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemG3s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemG4s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingG.CreateG4ItemTable(quote.ItemG4s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemG4s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemG5s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingG.CreateG5ItemTable(quote.ItemG5s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemG5s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemG6s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingG.CreateG6ItemTable(quote.ItemG6s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemG6s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
 
@@ -209,26 +247,31 @@ namespace Orion.Report.Pricing
                 if (quote.ItemH1s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingH.CreateH1ItemTable(quote.ItemH1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemH1s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemH2s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingH.CreateH2ItemTable(quote.ItemH2s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemH2s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemH3s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingH.CreateH3ItemTable(quote.ItemH3s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemH3s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemH4s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingH.CreateH4ItemTable(quote.ItemH4s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemH4s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemH5s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.Add(pricingH.CreateH5ItemTable(quote.ItemH5s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemH5s.ToList<IItem>(), companies, docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
 
@@ -265,11 +308,35 @@ namespace Orion.Report.Pricing
 
             string[][] data = new string[pricingItems.Count][];
 
+            double itemNumber = 0.0;
+            bool lastWasSpec = false;
+
             for (int i = 0; i < pricingItems.Count; i++)
             {
                 PricingItem pricingItem = pricingItems[i];
 
-                data[i] = new string[5] { $"#{pricingItem.ItemNumber}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+                if (pricingItem.IsSpec && lastWasSpec == false)
+                {
+                    lastWasSpec = true;
+                    itemNumber += 0.01;
+                    data[i] = new string[5] { $"{itemNumber}", pricingItem.Tags, "", pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+
+                }
+                else if (pricingItem.IsSpec && lastWasSpec == true)
+                {
+                    lastWasSpec = true;
+                    itemNumber += 0.01;
+                    data[i] = new string[5] { $"{itemNumber}", pricingItem.Tags, "", pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+                }
+                else if (pricingItem.IsTitle)
+                {
+                    data[i] = new string[5] { $"", pricingItem.Tags, "", pricingItem.Description, "" };
+                }
+                else
+                {
+                    itemNumber = pricingItem.ItemNumber;
+                    data[i] = new string[5] { $"#{pricingItem.ItemNumber}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+                }
             }
 
             CreateItemTable(docSection, itemsQuantity, title, Header, data);

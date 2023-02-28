@@ -230,6 +230,86 @@ namespace Orion.Report.Pricing
             docSection.Paragraphs.Add(paragraph);
         }
 
+        public void AddTitlesAndSpecs(IList<IItem> items, IList<Company> companies, Section section)
+        {
+            Company company = companies.FirstOrDefault(x => x.Index.ToFormat() == items.FirstOrDefault().Catalog.Index.ToFormat());
+
+            if (company != null)
+            {
+                foreach (Title title in company.Titles)
+                {
+                    AddTitlesAndSpecsText(section, title.Name, ParaStyle.calibriStyle12, true);
+
+                    foreach (Spec spec in title.Specs)
+                    {
+                        AddTitlesAndSpecsText( section, spec.Name, ParaStyle.calibriStyle10);
+                    }
+                }
+            }
+
+            foreach (IItem item in items.Where(x => x.Titles.Any()))
+            {
+                foreach (Title title in item.Titles)
+                {
+                    AddTitlesAndSpecsText(section,$"[{item.Tag}] " + title.Name, ParaStyle.calibriStyle12, true);
+
+                    foreach (Spec spec in title.Specs)
+                    {
+                        AddTitlesAndSpecsText(section, spec.Name, ParaStyle.calibriStyle10);
+                    }
+                }
+            }
+        }
+
+        public List<PricingItem> GetPricingItems(IList<IItem> items, IItem tempItem, int itemNumber)
+        {
+            List<PricingItem> pricingItems = new List<PricingItem>();
+
+            pricingItems.Add(new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>())));
+
+
+            foreach (IItem item in items.Where(x => x.Titles.Any()))
+            {
+                foreach (Title title in item.Titles)
+                {
+                    pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]", 0, true, false));
+                    
+                    for (int i = 0; i < title.Specs.Count; i++)
+                    {
+                        Spec spec = title.Specs[i];
+                        pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, false, true));
+                    }
+                }
+            }
+            return pricingItems;
+        }
+
+
+        public void AddTitlesAndSpecsText(Section docSection, string text, ParaStyle style, bool isTitle = false)
+        {
+
+            Paragraph paragraph = docSection.AddParagraph();
+            TextRange textRange = null;
+            if (isTitle)
+            {
+                textRange = paragraph.AppendText( "\n" + text);
+                textRange.CharacterFormat.FontSize = 10;
+                textRange.CharacterFormat.Bold = true;
+                textRange.CharacterFormat.TextBackgroundColor = Color.FromArgb(0, 135, 176, 54);
+                textRange.CharacterFormat.TextColor = Color.White;
+            }
+            else
+            {
+                textRange = paragraph.AppendText(text);
+                paragraph.ApplyStyle(BuiltinStyle.ListBullet);
+                textRange.CharacterFormat.FontSize = 10;
+            }
+            textRange.CharacterFormat.FontName = "Calibri";
+            paragraph.Format.BeforeSpacing = 0;
+            paragraph.Format.AfterSpacing = 0;
+            paragraph.Format.LineSpacing = 10;
+        }
+
         public Document LoadDocument(string filePath)
         {
             Document document = new Document();
@@ -243,6 +323,40 @@ namespace Orion.Report.Pricing
 
         public void CreateStyles(Document document)
         {
+            ParagraphStyle calibriStyle10 = new ParagraphStyle(document);
+            calibriStyle10.Name = "calibriStyle10";
+            calibriStyle10.CharacterFormat.Bold = false;
+            calibriStyle10.CharacterFormat.TextColor = Color.Black;
+            calibriStyle10.CharacterFormat.FontSize = 10;
+            calibriStyle10.CharacterFormat.FontName = "Calibri";
+            calibriStyle10.ParagraphFormat.BeforeSpacing = 0;
+            calibriStyle10.ParagraphFormat.AfterSpacing = 0;
+            calibriStyle10.ParagraphFormat.LineSpacing = 10;
+            document.Styles.Add(calibriStyle10);
+
+            ParagraphStyle calibriStyle12 = new ParagraphStyle(document);
+            calibriStyle12.Name = "calibriStyle12";
+            calibriStyle12.CharacterFormat.Bold = false;
+            calibriStyle12.CharacterFormat.TextColor = Color.Black;
+            calibriStyle12.CharacterFormat.FontSize = 12;
+            calibriStyle12.CharacterFormat.FontName = "Calibri";
+            calibriStyle12.ParagraphFormat.BeforeSpacing = 0;
+            calibriStyle12.ParagraphFormat.AfterSpacing = 0;
+            calibriStyle12.ParagraphFormat.LineSpacing = 10;
+            document.Styles.Add(calibriStyle12);
+
+            ////Century Gothic
+            //ParagraphStyle centuryGothicStyle8 = new ParagraphStyle(document);
+            //centuryGothicStyle8.Name = "centuryGothicStyle8";
+            //centuryGothicStyle8.CharacterFormat.Bold = false;
+            //centuryGothicStyle8.CharacterFormat.TextColor = Color.Black;
+            //centuryGothicStyle8.CharacterFormat.FontSize = 8;
+            //centuryGothicStyle8.CharacterFormat.FontName = "Century Gothic";
+            //centuryGothicStyle8.ParagraphFormat.BeforeSpacing = 0;
+            //centuryGothicStyle8.ParagraphFormat.AfterSpacing = 0;
+            //centuryGothicStyle8.ParagraphFormat.LineSpacing = 10;
+            //document.Styles.Add(centuryGothicStyle8);
+
             ParagraphStyle style24 = new ParagraphStyle(document);
             style24.Name = "style24";
             style24.CharacterFormat.Bold = false;
@@ -466,6 +580,10 @@ namespace Orion.Report.Pricing
             style10,
             style15WhiteAndBold,
             style10Especial,
+
+            //centuryGothicStyle8,
+            calibriStyle10,
+            calibriStyle12,
         }
 
         public enum UnitBk
