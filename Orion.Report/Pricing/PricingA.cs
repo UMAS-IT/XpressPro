@@ -16,8 +16,6 @@ namespace Orion.Report.Pricing
 {
     public class PricingA : ReportSettings
     {
-
-
         public PricingItem CreateA1ItemTable(IList<ItemA1> items, Document document, Section docSection, int itemNumber)
         {
             items = items.Where(x => !x.IsExcluded).OrderBy(x => x.DesignIndex).ToList();

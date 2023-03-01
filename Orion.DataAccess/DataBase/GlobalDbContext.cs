@@ -167,12 +167,10 @@ namespace Orion.DataAccess.DataBase
             #region Local Server
             optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = OrionDb; Trusted_Connection = True; ");
 
-
-
-            //optionsBuilder.UseSqlServer("Server=tcp:umas-server.database.windows.net,1433;Initial Catalog=OrionDb;Persist Security Info=False;User ID=umasAdb;Password=Umas2022.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            //optionsBuilder.UseSqlServer("Server=tcp:airtreatment.database.windows.net,1433;Initial Catalog=airtreatmentdb;Persist Security Info=False;User ID=airtreatmentAdb;Password=airtreatment2022.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             #endregion
         }
-
+        //User ID = umasAdb; Password=Umas2022.;
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()

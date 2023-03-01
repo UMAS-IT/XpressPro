@@ -18,6 +18,19 @@ namespace Orion.Report.Pricing
         public int Quantity { get; set; }
         public bool IsTitle { get; set; }
         public bool IsSpec { get; set; }
+        public string Company { get; set; }
+
+        public PricingItem(int itemNumber, string description, double price, string tags, int quantity, string company, bool isTitle = false, bool isSpec = false)
+        {
+            this.ItemNumber = itemNumber;
+            this.Description = description;
+            this.Price = price;
+            this.Tags = tags;
+            this.Quantity = quantity;
+            this.IsTitle = isTitle;
+            IsSpec = isSpec;
+            this.Company = company;
+        }
 
         public PricingItem(int itemNumber, string description, double price, string tags, int quantity, bool isTitle = false, bool isSpec = false)
         {
@@ -28,6 +41,7 @@ namespace Orion.Report.Pricing
             this.Quantity = quantity;
             this.IsTitle = isTitle;
             IsSpec = isSpec;
+            this.Company = "";
         }
     }
 }

@@ -77,7 +77,7 @@
 
                         <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding OpenCatalogCommand}" CommandParameter="b1">
                             <Button.Content>
-                                <TextBlock Text="VFD's Drive" TextWrapping="Wrap"/>
+                                <TextBlock Text="VFD Drives" TextWrapping="Wrap"/>
                             </Button.Content>
                         </Button>
                         

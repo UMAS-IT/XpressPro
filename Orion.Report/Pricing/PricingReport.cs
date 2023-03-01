@@ -4,6 +4,8 @@ using Orion.Domain.EntityItem;
 using Orion.Helper.Extension;
 using Orion.Helper.Misc;
 using Spire.Doc;
+using Spire.Doc.Documents;
+using Spire.Doc.Fields;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -275,11 +277,16 @@ namespace Orion.Report.Pricing
                     AddBlankLine(mainDocument, docSection);
                 }
 
+                CreateSummaryTable(pricingItems, docSection);
+
                 CreatePricingTable(pricingItems, docSection);
                 
                 AddBlankLine(mainDocument, docSection);
 
                 CreateGrandTotalPriceTable(pricingItems, docSection);
+
+                AddPleaseNote(docSection, project);
+
 
                 AddTermsAndConditions();
 
@@ -288,6 +295,131 @@ namespace Orion.Report.Pricing
                 Process.Start(currentProjectPath + $@"\Pricing");
                 Process.Start(currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.pdf");
             }
+        }
+
+        private void CreateSummaryTable(List<PricingItem> pricingItems, Section docSection)
+        {
+            String[] title = { $"Summary" };
+            String[] Header = { "Item", "Tag(s)", "Quantity", "Equipment", "Model" };
+
+            List<PricingItem> summaryPricingItems = pricingItems.Where(x => x.ItemNumber != 0).ToList();
+
+            string[][] data = new string[summaryPricingItems.Count][];
+
+            for (int i = 0; i < summaryPricingItems.Count; i++)
+            {
+                PricingItem pricingItem = summaryPricingItems[i];
+
+                data[i] = new string[5] { $"{pricingItem.ItemNumber}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, pricingItem.Company};
+            }
+
+            Table table = CreateItemTable(docSection, summaryPricingItems.Count, title, Header, data);
+
+            BookmarksNavigator navigator = new BookmarksNavigator(mainDocument);
+            navigator.MoveToBookmark(InitBk.sumaryTable.ToString());
+            TextBodyPart part = new TextBodyPart(mainDocument);
+            part.BodyItems.Add(table);
+            navigator.ReplaceBookmarkContent(part);
+        }
+
+        private void AddPleaseNote(Section docSection, Project project)
+        {
+            Paragraph paragraph = docSection.AddParagraph();
+            TextRange textRange = paragraph.AppendText("Please Note:");
+            textRange.CharacterFormat.FontName = "Arial Narrow";
+            textRange.CharacterFormat.Bold = true;
+            paragraph.Format.BeforeSpacing = 0;
+            paragraph.Format.AfterSpacing = 0;
+            paragraph.Format.LineSpacing = 10;
+            textRange.CharacterFormat.FontSize = 10;
+
+            paragraph = docSection.AddParagraph();
+            textRange = paragraph.AppendText("Freight is FOB Factory (freight allowed to first destination).");
+            textRange.CharacterFormat.FontName = "Arial Narrow";
+            paragraph.Format.BeforeSpacing = 0;
+            paragraph.Format.AfterSpacing = 0;
+            paragraph.Format.LineSpacing = 10;
+            textRange.CharacterFormat.FontSize = 10;
+            paragraph.ApplyStyle(BuiltinStyle.ListBullet);
+
+            paragraph = docSection.AddParagraph();
+            textRange = paragraph.AppendText("Taxes are not included in this proposal.");
+            textRange.CharacterFormat.FontName = "Arial Narrow";
+            paragraph.Format.BeforeSpacing = 0;
+            paragraph.Format.AfterSpacing = 0;
+            paragraph.Format.LineSpacing = 10;
+            textRange.CharacterFormat.FontSize = 10;
+            paragraph.ApplyStyle(BuiltinStyle.ListBullet);
+
+            paragraph = docSection.AddParagraph();
+            textRange = paragraph.AppendText("Price is valid 30 days from date on proposal.");
+            textRange.CharacterFormat.FontName = "Arial Narrow";
+            paragraph.Format.BeforeSpacing = 0;
+            paragraph.Format.AfterSpacing = 0;
+            paragraph.Format.LineSpacing = 10;
+            textRange.CharacterFormat.FontSize = 10;
+            paragraph.ApplyStyle(BuiltinStyle.ListBullet);
+
+            paragraph = docSection.AddParagraph();
+            textRange = paragraph.AppendText("See attached page for remainder of quotation terms and conditions.");
+            textRange.CharacterFormat.FontName = "Arial Narrow";
+            paragraph.Format.BeforeSpacing = 0;
+            paragraph.Format.AfterSpacing = 0;
+            paragraph.Format.LineSpacing = 10;
+            textRange.CharacterFormat.FontSize = 10;
+            paragraph.ApplyStyle(BuiltinStyle.ListBullet);
+
+            AddBlankLine(mainDocument, docSection);
+
+            paragraph = docSection.AddParagraph();
+            textRange = paragraph.AppendText("Thank you for the opportunity to offer the equipment and services listed above.  We look forward to working with you on this project.  If you should require additional information, please contact us.");
+            textRange.CharacterFormat.FontName = "Arial Narrow";
+            paragraph.Format.BeforeSpacing = 0;
+            paragraph.Format.AfterSpacing = 0;
+            paragraph.Format.LineSpacing = 10;
+            textRange.CharacterFormat.FontSize = 10;
+
+            AddBlankLine(mainDocument, docSection);
+
+            paragraph = docSection.AddParagraph();
+            textRange = paragraph.AppendText("Sincerely,");
+            textRange.CharacterFormat.FontName = "Arial Narrow";
+            paragraph.Format.BeforeSpacing = 0;
+            paragraph.Format.AfterSpacing = 0;
+            paragraph.Format.LineSpacing = 10;
+            textRange.CharacterFormat.FontSize = 10;
+
+            paragraph = docSection.AddParagraph();
+            textRange = paragraph.AppendText($"{project.User.Name}");
+            textRange.CharacterFormat.FontName = "Arial Narrow";
+            paragraph.Format.BeforeSpacing = 0;
+            paragraph.Format.AfterSpacing = 0;
+            paragraph.Format.LineSpacing = 10;
+            textRange.CharacterFormat.FontSize = 10;
+
+            paragraph = docSection.AddParagraph();
+            textRange = paragraph.AppendText($"Air Treatment Corporation");
+            textRange.CharacterFormat.FontName = "Arial Narrow";
+            paragraph.Format.BeforeSpacing = 0;
+            paragraph.Format.AfterSpacing = 0;
+            paragraph.Format.LineSpacing = 10;
+            textRange.CharacterFormat.FontSize = 10;
+
+            paragraph = docSection.AddParagraph();
+            textRange = paragraph.AppendText($"{project.User.Email}");
+            textRange.CharacterFormat.FontName = "Arial Narrow";
+            paragraph.Format.BeforeSpacing = 0;
+            paragraph.Format.AfterSpacing = 0;
+            paragraph.Format.LineSpacing = 10;
+            textRange.CharacterFormat.FontSize = 10;
+
+            paragraph = docSection.AddParagraph();
+            textRange = paragraph.AppendText($"{project.User.Telephone}");
+            textRange.CharacterFormat.FontName = "Arial Narrow";
+            paragraph.Format.BeforeSpacing = 0;
+            paragraph.Format.AfterSpacing = 0;
+            paragraph.Format.LineSpacing = 10;
+            textRange.CharacterFormat.FontSize = 10;
         }
 
         private void AddTermsAndConditions()
@@ -339,9 +471,8 @@ namespace Orion.Report.Pricing
                 }
             }
 
-            CreateItemTable(docSection, itemsQuantity, title, Header, data);
+            CreatePricingItemAndSpecsTable(docSection, itemsQuantity, title, Header, data);
         }
-
 
         private void CreateGrandTotalPriceTable(List<PricingItem> pricingItems, Section docSection)
         {

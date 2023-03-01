@@ -92,7 +92,7 @@
 
                                 <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="B1">
                                     <Button.Content>
-                                        <TextBlock Text="VFD's Drive" TextWrapping="Wrap"/>
+                                        <TextBlock Text="VFD Drives" TextWrapping="Wrap"/>
                                     </Button.Content>
                                 </Button>
 
@@ -1737,7 +1737,7 @@
                                                 <ColumnDefinition Width="auto"/>
                                             </Grid.ColumnDefinitions>
 
-                                            <Label Grid.Column="0" Content="VFD's Drive"  VerticalAlignment="Center"/>
+                                            <Label Grid.Column="0" Content="VFD Drives"  VerticalAlignment="Center"/>
 
                                             <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
                                 Command="{Binding EditItemsCommand}"  Background="DarkCyan" CommandParameter="B1"

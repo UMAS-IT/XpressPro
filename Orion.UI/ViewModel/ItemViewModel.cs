@@ -579,7 +579,7 @@ namespace Orion.UI.ViewModel
             {
                 EditB1ItemViewModel editE1ItemViewModel = new EditB1ItemViewModel(dialogCoordinator, Quote, ItemB1s);
                 editE1ItemViewModel.OnItemsSavedRequested += OnItemB1Saved;
-                windowService.EditItemsWndow(editE1ItemViewModel, "Edit VFD's Drive");
+                windowService.EditItemsWndow(editE1ItemViewModel, "Edit VFD Drives");
             }
             else if (itemsName.ToFormat() == "b2")
             {

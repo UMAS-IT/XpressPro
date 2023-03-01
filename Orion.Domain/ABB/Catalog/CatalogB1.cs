@@ -145,7 +145,7 @@ namespace Orion.Domain.EntityCatalogABB
         [NotMapped]
         public string Company { get => "ABB"; }
         [NotMapped]
-        public string Product { get => "VFD's Drive"; }
+        public string Product { get => "VFD Drives"; }
         [NotMapped]
         public string Index { get => "b1"; }
 
