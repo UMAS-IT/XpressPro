@@ -55,6 +55,8 @@ namespace Orion.UI.ViewModel
         public RelayCommand<object> NewProjectCommand { get; set; }
         public RelayCommand<object> OpenProjectCommand { get; set; }
 
+        public RelayCommand<object> ConfigurationCommand { get; set; }
+
         public MainWindowViewModel()
         {
             //UserName = "";
@@ -68,7 +70,14 @@ namespace Orion.UI.ViewModel
             LoadDataCommand = new RelayCommand(OnLoadData);
             NewProjectCommand = new RelayCommand<object>(OnNewProject);
             OpenProjectCommand = new RelayCommand<object>(OnOpenProject);
+            ConfigurationCommand = new RelayCommand<object>(OnConfiguration);
 
+        }
+
+        private void OnConfiguration(object obj)
+        {
+            ConfigurationMenuViewModel configurationMenuViewModel = new ConfigurationMenuViewModel(dialogCoordinator);
+            windowService.ConfigurationMenuWindow(configurationMenuViewModel, "Configuration");
         }
 
         private void OnLoadData()

@@ -75,13 +75,6 @@ namespace Orion.Domain.EntityCatalogQuantech
             set => SetProperty(ref _SellPrice, value);
         }
 
-        private IList<Title> _titles;
-        public IList<Title> Titles
-        {
-            get => _titles;
-            set => SetProperty(ref _titles, value);
-        }
-
         private string _unitSize;
         public string UnitSize
         {
@@ -103,6 +96,20 @@ namespace Orion.Domain.EntityCatalogQuantech
             set => SetProperty(ref _voltage, value);
         }
 
+        private int? _dataSheetId;
+        public int? DataSheetId
+        {
+            get => _dataSheetId;
+            set => SetProperty(ref _dataSheetId, value);
+        }
+
+        private DataSheet _dataSheet;
+        public DataSheet DataSheet
+        {
+            get => _dataSheet;
+            set => SetProperty(ref _dataSheet, value);
+        }
+
         [NotMapped]
         public string Company { get => "QUANTECH"; }
         [NotMapped]
@@ -112,7 +119,6 @@ namespace Orion.Domain.EntityCatalogQuantech
 
         public CatalogA3()
         {
-            Titles = new ObservableCollection<Title>();
         }
     }
 }

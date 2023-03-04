@@ -136,9 +136,16 @@
             <DataTemplate DataType="{x:Type vm:ReportsViewModel}">
                 <view:ReportsView/>
             </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vm:ConfigurationMenuViewModel}">
+                <view:ConfigurationMenuView/>
+            </DataTemplate>
 
-            
-            
+            <DataTemplate DataType="{x:Type vm:DataSheetListViewModel}">
+                <view:DataSheetListView/>
+            </DataTemplate>
+
+
             <DataTemplate DataType="{x:Type vmItemA:EditA1ItemViewModel}">
                 <viewItemA:EditA1ItemView/>
             </DataTemplate>
@@ -731,6 +738,11 @@
 
             <converters:BoolToYesNoCoverter x:Key="BoolToYesNoCoverter"/>
 
+
+            <Storyboard x:Key="BlinkAnimation" RepeatBehavior="Forever">
+                <DoubleAnimation From="0.2" To="1" Duration="0:0:1" 
+                             AutoReverse="True" Storyboard.TargetProperty="Opacity" />
+            </Storyboard>
 
         </ResourceDictionary>
 

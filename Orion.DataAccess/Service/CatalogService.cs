@@ -1,4 +1,5 @@
-﻿using Orion.DataAccess.DataBase;
+﻿using Microsoft.EntityFrameworkCore;
+using Orion.DataAccess.DataBase;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
@@ -106,7 +107,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.CatalogA1s.ToList<ICatalog>();
+                return context.CatalogA1s.Include(x => x.DataSheet).ToList<ICatalog>();
             }
         }
 
@@ -114,7 +115,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.CatalogA2s.ToList<ICatalog>();
+                return context.CatalogA2s.Include(x => x.DataSheet).ToList<ICatalog>();
             }
         }
 
@@ -122,7 +123,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.CatalogA3s.ToList<ICatalog>();
+                return context.CatalogA3s.Include(x => x.DataSheet).ToList<ICatalog>();
             }
         }
 
@@ -130,7 +131,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.CatalogA4s.ToList<ICatalog>();
+                return context.CatalogA4s.Include(x => x.DataSheet).ToList<ICatalog>();
             }
         }
 
@@ -138,7 +139,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.CatalogB1s.ToList<ICatalog>();
+                return context.CatalogB1s.Include(x => x.DataSheet).ToList<ICatalog>();
             }
         }
 
@@ -146,7 +147,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.CatalogB2s.ToList<ICatalog>();
+                return context.CatalogB2s.Include(x => x.DataSheet).ToList<ICatalog>();
             }
         }
 
@@ -154,7 +155,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.CatalogB3s.ToList<ICatalog>();
+                return context.CatalogB3s.Include(x => x.DataSheet).ToList<ICatalog>();
             }
         }
 
@@ -162,7 +163,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.CatalogB4s.ToList<ICatalog>();
+                return context.CatalogB4s.Include(x => x.DataSheet).ToList<ICatalog>();
             }
         }
 
@@ -170,7 +171,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.CatalogB5s.ToList<ICatalog>();
+                return context.CatalogB5s.Include(x => x.DataSheet).ToList<ICatalog>();
             }
         }
 

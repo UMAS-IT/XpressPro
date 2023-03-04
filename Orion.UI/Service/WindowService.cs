@@ -67,6 +67,25 @@ namespace Orion.UI.Service
             win.ShowDialog();
         }
 
+        public void ConfigurationMenuWindow(object viewModel, string title)
+        {
+            var win = new MetroWindow
+            {
+                Height = 700,
+                MinHeight = 700,
+                Width = 1200,
+                MinWidth = 1200,
+                TitleCharacterCasing = System.Windows.Controls.CharacterCasing.Normal,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                ResizeMode = ResizeMode.CanResizeWithGrip,
+                WindowState = WindowState.Normal,
+                Content = viewModel,
+                ShowCloseButton = true,
+                Title = title
+            };
+            win.ShowDialog();
+        }
+
         public void InternalWallWindow(object viewModel, string title)
         {
             var win = new MetroWindow

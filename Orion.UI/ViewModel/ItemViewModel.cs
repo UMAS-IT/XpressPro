@@ -36,6 +36,7 @@ namespace Orion.UI.ViewModel
         private MessageService messageService;
         private ProjectService projectService;
         private QuoteService quoteService;
+        private CompanyService companyService;
         ItemService itemService;
         private MainWindowViewModel mw;
         WindowService windowService;
@@ -76,6 +77,13 @@ namespace Orion.UI.ViewModel
         {
             get => _quote;
             set => SetProperty(ref _quote, value);
+        }
+
+        private ObservableCollection<Company> _companies;
+        public ObservableCollection<Company> Companies
+        {
+            get => _companies;
+            set => SetProperty(ref _companies, value);
         }
 
         private ObservableCollection<IItem> _items;
@@ -361,6 +369,7 @@ namespace Orion.UI.ViewModel
             messageService = new MessageService(dialogCoordinator, this);
             windowService = new WindowService();
             itemService = new ItemService();
+            companyService = new CompanyService();
         }
 
         private void LoadItemLists()
@@ -967,6 +976,7 @@ namespace Orion.UI.ViewModel
                 Project = projectService.GetProjectById(projectId);
                 Quote = quoteService.GetQuoteByQuoteId(quoteId);
                 mw.Title = $@"XpressPro ({Project.Name} / {Quote.Name})";
+                Companies = companyService.GetCompanies().ToObservableCollection();
                 Items = itemService.GetAllItemByQuoteId(quoteId).ToObservableCollection();
                 LoadItemLists();
 

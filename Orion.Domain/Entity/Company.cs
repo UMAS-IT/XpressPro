@@ -24,30 +24,16 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _name, value);
         }
 
-        private string _product;
-        public string Product
+        private IList<Product> _products;
+        public IList<Product> Products
         {
-            get => _product;
-            set => SetProperty(ref _product, value);
-        }
-
-        private string _index;
-        public string Index
-        {
-            get => _index;
-            set => SetProperty(ref _index, value);
-        }
-
-        private IList<Title> _titles;
-        public IList<Title> Titles
-        {
-            get => _titles;
-            set => SetProperty(ref _titles, value);
+            get => _products;
+            set => SetProperty(ref _products, value);
         }
 
         public Company()
         {
-            Titles = new ObservableCollection<Title>();
+            Products = new ObservableCollection<Product>();
         }
     }
 }

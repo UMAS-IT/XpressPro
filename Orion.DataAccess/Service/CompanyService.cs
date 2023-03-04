@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 namespace Orion.DataAccess.Service
 {
     public class CompanyService
-    { 
+    {
         public IList<Company> GetCompanies()
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.Companies.Include(x => x.Titles).ThenInclude(x => x.Specs).ToList();
+                return context.Companies.Include(x => x.Products).ToList();
             }
         }
     }

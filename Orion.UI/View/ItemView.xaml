@@ -50,278 +50,32 @@
 
                 <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                     <StackPanel Orientation="Vertical">
-
-                        <Expander Margin="0,0,0,5" Width="120" IsExpanded="False">
-                            <Expander.Header>
-                                <TextBlock Text="Quantech" TextWrapping="Wrap"/>
-                            </Expander.Header>
-                            <StackPanel Orientation="Vertical">
-
-                                <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="A1">
-                                    <Button.Content>
-                                        <TextBlock Text="Air Cooled Chillers Factory Lead Time" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="A2">
-                                    <Button.Content>
-                                        <TextBlock Text="Air Cooled Chillers Stock Non Coated Condenser"  TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="A3">
-                                    <Button.Content>
-                                        <TextBlock Text="Air Cooled Chillers Stock Post Coated Condenser"  TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkSlateBlue" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="A4">
-                                    <Button.Content>
-                                        <TextBlock Text="Water Cooled Chillers Factory Lead Time"  TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                            </StackPanel>
-                        </Expander>
-
-                        <Expander Margin="0,0,0,5" Width="120" IsExpanded="False">
-                            <Expander.Header>
-                                <TextBlock Text="ABB" TextWrapping="Wrap"/>
-                            </Expander.Header>
-                            <StackPanel Orientation="Vertical">
-
-                                <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="B1">
-                                    <Button.Content>
-                                        <TextBlock Text="VFD Drives" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <!--<Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="B2">
-                                    <Button.Content>
-                                        <TextBlock Text="VCR"  TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="B3">
-                                    <Button.Content>
-                                        <TextBlock Text="PCR"  TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="B4">
-                                    <Button.Content>
-                                        <TextBlock Text="BCR"  TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>-->
-
-                                <Button Margin="1" Background="DarkCyan" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="B5">
-                                    <Button.Content>
-                                        <TextBlock Text="Accesories"  TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                            </StackPanel>
-                        </Expander>
-
-                        <Expander  Margin="0,0,0,5" Width="120" IsExpanded="False">
-                            <Expander.Header>
-                                <TextBlock Text="American Wheatley" TextWrapping="Wrap"/>
-                            </Expander.Header>
-                            <StackPanel Orientation="Vertical">
-
-                                <Button Margin="1" Background="DarkMagenta" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="c1">
-                                    <Button.Content>
-                                        <TextBlock Text="Triple Duty Valves" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkMagenta" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="c2">
-                                    <Button.Content>
-                                        <TextBlock Text="Section Diffusers" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkMagenta" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="c3">
-                                    <Button.Content>
-                                        <TextBlock Text="Tanks" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkMagenta" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="c4">
-                                    <Button.Content>
-                                        <TextBlock Text="Separators" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                            </StackPanel>
-                        </Expander>
-
-
-                        <Expander  Margin="0,0,0,5" Width="120" IsExpanded="False">
-                            <Expander.Header>
-                                <TextBlock Text="Puroflux" TextWrapping="Wrap"/>
-                            </Expander.Header>
-                            <StackPanel Orientation="Vertical">
-
-                                <Button Margin="1" Background="DarkSalmon" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="d1">
-                                    <Button.Content>
-                                        <TextBlock Text="Separators" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkSalmon" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="d2">
-                                    <Button.Content>
-                                        <TextBlock Text="Sand Filters" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-                            </StackPanel>
-                        </Expander>
-
-                        <Expander  Margin="0,0,0,5" Width="120" IsExpanded="False">
-                            <Expander.Header>
-                                <TextBlock Text="Groundfos" TextWrapping="Wrap"/>
-                            </Expander.Header>
-                            <StackPanel Orientation="Vertical">
-
-                                <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="e1">
-                                    <Button.Content>
-                                        <TextBlock Text="NBS" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="e2">
-                                    <Button.Content>
-                                        <TextBlock Text="LCS" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="e3">
-                                    <Button.Content>
-                                        <TextBlock Text="LC" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="e4">
-                                    <Button.Content>
-                                        <TextBlock Text="LF" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="e5">
-                                    <Button.Content>
-                                        <TextBlock Text="VL" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="e6">
-                                    <Button.Content>
-                                        <TextBlock Text="VLS" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkOliveGreen" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="e7">
-                                    <Button.Content>
-                                        <TextBlock Text="KP" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-                            </StackPanel>
-                        </Expander>
-
-                        <Expander  Margin="0,0,0,5" Width="120" IsExpanded="False">
-                            <Expander.Header>
-                                <TextBlock Text="UV Resources" TextWrapping="Wrap"/>
-                            </Expander.Header>
-                            <StackPanel Orientation="Vertical">
-
-                                <Button Margin="1" Background="DeepSkyBlue" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="f1">
-                                    <Button.Content>
-                                        <TextBlock Text="UV" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-                            </StackPanel>
-                        </Expander>
-
-                        <Expander  Margin="0,0,0,5" Width="120" IsExpanded="False">
-                            <Expander.Header>
-                                <TextBlock Text="BAC - Cooling Towers" TextWrapping="Wrap"/>
-                            </Expander.Header>
-                            <StackPanel Orientation="Vertical">
-
-                                <Button Margin="1" Background="DarkSlateGray" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="g1">
-                                    <Button.Content>
-                                        <TextBlock Text="Series 300" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkSlateGray" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="g2">
-                                    <Button.Content>
-                                        <TextBlock Text="Series 1500" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkSlateGray" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="g3">
-                                    <Button.Content>
-                                        <TextBlock Text="PT2" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkSlateGray" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="g4">
-                                    <Button.Content>
-                                        <TextBlock Text="FXT" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkSlateGray" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="g5">
-                                    <Button.Content>
-                                        <TextBlock Text="Series V (VT0 / VT1)" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="DarkSlateGray" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="g6">
-                                    <Button.Content>
-                                        <TextBlock Text="Low Profile Series V (VTL)" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-                            </StackPanel>
-                        </Expander>
-
-                        <Expander  Margin="0,0,0,5" Width="120" IsExpanded="False">
-                            <Expander.Header>
-                                <TextBlock Text="BAC - Closed Circuits" TextWrapping="Wrap"/>
-                            </Expander.Header>
-                            <StackPanel Orientation="Vertical">
-
-                                <Button Margin="1" Background="Firebrick" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="h1">
-                                    <Button.Content>
-                                        <TextBlock Text="FXV and FXV3" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="Firebrick" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="h2">
-                                    <Button.Content>
-                                        <TextBlock Text="PFi" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="Firebrick" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="h3">
-                                    <Button.Content>
-                                        <TextBlock Text="VF1 And VFL Low Profile" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="Firebrick" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="h4">
-                                    <Button.Content>
-                                        <TextBlock Text="HXV" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button>
-
-                                <Button Margin="1" Background="Firebrick" Padding="0" Command="{Binding EditItemsCommand}" CommandParameter="h5">
-                                    <Button.Content>
-                                        <TextBlock Text="NEXUS" TextWrapping="Wrap"/>
-                                    </Button.Content>
-                                </Button> 
-                            </StackPanel>
-                        </Expander>
+                        <ItemsControl ItemsSource="{Binding Companies, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Expander Margin="0,0,0,5" Width="120" IsExpanded="False">
+                                        <Expander.Header>
+                                            <TextBlock Text="{Binding Name}" TextWrapping="Wrap"/>
+                                        </Expander.Header>
+                                        <StackPanel Orientation="Vertical">
+                                            <ItemsControl ItemsSource="{Binding Products, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Button Margin="1" Background="{Binding Color}" Padding="0"
+                                            Command="{Binding DataContext.EditItemsCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                            CommandParameter="{Binding Index}">
+                                                            <Button.Content>
+                                                                <TextBlock Text="{Binding Name}" TextWrapping="Wrap"/>
+                                                            </Button.Content>
+                                                        </Button>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </Expander>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </StackPanel>
                 </ScrollViewer>
             </GroupBox>

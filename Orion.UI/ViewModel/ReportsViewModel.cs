@@ -109,8 +109,7 @@ namespace Orion.UI.ViewModel
             {
                 await messageService.StartMessage("Creating Report(s)", "This will take a few minutes, please wait...");
 
-                pricingReport.Create(Project, Quotes); 
-                //report = new Report(projectId, sectionService, projectService, Units, SubmittalSelected, PricingSelected, WeightSelected, CadDrawingSelected, User);
+                pricingReport.Create(Project, Quotes.Where(x => x.IsSelected).ToList()); 
 
                 await messageService.EndMessage("Reports done");
                 await messageService.OkMessage("Reports", "Report(s) created successfully");

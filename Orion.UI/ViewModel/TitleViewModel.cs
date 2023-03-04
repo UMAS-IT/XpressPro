@@ -71,7 +71,7 @@ namespace Orion.UI.ViewModel
                 if (!await CanUpdateTitles())
                     return;
 
-                Titles = titleService.UpdateTitlesFromCatalog(Catalog, Titles).ToObservableCollection();
+                //Titles = titleService.UpdateTitlesFromCatalog(Catalog, Titles).ToObservableCollection();
 
                 await messageService.EndMessage("Item Specs", "Item specs has been saved");
             }
@@ -135,7 +135,7 @@ namespace Orion.UI.ViewModel
             {
                 await messageService.StartMessage("Catalog Specs", "Loading catalog specs, please wait...");
 
-                Titles = titleService.GetTitlesFromCatalog(Catalog).ToObservableCollection();
+                //Titles = titleService.GetTitlesFromCatalog(Catalog).ToObservableCollection();
 
                 await messageService.EndMessage("Catalog Specs", "Catalog specs has been loaded");
             }

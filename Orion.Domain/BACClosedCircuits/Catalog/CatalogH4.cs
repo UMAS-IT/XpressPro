@@ -80,11 +80,18 @@ namespace Orion.Domain.EntityCatalogBACClosedCircuits
             set => SetProperty(ref _SellPrice, value);
         }
 
-        private IList<Title> _titles;
-        public IList<Title> Titles
+        private int? _dataSheetId;
+        public int? DataSheetId
         {
-            get => _titles;
-            set => SetProperty(ref _titles, value);
+            get => _dataSheetId;
+            set => SetProperty(ref _dataSheetId, value);
+        }
+
+        private DataSheet _dataSheet;
+        public DataSheet DataSheet
+        {
+            get => _dataSheet;
+            set => SetProperty(ref _dataSheet, value);
         }
 
         [NotMapped]
@@ -96,7 +103,6 @@ namespace Orion.Domain.EntityCatalogBACClosedCircuits
 
         public CatalogH4()
         {
-            Titles = new ObservableCollection<Title>();
         }
     }
 }

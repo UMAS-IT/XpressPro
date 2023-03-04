@@ -56,9 +56,6 @@ namespace Orion.UI.ViewModel
                 case "Quotes":
                     CurrentViewModel = new QuoteViewModel(dialogCoordinator, userId, projectId, mw);
                     break;
-                case "Catalogs":
-                    CurrentViewModel = new CatalogViewModel(dialogCoordinator,  mw);
-                    break;
                 case "Reports":
                     CurrentViewModel = new ReportsViewModel(dialogCoordinator, userId, projectId, mw);
                     break;

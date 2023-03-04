@@ -201,7 +201,7 @@ namespace Orion.Report.Pricing
                 {
 
                     TableCell cell = DataRow.Cells[c];
-
+                     
                     cell.CellFormat.VerticalAlignment = VerticalAlignment.Middle;
 
                     Paragraph p2 = DataRow.Cells[c].AddParagraph();
@@ -218,15 +218,18 @@ namespace Orion.Report.Pricing
                         TR2.CharacterFormat.FontName = "Arial Narrow";
                         TR2.CharacterFormat.FontSize = 10;
                         TR2.CharacterFormat.Bold = true;
-                        cell.CellFormat.BackColor = Color.FromArgb(0, 135, 176, 54);
-                        TR2.CharacterFormat.TextColor = Color.White;
+                        //cell.CellFormat.BackColor = Color.FromArgb(0, 135, 176, 54);
+                        //cell.CellFormat.BackColor = Color.DarkCyan;
+                        TR2.CharacterFormat.TextColor = Color.DarkBlue;
                     }
                     else if (!itemNumberEmpty && !itemQuantityEmpty)
                     {
                         TR2.CharacterFormat.FontName = "Arial Narrow";
                         TR2.CharacterFormat.FontSize = 10;
                         TR2.CharacterFormat.TextColor = Color.Black;
-                        cell.CellFormat.BackColor = Color.FromArgb(0, 255, 204, 102);
+                        //cell.CellFormat.BackColor = Color.FromArgb(0, 255, 204, 102);
+                        //cell.CellFormat.BackColor = Color.FromArgb(0, 135, 176, 54);
+
                         TR2.CharacterFormat.Bold = true;
                     }
                     else
@@ -234,6 +237,8 @@ namespace Orion.Report.Pricing
                         TR2.CharacterFormat.FontName = "Arial Narrow";
                         TR2.CharacterFormat.FontSize = 10;
                         TR2.CharacterFormat.TextColor = Color.Black;
+                        if (c == 3)
+                            p2.ApplyStyle(BuiltinStyle.ListBullet);
                     }
                 }
             }
@@ -261,7 +266,7 @@ namespace Orion.Report.Pricing
             tp.Format.AfterSpacing = 0;
             tp.Format.LineSpacing = 10;
             TextRange tRange = tp.AppendText("Grand Total");
-            tRange.CharacterFormat.FontName = "Calibri";
+            tRange.CharacterFormat.FontName = "Arial Narrow";
             tRange.CharacterFormat.FontSize = 10;
             tRange.CharacterFormat.TextColor = Color.Black;
             tRange.CharacterFormat.Bold = true;
@@ -284,7 +289,7 @@ namespace Orion.Report.Pricing
                     p2.Format.BeforeSpacing = 0;
                     p2.Format.AfterSpacing = 0;
                     p2.Format.LineSpacing = 10;
-                    TR2.CharacterFormat.FontName = "Calibri";
+                    TR2.CharacterFormat.FontName = "Arial Narrow";
                     TR2.CharacterFormat.FontSize = 10;
                     TR2.CharacterFormat.TextColor = Color.Black;
                 }
@@ -350,28 +355,46 @@ namespace Orion.Report.Pricing
             textRange.CharacterFormat.FontSize = 10;
         }
 
-        public void AddTitlesAndSpecs(IList<IItem> items, IList<Company> companies, Section section)
+        public void AddTitlesAndSpecs(IList<IItem> items, Section section)
         {
-            Company company = companies.FirstOrDefault(x => x.Index.ToFormat() == items.FirstOrDefault().Catalog.Index.ToFormat());
+            List<DataSheet> dataSheets = items.Where(x => x.Catalog.DataSheet != null).Select(x => x.Catalog.DataSheet).GroupBy(x => x.Id).Select(x => x.First()).ToList();
 
-            if (company != null)
+            foreach (DataSheet dataSheet in dataSheets)
             {
-                foreach (Title title in company.Titles)
+
+                List<IItem> dataSheetItems = items.Where(x => x.Catalog.DataSheet != null && x.Catalog.DataSheet.Id == dataSheet.Id).ToList();
+
+                foreach (Title title in dataSheet.Titles)
                 {
-                    AddTitlesAndSpecsText(section, title.Name, true);
+                    AddTitlesAndSpecsText(section, title.Name + " " + JoinTags(dataSheetItems), true);
 
                     foreach (Spec spec in title.Specs)
                     {
-                        AddTitlesAndSpecsText( section, spec.Name);
+                        AddTitlesAndSpecsText(section, spec.Name);
+                    }
+                }
+
+                foreach (IItem item in dataSheetItems.Where(x => x.Titles.Any()))
+                {
+                    foreach (Title title in item .Titles)
+                    {
+                        AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]({item.Quantity})", true);
+
+                        foreach (Spec spec in title.Specs)
+                        {
+                            AddTitlesAndSpecsText(section, spec.Name);
+                        }
                     }
                 }
             }
 
-            foreach (IItem item in items.Where(x => x.Titles.Any()))
+            List<IItem> noDataSheetItems = items.Where(x => x.Catalog.DataSheet == null).ToList();
+            
+            foreach (IItem item in noDataSheetItems.Where(x => x.Titles.Any()))
             {
                 foreach (Title title in item.Titles)
                 {
-                    AddTitlesAndSpecsText(section,$"[{item.Tag}] " + title.Name, true);
+                    AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]({item.Quantity})", true);
 
                     foreach (Spec spec in title.Specs)
                     {
@@ -392,12 +415,17 @@ namespace Orion.Report.Pricing
             {
                 foreach (Title title in item.Titles)
                 {
-                    pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]", 0, tempItem.Catalog.Company, true, false));
-                    
-                    for (int i = 0; i < title.Specs.Count; i++)
+                    if (title.Specs.All(x => x.Price <= 0))
+                        continue;
+
+                    pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]({item.Quantity})", 0, tempItem.Catalog.Company, true, false));
+
+                    foreach (Spec spec in title.Specs)
                     {
-                        Spec spec = title.Specs[i];
-                        pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company, false, true));
+                        if (spec.Price <= 0)
+                            continue;
+
+                        pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]({item.Quantity})", 1, tempItem.Catalog.Company, false, true));
                     }
                 }
             }
@@ -412,21 +440,20 @@ namespace Orion.Report.Pricing
             if (isTitle)
             {
                 textRange = paragraph.AppendText( "\n" + text);
-                textRange.CharacterFormat.FontSize = 10;
                 textRange.CharacterFormat.Bold = true;
-                textRange.CharacterFormat.TextBackgroundColor = Color.FromArgb(0, 135, 176, 54);
-                textRange.CharacterFormat.TextColor = Color.White;
+                //textRange.CharacterFormat.TextColor = Color.DarkCyan;
+                textRange.CharacterFormat.TextColor = Color.DarkBlue;
             }
             else
             {
                 textRange = paragraph.AppendText(text);
                 paragraph.ApplyStyle(BuiltinStyle.ListBullet);
-                textRange.CharacterFormat.FontSize = 10;
             }
             textRange.CharacterFormat.FontName = "Arial Narrow";
             paragraph.Format.BeforeSpacing = 0;
             paragraph.Format.AfterSpacing = 0;
             paragraph.Format.LineSpacing = 10;
+            textRange.CharacterFormat.FontSize = 10;
         }
 
         public Document LoadDocument(string filePath)
@@ -664,7 +691,7 @@ namespace Orion.Report.Pricing
             Directory.CreateDirectory(currentProjectPath);
             Directory.CreateDirectory(currentProjectPath + $@"\Pricing");
 
-            foreach (Quote quote in quotes.Where(x => x.IsSelected))
+            foreach (Quote quote in quotes)
             {
                 File.Copy(pricingFilePath, currentProjectPath + $@"\Pricing\{quote.Name.ToUpper()}.docx", true);
             }

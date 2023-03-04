@@ -16,7 +16,7 @@ namespace Orion.Report.Pricing
 {
     public class PricingA : ReportSettings
     {
-        public PricingItem CreateA1ItemTable(IList<ItemA1> items, Document document, Section docSection, int itemNumber)
+        public List<PricingItem> CreateA1ItemTable(IList<ItemA1> items, Document document, Section docSection, int itemNumber)
         {
             items = items.Where(x => !x.IsExcluded).OrderBy(x => x.DesignIndex).ToList();
 
@@ -38,10 +38,10 @@ namespace Orion.Report.Pricing
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return GetPricingItems(items.ToList<IItem>(), tempItem, itemNumber);
         }
 
-        public PricingItem CreateA2ItemTable(IList<ItemA2> items, Document document, Section docSection, int itemNumber)
+        public List<PricingItem> CreateA2ItemTable(IList<ItemA2> items, Document document, Section docSection, int itemNumber)
         {
             items = items.Where(x => !x.IsExcluded).OrderBy(x => x.DesignIndex).ToList();
 
@@ -61,12 +61,13 @@ namespace Orion.Report.Pricing
                 data[i] = new string[6] { item.Quantity.ToString(), item.Tag, item.CatalogA2.Model, item.CatalogA2.UnitSize, item.CatalogA2.Description, item.CatalogA2.Voltage };
             }
 
+
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return GetPricingItems(items.ToList<IItem>(), tempItem, itemNumber);
         }
 
-        public PricingItem CreateA3ItemTable(IList<ItemA3> items, Document document, Section docSection, int itemNumber)
+        public List<PricingItem> CreateA3ItemTable(IList<ItemA3> items, Document document, Section docSection, int itemNumber)
         {
             items = items.Where(x => !x.IsExcluded).OrderBy(x => x.DesignIndex).ToList();
 
@@ -88,10 +89,10 @@ namespace Orion.Report.Pricing
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return GetPricingItems(items.ToList<IItem>(), tempItem, itemNumber);
         }
 
-        public PricingItem CreateA4ItemTable(IList<ItemA4> items, Document document, Section docSection, int itemNumber)
+        public List<PricingItem> CreateA4ItemTable(IList<ItemA4> items, Document document, Section docSection, int itemNumber)
         {
             items = items.Where(x => !x.IsExcluded).OrderBy(x => x.DesignIndex).ToList();
 
@@ -113,7 +114,7 @@ namespace Orion.Report.Pricing
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return GetPricingItems(items.ToList<IItem>(), tempItem, itemNumber);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls.Dialogs;
 using Orion.Binding.Binding;
+using Orion.DataAccess.Service;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Helper.Extension;
@@ -22,6 +23,7 @@ using Orion.UI.ViewModel.Quantech.EditCatalogItem;
 using Orion.UI.ViewModel.UvResources.CatalogList;
 using Orion.UI.ViewModel.UvResources.EditCatalogItem;
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,8 +35,8 @@ namespace Orion.UI.ViewModel
     {
         private AirTreatmentViewModel airTreatmentViewModel = new AirTreatmentViewModel();
         MessageService messageService;
-        private MainWindowViewModel mw;
         IDialogCoordinator dialogCoordinator;
+        CompanyService companyService;
 
         private BindableBase _currentViewModel;
         public BindableBase CurrentViewModel
@@ -64,20 +66,27 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _editActive, value);
         }
 
+        private ObservableCollection<Company> _companies;
+        public ObservableCollection<Company> Companies
+        {
+            get => _companies;
+            set => SetProperty(ref _companies, value);
+        }
+
         public RelayCommand LoadDataCommand { get; set; }
 
         public RelayCommand<string> OpenCatalogCommand { get; set; }
 
 
-        public CatalogViewModel(IDialogCoordinator dialogCoordinator, MainWindowViewModel mw)
+        public CatalogViewModel(IDialogCoordinator dialogCoordinator)
         {
             this.dialogCoordinator = dialogCoordinator;
-            this.mw = mw;
 
             LoadDataCommand = new RelayCommand(OnLoadData);
             OpenCatalogCommand = new RelayCommand<string>(OnOpenCatalog);
 
             messageService = new MessageService(dialogCoordinator, this);
+            companyService = new CompanyService();
         }
 
         private void OnEditCatalogItem(ICatalog catalog)
@@ -366,11 +375,22 @@ namespace Orion.UI.ViewModel
             }
         }
 
-        private void OnLoadData()
+        private async void OnLoadData()
         {
-            ProductsActive = true;
-                mw.Title = "XpressPro";
-            CurrentViewModel = airTreatmentViewModel;
+            try
+            {
+                await messageService.StartMessage("Products", "Loading company products, please wait...");
+
+                ProductsActive = true;
+                CurrentViewModel = airTreatmentViewModel;
+                Companies = companyService.GetCompanies().ToObservableCollection();
+
+                await messageService.EndMessage("Products", "Company products has been loaded");
+            }
+            catch (Exception ex)
+            {
+                await messageService.ExceptionMessage(ex);
+            }
         }
 
         private void OnEditCatalogTitles(ICatalog catalog)

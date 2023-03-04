@@ -147,7 +147,7 @@
                     <ContentControl Content="{Binding CurrentViewModel}"/>
                 </TabItem>
 
-                <TabItem Header="Catalogs"  Width="180"  Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible">
+                <!--<TabItem Header="Catalogs"  Width="180"  Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Grid HorizontalAlignment="Center">
@@ -181,7 +181,7 @@
                         </DataTemplate>
                     </TabItem.HeaderTemplate>
                     <ContentControl Content="{Binding CurrentViewModel}"/>
-                </TabItem>
+                </TabItem>-->
             </ctrl:MetroAnimatedSingleRowTabControl>
         </Grid>
     </Grid>

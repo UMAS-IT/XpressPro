@@ -27,6 +27,8 @@ namespace Orion.DataAccess.DataBase
         public DbSet<Title> Titles { get; set; }
         public DbSet<Spec> Specs { get; set; }
         public DbSet<Company> Companies { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<DataSheet> DataSheets { get; set; }
 
 
 
@@ -188,10 +190,20 @@ namespace Orion.DataAccess.DataBase
                         .WithOne(m => m.Title)
                         .HasForeignKey(m => m.TitleId);
 
+            modelBuilder.Entity<Company>()
+                        .HasMany(p => p.Products)
+                        .WithOne(m => m.Company)
+                        .HasForeignKey(m => m.CompanyId);
+
+            modelBuilder.Entity<Product>()
+                        .HasMany(p => p.DataSheets)
+                        .WithOne(m => m.Product)
+                        .HasForeignKey(m => m.ProductId);
+
             modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.Company)
+                        entry.HasOne(d => d.DataSheet)
                         .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CompanyId)
+                        .HasForeignKey(y => y.DataSheetId)
                         .OnDelete(DeleteBehavior.Restrict));
 
             #region Quantech Quote Items
@@ -214,32 +226,6 @@ namespace Orion.DataAccess.DataBase
                         .HasMany(p => p.ItemA4s)
                         .WithOne(m => m.Quote)
                         .HasForeignKey(m => m.QuoteId);
-            #endregion
-
-            #region Quantech Catalog Titles
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogA1)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogA1Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogA2)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogA2Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogA3)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogA3Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogA4)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogA4Id)
-                        .OnDelete(DeleteBehavior.Restrict));
             #endregion
 
             #region Quantech Item Titles
@@ -295,38 +281,6 @@ namespace Orion.DataAccess.DataBase
                         .HasMany(p => p.ItemB5s)
                         .WithOne(m => m.Quote)
                         .HasForeignKey(m => m.QuoteId);
-            #endregion
-
-            #region ABB Catalog Titles
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogB1)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogB1Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogB2)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogB2Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogB3)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogB3Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogB4)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogB4Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogB5)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogB5Id)
-                        .OnDelete(DeleteBehavior.Restrict));
             #endregion
 
             #region ABB Item Titles
@@ -385,32 +339,6 @@ namespace Orion.DataAccess.DataBase
                         .HasForeignKey(m => m.QuoteId);
             #endregion
 
-            #region American Wheatley Catalog Titles
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogC1)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogC1Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogC2)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogC2Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogC3)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogC3Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogC4)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogC4Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-            #endregion
-
             #region American Wheatley Item Titles
             modelBuilder.Entity<Title>(entry =>
                         entry.HasOne(d => d.ItemC1)
@@ -449,20 +377,6 @@ namespace Orion.DataAccess.DataBase
                         .HasMany(p => p.ItemD2s)
                         .WithOne(m => m.Quote)
                         .HasForeignKey(m => m.QuoteId);
-            #endregion
-
-            #region Puroflux Catalog Titles
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogD1)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogD1Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogD2)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogD2Id)
-                        .OnDelete(DeleteBehavior.Restrict));
             #endregion
 
             #region Puroflux Item Titles
@@ -518,50 +432,6 @@ namespace Orion.DataAccess.DataBase
                         .HasForeignKey(m => m.QuoteId);
             #endregion
 
-            #region Groundfos Catalog Titles
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogE1)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogE1Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogE2)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogE2Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogE3)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogE3Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogE4)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogE4Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogE5)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogE5Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogE6)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogE6Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogE7)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogE7Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-            #endregion
-
             #region Groundfos Item Titles
             modelBuilder.Entity<Title>(entry =>
                         entry.HasOne(d => d.ItemE1)
@@ -615,15 +485,7 @@ namespace Orion.DataAccess.DataBase
                         .HasForeignKey(m => m.QuoteId);
             #endregion
 
-            #region Puroflux Catalog Titles
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogF1)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogF1Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-            #endregion
-
-            #region Puroflux Item Titles
+            #region UV Resources Item Titles
             modelBuilder.Entity<Title>(entry =>
                         entry.HasOne(d => d.ItemF1)
                         .WithMany(x => x.Titles).IsRequired(false)
@@ -663,44 +525,6 @@ namespace Orion.DataAccess.DataBase
                         .HasMany(p => p.ItemG6s)
                         .WithOne(m => m.Quote)
                         .HasForeignKey(m => m.QuoteId);
-            #endregion
-
-            #region BAC Cooling Towers Catalog Titles
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogG1)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogG1Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogG2)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogG2Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogG3)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogG3Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogG4)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogG4Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogG5)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogG5Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogG6)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogG6Id)
-                        .OnDelete(DeleteBehavior.Restrict));
             #endregion
 
             #region BAC Cooling Towers Item Titles
@@ -768,38 +592,6 @@ namespace Orion.DataAccess.DataBase
                         .HasMany(p => p.ItemH5s)
                         .WithOne(m => m.Quote)
                         .HasForeignKey(m => m.QuoteId);
-            #endregion
-
-            #region BAC Closed Circuits Catalog Titles
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogH1)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogH1Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogH2)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogH2Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogH3)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogH3Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogH4)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogH4Id)
-                        .OnDelete(DeleteBehavior.Restrict));
-
-            modelBuilder.Entity<Title>(entry =>
-                        entry.HasOne(d => d.CatalogH5)
-                        .WithMany(x => x.Titles).IsRequired(false)
-                        .HasForeignKey(y => y.CatalogH5Id)
-                        .OnDelete(DeleteBehavior.Restrict));
             #endregion
 
             #region BAC Closed Circuits Item Titles

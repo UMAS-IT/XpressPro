@@ -99,6 +99,21 @@
                                 </icon:PackIconModern>
                             </MenuItem.Icon>
                         </MenuItem>
+
+                        <MenuItem Header="Configuration" Command="{Binding ConfigurationCommand}">
+                            <MenuItem.Icon>
+                                <icon:PackIconVaadinIcons Kind="Cog" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                    <icon:PackIconVaadinIcons.LayoutTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                        </TransformGroup>
+                                    </icon:PackIconVaadinIcons.LayoutTransform>
+                                </icon:PackIconVaadinIcons>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        
                         <MenuItem Header="Log Out" Command="{Binding LogOutCommand}">
                             <MenuItem.Icon>
                                 <icon:PackIconModern Kind="User"

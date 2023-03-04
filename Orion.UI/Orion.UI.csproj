@@ -242,7 +242,9 @@
     <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG6ItemViewModel.cs" />
     <Compile Include="ViewModel\CatalogViewModel.cs" />
     <Compile Include="ViewModel\ComingSoonViewModel.cs" />
+    <Compile Include="ViewModel\ConfigurationMenuViewModel.cs" />
     <Compile Include="ViewModel\CreateQuoteViewModel.cs" />
+    <Compile Include="ViewModel\DataSheetListViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE1ListViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE2ListViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE3ListViewModel.cs" />
@@ -480,8 +482,14 @@
     <Compile Include="View\ComingSoonView.xaml.cs">
       <DependentUpon>ComingSoonView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ConfigurationMenuView.xaml.cs">
+      <DependentUpon>ConfigurationMenuView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CreateQuoteView.xaml.cs">
       <DependentUpon>CreateQuoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DataSheetListView.xaml.cs">
+      <DependentUpon>DataSheetListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Groundfos\CatalogList\CatalogE1ListVew.xaml.cs">
       <DependentUpon>CatalogE1ListVew.xaml</DependentUpon>
@@ -888,7 +896,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ConfigurationMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CreateQuoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DataSheetListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
