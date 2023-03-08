@@ -52,7 +52,7 @@
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Description" 
                              Text="{Binding Catalog.Description, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
+                             Style="{DynamicResource TxtStyle}" Height="auto" MinHeight="40" MaxHeight="72" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" >
                     </TextBox>
 
                     <TextBox  
@@ -115,7 +115,7 @@
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Cost" 
-                             Background="DarkOrange"
+                             Background="{StaticResource MahApps.Brushes.Accent}"
                              IsReadOnly="True"
                              Text="{Binding Catalog.Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c},  Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
@@ -131,7 +131,7 @@
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Unit Sell Price" 
-                             Background="DarkOrange"
+                             Background="{StaticResource MahApps.Brushes.Accent}"
                              IsReadOnly="True"
                              Text="{Binding Catalog.SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">

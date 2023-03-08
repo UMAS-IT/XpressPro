@@ -23,7 +23,20 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition MinWidth="400" MaxWidth="400"/>
+            <ColumnDefinition >
+                <ColumnDefinition.Style>
+                    <Style TargetType="ColumnDefinition">
+                        <Setter Property="MinWidth" Value="250"/>
+                        <Setter Property="MaxWidth" Value="250"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding DataSheetActive, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="True">
+                                <Setter Property="MinWidth" Value="500"/>
+                                <Setter Property="MaxWidth" Value="500"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ColumnDefinition.Style>
+            </ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <GroupBox Grid.Column="0"  Header="Products"
@@ -86,6 +99,11 @@
                             <Setter Property="Grid.ColumnSpan" Value="1"/>
                             <Setter Property="IsEnabled" Value="False"/>
                         </DataTrigger>
+
+                        <DataTrigger Binding="{Binding DataSheetActive, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="True">
+                            <Setter Property="Grid.ColumnSpan" Value="1"/>
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
@@ -93,5 +111,185 @@
         </Grid>
 
         <ContentControl Content="{Binding EditViewModel}" Grid.Column="2"/>
+
+        <Grid Grid.Column="2">
+
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding DataSheetActive, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Margin="0,5,5,5" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
+                    <Label Content="Data Sheets" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+            </Border>
+
+            <Border Grid.Row="1" BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Accent}" Margin="0,0,5,5">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <ItemsControl ItemsSource="{Binding DataSheetViewModels}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <ItemContainerTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <CheckBox Margin="5,0,-8,0" IsChecked="{Binding DataSheet.IsSelected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" >
+                                        <CheckBox.Style>
+                                            <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                                                <Setter Property="FontSize" Value="8"/>
+                                                <Setter Property="LayoutTransform">
+                                                    <Setter.Value>
+                                                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </CheckBox.Style>
+
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Checked">
+                                                <i:InvokeCommandAction Command="{Binding DataContext.DataSheetCheckedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}"/>
+                                            </i:EventTrigger>
+                                            <i:EventTrigger EventName="Unchecked">
+                                                <i:InvokeCommandAction Command="{Binding DataContext.DataSheetUnchekedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </CheckBox>
+                                    <ContentControl Content="{Binding}" Grid.Column="1"/>
+                                </Grid>
+                            </ItemContainerTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Border>
+
+            <GroupBox Grid.Row="2" Header="Actions" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,0,5,5">
+                <Grid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button 
+                                    Margin="1"
+                                    Background="Orange"
+                                    Width="65"
+                                    Command="{Binding BackFromDataSheetsCommand}"
+                                    ToolTip="Back" >
+                            <Button.Content>
+                                <StackPanel Orientation="Vertical">
+                                    <icon:PackIconMaterial Kind="KeyboardReturn" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                        <icon:PackIconMaterial.LayoutTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            </TransformGroup>
+                                        </icon:PackIconMaterial.LayoutTransform>
+                                    </icon:PackIconMaterial>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+
+                        <Button 
+                                    Margin="1"
+                                    Background="{StaticResource MahApps.Brushes.Accent}"
+                                    Width="65"
+                                    Command="{Binding UpdateDataSheetSelectedCommand}"
+                                    ToolTip="Update Data Sheet Selected" >
+                            <Button.Content>
+                                <StackPanel Orientation="Vertical">
+                                    <icon:PackIconMaterial Kind="ContentSave" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                        <icon:PackIconMaterial.LayoutTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            </TransformGroup>
+                                        </icon:PackIconMaterial.LayoutTransform>
+                                    </icon:PackIconMaterial>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+
+                </Grid>
+            </GroupBox>
+
+        </Grid>
+
+        <!--<GroupBox Grid.Column="2"  Margin="0,5,5,5"
+                  ctrl:ControlsHelper.ContentCharacterCasing="Normal">
+            <GroupBox.Style>
+                <Style TargetType="GroupBox" BasedOn="{StaticResource MahApps.Styles.GroupBox}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding DataSheetActive, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </GroupBox.Style>
+            <GroupBox.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Column="0">
+                        <Label Content="Data Sheets" Padding="0" Margin="0" VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                </Grid>
+            </GroupBox.Header>
+
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl ItemsSource="{Binding DataSheetViewModels}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <ItemContainerTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Margin="1" IsChecked="{Binding SelectionMode}" >
+                                    <CheckBox.Style>
+                                        <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                                            <Setter Property="FontSize" Value="8"/>
+                                            <Setter Property="LayoutTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </CheckBox.Style>
+                                </CheckBox>
+                                <ContentControl Content="{Binding}" Grid.Column="1"/>
+                            </Grid>
+                        </ItemContainerTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </GroupBox>-->
     </Grid>
 </UserControl>

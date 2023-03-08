@@ -34,7 +34,7 @@
         </Border>
 
         <Border Grid.Row="1" BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Accent}" Margin="0,5,5,0">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                 <StackPanel Orientation="Vertical">
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Model" 
@@ -50,7 +50,7 @@
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Description" 
                              Text="{Binding Catalog.Description, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
+                             Style="{DynamicResource TxtStyle}" Height="auto" MinHeight="40" MaxHeight="72" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" >
                     </TextBox>
 
                     <TextBox  
@@ -77,7 +77,7 @@
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Cost" 
-                             Background="DarkOrange"
+                             Background="{StaticResource MahApps.Brushes.Accent}"
                              IsReadOnly="True"
                              Text="{Binding Catalog.Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c},  Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
@@ -93,7 +93,7 @@
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Unit Sell Price" 
-                             Background="DarkOrange"
+                             Background="{StaticResource MahApps.Brushes.Accent}"
                              IsReadOnly="True"
                              Text="{Binding Catalog.SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">

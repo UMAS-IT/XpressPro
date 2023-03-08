@@ -1,11 +1,7 @@
 ﻿using Orion.Binding.Binding;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Orion.Domain.Entity
 {
@@ -45,6 +41,14 @@ namespace Orion.Domain.Entity
         {
             get => _writed;
             set => SetProperty(ref _writed, value);
+        }
+
+        private bool _isSelected;
+        [NotMapped]
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set => SetProperty(ref _isSelected, value);
         }
 
         public DataSheet()

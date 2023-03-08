@@ -6,6 +6,7 @@ using Orion.Helper.Extension;
 using Orion.UI.Command;
 using Orion.UI.Service;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,13 +17,8 @@ namespace Orion.UI.ViewModel
     {
         private MessageService messageService;
         private TitleService titleService;
-
-        private ICatalog _catalog;
-        public ICatalog Catalog
-        {
-            get => _catalog;
-            set => SetProperty(ref _catalog, value);
-        }
+        private IDialogCoordinator dialogCoordinator;
+        private DataSheetService dataSheetService;
 
         private ObservableCollection<Title> _titles;
         public ObservableCollection<Title> Titles
@@ -31,49 +27,98 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _titles, value);
         }
 
-        public RelayCommand LoadDataCommand { get; set; }
+        private DataSheet _dataSheet;
+        public DataSheet DataSheet
+        {
+            get => _dataSheet;
+            set => SetProperty(ref _dataSheet, value);
+        }
+
+        private Product _product;
+        public Product Product
+        {
+            get => _product;
+            set => SetProperty(ref _product, value);
+        }
+
+        private bool _SelectionMode;
+        public bool SelectionMode
+        {
+            get => _SelectionMode;
+            set => SetProperty(ref _SelectionMode, value);
+        }
+
         public RelayCommand<Title> DeleteTitleCommand { get; set; }
         public RelayCommand<Title> AddSpecCommand { get; set; }
         public RelayCommand<Spec> DeleteSpecCommand { get; set; }
         public RelayCommand AddTitleCommand { get; set; }
         public RelayCommand UpdateTitlesCommand { get; set; }
-        public RelayCommand BackFromTitlesCommand { get; set; }
+        public RelayCommand DeleteDataSheetCommand { get; set; }
 
-        public Action BackRequested = delegate { };
-        public TitleViewModel(IDialogCoordinator dialogCoordinator, ICatalog catalog)
+        public Action<DataSheet> OnDataSheetDeletedRequested = delegate { };
+
+        public TitleViewModel(IDialogCoordinator dialogCoordinator, DataSheet dataSheet, Product product, bool selectionMode = false)
         {
-            Catalog = catalog;
+            this.dialogCoordinator = dialogCoordinator;
+            this.Product = product;
+            this.DataSheet = dataSheet;
+            this.SelectionMode = selectionMode;
+            Titles = dataSheet.Titles.ToObservableCollection();
 
-            LoadDataCommand = new RelayCommand(OnLoadData);
             DeleteTitleCommand = new RelayCommand<Title>(OnDeleteTitle);
             DeleteSpecCommand = new RelayCommand<Spec>(OnDeleteSpec);
             AddSpecCommand = new RelayCommand<Title>(OnAddSpec);
             AddTitleCommand = new RelayCommand(OnAddTitle);
             UpdateTitlesCommand = new RelayCommand(OnUpdateTitles);
-            BackFromTitlesCommand = new RelayCommand(OkBackFromTitles);
+            DeleteDataSheetCommand = new RelayCommand(OnDeleteDataSheet);
 
             titleService = new TitleService();
+            dataSheetService = new DataSheetService();
             messageService = new MessageService(dialogCoordinator, this);
         }
 
-        private void OkBackFromTitles()
+        private async void OnDeleteDataSheet()
         {
-            BackRequested();
+            if (DataSheet.Id != 0)
+            {
+                if (await dialogCoordinator.ShowMessageAsync(this, "Delete Data Sheert", $"Are you sure to delete this data sheet?", MessageDialogStyle.AffirmativeAndNegative) != MessageDialogResult.Affirmative)
+                    return;
+
+                try
+                {
+                    await messageService.StartMessage("Data Sheet", "Deleting data sheet, please wait...");
+
+                        dataSheetService.DeleteDataSheet(DataSheet);
+
+                        await messageService.EndMessage("Data Sheet", "Data sheet has been deleted");
+                }
+                catch (Exception ex)
+                {
+                    await messageService.ExceptionMessage(ex);
+                    return;
+                }
+            }
+
+
+            OnDataSheetDeletedRequested(DataSheet);
         }
 
         private async void OnUpdateTitles()
         {
             try
             {
-                await messageService.StartMessage("Item Specs", "Saving item specs, please wait...");
+                await messageService.StartMessage("Data Sheet", "Saving data sheet, please wait...");
 
 
                 if (!await CanUpdateTitles())
                     return;
 
-                //Titles = titleService.UpdateTitlesFromCatalog(Catalog, Titles).ToObservableCollection();
+                if (DataSheet.Id == 0)
+                    DataSheet = dataSheetService.CreateDataSheet(Titles, Product);
+                else
+                Titles = titleService.UpdataTitlesFromDataSheet(DataSheet, Titles).ToObservableCollection();
 
-                await messageService.EndMessage("Item Specs", "Item specs has been saved");
+                await messageService.EndMessage("Data Sheet", "Data Sheet has been saved");
             }
             catch (Exception ex)
             {
@@ -129,20 +174,9 @@ namespace Orion.UI.ViewModel
             selectedTitle.Specs.Remove(spec);
         }
 
-        private async void OnLoadData()
+        public static explicit operator TitleViewModel(List<BindableBase> v)
         {
-            try
-            {
-                await messageService.StartMessage("Catalog Specs", "Loading catalog specs, please wait...");
-
-                //Titles = titleService.GetTitlesFromCatalog(Catalog).ToObservableCollection();
-
-                await messageService.EndMessage("Catalog Specs", "Catalog specs has been loaded");
-            }
-            catch (Exception ex)
-            {
-                await messageService.ExceptionMessage(ex);
-            }
+            throw new NotImplementedException();
         }
     }
 }

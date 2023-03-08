@@ -23,6 +23,7 @@ using Orion.UI.ViewModel.Quantech.EditCatalogItem;
 using Orion.UI.ViewModel.UvResources.CatalogList;
 using Orion.UI.ViewModel.UvResources.EditCatalogItem;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -37,6 +38,8 @@ namespace Orion.UI.ViewModel
         MessageService messageService;
         IDialogCoordinator dialogCoordinator;
         CompanyService companyService;
+        private DataSheetService dataSheetService;
+        CatalogService catalogService;
 
         private BindableBase _currentViewModel;
         public BindableBase CurrentViewModel
@@ -66,6 +69,13 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _editActive, value);
         }
 
+        private bool _dataSheetActive;
+        public bool DataSheetActive
+        {
+            get => _dataSheetActive;
+            set => SetProperty(ref _dataSheetActive, value);
+        }
+
         private ObservableCollection<Company> _companies;
         public ObservableCollection<Company> Companies
         {
@@ -73,10 +83,27 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _companies, value);
         }
 
+        private ObservableCollection<BindableBase> _dataSheetViewModels;
+        public ObservableCollection<BindableBase> DataSheetViewModels
+        {
+            get => _dataSheetViewModels;
+            set => SetProperty(ref _dataSheetViewModels, value);
+        }
+
+        private ICatalog _catalogSelected;
+        public ICatalog CatalogSelected
+        {
+            get => _catalogSelected;
+            set => SetProperty(ref _catalogSelected, value);
+        }
+
         public RelayCommand LoadDataCommand { get; set; }
 
         public RelayCommand<string> OpenCatalogCommand { get; set; }
-
+        public RelayCommand<BindableBase> DataSheetCheckedCommand { get; set; }
+        public RelayCommand<BindableBase> DataSheetUnchekedCommand { get; set; }
+        public RelayCommand BackFromDataSheetsCommand { get; set; }
+        public RelayCommand UpdateDataSheetSelectedCommand { get; set; }
 
         public CatalogViewModel(IDialogCoordinator dialogCoordinator)
         {
@@ -84,10 +111,17 @@ namespace Orion.UI.ViewModel
 
             LoadDataCommand = new RelayCommand(OnLoadData);
             OpenCatalogCommand = new RelayCommand<string>(OnOpenCatalog);
+            DataSheetCheckedCommand = new RelayCommand<BindableBase>(OnDataSheetChecked);
+            DataSheetUnchekedCommand = new RelayCommand<BindableBase>(OnDataSheetUnchecked);
+            BackFromDataSheetsCommand = new RelayCommand(OnBackFromDataSheets);
+            UpdateDataSheetSelectedCommand = new RelayCommand(OnUpdateDataSheetSelected);
 
             messageService = new MessageService(dialogCoordinator, this);
             companyService = new CompanyService();
+            dataSheetService = new DataSheetService();
+            catalogService = new CatalogService();
         }
+
 
         private void OnEditCatalogItem(ICatalog catalog)
         {
@@ -393,14 +427,72 @@ namespace Orion.UI.ViewModel
             }
         }
 
-        private void OnEditCatalogTitles(ICatalog catalog)
+        private async void OnEditCatalogTitles(ICatalog catalog)
         {
-            EditActive = true;
+            try
+            {
+                await messageService.StartMessage("Data Sheets", "Loading data sheets, please wait...");
 
-            TitleViewModel titleViewModel = new TitleViewModel(dialogCoordinator, catalog);
-            titleViewModel.BackRequested += OnBackFromEdit;
+                DataSheetActive = true;
 
-            EditViewModel = titleViewModel;
+                DataSheetViewModels = new ObservableCollection<BindableBase>();
+
+                CatalogSelected = catalogService.GetCatalogByCatalogId(catalog);
+
+                List<DataSheet> dataSheets = dataSheetService.GetDataSheetsByIndex(CatalogSelected.Index).ToList();
+
+                foreach (DataSheet dataSheet in dataSheets)
+                {
+                    dataSheet.IsSelected = catalog.DataSheet != null && catalog.DataSheet.Id == dataSheet.Id;
+
+                    TitleViewModel titleViewModel = new TitleViewModel(dialogCoordinator, dataSheet, dataSheet.Product, true);
+
+                    DataSheetViewModels.Add(titleViewModel);
+                }
+
+                await messageService.EndMessage("Data Sheets", "Data sheets has been loaded");
+            }
+            catch (Exception ex)
+            {
+                await messageService.ExceptionMessage(ex);
+            }
+        }
+        private async void OnUpdateDataSheetSelected()
+        {
+            try
+            {
+                await messageService.StartMessage("Data Sheets", "Updating data sheet selection");
+
+                List<DataSheet> dataSheets = DataSheetViewModels
+                                .Select(dataSheetViewModel => dataSheetViewModel as TitleViewModel)
+                                .Where(titleViewModel => titleViewModel != null)
+                                .ToList().Select(x => x.DataSheet).ToList();
+
+                catalogService.UpdateCatalogDataSheet(CatalogSelected, dataSheets);
+                DataSheetActive = false;
+
+                await messageService.EndMessage("Data Sheets", "Data sheet selection updated");
+            }
+            catch (Exception ex)
+            {
+                await messageService.ExceptionMessage(ex);
+            }
+        }
+
+        private void OnDataSheetUnchecked(BindableBase viewModel)
+        {
+
+        }
+
+        private void OnDataSheetChecked(BindableBase viewModel)
+        {
+            foreach (BindableBase bindableBase in DataSheetViewModels)
+            {
+                if (((TitleViewModel)bindableBase).DataSheet.Id != ((TitleViewModel)viewModel).DataSheet.Id)
+                {
+                    ((TitleViewModel)bindableBase).DataSheet.IsSelected = false;
+                }
+            }
         }
 
         private async void OnBackToProducts()
@@ -417,6 +509,12 @@ namespace Orion.UI.ViewModel
             EditViewModel = null;
             await Task.Delay(100);
         }
+
+        private void OnBackFromDataSheets()
+        {
+            DataSheetActive = false;
+        }
+
 
     }
 }
