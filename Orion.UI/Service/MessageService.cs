@@ -60,6 +60,7 @@ namespace Orion.UI.Service
             controller.SetMessage(String.Empty);
             controller.SetTitle(String.Empty);
             await dialogCoordinator.ShowMessageAsync(dataContext, title, message, MessageDialogStyle.Affirmative);
+            await Task.Delay(250);
             await controller.CloseAsync();
         }
     }

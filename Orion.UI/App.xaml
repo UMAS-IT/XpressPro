@@ -96,7 +96,7 @@
             <DataTemplate DataType="{x:Type vm:NewProjectViewModel}">
                 <view:NewProjectView/>
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vm:OpenProjectViewModel}">
                 <view:OpenProjectView/>
             </DataTemplate>
@@ -104,7 +104,7 @@
             <DataTemplate DataType="{x:Type vm:ComingSoonViewModel}">
                 <view:ComingSoonView/>
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vm:ProjectInformationViewModel}">
                 <view:ProjectInformationView/>
             </DataTemplate>
@@ -132,11 +132,11 @@
             <DataTemplate DataType="{x:Type vm:CatalogViewModel}">
                 <view:CatalogView/>
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vm:ReportsViewModel}">
                 <view:ReportsView/>
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vm:ConfigurationMenuViewModel}">
                 <view:ConfigurationMenuView/>
             </DataTemplate>
@@ -219,7 +219,7 @@
             <DataTemplate DataType="{x:Type vmItemB:EditB5ItemViewModel}">
                 <viewItemB:EditB5ItemView/>
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmCatalogB:CatalogB1ListViewModel}">
                 <viewCatalogB:CatalogB1ListView/>
             </DataTemplate>
@@ -424,7 +424,7 @@
             <DataTemplate DataType="{x:Type vmECE:EditE6CatalogViewModel}">
                 <viewECE:EditE6CatalogView/>
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmECE:EditE7CatalogViewModel}">
                 <viewECE:EditE7CatalogView/>
             </DataTemplate>
@@ -671,7 +671,7 @@
             </Style>
 
 
-            <Style TargetType="CheckBox" x:Key="CircleCheckbox"> 
+            <Style TargetType="CheckBox" x:Key="CircleCheckbox">
                 <Setter Property="Cursor" Value="Hand"></Setter>
                 <Setter Property="Content" Value=""></Setter>
                 <Setter Property="Template">
@@ -744,8 +744,115 @@
                              AutoReverse="True" Storyboard.TargetProperty="Opacity" />
             </Storyboard>
 
+
+            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}" x:Key="buttonInfoStyle">
+                <Setter Property="ToolTip" Value="Item Info"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding HasTitles,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="True">
+                        <Setter Property="Background" Value="#32B974"/>
+                        <Setter Property="ToolTip">
+                            <Setter.Value>
+                                <ToolTip MaxWidth="400">
+                                    <TreeView Grid.Row="1"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+              Name="treeView"
+          ItemsSource="{Binding Titles, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+          Style="{StaticResource MahApps.Styles.TreeView.Virtualized}">
+                                        <TreeView.ItemContainerStyle>
+                                            <Style TargetType="TreeViewItem" BasedOn="{StaticResource MahApps.Styles.TreeViewItem}">
+                                                <Setter Property="IsExpanded" Value="True"/>
+                                            </Style>
+                                        </TreeView.ItemContainerStyle>
+                                        <TreeView.ItemTemplate>
+                                            <HierarchicalDataTemplate ItemsSource="{Binding  Specs, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" >
+
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="auto"/>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Grid.Column="0" Content="Title:"/>
+                                                    <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                         ScrollViewer.VerticalScrollBarVisibility="Auto"  
+                                         ctrl:TextBoxHelper.Watermark="Title" MaxHeight="72"
+                                          Margin="1"
+                                         Background="DarkCyan"/>
+
+                                                </Grid>
+
+                                                <HierarchicalDataTemplate.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid >
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="auto"/>
+                                                                <ColumnDefinition/>
+                                                                <ColumnDefinition Width="auto"/>
+                                                                <ColumnDefinition  Width="auto"/>
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <Label Grid.Column="0" Content="Spec:"/>
+
+
+                                                            <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                         ScrollViewer.VerticalScrollBarVisibility="Auto"  
+                                         ctrl:TextBoxHelper.Watermark="Specification" MaxHeight="72"
+                                          Margin="1"/>
+
+                                                            <TextBox Grid.Column="2" Width="90" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="{Binding Price, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}" 
+                                             ctrl:TextBoxHelper.Watermark="Price" 
+                                              Margin="1"/>
+
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </HierarchicalDataTemplate.ItemTemplate>
+                                            </HierarchicalDataTemplate>
+                                        </TreeView.ItemTemplate>
+                                    </TreeView>
+                                </ToolTip>
+                            </Setter.Value>
+                        </Setter>
+                        <DataTrigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" SpeedRatio="0.5" From="0.2" To="1" Duration="0:0:1" AutoReverse="True" RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </DataTrigger.EnterActions>
+                        <DataTrigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard FillBehavior="Stop">
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </DataTrigger.ExitActions>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+
+            <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}" x:Key="chekboxStyle">
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="1.25" ScaleY="1.25" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}" x:Key="overrideTextBoxStyle">
+                <Setter Property="IsReadOnly" Value="True"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding OverridePrice}" Value="True">
+                        <Setter Property="Background" Value="#32B974"/>
+                        <Setter Property="IsReadOnly" Value="False"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
         </ResourceDictionary>
-
-
     </Application.Resources>
 </Application>

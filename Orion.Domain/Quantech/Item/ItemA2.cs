@@ -200,7 +200,13 @@ namespace Orion.Domain.EntityItem
 
         [NotMapped]
         public int? CatalogId { get { return CatalogA2Id; } }
-
+        private bool _hasTitles;
+        [NotMapped]
+        public bool HasTitles
+        {
+            get => _hasTitles;
+            set => SetProperty(ref _hasTitles, value);
+        }
         public ItemA2()
         {
             Titles = new ObservableCollection<Title>();

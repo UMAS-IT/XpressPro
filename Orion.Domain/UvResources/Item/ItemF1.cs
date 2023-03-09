@@ -205,7 +205,13 @@ namespace Orion.Domain.EntityItemUvResources
 
         [NotMapped]
         public int? CatalogId { get { return CatalogF1Id; } }
-
+        private bool _hasTitles;
+        [NotMapped]
+        public bool HasTitles
+        {
+            get => _hasTitles;
+            set => SetProperty(ref _hasTitles, value);
+        }
         public ItemF1()
         {
             Titles = new ObservableCollection<Title>();

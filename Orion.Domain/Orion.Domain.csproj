@@ -190,7 +190,6 @@
     <Compile Include="Groundfos\Item\ItemE7.cs" />
     <Compile Include="Puroflux\Item\ItemD1.cs" />
     <Compile Include="Puroflux\Item\ItemD2.cs" />
-    <Compile Include="Quantech\Item\ItemB5.cs" />
     <Compile Include="UvResources\Item\ItemF1.cs" />
     <Compile Include="Entity\ICatalog.cs" />
     <Compile Include="Quantech\Item\ItemA1.cs" />

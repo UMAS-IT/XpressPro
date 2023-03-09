@@ -205,7 +205,14 @@ namespace Orion.Domain.EntityItemABB
 
         [NotMapped]
         public int? CatalogId { get { return CatalogB1Id; } }
-
+        
+        private bool _hasTitles;
+        [NotMapped]
+        public bool HasTitles
+        {
+            get => _hasTitles;
+            set => SetProperty(ref _hasTitles, value);
+        }
         public ItemB1()
         {
             Titles = new ObservableCollection<Title>();

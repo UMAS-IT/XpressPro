@@ -956,7 +956,25 @@ namespace Orion.UI.ViewModel
 
             titleFromItemViewModel.BackFromItemTitlesRequested += OnBackFromItemTitles;
 
+            titleFromItemViewModel.BackFromUpdateItemTitlesRequested += OnBackFromUpdatedItemTitles;
+
             TitlesViewModel = titleFromItemViewModel;
+        }
+
+        private async void OnBackFromUpdatedItemTitles(IList<Title> titles, IItem item)
+        {
+
+            TitlesActive = false;
+            TitlesViewModel = null;
+            await Task.Delay(100);
+
+            ObservableCollection<IItem> currentItems = GetSelectedItems(item);
+
+            IItem currentItem = currentItems.FirstOrDefault(x => x.Id == item.Id);
+
+            currentItem.Titles = titles;
+
+            currentItem.HasTitles = titles != null && titles.Count > 0;
         }
 
         private async void OnBackFromItemTitles()

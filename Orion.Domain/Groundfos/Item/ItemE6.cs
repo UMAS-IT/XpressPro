@@ -204,7 +204,13 @@ namespace Orion.Domain.EntityItemGroundfos
 
         [NotMapped]
         public int? CatalogId { get { return CatalogE6Id; } }
-
+        private bool _hasTitles;
+        [NotMapped]
+        public bool HasTitles
+        {
+            get => _hasTitles;
+            set => SetProperty(ref _hasTitles, value);
+        }
         public ItemE6()
         {
             Titles = new ObservableCollection<Title>();

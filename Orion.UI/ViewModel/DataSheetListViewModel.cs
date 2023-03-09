@@ -143,7 +143,6 @@ namespace Orion.UI.ViewModel
 
         private void DataSheetDeletedRequested(DataSheet dataSheetDeleted)
         {
-            //DataSheets.Remove(dataSheetDeleted);
             DataSheetViewModels.Remove(DataSheetViewModels.First(x => (x as TitleViewModel).DataSheet == dataSheetDeleted));
         }
 
@@ -166,10 +165,5 @@ namespace Orion.UI.ViewModel
                 await messageService.ExceptionMessage(ex);
             }
         }
-
-        //private void GetDataSheets(int productId)
-        //{
-        //    DataSheets = dataSheetService.GetDataSheetsByProductId(productId).ToObservableCollection();
-        //}
     }
 }

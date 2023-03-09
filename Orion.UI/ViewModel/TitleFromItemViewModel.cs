@@ -43,6 +43,8 @@ namespace Orion.UI.ViewModel
 
         public Action BackFromItemTitlesRequested = delegate { };
 
+        public Action<IList<Title>, IItem> BackFromUpdateItemTitlesRequested = delegate { };
+
         public TitleFromItemViewModel(IDialogCoordinator dialogCoordinator, IItem item)
         {
             Item = item;
@@ -83,6 +85,7 @@ namespace Orion.UI.ViewModel
                 await messageService.ExceptionMessage(ex);
                 return;
             }
+            BackFromUpdateItemTitlesRequested(Titles, Item);
         }
 
         private async Task<bool> CanUpdateTitles()

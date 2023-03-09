@@ -204,7 +204,13 @@ namespace Orion.Domain.EntityItemBACClosedCircuits
 
         [NotMapped]
         public int? CatalogId { get { return CatalogH4Id; } }
-
+        private bool _hasTitles;
+        [NotMapped]
+        public bool HasTitles
+        {
+            get => _hasTitles;
+            set => SetProperty(ref _hasTitles, value);
+        }
         public ItemH4()
         {
             Titles = new ObservableCollection<Title>();

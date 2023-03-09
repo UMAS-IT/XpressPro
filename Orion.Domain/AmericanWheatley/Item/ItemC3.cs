@@ -204,7 +204,13 @@ namespace Orion.Domain.EntityItemAmericanWheatley
 
         [NotMapped]
         public int? CatalogId { get { return CatalogC3Id; } }
-
+        private bool _hasTitles;
+        [NotMapped]
+        public bool HasTitles
+        {
+            get => _hasTitles;
+            set => SetProperty(ref _hasTitles, value);
+        }
         public ItemC3()
         {
             Titles = new ObservableCollection<Title>();

@@ -13,6 +13,8 @@ using Orion.Helper.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Remoting.Contexts;
 
 namespace Orion.DataAccess.Service
 {
@@ -375,8 +377,6 @@ namespace Orion.DataAccess.Service
             }
         }
 
-
-
         public ICatalog GetCatalogByCatalogId(ICatalog catalog, GlobalDbContext refContext = null)
         {
             using (GlobalDbContext context = refContext == null ? new GlobalDbContext() : refContext)
@@ -462,7 +462,6 @@ namespace Orion.DataAccess.Service
             }
         }
 
-
         public ICatalog GetCatalogByCatalogIdByContext(ICatalog catalog, GlobalDbContext context)
         {
 
@@ -546,9 +545,7 @@ namespace Orion.DataAccess.Service
                     return null;
         }
 
-
-
-        public void UpdateCatalogDataSheet(ICatalog catalog, IList<DataSheet> dataSheets)
+        public ICatalog UpdateCatalogDataSheet(ICatalog catalog, IList<DataSheet> dataSheets)
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
@@ -564,11 +561,10 @@ namespace Orion.DataAccess.Service
                 context.Update(dbCatalog);
 
                 context.SaveChanges();
+
+                return dbCatalog;
             }
         }
-
-
-
 
         public ICatalog UpdateCatalogItem(ICatalog catalog)
         {
@@ -773,6 +769,7 @@ namespace Orion.DataAccess.Service
                         CatalogB5 dbCatalogB5 = context.CatalogB5s.FirstOrDefault(x => x.Id == catalog.Id);
 
                         dbCatalogB5.Model = catalogB5.Model;
+                        dbCatalogB5.Description = catalogB5.Description;
                         dbCatalogB5.ListPrice = catalogB5.ListPrice;
                         dbCatalogB5.CostMultiplier = catalogB5.CostMultiplier;
                         dbCatalogB5.SellMargin = catalogB5.SellMargin;
@@ -1317,93 +1314,5 @@ namespace Orion.DataAccess.Service
             }
         }
 
-
-
-        //public T GetCatalogByCatalogId<T>(int catalogId, GlobalDbContext context) where T : class, ICatalog
-        //{
-        //    var typeName = typeof(T).Name;
-        //    var tableName = $"Catalog{typeName.Substring(1)}s";
-        //    var dbSet = context.Set<T>();
-        //    var catalog = dbSet.Include(x => x.DataSheet).FirstOrDefault(x => x.Id == catalogId);
-        //    return catalog;
-        //}
-
-        //public Type GetCatalogType(ICatalog catalog)
-        //{
-        //    Type type = catalog.GetType();
-        //    switch (type.Name)
-        //    {
-        //        case nameof(CatalogA1):
-        //            return typeof(CatalogA1);
-        //        case nameof(CatalogA2):
-        //            return typeof(CatalogA2);
-        //        case nameof(CatalogA3):
-        //            return typeof(CatalogA3);
-        //        case nameof(CatalogA4):
-        //            return typeof(CatalogA4);
-        //        case nameof(CatalogB1):
-        //            return typeof(CatalogB1);
-        //        case nameof(CatalogB2):
-        //            return typeof(CatalogB2);
-        //        case nameof(CatalogB3):
-        //            return typeof(CatalogB3);
-        //        case nameof(CatalogB4):
-        //            return typeof(CatalogB4);
-        //        case nameof(CatalogB5):
-        //            return typeof(CatalogB5);
-        //        case nameof(CatalogC1):
-        //            return typeof(CatalogC1);
-        //        case nameof(CatalogC2):
-        //            return typeof(CatalogC2);
-        //        case nameof(CatalogC3):
-        //            return typeof(CatalogC3);
-        //        case nameof(CatalogC4):
-        //            return typeof(CatalogC4);
-        //        case nameof(CatalogD1):
-        //            return typeof(CatalogD1);
-        //        case nameof(CatalogD2):
-        //            return typeof(CatalogD2);
-        //        case nameof(CatalogE1):
-        //            return typeof(CatalogE1);
-        //        case nameof(CatalogE2):
-        //            return typeof(CatalogE2);
-        //        case nameof(CatalogE3):
-        //            return typeof(CatalogE3);
-        //        case nameof(CatalogE4):
-        //            return typeof(CatalogE4);
-        //        case nameof(CatalogE5):
-        //            return typeof(CatalogE5);
-        //        case nameof(CatalogE6):
-        //            return typeof(CatalogE6);
-        //        case nameof(CatalogE7):
-        //            return typeof(CatalogE7);
-        //        case nameof(CatalogF1):
-        //            return typeof(CatalogF1);
-        //        case nameof(CatalogG1):
-        //            return typeof(CatalogG1);
-        //        case nameof(CatalogG2):
-        //            return typeof(CatalogG2);
-        //        case nameof(CatalogG3):
-        //            return typeof(CatalogG3);
-        //        case nameof(CatalogG4):
-        //            return typeof(CatalogG4);
-        //        case nameof(CatalogG5):
-        //            return typeof(CatalogG5);
-        //        case nameof(CatalogG6):
-        //            return typeof(CatalogG6);
-        //        case nameof(CatalogH1):
-        //            return typeof(CatalogH1);
-        //        case nameof(CatalogH2):
-        //            return typeof(CatalogH2);
-        //        case nameof(CatalogH3):
-        //            return typeof(CatalogH3);
-        //        case nameof(CatalogH4):
-        //            return typeof(CatalogH4);
-        //        case nameof(CatalogH5):
-        //            return typeof(CatalogH5);
-        //        default:
-        //            throw new ArgumentException($"Unknown catalog type: {type.Name}");
-        //    }
-        //}
     }
 }

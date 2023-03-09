@@ -204,7 +204,13 @@ namespace Orion.Domain.EntityItemBACCoolingTowers
 
         [NotMapped]
         public int? CatalogId { get { return CatalogG4Id; } }
-
+        private bool _hasTitles;
+        [NotMapped]
+        public bool HasTitles
+        {
+            get => _hasTitles;
+            set => SetProperty(ref _hasTitles, value);
+        }
         public ItemG4()
         {
             Titles = new ObservableCollection<Title>();

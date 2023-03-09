@@ -216,89 +216,89 @@ namespace Orion.UI.ViewModel
         {
             ICatalogListViewModel viewModel = null;
 
-            if (CurrentViewModel is CatalogA1ListViewModel)
-                viewModel = CurrentViewModel as CatalogA1ListViewModel;
-            else if (CurrentViewModel is CatalogA2ListViewModel)
-                viewModel = CurrentViewModel as CatalogA2ListViewModel;
-            else if (CurrentViewModel is CatalogA3ListViewModel)
-                viewModel = CurrentViewModel as CatalogA3ListViewModel;
-            else if (CurrentViewModel is CatalogA4ListViewModel)
-                viewModel = CurrentViewModel as CatalogA4ListViewModel;
+            #region Old Code
+            //if (CurrentViewModel is CatalogA1ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogA1ListViewModel;
+            //else if (CurrentViewModel is CatalogA2ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogA2ListViewModel;
+            //else if (CurrentViewModel is CatalogA3ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogA3ListViewModel;
+            //else if (CurrentViewModel is CatalogA4ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogA4ListViewModel;
 
-            else if (CurrentViewModel is CatalogB1ListViewModel)
-                viewModel = CurrentViewModel as CatalogB1ListViewModel;
-            else if (CurrentViewModel is CatalogB2ListViewModel)
-                viewModel = CurrentViewModel as CatalogB2ListViewModel;
-            else if (CurrentViewModel is CatalogB3ListViewModel)
-                viewModel = CurrentViewModel as CatalogB3ListViewModel;
-            else if (CurrentViewModel is CatalogB4ListViewModel)
-                viewModel = CurrentViewModel as CatalogB4ListViewModel;
-            else if (CurrentViewModel is CatalogB5ListViewModel)
-                viewModel = CurrentViewModel as CatalogB5ListViewModel;
+            //else if (CurrentViewModel is CatalogB1ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogB1ListViewModel;
+            //else if (CurrentViewModel is CatalogB2ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogB2ListViewModel;
+            //else if (CurrentViewModel is CatalogB3ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogB3ListViewModel;
+            //else if (CurrentViewModel is CatalogB4ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogB4ListViewModel;
+            //else if (CurrentViewModel is CatalogB5ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogB5ListViewModel;
 
-            else if (CurrentViewModel is CatalogC1ListViewModel)
-                viewModel = CurrentViewModel as CatalogC1ListViewModel;
-            else if (CurrentViewModel is CatalogC2ListViewModel)
-                viewModel = CurrentViewModel as CatalogC2ListViewModel;
-            else if (CurrentViewModel is CatalogC3ListViewModel)
-                viewModel = CurrentViewModel as CatalogC3ListViewModel;
-            else if (CurrentViewModel is CatalogC4ListViewModel)
-                viewModel = CurrentViewModel as CatalogC4ListViewModel;
+            //else if (CurrentViewModel is CatalogC1ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogC1ListViewModel;
+            //else if (CurrentViewModel is CatalogC2ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogC2ListViewModel;
+            //else if (CurrentViewModel is CatalogC3ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogC3ListViewModel;
+            //else if (CurrentViewModel is CatalogC4ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogC4ListViewModel;
 
-            else if (CurrentViewModel is CatalogD1ListViewModel)
-                viewModel = CurrentViewModel as CatalogD1ListViewModel;
-            else if (CurrentViewModel is CatalogD2ListViewModel)
-                viewModel = CurrentViewModel as CatalogD2ListViewModel;
+            //else if (CurrentViewModel is CatalogD1ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogD1ListViewModel;
+            //else if (CurrentViewModel is CatalogD2ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogD2ListViewModel;
 
-            else if (CurrentViewModel is CatalogE1ListViewModel)
-                viewModel = CurrentViewModel as CatalogE1ListViewModel;
-            else if (CurrentViewModel is CatalogE2ListViewModel)
-                viewModel = CurrentViewModel as CatalogE2ListViewModel;
-            else if (CurrentViewModel is CatalogE3ListViewModel)
-                viewModel = CurrentViewModel as CatalogE3ListViewModel;
-            else if (CurrentViewModel is CatalogE4ListViewModel)
-                viewModel = CurrentViewModel as CatalogE4ListViewModel;
-            else if (CurrentViewModel is CatalogE5ListViewModel)
-                viewModel = CurrentViewModel as CatalogE5ListViewModel;
-            else if (CurrentViewModel is CatalogE6ListViewModel)
-                viewModel = CurrentViewModel as CatalogE6ListViewModel;
-            else if (CurrentViewModel is CatalogE7ListViewModel)
-                viewModel = CurrentViewModel as CatalogE7ListViewModel;
+            //else if (CurrentViewModel is CatalogE1ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogE1ListViewModel;
+            //else if (CurrentViewModel is CatalogE2ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogE2ListViewModel;
+            //else if (CurrentViewModel is CatalogE3ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogE3ListViewModel;
+            //else if (CurrentViewModel is CatalogE4ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogE4ListViewModel;
+            //else if (CurrentViewModel is CatalogE5ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogE5ListViewModel;
+            //else if (CurrentViewModel is CatalogE6ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogE6ListViewModel;
+            //else if (CurrentViewModel is CatalogE7ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogE7ListViewModel;
 
-            else if (CurrentViewModel is CatalogF1ListViewModel)
-                viewModel = CurrentViewModel as CatalogF1ListViewModel;
+            //else if (CurrentViewModel is CatalogF1ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogF1ListViewModel;
 
-            else if (CurrentViewModel is CatalogG1ListViewModel)
-                viewModel = CurrentViewModel as CatalogG1ListViewModel;
-            else if (CurrentViewModel is CatalogG2ListViewModel)
-                viewModel = CurrentViewModel as CatalogG2ListViewModel;
-            else if (CurrentViewModel is CatalogG3ListViewModel)
-                viewModel = CurrentViewModel as CatalogG3ListViewModel;
-            else if (CurrentViewModel is CatalogG4ListViewModel)
-                viewModel = CurrentViewModel as CatalogG4ListViewModel;
-            else if (CurrentViewModel is CatalogG5ListViewModel)
-                viewModel = CurrentViewModel as CatalogG5ListViewModel;
-            else if (CurrentViewModel is CatalogG6ListViewModel)
-                viewModel = CurrentViewModel as CatalogG6ListViewModel;
+            //else if (CurrentViewModel is CatalogG1ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogG1ListViewModel;
+            //else if (CurrentViewModel is CatalogG2ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogG2ListViewModel;
+            //else if (CurrentViewModel is CatalogG3ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogG3ListViewModel;
+            //else if (CurrentViewModel is CatalogG4ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogG4ListViewModel;
+            //else if (CurrentViewModel is CatalogG5ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogG5ListViewModel;
+            //else if (CurrentViewModel is CatalogG6ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogG6ListViewModel;
 
-            else if (CurrentViewModel is CatalogH1ListViewModel)
-                viewModel = CurrentViewModel as CatalogH1ListViewModel;
-            else if (CurrentViewModel is CatalogH2ListViewModel)
-                viewModel = CurrentViewModel as CatalogH2ListViewModel;
-            else if (CurrentViewModel is CatalogH3ListViewModel)
-                viewModel = CurrentViewModel as CatalogH3ListViewModel;
-            else if (CurrentViewModel is CatalogH4ListViewModel)
-                viewModel = CurrentViewModel as CatalogH4ListViewModel;
-            else if (CurrentViewModel is CatalogH5ListViewModel)
-                viewModel = CurrentViewModel as CatalogH5ListViewModel;
+            //else if (CurrentViewModel is CatalogH1ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogH1ListViewModel;
+            //else if (CurrentViewModel is CatalogH2ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogH2ListViewModel;
+            //else if (CurrentViewModel is CatalogH3ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogH3ListViewModel;
+            //else if (CurrentViewModel is CatalogH4ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogH4ListViewModel;
+            //else if (CurrentViewModel is CatalogH5ListViewModel)
+            //    viewModel = CurrentViewModel as CatalogH5ListViewModel;
+            #endregion
 
+            viewModel = (ICatalogListViewModel)CurrentViewModel;
 
             if (isUpdated)
             {
-                    int index = viewModel.Catalogs.ToList().FindIndex(s => s.Id == catalog.Id);
-
-                    if (index != -1)
-                        viewModel.Catalogs[index] = catalog;
+                ReplaceUpdatedCatalogFromCatalogList(viewModel, catalog);
             }
             else
             {
@@ -309,6 +309,14 @@ namespace Orion.UI.ViewModel
             }
 
             OnBackFromEdit();
+        }
+
+        private void ReplaceUpdatedCatalogFromCatalogList(ICatalogListViewModel viewModel, ICatalog catalog)
+        {
+            int index = viewModel.Catalogs.ToList().FindIndex(s => s.Id == catalog.Id);
+
+            if (index != -1)
+                viewModel.Catalogs[index] = catalog;
         }
 
         private async void OnOpenCatalog(string catalogName)
@@ -468,8 +476,10 @@ namespace Orion.UI.ViewModel
                                 .Where(titleViewModel => titleViewModel != null)
                                 .ToList().Select(x => x.DataSheet).ToList();
 
-                catalogService.UpdateCatalogDataSheet(CatalogSelected, dataSheets);
+                CatalogSelected = catalogService.UpdateCatalogDataSheet(CatalogSelected, dataSheets);
                 DataSheetActive = false;
+
+                ReplaceUpdatedCatalogFromCatalogList((ICatalogListViewModel)CurrentViewModel, CatalogSelected);
 
                 await messageService.EndMessage("Data Sheets", "Data sheet selection updated");
             }

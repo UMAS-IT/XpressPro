@@ -1044,3 +1044,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Config
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ConfigurationMenuView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\DataSheetListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\DataSheetListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ConfigurationMenuView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\DataSheetListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ConfigurationMenuView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\DataSheetListView.baml

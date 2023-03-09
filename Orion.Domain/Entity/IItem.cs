@@ -21,6 +21,9 @@ namespace Orion.Domain.Entity
         bool OverridePrice { get; set; }
         [NotMapped]
         double TotalPrice { get; set; }
+        [NotMapped]
+        bool HasTitles { get; set; }
+
     }
 }
 
