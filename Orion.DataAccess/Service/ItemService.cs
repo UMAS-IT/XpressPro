@@ -17,6 +17,7 @@ using Orion.Domain.EntityItemBACCoolingTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.UvResources.Related;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,17 +36,21 @@ namespace Orion.DataAccess.Service
                 IList<ItemA2> itemA2s = context.ItemA2s.Include(x => x.CatalogA2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemA3> itemA3s = context.ItemA3s.Include(x => x.CatalogA3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemA4> itemA4s = context.ItemA4s.Include(x => x.CatalogA4).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
                 IList<ItemB1> itemB1s = context.ItemB1s.Include(x => x.CatalogB1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemB2> itemB2s = context.ItemB2s.Include(x => x.CatalogB2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemB3> itemB3s = context.ItemB3s.Include(x => x.CatalogB3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemB4> itemB4s = context.ItemB4s.Include(x => x.CatalogB4).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemB5> itemB5s = context.ItemB5s.Include(x => x.CatalogB5).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+                
                 IList<ItemC1> itemC1s = context.ItemC1s.Include(x => x.CatalogC1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemC2> itemC2s = context.ItemC2s.Include(x => x.CatalogC2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemC3> itemC3s = context.ItemC3s.Include(x => x.CatalogC3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemC4> itemC4s = context.ItemC4s.Include(x => x.CatalogC4).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+                
                 IList<ItemD1> itemD1s = context.ItemD1s.Include(x => x.CatalogD1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemD2> itemD2s = context.ItemD2s.Include(x => x.CatalogD2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+                
                 IList<ItemE1> itemE1s = context.ItemE1s.Include(x => x.CatalogE1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemE2> itemE2s = context.ItemE2s.Include(x => x.CatalogE2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemE3> itemE3s = context.ItemE3s.Include(x => x.CatalogE3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
@@ -53,13 +58,16 @@ namespace Orion.DataAccess.Service
                 IList<ItemE5> itemE5s = context.ItemE5s.Include(x => x.CatalogE5).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemE6> itemE6s = context.ItemE6s.Include(x => x.CatalogE6).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemE7> itemE7s = context.ItemE7s.Include(x => x.CatalogE7).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
-                IList<ItemF1> itemF1s = context.ItemF1s.Include(x => x.CatalogF1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+                
+                IList<ItemF1> itemF1s = context.ItemF1s.Include(x => x.CatalogF1).ThenInclude(x => x.CatalogF1ProductType).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+                
                 IList<ItemG1> itemG1s = context.ItemG1s.Include(x => x.CatalogG1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemG2> itemG2s = context.ItemG2s.Include(x => x.CatalogG2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemG3> itemG3s = context.ItemG3s.Include(x => x.CatalogG3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemG4> itemG4s = context.ItemG4s.Include(x => x.CatalogG4).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemG5> itemG5s = context.ItemG5s.Include(x => x.CatalogG5).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemG6> itemG6s = context.ItemG6s.Include(x => x.CatalogG6).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+                
                 IList<ItemH1> itemH1s = context.ItemH1s.Include(x => x.CatalogH1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemH2> itemH2s = context.ItemH2s.Include(x => x.CatalogH2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemH3> itemH3s = context.ItemH3s.Include(x => x.CatalogH3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
@@ -2508,7 +2516,7 @@ namespace Orion.DataAccess.Service
             {
                 List<IItem> items = new List<IItem>();
 
-                return context.ItemF1s.Include(x => x.CatalogF1).Where(x => x.QuoteId == quoteId).ToList<IItem>();
+                return context.ItemF1s.Include(x => x.CatalogF1).ThenInclude(x => x.CatalogF1ProductType).Where(x => x.QuoteId == quoteId).ToList<IItem>();
             }
         }
 

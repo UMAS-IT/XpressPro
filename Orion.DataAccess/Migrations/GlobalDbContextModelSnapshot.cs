@@ -1148,17 +1148,25 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CatalogF1ProductTypeId");
+
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int?>("DataSheetId");
+
+                    b.Property<string>("Description");
 
                     b.Property<double>("ListPrice");
 
                     b.Property<string>("Model");
 
+                    b.Property<string>("PartNumber");
+
                     b.Property<double>("SellMargin");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CatalogF1ProductTypeId");
 
                     b.HasIndex("DataSheetId");
 
@@ -2355,6 +2363,19 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemF1s");
                 });
 
+            modelBuilder.Entity("Orion.Domain.UvResources.Related.CatalogF1ProductType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CatalogF1ProductTypes");
+                });
+
             modelBuilder.Entity("Orion.Domain.Entity.DataSheet", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.Product", "Product")
@@ -2806,6 +2827,10 @@ namespace Orion.DataAccess.Migrations
 
             modelBuilder.Entity("Orion.Domain.EntityCatalogUvResources.CatalogF1", b =>
                 {
+                    b.HasOne("Orion.Domain.UvResources.Related.CatalogF1ProductType", "CatalogF1ProductType")
+                        .WithMany()
+                        .HasForeignKey("CatalogF1ProductTypeId");
+
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");

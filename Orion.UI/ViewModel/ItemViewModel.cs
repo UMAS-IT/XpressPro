@@ -963,7 +963,6 @@ namespace Orion.UI.ViewModel
 
         private async void OnBackFromUpdatedItemTitles(IList<Title> titles, IItem item)
         {
-
             TitlesActive = false;
             TitlesViewModel = null;
             await Task.Delay(100);

@@ -16,6 +16,7 @@ using Orion.Domain.EntityItemBACCoolingTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.UvResources.Related;
 
 namespace Orion.DataAccess.DataBase
 {
@@ -123,6 +124,10 @@ namespace Orion.DataAccess.DataBase
 
         #region UV Resources Items
         public DbSet<ItemF1> ItemF1s { get; set; }
+        #endregion
+
+        #region UV Resources Related
+        public DbSet<CatalogF1ProductType> CatalogF1ProductTypes { get; set; }
         #endregion
 
 

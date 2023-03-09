@@ -41,6 +41,11 @@
                           Name="treeView"
                       ItemsSource="{Binding Titles, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                       Style="{StaticResource MahApps.Styles.TreeView.Virtualized}">
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="TreeViewItem" BasedOn="{StaticResource MahApps.Styles.TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="True"/>
+                    </Style>
+                </TreeView.ItemContainerStyle>
                 <TreeView.ItemTemplate>
                     <HierarchicalDataTemplate ItemsSource="{Binding  Specs, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
 

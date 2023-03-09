@@ -285,7 +285,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.CatalogF1s.Include(x => x.DataSheet).ToList<ICatalog>();
+                return context.CatalogF1s.Include(x => x.DataSheet).Include(x => x.CatalogF1ProductType).ToList<ICatalog>();
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Domain.Entity;
+using Orion.Domain.UvResources.Related;
 using Orion.Helper.Extension;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,20 @@ namespace Orion.Domain.EntityCatalogUvResources
         {
             get => _model;
             set => SetProperty(ref _model, value);
+        }
+
+        private string _partNumber;
+        public string PartNumber
+        {
+            get => _partNumber;
+            set => SetProperty(ref _partNumber, value);
+        }
+
+        private string _description;
+        public string Description
+        {
+            get => _description;
+            set => SetProperty(ref _description, value);
         }
 
         private double _listPrice;
@@ -91,6 +106,20 @@ namespace Orion.Domain.EntityCatalogUvResources
         {
             get => _dataSheet;
             set => SetProperty(ref _dataSheet, value);
+        }
+
+        private int? _catalogF1ProductTypeId;
+        public int? CatalogF1ProductTypeId
+        {
+            get => _catalogF1ProductTypeId;
+            set => SetProperty(ref _catalogF1ProductTypeId, value);
+        }
+
+        private CatalogF1ProductType _catalogF1ProductType;
+        public CatalogF1ProductType CatalogF1ProductType
+        {
+            get => _catalogF1ProductType;
+            set => SetProperty(ref _catalogF1ProductType, value);
         }
 
         [NotMapped]
