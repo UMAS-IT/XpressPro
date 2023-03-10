@@ -102,7 +102,7 @@ namespace Orion.UI.ViewModel.AmericanWheatley.EditCatalogItem
                 }
                 else
                 {
-                    Catalog = catalogService.GetCatalogByCatalogId(Catalog);
+                    Catalog = catalogService.GetCatalog(Catalog);
                     isUpdated = true;
                 }
 

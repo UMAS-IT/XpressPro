@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Orion.Helper.Misc.GV;
 
 namespace Orion.UI.ViewModel.ABB.CatalogList
 {
@@ -40,7 +41,12 @@ namespace Orion.UI.ViewModel.ABB.CatalogList
             get => _model;
             set => SetProperty(ref _model, value);
         }
-
+        private ItemType _itemType;
+        public ItemType ItemType
+        {
+            get => _itemType;
+            set => SetProperty(ref _itemType, value);
+        }
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand ResetSearchCommand { get; set; }
@@ -53,10 +59,10 @@ namespace Orion.UI.ViewModel.ABB.CatalogList
         public Action<ICatalog> OnEditCatalogItemRequested { get; set; } = delegate { };
         public Action<ICatalog> OnEditCatalogTitlesRequested { get; set; } = delegate { };
 
-        public CatalogB1ListViewModel(IDialogCoordinator dialogCoordinator)
+        public CatalogB1ListViewModel(IDialogCoordinator dialogCoordinator, ItemType itemType)
         {
             this.dialogCoordinator = dialogCoordinator;
-
+            ItemType = itemType;
             LoadDataCommand = new RelayCommand(OnLoadData);
             SearchCommand = new RelayCommand(OnSearch);
             ResetSearchCommand = new RelayCommand(OnResetSearch);
@@ -104,7 +110,7 @@ namespace Orion.UI.ViewModel.ABB.CatalogList
                 await messageService.StartMessage("Catalog Items", "Loading catalog items, please wait...");
 
                 Model = "";
-                CatalogsBase = catalogService.GetCatalogB1s().OrderByDescending(x => x.Id).ToObservableCollection();
+                CatalogsBase = catalogService.GetCatalogs(ItemType).OrderByDescending(x => x.Id).ToObservableCollection();
                 Catalogs = CatalogsBase;
 
                 await messageService.EndMessage("Catalog Items", "Catalog items has been loaded");

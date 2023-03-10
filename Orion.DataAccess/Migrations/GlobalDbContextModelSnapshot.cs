@@ -57,6 +57,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("CompanyId");
 
+                    b.Property<bool>("InService");
+
                     b.Property<string>("Index");
 
                     b.Property<string>("Name");

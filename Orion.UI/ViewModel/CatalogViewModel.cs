@@ -29,6 +29,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using static Orion.Helper.Misc.GV;
 
 namespace Orion.UI.ViewModel
 {
@@ -329,82 +330,113 @@ namespace Orion.UI.ViewModel
 
             ICatalogListViewModel viewModel = null;
 
-            if (catalogName == "a1")
-                viewModel = new CatalogA1ListViewModel(dialogCoordinator);
-            else if (catalogName == "a2")
-                viewModel = new CatalogA2ListViewModel(dialogCoordinator);
-            else if (catalogName == "a3")
-                viewModel = new CatalogA3ListViewModel(dialogCoordinator);
-            else if (catalogName == "a4")
-                viewModel = new CatalogA4ListViewModel(dialogCoordinator);
-
-            else if (catalogName == "b1")
-                viewModel = new CatalogB1ListViewModel(dialogCoordinator);
-            else if (catalogName == "b2")
-                viewModel = new CatalogB2ListViewModel(dialogCoordinator);
-            else if (catalogName == "b3")
-                viewModel = new CatalogB3ListViewModel(dialogCoordinator);
-            else if (catalogName == "b4")
-                viewModel = new CatalogB4ListViewModel(dialogCoordinator);
-            else if (catalogName == "b5")
-                viewModel = new CatalogB5ListViewModel(dialogCoordinator);
-
-            else if (catalogName == "c1")
-                viewModel = new CatalogC1ListViewModel(dialogCoordinator);
-            else if (catalogName == "c2")
-                viewModel = new CatalogC2ListViewModel(dialogCoordinator);
-            else if (catalogName == "c3")
-                viewModel = new CatalogC3ListViewModel(dialogCoordinator);
-            else if (catalogName == "c4")
-                viewModel = new CatalogC4ListViewModel(dialogCoordinator);
-
-            else if (catalogName == "d1")
-                viewModel = new CatalogD1ListViewModel(dialogCoordinator);
-            else if (catalogName == "d2")
-                viewModel = new CatalogD2ListViewModel(dialogCoordinator);
-
-            else if (catalogName == "e1")
-                viewModel = new CatalogE1ListViewModel(dialogCoordinator);
-            else if (catalogName == "e2")
-                viewModel = new CatalogE2ListViewModel(dialogCoordinator);
-            else if (catalogName == "e3")
-                viewModel = new CatalogE3ListViewModel(dialogCoordinator);
-            else if (catalogName == "e4")
-                viewModel = new CatalogE4ListViewModel(dialogCoordinator);
-            else if (catalogName == "e5")
-                viewModel = new CatalogE5ListViewModel(dialogCoordinator);
-            else if (catalogName == "e6")
-                viewModel = new CatalogE6ListViewModel(dialogCoordinator);
-            else if (catalogName == "e7")
-                viewModel = new CatalogE7ListViewModel(dialogCoordinator);
-
-            else if (catalogName == "f1")
-                viewModel = new CatalogF1ListViewModel(dialogCoordinator);
-
-            else if (catalogName == "g1")
-                viewModel = new CatalogG1ListViewModel(dialogCoordinator);
-            else if (catalogName == "g2")
-                viewModel = new CatalogG2ListViewModel(dialogCoordinator);
-            else if (catalogName == "g3")
-                viewModel = new CatalogG3ListViewModel(dialogCoordinator);
-            else if (catalogName == "g4")
-                viewModel = new CatalogG4ListViewModel(dialogCoordinator);
-            else if (catalogName == "g5")
-                viewModel = new CatalogG5ListViewModel(dialogCoordinator);
-            else if (catalogName == "g6")
-                viewModel = new CatalogG6ListViewModel(dialogCoordinator);
-
-
-            else if (catalogName == "h1")
-                viewModel = new CatalogH1ListViewModel(dialogCoordinator);
-            else if (catalogName == "g2")
-                viewModel = new CatalogH2ListViewModel(dialogCoordinator);
-            else if (catalogName == "h3")
-                viewModel = new CatalogH3ListViewModel(dialogCoordinator);
-            else if (catalogName == "h4")
-                viewModel = new CatalogH4ListViewModel(dialogCoordinator);
-            else if (catalogName == "h5")
-                viewModel = new CatalogH5ListViewModel(dialogCoordinator);
+            switch (catalogName)
+            {
+                case "a1":
+                    viewModel = new CatalogA1ListViewModel(dialogCoordinator, ItemType.A1);
+                    break;
+                case "a2":
+                    viewModel = new CatalogA2ListViewModel(dialogCoordinator, ItemType.A2);
+                    break;
+                case "a3":
+                    viewModel = new CatalogA3ListViewModel(dialogCoordinator, ItemType.A3);
+                    break;
+                case "a4":
+                    viewModel = new CatalogA4ListViewModel(dialogCoordinator, ItemType.A4);
+                    break;
+                case "b1":
+                    viewModel = new CatalogB1ListViewModel(dialogCoordinator, ItemType.B1);
+                    break;
+                case "b2":
+                    viewModel = new CatalogB2ListViewModel(dialogCoordinator, ItemType.B2);
+                    break;
+                case "b3":
+                    viewModel = new CatalogB3ListViewModel(dialogCoordinator, ItemType.B3);
+                    break;
+                case "b4":
+                    viewModel = new CatalogB4ListViewModel(dialogCoordinator, ItemType.B4);
+                    break;
+                case "b5":
+                    viewModel = new CatalogB5ListViewModel(dialogCoordinator, ItemType.B5);
+                    break;
+                case "c1":
+                    viewModel = new CatalogC1ListViewModel(dialogCoordinator, ItemType.C1);
+                    break;
+                case "c2":
+                    viewModel = new CatalogC2ListViewModel(dialogCoordinator, ItemType.C2);
+                    break;
+                case "c3":
+                    viewModel = new CatalogC3ListViewModel(dialogCoordinator, ItemType.C3);
+                    break;
+                case "c4":
+                    viewModel = new CatalogC4ListViewModel(dialogCoordinator, ItemType.C4);
+                    break;
+                case "d1":
+                    viewModel = new CatalogD1ListViewModel(dialogCoordinator, ItemType.D1);
+                    break;
+                case "d2":
+                    viewModel = new CatalogD2ListViewModel(dialogCoordinator, ItemType.D2);
+                    break;
+                case "e1":
+                    viewModel = new CatalogE1ListViewModel(dialogCoordinator, ItemType.E1);
+                    break;
+                case "e2":
+                    viewModel = new CatalogE2ListViewModel(dialogCoordinator, ItemType.E2);
+                    break;
+                case "e3":
+                    viewModel = new CatalogE3ListViewModel(dialogCoordinator, ItemType.E3);
+                    break;
+                case "e4":
+                    viewModel = new CatalogE4ListViewModel(dialogCoordinator, ItemType.E4);
+                    break;
+                case "e5":
+                    viewModel = new CatalogE5ListViewModel(dialogCoordinator, ItemType.E5);
+                    break;
+                case "e6":
+                    viewModel = new CatalogE6ListViewModel(dialogCoordinator, ItemType.E6);
+                    break;
+                case "e7":
+                    viewModel = new CatalogE7ListViewModel(dialogCoordinator, ItemType.E7);
+                    break;
+                case "f1":
+                    viewModel = new CatalogF1ListViewModel(dialogCoordinator, ItemType.F1);
+                    break;
+                case "g1":
+                    viewModel = new CatalogG1ListViewModel(dialogCoordinator, ItemType.G1);
+                    break;
+                case "g2":
+                    viewModel = new CatalogG2ListViewModel(dialogCoordinator, ItemType.G2);
+                    break;
+                case "g3":
+                    viewModel = new CatalogG3ListViewModel(dialogCoordinator, ItemType.G3);
+                    break;
+                case "g4":
+                    viewModel = new CatalogG4ListViewModel(dialogCoordinator, ItemType.G4);
+                    break;
+                case "g5":
+                    viewModel = new CatalogG5ListViewModel(dialogCoordinator, ItemType.G5);
+                    break;
+                case "g6":
+                    viewModel = new CatalogG6ListViewModel(dialogCoordinator, ItemType.G6);
+                    break;
+                case "h1":
+                    viewModel = new CatalogH1ListViewModel(dialogCoordinator, ItemType.H1);
+                    break;
+                case "h2":
+                    viewModel = new CatalogH2ListViewModel(dialogCoordinator, ItemType.H2);
+                    break;
+                case "h3":
+                    viewModel = new CatalogH3ListViewModel(dialogCoordinator, ItemType.H3);
+                    break;
+                case "h4":
+                    viewModel = new CatalogH4ListViewModel(dialogCoordinator, ItemType.H4);
+                    break;
+                case "h5":
+                    viewModel = new CatalogH5ListViewModel(dialogCoordinator, ItemType.H5);
+                    break;
+                default:
+                    throw new ArgumentException($"Catalog name {catalogName} is not recognized.");
+            }
 
 
             if (viewModel != null)
@@ -445,7 +477,7 @@ namespace Orion.UI.ViewModel
 
                 DataSheetViewModels = new ObservableCollection<BindableBase>();
 
-                CatalogSelected = catalogService.GetCatalogByCatalogId(catalog);
+                CatalogSelected = catalogService.GetCatalog(catalog);
 
                 List<DataSheet> dataSheets = dataSheetService.GetDataSheetsByIndex(CatalogSelected.Index).ToList();
 

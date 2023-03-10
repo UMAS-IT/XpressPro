@@ -50,6 +50,15 @@
                                     <Expander.Header>
                                         <TextBlock Text="{Binding Name}" TextWrapping="Wrap"/>
                                     </Expander.Header>
+                                    <Expander.Style>
+                                        <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Products.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Expander.Style>
                                     <StackPanel Orientation="Vertical">
                                         <ItemsControl ItemsSource="{Binding Products, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                                             <ItemsControl.ItemTemplate>

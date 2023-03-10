@@ -52,6 +52,13 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _comapy, value);
         }
 
+        private bool _inService;
+        public bool InService
+        {
+            get => _inService;
+            set => SetProperty(ref _inService, value);
+        }
+
         private string _color;
         public string Color
         {

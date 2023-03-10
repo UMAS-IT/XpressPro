@@ -102,7 +102,7 @@ namespace Orion.UI.ViewModel.Puroflux.EditCatalogItem
                 }
                 else
                 {
-                    Catalog = catalogService.GetCatalogByCatalogId(Catalog);
+                    Catalog = catalogService.GetCatalog(Catalog);
                     isUpdated = true;
                 }
 

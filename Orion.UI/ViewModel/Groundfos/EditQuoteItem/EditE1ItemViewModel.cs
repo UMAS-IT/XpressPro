@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Orion.Helper.Misc.GV;
 
 namespace Orion.UI.ViewModel.Groundfos.EditQuoteItem
 {
@@ -59,6 +60,12 @@ namespace Orion.UI.ViewModel.Groundfos.EditQuoteItem
             set => SetProperty(ref _Model, value);
         }
 
+        private ItemType _itemType;
+        public ItemType ItemType
+        {
+            get => _itemType;
+            set => SetProperty(ref _itemType, value);
+        }
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand ResetSearchCommand { get; set; }
@@ -69,11 +76,11 @@ namespace Orion.UI.ViewModel.Groundfos.EditQuoteItem
 
         public Action<IList<IItem>> OnItemsSavedRequested = delegate { };
 
-        public EditE1ItemViewModel(IDialogCoordinator dialogCoordinator, Quote quote, IList<IItem> items)
+        public EditE1ItemViewModel(IDialogCoordinator dialogCoordinator, Quote quote, IList<IItem> items, ItemType itemType)
         {
             Quote = quote;
             Items = items.Clone().ToObservableCollection();
-
+            ItemType = itemType;
             LoadDataCommand = new RelayCommand(OnLoadData);
             BackCommand = new RelayCommand<dynamic>(OnBack);
             AddItemCommand = new RelayCommand<ICatalog>(OnAddItem);
@@ -106,7 +113,7 @@ namespace Orion.UI.ViewModel.Groundfos.EditQuoteItem
                 if (!await CanUpdateQuoteItems())
                     return;
 
-                Items = itemService.UpdateE1Items(Quote, Items).ToObservableCollection();
+                Items = itemService.UpdateItems(Quote, Items, ItemType).ToObservableCollection();
 
                 await messageService.EndMessage("Quote Items", "Items has been saved");
 
@@ -173,7 +180,7 @@ namespace Orion.UI.ViewModel.Groundfos.EditQuoteItem
                 await messageService.StartMessage("Quote Items", "Loading items, please wait...");
 
                 Model = "";
-                Catalogs = catalogService.GetCatalogE1s().ToObservableCollection();
+                Catalogs = catalogService.GetCatalogs(ItemType).ToObservableCollection();
                 CatalogsBase = Catalogs;
 
                 await messageService.EndMessage("Quote Items", "Items has been loaded");

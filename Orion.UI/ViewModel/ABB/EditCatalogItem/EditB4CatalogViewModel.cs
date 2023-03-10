@@ -103,7 +103,7 @@ namespace Orion.UI.ViewModel.ABB.EditCatalogItem
                 }
                 else
                 {
-                    Catalog = catalogService.GetCatalogByCatalogId(Catalog);
+                    Catalog = catalogService.GetCatalog(Catalog);
                     isUpdated = true;
                 }
 
