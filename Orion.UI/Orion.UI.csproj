@@ -269,6 +269,7 @@
     <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE6ItemViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE7ItemViewModel.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
+    <Compile Include="ViewModel\MasterItemViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\NewProjectViewModel.cs" />
     <Compile Include="ViewModel\OpenProjectViewModel.cs" />

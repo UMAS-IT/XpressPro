@@ -2,10 +2,8 @@
 using Orion.Binding.Binding;
 using Orion.DataAccess.Service;
 using Orion.Domain.Entity;
-using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityItem;
-using Orion.Domain.EntityItemABB;
 using Orion.Helper.Extension;
 using Orion.UI.Command;
 using Orion.UI.Service;
@@ -17,13 +15,13 @@ using System.Text;
 using System.Threading.Tasks;
 using static Orion.Helper.Misc.GV;
 
-namespace Orion.UI.ViewModel.ABB.EditQuoteItem
+namespace Orion.UI.ViewModel
 {
-    public class EditB1ItemViewModel : BindableBase
+    public class MasterItemViewModel : BindableBase
     {
-        private MessageService messageService;
-        private CatalogService catalogService;
-        private ItemService itemService;
+        public MessageService messageService;
+        public CatalogService catalogService;
+        public ItemService itemService;
 
         private Quote _quote;
         public Quote Quote
@@ -66,6 +64,7 @@ namespace Orion.UI.ViewModel.ABB.EditQuoteItem
             get => _itemType;
             set => SetProperty(ref _itemType, value);
         }
+
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand ResetSearchCommand { get; set; }
@@ -76,7 +75,7 @@ namespace Orion.UI.ViewModel.ABB.EditQuoteItem
 
         public Action<IList<IItem>> OnItemsSavedRequested = delegate { };
 
-        public EditB1ItemViewModel(IDialogCoordinator dialogCoordinator, Quote quote, IList<IItem> items, ItemType itemType)
+        public MasterItemViewModel(IDialogCoordinator dialogCoordinator, Quote quote, IList<IItem> items, ItemType itemType)
         {
             Quote = quote;
             Items = items.Clone().ToObservableCollection();
@@ -137,14 +136,6 @@ namespace Orion.UI.ViewModel.ABB.EditQuoteItem
                 return false;
             }
 
-            string message = itemService.ValidataItemsTag(Items.ToList<IItem>());
-
-            if (!string.IsNullOrWhiteSpace(message))
-            {
-                await messageService.ResultMessage("Error", "Some Tags Are Duplicated \n" + message);
-                return false;
-            }
-
             return true;
         }
 
@@ -162,10 +153,10 @@ namespace Orion.UI.ViewModel.ABB.EditQuoteItem
             if (catalog is null)
                 return;
 
-            ItemB1 itemB1 = new ItemB1()
+            ItemA1 itemA1 = new ItemA1()
             {
-                CatalogB1 = catalog as CatalogB1,
-                CatalogB1Id = catalog.Id,
+                CatalogA1 = catalog as CatalogA1,
+                CatalogA1Id = catalog.Id,
                 ListPrice = catalog.ListPrice,
                 SellPrice = catalog.SellPrice,
                 Cost = catalog.Cost,
@@ -173,7 +164,7 @@ namespace Orion.UI.ViewModel.ABB.EditQuoteItem
                 CostMultiplier = catalog.CostMultiplier,
             };
 
-            Items.Add(itemB1);
+            Items.Add(itemA1);
             Items.ToList().ForEach(s => s.DesignIndex = Items.IndexOf(s));
         }
 

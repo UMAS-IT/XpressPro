@@ -818,6 +818,66 @@ namespace Orion.DataAccess.Service
             return itemsToReturn;
         }
 
+        public string ValidateAllItemsTag(IList<IItem>items)
+        {
+            string message = "";
+
+            message += ValidataItemsTag(items.OfType<ItemA1>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemA2>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemA3>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemA4>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemB1>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemB2>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemB3>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemB4>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemB5>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemC1>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemC2>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemC3>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemC4>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemD1>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemD2>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemE1>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemE2>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemE3>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemE4>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemE5>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemE6>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemE7>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemF1>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemG1>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemG2>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemG3>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemG4>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemG5>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemG6>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemH1>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemH2>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemH3>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemH4>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemH5>().ToList<IItem>());
+
+            return message;
+        }
+
+        public string ValidataItemsTag(List<IItem> items)
+        {
+            string message = "";
+
+            List<IGrouping<string, IItem>> duplicatedTagsGroupList = items.ToList().GroupBy(x => x.Tag)
+            .Where(group => group.Count() > 1)
+            .Select(group => group).ToList();
+
+            foreach (IGrouping<string,IItem> group in duplicatedTagsGroupList)
+            {
+                IItem item = group.First();
+
+                message += $"The Tag [{item.Tag.ToUpper()}] is duplicated {group.Count()} times in {item.Catalog.Company}, {item.Catalog.Product}\r";
+            }
+
+            return message;
+        }
+
         public IList<IItem> GetAllItemByQuoteId(int quoteId)
         {
             using (GlobalDbContext context = new GlobalDbContext())

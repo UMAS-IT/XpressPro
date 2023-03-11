@@ -134,6 +134,14 @@ namespace Orion.UI.ViewModel.BACClosedCircuits.EditQuoteItem
                 return false;
             }
 
+            string message = itemService.ValidataItemsTag(Items.ToList<IItem>());
+
+            if (!string.IsNullOrWhiteSpace(message))
+            {
+                await messageService.ResultMessage("Error", "Some Tags Are Duplicated \n" + message);
+                return false;
+            }
+
             return true;
         }
 

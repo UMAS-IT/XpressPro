@@ -208,7 +208,7 @@ namespace Orion.Domain.EntityItemBACClosedCircuits
         [NotMapped]
         public bool HasTitles
         {
-            get => _hasTitles;
+            get => Titles != null && Titles.Count > 0;
             set => SetProperty(ref _hasTitles, value);
         }
         public ItemH5()

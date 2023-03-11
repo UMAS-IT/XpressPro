@@ -33,7 +33,7 @@ namespace Orion.UI.ViewModel
 {
     public class ItemViewModel : BindableBase
     {
-        private IDialogCoordinator dialogCoordinator;
+        private readonly IDialogCoordinator dialogCoordinator;
         private MessageService messageService;
         private ProjectService projectService;
         private QuoteService quoteService;
@@ -43,7 +43,6 @@ namespace Orion.UI.ViewModel
         WindowService windowService;
         private int projectId;
         private int quoteId;
-        private readonly AirTreatmentViewModel airTreatmentViewModel = new AirTreatmentViewModel();
 
         private BindableBase _titlesViewModel;
         public BindableBase TitlesViewModel
@@ -552,6 +551,14 @@ namespace Orion.UI.ViewModel
             if (!string.IsNullOrWhiteSpace(message))
             {
                 await messageService.ResultMessage("Error", "Some Tags Are Empty \n" + message);
+                return false;
+            }
+
+            message = itemService.ValidateAllItemsTag(items);
+
+            if (!string.IsNullOrWhiteSpace(message))
+            {
+                await messageService.ResultMessage("Error", "Some Tags Are Duplicated \n" + message);
                 return false;
             }
 
