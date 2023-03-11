@@ -21,7 +21,7 @@ namespace Orion.Report.Pricing
             IItem tempItem = items.First();
 
             String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
-            String[] Header = { "Quantity", "Tag", "Model" };
+            String[] Header = { "Quantity", "Tag", "Model", "Part Number", "Description" };
 
             string[][] data = new string[items.Count][];
 
@@ -29,7 +29,7 @@ namespace Orion.Report.Pricing
             {
                 ItemF1 item = items[i];
 
-                data[i] = new string[3] { item.Quantity.ToString(), item.Tag, item.CatalogF1.Model };
+                data[i] = new string[5] { item.Quantity.ToString(), item.Tag, item.CatalogF1.Model, item.CatalogF1.PartNumber, item.CatalogF1.Description };
             }
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);

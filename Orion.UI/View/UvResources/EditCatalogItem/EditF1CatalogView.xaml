@@ -10,7 +10,7 @@
              dialog:DialogParticipation.Register="{Binding}"
              xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
-             d:DesignHeight="900" d:DesignWidth="700"
+             d:DesignHeight="500" d:DesignWidth="250"
              xmlns:vm="clr-namespace:Orion.UI.ViewModel.UvResources.EditCatalogItem"
              xmlns:view="clr-namespace:Orion.UI.View.UvResources.EditCatalogItem"
              d:DataContext="{d:DesignInstance Type=vm:EditF1CatalogViewModel}">
@@ -34,13 +34,53 @@
         </Border>
 
         <Border Grid.Row="1" BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Accent}" Margin="0,5,5,0">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                 <StackPanel Orientation="Vertical">
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Model" 
                              Text="{Binding Catalog.Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
                     </TextBox>
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Part Number" 
+                             Text="{Binding Catalog.PartNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Description" 
+                             Text="{Binding Catalog.Description, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}" Height="auto" MinHeight="40" MaxHeight="72" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" >
+                    </TextBox>
+
+                    <ComboBox  
+                              Style="{StaticResource CBoxStyle}"
+                              ctrl:TextBoxHelper.Watermark="Product Type" 
+                              ItemsSource="{Binding CatalogF1ProductTypes, Mode=TwoWay}"
+                              SelectedItem="{Binding Catalog.CatalogF1ProductType, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True, Mode=TwoWay}"
+                              MinHeight="40" Height="auto">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" TextWrapping="Wrap" TextAlignment="Justify" Margin="0,1" MaxWidth="300" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                        <!--<ComboBox.ItemContainerStyle>
+                            <Style TargetType="ComboBoxItem" BasedOn="{StaticResource MahApps.Styles.ComboBoxItem}">
+                                <Setter Property="MaxWidth" Value="300"/>
+                                <Setter Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Name}"  TextWrapping="Wrap" TextAlignment="Justify" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ComboBox.ItemContainerStyle>-->
+                       
+                    </ComboBox>
+
+
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="List Price" 
@@ -60,7 +100,7 @@
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Cost" 
-                             Background="DarkOrange"
+                             Background="{StaticResource MahApps.Brushes.Accent}"
                              IsReadOnly="True"
                              Text="{Binding Catalog.Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c},  Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
@@ -76,7 +116,7 @@
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Unit Sell Price" 
-                             Background="DarkOrange"
+                             Background="{StaticResource MahApps.Brushes.Accent}"
                              IsReadOnly="True"
                              Text="{Binding Catalog.SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">

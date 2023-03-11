@@ -598,7 +598,6 @@
                 <viewECH:EditH5CatalogView/>
             </DataTemplate>
 
-
             <Style  x:Key="TxtStyle" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}">
                 <Setter Property="ctrl:TextBoxHelper.UseFloatingWatermark" Value="True"/>
                 <Setter Property="ctrl:TextBoxHelper.SelectAllOnFocus" Value="True"/>
@@ -894,6 +893,15 @@
                 <Setter Property="Command" Value="{Binding Path=DataContext.MoveToEndCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
                 <Setter Property="CommandParameter" Value="{Binding}"/>
                 <Setter Property="ToolTip" Value="Move To End"/>
+            </Style>
+
+            <Style x:Key="MiComboBoxStyle" TargetType="{x:Type ComboBox}">
+                <Setter Property="Width" Value="300"/>
+                <Style.Triggers>
+                    <Trigger Property="IsDropDownOpen" Value="True">
+                        <Setter Property="Popup.HorizontalOffset" Value="100"/>
+                    </Trigger>
+                </Style.Triggers>
             </Style>
 
             <!--<Style TargetType="DataGrid" BasedOn="{StaticResource DGridStyle}">

@@ -8,6 +8,45 @@ namespace Orion.Helper.Misc
 {
     public static class GV
     {
+
+        public enum CatalogType
+        {
+            CatalogA1,
+            CatalogA2,
+            CatalogA3,
+            CatalogA4,
+            CatalogB1,
+            CatalogB2,
+            CatalogB3,
+            CatalogB4,
+            CatalogB5,
+            CatalogC1,
+            CatalogC2,
+            CatalogC3,
+            CatalogC4,
+            CatalogD1,
+            CatalogD2,
+            CatalogE1,
+            CatalogE2,
+            CatalogE3,
+            CatalogE4,
+            CatalogE5,
+            CatalogE6,
+            CatalogE7,
+            CatalogF1,
+            CatalogG1,
+            CatalogG2,
+            CatalogG3,
+            CatalogG4,
+            CatalogG5,
+            CatalogG6,
+            CatalogH1,
+            CatalogH2,
+            CatalogH3,
+            CatalogH4,
+            CatalogH5,
+        }
+
         public enum ItemType
         {
             A1,
@@ -45,6 +84,7 @@ namespace Orion.Helper.Misc
             H4,
             H5,
         }
+
 
         public static int RandomProjectNumber()
         {

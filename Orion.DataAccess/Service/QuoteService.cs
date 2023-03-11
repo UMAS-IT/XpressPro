@@ -52,49 +52,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.Quotes.Include(x => x.ItemA1s)
-                                     .Include(x => x.ItemA2s)
-                                     .Include(x => x.ItemA3s)
-                                     .Include(x => x.ItemA4s)
-
-                                     .Include(x => x.ItemB1s)
-                                     .Include(x => x.ItemB2s)
-                                     .Include(x => x.ItemB3s)
-                                     .Include(x => x.ItemB4s)
-                                     .Include(x => x.ItemB5s)
-
-                                     .Include(x => x.ItemC1s)
-                                     .Include(x => x.ItemC2s)
-                                     .Include(x => x.ItemC3s)
-                                     .Include(x => x.ItemC4s)
-
-                                     .Include(x => x.ItemD1s)
-                                     .Include(x => x.ItemD2s)
-
-                                     .Include(x => x.ItemE1s)
-                                     .Include(x => x.ItemE2s)
-                                     .Include(x => x.ItemE3s)
-                                     .Include(x => x.ItemE4s)
-                                     .Include(x => x.ItemE5s)
-                                     .Include(x => x.ItemE6s)
-                                     .Include(x => x.ItemE7s)
-
-                                     .Include(x => x.ItemF1s)
-
-                                     .Include(x => x.ItemG1s)
-                                     .Include(x => x.ItemG2s)
-                                     .Include(x => x.ItemG3s)
-                                     .Include(x => x.ItemG4s)
-                                     .Include(x => x.ItemG5s)
-                                     .Include(x => x.ItemG6s)
-
-                                     .Include(x => x.ItemH1s)
-                                     .Include(x => x.ItemH2s)
-                                     .Include(x => x.ItemH3s)
-                                     .Include(x => x.ItemH4s)
-                                     .Include(x => x.ItemH5s)
-
-                                     .FirstOrDefault(x => x.Id == quoteId);
+                return context.Quotes.FirstOrDefault(x => x.Id == quoteId);
             }
         }
 

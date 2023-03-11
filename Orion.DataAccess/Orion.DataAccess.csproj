@@ -205,6 +205,7 @@
     <Compile Include="Service\ItemService.cs" />
     <Compile Include="Service\ProjectService.cs" />
     <Compile Include="Service\QuoteService.cs" />
+    <Compile Include="Service\RelatedService.cs" />
     <Compile Include="Service\TitleService.cs" />
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>

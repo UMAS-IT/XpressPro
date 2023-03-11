@@ -4,10 +4,13 @@ using Orion.DataAccess.Service;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogUvResources;
+using Orion.Domain.UvResources.Related;
+using Orion.Helper.Extension;
 using Orion.UI.Command;
 using Orion.UI.Service;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,12 +22,20 @@ namespace Orion.UI.ViewModel.UvResources.EditCatalogItem
         MessageService messageService;
         CatalogService catalogService;
         private bool isUpdated;
+        private RelatedService relatedService;
 
         private ICatalog _catalog;
         public ICatalog Catalog
         {
             get => _catalog;
             set => SetProperty(ref _catalog, value);
+        }
+
+        private ObservableCollection<CatalogF1ProductType> _catalogF1ProductTypes;
+        public ObservableCollection<CatalogF1ProductType> CatalogF1ProductTypes
+        {
+            get => _catalogF1ProductTypes;
+            set => SetProperty(ref _catalogF1ProductTypes, value);
         }
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand BackFromEditCommand { get; set; }
@@ -43,6 +54,7 @@ namespace Orion.UI.ViewModel.UvResources.EditCatalogItem
 
             catalogService = new CatalogService();
             messageService = new MessageService(dialogCoordinator, this);
+            relatedService = new RelatedService();
         }
 
         private async void OnUpdateCatalogItem()
@@ -105,6 +117,11 @@ namespace Orion.UI.ViewModel.UvResources.EditCatalogItem
                     Catalog = catalogService.GetCatalog(Catalog);
                     isUpdated = true;
                 }
+
+                CatalogF1ProductTypes = relatedService.GetCatalogF1ProductTypes().ToObservableCollection();
+
+                (Catalog as CatalogF1).CatalogF1ProductType = CatalogF1ProductTypes.SetEntity((Catalog as CatalogF1).CatalogF1ProductType);
+
 
                 await messageService.EndMessage("Catalog Items", "Catalog items has been loaded");
             }

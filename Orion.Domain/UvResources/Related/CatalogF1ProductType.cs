@@ -1,4 +1,5 @@
 ﻿using Orion.Binding.Binding;
+using Orion.Binding.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Orion.Domain.UvResources.Related
 {
-    public class CatalogF1ProductType : ValidatableBindableBase
+    public class CatalogF1ProductType : ValidatableBindableBase, IEntity
     {
         private int _id;
         public int Id
