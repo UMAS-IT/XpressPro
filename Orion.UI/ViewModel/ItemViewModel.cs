@@ -569,212 +569,212 @@ namespace Orion.UI.ViewModel
         {
             if (itemsName.ToFormat() == "a1")
             {
-                EditA1ItemViewModel editA1ItemViewModel = new EditA1ItemViewModel(dialogCoordinator, Quote, ItemA1s, ItemType.A1);
+                EditA1ItemViewModel editA1ItemViewModel = new EditA1ItemViewModel(dialogCoordinator, Quote, ItemA1s, ItemType.ItemA1);
                 editA1ItemViewModel.OnItemsSavedRequested += OnItemA1Saved;
                 windowService.EditItemsWndow(editA1ItemViewModel, "Edit air cooled chillers factory lead time");
             }
             else if (itemsName.ToFormat() == "a2")
             {
-                EditA2ItemViewModel editA2ItemViewModel = new EditA2ItemViewModel(dialogCoordinator, Quote, ItemA2s, ItemType.A2);
+                EditA2ItemViewModel editA2ItemViewModel = new EditA2ItemViewModel(dialogCoordinator, Quote, ItemA2s, ItemType.ItemA2);
                 editA2ItemViewModel.OnItemsSavedRequested += OnItemA2Saved;
                 windowService.EditItemsWndow(editA2ItemViewModel, "Edit air cooled chillers stock non coated condenser");
             }
             else if (itemsName.ToFormat() == "a3")
             {
-                EditA3ItemViewModel editA3ItemViewModel = new EditA3ItemViewModel(dialogCoordinator, Quote, ItemA3s, ItemType.A3);
+                EditA3ItemViewModel editA3ItemViewModel = new EditA3ItemViewModel(dialogCoordinator, Quote, ItemA3s, ItemType.ItemA3);
                 editA3ItemViewModel.OnItemsSavedRequested += OnItemA3Saved;
                 windowService.EditItemsWndow(editA3ItemViewModel, "Edit air cooled chillers stock post coated condenser");
             }
             else if (itemsName.ToFormat() == "a4")
             {
-                EditA4ItemViewModel editA4ItemViewModel = new EditA4ItemViewModel(dialogCoordinator, Quote, ItemA4s, ItemType.A4);
+                EditA4ItemViewModel editA4ItemViewModel = new EditA4ItemViewModel(dialogCoordinator, Quote, ItemA4s, ItemType.ItemA4);
                 editA4ItemViewModel.OnItemsSavedRequested += OnItemA4Saved;
                 windowService.EditItemsWndow(editA4ItemViewModel, "Edit water cooled chillers factory lead time");
             }
 
             else if (itemsName.ToFormat() == "b1")
             {
-                EditB1ItemViewModel editE1ItemViewModel = new EditB1ItemViewModel(dialogCoordinator, Quote, ItemB1s, ItemType.B1);
+                EditB1ItemViewModel editE1ItemViewModel = new EditB1ItemViewModel(dialogCoordinator, Quote, ItemB1s, ItemType.ItemB1);
                 editE1ItemViewModel.OnItemsSavedRequested += OnItemB1Saved;
                 windowService.EditItemsWndow(editE1ItemViewModel, "Edit VFD Drives");
             }
             else if (itemsName.ToFormat() == "b2")
             {
-                EditB2ItemViewModel editE2ItemViewModel = new EditB2ItemViewModel(dialogCoordinator, Quote, ItemB2s, ItemType.B2);
+                EditB2ItemViewModel editE2ItemViewModel = new EditB2ItemViewModel(dialogCoordinator, Quote, ItemB2s, ItemType.ItemB2);
                 editE2ItemViewModel.OnItemsSavedRequested += OnItemB2Saved;
                 windowService.EditItemsWndow(editE2ItemViewModel, "Edit VCR");
             }
             else if (itemsName.ToFormat() == "b3")
             {
-                EditB3ItemViewModel editE3ItemViewModel = new EditB3ItemViewModel(dialogCoordinator, Quote, ItemB3s, ItemType.B3);
+                EditB3ItemViewModel editE3ItemViewModel = new EditB3ItemViewModel(dialogCoordinator, Quote, ItemB3s, ItemType.ItemB3);
                 editE3ItemViewModel.OnItemsSavedRequested += OnItemB3Saved;
                 windowService.EditItemsWndow(editE3ItemViewModel, "Edit PCR");
             }
             else if (itemsName.ToFormat() == "b4")
             {
-                EditB4ItemViewModel editE4ItemViewModel = new EditB4ItemViewModel(dialogCoordinator, Quote, ItemB4s, ItemType.B4);
+                EditB4ItemViewModel editE4ItemViewModel = new EditB4ItemViewModel(dialogCoordinator, Quote, ItemB4s, ItemType.ItemB4);
                 editE4ItemViewModel.OnItemsSavedRequested += OnItemB4Saved;
                 windowService.EditItemsWndow(editE4ItemViewModel, "Edit BCR");
             }
             else if (itemsName.ToFormat() == "b5")
             {
-                EditB5ItemViewModel editE5ItemViewModel = new EditB5ItemViewModel(dialogCoordinator, Quote, ItemB5s, ItemType.B5);
+                EditB5ItemViewModel editE5ItemViewModel = new EditB5ItemViewModel(dialogCoordinator, Quote, ItemB5s, ItemType.ItemB5);
                 editE5ItemViewModel.OnItemsSavedRequested += OnItemB5Saved;
                 windowService.EditItemsWndow(editE5ItemViewModel, "Edit Accesories");
             }
 
             else if (itemsName.ToFormat() == "c1")
             {
-                EditC1ItemViewModel editC1ItemViewModel = new EditC1ItemViewModel(dialogCoordinator, Quote, ItemC1s, ItemType.C1);
+                EditC1ItemViewModel editC1ItemViewModel = new EditC1ItemViewModel(dialogCoordinator, Quote, ItemC1s, ItemType.ItemC1);
                 editC1ItemViewModel.OnItemsSavedRequested += OnItemC1Saved;
                 windowService.EditItemsWndow(editC1ItemViewModel, "Edit CARE");
             }
             else if (itemsName.ToFormat() == "c2")
             {
-                EditC2ItemViewModel editC2ItemViewModel = new EditC2ItemViewModel(dialogCoordinator, Quote, ItemC2s, ItemType.C2);
+                EditC2ItemViewModel editC2ItemViewModel = new EditC2ItemViewModel(dialogCoordinator, Quote, ItemC2s, ItemType.ItemC2);
                 editC2ItemViewModel.OnItemsSavedRequested += OnItemC2Saved;
                 windowService.EditItemsWndow(editC2ItemViewModel, "Edit VCR");
             }
             else if (itemsName.ToFormat() == "c3")
             {
-                EditC3ItemViewModel editC3ItemViewModel = new EditC3ItemViewModel(dialogCoordinator, Quote, ItemC3s, ItemType.C3);
+                EditC3ItemViewModel editC3ItemViewModel = new EditC3ItemViewModel(dialogCoordinator, Quote, ItemC3s, ItemType.ItemC3);
                 editC3ItemViewModel.OnItemsSavedRequested += OnItemC3Saved;
                 windowService.EditItemsWndow(editC3ItemViewModel, "Edit PCR");
             }
             else if (itemsName.ToFormat() == "c4")
             {
-                EditC4ItemViewModel editC4ItemViewModel = new EditC4ItemViewModel(dialogCoordinator, Quote, ItemC4s, ItemType.C4);
+                EditC4ItemViewModel editC4ItemViewModel = new EditC4ItemViewModel(dialogCoordinator, Quote, ItemC4s, ItemType.ItemC4);
                 editC4ItemViewModel.OnItemsSavedRequested += OnItemC4Saved;
                 windowService.EditItemsWndow(editC4ItemViewModel, "Edit CCR");
             }
 
             else if (itemsName.ToFormat() == "d1")
             {
-                EditD1ItemViewModel editD1ItemViewModel = new EditD1ItemViewModel(dialogCoordinator, Quote, ItemD1s, ItemType.D1);
+                EditD1ItemViewModel editD1ItemViewModel = new EditD1ItemViewModel(dialogCoordinator, Quote, ItemD1s, ItemType.ItemD1);
                 editD1ItemViewModel.OnItemsSavedRequested += OnItemD1Saved;
                 windowService.EditItemsWndow(editD1ItemViewModel, "Edit Separators");
             }
             else if (itemsName.ToFormat() == "d2")
             {
-                EditD2ItemViewModel editD2ItemViewModel = new EditD2ItemViewModel(dialogCoordinator, Quote, ItemD2s, ItemType.D2);
+                EditD2ItemViewModel editD2ItemViewModel = new EditD2ItemViewModel(dialogCoordinator, Quote, ItemD2s, ItemType.ItemD2);
                 editD2ItemViewModel.OnItemsSavedRequested += OnItemD2Saved;
                 windowService.EditItemsWndow(editD2ItemViewModel, "Edit Sand Filters");
             }
 
             else if (itemsName.ToFormat() == "e1")
             {
-                EditE1ItemViewModel editE1ItemViewModel = new EditE1ItemViewModel(dialogCoordinator, Quote, ItemE1s, ItemType.E1);
+                EditE1ItemViewModel editE1ItemViewModel = new EditE1ItemViewModel(dialogCoordinator, Quote, ItemE1s, ItemType.ItemE1);
                 editE1ItemViewModel.OnItemsSavedRequested += OnItemE1Saved;
                 windowService.EditItemsWndow(editE1ItemViewModel, "Edit NBS");
             }
             else if (itemsName.ToFormat() == "e2")
             {
-                EditE2ItemViewModel editE2ItemViewModel = new EditE2ItemViewModel(dialogCoordinator, Quote, ItemE2s, ItemType.E2);
+                EditE2ItemViewModel editE2ItemViewModel = new EditE2ItemViewModel(dialogCoordinator, Quote, ItemE2s, ItemType.ItemE2);
                 editE2ItemViewModel.OnItemsSavedRequested += OnItemE2Saved;
                 windowService.EditItemsWndow(editE2ItemViewModel, "Edit LCS");
             }
             else if (itemsName.ToFormat() == "e3")
             {
-                EditE3ItemViewModel editE3ItemViewModel = new EditE3ItemViewModel(dialogCoordinator, Quote, ItemE3s, ItemType.E3);
+                EditE3ItemViewModel editE3ItemViewModel = new EditE3ItemViewModel(dialogCoordinator, Quote, ItemE3s, ItemType.ItemE3);
                 editE3ItemViewModel.OnItemsSavedRequested += OnItemE3Saved;
                 windowService.EditItemsWndow(editE3ItemViewModel, "Edit LC");
             }
             else if (itemsName.ToFormat() == "e4")
             {
-                EditE4ItemViewModel editE4ItemViewModel = new EditE4ItemViewModel(dialogCoordinator, Quote, ItemE4s, ItemType.E4);
+                EditE4ItemViewModel editE4ItemViewModel = new EditE4ItemViewModel(dialogCoordinator, Quote, ItemE4s, ItemType.ItemE4);
                 editE4ItemViewModel.OnItemsSavedRequested += OnItemE4Saved;
                 windowService.EditItemsWndow(editE4ItemViewModel, "Edit LF");
             }
             else if (itemsName.ToFormat() == "e5")
             {
-                EditE5ItemViewModel editE5ItemViewModel = new EditE5ItemViewModel(dialogCoordinator, Quote, ItemE5s, ItemType.E5);
+                EditE5ItemViewModel editE5ItemViewModel = new EditE5ItemViewModel(dialogCoordinator, Quote, ItemE5s, ItemType.ItemE5);
                 editE5ItemViewModel.OnItemsSavedRequested += OnItemE5Saved;
                 windowService.EditItemsWndow(editE5ItemViewModel, "Edit VL");
             }
             else if (itemsName.ToFormat() == "e6")
             {
-                EditE6ItemViewModel editE6ItemViewModel = new EditE6ItemViewModel(dialogCoordinator, Quote, ItemE6s, ItemType.E6);
+                EditE6ItemViewModel editE6ItemViewModel = new EditE6ItemViewModel(dialogCoordinator, Quote, ItemE6s, ItemType.ItemE6);
                 editE6ItemViewModel.OnItemsSavedRequested += OnItemE6Saved;
                 windowService.EditItemsWndow(editE6ItemViewModel, "Edit VLS");
             }
             else if (itemsName.ToFormat() == "e7")
             {
-                EditE7ItemViewModel editE7ItemViewModel = new EditE7ItemViewModel(dialogCoordinator, Quote, ItemE7s, ItemType.E7);
+                EditE7ItemViewModel editE7ItemViewModel = new EditE7ItemViewModel(dialogCoordinator, Quote, ItemE7s, ItemType.ItemE7);
                 editE7ItemViewModel.OnItemsSavedRequested += OnItemE7Saved;
                 windowService.EditItemsWndow(editE7ItemViewModel, "Edit KP");
             }
 
             else if (itemsName.ToFormat() == "f1")
             {
-                EditF1ItemViewModel editF1ItemViewModel = new EditF1ItemViewModel(dialogCoordinator, Quote, ItemF1s, ItemType.F1);
+                EditF1ItemViewModel editF1ItemViewModel = new EditF1ItemViewModel(dialogCoordinator, Quote, ItemF1s, ItemType.ItemF1);
                 editF1ItemViewModel.OnItemsSavedRequested += OnItemF1Saved;
                 windowService.EditItemsWndow(editF1ItemViewModel, "Edit UV");
             }
 
             else if (itemsName.ToFormat() == "g1")
             {
-                EditG1ItemViewModel editG1ItemViewModel = new EditG1ItemViewModel(dialogCoordinator, Quote, ItemG1s, ItemType.G1);
+                EditG1ItemViewModel editG1ItemViewModel = new EditG1ItemViewModel(dialogCoordinator, Quote, ItemG1s, ItemType.ItemG1);
                 editG1ItemViewModel.OnItemsSavedRequested += OnItemG1Saved;
                 windowService.EditItemsWndow(editG1ItemViewModel, "Edit Series 300");
             }
             else if (itemsName.ToFormat() == "g2")
             {
-                EditG2ItemViewModel editG2ItemViewModel = new EditG2ItemViewModel(dialogCoordinator, Quote, ItemG2s, ItemType.G2);
+                EditG2ItemViewModel editG2ItemViewModel = new EditG2ItemViewModel(dialogCoordinator, Quote, ItemG2s, ItemType.ItemG2);
                 editG2ItemViewModel.OnItemsSavedRequested += OnItemG2Saved;
                 windowService.EditItemsWndow(editG2ItemViewModel, "Edit Series 1500");
             }
             else if (itemsName.ToFormat() == "g3")
             {
-                EditG3ItemViewModel editG3ItemViewModel = new EditG3ItemViewModel(dialogCoordinator, Quote, ItemG3s, ItemType.G3);
+                EditG3ItemViewModel editG3ItemViewModel = new EditG3ItemViewModel(dialogCoordinator, Quote, ItemG3s, ItemType.ItemG3);
                 editG3ItemViewModel.OnItemsSavedRequested += OnItemG3Saved;
                 windowService.EditItemsWndow(editG3ItemViewModel, "Edit PT2");
             }
             else if (itemsName.ToFormat() == "g4")
             {
-                EditG4ItemViewModel editG4ItemViewModel = new EditG4ItemViewModel(dialogCoordinator, Quote, ItemG4s, ItemType.G4);
+                EditG4ItemViewModel editG4ItemViewModel = new EditG4ItemViewModel(dialogCoordinator, Quote, ItemG4s, ItemType.ItemG4);
                 editG4ItemViewModel.OnItemsSavedRequested += OnItemG4Saved;
                 windowService.EditItemsWndow(editG4ItemViewModel, "Edit FXT");
             }
             else if (itemsName.ToFormat() == "g5")
             {
-                EditG5ItemViewModel editG5ItemViewModel = new EditG5ItemViewModel(dialogCoordinator, Quote, ItemG5s, ItemType.G5);
+                EditG5ItemViewModel editG5ItemViewModel = new EditG5ItemViewModel(dialogCoordinator, Quote, ItemG5s, ItemType.ItemG5);
                 editG5ItemViewModel.OnItemsSavedRequested += OnItemG5Saved;
                 windowService.EditItemsWndow(editG5ItemViewModel, "Edit Series V (VT0 / VT1)");
             }
             else if (itemsName.ToFormat() == "g6")
             {
-                EditG6ItemViewModel editG6ItemViewModel = new EditG6ItemViewModel(dialogCoordinator, Quote, ItemG6s, ItemType.G6);
+                EditG6ItemViewModel editG6ItemViewModel = new EditG6ItemViewModel(dialogCoordinator, Quote, ItemG6s, ItemType.ItemG6);
                 editG6ItemViewModel.OnItemsSavedRequested += OnItemG6Saved;
                 windowService.EditItemsWndow(editG6ItemViewModel, "Edit Low Profile Series V (VTL)");
             }
 
             else if (itemsName.ToFormat() == "h1")
             {
-                EditH1ItemViewModel editH1ItemViewModel = new EditH1ItemViewModel(dialogCoordinator, Quote, ItemH1s, ItemType.H1);
+                EditH1ItemViewModel editH1ItemViewModel = new EditH1ItemViewModel(dialogCoordinator, Quote, ItemH1s, ItemType.ItemH1);
                 editH1ItemViewModel.OnItemsSavedRequested += OnItemH1Saved;
                 windowService.EditItemsWndow(editH1ItemViewModel, "Edit Series 300");
             }
             else if (itemsName.ToFormat() == "h2")
             {
-                EditH2ItemViewModel editH2ItemViewModel = new EditH2ItemViewModel(dialogCoordinator, Quote, ItemH2s, ItemType.H2);
+                EditH2ItemViewModel editH2ItemViewModel = new EditH2ItemViewModel(dialogCoordinator, Quote, ItemH2s, ItemType.ItemH2);
                 editH2ItemViewModel.OnItemsSavedRequested += OnItemH2Saved;
                 windowService.EditItemsWndow(editH2ItemViewModel, "Edit Series 1500");
             }
             else if (itemsName.ToFormat() == "h3")
             {
-                EditH3ItemViewModel editH3ItemViewModel = new EditH3ItemViewModel(dialogCoordinator, Quote, ItemH3s, ItemType.H3);
+                EditH3ItemViewModel editH3ItemViewModel = new EditH3ItemViewModel(dialogCoordinator, Quote, ItemH3s, ItemType.ItemH3);
                 editH3ItemViewModel.OnItemsSavedRequested += OnItemH3Saved;
                 windowService.EditItemsWndow(editH3ItemViewModel, "Edit PT2");
             }
             else if (itemsName.ToFormat() == "h4")
             {
-                EditH4ItemViewModel editH4ItemViewModel = new EditH4ItemViewModel(dialogCoordinator, Quote, ItemH4s, ItemType.H4);
+                EditH4ItemViewModel editH4ItemViewModel = new EditH4ItemViewModel(dialogCoordinator, Quote, ItemH4s, ItemType.ItemH4);
                 editH4ItemViewModel.OnItemsSavedRequested += OnItemH4Saved;
                 windowService.EditItemsWndow(editH4ItemViewModel, "Edit FXT");
             }
             else if (itemsName.ToFormat() == "h5")
             {
-                EditH5ItemViewModel editH5ItemViewModel = new EditH5ItemViewModel(dialogCoordinator, Quote, ItemH5s, ItemType.H5);
+                EditH5ItemViewModel editH5ItemViewModel = new EditH5ItemViewModel(dialogCoordinator, Quote, ItemH5s, ItemType.ItemH5);
                 editH5ItemViewModel.OnItemsSavedRequested += OnItemH5Saved;
                 windowService.EditItemsWndow(editH5ItemViewModel, "Edit Series V (VT0 / VT1)");
             }

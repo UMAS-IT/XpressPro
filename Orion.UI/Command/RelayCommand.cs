@@ -7,9 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static Orion.Helper.Misc.GV;
 
 namespace Orion.UI.Command
 {
+    public class RelayCommandAsync : ICommand
+    {
+        private readonly Func<Task> _execute;
+        private readonly Func<bool> _canExecute;
+
+        public RelayCommandAsync(Func<Task> execute) : this(execute, null) { }
+
+        public RelayCommandAsync(Func<Task> execute, Func<bool> canExecute)
+        {
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            _canExecute = canExecute;
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return _canExecute == null || _canExecute();
+        }
+
+        public async void Execute(object parameter)
+        {
+            await _execute();
+        }
+    }
+
     public class RelayCommand : ICommand
     {
         Action _TargetExecuteMethod;
@@ -189,7 +220,7 @@ namespace Orion.UI.Command
     {
         ObservableCollection<ICatalog> Catalogs { get; set; }
         Action BackToProductsRequested { get; set; }
-        Action<ICatalog> OnEditCatalogItemRequested { get; set; }
+        Action<ICatalog, ItemType> OnEditCatalogItemRequested { get; set; }
         Action<ICatalog> OnEditCatalogTitlesRequested { get; set; }
     }
 

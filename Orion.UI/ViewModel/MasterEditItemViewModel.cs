@@ -17,7 +17,7 @@ using static Orion.Helper.Misc.GV;
 
 namespace Orion.UI.ViewModel
 {
-    public class MasterItemViewModel : BindableBase
+    public class MasterEditItemViewModel : BindableBase
     {
         public MessageService messageService;
         public CatalogService catalogService;
@@ -75,7 +75,7 @@ namespace Orion.UI.ViewModel
 
         public Action<IList<IItem>> OnItemsSavedRequested = delegate { };
 
-        public MasterItemViewModel(IDialogCoordinator dialogCoordinator, Quote quote, IList<IItem> items, ItemType itemType)
+        public MasterEditItemViewModel(IDialogCoordinator dialogCoordinator, Quote quote, IList<IItem> items, ItemType itemType)
         {
             Quote = quote;
             Items = items.Clone().ToObservableCollection();
@@ -136,6 +136,14 @@ namespace Orion.UI.ViewModel
                 return false;
             }
 
+            string message = itemService.ValidataItemsTag(Items.ToList<IItem>());
+
+            if (!string.IsNullOrWhiteSpace(message))
+            {
+                await messageService.ResultMessage("Error", "Some Tags Are Duplicated \n" + message);
+                return false;
+            }
+
             return true;
         }
 
@@ -153,18 +161,8 @@ namespace Orion.UI.ViewModel
             if (catalog is null)
                 return;
 
-            ItemA1 itemA1 = new ItemA1()
-            {
-                CatalogA1 = catalog as CatalogA1,
-                CatalogA1Id = catalog.Id,
-                ListPrice = catalog.ListPrice,
-                SellPrice = catalog.SellPrice,
-                Cost = catalog.Cost,
-                SellMargin = catalog.SellMargin,
-                CostMultiplier = catalog.CostMultiplier,
-            };
+            Items.Add(itemService.AddItem(catalog, ItemType));
 
-            Items.Add(itemA1);
             Items.ToList().ForEach(s => s.DesignIndex = Items.IndexOf(s));
         }
 
