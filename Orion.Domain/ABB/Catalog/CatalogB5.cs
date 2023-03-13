@@ -29,7 +29,7 @@ namespace Orion.Domain.EntityCatalogABB
         [NotMapped]
         public override string Index { get => "b5"; }
 
-        public CatalogB5()
+        public CatalogB5() : base()
         {
             Description = "";
         }

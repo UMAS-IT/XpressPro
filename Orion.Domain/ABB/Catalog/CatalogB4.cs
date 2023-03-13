@@ -64,7 +64,7 @@ namespace Orion.Domain.EntityCatalogABB
         [NotMapped]
         public override string Index { get => "b4"; }
 
-        public CatalogB4()
+        public CatalogB4() : base()
         {
             Description = "";
             Nema = "";
