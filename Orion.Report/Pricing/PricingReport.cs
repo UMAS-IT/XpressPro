@@ -141,13 +141,13 @@ namespace Orion.Report.Pricing
                 }
                 if (quote.ItemC3s.Any(x => !x.IsExcluded))
                 {
-                    pricingItems.Add(pricingC.CreateC3ItemTable(quote.ItemC3s, mainDocument, docSection, itemNumber++));
+                    pricingItems.AddRange(pricingC.CreateC3ItemTable(quote.ItemC3s, mainDocument, docSection, itemNumber++));
                     AddTitlesAndSpecs(quote.ItemC3s.ToList<IItem>(), docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
                 if (quote.ItemC4s.Any(x => !x.IsExcluded))
                 {
-                    pricingItems.Add(pricingC.CreateC4ItemTable(quote.ItemC4s, mainDocument, docSection, itemNumber++));
+                    pricingItems.AddRange(pricingC.CreateC4ItemTable(quote.ItemC4s, mainDocument, docSection, itemNumber++));
                     AddTitlesAndSpecs(quote.ItemC4s.ToList<IItem>(), docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
@@ -213,7 +213,7 @@ namespace Orion.Report.Pricing
 
                 if (quote.ItemF1s.Any(x => !x.IsExcluded))
                 {
-                    pricingItems.Add(pricingF.CreateF1ItemTable(quote.ItemF1s, mainDocument, docSection, itemNumber++));
+                    pricingItems.AddRange(pricingF.CreateF1ItemTable(quote.ItemF1s, mainDocument, docSection, itemNumber++));
                     AddTitlesAndSpecs(quote.ItemF1s.ToList<IItem>(), docSection);
                     AddBlankLine(mainDocument, docSection);
                 }

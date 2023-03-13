@@ -21,6 +21,55 @@ namespace Orion.Domain.EntityCatalogAmericanWheatley
             set => SetProperty(ref _id, value);
         }
 
+        private string _partNumber;
+        public string PartNumber
+        {
+            get => _partNumber;
+            set => SetProperty(ref _partNumber, value);
+        }
+
+        private string _acceptableVolume;
+        public string AcceptableVolume
+        {
+            get => _acceptableVolume;
+            set => SetProperty(ref _acceptableVolume, value);
+        }
+
+        private string _diameterA;
+        public string DiameterA
+        {
+            get => _diameterA;
+            set => SetProperty(ref _diameterA, value);
+        }
+
+        private string _HeightB;
+        public string HeightB
+        {
+            get => _HeightB;
+            set => SetProperty(ref _HeightB, value);
+        }
+
+        private string _systemConnect;
+        public string SystemConnect
+        {
+            get => _systemConnect;
+            set => SetProperty(ref _systemConnect, value);
+        }
+
+        private string _weight;
+        public string Weight
+        {
+            get => _weight;
+            set => SetProperty(ref _weight, value);
+        }
+
+        private string _workingPressure;
+        public string WorkingPressure
+        {
+            get => _workingPressure;
+            set => SetProperty(ref _workingPressure, value);
+        }
+
         private string _model;
         public string Model
         {

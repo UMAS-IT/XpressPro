@@ -114,7 +114,7 @@ namespace Orion.DataAccess.Service
 
                 case ItemType.ItemC3:
                     dbQuote = context.Quotes
-                        .Include(x => x.ItemC3s).ThenInclude(x => x.CatalogC3)
+                        .Include(x => x.ItemC3s).ThenInclude(x => x.CatalogC3).ThenInclude(x => x.CatalogC3ProductType)
                         .Include(x => x.ItemC3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                         .FirstOrDefault(x => x.Id == quote.Id);
                     break;
@@ -895,7 +895,7 @@ namespace Orion.DataAccess.Service
                 items.AddRange(context.ItemB5s.Include(x => x.CatalogB5).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
                 items.AddRange(context.ItemC1s.Include(x => x.CatalogC1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
                 items.AddRange(context.ItemC2s.Include(x => x.CatalogC2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
-                items.AddRange(context.ItemC3s.Include(x => x.CatalogC3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
+                items.AddRange(context.ItemC3s.Include(x => x.CatalogC3).ThenInclude(x => x.CatalogC3ProductType).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
                 items.AddRange(context.ItemC4s.Include(x => x.CatalogC4).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
                 items.AddRange(context.ItemD1s.Include(x => x.CatalogD1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
                 items.AddRange(context.ItemD2s.Include(x => x.CatalogD2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());

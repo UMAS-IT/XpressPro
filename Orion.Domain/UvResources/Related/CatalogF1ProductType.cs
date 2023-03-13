@@ -2,6 +2,7 @@
 using Orion.Binding.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,14 @@ namespace Orion.Domain.UvResources.Related
         {
             get => _name;
             set => SetProperty(ref _name, value);
+        }
+
+        private bool _isSelected;
+        [NotMapped]
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set => SetProperty(ref _isSelected, value);
         }
     }
 }

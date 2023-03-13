@@ -43,6 +43,51 @@
                     </TextBox>
 
                     <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Acceptable Volume (GPM)" 
+                             Text="{Binding Catalog.AcceptableVolume, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Diameter A (in)" 
+                             Text="{Binding Catalog.DiameterA, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+                    
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Height B (in)" 
+                             Text="{Binding Catalog.HeightB, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="System Connect (in)" 
+                             Text="{Binding Catalog.SystemConnect, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Weight (lb)" 
+                             Text="{Binding Catalog.Weight, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+                    <TextBox  
+                             ctrl:TextBoxHelper.Watermark="WorkingPressure (PSI)" 
+                             Text="{Binding Catalog.WorkingPressure, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{DynamicResource TxtStyle}">
+                    </TextBox>
+                    
+                    <ComboBox  
+                              Style="{StaticResource CBoxStyle}"
+                              ctrl:TextBoxHelper.Watermark="Product Type" 
+                              ItemsSource="{Binding CatalogC3ProductTypes, Mode=TwoWay}"
+                              SelectedItem="{Binding Catalog.CatalogC3ProductType, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True, Mode=TwoWay}"
+                              MinHeight="40" Height="auto">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" TextWrapping="Wrap" TextAlignment="Justify" Margin="0,1" MaxWidth="300" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBox  
                              ctrl:TextBoxHelper.Watermark="List Price" 
                              Background="#32B974"
                              PreviewTextInput="IsDouble"
@@ -60,7 +105,7 @@
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Cost" 
-                             Background="DarkOrange"
+                             Background="{StaticResource MahApps.Brushes.Accent}"
                              IsReadOnly="True"
                              Text="{Binding Catalog.Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c},  Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
@@ -76,7 +121,7 @@
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Unit Sell Price" 
-                             Background="DarkOrange"
+                             Background="{StaticResource MahApps.Brushes.Accent}"
                              IsReadOnly="True"
                              Text="{Binding Catalog.SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">

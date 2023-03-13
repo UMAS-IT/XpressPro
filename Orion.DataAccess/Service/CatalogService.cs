@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orion.DataAccess.DataBase;
+using Orion.Domain.AmericanWheatley.Related;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
@@ -166,7 +167,7 @@ namespace Orion.DataAccess.Service
                     break;
 
                 case ItemType.ItemC3:
-                    catalogs = context.CatalogC3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).ToList<ICatalog>();
+                    catalogs = context.CatalogC3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).Include(x => x.CatalogC3ProductType).ToList<ICatalog>();
                     break;
 
                 case ItemType.ItemC4:
@@ -299,7 +300,7 @@ namespace Orion.DataAccess.Service
                 else if (catalog is CatalogC2)
                     return context.CatalogC2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
                 else if (catalog is CatalogC3)
-                    return context.CatalogC3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                    return context.CatalogC3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).Include(x => x.CatalogC3ProductType).FirstOrDefault(x => x.Id == catalog.Id);
                 else if (catalog is CatalogC4)
                     return context.CatalogC4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
 
@@ -487,6 +488,16 @@ namespace Orion.DataAccess.Service
                 {
                     CatalogC3 catalogC3 = catalog as CatalogC3;
                     CatalogC3 dbCatalogC3 = catalog.Id != 0 ? context.CatalogC3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogC3;
+                    CatalogC3ProductType dbCatalogC3ProductType = catalogC3.CatalogC3ProductType != null ? context.CatalogC3ProductTypes.FirstOrDefault(x => x.Id == catalogC3.CatalogC3ProductType.Id) : null;
+
+                    dbCatalogC3.PartNumber = catalogC3.PartNumber;
+                    dbCatalogC3.AcceptableVolume = catalogC3.AcceptableVolume;
+                    dbCatalogC3.DiameterA = catalogC3.DiameterA;
+                    dbCatalogC3.HeightB = catalogC3.HeightB;
+                    dbCatalogC3.SystemConnect = catalogC3.SystemConnect;
+                    dbCatalogC3.Weight = catalogC3.Weight;
+                    dbCatalogC3.WorkingPressure = catalogC3.WorkingPressure;
+                    dbCatalogC3.CatalogC3ProductType = dbCatalogC3ProductType;
 
                     dbCatalog = dbCatalogC3;
                 }
@@ -494,6 +505,14 @@ namespace Orion.DataAccess.Service
                 {
                     CatalogC4 catalogC4 = catalog as CatalogC4;
                     CatalogC4 dbCatalogC4 = catalog.Id != 0 ? context.CatalogC4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogC4;
+
+                    dbCatalogC4.PartNumber = catalogC4.PartNumber;
+                    dbCatalogC4.AcceptableVolume = catalogC4.AcceptableVolume;
+                    dbCatalogC4.DiameterA = catalogC4.DiameterA;
+                    dbCatalogC4.HeightB = catalogC4.HeightB;
+                    dbCatalogC4.SystemConnect = catalogC4.SystemConnect;
+                    dbCatalogC4.Weight = catalogC4.Weight;
+                    dbCatalogC4.WorkingPressure = catalogC4.WorkingPressure;
 
                     dbCatalog = dbCatalogC4;
                 }

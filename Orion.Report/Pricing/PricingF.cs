@@ -12,7 +12,7 @@ namespace Orion.Report.Pricing
 {
     public class PricingF : ReportSettings
     {
-        public PricingItem CreateF1ItemTable(IList<ItemF1> items, Document document, Section docSection, int itemNumber)
+        public List<PricingItem> CreateF1ItemTable(IList<ItemF1> items, Document document, Section docSection, int itemNumber)
         {
             items = items.Where(x => !x.IsExcluded).OrderBy(x => x.DesignIndex).ToList();
 
@@ -34,7 +34,7 @@ namespace Orion.Report.Pricing
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return GetPricingItems(items.ToList<IItem>(), tempItem, itemNumber);
         }
     }
 }

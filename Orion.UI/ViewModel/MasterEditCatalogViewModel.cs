@@ -34,7 +34,7 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _itemType, value);
         }
 
-        public RelayCommandAsync LoadDataCommand { get; set; }
+        public AsyncRelayCommand LoadDataCommand { get; set; }
         public RelayCommand BackFromEditCommand { get; set; }
         public RelayCommand UpdateCatalogItemCommand { get; set; }
 
@@ -46,7 +46,7 @@ namespace Orion.UI.ViewModel
             Catalog = catalog;
             ItemType = itemType;
 
-            LoadDataCommand = new RelayCommandAsync(OnLoadData);
+            LoadDataCommand = new AsyncRelayCommand(OnLoadData);
             BackFromEditCommand = new RelayCommand(OnBackFromEdit);
             UpdateCatalogItemCommand = new RelayCommand(OnUpdateCatalogItem);
 

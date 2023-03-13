@@ -197,6 +197,18 @@
     <Compile Include="Migrations\20230310215146_mig-18.designer.cs">
       <DependentUpon>20230310215146_mig-18.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20230312194525_mig-19.cs" />
+    <Compile Include="Migrations\20230312194525_mig-19.designer.cs">
+      <DependentUpon>20230312194525_mig-19.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20230312195402_mig-20.cs" />
+    <Compile Include="Migrations\20230312195402_mig-20.designer.cs">
+      <DependentUpon>20230312195402_mig-20.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20230313043831_mig-21.cs" />
+    <Compile Include="Migrations\20230313043831_mig-21.designer.cs">
+      <DependentUpon>20230313043831_mig-21.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GlobalDbContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CatalogService.cs" />

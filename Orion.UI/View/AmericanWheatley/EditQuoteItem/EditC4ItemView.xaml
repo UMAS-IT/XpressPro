@@ -186,6 +186,13 @@
                         </DataGridTemplateColumn>
 
                         <DataGridTextColumn Header="Model" Binding="{Binding Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Acceptable Volume (GPM)" Binding="{Binding AcceptableVolume}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Diameter A (in)" Binding="{Binding DiameterA}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Height B (in)" Binding="{Binding HeightB}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="System Connect (in)" Binding="{Binding SystemConnect}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Weight (lb)" Binding="{Binding Weight}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Working Pressure (PSI)" Binding="{Binding WorkingPressure}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
                         <DataGridTextColumn Header="List Price" Binding="{Binding ListPrice, StringFormat={}{0:c}}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                         <DataGridTextColumn Header="Cost Multiplier" Binding="{Binding CostMultiplier}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                         <DataGridTextColumn Header="Cost" Binding="{Binding Cost, StringFormat= {}{0:c}}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
@@ -309,6 +316,12 @@
                         </DataGridTemplateColumn>
 
                         <DataGridTextColumn Header="Model" Binding="{Binding Catalog.Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Acceptable Volume (GPM)" Binding="{Binding Catalog.AcceptableVolume}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Diameter A (in)" Binding="{Binding Catalog.DiameterA}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Height B (in)" Binding="{Binding Catalog.HeightB}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="System Connect (in)" Binding="{Binding Catalog.SystemConnect}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Weight (lb)" Binding="{Binding Catalog.Weight}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Header="Working Pressure (PSI)" Binding="{Binding Catalog.WorkingPressure}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                         <DataGridTemplateColumn Header="List Price">
                             <DataGridTemplateColumn.HeaderStyle>

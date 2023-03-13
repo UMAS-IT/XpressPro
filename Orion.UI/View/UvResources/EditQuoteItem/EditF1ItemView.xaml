@@ -30,36 +30,100 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Width="150">
+        <Grid Grid.Column="0" Width="200">
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
                 <RowDefinition/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <GroupBox Header="Search Options" 
+            <GroupBox Header="Search Options" Grid.Row="0"
                       ctrl:ControlsHelper.ContentCharacterCasing="Normal"
                                   Margin="5,5,0,5">
-                <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
                     <TextBox  
                              Grid.Column="0"
                              ctrl:TextBoxHelper.Watermark="Model Name"                          
-                             ToolTip="Press ENTER to update searching"
                              ctrl:TextBoxHelper.ClearTextButton="True"
-                             ctrl:TextBoxHelper.ButtonCommand="{Binding ResetSearchCommand}"
                              Text="{Binding Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnNotifyDataErrors=True}"
                              Style="{DynamicResource TxtStyle}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
                     </TextBox>
 
+                    <Button Grid.Column="1"  
+                        Margin="1"
+                            ToolTip="Search"
+                                        Command="{Binding SearchCommand}">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
 
-                </StackPanel>
 
+                                <icon:PackIconMaterial Kind="Magnify" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                    <icon:PackIconMaterial.LayoutTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                        </TransformGroup>
+                                    </icon:PackIconMaterial.LayoutTransform>
+                                </icon:PackIconMaterial>
+
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox  Grid.Row="1"
+                      ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                                  Margin="5,0,0,5">
+                <GroupBox.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Product Types" Padding="0" VerticalAlignment="Center"/>
+                        <Button Grid.Column="1" Margin="-2" Command="{Binding ClearProductTypesCommand}">
+                            <icon:PackIconMaterialDesign Kind="ClearAll" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                <icon:PackIconMaterialDesign.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                    </TransformGroup>
+                                </icon:PackIconMaterialDesign.LayoutTransform>
+                            </icon:PackIconMaterialDesign>
+                        </Button>
+                    </Grid>
+                </GroupBox.Header>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <ItemsControl ItemsSource="{Binding CatalogF1ProductTypes, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="1" BorderBrush="White" Margin="0,2">
+                                    <CheckBox Grid.Column="0" IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                        <CheckBox.Content>
+                                            <TextBlock Grid.Column="1" Text="{Binding Name}" TextWrapping="Wrap" TextAlignment="Left" Margin="0,5" />
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
 
             </GroupBox>
+
 
             <GroupBox Header="Actions" 
                       ctrl:ControlsHelper.ContentCharacterCasing="Normal"

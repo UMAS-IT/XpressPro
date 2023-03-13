@@ -11,14 +11,14 @@ using static Orion.Helper.Misc.GV;
 
 namespace Orion.UI.Command
 {
-    public class RelayCommandAsync : ICommand
+    public class AsyncRelayCommand : ICommand
     {
         private readonly Func<Task> _execute;
         private readonly Func<bool> _canExecute;
 
-        public RelayCommandAsync(Func<Task> execute) : this(execute, null) { }
+        public AsyncRelayCommand(Func<Task> execute) : this(execute, null) { }
 
-        public RelayCommandAsync(Func<Task> execute, Func<bool> canExecute)
+        public AsyncRelayCommand(Func<Task> execute, Func<bool> canExecute)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;

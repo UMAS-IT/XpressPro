@@ -19,6 +19,19 @@ namespace Orion.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Orion.Domain.AmericanWheatley.Related.CatalogC3ProductType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CatalogC3ProductTypes");
+                });
+
             modelBuilder.Entity("Orion.Domain.Entity.Company", b =>
                 {
                     b.Property<int>("Id")
@@ -528,17 +541,35 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AcceptableVolume");
+
+                    b.Property<int?>("CatalogC3ProductTypeId");
+
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int?>("DataSheetId");
+
+                    b.Property<string>("DiameterA");
+
+                    b.Property<string>("HeightB");
 
                     b.Property<double>("ListPrice");
 
                     b.Property<string>("Model");
 
+                    b.Property<string>("PartNumber");
+
                     b.Property<double>("SellMargin");
 
+                    b.Property<string>("SystemConnect");
+
+                    b.Property<string>("Weight");
+
+                    b.Property<string>("WorkingPressure");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("CatalogC3ProductTypeId");
 
                     b.HasIndex("DataSheetId");
 
@@ -551,15 +582,29 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AcceptableVolume");
+
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int?>("DataSheetId");
+
+                    b.Property<string>("DiameterA");
+
+                    b.Property<string>("HeightB");
 
                     b.Property<double>("ListPrice");
 
                     b.Property<string>("Model");
 
+                    b.Property<string>("PartNumber");
+
                     b.Property<double>("SellMargin");
+
+                    b.Property<string>("SystemConnect");
+
+                    b.Property<string>("Weight");
+
+                    b.Property<string>("WorkingPressure");
 
                     b.HasKey("Id");
 
@@ -2647,6 +2692,10 @@ namespace Orion.DataAccess.Migrations
 
             modelBuilder.Entity("Orion.Domain.EntityCatalogAmericanWheatley.CatalogC3", b =>
                 {
+                    b.HasOne("Orion.Domain.AmericanWheatley.Related.CatalogC3ProductType", "CatalogC3ProductType")
+                        .WithMany()
+                        .HasForeignKey("CatalogC3ProductTypeId");
+
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");

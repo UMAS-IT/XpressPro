@@ -133,6 +133,7 @@
     <Compile Include="AmericanWheatley\Catalog\CatalogC2.cs" />
     <Compile Include="AmericanWheatley\Catalog\CatalogC3.cs" />
     <Compile Include="AmericanWheatley\Catalog\CatalogC4.cs" />
+    <Compile Include="AmericanWheatley\Related\CatalogC3ProductType.cs" />
     <Compile Include="BACClosedCircuits\Catalog\CatalogH1.cs" />
     <Compile Include="BACClosedCircuits\Catalog\CatalogH2.cs" />
     <Compile Include="BACClosedCircuits\Catalog\CatalogH3.cs" />

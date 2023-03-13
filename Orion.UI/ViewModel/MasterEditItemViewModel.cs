@@ -65,7 +65,7 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _itemType, value);
         }
 
-        public RelayCommand LoadDataCommand { get; set; }
+        public AsyncRelayCommand LoadDataCommand { get; set; }
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand ResetSearchCommand { get; set; }
         public RelayCommand<dynamic> BackCommand { get; set; }
@@ -81,7 +81,7 @@ namespace Orion.UI.ViewModel
             Items = items.Clone().ToObservableCollection();
             ItemType = itemType;
 
-            LoadDataCommand = new RelayCommand(OnLoadData);
+            LoadDataCommand = new AsyncRelayCommand(OnLoadData);
             BackCommand = new RelayCommand<dynamic>(OnBack);
             AddItemCommand = new RelayCommand<ICatalog>(OnAddItem);
             RemoveItemCommand = new RelayCommand<IItem>(OnRemoveItem);
@@ -99,7 +99,7 @@ namespace Orion.UI.ViewModel
             Catalogs = CatalogsBase;
         }
 
-        private void OnSearch()
+        public virtual void OnSearch()
         {
             Catalogs = CatalogsBase.Where(x => x.Model.ToFormat().Contains(Model.ToFormat())).ToObservableCollection();
         }
@@ -171,7 +171,7 @@ namespace Orion.UI.ViewModel
             window.Close();
         }
 
-        private async void OnLoadData()
+        public virtual async Task OnLoadData()
         {
             try
             {

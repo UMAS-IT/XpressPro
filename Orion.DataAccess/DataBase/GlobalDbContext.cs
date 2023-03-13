@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Orion.Domain.AmericanWheatley.Related;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
@@ -81,7 +82,12 @@ namespace Orion.DataAccess.DataBase
         public DbSet<ItemC3> ItemC3s { get; set; }
         public DbSet<ItemC4> ItemC4s { get; set; }
         #endregion
-       
+
+        #region American Wheatley Related
+        public DbSet<CatalogC3ProductType> CatalogC3ProductTypes { get; set; }
+
+        #endregion
+
 
 
         #region Puroflux Catalogs

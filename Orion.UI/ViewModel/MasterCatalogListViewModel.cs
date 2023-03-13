@@ -47,7 +47,7 @@ namespace Orion.UI.ViewModel
             get => _itemType;
             set => SetProperty(ref _itemType, value);
         }
-        public RelayCommand LoadDataCommand { get; set; }
+        public AsyncRelayCommand LoadDataCommand { get; set; }
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand ResetSearchCommand { get; set; }
         public RelayCommand AddCatalogItemCommand { get; set; }
@@ -63,7 +63,7 @@ namespace Orion.UI.ViewModel
         {
             this.dialogCoordinator = dialogCoordinator;
             ItemType = itemType;
-            LoadDataCommand = new RelayCommand(OnLoadData);
+            LoadDataCommand = new AsyncRelayCommand(OnLoadData);
             SearchCommand = new RelayCommand(OnSearch);
             ResetSearchCommand = new RelayCommand(OnResetSearch);
             AddCatalogItemCommand = new RelayCommand(OnAddCatalogItem);
@@ -102,7 +102,7 @@ namespace Orion.UI.ViewModel
             OnEditCatalogItemRequested(catalog, ItemType);
         }
 
-        private async void OnLoadData()
+        public virtual async Task OnLoadData()
         {
             try
             {
@@ -126,7 +126,7 @@ namespace Orion.UI.ViewModel
             Model = "";
         }
 
-        private void OnSearch()
+        public virtual void OnSearch()
         {
             Catalogs = CatalogsBase.Where(x => x.Model.ToFormat().Contains(Model.ToFormat())).ToObservableCollection();
         }

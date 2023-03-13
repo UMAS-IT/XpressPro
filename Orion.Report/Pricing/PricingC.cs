@@ -1,6 +1,8 @@
 ﻿using Orion.Domain.Entity;
+using Orion.Domain.EntityCatalogAmericanWheatley;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
+using Orion.Domain.EntityItemUvResources;
 using Spire.Doc;
 using System;
 using System.Collections.Generic;
@@ -62,7 +64,7 @@ namespace Orion.Report.Pricing
             return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
         }
 
-        public PricingItem CreateC3ItemTable(IList<ItemC3> items, Document document, Section docSection, int itemNumber)
+        public List<PricingItem> CreateC3ItemTable(IList<ItemC3> items, Document document, Section docSection, int itemNumber)
         {
             items = items.Where(x => !x.IsExcluded).OrderBy(x => x.DesignIndex).ToList();
 
@@ -71,7 +73,7 @@ namespace Orion.Report.Pricing
             IItem tempItem = items.First();
 
             String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
-            String[] Header = { "Quantity", "Tag", "Model" };
+            String[] Header = { "Quantity", "Tag", "Model", "Acceptable Volume (GPM)", "Diameter A (in)", "Height B (in)", "System Connect (in)", "Weight (lb)", "Working Pressure (PSI)", "Product Type" };
 
             string[][] data = new string[items.Count][];
 
@@ -79,15 +81,15 @@ namespace Orion.Report.Pricing
             {
                 ItemC3 item = items[i];
 
-                data[i] = new string[3] { item.Quantity.ToString(), item.Tag, item.CatalogC3.Model };
+                data[i] = new string[10] { item.Quantity.ToString(), item.Tag, item.CatalogC3.Model, item.CatalogC3.AcceptableVolume, item.CatalogC3.DiameterA, item.CatalogC3.HeightB, item.CatalogC3.SystemConnect, item.CatalogC3.Weight, item.CatalogC3.WorkingPressure, item.CatalogC3.CatalogC3ProductType.Name };
             }
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return GetPricingItems(items.ToList<IItem>(), tempItem, itemNumber);
         }
 
-        public PricingItem CreateC4ItemTable(IList<ItemC4> items, Document document, Section docSection, int itemNumber)
+        public List<PricingItem> CreateC4ItemTable(IList<ItemC4> items, Document document, Section docSection, int itemNumber)
         {
             items = items.Where(x => !x.IsExcluded).OrderBy(x => x.DesignIndex).ToList();
 
@@ -96,7 +98,7 @@ namespace Orion.Report.Pricing
             IItem tempItem = items.First();
 
             String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
-            String[] Header = { "Quantity", "Tag", "Model" };
+            String[] Header = { "Quantity", "Tag", "Model", "Acceptable Volume (GPM)", "Diameter A (in)", "Height B (in)", "System Connect (in)", "Weight (lb)", "Working Pressure (PSI)"};
 
             string[][] data = new string[items.Count][];
 
@@ -104,12 +106,12 @@ namespace Orion.Report.Pricing
             {
                 ItemC4 item = items[i];
 
-                data[i] = new string[3] { item.Quantity.ToString(), item.Tag, item.CatalogC4.Model };
+                data[i] = new string[9] { item.Quantity.ToString(), item.Tag, item.CatalogC4.Model, item.CatalogC4.AcceptableVolume, item.CatalogC4.DiameterA, item.CatalogC4.HeightB, item.CatalogC4.SystemConnect, item.CatalogC4.Weight, item.CatalogC4.WorkingPressure};
             }
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
 
-            return new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()));
+            return GetPricingItems(items.ToList<IItem>(), tempItem, itemNumber);
         }
 
     }
