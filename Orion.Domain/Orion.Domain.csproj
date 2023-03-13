@@ -145,6 +145,7 @@
     <Compile Include="BACCoolingTowers\Catalog\CatalogG4.cs" />
     <Compile Include="BACCoolingTowers\Catalog\CatalogG5.cs" />
     <Compile Include="BACCoolingTowers\Catalog\CatalogG6.cs" />
+    <Compile Include="Entity\Catalog.cs" />
     <Compile Include="Entity\Company.cs" />
     <Compile Include="Entity\DataSheet.cs" />
     <Compile Include="Entity\Product.cs" />
