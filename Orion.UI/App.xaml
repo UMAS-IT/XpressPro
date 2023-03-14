@@ -895,6 +895,48 @@
                 <Setter Property="ToolTip" Value="Move To End"/>
             </Style>
 
+            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}" x:Key="addItemToQuoteButtonStyle">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid  Background="#FF87B036">
+                                <icon:PackIconMaterial Kind="PlusThick" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <icon:PackIconMaterial.LayoutTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                        </TransformGroup>
+                                    </icon:PackIconMaterial.LayoutTransform>
+                                </icon:PackIconMaterial>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Command" Value="{Binding Path=DataContext.AddItemCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                <Setter Property="CommandParameter" Value="{Binding}"/>
+                <Setter Property="ToolTip" Value="Add Item To Quote"/>
+            </Style>
+
+            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}" x:Key="removeItemFromQuoteButtonStyle">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid  Background="DarkRed">
+                                <icon:PackIconMaterial Kind="MinusThick" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <icon:PackIconMaterial.LayoutTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                        </TransformGroup>
+                                    </icon:PackIconMaterial.LayoutTransform>
+                                </icon:PackIconMaterial>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Command" Value="{Binding Path=DataContext.RemoveItemCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                <Setter Property="CommandParameter" Value="{Binding}"/>
+                <Setter Property="ToolTip" Value="Remove Item From Quote"/>
+            </Style>
+
             <Style x:Key="MiComboBoxStyle" TargetType="{x:Type ComboBox}">
                 <Setter Property="Width" Value="300"/>
                 <Style.Triggers>
@@ -903,103 +945,8 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-
-            <!--<Style TargetType="DataGrid" BasedOn="{StaticResource DGridStyle}">
-                <Setter Property="FrozenColumnCount" Value="6"/>
-                <Setter Property="CanUserSortColumns" Value="False"/>
-                <Setter Property="Columns">
-                    <Setter.Value>
-                        <DataGridTemplateColumn CanUserResize="False"  Width="auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Style="{StaticResource moveToStartButtonStyle}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </Setter.Value>
-                </Setter>
-            </Style>-->
-
-            <!--<Style x:Key="CustomDataGridStyle" TargetType="DataGrid">
-                <Setter Property="AutoGenerateColumns" Value="False"/>
-                <Setter Property="Columns">
-                    <Setter.Value>
-                        <it:ItemCollection>
-                            <DataGridTemplateColumn Header="First Name">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding FirstName}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="Last Name">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding LastName}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </it:ItemCollection>
-                    </Setter.Value>
-                </Setter>
-            </Style>-->
-
-            <!--<Style x:Key="CustomDataGridStyle" TargetType="DataGrid">
-                <Setter Property="AutoGenerateColumns" Value="False"/>
-                <Setter Property="local:DataGridHelper.Columns">
-                    <Setter.Value>
-                        <local:DataGridColumnCollection>
-                            <DataGridTemplateColumn CanUserResize="False"  Width="auto">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Style="{StaticResource moveToStartButtonStyle}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-
-                            <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Style="{StaticResource moveToUpButtonStyle}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-
-                            <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Style="{StaticResource deleteItemButtonStyle}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-
-                            <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button  Style="{StaticResource buttonInfoStyle}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-
-                            <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Style="{StaticResource moveToDownButtonStyle}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-
-                            <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Style="{StaticResource moveToEndButtonStyle}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </local:DataGridColumnCollection>
-                    </Setter.Value>
-                </Setter>
-            </Style>-->
+            
+            
 
         </ResourceDictionary>
     </Application.Resources>

@@ -17,6 +17,7 @@ using Orion.Domain.EntityItemBACCoolingTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.Groundfos.Related;
 using Orion.Domain.UvResources.Related;
 using System;
 using System.Collections;
@@ -760,6 +761,22 @@ namespace Orion.DataAccess.Service
                         dbItem.Cost = item.Cost;
                         dbItem.SellMargin = item.SellMargin;
                         dbItem.SellPrice = item.SellPrice;
+
+                        if (dbItem is ItemE)
+                        {
+                            ItemE itemE = item as ItemE;
+                            ItemE dbItemE = dbItem as ItemE;
+
+                            dbItemE.Model = itemE.Model;
+                            dbItemE.Gpm = itemE.Gpm;
+                            dbItemE.Tdh = itemE.Tdh;
+                            dbItemE.Hp = itemE.Hp;
+                            dbItemE.Motor = itemE.Motor;
+                            dbItemE.Rpm = itemE.Rpm;
+                            dbItemE.Electrical = itemE.Electrical;
+
+                            dbItem = dbItemE;
+                        }
                     }
                     else
                     {

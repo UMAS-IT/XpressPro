@@ -28,7 +28,11 @@ namespace Orion.UI.ViewModel.Quantech.CatalogList
         //public override async Task OnLoadData()
         //{
         //    CatalogsBase = testService.CatalogA1Repository.GetAll().ToList<ICatalog>().ToObservableCollection();
+
+        //    CatalogsBase.Union(testService.CatalogA2Repository.GetAll().ToList<ICatalog>().ToObservableCollection());
+
         //    Catalogs = CatalogsBase;
+
         //}
     }
 }

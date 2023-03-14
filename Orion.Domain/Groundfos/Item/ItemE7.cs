@@ -1,6 +1,7 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogGroundfos;
+using Orion.Domain.Groundfos.Related;
 using Orion.Helper.Extension;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Orion.Domain.EntityItemGroundfos
 {
-    public class ItemE7 : Item
+    public class ItemE7 : ItemE
     {
         private int? _catalogE7Id;
         public int? CatalogE7Id

@@ -157,6 +157,7 @@
     <Compile Include="Groundfos\Catalog\CatalogE5.cs" />
     <Compile Include="Groundfos\Catalog\CatalogE6.cs" />
     <Compile Include="Groundfos\Catalog\CatalogE7.cs" />
+    <Compile Include="Groundfos\Related\ItemE.cs" />
     <Compile Include="Puroflux\Catalog\CatalogD1.cs" />
     <Compile Include="Puroflux\Catalog\CatalogD2.cs" />
     <Compile Include="Quantech\Catalog\CatalogA1.cs" />

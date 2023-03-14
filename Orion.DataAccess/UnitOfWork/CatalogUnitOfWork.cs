@@ -20,6 +20,7 @@ namespace Orion.DataAccess.UnitOfWork
             _repositories = new Dictionary<Type, object>();
 
             _repositories.Add(typeof(CatalogA1), new CatalogA1Repository(_context));
+            _repositories.Add(typeof(CatalogA2), new CatalogA2Repository(_context));
         }
 
         public IGenericRepository<T> GetRepository<T>() where T : class

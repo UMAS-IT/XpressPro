@@ -21,5 +21,6 @@ namespace Orion.DataAccess.Repository
         }
 
         public IGenericRepository<CatalogA1> CatalogA1Repository => _unitOfWork.GetRepository<CatalogA1>();
+        public IGenericRepository<CatalogA2> CatalogA2Repository => _unitOfWork.GetRepository<CatalogA2>();
     }
 }

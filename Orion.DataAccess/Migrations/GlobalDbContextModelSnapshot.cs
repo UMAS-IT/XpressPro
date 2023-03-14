@@ -2072,9 +2072,19 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("Electrical");
+
+                    b.Property<string>("Gpm");
+
+                    b.Property<string>("Hp");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<string>("Motor");
 
                     b.Property<bool>("OverridePrice");
 
@@ -2082,9 +2092,13 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("QuoteId");
 
+                    b.Property<string>("Rpm");
+
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Tdh");
 
                     b.HasKey("Id");
 
@@ -2107,9 +2121,19 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("Electrical");
+
+                    b.Property<string>("Gpm");
+
+                    b.Property<string>("Hp");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<string>("Motor");
 
                     b.Property<bool>("OverridePrice");
 
@@ -2117,9 +2141,13 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("QuoteId");
 
+                    b.Property<string>("Rpm");
+
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Tdh");
 
                     b.HasKey("Id");
 
@@ -2142,9 +2170,19 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("Electrical");
+
+                    b.Property<string>("Gpm");
+
+                    b.Property<string>("Hp");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<string>("Motor");
 
                     b.Property<bool>("OverridePrice");
 
@@ -2152,9 +2190,13 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("QuoteId");
 
+                    b.Property<string>("Rpm");
+
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Tdh");
 
                     b.HasKey("Id");
 
@@ -2177,9 +2219,19 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("Electrical");
+
+                    b.Property<string>("Gpm");
+
+                    b.Property<string>("Hp");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<string>("Motor");
 
                     b.Property<bool>("OverridePrice");
 
@@ -2187,9 +2239,13 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("QuoteId");
 
+                    b.Property<string>("Rpm");
+
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Tdh");
 
                     b.HasKey("Id");
 
@@ -2212,9 +2268,19 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("Electrical");
+
+                    b.Property<string>("Gpm");
+
+                    b.Property<string>("Hp");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<string>("Motor");
 
                     b.Property<bool>("OverridePrice");
 
@@ -2222,9 +2288,13 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("QuoteId");
 
+                    b.Property<string>("Rpm");
+
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Tdh");
 
                     b.HasKey("Id");
 
@@ -2247,9 +2317,19 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("Electrical");
+
+                    b.Property<string>("Gpm");
+
+                    b.Property<string>("Hp");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<string>("Motor");
 
                     b.Property<bool>("OverridePrice");
 
@@ -2257,9 +2337,13 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("QuoteId");
 
+                    b.Property<string>("Rpm");
+
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Tdh");
 
                     b.HasKey("Id");
 
@@ -2282,9 +2366,19 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("Electrical");
+
+                    b.Property<string>("Gpm");
+
+                    b.Property<string>("Hp");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<string>("Motor");
 
                     b.Property<bool>("OverridePrice");
 
@@ -2292,9 +2386,13 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("QuoteId");
 
+                    b.Property<string>("Rpm");
+
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Tdh");
 
                     b.HasKey("Id");
 

@@ -2,6 +2,7 @@
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogGroundfos;
+using Orion.Domain.Groundfos.Related;
 using Orion.Helper.Extension;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Orion.Domain.EntityItemGroundfos
 {
-    public class ItemE1 : Item
+    public class ItemE1 : ItemE
     {
         private int? _catalogE1Id;
         public int? CatalogE1Id
@@ -37,6 +38,7 @@ namespace Orion.Domain.EntityItemGroundfos
 
         public ItemE1() : base()
         {
+
         }
     }
 }

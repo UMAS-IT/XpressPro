@@ -209,9 +209,14 @@
     <Compile Include="Migrations\20230313043831_mig-21.designer.cs">
       <DependentUpon>20230313043831_mig-21.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20230313230312_mig-22.cs" />
+    <Compile Include="Migrations\20230313230312_mig-22.designer.cs">
+      <DependentUpon>20230313230312_mig-22.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GlobalDbContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CatalogA1Repository.cs" />
+    <Compile Include="Repository\CatalogA2Repository.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IGenericRepository.cs" />
     <Compile Include="Repository\TestService.cs" />
