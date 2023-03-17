@@ -31,17 +31,5 @@ namespace Orion.Report.Pricing
             IsSpec = isSpec;
             this.Company = company;
         }
-
-        public PricingItem(int itemNumber, string description, double price, string tags, int quantity, bool isTitle = false, bool isSpec = false)
-        {
-            this.ItemNumber = itemNumber;
-            this.Description = description;
-            this.Price = price;
-            this.Tags = tags;
-            this.Quantity = quantity;
-            this.IsTitle = isTitle;
-            IsSpec = isSpec;
-            this.Company = "";
-        }
     }
 }

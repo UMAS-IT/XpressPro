@@ -33,8 +33,8 @@ namespace Orion.Report.Pricing
         {
             string tags = "";
 
-            items.ToList().ForEach(x => tags += $"[{x.Tag}]({x.Quantity}) ");
-
+            //items.ToList().ForEach(x => tags += $"[{x.Tag}]({x.Quantity}) ");
+            items.ToList().ForEach(x => tags += $"[{x.Tag}] ");
             return tags;
         }
         public int JoinQuantities(IList<IItem> items)
@@ -378,7 +378,9 @@ namespace Orion.Report.Pricing
                 {
                     foreach (Title title in item .Titles)
                     {
-                        AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]({item.Quantity})", true);
+                        //AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]({item.Quantity})", true);
+                        AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]", true);
+
 
                         foreach (Spec spec in title.Specs)
                         {
@@ -394,7 +396,9 @@ namespace Orion.Report.Pricing
             {
                 foreach (Title title in item.Titles)
                 {
-                    AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]({item.Quantity})", true);
+                    //AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]({item.Quantity})", true);
+                    AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]", true);
+
 
                     foreach (Spec spec in title.Specs)
                     {
@@ -408,27 +412,60 @@ namespace Orion.Report.Pricing
         {
             List<PricingItem> pricingItems = new List<PricingItem>();
 
-            pricingItems.Add(new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()),tempItem.Catalog.Company));
-
-
-            foreach (IItem item in items.Where(x => x.Titles.Any()))
+            if (GV.Extended)
             {
-                foreach (Title title in item.Titles)
+                foreach (IItem item in items)
                 {
-                    if (title.Specs.All(x => x.Price <= 0))
-                        continue;
+                    pricingItems.Add(new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(new List<IItem>() { item }), JoinTags(new List<IItem>() { item }), JoinQuantities(new List<IItem>() { item }), tempItem.Catalog.Company));
 
-                    pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]({item.Quantity})", 0, tempItem.Catalog.Company, true, false));
-
-                    foreach (Spec spec in title.Specs)
+                    foreach (Title title in item.Titles)
                     {
-                        if (spec.Price <= 0)
+                        if (title.Specs.All(x => x.Price <= 0))
                             continue;
 
-                        pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]({item.Quantity})", 1, tempItem.Catalog.Company, false, true));
+                        //pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]({item.Quantity})", 0, tempItem.Catalog.Company, true, false));
+                        pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]", 0, tempItem.Catalog.Company, true, false));
+
+                        foreach (Spec spec in title.Specs)
+                        {
+                            if (spec.Price <= 0)
+                                continue;
+
+                            //pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]({item.Quantity})", 1, tempItem.Catalog.Company, false, true));
+                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company, false, true));
+                        }
                     }
                 }
             }
+            else
+            {
+
+                pricingItems.Add(new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()), tempItem.Catalog.Company));
+
+
+                foreach (IItem item in items.Where(x => x.Titles.Any()))
+                {
+                    foreach (Title title in item.Titles)
+                    {
+                        if (title.Specs.All(x => x.Price <= 0))
+                            continue;
+
+                        //pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]({item.Quantity})", 0, tempItem.Catalog.Company, true, false));
+                        pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]", 0, tempItem.Catalog.Company, true, false));
+
+
+                        foreach (Spec spec in title.Specs)
+                        {
+                            if (spec.Price <= 0)
+                                continue;
+
+                            //pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]({item.Quantity})", 1, tempItem.Catalog.Company, false, true));
+                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company, false, true));
+                        }
+                    }
+                }
+            }
+
             return pricingItems;
         }
 

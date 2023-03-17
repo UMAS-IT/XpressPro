@@ -17,7 +17,7 @@ namespace Orion.Domain.EntityCatalogGroundfos
         [NotMapped]
         public override string Company { get => "Grundfos"; }
         [NotMapped]
-        public override string Product { get => "NBS"; }
+        public override string Product { get => "Pumps"; }
         [NotMapped]
         public override string Index { get => "e1"; }
 

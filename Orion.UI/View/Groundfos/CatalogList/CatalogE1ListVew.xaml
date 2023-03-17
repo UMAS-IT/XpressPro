@@ -141,7 +141,7 @@
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0" Margin="5,5,5,0" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
-                <Label Content="NBS" HorizontalAlignment="Center" FontSize="12" />
+                <Label Content="Pumps" HorizontalAlignment="Center" FontSize="12" />
             </Border>
 
             <DataGrid       Grid.Row="1"

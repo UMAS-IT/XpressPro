@@ -639,13 +639,13 @@ namespace Orion.UI.ViewModel
             {
                 EditC3ItemViewModel editC3ItemViewModel = new EditC3ItemViewModel(dialogCoordinator, Quote, ItemC3s, ItemType.ItemC3);
                 editC3ItemViewModel.OnItemsSavedRequested += OnItemC3Saved;
-                windowService.EditItemsWndow(editC3ItemViewModel, "Edit PCR");
+                windowService.EditItemsWndow(editC3ItemViewModel, "Edit Tanks");
             }
             else if (itemsName.ToFormat() == "c4")
             {
                 EditC4ItemViewModel editC4ItemViewModel = new EditC4ItemViewModel(dialogCoordinator, Quote, ItemC4s, ItemType.ItemC4);
                 editC4ItemViewModel.OnItemsSavedRequested += OnItemC4Saved;
-                windowService.EditItemsWndow(editC4ItemViewModel, "Edit CCR");
+                windowService.EditItemsWndow(editC4ItemViewModel, "Edit Separatos");
             }
 
             else if (itemsName.ToFormat() == "d1")

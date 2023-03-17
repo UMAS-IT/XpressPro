@@ -86,7 +86,7 @@ namespace Orion.Helper.Misc
         //    CatalogH5,
         //}
 
-
+        public static bool Extended { get; set; }
 
         public static int RandomProjectNumber()
         {
