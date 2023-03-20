@@ -4,15 +4,15 @@ C:\Users\TRINITY BUILD\Documents\Visual Studio 2022\Air Treatment Projects\Orion
 C:\Users\TRINITY BUILD\Documents\Visual Studio 2022\Air Treatment Projects\Orion\Orion.Binding\obj\Debug\Orion.Binding.csproj.CoreCompileInputs.cache
 C:\Users\TRINITY BUILD\Documents\Visual Studio 2022\Air Treatment Projects\Orion\Orion.Binding\obj\Debug\Orion.Binding.dll
 C:\Users\TRINITY BUILD\Documents\Visual Studio 2022\Air Treatment Projects\Orion\Orion.Binding\obj\Debug\Orion.Binding.pdb
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Binding\bin\Debug\Orion.Binding.dll
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Binding\bin\Debug\Orion.Binding.pdb
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Binding\obj\Debug\Orion.Binding.csproj.AssemblyReference.cache
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Binding\obj\Debug\Orion.Binding.csproj.CoreCompileInputs.cache
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Binding\obj\Debug\Orion.Binding.dll
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Binding\obj\Debug\Orion.Binding.pdb
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Binding\bin\Debug\Orion.Binding.dll
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Binding\bin\Debug\Orion.Binding.pdb
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Binding\obj\Debug\Orion.Binding.csproj.AssemblyReference.cache
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Binding\obj\Debug\Orion.Binding.csproj.CoreCompileInputs.cache
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Binding\obj\Debug\Orion.Binding.dll
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Binding\obj\Debug\Orion.Binding.pdb
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Binding\bin\Debug\Orion.Binding.dll
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Binding\bin\Debug\Orion.Binding.pdb
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Binding\obj\Debug\Orion.Binding.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Binding\obj\Debug\Orion.Binding.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Binding\obj\Debug\Orion.Binding.dll
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Binding\obj\Debug\Orion.Binding.pdb

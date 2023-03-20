@@ -72,7 +72,7 @@
              xmlns:converters="clr-namespace:Orion.UI.Converters"
              
              xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             
+             ShutdownMode="OnMainWindowClose"
              xmlns:local="clr-namespace:Orion.UI.DependencyProperties"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
@@ -945,8 +945,23 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-            
-            
+
+            <Style x:Key="customNumericStyle" TargetType="ctrl:NumericUpDown">
+                <Setter Property="Minimum" Value="1"/>
+                <Setter Property="Interval" Value="1"/>
+            </Style>
+
+
+
+            <Style TargetType="local:FullItemDataGrid" x:Key="FullItemDataGridStyle" BasedOn="{StaticResource DGridStyle}">
+                <Setter Property="CanUserSortColumns" Value="False"/>
+                <Setter Property="FrozenColumnCount" Value="6"/>
+            </Style>
+
+            <Style TargetType="local:EditItemDataGrid" x:Key="EditItemDataGridStyle" BasedOn="{StaticResource DGridStyle}">
+                <Setter Property="CanUserSortColumns" Value="False"/>
+                <Setter Property="FrozenColumnCount" Value="1"/>
+            </Style>
 
         </ResourceDictionary>
     </Application.Resources>

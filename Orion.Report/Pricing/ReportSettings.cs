@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace Orion.Report.Pricing
 {
@@ -26,7 +27,7 @@ namespace Orion.Report.Pricing
 
         public String[] CreateSectionTitle(IItem item, int itemNumber)
         {
-            return new[] { $"Item #{itemNumber}) {item.Catalog.Company} : {item.Catalog.Product}" };
+            return new[] { $"Item {GetColumnName(itemNumber)}) {item.Catalog.Company} : {item.Catalog.Product}" };
         }
 
         public string JoinTags(IList<IItem> items)
@@ -56,6 +57,24 @@ namespace Orion.Report.Pricing
 
         }
 
+        public string GetColumnName(int number)
+        {
+            if (number < 1)
+            {
+                throw new ArgumentException("Number must be a positive integer.");
+            }
+
+            StringBuilder columnName = new StringBuilder();
+
+            while (number > 0)
+            {
+                int remainder = (number - 1) % 26;
+                columnName.Insert(0, (char)(65 + remainder));
+                number = (number - 1) / 26;
+            }
+
+            return columnName.ToString();
+        }
 
 
 
@@ -124,7 +143,7 @@ namespace Orion.Report.Pricing
 
                     TextRange TR2 = p2.AppendText(data[r][c]);
 
-                    p2.Format.HorizontalAlignment = HorizontalAlignment.Left;
+                    p2.Format.HorizontalAlignment = HorizontalAlignment.Center;
                     p2.Format.BeforeSpacing = 0;
                     p2.Format.AfterSpacing = 0;
                     p2.Format.LineSpacing = 10;
@@ -208,7 +227,7 @@ namespace Orion.Report.Pricing
 
                     TextRange TR2 = p2.AppendText(data[r][c]);
 
-                    p2.Format.HorizontalAlignment = HorizontalAlignment.Left;
+                    p2.Format.HorizontalAlignment = HorizontalAlignment.Center;
                     p2.Format.BeforeSpacing = 0;
                     p2.Format.AfterSpacing = 0;
                     p2.Format.LineSpacing = 10;
@@ -416,7 +435,7 @@ namespace Orion.Report.Pricing
             {
                 foreach (IItem item in items)
                 {
-                    pricingItems.Add(new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(new List<IItem>() { item }), JoinTags(new List<IItem>() { item }), JoinQuantities(new List<IItem>() { item }), tempItem.Catalog.Company));
+                    pricingItems.Add(new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(new List<IItem>() { item }), JoinTags(new List<IItem>() { item }), JoinQuantities(new List<IItem>() { item }), tempItem.Catalog.Company, item));
 
                     foreach (Title title in item.Titles)
                     {
@@ -424,7 +443,7 @@ namespace Orion.Report.Pricing
                             continue;
 
                         //pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]({item.Quantity})", 0, tempItem.Catalog.Company, true, false));
-                        pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]", 0, tempItem.Catalog.Company, true, false));
+                        pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]", 0, tempItem.Catalog.Company, null, true, false));
 
                         foreach (Spec spec in title.Specs)
                         {
@@ -432,7 +451,7 @@ namespace Orion.Report.Pricing
                                 continue;
 
                             //pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]({item.Quantity})", 1, tempItem.Catalog.Company, false, true));
-                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company, false, true));
+                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company, null, false, true));
                         }
                     }
                 }
@@ -451,7 +470,7 @@ namespace Orion.Report.Pricing
                             continue;
 
                         //pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]({item.Quantity})", 0, tempItem.Catalog.Company, true, false));
-                        pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]", 0, tempItem.Catalog.Company, true, false));
+                        pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]", 0, tempItem.Catalog.Company, null, true, false));
 
 
                         foreach (Spec spec in title.Specs)
@@ -460,7 +479,7 @@ namespace Orion.Report.Pricing
                                 continue;
 
                             //pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]({item.Quantity})", 1, tempItem.Catalog.Company, false, true));
-                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company, false, true));
+                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company, null, false, true));
                         }
                     }
                 }

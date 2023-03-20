@@ -156,7 +156,29 @@
         </Grid>
 
         <GroupBox Grid.Row="1" Margin="5,0,0,5" Header="Actions" ctrl:ControlsHelper.ContentCharacterCasing="Normal" HorizontalAlignment="Left" Width="355">
-            <Button Width="65"
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <CheckBox Margin="1" 
+                          Grid.Column="0"
+                                          Content="Extended Report" 
+                                          IsChecked="{Binding Extended, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" >
+                    <CheckBox.Style>
+                        <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                            <Setter Property="FontSize" Value="8"/>
+                            <Setter Property="LayoutTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1.25" ScaleY="1.25"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </CheckBox.Style>
+                </CheckBox>
+
+                <Button Width="65"
                     Grid.Column="1"
                     HorizontalAlignment="Right"
                         Margin="1"
@@ -165,26 +187,28 @@
                                         Command="{Binding CreateReportsCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}"
                         ToolTip="Create Reports">
-                <Button.Content>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="Create" Padding="0,0,5,0"/>
-                        <icon:PackIconMaterial Kind="Creation" 
+                    <Button.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="Create" Padding="0,0,5,0"/>
+                            <icon:PackIconMaterial Kind="Creation" 
                                                         Grid.Column="1" 
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
-                            <icon:PackIconMaterial.LayoutTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
-                                </TransformGroup>
-                            </icon:PackIconMaterial.LayoutTransform>
-                        </icon:PackIconMaterial>
-                    </Grid>
-                </Button.Content>
-            </Button>
+                                <icon:PackIconMaterial.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                    </TransformGroup>
+                                </icon:PackIconMaterial.LayoutTransform>
+                            </icon:PackIconMaterial>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </Grid>
+
         </GroupBox>
     </Grid>
 

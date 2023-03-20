@@ -175,7 +175,7 @@ namespace Orion.Report.Pricing
             {
                 PricingItem pricingItem = summaryPricingItems[i];
 
-                data[i] = new string[5] { $"{pricingItem.ItemNumber}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, pricingItem.Company};
+                data[i] = new string[5] { $"{GetColumnName(pricingItem.ItemNumber)}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, pricingItem.Company};
             }
 
             Table table = CreateItemTable(docSection, summaryPricingItems.Count, title, Header, data);
@@ -300,43 +300,87 @@ namespace Orion.Report.Pricing
         {
             int itemsQuantity = pricingItems.Count;
 
-            String[] title = { $"Pricing" };
-            String[] Header = { "Item", "Tags", "Quantity", "Description", "Price Per Line" };
 
             string[][] data = new string[pricingItems.Count][];
 
             double itemNumber = 0.0;
             bool lastWasSpec = false;
+            int baseItemNumber = 0;
 
-            for (int i = 0; i < pricingItems.Count; i++)
+            if (!GV.Extended)
             {
-                PricingItem pricingItem = pricingItems[i];
+                String[] title = { $"Pricing" };
+                String[] Header = { "Item", "Tags", "Quantity", "Description", "Price Per Line" };
 
-                if (pricingItem.IsSpec && lastWasSpec == false)
+                for (int i = 0; i < pricingItems.Count; i++)
                 {
-                    lastWasSpec = true;
-                    itemNumber += 0.01;
-                    data[i] = new string[5] { $"{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+                    PricingItem pricingItem = pricingItems[i];
 
+                    if (pricingItem.IsSpec && lastWasSpec == false)
+                    {
+                        lastWasSpec = true;
+                        itemNumber += 1;
+                        data[i] = new string[5] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+
+                    }
+                    else if (pricingItem.IsSpec && lastWasSpec == true)
+                    {
+                        lastWasSpec = true;
+                        itemNumber += 1;
+                        data[i] = new string[5] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+                    }
+                    else if (pricingItem.IsTitle)
+                    {
+                        data[i] = new string[5] { $"", pricingItem.Tags, "", pricingItem.Description, "" };
+                    }
+                    else
+                    {
+                        baseItemNumber = pricingItem.ItemNumber;
+                        data[i] = new string[5] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+                    }
                 }
-                else if (pricingItem.IsSpec && lastWasSpec == true)
+
+                CreatePricingItemAndSpecsTable(docSection, itemsQuantity, title, Header, data);
+            }
+            else
+            {
+                String[] title = { $"Pricing" };
+                String[] Header = { "Item", "Tags", "Quantity", "Description", "Price Each", "Extended Price" };
+
+                for (int i = 0; i < pricingItems.Count; i++)
                 {
-                    lastWasSpec = true;
-                    itemNumber += 0.01;
-                    data[i] = new string[5] { $"{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+                    PricingItem pricingItem = pricingItems[i];
+
+                    if (pricingItem.IsSpec && lastWasSpec == false)
+                    {
+                        lastWasSpec = true;
+                        itemNumber += 1;
+                        data[i] = new string[6] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, "", $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+
+                    }
+                    else if (pricingItem.IsSpec && lastWasSpec == true)
+                    {
+                        lastWasSpec = true;
+                        itemNumber += 1;
+                        data[i] = new string[6] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, "", $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+                    }
+                    else if (pricingItem.IsTitle)
+                    {
+                        data[i] = new string[6] { $"", pricingItem.Tags, "", pricingItem.Description, "", "" };
+                    }
+                    else
+                    {
+                        baseItemNumber = pricingItem.ItemNumber;
+                        //data[i] = new string[6] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), $"{pricingItem.Description} ({pricingItem.Item.Catalog.Model})" , $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price / pricingItem.Quantity).ToDecimal().Truncate(2)))}", $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+
+                        data[i] = new string[6] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), $"{pricingItem.Description}", $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price / pricingItem.Quantity).ToDecimal().Truncate(2)))}", $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
+                    }
                 }
-                else if (pricingItem.IsTitle)
-                {
-                    data[i] = new string[5] { $"", pricingItem.Tags, "", pricingItem.Description, "" };
-                }
-                else
-                {
-                    itemNumber = pricingItem.ItemNumber;
-                    data[i] = new string[5] { $"#{pricingItem.ItemNumber}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Price.ToDecimal().Truncate(2)))}" };
-                }
+
+                CreatePricingItemAndSpecsTable(docSection, itemsQuantity, title, Header, data);
             }
 
-            CreatePricingItemAndSpecsTable(docSection, itemsQuantity, title, Header, data);
+
         }
 
         private void CreateGrandTotalPriceTable(List<PricingItem> pricingItems, Section docSection)

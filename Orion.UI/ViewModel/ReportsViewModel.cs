@@ -73,6 +73,13 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _porject, value);
         }
 
+        private bool _extended;
+        public bool Extended
+        {
+            get => _extended;
+            set => SetProperty(ref _extended, value);
+        }
+
         public RelayCommand<object> LoadDataCommand { get; set; }
         public RelayCommand<object> SingleReportSelectedCommand { get; set; }
         public RelayCommand<object> SingleUnitTagSelectedCommand { get; set; }
@@ -109,7 +116,7 @@ namespace Orion.UI.ViewModel
             {
                 await messageService.StartMessage("Creating Report(s)", "This will take a few minutes, please wait...");
 
-                pricingReport.Create(Project, Quotes.Where(x => x.IsSelected).ToList(),true); 
+                pricingReport.Create(Project, Quotes.Where(x => x.IsSelected).ToList(), Extended); 
 
                 await messageService.EndMessage("Reports done");
                 await messageService.OkMessage("Reports", "Report(s) created successfully");

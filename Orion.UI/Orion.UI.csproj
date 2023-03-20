@@ -179,7 +179,8 @@
     <Compile Include="Converters\BoolToYesNoCoverter.cs" />
     <Compile Include="Converters\TwoParametersConverter.cs" />
     <Compile Include="DependencyProperties\DataGridColumnCollection.cs" />
-    <Compile Include="DependencyProperties\DataGridHelper.cs" />
+    <Compile Include="DependencyProperties\EditItemDataGrid.cs" />
+    <Compile Include="DependencyProperties\FullItemDataGrid.cs" />
     <Compile Include="Service\MessageService.cs" />
     <Compile Include="Service\WindowService.cs" />
     <Compile Include="ViewModel\ABB\CatalogList\CatalogB1ListViewModel.cs" />
