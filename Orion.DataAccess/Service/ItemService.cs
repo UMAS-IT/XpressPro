@@ -18,6 +18,13 @@ using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
 using Orion.Domain.Groundfos.Related;
+using Orion.Domain.Marvair;
+using Orion.Domain.Marvair.Catalog;
+using Orion.Domain.Marvair.Item;
+using Orion.Domain.Multiaqua.Catalog;
+using Orion.Domain.Multiaqua.Item;
+using Orion.Domain.PACE.Catalog;
+using Orion.Domain.PACE.Item;
 using Orion.Domain.UvResources.Related;
 using System;
 using System.Collections;
@@ -274,6 +281,48 @@ namespace Orion.DataAccess.Service
                         .FirstOrDefault(x => x.Id == quote.Id);
                     break;
 
+                case ItemType.ItemI1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemI1s).ThenInclude(x => x.CatalogI1)
+                        .Include(x => x.ItemI1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+
+                case ItemType.ItemI2:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemI2s).ThenInclude(x => x.CatalogI2)
+                        .Include(x => x.ItemI2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+
+                case ItemType.ItemJ1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemJ1s).ThenInclude(x => x.CatalogJ1)
+                        .Include(x => x.ItemJ1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+
+                case ItemType.ItemK1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemK1s).ThenInclude(x => x.CatalogK1)
+                        .Include(x => x.ItemK1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+
+                case ItemType.ItemK2:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemK2s).ThenInclude(x => x.CatalogK2)
+                        .Include(x => x.ItemK2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+
+                case ItemType.ItemK3:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemK3s).ThenInclude(x => x.CatalogK3)
+                        .Include(x => x.ItemK3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+
                 default:
                     throw new ArgumentException($"Invalid ItemType: {itemType}");
             }
@@ -488,6 +537,42 @@ namespace Orion.DataAccess.Service
                     quote.ItemH5s.Add(newItemH5);
                     break;
 
+                case ItemType.ItemI1:
+                    ItemI1 newItemI1 = item as ItemI1;
+                    newItemI1.CatalogI1 = catalogs.OfType<CatalogI1>().FirstOrDefault(x => x.Id == item.CatalogId);
+                    quote.ItemI1s.Add(newItemI1);
+                    break;
+
+                case ItemType.ItemI2:
+                    ItemI2 newItemI2 = item as ItemI2;
+                    newItemI2.CatalogI2 = catalogs.OfType<CatalogI2>().FirstOrDefault(x => x.Id == item.CatalogId);
+                    quote.ItemI2s.Add(newItemI2);
+                    break;
+
+                case ItemType.ItemJ1:
+                    ItemJ1 newItemJ1 = item as ItemJ1;
+                    newItemJ1.CatalogJ1 = catalogs.OfType<CatalogJ1>().FirstOrDefault(x => x.Id == item.CatalogId);
+                    quote.ItemJ1s.Add(newItemJ1);
+                    break;
+
+                case ItemType.ItemK1:
+                    ItemK1 newItemK1 = item as ItemK1;
+                    newItemK1.CatalogK1 = catalogs.OfType<CatalogK1>().FirstOrDefault(x => x.Id == item.CatalogId);
+                    quote.ItemK1s.Add(newItemK1);
+                    break;
+
+                case ItemType.ItemK2:
+                    ItemK2 newItemK2 = item as ItemK2;
+                    newItemK2.CatalogK2 = catalogs.OfType<CatalogK2>().FirstOrDefault(x => x.Id == item.CatalogId);
+                    quote.ItemK2s.Add(newItemK2);
+                    break;
+
+                case ItemType.ItemK3:
+                    ItemK3 newItemK3 = item as ItemK3;
+                    newItemK3.CatalogK3 = catalogs.OfType<CatalogK3>().FirstOrDefault(x => x.Id == item.CatalogId);
+                    quote.ItemK3s.Add(newItemK3);
+                    break;
+
                 default:
                     throw new ArgumentException("Invalid ItemType value.");
             }
@@ -600,6 +685,24 @@ namespace Orion.DataAccess.Service
                     break;
                 case ItemType.ItemH5:
                     dbItems = quote.ItemH5s.ToList<IItem>();
+                    break;
+                case ItemType.ItemI1:
+                    dbItems = quote.ItemI1s.ToList<IItem>();
+                    break;
+                case ItemType.ItemI2:
+                    dbItems = quote.ItemI2s.ToList<IItem>();
+                    break;
+                case ItemType.ItemJ1:
+                    dbItems = quote.ItemJ1s.ToList<IItem>();
+                    break;
+                case ItemType.ItemK1:
+                    dbItems = quote.ItemK1s.ToList<IItem>();
+                    break;
+                case ItemType.ItemK2:
+                    dbItems = quote.ItemK2s.ToList<IItem>();
+                    break;
+                case ItemType.ItemK3:
+                    dbItems = quote.ItemK3s.ToList<IItem>();
                     break;
                 default:
                     throw new ArgumentException("Invalid item type.");
@@ -729,6 +832,24 @@ namespace Orion.DataAccess.Service
                 case ItemType.ItemH5:
                     dbItem = quote.ItemH5s.First(x => x.Id == item.Id);
                     break;
+                case ItemType.ItemI1:
+                    dbItem = quote.ItemI1s.First(x => x.Id == item.Id);
+                    break;
+                case ItemType.ItemI2:
+                    dbItem = quote.ItemI2s.First(x => x.Id == item.Id);
+                    break;
+                case ItemType.ItemJ1:
+                    dbItem = quote.ItemJ1s.First(x => x.Id == item.Id);
+                    break;
+                case ItemType.ItemK1:
+                    dbItem = quote.ItemK1s.First(x => x.Id == item.Id);
+                    break;
+                case ItemType.ItemK2:
+                    dbItem = quote.ItemK2s.First(x => x.Id == item.Id);
+                    break;
+                case ItemType.ItemK3:
+                    dbItem = quote.ItemK3s.First(x => x.Id == item.Id);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(itemType), itemType, "Item type not supported.");
             }
@@ -776,6 +897,17 @@ namespace Orion.DataAccess.Service
                             dbItemE.Electrical = itemE.Electrical;
 
                             dbItem = dbItemE;
+                        }
+                        else if (dbItem is  ItemJ1)
+                        {
+                            ItemJ1 itemJ1 = item as ItemJ1;
+                            ItemJ1 dbItemJ1 = dbItem as ItemJ1;
+
+                            dbItemJ1.Cfm = itemJ1.Cfm;
+                            dbItemJ1.Voltage = itemJ1.Voltage;
+                            dbItemJ1.Weight = itemJ1.Weight;
+
+                            dbItem = dbItemJ1;
                         }
                     }
                     else
@@ -831,6 +963,12 @@ namespace Orion.DataAccess.Service
             itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemH3>().ToList<IItem>(), ItemType.ItemH3));
             itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemH4>().ToList<IItem>(), ItemType.ItemH4));
             itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemH5>().ToList<IItem>(), ItemType.ItemH5));
+            itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemI1>().ToList<IItem>(), ItemType.ItemI1));
+            itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemI2>().ToList<IItem>(), ItemType.ItemI2));
+            itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemJ1>().ToList<IItem>(), ItemType.ItemJ1));
+            itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemK1>().ToList<IItem>(), ItemType.ItemK1));
+            itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemK2>().ToList<IItem>(), ItemType.ItemK2));
+            itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemK3>().ToList<IItem>(), ItemType.ItemK3));
 
             return itemsToReturn;
         }
@@ -873,6 +1011,12 @@ namespace Orion.DataAccess.Service
             message += ValidataItemsTag(items.OfType<ItemH3>().ToList<IItem>());
             message += ValidataItemsTag(items.OfType<ItemH4>().ToList<IItem>());
             message += ValidataItemsTag(items.OfType<ItemH5>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemI1>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemI2>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemJ1>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemK1>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemK2>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemK3>().ToList<IItem>());
 
             return message;
         }
@@ -935,6 +1079,13 @@ namespace Orion.DataAccess.Service
                 items.AddRange(context.ItemH3s.Include(x => x.CatalogH3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
                 items.AddRange(context.ItemH4s.Include(x => x.CatalogH4).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
                 items.AddRange(context.ItemH5s.Include(x => x.CatalogH5).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
+                items.AddRange(context.ItemH5s.Include(x => x.CatalogH5).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
+                items.AddRange(context.ItemI1s.Include(x => x.CatalogI1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
+                items.AddRange(context.ItemI2s.Include(x => x.CatalogI2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
+                items.AddRange(context.ItemJ1s.Include(x => x.CatalogJ1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
+                items.AddRange(context.ItemK1s.Include(x => x.CatalogK1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
+                items.AddRange(context.ItemK2s.Include(x => x.CatalogK2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
+                items.AddRange(context.ItemK3s.Include(x => x.CatalogK3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
 
                 items = items.OrderBy(x => x.DesignIndex).ToList();
 
@@ -1286,6 +1437,66 @@ namespace Orion.DataAccess.Service
                     };
 
                     item = newItemH5;
+                    break;
+
+                case ItemType.ItemI1:
+                    ItemI1 newItemI1 = new ItemI1()
+                    {
+                        CatalogI1 = catalog as CatalogI1,
+                        CatalogI1Id = catalog.Id,
+                    };
+
+                    item = newItemI1;
+                    break;
+
+                case ItemType.ItemI2:
+                    ItemI2 newItemI2 = new ItemI2()
+                    {
+                        CatalogI2 = catalog as CatalogI2,
+                        CatalogI2Id = catalog.Id,
+                    };
+
+                    item = newItemI2;
+                    break;
+
+                case ItemType.ItemJ1:
+                    ItemJ1 newItemJ1 = new ItemJ1()
+                    {
+                        CatalogJ1 = catalog as CatalogJ1,
+                        CatalogJ1Id = catalog.Id,
+                    };
+
+                    item = newItemJ1;
+                    break;
+
+                case ItemType.ItemK1:
+                    ItemK1 newItemK1 = new ItemK1()
+                    {
+                        CatalogK1 = catalog as CatalogK1,
+                        CatalogK1Id = catalog.Id,
+                    };
+
+                    item = newItemK1;
+                    break;
+
+                case ItemType.ItemK2:
+                    ItemK2 newItemK2 = new ItemK2()
+                    {
+                        CatalogK2 = catalog as CatalogK2,
+                        CatalogK2Id = catalog.Id,
+                    };
+
+                    item = newItemK2;
+                    break;
+
+                case ItemType.ItemK3:
+                    ItemK3 newItemK3 = new ItemK3()
+                    {
+                        CatalogK3 = catalog as CatalogK3,
+                        CatalogK3Id = catalog.Id,
+                    };
+
+                    item = newItemK3;
                     break;
 
                 default:

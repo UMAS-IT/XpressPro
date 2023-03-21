@@ -226,6 +226,18 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int?>("ItemH5Id");
 
+                    b.Property<int?>("ItemI1Id");
+
+                    b.Property<int?>("ItemI2Id");
+
+                    b.Property<int?>("ItemJ1Id");
+
+                    b.Property<int?>("ItemK1Id");
+
+                    b.Property<int?>("ItemK2Id");
+
+                    b.Property<int?>("ItemK3Id");
+
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
@@ -299,6 +311,18 @@ namespace Orion.DataAccess.Migrations
                     b.HasIndex("ItemH4Id");
 
                     b.HasIndex("ItemH5Id");
+
+                    b.HasIndex("ItemI1Id");
+
+                    b.HasIndex("ItemI2Id");
+
+                    b.HasIndex("ItemJ1Id");
+
+                    b.HasIndex("ItemK1Id");
+
+                    b.HasIndex("ItemK2Id");
+
+                    b.HasIndex("ItemK3Id");
 
                     b.ToTable("Titles");
                 });
@@ -2508,6 +2532,374 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemF1s");
                 });
 
+            modelBuilder.Entity("Orion.Domain.Marvair.Catalog.CatalogI2", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int?>("DataSheetId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<double>("SellMargin");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DataSheetId");
+
+                    b.ToTable("CatalogI2s");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Marvair.CatalogI1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int?>("DataSheetId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<double>("SellMargin");
+
+                    b.Property<string>("UnitSize");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DataSheetId");
+
+                    b.ToTable("CatalogI1s");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Marvair.Item.ItemI1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CatalogI1Id");
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int>("DesignIndex");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("QuoteId");
+
+                    b.Property<double>("SellMargin");
+
+                    b.Property<string>("Tag");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogI1Id");
+
+                    b.HasIndex("QuoteId");
+
+                    b.ToTable("ItemI1s");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Marvair.Item.ItemI2", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CatalogI2Id");
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int>("DesignIndex");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("QuoteId");
+
+                    b.Property<double>("SellMargin");
+
+                    b.Property<string>("Tag");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogI2Id");
+
+                    b.HasIndex("QuoteId");
+
+                    b.ToTable("ItemI2s");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Multiaqua.Catalog.CatalogK1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int?>("DataSheetId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<double>("SellMargin");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DataSheetId");
+
+                    b.ToTable("CatalogK1");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Multiaqua.Catalog.CatalogK2", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int?>("DataSheetId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<double>("SellMargin");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DataSheetId");
+
+                    b.ToTable("CatalogK2");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Multiaqua.Catalog.CatalogK3", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int?>("DataSheetId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<double>("SellMargin");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DataSheetId");
+
+                    b.ToTable("CatalogK3");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Multiaqua.Item.ItemK1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CatalogK1Id");
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int>("DesignIndex");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("QuoteId");
+
+                    b.Property<double>("SellMargin");
+
+                    b.Property<string>("Tag");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogK1Id");
+
+                    b.HasIndex("QuoteId");
+
+                    b.ToTable("ItemK1");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Multiaqua.Item.ItemK2", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CatalogK2Id");
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int>("DesignIndex");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("QuoteId");
+
+                    b.Property<double>("SellMargin");
+
+                    b.Property<string>("Tag");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogK2Id");
+
+                    b.HasIndex("QuoteId");
+
+                    b.ToTable("ItemK2");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Multiaqua.Item.ItemK3", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CatalogK3Id");
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int>("DesignIndex");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("QuoteId");
+
+                    b.Property<double>("SellMargin");
+
+                    b.Property<string>("Tag");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogK3Id");
+
+                    b.HasIndex("QuoteId");
+
+                    b.ToTable("ItemK3");
+                });
+
+            modelBuilder.Entity("Orion.Domain.PACE.Catalog.CatalogJ1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int?>("DataSheetId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<double>("SellMargin");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DataSheetId");
+
+                    b.ToTable("CatalogJ1");
+                });
+
+            modelBuilder.Entity("Orion.Domain.PACE.Item.ItemJ1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CatalogJ1Id");
+
+                    b.Property<string>("Cfm");
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int>("DesignIndex");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("QuoteId");
+
+                    b.Property<double>("SellMargin");
+
+                    b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("Weight");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogJ1Id");
+
+                    b.HasIndex("QuoteId");
+
+                    b.ToTable("ItemJ1");
+                });
+
             modelBuilder.Entity("Orion.Domain.UvResources.Related.CatalogF1ProductType", b =>
                 {
                     b.Property<int>("Id")
@@ -2736,6 +3128,36 @@ namespace Orion.DataAccess.Migrations
                     b.HasOne("Orion.Domain.EntityItemBACClosedCircuits.ItemH5", "ItemH5")
                         .WithMany("Titles")
                         .HasForeignKey("ItemH5Id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.Marvair.Item.ItemI1", "ItemI1")
+                        .WithMany("Titles")
+                        .HasForeignKey("ItemI1Id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.Marvair.Item.ItemI2", "ItemI2")
+                        .WithMany("Titles")
+                        .HasForeignKey("ItemI2Id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.PACE.Item.ItemJ1", "ItemJ1")
+                        .WithMany("Titles")
+                        .HasForeignKey("ItemJ1Id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.Multiaqua.Item.ItemK1", "ItemK1")
+                        .WithMany("Titles")
+                        .HasForeignKey("ItemK1Id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.Multiaqua.Item.ItemK2", "ItemK2")
+                        .WithMany("Titles")
+                        .HasForeignKey("ItemK2Id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.Multiaqua.Item.ItemK3", "ItemK3")
+                        .WithMany("Titles")
+                        .HasForeignKey("ItemK3Id")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
@@ -3389,6 +3811,120 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasOne("Orion.Domain.Entity.Quote", "Quote")
                         .WithMany("ItemF1s")
+                        .HasForeignKey("QuoteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.Marvair.Catalog.CatalogI2", b =>
+                {
+                    b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
+                        .WithMany()
+                        .HasForeignKey("DataSheetId");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Marvair.CatalogI1", b =>
+                {
+                    b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
+                        .WithMany()
+                        .HasForeignKey("DataSheetId");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Marvair.Item.ItemI1", b =>
+                {
+                    b.HasOne("Orion.Domain.Marvair.CatalogI1", "CatalogI1")
+                        .WithMany()
+                        .HasForeignKey("CatalogI1Id");
+
+                    b.HasOne("Orion.Domain.Entity.Quote", "Quote")
+                        .WithMany("ItemI1s")
+                        .HasForeignKey("QuoteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.Marvair.Item.ItemI2", b =>
+                {
+                    b.HasOne("Orion.Domain.Marvair.Catalog.CatalogI2", "CatalogI2")
+                        .WithMany()
+                        .HasForeignKey("CatalogI2Id");
+
+                    b.HasOne("Orion.Domain.Entity.Quote", "Quote")
+                        .WithMany("ItemI2s")
+                        .HasForeignKey("QuoteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.Multiaqua.Catalog.CatalogK1", b =>
+                {
+                    b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
+                        .WithMany()
+                        .HasForeignKey("DataSheetId");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Multiaqua.Catalog.CatalogK2", b =>
+                {
+                    b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
+                        .WithMany()
+                        .HasForeignKey("DataSheetId");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Multiaqua.Catalog.CatalogK3", b =>
+                {
+                    b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
+                        .WithMany()
+                        .HasForeignKey("DataSheetId");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Multiaqua.Item.ItemK1", b =>
+                {
+                    b.HasOne("Orion.Domain.Multiaqua.Catalog.CatalogK1", "CatalogK1")
+                        .WithMany()
+                        .HasForeignKey("CatalogK1Id");
+
+                    b.HasOne("Orion.Domain.Entity.Quote", "Quote")
+                        .WithMany("ItemK1s")
+                        .HasForeignKey("QuoteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.Multiaqua.Item.ItemK2", b =>
+                {
+                    b.HasOne("Orion.Domain.Multiaqua.Catalog.CatalogK2", "CatalogK2")
+                        .WithMany()
+                        .HasForeignKey("CatalogK2Id");
+
+                    b.HasOne("Orion.Domain.Entity.Quote", "Quote")
+                        .WithMany("ItemK2s")
+                        .HasForeignKey("QuoteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.Multiaqua.Item.ItemK3", b =>
+                {
+                    b.HasOne("Orion.Domain.Multiaqua.Catalog.CatalogK3", "CatalogK3")
+                        .WithMany()
+                        .HasForeignKey("CatalogK3Id");
+
+                    b.HasOne("Orion.Domain.Entity.Quote", "Quote")
+                        .WithMany("ItemK3s")
+                        .HasForeignKey("QuoteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.PACE.Catalog.CatalogJ1", b =>
+                {
+                    b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
+                        .WithMany()
+                        .HasForeignKey("DataSheetId");
+                });
+
+            modelBuilder.Entity("Orion.Domain.PACE.Item.ItemJ1", b =>
+                {
+                    b.HasOne("Orion.Domain.PACE.Catalog.CatalogJ1", "CatalogJ1")
+                        .WithMany()
+                        .HasForeignKey("CatalogJ1Id");
+
+                    b.HasOne("Orion.Domain.Entity.Quote", "Quote")
+                        .WithMany("ItemJ1s")
                         .HasForeignKey("QuoteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

@@ -105,6 +105,17 @@ namespace Orion.DataAccess.Service
             catalogs.AddRange(context.CatalogH3s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
             catalogs.AddRange(context.CatalogH4s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
             catalogs.AddRange(context.CatalogH5s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogI1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogI2s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogJ1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogK1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogK2s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogK3s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+
         }
 
         public IList<DataSheet> GetDataSheetsByIndex(string index)

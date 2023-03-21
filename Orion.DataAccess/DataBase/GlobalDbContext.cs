@@ -17,6 +17,13 @@ using Orion.Domain.EntityItemBACCoolingTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.Marvair;
+using Orion.Domain.Marvair.Catalog;
+using Orion.Domain.Marvair.Item;
+using Orion.Domain.Multiaqua.Catalog;
+using Orion.Domain.Multiaqua.Item;
+using Orion.Domain.PACE.Catalog;
+using Orion.Domain.PACE.Item;
 using Orion.Domain.UvResources.Related;
 
 namespace Orion.DataAccess.DataBase
@@ -172,6 +179,40 @@ namespace Orion.DataAccess.DataBase
         public DbSet<ItemH3> ItemH3s { get; set; }
         public DbSet<ItemH4> ItemH4s { get; set; }
         public DbSet<ItemH5> ItemH5s { get; set; }
+        #endregion
+
+
+
+        #region Marvair Catalogs
+        public DbSet<CatalogI1> CatalogI1s { get; set; }
+        public DbSet<CatalogI2> CatalogI2s { get; set; }
+        #endregion
+
+        #region Marvair Items
+        public DbSet<ItemI1> ItemI1s { get; set; }
+        public DbSet<ItemI2> ItemI2s { get; set; }
+        #endregion
+
+
+
+        #region PACE AHU Catalogs
+        public DbSet<CatalogJ1> CatalogJ1s { get; set; }
+        #endregion
+
+        #region PACE AHU Items
+        public DbSet<ItemJ1> ItemJ1s { get; set; }
+        #endregion
+
+        #region Multiaqua Catalogs
+        public DbSet<CatalogK1> CatalogK1s { get; set; }
+        public DbSet<CatalogK2> CatalogK2s { get; set; }
+        public DbSet<CatalogK3> CatalogK3s { get; set; }
+        #endregion
+
+        #region Multiaqua Items
+        public DbSet<ItemK1> ItemK1s { get; set; }
+        public DbSet<ItemK2> ItemK2s { get; set; }
+        public DbSet<ItemK3> ItemK3s { get; set; }
         #endregion
 
 
@@ -634,6 +675,90 @@ namespace Orion.DataAccess.DataBase
                         entry.HasOne(d => d.ItemH5)
                         .WithMany(x => x.Titles).IsRequired(false)
                         .HasForeignKey(y => y.ItemH5Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region Marvair Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemI1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemI2s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region Marvair Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemI1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemI1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemI2)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemI2Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region PACE AHU Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemJ1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region PACE AHU Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemJ1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemJ1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region Multiaqua Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemK1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemK2s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemK3s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region Multiaqua Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemK1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemK1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemK2)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemK2Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemK3)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemK3Id)
                         .OnDelete(DeleteBehavior.Restrict));
             #endregion
         }

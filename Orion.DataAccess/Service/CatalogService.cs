@@ -10,6 +10,10 @@ using Orion.Domain.EntityCatalogGroundfos;
 using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
 using Orion.Domain.EntityCatalogUvResources;
+using Orion.Domain.Marvair.Catalog;
+using Orion.Domain.Marvair;
+using Orion.Domain.Multiaqua.Catalog;
+using Orion.Domain.PACE.Catalog;
 using Orion.Domain.UvResources.Related;
 using Orion.Helper.Extension;
 using System;
@@ -102,6 +106,21 @@ namespace Orion.DataAccess.Service
                     return context.CatalogH4s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else if (catalog is CatalogH5)
                     return context.CatalogH5s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+
+                else if (catalog is CatalogI1)
+                    return context.CatalogI1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogI2)
+                    return context.CatalogI1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+
+                else if (catalog is CatalogJ1)
+                    return context.CatalogJ1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+
+                else if (catalog is CatalogK1)
+                    return context.CatalogK1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogK2)
+                    return context.CatalogK2s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogK2)
+                    return context.CatalogK2s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
 
                 else
                     return true;
@@ -258,6 +277,48 @@ namespace Orion.DataAccess.Service
                     catalogs = context.CatalogH5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).ToList<ICatalog>();
                     break;
 
+                case ItemType.ItemI1:
+                    catalogs = context.CatalogI1s.Include(c => c.DataSheet)
+                        .ThenInclude(ds => ds.Titles)
+                        .ThenInclude(t => t.Specs)
+                        .ToList<ICatalog>();
+                    break;
+
+                case ItemType.ItemI2:
+                    catalogs = context.CatalogI2s.Include(c => c.DataSheet)
+                        .ThenInclude(ds => ds.Titles)
+                        .ThenInclude(t => t.Specs)
+                        .ToList<ICatalog>();
+                    break;
+
+                case ItemType.ItemJ1:
+                    catalogs = context.CatalogJ1s.Include(c => c.DataSheet)
+                        .ThenInclude(ds => ds.Titles)
+                        .ThenInclude(t => t.Specs)
+                        .ToList<ICatalog>();
+                    break;
+
+                case ItemType.ItemK1:
+                    catalogs = context.CatalogK1s.Include(c => c.DataSheet)
+                        .ThenInclude(ds => ds.Titles)
+                        .ThenInclude(t => t.Specs)
+                        .ToList<ICatalog>();
+                    break;
+
+                case ItemType.ItemK2:
+                    catalogs = context.CatalogK2s.Include(c => c.DataSheet)
+                        .ThenInclude(ds => ds.Titles)
+                        .ThenInclude(t => t.Specs)
+                        .ToList<ICatalog>();
+                    break;
+
+                case ItemType.ItemK3:
+                    catalogs = context.CatalogK3s.Include(c => c.DataSheet)
+                        .ThenInclude(ds => ds.Titles)
+                        .ThenInclude(t => t.Specs)
+                        .ToList<ICatalog>();
+                    break;
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(itemType), itemType, null);
             }
@@ -275,84 +336,99 @@ namespace Orion.DataAccess.Service
 
         public ICatalog GetCatalog(ICatalog catalog, GlobalDbContext context)
         {
-                if (catalog is CatalogA1)
-                    return context.CatalogA1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogA2)
-                    return context.CatalogA2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogA3)
-                    return context.CatalogA3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogA4)
-                    return context.CatalogA4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            if (catalog is CatalogA1)
+                return context.CatalogA1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogA2)
+                return context.CatalogA2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogA3)
+                return context.CatalogA3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogA4)
+                return context.CatalogA4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
 
-                else if (catalog is CatalogB1)
-                    return context.CatalogB1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogB2)
-                    return context.CatalogB2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogB3)
-                    return context.CatalogB3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogB4)
-                    return context.CatalogB4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogB5)
-                    return context.CatalogB5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogB1)
+                return context.CatalogB1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogB2)
+                return context.CatalogB2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogB3)
+                return context.CatalogB3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogB4)
+                return context.CatalogB4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogB5)
+                return context.CatalogB5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
 
-                else if (catalog is CatalogC1)
-                    return context.CatalogC1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogC2)
-                    return context.CatalogC2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogC3)
-                    return context.CatalogC3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).Include(x => x.CatalogC3ProductType).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogC4)
-                    return context.CatalogC4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogC1)
+                return context.CatalogC1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogC2)
+                return context.CatalogC2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogC3)
+                return context.CatalogC3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).Include(x => x.CatalogC3ProductType).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogC4)
+                return context.CatalogC4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
 
-                else if (catalog is CatalogD1)
-                    return context.CatalogD1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogD2)
-                    return context.CatalogD2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogD1)
+                return context.CatalogD1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogD2)
+                return context.CatalogD2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
 
-                else if (catalog is CatalogE1)
-                    return context.CatalogE1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogE2)
-                    return context.CatalogE2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogE3)
-                    return context.CatalogE3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogE4)
-                    return context.CatalogE4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogE5)
-                    return context.CatalogE5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogE6)
-                    return context.CatalogE6s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogE7)
-                    return context.CatalogE7s.Include(x => x.DataSheet).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogE1)
+                return context.CatalogE1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogE2)
+                return context.CatalogE2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogE3)
+                return context.CatalogE3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogE4)
+                return context.CatalogE4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogE5)
+                return context.CatalogE5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogE6)
+                return context.CatalogE6s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogE7)
+                return context.CatalogE7s.Include(x => x.DataSheet).FirstOrDefault(x => x.Id == catalog.Id);
 
-                else if (catalog is CatalogF1)
-                    return context.CatalogF1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).Include(x => x.CatalogF1ProductType).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogF1)
+                return context.CatalogF1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).Include(x => x.CatalogF1ProductType).FirstOrDefault(x => x.Id == catalog.Id);
 
-                else if (catalog is CatalogG1)
-                    return context.CatalogG1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogG2)
-                    return context.CatalogG2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogG3)
-                    return context.CatalogG3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogG4)
-                    return context.CatalogG4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogG5)
-                    return context.CatalogG5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogG6)
-                    return context.CatalogG6s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogG1)
+                return context.CatalogG1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogG2)
+                return context.CatalogG2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogG3)
+                return context.CatalogG3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogG4)
+                return context.CatalogG4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogG5)
+                return context.CatalogG5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogG6)
+                return context.CatalogG6s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
 
-                else if (catalog is CatalogH1)
-                    return context.CatalogH1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogH2)
-                    return context.CatalogH2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogH3)
-                    return context.CatalogH3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogH4)
-                    return context.CatalogH4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
-                else if (catalog is CatalogH5)
-                    return context.CatalogH5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogH1)
+                return context.CatalogH1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogH2)
+                return context.CatalogH2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogH3)
+                return context.CatalogH3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogH4)
+                return context.CatalogH4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogH5)
+                return context.CatalogH5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
 
-                else
-                    return null;
+            else if (catalog is CatalogI1)
+                return context.CatalogI1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogI2)
+                return context.CatalogI2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+
+            else if (catalog is CatalogJ1)
+                return context.CatalogJ1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+
+            else if (catalog is CatalogK1)
+                return context.CatalogK1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogK2)
+                return context.CatalogK2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogK3)
+                return context.CatalogK3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+
+            else
+                return null;
         }
 
         public ICatalog UpdateCatalogDataSheet(ICatalog catalog, IList<DataSheet> dataSheets)
@@ -669,6 +745,61 @@ namespace Orion.DataAccess.Service
 
                     dbCatalog = dbCatalogH5;
                 }
+                else if (catalog is CatalogI1)
+                {
+                    CatalogI1 catalogI1 = catalog as CatalogI1;
+                    CatalogI1 dbCatalogI1 = catalog.Id != 0 ? context.CatalogI1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogI1;
+
+                    dbCatalogI1.UnitSize = catalogI1.UnitSize;
+                    dbCatalogI1.Description = catalogI1.Description;
+
+                    dbCatalog = dbCatalogI1;
+                }
+                else if (catalog is CatalogI2)
+                {
+                    CatalogI2 catalogI2 = catalog as CatalogI2;
+                    CatalogI2 dbCatalogI2 = catalog.Id != 0 ? context.CatalogI2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogI2;
+
+                    dbCatalogI2.Description = catalogI2.Description;
+
+                    dbCatalog = dbCatalogI2;
+                }
+                else if (catalog is CatalogJ1)
+                {
+                    CatalogJ1 catalogJ1 = catalog as CatalogJ1;
+                    CatalogJ1 dbCatalogJ1 = catalog.Id != 0 ? context.CatalogJ1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogJ1;
+
+                    dbCatalogJ1.Description = catalogJ1.Description;
+
+                    dbCatalog = dbCatalogJ1;
+                }
+                else if (catalog is CatalogK1)
+                {
+                    CatalogK1 catalogK1 = catalog as CatalogK1;
+                    CatalogK1 dbCatalogK1 = catalog.Id != 0 ? context.CatalogK1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogK1;
+
+                    dbCatalogK1.Description = catalogK1.Description;
+
+                    dbCatalog = dbCatalogK1;
+                }
+                else if (catalog is CatalogK2)
+                {
+                    CatalogK2 catalogK2 = catalog as CatalogK2;
+                    CatalogK2 dbCatalogK2 = catalog.Id != 0 ? context.CatalogK2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogK2;
+
+                    dbCatalogK2.Description = catalogK2.Description;
+
+                    dbCatalog = dbCatalogK2;
+                }
+                else if (catalog is CatalogK3)
+                {
+                    CatalogK3 catalogK3 = catalog as CatalogK3;
+                    CatalogK3 dbCatalogK3 = catalog.Id != 0 ? context.CatalogK3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogK3;
+
+                    dbCatalogK3.Description = catalogK3.Description;
+
+                    dbCatalog = dbCatalogK3;
+                }
 
                 dbCatalog.Model = catalog.Model;
                 dbCatalog.ListPrice = catalog.ListPrice;
@@ -793,6 +924,24 @@ namespace Orion.DataAccess.Service
                     break;
                 case ItemType.ItemH5:
                     catalog = new CatalogH5();
+                    break;
+                case ItemType.ItemI1:
+                    catalog = new CatalogI1();
+                    break;
+                case ItemType.ItemI2:
+                    catalog = new CatalogI2();
+                    break;
+                case ItemType.ItemJ1:
+                    catalog = new CatalogJ1();
+                    break;
+                case ItemType.ItemK1:
+                    catalog = new CatalogK1();
+                    break;
+                case ItemType.ItemK2:
+                    catalog = new CatalogK2();
+                    break;
+                case ItemType.ItemK3:
+                    catalog = new CatalogK3();
                     break;
                 default:
                     throw new ArgumentException($"Invalid ItemType value: {itemType}");

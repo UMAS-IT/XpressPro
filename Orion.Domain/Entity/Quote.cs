@@ -8,6 +8,10 @@ using Orion.Domain.EntityItemBACCoolingTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.Marvair;
+using Orion.Domain.Marvair.Item;
+using Orion.Domain.Multiaqua.Item;
+using Orion.Domain.PACE.Item;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -319,6 +323,58 @@ namespace Orion.Domain.Entity
 
 
 
+        #region Marvair Items
+        private IList<ItemI1> _itemI1s;
+        public IList<ItemI1> ItemI1s
+        {
+            get => _itemI1s;
+            set => SetProperty(ref _itemI1s, value);
+        }
+
+        private IList<ItemI2> _itemI2s;
+        public IList<ItemI2> ItemI2s
+        {
+            get => _itemI2s;
+            set => SetProperty(ref _itemI2s, value);
+        }
+        #endregion
+
+
+
+        #region PACE AHU Items       
+        private IList<ItemJ1> _itemJ1s;
+        public IList<ItemJ1> ItemJ1s
+        {
+            get => _itemJ1s;
+            set => SetProperty(ref _itemJ1s, value);
+        }
+        #endregion
+
+
+
+        #region Multiaqua
+        private IList<ItemK1> _itemK1s;
+        public IList<ItemK1> ItemK1s
+        {
+            get => _itemK1s;
+            set => SetProperty(ref _itemK1s, value);
+        }
+
+        private IList<ItemK2> _itemK2s;
+        public IList<ItemK2> ItemK2s
+        {
+            get => _itemK2s;
+            set => SetProperty(ref _itemK2s, value);
+        }
+
+        private IList<ItemK3> _itemK3s;
+        public IList<ItemK3> ItemK3s
+        {
+            get => _itemK3s;
+            set => SetProperty(ref _itemK3s, value);
+        }
+        #endregion
+
         private bool _isSelected;
         [NotMapped]
         public bool IsSelected
@@ -387,6 +443,16 @@ namespace Orion.Domain.Entity
             ItemH3s = new ObservableCollection<ItemH3>();
             ItemH4s = new ObservableCollection<ItemH4>();
             ItemH5s = new ObservableCollection<ItemH5>();
+
+            ItemI1s = new ObservableCollection<ItemI1>();
+            ItemI2s = new ObservableCollection<ItemI2>();
+
+            ItemJ1s = new ObservableCollection<ItemJ1>();
+
+            ItemK1s = new ObservableCollection<ItemK1>();
+            ItemK2s = new ObservableCollection<ItemK2>();
+            ItemK3s = new ObservableCollection<ItemK3>();
+
 
             Name = "";
         }

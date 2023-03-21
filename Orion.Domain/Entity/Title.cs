@@ -16,6 +16,9 @@ using Orion.Domain.EntityItemBACCoolingTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.Marvair.Item;
+using Orion.Domain.Multiaqua.Item;
+using Orion.Domain.PACE.Item;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -550,6 +553,101 @@ namespace Orion.Domain.Entity
         {
             get => _itemH5;
             set => SetProperty(ref _itemH5, value);
+        }
+        #endregion
+
+
+
+        #region Marvair Items Id
+        private int? _itemI1Id;
+        public int? ItemI1Id
+        {
+            get => _itemI1Id;
+            set => SetProperty(ref _itemI1Id, value);
+        }
+
+        private ItemI1 _itemI1;
+        public ItemI1 ItemI1
+        {
+            get => _itemI1;
+            set => SetProperty(ref _itemI1, value);
+        }
+
+        private int? _itemI2Id;
+        public int? ItemI2Id
+        {
+            get => _itemI2Id;
+            set => SetProperty(ref _itemI2Id, value);
+        }
+
+        private ItemI2 _itemI2;
+        public ItemI2 ItemI2
+        {
+            get => _itemI2;
+            set => SetProperty(ref _itemI2, value);
+        }
+        #endregion
+
+        #region PACE AHU Items
+        private int? _itemJ1Id;
+        public int? ItemJ1Id
+        {
+            get => _itemJ1Id;
+            set => SetProperty(ref _itemJ1Id, value);
+        }
+
+        private ItemJ1 _itemJ1;
+        public ItemJ1 ItemJ1
+        {
+            get => _itemJ1;
+            set => SetProperty(ref _itemJ1, value);
+        }
+        #endregion
+
+
+
+        #region Multiaqua Items
+
+        private int? _itemK1Id;
+        public int? ItemK1Id
+        {
+            get => _itemK1Id;
+            set => SetProperty(ref _itemK1Id, value);
+        }
+
+        private ItemK1 _itemK1;
+        public ItemK1 ItemK1
+        {
+            get => _itemK1;
+            set => SetProperty(ref _itemK1, value);
+        }
+
+        private int? _itemK2Id;
+        public int? ItemK2Id
+        {
+            get => _itemK2Id;
+            set => SetProperty(ref _itemK2Id, value);
+        }
+
+        private ItemK2 _itemK2;
+        public ItemK2 ItemK2
+        {
+            get => _itemK2;
+            set => SetProperty(ref _itemK2, value);
+        }
+
+        private int? _itemK3Id;
+        public int? ItemK3Id
+        {
+            get => _itemK3Id;
+            set => SetProperty(ref _itemK3Id, value);
+        }
+
+        private ItemK3 _itemK3;
+        public ItemK3 ItemK3
+        {
+            get => _itemK3;
+            set => SetProperty(ref _itemK3, value);
         }
         #endregion
 

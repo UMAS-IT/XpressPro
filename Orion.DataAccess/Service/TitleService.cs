@@ -18,6 +18,9 @@ using Orion.Domain.EntityItemBACCoolingTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.Marvair.Item;
+using Orion.Domain.Multiaqua.Item;
+using Orion.Domain.PACE.Item;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -266,6 +269,21 @@ namespace Orion.DataAccess.Service
                     dbItem = context.ItemH4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
                 else if (item is ItemH5)
                     dbItem = context.ItemH5s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+
+                else if (item is ItemI1)
+                    dbItem = context.ItemI1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemI2)
+                    dbItem = context.ItemI2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+
+                else if (item is ItemJ1)
+                    dbItem = context.ItemJ1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+
+                else if (item is ItemK1)
+                    dbItem = context.ItemK1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemK2)
+                    dbItem = context.ItemK2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemK3)
+                    dbItem = context.ItemK3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
 
                 foreach (Title title in titles)
                 {

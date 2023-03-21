@@ -45,6 +45,12 @@ namespace Orion.Helper.Misc
             ItemH3,
             ItemH4,
             ItemH5,
+            ItemI1,
+            ItemI2,
+            ItemJ1,
+            ItemK1,
+            ItemK2,
+            ItemK3,
         }
 
 
@@ -84,7 +90,23 @@ namespace Orion.Helper.Misc
         //    CatalogH3,
         //    CatalogH4,
         //    CatalogH5,
+        //    CatalogI1,
+        //    CatalogI2,
+        //    CatalogJ1,
+        //    CatalogK1,
+        //    CatalogK2,
+        //    CatalogK3,
         //}
+
+        public enum CatalogType
+        {
+            CatalogI1,
+            CatalogI2,
+            CatalogJ1,
+            CatalogK1,
+            CatalogK2,
+            CatalogK3,
+        }
 
         public static bool Extended { get; set; }
 
