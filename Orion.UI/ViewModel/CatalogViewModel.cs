@@ -16,6 +16,12 @@ using Orion.UI.ViewModel.BACCoolingTowers.CatalogList;
 using Orion.UI.ViewModel.BACCoolingTowers.EditCatalogItem;
 using Orion.UI.ViewModel.Groundfos.CatalogList;
 using Orion.UI.ViewModel.Groundfos.EditCatalogItem;
+using Orion.UI.ViewModel.Mavair.CatalogList;
+using Orion.UI.ViewModel.Mavair.EditCatalogItem;
+using Orion.UI.ViewModel.Multiaqua.CatalogList;
+using Orion.UI.ViewModel.Multiaqua.EditCatalogItem;
+using Orion.UI.ViewModel.PACE.CatalogList;
+using Orion.UI.ViewModel.PACE.EditCatalogItem;
 using Orion.UI.ViewModel.Puroflux.CatalogList;
 using Orion.UI.ViewModel.Puroflux.EditCatalogItem;
 using Orion.UI.ViewModel.Quantech.CatalogList;
@@ -206,6 +212,20 @@ namespace Orion.UI.ViewModel
             else if (CurrentViewModel is CatalogH5ListViewModel)
                 viewModel = new EditH5CatalogViewModel(dialogCoordinator, catalog, itemType);
 
+            else if (CurrentViewModel is CatalogI1ListViewModel)
+                viewModel = new EditI1CatalogViewModel(dialogCoordinator, catalog, itemType);
+            else if (CurrentViewModel is CatalogI2ListViewModel)
+                viewModel = new EditI2CatalogViewModel(dialogCoordinator, catalog, itemType);
+
+            else if (CurrentViewModel is CatalogJ1ListViewModel)
+                viewModel = new EditJ1CatalogViewModel(dialogCoordinator, catalog, itemType);
+
+            else if (CurrentViewModel is CatalogK1ListViewModel)
+                viewModel = new EditK1CatalogViewModel(dialogCoordinator, catalog, itemType);
+            else if (CurrentViewModel is CatalogK2ListViewModel)
+                viewModel = new EditK2CatalogViewModel(dialogCoordinator, catalog, itemType);
+            else if (CurrentViewModel is CatalogK3ListViewModel)
+                viewModel = new EditK3CatalogViewModel(dialogCoordinator, catalog, itemType);
 
             viewModel.BackFromEditRequested += OnBackFromEdit;
             viewModel.BackFromEditItemSavedRequested += OnBackFromEditItemSaved;
@@ -433,6 +453,24 @@ namespace Orion.UI.ViewModel
                     break;
                 case "h5":
                     viewModel = new CatalogH5ListViewModel(dialogCoordinator, ItemType.ItemH5);
+                    break;
+                case "i1":
+                    viewModel = new CatalogI1ListViewModel(dialogCoordinator, ItemType.ItemI1);
+                    break;
+                case "i2":
+                    viewModel = new CatalogI2ListViewModel(dialogCoordinator, ItemType.ItemI2);
+                    break;
+                case "j1":
+                    viewModel = new CatalogJ1ListViewModel(dialogCoordinator, ItemType.ItemJ1);
+                    break;
+                case "k1":
+                    viewModel = new CatalogK1ListViewModel(dialogCoordinator, ItemType.ItemK1);
+                    break;
+                case "k2":
+                    viewModel = new CatalogK2ListViewModel(dialogCoordinator, ItemType.ItemK2);
+                    break;
+                case "k3":
+                    viewModel = new CatalogK3ListViewModel(dialogCoordinator, ItemType.ItemK3);
                     break;
                 default:
                     throw new ArgumentException($"Catalog name {catalogName} is not recognized.");

@@ -20,6 +20,20 @@ namespace Orion.Domain.Marvair
             set => SetProperty(ref _description, value);
         }
 
+        private bool _enocomizer;
+        public bool Economizer
+        {
+            get => _enocomizer;
+            set => SetProperty(ref _enocomizer, value);
+        }
+
+        private string _voltage;
+        public string Voltage
+        {
+            get => _voltage;
+            set => SetProperty(ref _voltage, value);
+        }
+
         [NotMapped]
         public override string Company { get => "Marvair"; }
         [NotMapped]

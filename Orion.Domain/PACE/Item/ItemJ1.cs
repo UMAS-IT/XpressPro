@@ -52,6 +52,7 @@ namespace Orion.Domain.PACE.Item
             Cfm = "";
             Voltage = "";
             Weight = "";
+            OverridePrice = true;
         }
     }
 }

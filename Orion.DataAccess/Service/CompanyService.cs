@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orion.DataAccess.DataBase;
 using Orion.Domain.Entity;
+using Orion.Helper.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,15 @@ namespace Orion.DataAccess.Service
 
                 return companies;
             }
+        }
+
+        public Product GetProduct(IList<Company> companies, string index)
+        {
+            Product product = null;
+
+            product = companies.SelectMany(x => x.Products).FirstOrDefault(x => x.Index.ToFormat() == index.ToFormat());
+
+            return product;
         }
     }
 }

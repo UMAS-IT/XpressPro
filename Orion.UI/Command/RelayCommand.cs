@@ -232,7 +232,7 @@ namespace Orion.UI.Command
 
     public interface IEditItemViewModel
     {
-        Action<IList<IItem>, string> OnItemsSavedRequested { get; set; }
+        Action<IList<IItem>, ItemType> OnItemsSavedRequested { get; set; }
     }
 
 }

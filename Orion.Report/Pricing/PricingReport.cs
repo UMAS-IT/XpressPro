@@ -43,6 +43,9 @@ namespace Orion.Report.Pricing
             PricingF pricingF = new PricingF();
             PricingG pricingG = new PricingG();
             PricingH pricingH = new PricingH();
+            PricingI pricingI = new PricingI();
+            PricingJ pricingJ = new PricingJ();
+            PricingK pricingK = new PricingK();
             List<PricingItem> pricingItems = new List<PricingItem>();
 
             //companies = companies.GetCompanies
@@ -139,6 +142,45 @@ namespace Orion.Report.Pricing
                 {
                     pricingItems.AddRange(pricingF.CreateF1ItemTable(quote.ItemF1s, mainDocument, docSection, itemNumber++));
                     AddTitlesAndSpecs(quote.ItemF1s.ToList<IItem>(), docSection);
+                    AddBlankLine(mainDocument, docSection);
+                }
+
+                if (quote.ItemI1s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.AddRange(pricingI.CreateI1ItemTable(quote.ItemI1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemI1s.ToList<IItem>(), docSection);
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemI2s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.AddRange(pricingI.CreateI2ItemTable(quote.ItemI2s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemI2s.ToList<IItem>(), docSection);
+                    AddBlankLine(mainDocument, docSection);
+                }
+
+                if (quote.ItemJ1s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.AddRange(pricingJ.CreateJ1ItemTable(quote.ItemJ1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemJ1s.ToList<IItem>(), docSection);
+                    AddBlankLine(mainDocument, docSection);
+                }
+
+                if (quote.ItemK1s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.AddRange(pricingK.CreateK1ItemTable(quote.ItemK1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemK1s.ToList<IItem>(), docSection);
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemK2s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.AddRange(pricingK.CreateK2ItemTable(quote.ItemK2s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemK2s.ToList<IItem>(), docSection);
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemK3s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.AddRange(pricingK.CreateK3ItemTable(quote.ItemK3s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemK3s.ToList<IItem>(), docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
 

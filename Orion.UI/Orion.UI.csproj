@@ -273,9 +273,27 @@
     <Compile Include="ViewModel\MasterCatalogListViewModel.cs" />
     <Compile Include="ViewModel\MasterEditCatalogViewModel.cs" />
     <Compile Include="ViewModel\MasterEditItemViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\CatalogList\CatalogI1ListViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\CatalogList\CatalogI2ListViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\EditCatalogItem\EditI1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\EditCatalogItem\EditI2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\EditQuoteItem\EditI1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\EditQuoteItem\EditI2ItemViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\CatalogList\CatalogK1ListViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\CatalogList\CatalogK2ListViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\CatalogList\CatalogK3ListViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\EditCatalogItem\EditK1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\EditCatalogItem\EditK2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\EditCatalogItem\EditK3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\EditQuoteItem\EditK1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\EditQuoteItem\EditK2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\EditQuoteItem\EditK3ItemViewModel.cs" />
     <Compile Include="ViewModel\NewProjectViewModel.cs" />
     <Compile Include="ViewModel\OpenProjectViewModel.cs" />
+    <Compile Include="ViewModel\PACE\CatalogList\CatalogJ1ListViewModel.cs" />
+    <Compile Include="ViewModel\PACE\EditCatalogItem\EditJ1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PACE\EditQuoteItem\EditJ1ItemViewModel.cs" />
     <Compile Include="ViewModel\ProjectInformationViewModel.cs" />
     <Compile Include="ViewModel\Puroflux\CatalogList\CatalogD1ListViewModel.cs" />
     <Compile Include="ViewModel\Puroflux\CatalogList\CatalogD2ListViewModel.cs" />
@@ -563,14 +581,68 @@
     <Compile Include="View\ItemView.xaml.cs">
       <DependentUpon>ItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Marvair\CatalogList\CatalogI1ListView.xaml.cs">
+      <DependentUpon>CatalogI1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\CatalogList\CatalogI2ListView.xaml.cs">
+      <DependentUpon>CatalogI2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\EditCatalogItem\EditI1CatalogView.xaml.cs">
+      <DependentUpon>EditI1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\EditCatalogItem\EditI2CatalogView.xaml.cs">
+      <DependentUpon>EditI2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\EditQuoteItem\EditI1ItemView.xaml.cs">
+      <DependentUpon>EditI1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\EditQuoteItem\EditI2ItemView.xaml.cs">
+      <DependentUpon>EditI2ItemView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\CatalogList\CatalogK1ListView.xaml.cs">
+      <DependentUpon>CatalogK1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\CatalogList\CatalogK2ListView.xaml.cs">
+      <DependentUpon>CatalogK2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\CatalogList\CatalogK3ListView.xaml.cs">
+      <DependentUpon>CatalogK3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\EditCatalogItem\EditK1CatalogView.xaml.cs">
+      <DependentUpon>EditK1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\EditCatalogItem\EditK2CatalogView.xaml.cs">
+      <DependentUpon>EditK2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\EditCatalogItem\EditK3CatalogView.xaml.cs">
+      <DependentUpon>EditK3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\EditQuoteItem\EditK1ItemView.xaml.cs">
+      <DependentUpon>EditK1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\EditQuoteItem\EditK2ItemView.xaml.cs">
+      <DependentUpon>EditK2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\EditQuoteItem\EditK3ItemView.xaml.cs">
+      <DependentUpon>EditK3ItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\NewProjectView.xaml.cs">
       <DependentUpon>NewProjectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OpenProjectView.xaml.cs">
       <DependentUpon>OpenProjectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PACE\CatalogList\CatalogJ1ListView.xaml.cs">
+      <DependentUpon>CatalogJ1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PACE\EditCatalogItem\EditJ1CatalogView.xaml.cs">
+      <DependentUpon>EditJ1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PACE\EditQuoteItem\EditJ1ItemView.xaml.cs">
+      <DependentUpon>EditJ1ItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProjectInformationView.xaml.cs">
       <DependentUpon>ProjectInformationView.xaml</DependentUpon>
@@ -1028,7 +1100,67 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Marvair\CatalogList\CatalogI1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Marvair\CatalogList\CatalogI2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Marvair\EditCatalogItem\EditI1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Marvair\EditCatalogItem\EditI2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Marvair\EditQuoteItem\EditI1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Marvair\EditQuoteItem\EditI2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\CatalogList\CatalogK1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\CatalogList\CatalogK2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\CatalogList\CatalogK3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\EditCatalogItem\EditK1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\EditCatalogItem\EditK2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\EditCatalogItem\EditK3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\EditQuoteItem\EditK1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\EditQuoteItem\EditK2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\EditQuoteItem\EditK3ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1037,6 +1169,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\OpenProjectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PACE\CatalogList\CatalogJ1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PACE\EditCatalogItem\EditJ1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PACE\EditQuoteItem\EditJ1ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

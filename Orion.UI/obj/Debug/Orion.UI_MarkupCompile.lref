@@ -1,4 +1,4 @@
-﻿C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\GeneratedInternalTypeHelper.g.cs
+﻿
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\App.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\ABB\CatalogList\CatalogB1ListView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\ABB\CatalogList\CatalogB2ListView.xaml;;
@@ -90,9 +90,27 @@ FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Groundfos\EditQ
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\ItemView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\LoginView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\MainWindow.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Marvair\CatalogList\CatalogI1ListView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Marvair\CatalogList\CatalogI2ListView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Marvair\EditCatalogItem\EditI1CatalogView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Marvair\EditCatalogItem\EditI2CatalogView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Marvair\EditQuoteItem\EditI1ItemView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Marvair\EditQuoteItem\EditI2ItemView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\MenuView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\CatalogList\CatalogK1ListView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\CatalogList\CatalogK2ListView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\CatalogList\CatalogK3ListView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\EditCatalogItem\EditK1CatalogView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\EditCatalogItem\EditK2CatalogView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\EditCatalogItem\EditK3CatalogView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\EditQuoteItem\EditK1ItemView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\EditQuoteItem\EditK2ItemView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\EditQuoteItem\EditK3ItemView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\NewProjectView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\OpenProjectView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\PACE\CatalogList\CatalogJ1ListView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\PACE\EditCatalogItem\EditJ1CatalogView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\PACE\EditQuoteItem\EditJ1ItemView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\ProjectInformationView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\PuroFlux\CatalogList\CatalogD1ListView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\PuroFlux\CatalogList\CatalogD2ListView.xaml;;

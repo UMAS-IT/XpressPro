@@ -9,6 +9,9 @@ using Orion.Domain.EntityItemBACCoolingTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.Marvair.Item;
+using Orion.Domain.Multiaqua.Item;
+using Orion.Domain.PACE.Item;
 using Orion.Helper.Extension;
 using System;
 using System.Collections.Generic;
@@ -204,6 +207,15 @@ namespace Orion.DataAccess.Service
                     .Include(x => x.ItemH4s)
                     .Include(x => x.ItemH5s)
 
+                    .Include(x => x.ItemI1s)
+                    .Include(x => x.ItemI2s)
+
+                    .Include(x => x.ItemJ1s)
+
+                    .Include(x => x.ItemK1s)
+                    .Include(x => x.ItemK2s)
+                    .Include(x => x.ItemK3s)
+
                     .Where(u => u.ProjectId == projectId).ToList();
 
                 quotes.ForEach(u =>
@@ -218,6 +230,9 @@ namespace Orion.DataAccess.Service
                         && !u.ItemF1s.Any()
                         && !u.ItemG1s.Any() && !u.ItemG2s.Any() && !u.ItemG3s.Any() && !u.ItemG4s.Any() && !u.ItemG5s.Any() && !u.ItemG6s.Any()
                         && !u.ItemH1s.Any() && !u.ItemH2s.Any() && !u.ItemH3s.Any() && !u.ItemH4s.Any() && !u.ItemH5s.Any()
+                        && !u.ItemI1s.Any() && !u.ItemI2s.Any()
+                        && !u.ItemJ1s.Any()
+                        && !u.ItemK1s.Any() && !u.ItemK2s.Any() && !u.ItemK3s.Any() 
                         )
 
                         u.CanCreateReports = false;
@@ -277,6 +292,15 @@ namespace Orion.DataAccess.Service
                 IList<ItemH4> itemH4s = context.ItemH4s.Include(x => x.Titles).Include(x => x.CatalogH4).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemH5> itemH5s = context.ItemH5s.Include(x => x.Titles).Include(x => x.CatalogH5).Where(x => x.QuoteId == quoteId).ToList();
 
+                IList<ItemI1> itemI1s = context.ItemI1s.Include(x => x.Titles).Include(x => x.CatalogI1).Where(x => x.QuoteId == quoteId).ToList();
+                IList<ItemI2> itemI2s = context.ItemI2s.Include(x => x.Titles).Include(x => x.CatalogI2).Where(x => x.QuoteId == quoteId).ToList();
+
+                IList<ItemJ1> itemJ1s = context.ItemJ1s.Include(x => x.Titles).Include(x => x.CatalogJ1).Where(x => x.QuoteId == quoteId).ToList();
+
+                IList<ItemK1> itemK1s = context.ItemK1s.Include(x => x.Titles).Include(x => x.CatalogK1).Where(x => x.QuoteId == quoteId).ToList();
+                IList<ItemK2> itemK2s = context.ItemK2s.Include(x => x.Titles).Include(x => x.CatalogK2).Where(x => x.QuoteId == quoteId).ToList();
+                IList<ItemK3> itemK3s = context.ItemK3s.Include(x => x.Titles).Include(x => x.CatalogK3).Where(x => x.QuoteId == quoteId).ToList();
+
                 items.AddRange(itemA1s);
                 items.AddRange(itemA2s);
                 items.AddRange(itemA3s);
@@ -318,6 +342,15 @@ namespace Orion.DataAccess.Service
                 items.AddRange(itemH3s);
                 items.AddRange(itemH4s);
                 items.AddRange(itemH5s);
+
+                items.AddRange(itemI1s);
+                items.AddRange(itemI2s);
+
+                items.AddRange(itemJ1s);
+
+                items.AddRange(itemK1s);
+                items.AddRange(itemK2s);
+                items.AddRange(itemK3s);
 
                 List<Title> titles = items.SelectMany(x => x.Titles).ToList();
 

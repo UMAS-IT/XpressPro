@@ -2569,6 +2569,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<bool>("Economizer");
+
                     b.Property<double>("ListPrice");
 
                     b.Property<string>("Model");
@@ -2576,6 +2578,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("UnitSize");
+
+                    b.Property<string>("Voltage");
 
                     b.HasKey("Id");
 
@@ -2676,7 +2680,7 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasIndex("DataSheetId");
 
-                    b.ToTable("CatalogK1");
+                    b.ToTable("CatalogK1s");
                 });
 
             modelBuilder.Entity("Orion.Domain.Multiaqua.Catalog.CatalogK2", b =>
@@ -2701,7 +2705,7 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasIndex("DataSheetId");
 
-                    b.ToTable("CatalogK2");
+                    b.ToTable("CatalogK2s");
                 });
 
             modelBuilder.Entity("Orion.Domain.Multiaqua.Catalog.CatalogK3", b =>
@@ -2726,7 +2730,7 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasIndex("DataSheetId");
 
-                    b.ToTable("CatalogK3");
+                    b.ToTable("CatalogK3s");
                 });
 
             modelBuilder.Entity("Orion.Domain.Multiaqua.Item.ItemK1", b =>
@@ -2761,7 +2765,7 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasIndex("QuoteId");
 
-                    b.ToTable("ItemK1");
+                    b.ToTable("ItemK1s");
                 });
 
             modelBuilder.Entity("Orion.Domain.Multiaqua.Item.ItemK2", b =>
@@ -2796,7 +2800,7 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasIndex("QuoteId");
 
-                    b.ToTable("ItemK2");
+                    b.ToTable("ItemK2s");
                 });
 
             modelBuilder.Entity("Orion.Domain.Multiaqua.Item.ItemK3", b =>
@@ -2831,7 +2835,7 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasIndex("QuoteId");
 
-                    b.ToTable("ItemK3");
+                    b.ToTable("ItemK3s");
                 });
 
             modelBuilder.Entity("Orion.Domain.PACE.Catalog.CatalogJ1", b =>
@@ -2856,7 +2860,7 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasIndex("DataSheetId");
 
-                    b.ToTable("CatalogJ1");
+                    b.ToTable("CatalogJ1s");
                 });
 
             modelBuilder.Entity("Orion.Domain.PACE.Item.ItemJ1", b =>
@@ -2897,7 +2901,7 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasIndex("QuoteId");
 
-                    b.ToTable("ItemJ1");
+                    b.ToTable("ItemJ1s");
                 });
 
             modelBuilder.Entity("Orion.Domain.UvResources.Related.CatalogF1ProductType", b =>

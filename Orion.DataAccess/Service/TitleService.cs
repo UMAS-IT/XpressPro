@@ -112,6 +112,21 @@ namespace Orion.DataAccess.Service
                 else if (item is ItemH5)
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemH5Id == item.Id).ToList();
 
+                else if (item is ItemI1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemI1Id == item.Id).ToList();
+                else if (item is ItemI2)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemI2Id == item.Id).ToList();
+
+                else if (item is ItemJ1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemJ1Id == item.Id).ToList();
+
+                else if (item is ItemK1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemK1Id == item.Id).ToList();
+                else if (item is ItemK2)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemK2Id == item.Id).ToList();
+                else if (item is ItemK3)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemK3Id == item.Id).ToList();
+
                 return titles;
             }
         }

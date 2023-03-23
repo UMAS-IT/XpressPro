@@ -61,6 +61,7 @@
                             <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                                              ScrollViewer.VerticalScrollBarVisibility="Auto"  
                                              ctrl:TextBoxHelper.Watermark="Title" MaxHeight="72"
+                                             ctrl:TextBoxHelper.SelectAllOnFocus="True"
                                               Margin="1"
                                              Background="DarkCyan"/>
 
@@ -124,6 +125,7 @@
                                     <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                                              ScrollViewer.VerticalScrollBarVisibility="Auto"  
                                              ctrl:TextBoxHelper.Watermark="Specification" MaxHeight="72"
+                                             ctrl:TextBoxHelper.SelectAllOnFocus="True"
                                               Margin="1"/>
 
                                     <TextBox Grid.Column="2" Width="90" TextWrapping="Wrap" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" VerticalContentAlignment="Center" Text="{Binding Price, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}" 

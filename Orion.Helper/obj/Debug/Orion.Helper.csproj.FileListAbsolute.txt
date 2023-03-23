@@ -7,15 +7,6 @@ C:\Users\TRINITY BUILD\Documents\Visual Studio 2022\Air Treatment Projects\Orion
 C:\Users\TRINITY BUILD\Documents\Visual Studio 2022\Air Treatment Projects\Orion\Orion.Helper\obj\Debug\Orion.Helper.csproj.CopyComplete
 C:\Users\TRINITY BUILD\Documents\Visual Studio 2022\Air Treatment Projects\Orion\Orion.Helper\obj\Debug\Orion.Helper.dll
 C:\Users\TRINITY BUILD\Documents\Visual Studio 2022\Air Treatment Projects\Orion\Orion.Helper\obj\Debug\Orion.Helper.pdb
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\bin\Debug\Orion.Helper.dll
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\bin\Debug\Orion.Helper.pdb
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\bin\Debug\Orion.Binding.dll
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\bin\Debug\Orion.Binding.pdb
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.csproj.AssemblyReference.cache
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.csproj.CoreCompileInputs.cache
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.csproj.CopyComplete
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.dll
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.pdb
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Helper\bin\Debug\Orion.Helper.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Helper\bin\Debug\Orion.Helper.pdb
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Helper\bin\Debug\Orion.Binding.dll
@@ -25,3 +16,12 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.csproj.CopyComplete
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.pdb
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\bin\Debug\Orion.Helper.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\bin\Debug\Orion.Helper.pdb
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\bin\Debug\Orion.Binding.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\bin\Debug\Orion.Binding.pdb
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.csproj.AssemblyReference.cache
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.csproj.CoreCompileInputs.cache
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.csproj.CopyComplete
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Helper\obj\Debug\Orion.Helper.pdb

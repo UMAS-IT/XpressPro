@@ -189,11 +189,19 @@ namespace Orion.Domain.Entity
         [NotMapped]
         public virtual int? CatalogId { get; }
 
+        //private bool _hasTitles;
+        //[NotMapped]
+        //public bool HasTitles
+        //{      
+        //    get => Titles != null && Titles.Count > 0;
+        //    set => SetProperty(ref _hasTitles, value);
+        //}
+
         private bool _hasTitles;
         [NotMapped]
         public bool HasTitles
         {
-            get => Titles != null && Titles.Count > 0;
+            get => _hasTitles;
             set => SetProperty(ref _hasTitles, value);
         }
 

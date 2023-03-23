@@ -17,7 +17,7 @@ using static Orion.Helper.Misc.GV;
 
 namespace Orion.UI.ViewModel
 {
-    public class MasterEditItemViewModel : BindableBase
+    public class MasterEditItemViewModel : BindableBase, IEditItemViewModel
     {
         public MessageService messageService;
         public CatalogService catalogService;
@@ -73,7 +73,7 @@ namespace Orion.UI.ViewModel
         public RelayCommand<IItem> RemoveItemCommand { get; set; }
         public RelayCommand<ICatalog> AddItemCommand { get; set; }
 
-        public Action<IList<IItem>> OnItemsSavedRequested = delegate { };
+        public Action<IList<IItem>, ItemType> OnItemsSavedRequested { get; set; } = delegate { };
 
         public MasterEditItemViewModel(IDialogCoordinator dialogCoordinator, Quote quote, IList<IItem> items, ItemType itemType)
         {
@@ -117,7 +117,7 @@ namespace Orion.UI.ViewModel
 
                 await messageService.EndMessage("Quote Items", "Items has been saved");
 
-                OnItemsSavedRequested(Items);
+                OnItemsSavedRequested(Items, ItemType);
             }
             catch (Exception ex)
             {

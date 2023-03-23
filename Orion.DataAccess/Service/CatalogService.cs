@@ -110,9 +110,9 @@ namespace Orion.DataAccess.Service
                 else if (catalog is CatalogI1)
                     return context.CatalogI1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else if (catalog is CatalogI2)
-                    return context.CatalogI1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                    return context.CatalogI2s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
 
-                else if (catalog is CatalogJ1)
+                else if (catalog is CatalogJ1) 
                     return context.CatalogJ1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
 
                 else if (catalog is CatalogK1)
@@ -120,7 +120,7 @@ namespace Orion.DataAccess.Service
                 else if (catalog is CatalogK2)
                     return context.CatalogK2s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else if (catalog is CatalogK2)
-                    return context.CatalogK2s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                    return context.CatalogK3s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
 
                 else
                     return true;
@@ -752,6 +752,8 @@ namespace Orion.DataAccess.Service
 
                     dbCatalogI1.UnitSize = catalogI1.UnitSize;
                     dbCatalogI1.Description = catalogI1.Description;
+                    dbCatalogI1.Economizer = catalogI1.Economizer;
+                    dbCatalogI1.Voltage = catalogI1.Voltage;
 
                     dbCatalog = dbCatalogI1;
                 }

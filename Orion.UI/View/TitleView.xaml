@@ -120,6 +120,7 @@
                                 <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                                              ScrollViewer.VerticalScrollBarVisibility="Auto"  
                                              ctrl:TextBoxHelper.Watermark="Title" MaxHeight="72"
+                                         ctrl:TextBoxHelper.SelectAllOnFocus="True"
                                               Margin="1"
                                          IsReadOnly="{Binding DataContext.SelectionMode,  RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                                              Background="DarkCyan"/>
@@ -205,6 +206,7 @@
                                         <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                                              ScrollViewer.VerticalScrollBarVisibility="Auto"  
                                              ctrl:TextBoxHelper.Watermark="Specification" MaxHeight="72"
+                                                 ctrl:TextBoxHelper.SelectAllOnFocus="True"
                                                  IsReadOnly="{Binding DataContext.SelectionMode,  RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                                               Margin="1"/>
 

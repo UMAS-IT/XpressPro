@@ -825,6 +825,391 @@
                                 </Expander>
                             </StackPanel>
                         </Expander>
+
+                        <Expander IsExpanded="False" Margin="5,5,5,0" BorderBrush="DarkSalmon">
+                            <Expander.Header>
+                                <Label Content="Marvair" Background="DarkSalmon" Margin="-26,-2,-2,-2" />
+                            </Expander.Header>
+                            <Expander.Style>
+                                <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ItemI1s.Count}" Value="0"/>
+                                                <Condition Binding="{Binding ItemI2s.Count}" Value="0"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Expander.Style>
+                            <StackPanel Orientation="Vertical">
+                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,0,0,5" IsExpanded="True">
+                                    <Expander.Style>
+                                        <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ItemI1s.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" Content="Wall Mount AC/HP"  VerticalAlignment="Center"/>
+
+                                            <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
+                                Command="{Binding EditItemsCommand}"  Background="DarkSalmon" CommandParameter="I1"
+                            ToolTip="Edit Items">
+                                                <Button.Content>
+                                                    <icon:PackIconMaterial Kind="PencilPlus"   
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                                        <icon:PackIconMaterial.LayoutTransform>
+                                                            <TransformGroup>
+                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                            </TransformGroup>
+                                                        </icon:PackIconMaterial.LayoutTransform>
+                                                    </icon:PackIconMaterial>
+                                                </Button.Content>
+                                            </Button>
+                                        </Grid>
+                                    </Expander.Header>
+
+
+                                    <local:FullItemDataGrid
+                            ItemsSource="{Binding ItemI1s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
+                            Style="{StaticResource FullItemDataGridStyle}">
+                                        <local:FullItemDataGrid.Columns>
+
+                                            <DataGridTextColumn Header="Unit Size (tons)" Binding="{Binding Catalog.UnitSize}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Description" Binding="{Binding Catalog.Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Economizer" Binding="{Binding Catalog.Economizer, Converter={StaticResource BoolToYesNoCoverter}}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                                            <DataGridTextColumn Header="Voltage" Binding="{Binding Catalog.Voltage}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                                        </local:FullItemDataGrid.Columns>
+                                    </local:FullItemDataGrid>
+                                </Expander>
+
+                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,0,0,0" IsExpanded="True">
+                                    <Expander.Style>
+                                        <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ItemI2s.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" Content="Accessories"  VerticalAlignment="Center"/>
+
+                                            <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
+                                Command="{Binding EditItemsCommand}"  Background="DarkSalmon" CommandParameter="I2"
+                            ToolTip="Edit Items">
+                                                <Button.Content>
+                                                    <icon:PackIconMaterial Kind="PencilPlus"   
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                                        <icon:PackIconMaterial.LayoutTransform>
+                                                            <TransformGroup>
+                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                            </TransformGroup>
+                                                        </icon:PackIconMaterial.LayoutTransform>
+                                                    </icon:PackIconMaterial>
+                                                </Button.Content>
+                                            </Button>
+                                        </Grid>
+                                    </Expander.Header>
+
+
+                                    <local:FullItemDataGrid
+                            ItemsSource="{Binding ItemI2s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
+                            Style="{StaticResource FullItemDataGridStyle}">
+                                        <local:FullItemDataGrid.Columns>
+
+                                            <DataGridTextColumn Header="Description" Binding="{Binding Catalog.Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                                        </local:FullItemDataGrid.Columns>
+                                    </local:FullItemDataGrid>
+                                </Expander>
+                            </StackPanel>
+                        </Expander>
+
+
+                        <Expander IsExpanded="False" Margin="5,5,5,0" BorderBrush="DarkGoldenrod">
+                            <Expander.Header>
+                                <Label Content="PACE" Background="DarkGoldenrod" Margin="-26,-2,-2,-2" />
+                            </Expander.Header>
+                            <Expander.Style>
+                                <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ItemJ1s.Count}" Value="0"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Expander.Style>
+                            <StackPanel Orientation="Vertical">
+                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,0,0,0" IsExpanded="True">
+                                    <Expander.Style>
+                                        <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ItemJ1s.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" Content="AHU's"  VerticalAlignment="Center"/>
+
+                                            <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
+                                Command="{Binding EditItemsCommand}"  Background="DarkGoldenrod" CommandParameter="J1"
+                            ToolTip="Edit Items">
+                                                <Button.Content>
+                                                    <icon:PackIconMaterial Kind="PencilPlus"   
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                                        <icon:PackIconMaterial.LayoutTransform>
+                                                            <TransformGroup>
+                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                            </TransformGroup>
+                                                        </icon:PackIconMaterial.LayoutTransform>
+                                                    </icon:PackIconMaterial>
+                                                </Button.Content>
+                                            </Button>
+                                        </Grid>
+                                    </Expander.Header>
+
+
+                                    <local:FullItemDataGrid
+                            ItemsSource="{Binding ItemJ1s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
+                            Style="{StaticResource FullItemDataGridStyle}">
+                                        <local:FullItemDataGrid.Columns>
+
+                                            <DataGridTextColumn Header="Description" Binding="{Binding Catalog.Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+
+                                            <DataGridTemplateColumn Header="CFM" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBox Text="{Binding Cfm, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="20" CharacterCasing="Upper"/>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+
+                                            <DataGridTemplateColumn Header="Voltage" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBox Text="{Binding Voltage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="20" CharacterCasing="Upper"/>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+
+                                            <DataGridTemplateColumn Header="Weight (lb)" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBox Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="20" CharacterCasing="Upper"/>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+
+                                        </local:FullItemDataGrid.Columns>
+                                    </local:FullItemDataGrid>
+                                </Expander>
+                            </StackPanel>
+                        </Expander>
+
+                        <Expander IsExpanded="False" Margin="5,5,5,0" BorderBrush="DarkKhaki">
+                            <Expander.Header>
+                                <Label Content="Multiaqua" Background="DarkKhaki" Margin="-26,-2,-2,-2" />
+                            </Expander.Header>
+                            <Expander.Style>
+                                <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ItemK1s.Count}" Value="0"/>
+                                                <Condition Binding="{Binding ItemK2s.Count}" Value="0"/>
+                                                <Condition Binding="{Binding ItemK3s.Count}" Value="0"/>
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Expander.Style>
+                            <StackPanel Orientation="Vertical">
+
+                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,0,0,5" IsExpanded="True">
+                                    <Expander.Style>
+                                        <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ItemK1s.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" Content="Chillers"  VerticalAlignment="Center"/>
+
+                                            <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
+                                Command="{Binding EditItemsCommand}"  Background="DarkKhaki" CommandParameter="K1"
+                            ToolTip="Edit Items">
+                                                <Button.Content>
+                                                    <icon:PackIconMaterial Kind="PencilPlus"   
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                                        <icon:PackIconMaterial.LayoutTransform>
+                                                            <TransformGroup>
+                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                            </TransformGroup>
+                                                        </icon:PackIconMaterial.LayoutTransform>
+                                                    </icon:PackIconMaterial>
+                                                </Button.Content>
+                                            </Button>
+                                        </Grid>
+                                    </Expander.Header>
+
+
+                                    <local:FullItemDataGrid
+                            ItemsSource="{Binding ItemK1s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
+                            Style="{StaticResource FullItemDataGridStyle}">
+                                        <local:FullItemDataGrid.Columns>
+
+                                            <DataGridTextColumn Header="Description" Binding="{Binding Catalog.Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                                        </local:FullItemDataGrid.Columns>
+                                    </local:FullItemDataGrid>
+                                </Expander>
+
+                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,0,0,0" IsExpanded="True">
+                                    <Expander.Style>
+                                        <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ItemK2s.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" Content="Fan Coils"  VerticalAlignment="Center"/>
+
+                                            <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
+                                Command="{Binding EditItemsCommand}"  Background="DarkKhaki" CommandParameter="K2"
+                            ToolTip="Edit Items">
+                                                <Button.Content>
+                                                    <icon:PackIconMaterial Kind="PencilPlus"   
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                                        <icon:PackIconMaterial.LayoutTransform>
+                                                            <TransformGroup>
+                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                            </TransformGroup>
+                                                        </icon:PackIconMaterial.LayoutTransform>
+                                                    </icon:PackIconMaterial>
+                                                </Button.Content>
+                                            </Button>
+                                        </Grid>
+                                    </Expander.Header>
+
+
+                                    <local:FullItemDataGrid
+                            ItemsSource="{Binding ItemK2s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
+                            Style="{StaticResource FullItemDataGridStyle}">
+                                        <local:FullItemDataGrid.Columns>
+
+                                            <DataGridTextColumn Header="Description" Binding="{Binding Catalog.Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                                        </local:FullItemDataGrid.Columns>
+                                    </local:FullItemDataGrid>
+                                </Expander>
+
+                                <Expander Grid.Row="0" ctrl:ControlsHelper.ContentCharacterCasing="Normal"  Margin="0,0,0,0" IsExpanded="True">
+                                    <Expander.Style>
+                                        <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ItemK3s.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" Content="Accessories And Freight"  VerticalAlignment="Center"/>
+
+                                            <Button HorizontalAlignment="Right" Width="65" Grid.Column="1"
+                                Command="{Binding EditItemsCommand}"  Background="DarkKhaki" CommandParameter="K3"
+                            ToolTip="Edit Items">
+                                                <Button.Content>
+                                                    <icon:PackIconMaterial Kind="PencilPlus"   
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                                        <icon:PackIconMaterial.LayoutTransform>
+                                                            <TransformGroup>
+                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                            </TransformGroup>
+                                                        </icon:PackIconMaterial.LayoutTransform>
+                                                    </icon:PackIconMaterial>
+                                                </Button.Content>
+                                            </Button>
+                                        </Grid>
+                                    </Expander.Header>
+
+
+                                    <local:FullItemDataGrid
+                            ItemsSource="{Binding ItemK3s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
+                            Style="{StaticResource FullItemDataGridStyle}">
+                                        <local:FullItemDataGrid.Columns>
+
+                                            <DataGridTextColumn Header="Description" Binding="{Binding Catalog.Description}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                                        </local:FullItemDataGrid.Columns>
+                                    </local:FullItemDataGrid>
+                                </Expander>
+                            </StackPanel>
+                        </Expander>
+
                     </StackPanel>
                 </ScrollViewer>
             </Border>

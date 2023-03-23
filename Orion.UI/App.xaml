@@ -68,6 +68,35 @@
              xmlns:vmCatalogH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.CatalogList"
              xmlns:vmECH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.EditCatalogItem"
              xmlns:vmItemH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.EditQuoteItem"
+
+             
+             
+             xmlns:viewCatalogI="clr-namespace:Orion.UI.View.Marvair.CatalogList"
+             xmlns:viewECI="clr-namespace:Orion.UI.View.Marvair.EditCatalogItem"
+             xmlns:viewItemI="clr-namespace:Orion.UI.View.Marvair.EditQuoteItem"
+             
+             xmlns:vmCatalogI="clr-namespace:Orion.UI.ViewModel.Mavair.CatalogList"
+             xmlns:vmECI="clr-namespace:Orion.UI.ViewModel.Mavair.EditCatalogItem"
+             xmlns:vmItemI="clr-namespace:Orion.UI.ViewModel.Mavair.EditQuoteItem"
+             
+             
+             
+             xmlns:viewCatalogJ="clr-namespace:Orion.UI.View.PACE.CatalogList"
+             xmlns:viewECJ="clr-namespace:Orion.UI.View.PACE.EditCatalogItem"
+             xmlns:viewItemJ="clr-namespace:Orion.UI.View.PACE.EditQuoteItem"
+             
+             xmlns:vmCatalogJ="clr-namespace:Orion.UI.ViewModel.PACE.CatalogList"
+             xmlns:vmECJ="clr-namespace:Orion.UI.ViewModel.PACE.EditCatalogItem"
+             xmlns:vmItemJ="clr-namespace:Orion.UI.ViewModel.PACE.EditQuoteItem"
+             
+             
+             xmlns:viewCatalogK="clr-namespace:Orion.UI.View.Multiaqua.CatalogList"
+             xmlns:viewECK="clr-namespace:Orion.UI.View.Multiaqua.EditCatalogItem"
+             xmlns:viewItemK="clr-namespace:Orion.UI.View.Multiaqua.EditQuoteItem"
+             
+             xmlns:vmCatalogK="clr-namespace:Orion.UI.ViewModel.Multiaqua.CatalogList"
+             xmlns:vmECK="clr-namespace:Orion.UI.ViewModel.Multiaqua.EditCatalogItem"
+             xmlns:vmItemK="clr-namespace:Orion.UI.ViewModel.Multiaqua.EditQuoteItem"
              
              xmlns:converters="clr-namespace:Orion.UI.Converters"
              
@@ -598,6 +627,85 @@
                 <viewECH:EditH5CatalogView/>
             </DataTemplate>
 
+
+
+            <DataTemplate DataType="{x:Type vmItemI:EditI1ItemViewModel}">
+                <viewItemI:EditI1ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemI:EditI2ItemViewModel}">
+                <viewItemI:EditI2ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogI:CatalogI1ListViewModel}">
+                <viewCatalogI:CatalogI1ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogI:CatalogI2ListViewModel}">
+                <viewCatalogI:CatalogI2ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECI:EditI1CatalogViewModel}">
+                <viewECI:EditI1CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECI:EditI2CatalogViewModel}">
+                <viewECI:EditI2CatalogView/>
+            </DataTemplate>
+
+
+
+            <DataTemplate DataType="{x:Type vmItemJ:EditJ1ItemViewModel}">
+                <viewItemJ:EditJ1ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogJ:CatalogJ1ListViewModel}">
+                <viewCatalogJ:CatalogJ1ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECJ:EditJ1CatalogViewModel}">
+                <viewECJ:EditJ1CatalogView/>
+            </DataTemplate>
+
+
+
+            <DataTemplate DataType="{x:Type vmItemK:EditK1ItemViewModel}">
+                <viewItemK:EditK1ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemK:EditK2ItemViewModel}">
+                <viewItemK:EditK2ItemView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemK:EditK3ItemViewModel}">
+                <viewItemK:EditK3ItemView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vmCatalogK:CatalogK1ListViewModel}">
+                <viewCatalogK:CatalogK1ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogK:CatalogK2ListViewModel}">
+                <viewCatalogK:CatalogK2ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogK:CatalogK3ListViewModel}">
+                <viewCatalogK:CatalogK3ListView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECK:EditK1CatalogViewModel}">
+                <viewECK:EditK1CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECK:EditK2CatalogViewModel}">
+                <viewECK:EditK2CatalogView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECK:EditK3CatalogViewModel}">
+                <viewECK:EditK3CatalogView/>
+            </DataTemplate>
+
+
             <Style  x:Key="TxtStyle" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}">
                 <Setter Property="ctrl:TextBoxHelper.UseFloatingWatermark" Value="True"/>
                 <Setter Property="ctrl:TextBoxHelper.SelectAllOnFocus" Value="True"/>
@@ -668,10 +776,13 @@
                                 </icon:PackIconFontAwesome>
                                 <Grid.Style>
                                     <Style TargetType="Grid">
-                                        <Setter Property="Background" Value="Transparent"/>
+                                        <!--<Setter Property="Background" Value="Transparent"/>-->
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding HasTitles,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="True">
                                                 <Setter Property="Background" Value="#32B974"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding HasTitles,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="False">
+                                                <Setter Property="Background" Value="Transparent"/>
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
@@ -685,6 +796,10 @@
                 <Setter Property="ToolTip" Value="Item Info"/>
 
                 <Style.Triggers>
+                    <DataTrigger Binding="{Binding HasTitles,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="False">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="ToolTip" Value="Item Info"/>
+                    </DataTrigger>
                     <DataTrigger Binding="{Binding HasTitles,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="True">
                         <Setter Property="Background" Value="#32B974"/>
                         <Setter Property="ToolTip">

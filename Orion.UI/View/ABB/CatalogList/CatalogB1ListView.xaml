@@ -12,8 +12,7 @@
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
              d:DesignHeight="600" d:DesignWidth="2000"
              d:DataContext="{d:DesignInstance Type=vm:CatalogB1ListViewModel}"
-             xmlns:vm="clr-namespace:Orion.UI.ViewModel.ABB.CatalogList"
-             xmlns:view="clr-namespace:Orion.UI.View.ABB.CatalogList">
+             xmlns:vm="clr-namespace:Orion.UI.ViewModel.ABB.CatalogList">
     
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
