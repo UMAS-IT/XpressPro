@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro.Controls.Dialogs;
 using Orion.Binding.Binding;
 using Orion.DataAccess.DataBase;
+using Orion.Domain.Entity;
 using Orion.UI.Command;
 using Orion.UI.Service;
 using System;
@@ -50,6 +51,13 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _userName, value);
         }
 
+        private User _user;
+        public User User
+        {
+            get => _user;
+            set => SetProperty(ref _user, value);
+        }
+
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand<object> LogOutCommand { get; set; }
         public RelayCommand<object> NewProjectCommand { get; set; }
@@ -71,11 +79,16 @@ namespace Orion.UI.ViewModel
             NewProjectCommand = new RelayCommand<object>(OnNewProject);
             OpenProjectCommand = new RelayCommand<object>(OnOpenProject);
             ConfigurationCommand = new RelayCommand<object>(OnConfiguration);
-
         }
 
-        private void OnConfiguration(object obj)
+        private async void OnConfiguration(object obj)
         {
+            if (User.Permission == null || !User.Permission.CanEditCatalogs)
+            {
+                await dialogCoordinator.ShowMessageAsync(this, "Warning", "Unauthorized user", MessageDialogStyle.Affirmative);
+                return;
+            }
+
             ConfigurationMenuViewModel configurationMenuViewModel = new ConfigurationMenuViewModel(dialogCoordinator);
             windowService.ConfigurationMenuWindow(configurationMenuViewModel, "Configuration");
         }
@@ -103,7 +116,7 @@ namespace Orion.UI.ViewModel
 
         private void OnOpenProject(object obj)
         {
-            OpenProjectViewModel openProjectViewModel = new OpenProjectViewModel(dialogCoordinator, currentProjectId, userId);
+            OpenProjectViewModel openProjectViewModel = new OpenProjectViewModel(dialogCoordinator, currentProjectId, User);
             openProjectViewModel.ProjectOpenedRequested += OnProjectOpened;
             openProjectViewModel.ProjectDeletedRequested += OnCurrentProjectDeleted;
             windowService.OpenProjectWindow(openProjectViewModel, "Open Project");
@@ -125,10 +138,11 @@ namespace Orion.UI.ViewModel
             CurrentViewModel = new MenuViewModel(dialogCoordinator, userId, projectId, this);
         }
 
-        private async void NavToMainPage(int userId, string userName)
+        private async void NavToMainPage(User user)
         {
-            this.userId = userId;
-            UserName = userName;
+            User = user;
+            userId = User.Id;
+            UserName = User.Name;
             UserVisibility = Visibility.Visible;
 
             CurrentViewModel = null;

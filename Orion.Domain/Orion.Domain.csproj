@@ -149,6 +149,7 @@
     <Compile Include="Entity\Company.cs" />
     <Compile Include="Entity\DataSheet.cs" />
     <Compile Include="Entity\Item.cs" />
+    <Compile Include="Entity\Permission.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Groundfos\Catalog\CatalogE1.cs" />
     <Compile Include="Groundfos\Catalog\CatalogE2.cs" />

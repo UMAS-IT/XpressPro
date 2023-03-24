@@ -21,7 +21,7 @@ namespace Orion.UI.ViewModel
         private ProjectService projectService;
         private int currentProjectId;
         //private bool currentProjectDeleted;
-        private int userId;
+        //private int userId;
 
         private ObservableCollection<Project> _projects;
         public ObservableCollection<Project> Projects
@@ -50,6 +50,13 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _projectName, value);
         }
 
+        private User _user;
+        public User User
+        {
+            get => _user;
+            set => SetProperty(ref _user, value);
+        }
+
         public RelayCommand<dynamic> LoadDataCommand { get; set; }
         public RelayCommand<dynamic> OpenProjectCommand { get; set; }
         public RelayCommand<object> DeleteProjectCommand { get; set; }
@@ -61,11 +68,11 @@ namespace Orion.UI.ViewModel
         public event Action<int> ProjectOpenedRequested = delegate { };
         public event Action<bool> ProjectDeletedRequested = delegate { };
 
-        public OpenProjectViewModel(IDialogCoordinator dialogCoordinator, int currentProjectId, int userId)
+        public OpenProjectViewModel(IDialogCoordinator dialogCoordinator, int currentProjectId, User user)
         {
             this.currentProjectId = currentProjectId;
             this.dialogCoordinator = dialogCoordinator;
-            this.userId = userId;
+            User = user;
             LoadDataCommand = new RelayCommand<dynamic>(OnLoadData);
             OpenProjectCommand = new RelayCommand<dynamic>(OnOpenProject);
             DeleteProjectCommand = new RelayCommand<object>(OnDeleteProject);
@@ -93,7 +100,7 @@ namespace Orion.UI.ViewModel
 
                 ProjectName = "";
                 //ProjectsBase = projectService.GetProjects();
-                ProjectsBase = projectService.GetProjectByUserId(userId);
+                ProjectsBase = projectService.GetProjectByUserId(User).ToObservableCollection();
                 Projects = ProjectsBase;
 
                 await messageService.EndMessage("Project Information", "Project(s) loaded successfully");
@@ -158,7 +165,7 @@ namespace Orion.UI.ViewModel
                 await messageService.StartMessage("Project Information", "Reloading projects from your database, please wait...");
 
                 ProjectName = "";
-                ProjectsBase = projectService.GetProjectByUserId(userId);
+                ProjectsBase = projectService.GetProjectByUserId(User).ToObservableCollection();
                 Projects = ProjectsBase.OrderBy(x => x.Id).ToObservableCollection();
 
                 await messageService.EndMessage("Project Information", "Project(s) reloaded successfully");

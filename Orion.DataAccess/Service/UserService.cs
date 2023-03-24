@@ -24,7 +24,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return await context.Users.FirstOrDefaultAsync(u => u.LoginName.ToFormat() == userName.ToFormat() && u.PassKey.ToFormat() == password.ToFormat());
+                return await context.Users.Include(x => x.Permission).FirstOrDefaultAsync(u => u.LoginName.ToFormat() == userName.ToFormat() && u.PassKey.ToFormat() == password.ToFormat());
             }
         }
 

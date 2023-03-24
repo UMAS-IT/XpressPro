@@ -14,15 +14,17 @@ namespace Orion.DataAccess.Service
 {
     public class ProjectService
     {
-        public ObservableCollection<Project> GetProjectByUserId(int userId)
+        public IList<Project> GetProjectByUserId(User user)
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                User user = context.Users.First(x => x.Id == userId);
+                //User dbUser = context.Users.First(x => x.Id == user.Id);
 
-                List<Project> projects = context.Projects.Include(x => x.User).ToList();
+                if (user.Permission.IsAdmin)
+                    return context.Projects.Include(x => x.User).ToList();
+                else
+                    return context.Projects.Include(x => x.User).Where(x => x.UserId == user.Id).ToList();
 
-                return projects.ToObservableCollection();
             }
         }
 

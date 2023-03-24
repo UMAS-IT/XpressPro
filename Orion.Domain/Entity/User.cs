@@ -56,6 +56,13 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _projects, value);
         }
 
+        private Permission _permission;
+        public Permission Permission
+        {
+            get => _permission;
+            set => SetProperty(ref _permission, value);
+        }
+
         public User()
         {
             Projects = new ObservableCollection<Project>();

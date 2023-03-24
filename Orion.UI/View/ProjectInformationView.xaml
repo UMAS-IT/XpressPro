@@ -37,31 +37,31 @@
                              PreviewTextInput="NumericUpDown_PreviewTextInput">
                 </TextBox>
                 <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Name" 
+                             ctrl:TextBoxHelper.Watermark="Project Name" 
                              Text="{Binding Project.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                              Style="{DynamicResource TxtStyle}">
                 </TextBox>
 
                 <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Contractor" 
+                             ctrl:TextBoxHelper.Watermark="Contractor (To)" 
                              Text="{Binding Project.Contractor, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                              Style="{DynamicResource TxtStyle}">
                 </TextBox>
                 
                 <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Engineer" 
+                             ctrl:TextBoxHelper.Watermark="Engineer (Attention)" 
                              Text="{Binding Project.Engineer, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                              Style="{DynamicResource TxtStyle}">
                 </TextBox>
 
                 <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Contact" 
+                             ctrl:TextBoxHelper.Watermark="Contact (Telephone)" 
                              Text="{Binding Project.Contact, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                              Style="{DynamicResource TxtStyle}">
                 </TextBox>
 
                 <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Location" 
+                             ctrl:TextBoxHelper.Watermark="Location (Address)" 
                              Text="{Binding Project.Location, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                              Style="{DynamicResource TxtStyle}">
                 </TextBox>

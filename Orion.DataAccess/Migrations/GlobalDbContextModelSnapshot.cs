@@ -60,6 +60,26 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("DataSheets");
                 });
 
+            modelBuilder.Entity("Orion.Domain.Entity.Permission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("CanEditCatalogs");
+
+                    b.Property<bool>("IsAdmin");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Permission");
+                });
+
             modelBuilder.Entity("Orion.Domain.Entity.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -2922,6 +2942,14 @@ namespace Orion.DataAccess.Migrations
                     b.HasOne("Orion.Domain.Entity.Product", "Product")
                         .WithMany("DataSheets")
                         .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.Entity.Permission", b =>
+                {
+                    b.HasOne("Orion.Domain.Entity.User", "User")
+                        .WithOne("Permission")
+                        .HasForeignKey("Orion.Domain.Entity.Permission", "UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

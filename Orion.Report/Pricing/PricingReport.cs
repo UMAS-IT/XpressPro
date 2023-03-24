@@ -200,7 +200,7 @@ namespace Orion.Report.Pricing
                 SaveAndConvertToPdf(mainDocument, currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.docx");
 
                 Process.Start(currentProjectPath + $@"\Pricing");
-                Process.Start(currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.pdf");
+                //Process.Start(currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.pdf");
             }
         }
 
@@ -220,7 +220,7 @@ namespace Orion.Report.Pricing
                 data[i] = new string[5] { $"{GetColumnName(pricingItem.ItemNumber)}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, pricingItem.Company};
             }
 
-            Table table = CreateItemTable(docSection, summaryPricingItems.Count, title, Header, data);
+            Table table = CreateItemTable(docSection, summaryPricingItems.Count, title, Header, data, false);
 
             BookmarksNavigator navigator = new BookmarksNavigator(mainDocument);
             navigator.MoveToBookmark(InitBk.sumaryTable.ToString());

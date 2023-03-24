@@ -78,7 +78,7 @@ namespace Orion.Report.Pricing
 
 
 
-        public Table CreateItemTable(Section docSection, int itemsQuantity, string[] sectionTitle, string[] Header, string[][] data)
+        public Table CreateItemTable(Section docSection, int itemsQuantity, string[] sectionTitle, string[] Header, string[][] data, bool KeepInSamePage = true)
         {
             Table table = docSection.AddTable(true);
             table.TableFormat.IsBreakAcrossPages = false;
@@ -152,8 +152,11 @@ namespace Orion.Report.Pricing
                     TR2.CharacterFormat.TextColor = Color.Black;
                 }
             }
-            table.AutoFit(AutoFitBehaviorType.AutoFitToWindow);  
-            KeepTableInSamePage(table);
+            table.AutoFit(AutoFitBehaviorType.AutoFitToWindow);
+            if (KeepInSamePage)
+            {
+                KeepTableInSamePage(table);
+            }
             return table;
         }
 

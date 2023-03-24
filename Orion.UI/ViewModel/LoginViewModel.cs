@@ -38,7 +38,7 @@ namespace Orion.UI.ViewModel
         public RelayCommand<PasswordBox> SignInCommand { get; set; }
         public RelayCommand<dynamic> CloseCommand { get; set; }
 
-        public event Action<int, string> MenuViewRequested = delegate { };
+        public event Action<User> MenuViewRequested = delegate { };
 
         public LoginViewModel(IDialogCoordinator dialogCoordinator)
         {
@@ -55,8 +55,8 @@ namespace Orion.UI.ViewModel
         private void OnLoadData(object obj)
         {
             UserName = "";
-            UserName = "jcastaneda";
-            OnSignInAsync(new PasswordBox() { Password = "1256" });
+            //UserName = "jcastaneda";
+            //OnSignInAsync(new PasswordBox() { Password = "1256" });
         }
 
         private void OnClose(dynamic window)
@@ -92,7 +92,7 @@ namespace Orion.UI.ViewModel
                 return;
             }
 
-            MenuViewRequested(User.Id, User.Name);
+            MenuViewRequested(User);
         }
 
         private async Task<bool> CanSignIn(PasswordBox passwordBox)

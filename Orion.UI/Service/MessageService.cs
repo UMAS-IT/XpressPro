@@ -39,7 +39,7 @@ namespace Orion.UI.Service
             controller.SetTitle(title);
             controller.SetMessage(message);
             //await Task.Delay(1000); original
-            await Task.Delay(250);
+            await Task.Delay(500);
             await controller.CloseAsync();
         }
 
