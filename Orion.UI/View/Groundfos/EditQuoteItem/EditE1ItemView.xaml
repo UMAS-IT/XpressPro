@@ -263,6 +263,15 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
+
+                        <DataGridTemplateColumn Header="TDH" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding Tdh, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="20" CharacterCasing="Upper"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
                         <DataGridTemplateColumn Header="HP" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -322,6 +331,14 @@
                         </DataGridTemplateColumn>
 
                         <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                        <DataGridTemplateColumn Header="Freight" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding Freight, UpdateSourceTrigger=LostFocus,StringFormat={}{0}% , Mode=TwoWay}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
                         <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                     

@@ -283,6 +283,14 @@
 
                         <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
+                        <DataGridTemplateColumn Header="Freight" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox MaxLength="20" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" Text="{Binding Freight, UpdateSourceTrigger=LostFocus,StringFormat={}{0}% , Mode=TwoWay}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
                         <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c} , Mode=TwoWay}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
 
                     </DataGrid.Columns>

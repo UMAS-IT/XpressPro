@@ -163,12 +163,12 @@ namespace Orion.UI.ViewModel
             CurrentViewModel = null;
             await Task.Delay(100);
 
-            //CloneUnitTagViewModel cloneUnitTagViewModel = new CloneUnitTagViewModel(dialogCoordinator, projectId, unit.Id, unit.Tag);
-            //cloneUnitTagViewModel.UnitTagClonedRequested += OnUnitTagClonedRequested;
-            //CurrentViewModel = cloneUnitTagViewModel;
+            CloneQuoteViewModel cloneQuoteViewModel = new CloneQuoteViewModel(dialogCoordinator, Project, quote);
+            cloneQuoteViewModel.QuoteClonedRequested += OnQuoteCloned;
+            CurrentViewModel = cloneQuoteViewModel;
         }
 
-        private async void OnQuoteClonedRequested(bool quoteCloned)
+        private async void OnQuoteCloned(bool quoteCloned)
         {
             IsEnabled = true;
             CurrentViewModel = null;

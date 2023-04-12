@@ -51,10 +51,15 @@ namespace Orion.Report.Pricing
         {
             double sellPrice = 0;
 
-            items.ToList().ForEach(x => sellPrice += x.OverridePrice ? x.Quantity * x.SellPrice : x.Quantity * x.Catalog.SellPrice);
+            items.ToList().ForEach(x => sellPrice += x.OverridePrice ? Math.Ceiling(x.Quantity * x.SellPrice) : Math.Ceiling(x.Quantity * x.Catalog.SellPrice));
 
             return sellPrice;
 
+        }
+
+        public double JoinFreights(IList<IItem> items)
+        {
+            return Math.Ceiling(items.Sum(x => x.Freight));
         }
 
         public string GetColumnName(int number)
@@ -438,7 +443,7 @@ namespace Orion.Report.Pricing
             {
                 foreach (IItem item in items)
                 {
-                    pricingItems.Add(new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(new List<IItem>() { item }), JoinTags(new List<IItem>() { item }), JoinQuantities(new List<IItem>() { item }), tempItem.Catalog.Company, item));
+                    pricingItems.Add(new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(new List<IItem>() { item }), JoinTags(new List<IItem>() { item }), JoinQuantities(new List<IItem>() { item }), tempItem.Catalog.Company, JoinFreights(new List<IItem>() { item }), item));
 
                     foreach (Title title in item.Titles)
                     {
@@ -446,7 +451,7 @@ namespace Orion.Report.Pricing
                             continue;
 
                         //pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]({item.Quantity})", 0, tempItem.Catalog.Company, true, false));
-                        pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]", 0, tempItem.Catalog.Company, null, true, false));
+                        pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]", 0, tempItem.Catalog.Company, 0, null, true, false));
 
                         foreach (Spec spec in title.Specs)
                         {
@@ -454,7 +459,7 @@ namespace Orion.Report.Pricing
                                 continue;
 
                             //pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]({item.Quantity})", 1, tempItem.Catalog.Company, false, true));
-                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company, null, false, true));
+                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company, 0, null, false, true));
                         }
                     }
                 }
@@ -462,7 +467,7 @@ namespace Orion.Report.Pricing
             else
             {
 
-                pricingItems.Add(new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()), tempItem.Catalog.Company));
+                pricingItems.Add(new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()), tempItem.Catalog.Company, JoinFreights(items.ToList<IItem>())));
 
 
                 foreach (IItem item in items.Where(x => x.Titles.Any()))
@@ -473,7 +478,7 @@ namespace Orion.Report.Pricing
                             continue;
 
                         //pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]({item.Quantity})", 0, tempItem.Catalog.Company, true, false));
-                        pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]", 0, tempItem.Catalog.Company, null, true, false));
+                        pricingItems.Add(new PricingItem(0, title.Name, 0, $"[{item.Tag}]", 0, tempItem.Catalog.Company,0, null, true, false));
 
 
                         foreach (Spec spec in title.Specs)
@@ -482,7 +487,7 @@ namespace Orion.Report.Pricing
                                 continue;
 
                             //pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]({item.Quantity})", 1, tempItem.Catalog.Company, false, true));
-                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company, null, false, true));
+                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company,0, null, false, true));
                         }
                     }
                 }

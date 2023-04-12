@@ -104,7 +104,7 @@
                                             </Button.Content>
                                         </Button>
 
-                                        <Button Grid.Column="1" Visibility="Visible" IsEnabled="False"
+                                        <Button Grid.Column="1" Visibility="Visible" IsEnabled="True"
                                 Command="{Binding Path=DataContext.CloneQuoteCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" Margin="1"
                                                 ToolTip="Clone Quote" CommandParameter="{Binding}">
                                             <Button.Content>

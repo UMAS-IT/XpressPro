@@ -1276,6 +1276,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -1310,6 +1312,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -1346,6 +1350,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -1380,6 +1386,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -1416,6 +1424,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -1450,6 +1460,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -1486,6 +1498,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -1520,6 +1534,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -1556,6 +1572,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -1590,6 +1608,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -1626,6 +1646,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -1660,6 +1682,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -1696,6 +1720,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -1730,6 +1756,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -1766,6 +1794,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -1800,6 +1830,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -1836,6 +1868,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -1870,6 +1904,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -1906,6 +1942,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -1940,6 +1978,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -1976,6 +2016,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -2010,6 +2052,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -2046,6 +2090,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -2080,6 +2126,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -2117,6 +2165,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<int>("DesignIndex");
 
                     b.Property<string>("Electrical");
+
+                    b.Property<double>("Freight");
 
                     b.Property<string>("Gpm");
 
@@ -2167,6 +2217,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Electrical");
 
+                    b.Property<double>("Freight");
+
                     b.Property<string>("Gpm");
 
                     b.Property<string>("Hp");
@@ -2215,6 +2267,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<int>("DesignIndex");
 
                     b.Property<string>("Electrical");
+
+                    b.Property<double>("Freight");
 
                     b.Property<string>("Gpm");
 
@@ -2265,6 +2319,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Electrical");
 
+                    b.Property<double>("Freight");
+
                     b.Property<string>("Gpm");
 
                     b.Property<string>("Hp");
@@ -2313,6 +2369,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<int>("DesignIndex");
 
                     b.Property<string>("Electrical");
+
+                    b.Property<double>("Freight");
 
                     b.Property<string>("Gpm");
 
@@ -2363,6 +2421,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Electrical");
 
+                    b.Property<double>("Freight");
+
                     b.Property<string>("Gpm");
 
                     b.Property<string>("Hp");
@@ -2412,6 +2472,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Electrical");
 
+                    b.Property<double>("Freight");
+
                     b.Property<string>("Gpm");
 
                     b.Property<string>("Hp");
@@ -2459,6 +2521,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -2494,6 +2558,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -2528,6 +2594,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -2620,6 +2688,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -2654,6 +2724,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -2765,6 +2837,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -2800,6 +2874,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<double>("Freight");
+
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
@@ -2834,6 +2910,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
@@ -2896,6 +2974,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 

@@ -43,6 +43,25 @@ namespace Orion.DataAccess.Service
             }
         }
 
+        public Quote CreateQuote(int projectId, string quoteName)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                Project project = context.Projects.FirstOrDefault(p => p.Id == projectId);
+
+                Quote quote = new Quote()
+                {
+                    Name = quoteName
+                };
+
+                project.Quotes.Add(quote);
+
+                context.SaveChanges();
+
+                return quote;
+            }
+        }
+
         public bool QuoteInProjectExist(int projectId, string targetQuoteName)
         {
             using (GlobalDbContext context = new GlobalDbContext())

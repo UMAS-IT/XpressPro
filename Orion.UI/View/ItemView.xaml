@@ -718,6 +718,14 @@
                                                 </DataGridTemplateColumn.CellTemplate>
                                             </DataGridTemplateColumn>
 
+                                            <DataGridTemplateColumn Header="TDH" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBox Text="{Binding Tdh, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="20" CharacterCasing="Upper"/>
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+
                                             <DataGridTemplateColumn Header="HP" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>

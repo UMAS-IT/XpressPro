@@ -244,6 +244,7 @@
     <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG5ItemViewModel.cs" />
     <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG6ItemViewModel.cs" />
     <Compile Include="ViewModel\CatalogViewModel.cs" />
+    <Compile Include="ViewModel\CloneQuoteViewModel.cs" />
     <Compile Include="ViewModel\ComingSoonViewModel.cs" />
     <Compile Include="ViewModel\ConfigurationMenuViewModel.cs" />
     <Compile Include="ViewModel\CreateQuoteViewModel.cs" />
@@ -502,6 +503,9 @@
     </Compile>
     <Compile Include="View\CatalogView.xaml.cs">
       <DependentUpon>CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CloneQuoteView.xaml.cs">
+      <DependentUpon>CloneQuoteView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ComingSoonView.xaml.cs">
       <DependentUpon>ComingSoonView.xaml</DependentUpon>
@@ -967,6 +971,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CloneQuoteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

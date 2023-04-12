@@ -19,13 +19,14 @@ using Orion.Domain.EntityItemUvResources;
 using Orion.Domain.Marvair.Item;
 using Orion.Domain.Multiaqua.Item;
 using Orion.Domain.PACE.Item;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Orion.Domain.Entity
 {
-    public class Title : ValidatableBindableBase, IEntity
+    public class Title : ValidatableBindableBase, IEntity, ICloneable
     {
         private int _id;
         public int Id
@@ -677,6 +678,12 @@ namespace Orion.Domain.Entity
             get => _saved;
             set => SetProperty(ref _saved, value);
         }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
 
         public Title()
         {

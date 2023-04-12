@@ -1,11 +1,12 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Orion.Domain.Entity
 {
-    public class Spec : ValidatableBindableBase, IEntity
+    public class Spec : ValidatableBindableBase, IEntity, ICloneable
     {
         private int _id;
         public int Id
@@ -49,6 +50,12 @@ namespace Orion.Domain.Entity
             get => _saved;
             set => SetProperty(ref _saved, value);
         }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
         public Spec()
         {
             Name = "Default Spec Name";

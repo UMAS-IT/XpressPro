@@ -656,8 +656,9 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.csproj.CopyComplete
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.exe
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.pdb
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ResourcePricing\PricingTemplate.docx
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ResourcePricing\TermsAndConditionsTemplate.docx
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Spire.Doc.dll
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ResourcePricing\PricingTemplate.docx
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.UI.exe.config
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.UI.exe
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.UI.pdb
@@ -702,7 +703,6 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.DataAccess.
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.Domain.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.Helper.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.Report.dll
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Spire.Doc.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Spire.Pdf.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Microsoft.EntityFrameworkCore.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
@@ -1120,3 +1120,5 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.csproj.C
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.csproj.CopyComplete
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.exe
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.pdb
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\CloneQuoteView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\CloneQuoteView.baml
