@@ -136,3 +136,11 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\obj\Debug\Orion.Report.
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\obj\Debug\Orion.Report.csproj.CopyComplete
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\obj\Debug\Orion.Report.dll
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\obj\Debug\Orion.Report.pdb
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ClosedXML.dll
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ExcelNumberFormat.dll
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\System.IO.Packaging.dll
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ClosedXML.pdb
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ClosedXML.xml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ExcelNumberFormat.xml

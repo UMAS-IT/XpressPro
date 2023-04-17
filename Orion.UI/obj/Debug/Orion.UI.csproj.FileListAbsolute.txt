@@ -1122,3 +1122,10 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.exe
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.pdb
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\CloneQuoteView.g.cs
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\CloneQuoteView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ClosedXML.dll
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ExcelNumberFormat.dll
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ClosedXML.pdb
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ClosedXML.xml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ExcelNumberFormat.xml

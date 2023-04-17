@@ -22,7 +22,6 @@ namespace Orion.UI.ViewModel
         private MessageService messageService;
         private QuoteService quoteService;
         private ProjectService projectService;
-        //private SectionService sectionService;
         UserService userService;
         private PricingReport pricingReport;
         private MainWindowViewModel mw;
@@ -104,7 +103,6 @@ namespace Orion.UI.ViewModel
             messageService = new MessageService(dialogCoordinator, this);
             quoteService = new QuoteService();
             projectService = new ProjectService();
-            pricingReport = new PricingReport();
             userService = new UserService();
         }
 
@@ -116,7 +114,11 @@ namespace Orion.UI.ViewModel
             {
                 await messageService.StartMessage("Creating Report(s)", "This will take a few minutes, please wait...");
 
-                pricingReport.Create(Project, Quotes.Where(x => x.IsSelected).ToList(), Extended); 
+                pricingReport = new PricingReport(Project, Quotes, Extended);
+                //pricingReport.CreatePricingWordReport();
+                pricingReport.CreatePricingExcelReport();
+
+                System.Diagnostics.Process.Start(pricingReport.CurrentProjectPath);
 
                 await messageService.EndMessage("Reports done");
                 await messageService.OkMessage("Reports", "Report(s) created successfully");

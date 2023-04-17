@@ -1,4 +1,5 @@
-﻿using Microsoft.SqlServer.Server;
+﻿using ClosedXML.Excel;
+using Microsoft.SqlServer.Server;
 using Orion.Domain.Entity;
 using Orion.Helper.Extension;
 using Orion.Helper.Misc;
@@ -846,6 +847,224 @@ namespace Orion.Report.Pricing
             }
 
             return table;
+        }
+
+        public (int,int) CreateHeaders(int column, int row, IXLWorksheet worksheet)
+        {
+            worksheet.Cell(row, column).Value = "Item";
+            worksheet.Cell(row, column + 1).Value = "Tags";
+            worksheet.Cell(row, column + 2).Value = "Quantity";
+            worksheet.Cell(row, column + 3).Value = "Product Name";
+            worksheet.Cell(row, column + 4).Value = "List Price";
+            worksheet.Cell(row, column + 5).Value = "List Adders";
+            worksheet.Cell(row, column + 6).Value = "Cost Multiplier";
+            worksheet.Cell(row, column + 7).Value = "Cost";
+            worksheet.Cell(row, column + 8).Value = "Start-Up";
+            worksheet.Cell(row, column + 9).Value = "Net Adders";
+            worksheet.Cell(row, column + 10).Value = "Sell Margin (%)";
+            worksheet.Cell(row, column + 11).Value = "Unit Sell Price";
+            worksheet.Cell(row, column + 12).Value = "Freight";
+            worksheet.Cell(row, column + 13).Value = "Total";
+
+            worksheet.Cell(row, column + 15).Value = "Profit";
+
+
+            IXLRange range = worksheet.Range(row, column, row, column + 15);
+
+            range.Style.Font.FontSize = 10;
+            range.Style.Font.FontName = "Century Gothic";
+            range.Style.Fill.BackgroundColor = XLColor.FromArgb(155, 194, 230);
+            range.Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            range.Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            range.Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            range.Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            range.Style.Font.SetBold(true);
+            range.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            worksheet.Columns(column, column + 15).AdjustToContents();
+
+            return (column, row + 1);
+        }
+
+        //public (int,int) AddItems(IXLWorksheet worksheet, IList<IItem> items, int column, int row)
+        //{
+        //    int itemNumber = 0;
+
+        //    int startRow = row;
+
+        //    foreach (IItem item in items)
+        //    {
+        //        itemNumber++;
+
+        //        worksheet.Cell(row, column).Value = GetColumnName(itemNumber);
+        //        worksheet.Cell(row, column + 1).Value = item.Tag;
+        //        worksheet.Cell(row, column + 2).Value = item.Quantity;
+        //        worksheet.Cell(row, column + 3).Value = $"{item.Catalog.Company}: {item.Catalog.Product}";
+        //        worksheet.Cell(row, column + 4).Value = item.OverridePrice ? Math.Ceiling(item.ListPrice) : Math.Ceiling(item.Catalog.ListPrice);
+        //        worksheet.Cell(row, column + 5).Value = item.Titles.SelectMany(x => x.Specs).Sum(x => Math.Ceiling(x.Price));
+        //        worksheet.Cell(row, column + 6).Value = item.OverridePrice ? item.CostMultiplier : item.Catalog.CostMultiplier;
+
+        //        //worksheet.Cell(row, column + 7).FormulaA1 = $"=+(F{row}+G{row})*H{row}";
+        //        worksheet.Cell(row, column + 7).FormulaA1 = $"=CEILING((F{row}+G{row})*H{row}, 1)";
+
+        //        worksheet.Cell(row, column + 8).Value = 0;
+        //        worksheet.Cell(row, column + 9).Value = 0;
+        //        worksheet.Cell(row, column + 10).Value = item.OverridePrice ? item.SellMargin / 100.0 : item.Catalog.SellMargin / 100.0;
+
+        //        //worksheet.Cell(row, column + 11).FormulaA1 = $"=+(I{row}+J{row}+K{row})*(D{row}/(1-L{row}))";
+        //        worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}+J{row}+K{row})*(D{row}/(1-L{row})), 1)";
+
+        //        worksheet.Cell(row, column + 12).Value = Math.Ceiling(item.Freight);
+
+        //        //worksheet.Cell(row, column + 13).FormulaA1 = $"=+M{row}+N{row}";
+        //        worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}+N{row}, 1)";
+
+        //        //worksheet.Cell(row, column + 15).FormulaA1 = $"=+O{row}-SUM(I{row},J{row},K{row},N{row})";
+        //        worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(O{row}-SUM(I{row},J{row},K{row},N{row}), 1)";
+
+        //        row++;
+        //    }
+
+        //    IXLRange range = worksheet.Range(startRow, column, row - 1, column + 15);
+
+        //    range.Style.Font.FontSize = 10;
+        //    range.Style.Font.FontName = "Century Gothic";
+        //    range.Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+        //    range.Style.Border.TopBorder = XLBorderStyleValues.Thin;
+        //    range.Style.Border.RightBorder = XLBorderStyleValues.Thin;
+        //    range.Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+        //    range.Style.Font.SetBold(false);
+        //    range.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+        //    range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+        //    worksheet.Column(12).Style.NumberFormat.Format = "0.00%";
+
+        //    worksheet.Columns(column, column + 15).AdjustToContents();
+
+
+        //    return (column, row);
+        //}
+
+
+        public (int, int) AddItems(IXLWorksheet worksheet, IList<IItem> items, int column, int row)
+        {
+            int itemNumber = 0;
+
+            int startRow = row;
+
+            foreach (IItem item in items)
+            {
+                itemNumber++;
+
+                worksheet.Cell(row, column).Value = GetColumnName(itemNumber);
+                worksheet.Cell(row, column + 1).Value = item.Tag;
+                worksheet.Cell(row, column + 2).Value = item.Quantity;
+                worksheet.Cell(row, column + 3).Value = $"{item.Catalog.Company}: {item.Catalog.Product}";
+                worksheet.Cell(row, column + 4).Value = item.OverridePrice ? Math.Ceiling(item.ListPrice) : Math.Ceiling(item.Catalog.ListPrice);
+                worksheet.Cell(row, column + 5).Value = item.Titles.SelectMany(x => x.Specs).Sum(x => Math.Ceiling(x.Price));
+                worksheet.Cell(row, column + 6).Value = item.OverridePrice ? item.CostMultiplier : item.Catalog.CostMultiplier;
+
+                //worksheet.Cell(row, column + 7).FormulaA1 = $"=CEILING((F{row}*H{row}, 1)";
+                  worksheet.Cell(row, column + 7).FormulaA1 = $"=CEILING(F{row}*H{row}, 1)";
+
+                worksheet.Cell(row, column + 8).Value = 0;
+                worksheet.Cell(row, column + 9).Value = 0;
+                worksheet.Cell(row, column + 10).Value = item.OverridePrice ? item.SellMargin / 100.0 : item.Catalog.SellMargin / 100.0;
+
+                worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}/(1-L{row})), 1)";
+
+                worksheet.Cell(row, column + 12).Value = Math.Ceiling(item.Freight);
+
+                worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING((M{row}*D{row})+G{row}+J{row}+K{row}+N{row}, 1)";
+
+                worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(O{row}-SUM((I{row}*D{row}),J{row},K{row},N{row}), 1)";
+
+                row++;
+            }
+
+            IXLRange range = worksheet.Range(startRow, column, row - 1, column + 15);
+
+            range.Style.Font.FontSize = 10;
+            range.Style.Font.FontName = "Century Gothic";
+            range.Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            range.Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            range.Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            range.Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            range.Style.Font.SetBold(false);
+            range.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            worksheet.Column(12).Style.NumberFormat.Format = "0.00%";
+
+            worksheet.Columns(column, column + 15).AdjustToContents();
+
+
+            return (column, row);
+        }
+
+
+        public (int, int) AddProjectData(IXLWorksheet worksheet, Project project, int column, int row)
+        {
+            IXLRange range = worksheet.Range(row, column, row, column + 1);
+
+            range.Style.Font.FontSize = 12;
+            range.Style.Font.FontName = "Century Gothic";
+            range.Style.Fill.BackgroundColor = XLColor.FromHtml("#483D8B");
+            range.Style.Font.FontColor = XLColor.White;
+            range.Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            range.Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            range.Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            range.Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            range.Style.Font.SetBold(true);
+            range.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            range.Merge();
+
+
+            worksheet.Cell(row,column).Value = "Pricing Report";
+
+            IXLRange dataRange = worksheet.Range(row + 1, column, row + 4, column);
+
+            dataRange.Style.Font.FontSize = 10;
+            dataRange.Style.Font.FontName = "Century Gothic";
+            dataRange.Style.Fill.BackgroundColor = XLColor.FromArgb(155, 194, 230);
+            dataRange.Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            dataRange.Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            dataRange.Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            dataRange.Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            dataRange.Style.Font.SetBold(true);
+            dataRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Left;
+            dataRange.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            IXLRange valuesRange = worksheet.Range(row + 1, column + 1, row + 4, column + 1);
+
+            valuesRange.Style.Font.FontSize = 10;
+            valuesRange.Style.Font.FontName = "Century Gothic";
+            valuesRange.Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            valuesRange.Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            valuesRange.Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            valuesRange.Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            valuesRange.Style.Font.SetBold(true);
+            valuesRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Left;
+            valuesRange.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            worksheet.Cell(row + 1,column).Value = "Project:";
+            worksheet.Cell(row + 1,column + 1).Value = project.Name;
+
+            worksheet.Cell(row + 2,column).Value = "Customer:";
+            worksheet.Cell(row + 2,column + 1).Value = project.Contractor;
+
+            worksheet.Cell(row + 3,column).Value = "Contact:";
+            worksheet.Cell(row + 3,column + 1).Value = project.Contact;
+
+            worksheet.Cell(row + 4,column).Value = "Date:";
+            worksheet.Cell(row + 4,column + 1).Value = project.CreationDate.ToLongDateString();
+
+            worksheet.Columns(column, column + 1).AdjustToContents();
+
+            return (column, row + 6);
         }
 
         public void GetTextBoxes(Document document)
