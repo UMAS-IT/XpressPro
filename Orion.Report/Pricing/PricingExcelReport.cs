@@ -30,7 +30,7 @@ namespace Orion.Report.Pricing
 
             foreach (Quote quote in quotes)
             {
-                List<IItem> items = itemService.GetAllItemByQuoteId(quote.Id).ToList();
+                List<IItem> items = itemService.GetAllItemByQuoteId(quote.Id, false).ToList();
 
                 int row = 2;
                 int column = 2;
@@ -49,11 +49,19 @@ namespace Orion.Report.Pricing
 
                 indexStatus = AddItems(worksheet, items, column, row);
 
+                int startItemsRow = row;
+
                 column = indexStatus.Item1;
                 row = indexStatus.Item2;
+
+                AddTotalAndProfit(worksheet, column, startItemsRow, row);
+
+                worksheet.Column(5).Width = 30;
+                worksheet.Column(5).Style.Alignment.WrapText = true;
             }
 
             workbook.SaveAs(currentProjectPath + $@"\Pricing\\{project.Name.ToUpper()}.xlsx");
         }
+
     }
 }

@@ -1040,15 +1040,15 @@ namespace Orion.DataAccess.Service
             return message;
         }
 
-        public IList<IItem> GetAllItemByQuoteId(int quoteId)
+        public IList<IItem> GetAllItemByQuoteId(int quoteId, bool sortByDesignIndex = true)
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return GetAllItemByQuoteId(quoteId, context);
+                return GetAllItemByQuoteId(quoteId, context, sortByDesignIndex);
             }
         }
 
-        public IList<IItem> GetAllItemByQuoteId(int quoteId, GlobalDbContext context)
+        public IList<IItem> GetAllItemByQuoteId(int quoteId, GlobalDbContext context, bool sortByDesignIndex = true)
         {
 
             List<IItem> items = new List<IItem>();
@@ -1095,7 +1095,8 @@ namespace Orion.DataAccess.Service
             items.AddRange(context.ItemK2s.Include(x => x.CatalogK2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
             items.AddRange(context.ItemK3s.Include(x => x.CatalogK3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
 
-            items = items.OrderBy(x => x.DesignIndex).ToList();
+            if (sortByDesignIndex)
+                items = items.OrderBy(x => x.DesignIndex).ToList();
 
             return items;
 

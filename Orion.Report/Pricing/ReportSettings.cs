@@ -887,100 +887,74 @@ namespace Orion.Report.Pricing
             return (column, row + 1);
         }
 
-        //public (int,int) AddItems(IXLWorksheet worksheet, IList<IItem> items, int column, int row)
-        //{
-        //    int itemNumber = 0;
-
-        //    int startRow = row;
-
-        //    foreach (IItem item in items)
-        //    {
-        //        itemNumber++;
-
-        //        worksheet.Cell(row, column).Value = GetColumnName(itemNumber);
-        //        worksheet.Cell(row, column + 1).Value = item.Tag;
-        //        worksheet.Cell(row, column + 2).Value = item.Quantity;
-        //        worksheet.Cell(row, column + 3).Value = $"{item.Catalog.Company}: {item.Catalog.Product}";
-        //        worksheet.Cell(row, column + 4).Value = item.OverridePrice ? Math.Ceiling(item.ListPrice) : Math.Ceiling(item.Catalog.ListPrice);
-        //        worksheet.Cell(row, column + 5).Value = item.Titles.SelectMany(x => x.Specs).Sum(x => Math.Ceiling(x.Price));
-        //        worksheet.Cell(row, column + 6).Value = item.OverridePrice ? item.CostMultiplier : item.Catalog.CostMultiplier;
-
-        //        //worksheet.Cell(row, column + 7).FormulaA1 = $"=+(F{row}+G{row})*H{row}";
-        //        worksheet.Cell(row, column + 7).FormulaA1 = $"=CEILING((F{row}+G{row})*H{row}, 1)";
-
-        //        worksheet.Cell(row, column + 8).Value = 0;
-        //        worksheet.Cell(row, column + 9).Value = 0;
-        //        worksheet.Cell(row, column + 10).Value = item.OverridePrice ? item.SellMargin / 100.0 : item.Catalog.SellMargin / 100.0;
-
-        //        //worksheet.Cell(row, column + 11).FormulaA1 = $"=+(I{row}+J{row}+K{row})*(D{row}/(1-L{row}))";
-        //        worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}+J{row}+K{row})*(D{row}/(1-L{row})), 1)";
-
-        //        worksheet.Cell(row, column + 12).Value = Math.Ceiling(item.Freight);
-
-        //        //worksheet.Cell(row, column + 13).FormulaA1 = $"=+M{row}+N{row}";
-        //        worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}+N{row}, 1)";
-
-        //        //worksheet.Cell(row, column + 15).FormulaA1 = $"=+O{row}-SUM(I{row},J{row},K{row},N{row})";
-        //        worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(O{row}-SUM(I{row},J{row},K{row},N{row}), 1)";
-
-        //        row++;
-        //    }
-
-        //    IXLRange range = worksheet.Range(startRow, column, row - 1, column + 15);
-
-        //    range.Style.Font.FontSize = 10;
-        //    range.Style.Font.FontName = "Century Gothic";
-        //    range.Style.Border.LeftBorder = XLBorderStyleValues.Thin;
-        //    range.Style.Border.TopBorder = XLBorderStyleValues.Thin;
-        //    range.Style.Border.RightBorder = XLBorderStyleValues.Thin;
-        //    range.Style.Border.BottomBorder = XLBorderStyleValues.Thin;
-        //    range.Style.Font.SetBold(false);
-        //    range.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-        //    range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
-
-        //    worksheet.Column(12).Style.NumberFormat.Format = "0.00%";
-
-        //    worksheet.Columns(column, column + 15).AdjustToContents();
-
-
-        //    return (column, row);
-        //}
-
-
         public (int, int) AddItems(IXLWorksheet worksheet, IList<IItem> items, int column, int row)
         {
             int itemNumber = 0;
+            int specNumber = 0;
 
             int startRow = row;
 
+            IItem currentItem = null;
+            IItem oldItem = null;
+
             foreach (IItem item in items)
             {
-                itemNumber++;
+                currentItem = item;
 
-                worksheet.Cell(row, column).Value = GetColumnName(itemNumber);
-                worksheet.Cell(row, column + 1).Value = item.Tag;
+                if (oldItem == null || currentItem.Catalog.Product.ToFormat() != oldItem.Catalog.Product.ToFormat())
+                    itemNumber++;
+
+
+                string letter = GetColumnName(itemNumber);
+
+
+                worksheet.Cell(row, column).Value = letter;
+                worksheet.Cell(row, column + 1).Value = $"[{item.Tag}]";
                 worksheet.Cell(row, column + 2).Value = item.Quantity;
                 worksheet.Cell(row, column + 3).Value = $"{item.Catalog.Company}: {item.Catalog.Product}";
                 worksheet.Cell(row, column + 4).Value = item.OverridePrice ? Math.Ceiling(item.ListPrice) : Math.Ceiling(item.Catalog.ListPrice);
-                worksheet.Cell(row, column + 5).Value = item.Titles.SelectMany(x => x.Specs).Sum(x => Math.Ceiling(x.Price));
+                worksheet.Cell(row, column + 5).Value = 0;
                 worksheet.Cell(row, column + 6).Value = item.OverridePrice ? item.CostMultiplier : item.Catalog.CostMultiplier;
-
-                //worksheet.Cell(row, column + 7).FormulaA1 = $"=CEILING((F{row}*H{row}, 1)";
-                  worksheet.Cell(row, column + 7).FormulaA1 = $"=CEILING(F{row}*H{row}, 1)";
-
+                worksheet.Cell(row, column + 7).FormulaA1 = $"=CEILING((F{row}+G{row})*H{row}, 1)";
                 worksheet.Cell(row, column + 8).Value = 0;
                 worksheet.Cell(row, column + 9).Value = 0;
                 worksheet.Cell(row, column + 10).Value = item.OverridePrice ? item.SellMargin / 100.0 : item.Catalog.SellMargin / 100.0;
-
-                worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}/(1-L{row})), 1)";
-
+                worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}+J{row}+K{row})*(D{row}/(1-L{row})),1)";
                 worksheet.Cell(row, column + 12).Value = Math.Ceiling(item.Freight);
+                worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}+N{row}, 1)";
+                worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(O{row}-SUM(I{row},J{row},K{row},N{row}), 1)";
 
-                worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING((M{row}*D{row})+G{row}+J{row}+K{row}+N{row}, 1)";
-
-                worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(O{row}-SUM((I{row}*D{row}),J{row},K{row},N{row}), 1)";
+                IXLRange itemRange = worksheet.Range(row, column, row, column + 15);
+                itemRange.Style.Font.SetBold(true);
 
                 row++;
+
+                foreach (Title title in item.Titles.Where(x => x.Specs.Any(y => y.Price != 0)))
+                {
+                    worksheet.Cell(row, column + 1).Value = $"[{item.Tag}]";
+                    worksheet.Cell(row, column + 1).Style.Font.SetBold(true);
+                    worksheet.Cell(row, column + 1).Style.Font.FontColor = XLColor.FromHtml("#00008b");
+                    worksheet.Cell(row, column + 3).Value = $"{title.Name}";
+                    worksheet.Cell(row, column + 3).Style.Font.SetBold(true);
+                    worksheet.Cell(row, column + 3).Style.Font.FontColor = XLColor.FromHtml("#00008b");
+                    row++;
+
+                    foreach (Spec spec in title.Specs.Where(x => x.Price != 0))
+                    {
+                        specNumber++;
+
+                        worksheet.Cell(row, column).Value = letter + specNumber;
+                        worksheet.Cell(row, column + 3).Value = $"{spec.Name}";
+                        worksheet.Cell(row, column + 11).Value = Math.Ceiling(spec.Price);
+                        worksheet.Cell(row, column + 12).Value = 0;
+                        worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}+N{row}, 1)";
+                        worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(O{row}-SUM(I{row},J{row},K{row},N{row}), 1)";
+
+                        row++;
+                    }
+                }
+
+                oldItem = item;
             }
 
             IXLRange range = worksheet.Range(startRow, column, row - 1, column + 15);
@@ -991,16 +965,94 @@ namespace Orion.Report.Pricing
             range.Style.Border.TopBorder = XLBorderStyleValues.Thin;
             range.Style.Border.RightBorder = XLBorderStyleValues.Thin;
             range.Style.Border.BottomBorder = XLBorderStyleValues.Thin;
-            range.Style.Font.SetBold(false);
             range.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
             range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
 
-            worksheet.Column(12).Style.NumberFormat.Format = "0.00%";
+            worksheet.Column(12).Style.NumberFormat.Format = "0%";
+
+            var currencyFormat = "$ #,##0.00";
+            worksheet.Column(6).Style.NumberFormat.Format = currencyFormat;
+            worksheet.Column(7).Style.NumberFormat.Format = currencyFormat;
+            worksheet.Column(9).Style.NumberFormat.Format = currencyFormat;
+            worksheet.Column(10).Style.NumberFormat.Format = currencyFormat;
+            worksheet.Column(11).Style.NumberFormat.Format = currencyFormat;
+            worksheet.Column(13).Style.NumberFormat.Format = currencyFormat;
+            worksheet.Column(14).Style.NumberFormat.Format = currencyFormat;
+            worksheet.Column(15).Style.NumberFormat.Format = currencyFormat;
+            worksheet.Column(17).Style.NumberFormat.Format = currencyFormat;
+
+
+            IXLRange dataRange = worksheet.Range(startRow, column + 4, row - 1, column + 8);
+            dataRange.Style.Font.SetBold(true);
+            dataRange.Style.Font.FontColor = XLColor.FromHtml("#4472c4");
+
+            dataRange = worksheet.Range(startRow, column + 9, row - 1, column + 9);
+            dataRange.Style.Font.SetBold(true);
+            dataRange.Style.Font.FontColor = XLColor.FromHtml("#c65911");
+
+
+            dataRange = worksheet.Range(startRow, column + 10, row - 1, column + 15);
+            dataRange.Style.Font.SetBold(true);
+            dataRange.Style.Font.FontColor = XLColor.FromHtml("#4472c4");
+
+            return (column, row);
+        }
+
+
+        public void AddTotalAndProfit(IXLWorksheet worksheet, int column, int startItemsRow, int row)
+        {
+            worksheet.Cell(row + 1, column + 13).Value = "Grand Total";
+            worksheet.Cell(row + 1, column + 13).Style.Font.FontSize = 10;
+            worksheet.Cell(row + 1, column + 13).Style.Font.FontName = "Century Gothic";
+            worksheet.Cell(row + 1, column + 13).Style.Fill.BackgroundColor = XLColor.FromArgb(155, 194, 230);
+            worksheet.Cell(row + 1, column + 13).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 13).Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 13).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 13).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 13).Style.Font.SetBold(true);
+            worksheet.Cell(row + 1, column + 13).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            worksheet.Cell(row + 1, column + 13).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            worksheet.Cell(row + 2, column + 13).FormulaA1 = $"=SUM(O{startItemsRow}:O{row})";
+            worksheet.Cell(row + 2, column + 13).Style.Font.FontSize = 10;
+            worksheet.Cell(row + 2, column + 13).Style.Font.FontName = "Century Gothic";
+            worksheet.Cell(row + 2, column + 13).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 13).Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 13).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 13).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 13).Style.Font.SetBold(true);
+            worksheet.Cell(row + 2, column + 13).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            worksheet.Cell(row + 2, column + 13).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+            worksheet.Cell(row + 2, column + 13).Style.Font.FontColor = XLColor.FromHtml("#4472c4");
+
+            worksheet.Cell(row + 1, column + 15).Value = "Grand Total Profit";
+            worksheet.Cell(row + 1, column + 15).Style.Font.FontSize = 10;
+            worksheet.Cell(row + 1, column + 15).Style.Font.FontName = "Century Gothic";
+            worksheet.Cell(row + 1, column + 15).Style.Fill.BackgroundColor = XLColor.FromArgb(155, 194, 230);
+            worksheet.Cell(row + 1, column + 15).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 15).Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 15).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 15).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 15).Style.Font.SetBold(true);
+            worksheet.Cell(row + 1, column + 15).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            worksheet.Cell(row + 1, column + 15).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            worksheet.Cell(row + 2, column + 15).FormulaA1 = $"=SUM(Q{startItemsRow}:Q{row})";
+            worksheet.Cell(row + 2, column + 15).Style.Font.FontSize = 10;
+            worksheet.Cell(row + 2, column + 15).Style.Font.FontName = "Century Gothic";
+            worksheet.Cell(row + 2, column + 15).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 15).Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 15).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 15).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 15).Style.Font.SetBold(true);
+            worksheet.Cell(row + 2, column + 15).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            worksheet.Cell(row + 2, column + 15).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+            worksheet.Cell(row + 2, column + 15).Style.Font.FontColor = XLColor.FromHtml("#4472c4");
+
+
 
             worksheet.Columns(column, column + 15).AdjustToContents();
 
-
-            return (column, row);
         }
 
 
@@ -1057,12 +1109,10 @@ namespace Orion.Report.Pricing
             worksheet.Cell(row + 2,column + 1).Value = project.Contractor;
 
             worksheet.Cell(row + 3,column).Value = "Contact:";
-            worksheet.Cell(row + 3,column + 1).Value = project.Contact;
+            worksheet.Cell(row + 3,column + 1).Value = project.Engineer;
 
             worksheet.Cell(row + 4,column).Value = "Date:";
             worksheet.Cell(row + 4,column + 1).Value = project.CreationDate.ToLongDateString();
-
-            worksheet.Columns(column, column + 1).AdjustToContents();
 
             return (column, row + 6);
         }

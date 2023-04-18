@@ -115,7 +115,7 @@ namespace Orion.UI.ViewModel
                 await messageService.StartMessage("Creating Report(s)", "This will take a few minutes, please wait...");
 
                 pricingReport = new PricingReport(Project, Quotes, Extended);
-                //pricingReport.CreatePricingWordReport();
+                pricingReport.CreatePricingWordReport();
                 pricingReport.CreatePricingExcelReport();
 
                 System.Diagnostics.Process.Start(pricingReport.CurrentProjectPath);

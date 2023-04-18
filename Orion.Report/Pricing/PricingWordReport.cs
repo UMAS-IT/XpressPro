@@ -185,6 +185,7 @@ namespace Orion.Report.Pricing
 
                 //Process.Start(currentProjectPath + $@"\Pricing");
                 //Process.Start(currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.pdf");
+                pricingItems.Clear();
             }
         }
 
