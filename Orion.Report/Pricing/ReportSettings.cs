@@ -919,10 +919,19 @@ namespace Orion.Report.Pricing
                 worksheet.Cell(row, column + 8).Value = 0;
                 worksheet.Cell(row, column + 9).Value = 0;
                 worksheet.Cell(row, column + 10).Value = item.OverridePrice ? item.SellMargin / 100.0 : item.Catalog.SellMargin / 100.0;
-                worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}+J{row}+K{row})*(D{row}/(1-L{row})),1)";
+
+                //worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}+J{row}+K{row})*(D{row}/(1-L{row})),1)";
+                worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}+J{row}+K{row})/(1-L{row}),1)";
+
                 worksheet.Cell(row, column + 12).Value = Math.Ceiling(item.Freight);
-                worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}+N{row}, 1)";
-                worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(O{row}-SUM(I{row},J{row},K{row},N{row}), 1)";
+
+                //worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}+N{row}, 1)";
+                worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}*D{row}, 1)+N{row}";
+
+
+                //worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(O{row}-SUM(I{row},J{row},K{row},N{row}), 1)";
+                worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(((O{row}-N{row})-(SUM(I{row},J{row},K{row})*D{row})+N{row}), 1)";
+
 
                 IXLRange itemRange = worksheet.Range(row, column, row, column + 15);
                 itemRange.Style.Font.SetBold(true);
