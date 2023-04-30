@@ -3,8 +3,8 @@ using Orion.Domain.AmericanWheatley.Related;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
-using Orion.Domain.EntityCatalogBACClosedCircuits;
-using Orion.Domain.EntityCatalogBACCoolingTowers;
+using Orion.Domain.EntityCatalogBACClosedLoopTowers;
+using Orion.Domain.EntityCatalogBACOpenLoopTowers;
 using Orion.Domain.EntityCatalogGroundfos;
 using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
@@ -12,8 +12,8 @@ using Orion.Domain.EntityCatalogUvResources;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
-using Orion.Domain.EntityItemBACClosedCircuits;
-using Orion.Domain.EntityItemBACCoolingTowers;
+using Orion.Domain.EntityItemBACClosedLoopTowers;
+using Orion.Domain.EntityItemBACOpenLoopTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
@@ -219,9 +219,9 @@ namespace Orion.DataAccess.DataBase
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             #region Local Server
-            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = OrionDb; Trusted_Connection = True; ");
+            //optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = OrionDb; Trusted_Connection = True; ");
 
-            //optionsBuilder.UseSqlServer("Server=tcp:airtreatment.database.windows.net,1433;Initial Catalog=OrionDb;Persist Security Info=False;User ID=airtreatmentAdb;Password=airtreatment2022.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            optionsBuilder.UseSqlServer("Server=tcp:airtreatment.database.windows.net,1433;Initial Catalog=OrionDb;Persist Security Info=False;User ID=airtreatmentAdb;Password=airtreatment2022.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             #endregion
         }
         //User ID = umasAdb; Password=Umas2022.;

@@ -657,7 +657,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("CatalogC4s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH1", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH1", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -680,7 +680,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("CatalogH1s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH2", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH2", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -703,7 +703,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("CatalogH2s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH3", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH3", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -726,7 +726,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("CatalogH3s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH4", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH4", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -749,7 +749,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("CatalogH4s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH5", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH5", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -772,7 +772,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("CatalogH5s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG1", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG1", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -795,7 +795,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("CatalogG1s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG2", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG2", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -818,7 +818,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("CatalogG2s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG3", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG3", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -841,7 +841,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("CatalogG3s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG4", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG4", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -864,7 +864,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("CatalogG4s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG5", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG5", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -887,7 +887,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("CatalogG5s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG6", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG6", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1745,7 +1745,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemC4s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedCircuits.ItemH1", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH1", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1757,13 +1757,25 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("DesignWB");
+
+                    b.Property<string>("FanMotors");
+
+                    b.Property<string>("FlowRate");
+
+                    b.Property<string>("FluidPressureDrop");
+
                     b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
 
+                    b.Property<string>("Model");
+
                     b.Property<bool>("OverridePrice");
+
+                    b.Property<string>("PumpMotor");
 
                     b.Property<int>("Quantity");
 
@@ -1772,6 +1784,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("WaterTemp");
 
                     b.HasKey("Id");
 
@@ -1782,7 +1798,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemH1s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedCircuits.ItemH2", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH2", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1794,13 +1810,25 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("DesignWB");
+
+                    b.Property<string>("FanMotors");
+
+                    b.Property<string>("FlowRate");
+
+                    b.Property<string>("FluidPressureDrop");
+
                     b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
 
+                    b.Property<string>("Model");
+
                     b.Property<bool>("OverridePrice");
+
+                    b.Property<string>("PumpMotor");
 
                     b.Property<int>("Quantity");
 
@@ -1809,6 +1837,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("WaterTemp");
 
                     b.HasKey("Id");
 
@@ -1819,7 +1851,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemH2s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedCircuits.ItemH3", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH3", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1831,13 +1863,25 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("DesignWB");
+
+                    b.Property<string>("FanMotors");
+
+                    b.Property<string>("FlowRate");
+
+                    b.Property<string>("FluidPressureDrop");
+
                     b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
 
+                    b.Property<string>("Model");
+
                     b.Property<bool>("OverridePrice");
+
+                    b.Property<string>("PumpMotor");
 
                     b.Property<int>("Quantity");
 
@@ -1846,6 +1890,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("WaterTemp");
 
                     b.HasKey("Id");
 
@@ -1856,7 +1904,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemH3s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedCircuits.ItemH4", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH4", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1868,13 +1916,25 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("DesignWB");
+
+                    b.Property<string>("FanMotors");
+
+                    b.Property<string>("FlowRate");
+
+                    b.Property<string>("FluidPressureDrop");
+
                     b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
 
+                    b.Property<string>("Model");
+
                     b.Property<bool>("OverridePrice");
+
+                    b.Property<string>("PumpMotor");
 
                     b.Property<int>("Quantity");
 
@@ -1883,6 +1943,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("WaterTemp");
 
                     b.HasKey("Id");
 
@@ -1893,7 +1957,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemH4s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedCircuits.ItemH5", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH5", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1905,13 +1969,25 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("DesignWB");
+
+                    b.Property<string>("FanMotors");
+
+                    b.Property<string>("FlowRate");
+
+                    b.Property<string>("FluidPressureDrop");
+
                     b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
 
+                    b.Property<string>("Model");
+
                     b.Property<bool>("OverridePrice");
+
+                    b.Property<string>("PumpMotor");
 
                     b.Property<int>("Quantity");
 
@@ -1920,6 +1996,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("WaterTemp");
 
                     b.HasKey("Id");
 
@@ -1930,7 +2010,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemH5s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACCoolingTowers.ItemG1", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG1", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1942,13 +2022,25 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("DesignWB");
+
+                    b.Property<string>("FanMotors");
+
+                    b.Property<string>("FlowRate");
+
+                    b.Property<string>("FluidPressureDrop");
+
                     b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
 
+                    b.Property<string>("Model");
+
                     b.Property<bool>("OverridePrice");
+
+                    b.Property<string>("PumpMotor");
 
                     b.Property<int>("Quantity");
 
@@ -1957,6 +2049,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("WaterTemp");
 
                     b.HasKey("Id");
 
@@ -1967,7 +2063,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemG1s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACCoolingTowers.ItemG2", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG2", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1979,13 +2075,25 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("DesignWB");
+
+                    b.Property<string>("FanMotors");
+
+                    b.Property<string>("FlowRate");
+
+                    b.Property<string>("FluidPressureDrop");
+
                     b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
 
+                    b.Property<string>("Model");
+
                     b.Property<bool>("OverridePrice");
+
+                    b.Property<string>("PumpMotor");
 
                     b.Property<int>("Quantity");
 
@@ -1994,6 +2102,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("WaterTemp");
 
                     b.HasKey("Id");
 
@@ -2004,7 +2116,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemG2s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACCoolingTowers.ItemG3", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG3", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2016,13 +2128,25 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("DesignWB");
+
+                    b.Property<string>("FanMotors");
+
+                    b.Property<string>("FlowRate");
+
+                    b.Property<string>("FluidPressureDrop");
+
                     b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
 
+                    b.Property<string>("Model");
+
                     b.Property<bool>("OverridePrice");
+
+                    b.Property<string>("PumpMotor");
 
                     b.Property<int>("Quantity");
 
@@ -2031,6 +2155,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("WaterTemp");
 
                     b.HasKey("Id");
 
@@ -2041,7 +2169,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemG3s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACCoolingTowers.ItemG4", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG4", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2053,13 +2181,25 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("DesignWB");
+
+                    b.Property<string>("FanMotors");
+
+                    b.Property<string>("FlowRate");
+
+                    b.Property<string>("FluidPressureDrop");
+
                     b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
 
+                    b.Property<string>("Model");
+
                     b.Property<bool>("OverridePrice");
+
+                    b.Property<string>("PumpMotor");
 
                     b.Property<int>("Quantity");
 
@@ -2068,6 +2208,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("WaterTemp");
 
                     b.HasKey("Id");
 
@@ -2078,7 +2222,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemG4s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACCoolingTowers.ItemG5", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG5", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2090,13 +2234,25 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("DesignWB");
+
+                    b.Property<string>("FanMotors");
+
+                    b.Property<string>("FlowRate");
+
+                    b.Property<string>("FluidPressureDrop");
+
                     b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
 
+                    b.Property<string>("Model");
+
                     b.Property<bool>("OverridePrice");
+
+                    b.Property<string>("PumpMotor");
 
                     b.Property<int>("Quantity");
 
@@ -2105,6 +2261,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("WaterTemp");
 
                     b.HasKey("Id");
 
@@ -2115,7 +2275,7 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemG5s");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACCoolingTowers.ItemG6", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG6", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -2127,13 +2287,25 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int>("DesignIndex");
 
+                    b.Property<string>("DesignWB");
+
+                    b.Property<string>("FanMotors");
+
+                    b.Property<string>("FlowRate");
+
+                    b.Property<string>("FluidPressureDrop");
+
                     b.Property<double>("Freight");
 
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
 
+                    b.Property<string>("Model");
+
                     b.Property<bool>("OverridePrice");
+
+                    b.Property<string>("PumpMotor");
 
                     b.Property<int>("Quantity");
 
@@ -2142,6 +2314,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("WaterTemp");
 
                     b.HasKey("Id");
 
@@ -3187,57 +3363,57 @@ namespace Orion.DataAccess.Migrations
                         .HasForeignKey("ItemF1Id")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Orion.Domain.EntityItemBACCoolingTowers.ItemG1", "ItemG1")
+                    b.HasOne("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG1", "ItemG1")
                         .WithMany("Titles")
                         .HasForeignKey("ItemG1Id")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Orion.Domain.EntityItemBACCoolingTowers.ItemG2", "ItemG2")
+                    b.HasOne("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG2", "ItemG2")
                         .WithMany("Titles")
                         .HasForeignKey("ItemG2Id")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Orion.Domain.EntityItemBACCoolingTowers.ItemG3", "ItemG3")
+                    b.HasOne("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG3", "ItemG3")
                         .WithMany("Titles")
                         .HasForeignKey("ItemG3Id")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Orion.Domain.EntityItemBACCoolingTowers.ItemG4", "ItemG4")
+                    b.HasOne("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG4", "ItemG4")
                         .WithMany("Titles")
                         .HasForeignKey("ItemG4Id")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Orion.Domain.EntityItemBACCoolingTowers.ItemG5", "ItemG5")
+                    b.HasOne("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG5", "ItemG5")
                         .WithMany("Titles")
                         .HasForeignKey("ItemG5Id")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Orion.Domain.EntityItemBACCoolingTowers.ItemG6", "ItemG6")
+                    b.HasOne("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG6", "ItemG6")
                         .WithMany("Titles")
                         .HasForeignKey("ItemG6Id")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Orion.Domain.EntityItemBACClosedCircuits.ItemH1", "ItemH1")
+                    b.HasOne("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH1", "ItemH1")
                         .WithMany("Titles")
                         .HasForeignKey("ItemH1Id")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Orion.Domain.EntityItemBACClosedCircuits.ItemH2", "ItemH2")
+                    b.HasOne("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH2", "ItemH2")
                         .WithMany("Titles")
                         .HasForeignKey("ItemH2Id")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Orion.Domain.EntityItemBACClosedCircuits.ItemH3", "ItemH3")
+                    b.HasOne("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH3", "ItemH3")
                         .WithMany("Titles")
                         .HasForeignKey("ItemH3Id")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Orion.Domain.EntityItemBACClosedCircuits.ItemH4", "ItemH4")
+                    b.HasOne("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH4", "ItemH4")
                         .WithMany("Titles")
                         .HasForeignKey("ItemH4Id")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Orion.Domain.EntityItemBACClosedCircuits.ItemH5", "ItemH5")
+                    b.HasOne("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH5", "ItemH5")
                         .WithMany("Titles")
                         .HasForeignKey("ItemH5Id")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -3340,77 +3516,77 @@ namespace Orion.DataAccess.Migrations
                         .HasForeignKey("DataSheetId");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH1", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH1", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH2", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH2", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH3", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH3", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH4", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH4", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH5", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH5", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG1", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG1", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG2", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG2", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG3", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG3", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG4", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG4", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG5", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG5", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG6", b =>
+            modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG6", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
@@ -3675,9 +3851,9 @@ namespace Orion.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedCircuits.ItemH1", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH1", b =>
                 {
-                    b.HasOne("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH1", "CatalogH1")
+                    b.HasOne("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH1", "CatalogH1")
                         .WithMany()
                         .HasForeignKey("CatalogH1Id");
 
@@ -3687,9 +3863,9 @@ namespace Orion.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedCircuits.ItemH2", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH2", b =>
                 {
-                    b.HasOne("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH2", "CatalogH2")
+                    b.HasOne("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH2", "CatalogH2")
                         .WithMany()
                         .HasForeignKey("CatalogH2Id");
 
@@ -3699,9 +3875,9 @@ namespace Orion.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedCircuits.ItemH3", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH3", b =>
                 {
-                    b.HasOne("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH3", "CatalogH3")
+                    b.HasOne("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH3", "CatalogH3")
                         .WithMany()
                         .HasForeignKey("CatalogH3Id");
 
@@ -3711,9 +3887,9 @@ namespace Orion.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedCircuits.ItemH4", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH4", b =>
                 {
-                    b.HasOne("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH4", "CatalogH4")
+                    b.HasOne("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH4", "CatalogH4")
                         .WithMany()
                         .HasForeignKey("CatalogH4Id");
 
@@ -3723,9 +3899,9 @@ namespace Orion.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedCircuits.ItemH5", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACClosedLoopTowers.ItemH5", b =>
                 {
-                    b.HasOne("Orion.Domain.EntityCatalogBACClosedCircuits.CatalogH5", "CatalogH5")
+                    b.HasOne("Orion.Domain.EntityCatalogBACClosedLoopTowers.CatalogH5", "CatalogH5")
                         .WithMany()
                         .HasForeignKey("CatalogH5Id");
 
@@ -3735,9 +3911,9 @@ namespace Orion.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACCoolingTowers.ItemG1", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG1", b =>
                 {
-                    b.HasOne("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG1", "CatalogG1")
+                    b.HasOne("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG1", "CatalogG1")
                         .WithMany()
                         .HasForeignKey("CatalogG1Id");
 
@@ -3747,9 +3923,9 @@ namespace Orion.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACCoolingTowers.ItemG2", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG2", b =>
                 {
-                    b.HasOne("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG2", "CatalogG2")
+                    b.HasOne("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG2", "CatalogG2")
                         .WithMany()
                         .HasForeignKey("CatalogG2Id");
 
@@ -3759,9 +3935,9 @@ namespace Orion.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACCoolingTowers.ItemG3", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG3", b =>
                 {
-                    b.HasOne("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG3", "CatalogG3")
+                    b.HasOne("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG3", "CatalogG3")
                         .WithMany()
                         .HasForeignKey("CatalogG3Id");
 
@@ -3771,9 +3947,9 @@ namespace Orion.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACCoolingTowers.ItemG4", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG4", b =>
                 {
-                    b.HasOne("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG4", "CatalogG4")
+                    b.HasOne("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG4", "CatalogG4")
                         .WithMany()
                         .HasForeignKey("CatalogG4Id");
 
@@ -3783,9 +3959,9 @@ namespace Orion.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACCoolingTowers.ItemG5", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG5", b =>
                 {
-                    b.HasOne("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG5", "CatalogG5")
+                    b.HasOne("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG5", "CatalogG5")
                         .WithMany()
                         .HasForeignKey("CatalogG5Id");
 
@@ -3795,9 +3971,9 @@ namespace Orion.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Orion.Domain.EntityItemBACCoolingTowers.ItemG6", b =>
+            modelBuilder.Entity("Orion.Domain.EntityItemBACOpenLoopTowers.ItemG6", b =>
                 {
-                    b.HasOne("Orion.Domain.EntityCatalogBACCoolingTowers.CatalogG6", "CatalogG6")
+                    b.HasOne("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG6", "CatalogG6")
                         .WithMany()
                         .HasForeignKey("CatalogG6Id");
 

@@ -1,18 +1,11 @@
-﻿using Orion.Binding.Binding;
+﻿using Orion.Domain.BACClosedLoopTowers.Related;
 using Orion.Domain.Entity;
-using Orion.Domain.EntityCatalogBACClosedCircuits;
-using Orion.Helper.Extension;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using Orion.Domain.EntityCatalogBACClosedLoopTowers;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Orion.Domain.EntityItemBACClosedCircuits
+namespace Orion.Domain.EntityItemBACClosedLoopTowers
 {
-    public class ItemH4 : Item
+    public class ItemH4 : ItemH
     {
         private int? _catalogH4Id;
         public int? CatalogH4Id

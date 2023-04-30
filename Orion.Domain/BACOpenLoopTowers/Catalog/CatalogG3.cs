@@ -9,13 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Orion.Domain.EntityCatalogBACCoolingTowers
+namespace Orion.Domain.EntityCatalogBACOpenLoopTowers
 {
     // BAC Cooling Towers - PT2
     public class CatalogG3 : Catalog
     {
         [NotMapped]
-        public override string Company { get => "BAC - Cooling Towers"; }
+        public override string Company { get => "BAC - Open Loop Towers"; }
         [NotMapped]
         public override string Product { get => "PT2"; }
         [NotMapped]

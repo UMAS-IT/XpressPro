@@ -4,8 +4,6 @@ using Orion.Domain.AmericanWheatley.Related;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
-using Orion.Domain.EntityCatalogBACClosedCircuits;
-using Orion.Domain.EntityCatalogBACCoolingTowers;
 using Orion.Domain.EntityCatalogGroundfos;
 using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
@@ -19,9 +17,9 @@ using Orion.Helper.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.Remoting.Contexts;
 using static Orion.Helper.Misc.GV;
+using Orion.Domain.EntityCatalogBACOpenLoopTowers;
+using Orion.Domain.EntityCatalogBACClosedLoopTowers;
 
 namespace Orion.DataAccess.Service
 {

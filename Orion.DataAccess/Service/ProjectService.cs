@@ -21,9 +21,9 @@ namespace Orion.DataAccess.Service
                 //User dbUser = context.Users.First(x => x.Id == user.Id);
 
                 if (user.Permission.IsAdmin)
-                    return context.Projects.Include(x => x.User).ToList();
+                    return context.Projects.Include(x => x.User).OrderByDescending(x => x.Id).ToList();
                 else
-                    return context.Projects.Include(x => x.User).Where(x => x.UserId == user.Id).ToList();
+                    return context.Projects.Include(x => x.User).Where(x => x.UserId == user.Id).OrderByDescending(x => x.Id).ToList();
 
             }
         }

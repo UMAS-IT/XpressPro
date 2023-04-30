@@ -1,18 +1,11 @@
-﻿using Orion.Binding.Binding;
-using Orion.Domain.Entity;
-using Orion.Domain.EntityCatalogBACCoolingTowers;
-using Orion.Helper.Extension;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using Orion.Domain.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Orion.Domain.EntityCatalogBACOpenLoopTowers;
+using Orion.Domain.BACOpenLoopTowers.Related;
 
-namespace Orion.Domain.EntityItemBACCoolingTowers
+namespace Orion.Domain.EntityItemBACOpenLoopTowers
 {
-    public class ItemG2 : Item
+    public class ItemG2 : ItemG
     {
         private int? _catalogG2Id;
         public int? CatalogG2Id

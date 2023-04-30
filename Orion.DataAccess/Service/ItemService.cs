@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orion.DataAccess.DataBase;
+using Orion.Domain.BACClosedLoopTowers.Related;
+using Orion.Domain.BACOpenLoopTowers.Related;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
-using Orion.Domain.EntityCatalogBACClosedCircuits;
-using Orion.Domain.EntityCatalogBACCoolingTowers;
+using Orion.Domain.EntityCatalogBACClosedLoopTowers;
+using Orion.Domain.EntityCatalogBACOpenLoopTowers;
 using Orion.Domain.EntityCatalogGroundfos;
 using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
@@ -12,8 +14,8 @@ using Orion.Domain.EntityCatalogUvResources;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
-using Orion.Domain.EntityItemBACClosedCircuits;
-using Orion.Domain.EntityItemBACCoolingTowers;
+using Orion.Domain.EntityItemBACClosedLoopTowers;
+using Orion.Domain.EntityItemBACOpenLoopTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
@@ -25,12 +27,9 @@ using Orion.Domain.Multiaqua.Catalog;
 using Orion.Domain.Multiaqua.Item;
 using Orion.Domain.PACE.Catalog;
 using Orion.Domain.PACE.Item;
-using Orion.Domain.UvResources.Related;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using static Orion.Helper.Misc.GV;
 
 namespace Orion.DataAccess.Service
@@ -909,6 +908,34 @@ namespace Orion.DataAccess.Service
                             dbItemJ1.Weight = itemJ1.Weight;
 
                             dbItem = dbItemJ1;
+                        }
+                        else if (dbItem is ItemG)
+                        {
+                            ItemG itemG = item as ItemG;
+                            ItemG dbItemG = dbItem as ItemG;
+
+                            dbItemG.Model = itemG.Model;
+                            dbItemG.FlowRate = itemG.FlowRate;
+                            dbItemG.WaterTemp = itemG.WaterTemp;
+                            dbItemG.DesignWB = itemG.DesignWB;
+                            dbItemG.FluidPressureDrop = itemG.FluidPressureDrop;
+                            dbItemG.FanMotors = itemG.FanMotors;
+                            dbItemG.PumpMotor = itemG.PumpMotor;
+                            dbItemG.Voltage = itemG.Voltage;
+                        }
+                        else if (dbItem is ItemH)
+                        {
+                            ItemH itemH = item as ItemH;
+                            ItemH dbItemH = dbItem as ItemH;
+
+                            dbItemH.Model = itemH.Model;
+                            dbItemH.FlowRate = itemH.FlowRate;
+                            dbItemH.WaterTemp = itemH.WaterTemp;
+                            dbItemH.DesignWB = itemH.DesignWB;
+                            dbItemH.FluidPressureDrop = itemH.FluidPressureDrop;
+                            dbItemH.FanMotors = itemH.FanMotors;
+                            dbItemH.PumpMotor = itemH.PumpMotor;
+                            dbItemH.Voltage = itemH.Voltage;
                         }
                     }
                     else

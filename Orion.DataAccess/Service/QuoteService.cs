@@ -4,8 +4,8 @@ using Orion.Domain.Entity;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
-using Orion.Domain.EntityItemBACClosedCircuits;
-using Orion.Domain.EntityItemBACCoolingTowers;
+using Orion.Domain.EntityItemBACClosedLoopTowers;
+using Orion.Domain.EntityItemBACOpenLoopTowers;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
@@ -13,10 +13,8 @@ using Orion.Domain.Marvair.Item;
 using Orion.Domain.Multiaqua.Item;
 using Orion.Domain.PACE.Item;
 using Orion.Helper.Extension;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Orion.DataAccess.Service

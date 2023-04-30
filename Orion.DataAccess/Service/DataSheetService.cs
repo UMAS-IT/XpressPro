@@ -1,22 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orion.DataAccess.DataBase;
 using Orion.Domain.Entity;
-using Orion.Domain.EntityItem;
-using Orion.Domain.EntityItemABB;
-using Orion.Domain.EntityItemAmericanWheatley;
-using Orion.Domain.EntityItemBACClosedCircuits;
-using Orion.Domain.EntityItemBACCoolingTowers;
-using Orion.Domain.EntityItemGroundfos;
-using Orion.Domain.EntityItemPuroFlux;
-using Orion.Domain.EntityItemUvResources;
 using Orion.Helper.Extension;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Orion.DataAccess.Service
 {

@@ -15,96 +15,104 @@
              xmlns:view="clr-namespace:Orion.UI.View.BACCoolingTowers.EditCatalogItem"
              d:DataContext="{d:DesignInstance Type=vm:EditG2CatalogViewModel}">
     <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Loaded" >
-            <i:InvokeCommandAction Command="{Binding LoadDataCommand}"/>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadDataCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Margin="0,5,5,0" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Content=" Model: "  VerticalAlignment="Center"/>
-                <Label Content="{Binding Catalog.Model}"  VerticalAlignment="Center"/>
+        <Border
+            Grid.Row="0"
+            Margin="0,5,5,0"
+            Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}"
+            BorderBrush="{StaticResource MahApps.Brushes.Accent}"
+            BorderThickness="1">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Label VerticalAlignment="Center" Content=" Model: " />
+                <Label VerticalAlignment="Center" Content="{Binding Catalog.Model}" />
             </StackPanel>
         </Border>
 
-        <Border Grid.Row="1" BorderThickness="1" BorderBrush="{StaticResource MahApps.Brushes.Accent}" Margin="0,5,5,0">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Border
+            Grid.Row="1"
+            Margin="0,5,5,0"
+            BorderBrush="{StaticResource MahApps.Brushes.Accent}"
+            BorderThickness="1">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                 <StackPanel Orientation="Vertical">
-                    <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Model" 
-                             Text="{Binding Catalog.Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
-                    </TextBox>
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="Model"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
-                    <TextBox  
-                             ctrl:TextBoxHelper.Watermark="List Price" 
-                             Background="#32B974"
-                             PreviewTextInput="IsDouble"
-                             Text="{Binding Catalog.ListPrice, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
-                    </TextBox>
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="List Price"
+                        Background="#32B974"
+                        PreviewTextInput="IsDouble"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.ListPrice, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                    <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Cost Multiplier" 
-                             Background="#32B974"
-                             PreviewTextInput="IsDouble"
-                             Text="{Binding Catalog.CostMultiplier, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
-                    </TextBox>
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="Cost Multiplier"
+                        Background="#32B974"
+                        PreviewTextInput="IsDouble"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.CostMultiplier, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" />
 
-                    <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Cost" 
-                             Background="DarkOrange"
-                             IsReadOnly="True"
-                             Text="{Binding Catalog.Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c},  Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
-                    </TextBox>
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="Cost"
+                        Background="{StaticResource MahApps.Brushes.Accent}"
+                        IsReadOnly="True"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                    <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Sell Margin" 
-                             Background="#32B974"
-                             PreviewTextInput="IsDouble"
-                             Text="{Binding Catalog.SellMargin, UpdateSourceTrigger=LostFocus, StringFormat={}{0}%, Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
-                    </TextBox>
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="Sell Margin"
+                        Background="#32B974"
+                        PreviewTextInput="IsDouble"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.SellMargin, UpdateSourceTrigger=LostFocus, StringFormat={}{0}%, Mode=TwoWay}" />
 
-                    <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Unit Sell Price" 
-                             Background="DarkOrange"
-                             IsReadOnly="True"
-                             Text="{Binding Catalog.SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
-                    </TextBox>
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="Unit Sell Price"
+                        Background="{StaticResource MahApps.Brushes.Accent}"
+                        IsReadOnly="True"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
                 </StackPanel>
 
             </ScrollViewer>
         </Border>
 
-        <GroupBox Grid.Row="2" Header="Actions" ctrl:ControlsHelper.ContentCharacterCasing="Normal" Margin="0,5,5,5">
+        <GroupBox
+            Grid.Row="2"
+            Margin="0,5,5,5"
+            ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+            Header="Actions">
             <Grid>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button 
-                                    Margin="1"
-                                    Background="Orange"
-                                    Width="65"
-                                    Command="{Binding BackFromEditCommand}"
-                                    ToolTip="Back" >
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button
+                        Width="65"
+                        Margin="1"
+                        Background="Orange"
+                        Command="{Binding BackFromEditCommand}"
+                        ToolTip="Back">
                         <Button.Content>
                             <StackPanel Orientation="Vertical">
-                                <icon:PackIconMaterial Kind="KeyboardReturn" 
-                                                        Grid.Column="1" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
+                                <icon:PackIconMaterial
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="KeyboardReturn">
                                     <icon:PackIconMaterial.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                         </TransformGroup>
                                     </icon:PackIconMaterial.LayoutTransform>
                                 </icon:PackIconMaterial>
@@ -112,21 +120,22 @@
                         </Button.Content>
                     </Button>
 
-                    <Button 
-                                    Margin="1"
-                                    Background="{StaticResource MahApps.Brushes.Accent}"
-                                    Width="65"
-                                    Command="{Binding UpdateCatalogItemCommand}"
-                                    ToolTip="Save / Update Specs" >
+                    <Button
+                        Width="65"
+                        Margin="1"
+                        Background="{StaticResource MahApps.Brushes.Accent}"
+                        Command="{Binding UpdateCatalogItemCommand}"
+                        ToolTip="Save / Update Specs">
                         <Button.Content>
                             <StackPanel Orientation="Vertical">
-                                <icon:PackIconMaterial Kind="ContentSave" 
-                                                        Grid.Column="1" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
+                                <icon:PackIconMaterial
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="ContentSave">
                                     <icon:PackIconMaterial.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                         </TransformGroup>
                                     </icon:PackIconMaterial.LayoutTransform>
                                 </icon:PackIconMaterial>

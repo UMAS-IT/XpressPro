@@ -9,19 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Orion.Domain.EntityCatalogBACCoolingTowers
+namespace Orion.Domain.EntityCatalogBACOpenLoopTowers
 {
-    // BAC Cooling Towers - Series 300
-    public class CatalogG1 : Catalog
+    // BAC Cooling Towers - FXT
+    public class CatalogG4 : Catalog
     {
         [NotMapped]
-        public override string Company { get => "BAC - Cooling Towers"; }
+        public override string Company { get => "BAC - Open Loop Towers"; }
         [NotMapped]
-        public override string Product { get => "Series 300"; }
+        public override string Product { get => "FXT"; }
         [NotMapped]
-        public override string Index { get => "g1"; }
+        public override string Index { get => "g4"; }
 
-        public CatalogG1() : base()
+        public CatalogG4() : base()
         {
         }
     }

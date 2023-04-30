@@ -129,6 +129,26 @@ namespace Orion.Report.Pricing
                     AddBlankLine(mainDocument, docSection);
                 }
 
+
+
+                if (quote.ItemG1s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.AddRange(pricingG.CreateG1ItemTable(quote.ItemG1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemG1s.ToList<IItem>(), docSection);
+                    AddBlankLine(mainDocument, docSection);
+                }
+
+
+
+                if (quote.ItemH1s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.AddRange(pricingH.CreateH1ItemTable(quote.ItemH1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemH1s.ToList<IItem>(), docSection);
+                    AddBlankLine(mainDocument, docSection);
+                }
+
+
+
                 if (quote.ItemI1s.Any(x => !x.IsExcluded))
                 {
                     pricingItems.AddRange(pricingI.CreateI1ItemTable(quote.ItemI1s, mainDocument, docSection, itemNumber++));

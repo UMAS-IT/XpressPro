@@ -1,109 +1,81 @@
-﻿<Application x:Class="Orion.UI.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:view="clr-namespace:Orion.UI.View"
-             xmlns:vm="clr-namespace:Orion.UI.ViewModel"
-             
-             xmlns:viewCatalogA="clr-namespace:Orion.UI.View.Quantech.CatalogList"
-             xmlns:viewECA="clr-namespace:Orion.UI.View.Quantech.EditCatalogItem"
-             xmlns:viewItemA="clr-namespace:Orion.UI.View.Quantech.EditQuoteItem"
-             
-             xmlns:vmCatalogA="clr-namespace:Orion.UI.ViewModel.Quantech.CatalogList"
-             xmlns:vmECA="clr-namespace:Orion.UI.ViewModel.Quantech.EditCatalogItem"
-             xmlns:vmItemA="clr-namespace:Orion.UI.ViewModel.Quantech.EditQuoteItem"
-                          
-             xmlns:viewCatalogB="clr-namespace:Orion.UI.View.ABB.CatalogList"
-             xmlns:viewECB="clr-namespace:Orion.UI.View.ABB.EditCatalogItem"
-             xmlns:viewItemB="clr-namespace:Orion.UI.View.ABB.EditQuoteItem"
-             
-             xmlns:vmCatalogB="clr-namespace:Orion.UI.ViewModel.ABB.CatalogList"
-             xmlns:vmECB="clr-namespace:Orion.UI.ViewModel.ABB.EditCatalogItem"
-             xmlns:vmItemB="clr-namespace:Orion.UI.ViewModel.ABB.EditQuoteItem"
-             
-             xmlns:viewCatalogC="clr-namespace:Orion.UI.View.AmericanWheatley.CatalogList"
-             xmlns:viewECC="clr-namespace:Orion.UI.View.AmericanWheatley.EditCatalogItem"
-             xmlns:viewItemC="clr-namespace:Orion.UI.View.AmericanWheatley.EditQuoteItem"
-             
-             xmlns:vmCatalogC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.CatalogList"
-             xmlns:vmECC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.EditCatalogItem"
-             xmlns:vmItemC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.EditQuoteItem"
-             
-             xmlns:viewCatalogD="clr-namespace:Orion.UI.View.PuroFlux.CatalogList"
-             xmlns:viewECD="clr-namespace:Orion.UI.View.PuroFlux.EditCatalogItem"
-             xmlns:viewItemD="clr-namespace:Orion.UI.View.PuroFlux.EditQuoteItem"
-             
-             xmlns:vmCatalogD="clr-namespace:Orion.UI.ViewModel.Puroflux.CatalogList"
-             xmlns:vmECD="clr-namespace:Orion.UI.ViewModel.Puroflux.EditCatalogItem"
-             xmlns:vmItemD="clr-namespace:Orion.UI.ViewModel.Puroflux.EditQuoteItem"
-             
-             xmlns:viewCatalogE="clr-namespace:Orion.UI.View.Groundfos.CatalogList"
-             xmlns:viewECE="clr-namespace:Orion.UI.View.Groundfos.EditCatalogItem"
-             xmlns:viewItemE="clr-namespace:Orion.UI.View.Groundfos.EditQuoteItem"
-             
-             xmlns:vmCatalogE="clr-namespace:Orion.UI.ViewModel.Groundfos.CatalogList"
-             xmlns:vmECE="clr-namespace:Orion.UI.ViewModel.Groundfos.EditCatalogItem"
-             xmlns:vmItemE="clr-namespace:Orion.UI.ViewModel.Groundfos.EditQuoteItem"
-             
-             xmlns:viewCatalogF="clr-namespace:Orion.UI.View.UvResources.CatalogList"
-             xmlns:viewECF="clr-namespace:Orion.UI.View.UvResources.EditCatalogItem"
-             xmlns:viewItemF="clr-namespace:Orion.UI.View.UvResources.EditQuoteItem"
-             
-             xmlns:vmCatalogF="clr-namespace:Orion.UI.ViewModel.UvResources.CatalogList"
-             xmlns:vmECF="clr-namespace:Orion.UI.ViewModel.UvResources.EditCatalogItem"
-             xmlns:vmItemF="clr-namespace:Orion.UI.ViewModel.UvResources.EditQuoteItem"
-             
-             xmlns:viewCatalogG="clr-namespace:Orion.UI.View.BACCoolingTowers.CatalogList"
-             xmlns:viewECG="clr-namespace:Orion.UI.View.BACCoolingTowers.EditCatalogItem"
-             xmlns:viewItemG="clr-namespace:Orion.UI.View.BACCoolingTowers.EditQuoteItem"
-             
-             xmlns:vmCatalogG="clr-namespace:Orion.UI.ViewModel.BACCoolingTowers.CatalogList"
-             xmlns:vmECG="clr-namespace:Orion.UI.ViewModel.BACCoolingTowers.EditCatalogItem"
-             xmlns:vmItemG="clr-namespace:Orion.UI.ViewModel.BACCoolingTowers.EditQuoteItem"
-             
-             xmlns:viewCatalogH="clr-namespace:Orion.UI.View.BACClosedCircuits.CatalogList"
-             xmlns:viewECH="clr-namespace:Orion.UI.View.BACClosedCircuits.EditCatalogItem"
-             xmlns:viewItemH="clr-namespace:Orion.UI.View.BACClosedCircuits.EditQuoteItem"
-             
-             xmlns:vmCatalogH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.CatalogList"
-             xmlns:vmECH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.EditCatalogItem"
-             xmlns:vmItemH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.EditQuoteItem"
-
-             
-             
-             xmlns:viewCatalogI="clr-namespace:Orion.UI.View.Marvair.CatalogList"
-             xmlns:viewECI="clr-namespace:Orion.UI.View.Marvair.EditCatalogItem"
-             xmlns:viewItemI="clr-namespace:Orion.UI.View.Marvair.EditQuoteItem"
-             
-             xmlns:vmCatalogI="clr-namespace:Orion.UI.ViewModel.Mavair.CatalogList"
-             xmlns:vmECI="clr-namespace:Orion.UI.ViewModel.Mavair.EditCatalogItem"
-             xmlns:vmItemI="clr-namespace:Orion.UI.ViewModel.Mavair.EditQuoteItem"
-             
-             
-             
-             xmlns:viewCatalogJ="clr-namespace:Orion.UI.View.PACE.CatalogList"
-             xmlns:viewECJ="clr-namespace:Orion.UI.View.PACE.EditCatalogItem"
-             xmlns:viewItemJ="clr-namespace:Orion.UI.View.PACE.EditQuoteItem"
-             
-             xmlns:vmCatalogJ="clr-namespace:Orion.UI.ViewModel.PACE.CatalogList"
-             xmlns:vmECJ="clr-namespace:Orion.UI.ViewModel.PACE.EditCatalogItem"
-             xmlns:vmItemJ="clr-namespace:Orion.UI.ViewModel.PACE.EditQuoteItem"
-             
-             
-             xmlns:viewCatalogK="clr-namespace:Orion.UI.View.Multiaqua.CatalogList"
-             xmlns:viewECK="clr-namespace:Orion.UI.View.Multiaqua.EditCatalogItem"
-             xmlns:viewItemK="clr-namespace:Orion.UI.View.Multiaqua.EditQuoteItem"
-             
-             xmlns:vmCatalogK="clr-namespace:Orion.UI.ViewModel.Multiaqua.CatalogList"
-             xmlns:vmECK="clr-namespace:Orion.UI.ViewModel.Multiaqua.EditCatalogItem"
-             xmlns:vmItemK="clr-namespace:Orion.UI.ViewModel.Multiaqua.EditQuoteItem"
-             
-             xmlns:converters="clr-namespace:Orion.UI.Converters"
-             
-             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             ShutdownMode="OnMainWindowClose"
-             xmlns:local="clr-namespace:Orion.UI.DependencyProperties"
-             StartupUri="View/MainWindow.xaml">
+﻿<Application
+    x:Class="Orion.UI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Orion.UI.Converters"
+    xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:Orion.UI.DependencyProperties"
+    xmlns:view="clr-namespace:Orion.UI.View"
+    xmlns:viewCatalogA="clr-namespace:Orion.UI.View.Quantech.CatalogList"
+    xmlns:viewCatalogB="clr-namespace:Orion.UI.View.ABB.CatalogList"
+    xmlns:viewCatalogC="clr-namespace:Orion.UI.View.AmericanWheatley.CatalogList"
+    xmlns:viewCatalogD="clr-namespace:Orion.UI.View.PuroFlux.CatalogList"
+    xmlns:viewCatalogE="clr-namespace:Orion.UI.View.Groundfos.CatalogList"
+    xmlns:viewCatalogF="clr-namespace:Orion.UI.View.UvResources.CatalogList"
+    xmlns:viewCatalogG="clr-namespace:Orion.UI.View.BACCoolingTowers.CatalogList"
+    xmlns:viewCatalogH="clr-namespace:Orion.UI.View.BACClosedCircuits.CatalogList"
+    xmlns:viewCatalogI="clr-namespace:Orion.UI.View.Marvair.CatalogList"
+    xmlns:viewCatalogJ="clr-namespace:Orion.UI.View.PACE.CatalogList"
+    xmlns:viewCatalogK="clr-namespace:Orion.UI.View.Multiaqua.CatalogList"
+    xmlns:viewECA="clr-namespace:Orion.UI.View.Quantech.EditCatalogItem"
+    xmlns:viewECB="clr-namespace:Orion.UI.View.ABB.EditCatalogItem"
+    xmlns:viewECC="clr-namespace:Orion.UI.View.AmericanWheatley.EditCatalogItem"
+    xmlns:viewECD="clr-namespace:Orion.UI.View.PuroFlux.EditCatalogItem"
+    xmlns:viewECE="clr-namespace:Orion.UI.View.Groundfos.EditCatalogItem"
+    xmlns:viewECF="clr-namespace:Orion.UI.View.UvResources.EditCatalogItem"
+    xmlns:viewECG="clr-namespace:Orion.UI.View.BACCoolingTowers.EditCatalogItem"
+    xmlns:viewECH="clr-namespace:Orion.UI.View.BACClosedCircuits.EditCatalogItem"
+    xmlns:viewECI="clr-namespace:Orion.UI.View.Marvair.EditCatalogItem"
+    xmlns:viewECJ="clr-namespace:Orion.UI.View.PACE.EditCatalogItem"
+    xmlns:viewECK="clr-namespace:Orion.UI.View.Multiaqua.EditCatalogItem"
+    xmlns:viewItemA="clr-namespace:Orion.UI.View.Quantech.EditQuoteItem"
+    xmlns:viewItemB="clr-namespace:Orion.UI.View.ABB.EditQuoteItem"
+    xmlns:viewItemC="clr-namespace:Orion.UI.View.AmericanWheatley.EditQuoteItem"
+    xmlns:viewItemD="clr-namespace:Orion.UI.View.PuroFlux.EditQuoteItem"
+    xmlns:viewItemE="clr-namespace:Orion.UI.View.Groundfos.EditQuoteItem"
+    xmlns:viewItemF="clr-namespace:Orion.UI.View.UvResources.EditQuoteItem"
+    xmlns:viewItemG="clr-namespace:Orion.UI.View.BACCoolingTowers.EditQuoteItem"
+    xmlns:viewItemH="clr-namespace:Orion.UI.View.BACClosedCircuits.EditQuoteItem"
+    xmlns:viewItemI="clr-namespace:Orion.UI.View.Marvair.EditQuoteItem"
+    xmlns:viewItemJ="clr-namespace:Orion.UI.View.PACE.EditQuoteItem"
+    xmlns:viewItemK="clr-namespace:Orion.UI.View.Multiaqua.EditQuoteItem"
+    xmlns:vm="clr-namespace:Orion.UI.ViewModel"
+    xmlns:vmCatalogA="clr-namespace:Orion.UI.ViewModel.Quantech.CatalogList"
+    xmlns:vmCatalogB="clr-namespace:Orion.UI.ViewModel.ABB.CatalogList"
+    xmlns:vmCatalogC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.CatalogList"
+    xmlns:vmCatalogD="clr-namespace:Orion.UI.ViewModel.Puroflux.CatalogList"
+    xmlns:vmCatalogE="clr-namespace:Orion.UI.ViewModel.Groundfos.CatalogList"
+    xmlns:vmCatalogF="clr-namespace:Orion.UI.ViewModel.UvResources.CatalogList"
+    xmlns:vmCatalogG="clr-namespace:Orion.UI.ViewModel.BACCoolingTowers.CatalogList"
+    xmlns:vmCatalogH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.CatalogList"
+    xmlns:vmCatalogI="clr-namespace:Orion.UI.ViewModel.Mavair.CatalogList"
+    xmlns:vmCatalogJ="clr-namespace:Orion.UI.ViewModel.PACE.CatalogList"
+    xmlns:vmCatalogK="clr-namespace:Orion.UI.ViewModel.Multiaqua.CatalogList"
+    xmlns:vmECA="clr-namespace:Orion.UI.ViewModel.Quantech.EditCatalogItem"
+    xmlns:vmECB="clr-namespace:Orion.UI.ViewModel.ABB.EditCatalogItem"
+    xmlns:vmECC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.EditCatalogItem"
+    xmlns:vmECD="clr-namespace:Orion.UI.ViewModel.Puroflux.EditCatalogItem"
+    xmlns:vmECE="clr-namespace:Orion.UI.ViewModel.Groundfos.EditCatalogItem"
+    xmlns:vmECF="clr-namespace:Orion.UI.ViewModel.UvResources.EditCatalogItem"
+    xmlns:vmECG="clr-namespace:Orion.UI.ViewModel.BACCoolingTowers.EditCatalogItem"
+    xmlns:vmECH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.EditCatalogItem"
+    xmlns:vmECI="clr-namespace:Orion.UI.ViewModel.Mavair.EditCatalogItem"
+    xmlns:vmECJ="clr-namespace:Orion.UI.ViewModel.PACE.EditCatalogItem"
+    xmlns:vmECK="clr-namespace:Orion.UI.ViewModel.Multiaqua.EditCatalogItem"
+    xmlns:vmItemA="clr-namespace:Orion.UI.ViewModel.Quantech.EditQuoteItem"
+    xmlns:vmItemB="clr-namespace:Orion.UI.ViewModel.ABB.EditQuoteItem"
+    xmlns:vmItemC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.EditQuoteItem"
+    xmlns:vmItemD="clr-namespace:Orion.UI.ViewModel.Puroflux.EditQuoteItem"
+    xmlns:vmItemE="clr-namespace:Orion.UI.ViewModel.Groundfos.EditQuoteItem"
+    xmlns:vmItemF="clr-namespace:Orion.UI.ViewModel.UvResources.EditQuoteItem"
+    xmlns:vmItemG="clr-namespace:Orion.UI.ViewModel.BACCoolingTowers.EditQuoteItem"
+    xmlns:vmItemH="clr-namespace:Orion.UI.ViewModel.BACClosedCircuits.EditQuoteItem"
+    xmlns:vmItemI="clr-namespace:Orion.UI.ViewModel.Mavair.EditQuoteItem"
+    xmlns:vmItemJ="clr-namespace:Orion.UI.ViewModel.PACE.EditQuoteItem"
+    xmlns:vmItemK="clr-namespace:Orion.UI.ViewModel.Multiaqua.EditQuoteItem"
+    ShutdownMode="OnMainWindowClose"
+    StartupUri="View/MainWindow.xaml">
     <Application.Resources>
 
 
@@ -116,120 +88,120 @@
 
 
             <DataTemplate DataType="{x:Type vm:CloneQuoteViewModel}">
-                <view:CloneQuoteView/>
+                <view:CloneQuoteView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:LoginViewModel}">
-                <view:LoginView/>
+                <view:LoginView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:AirTreatmentViewModel}">
-                <view:AirTreatmentView/>
+                <view:AirTreatmentView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:MenuViewModel}">
-                <view:MenuView/>
+                <view:MenuView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:NewProjectViewModel}">
-                <view:NewProjectView/>
+                <view:NewProjectView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:OpenProjectViewModel}">
-                <view:OpenProjectView/>
+                <view:OpenProjectView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:ComingSoonViewModel}">
-                <view:ComingSoonView/>
+                <view:ComingSoonView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:ProjectInformationViewModel}">
-                <view:ProjectInformationView/>
+                <view:ProjectInformationView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:QuoteViewModel}">
-                <view:QuoteView/>
+                <view:QuoteView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:CreateQuoteViewModel}">
-                <view:CreateQuoteView/>
+                <view:CreateQuoteView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:ItemViewModel}">
-                <view:ItemView/>
+                <view:ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:TitleViewModel}">
-                <view:TitleView/>
+                <view:TitleView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:TitleFromItemViewModel}">
-                <view:TitleFromItemView/>
+                <view:TitleFromItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:CatalogViewModel}">
-                <view:CatalogView/>
+                <view:CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:ReportsViewModel}">
-                <view:ReportsView/>
+                <view:ReportsView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:ConfigurationMenuViewModel}">
-                <view:ConfigurationMenuView/>
+                <view:ConfigurationMenuView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:DataSheetListViewModel}">
-                <view:DataSheetListView/>
+                <view:DataSheetListView />
             </DataTemplate>
 
 
             <DataTemplate DataType="{x:Type vmItemA:EditA1ItemViewModel}">
-                <viewItemA:EditA1ItemView/>
+                <viewItemA:EditA1ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemA:EditA2ItemViewModel}">
-                <viewItemA:EditA2ItemView/>
+                <viewItemA:EditA2ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemA:EditA3ItemViewModel}">
-                <viewItemA:EditA3ItemView/>
+                <viewItemA:EditA3ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemA:EditA4ItemViewModel}">
-                <viewItemA:EditA4ItemView/>
+                <viewItemA:EditA4ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogA:CatalogA1ListViewModel}">
-                <viewCatalogA:CatalogA1ListView/>
+                <viewCatalogA:CatalogA1ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogA:CatalogA2ListViewModel}">
-                <viewCatalogA:CatalogA2ListView/>
+                <viewCatalogA:CatalogA2ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogA:CatalogA3ListViewModel}">
-                <viewCatalogA:CatalogA3ListView/>
+                <viewCatalogA:CatalogA3ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogA:CatalogA4ListViewModel}">
-                <viewCatalogA:CatalogA4ListView/>
+                <viewCatalogA:CatalogA4ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECA:EditA1CatalogViewModel}">
-                <viewECA:EditA1CatalogView/>
+                <viewECA:EditA1CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECA:EditA2CatalogViewModel}">
-                <viewECA:EditA2CatalogView/>
+                <viewECA:EditA2CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECA:EditA3CatalogViewModel}">
-                <viewECA:EditA3CatalogView/>
+                <viewECA:EditA3CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECA:EditA4CatalogViewModel}">
-                <viewECA:EditA4CatalogView/>
+                <viewECA:EditA4CatalogView />
             </DataTemplate>
 
 
@@ -239,7 +211,7 @@
 
 
             <DataTemplate DataType="{x:Type vmItemB:EditB1ItemViewModel}">
-                <viewItemB:EditB1ItemView/>
+                <viewItemB:EditB1ItemView />
             </DataTemplate>
 
             <!--<DataTemplate DataType="{x:Type vmItemB:EditB2ItemViewModel}">
@@ -255,11 +227,11 @@
             </DataTemplate>-->
 
             <DataTemplate DataType="{x:Type vmItemB:EditB5ItemViewModel}">
-                <viewItemB:EditB5ItemView/>
+                <viewItemB:EditB5ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogB:CatalogB1ListViewModel}">
-                <viewCatalogB:CatalogB1ListView/>
+                <viewCatalogB:CatalogB1ListView />
             </DataTemplate>
 
             <!--<DataTemplate DataType="{x:Type vmCatalogB:CatalogB2ListViewModel}">
@@ -275,11 +247,11 @@
             </DataTemplate>-->
 
             <DataTemplate DataType="{x:Type vmCatalogB:CatalogB5ListViewModel}">
-                <viewCatalogB:CatalogB5ListView/>
+                <viewCatalogB:CatalogB5ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECB:EditB1CatalogViewModel}">
-                <viewECB:EditB1CatalogView/>
+                <viewECB:EditB1CatalogView />
             </DataTemplate>
 
             <!--<DataTemplate DataType="{x:Type vmECB:EditB2CatalogViewModel}">
@@ -295,7 +267,7 @@
             </DataTemplate>-->
 
             <DataTemplate DataType="{x:Type vmECB:EditB5CatalogViewModel}">
-                <viewECB:EditB5CatalogView/>
+                <viewECB:EditB5CatalogView />
             </DataTemplate>
 
 
@@ -303,80 +275,80 @@
 
 
             <DataTemplate DataType="{x:Type vmItemC:EditC1ItemViewModel}">
-                <viewItemC:EditC1ItemView/>
+                <viewItemC:EditC1ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemC:EditC2ItemViewModel}">
-                <viewItemC:EditC2ItemView/>
+                <viewItemC:EditC2ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemC:EditC3ItemViewModel}">
-                <viewItemC:EditC3ItemView/>
+                <viewItemC:EditC3ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemC:EditC4ItemViewModel}">
-                <viewItemC:EditC4ItemView/>
+                <viewItemC:EditC4ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogC:CatalogC1ListViewModel}">
-                <viewCatalogC:CatalogC1ListView/>
+                <viewCatalogC:CatalogC1ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogC:CatalogC2ListViewModel}">
-                <viewCatalogC:CatalogC2ListView/>
+                <viewCatalogC:CatalogC2ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogC:CatalogC3ListViewModel}">
-                <viewCatalogC:CatalogC3ListView/>
+                <viewCatalogC:CatalogC3ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogC:CatalogC4ListViewModel}">
-                <viewCatalogC:CatalogC4ListView/>
+                <viewCatalogC:CatalogC4ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECC:EditC1CatalogViewModel}">
-                <viewECC:EditC1CatalogView/>
+                <viewECC:EditC1CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECC:EditC2CatalogViewModel}">
-                <viewECC:EditC2CatalogView/>
+                <viewECC:EditC2CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECC:EditC3CatalogViewModel}">
-                <viewECC:EditC3CatalogView/>
+                <viewECC:EditC3CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECC:EditC4CatalogViewModel}">
-                <viewECC:EditC4CatalogView/>
+                <viewECC:EditC4CatalogView />
             </DataTemplate>
 
 
 
 
             <DataTemplate DataType="{x:Type vmItemD:EditD1ItemViewModel}">
-                <viewItemD:EditD1ItemView/>
+                <viewItemD:EditD1ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemD:EditD2ItemViewModel}">
-                <viewItemD:EditD2ItemView/>
+                <viewItemD:EditD2ItemView />
             </DataTemplate>
 
 
             <DataTemplate DataType="{x:Type vmCatalogD:CatalogD1ListViewModel}">
-                <viewCatalogD:CatalogD1ListView/>
+                <viewCatalogD:CatalogD1ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogD:CatalogD2ListViewModel}">
-                <viewCatalogD:CatalogD2ListView/>
+                <viewCatalogD:CatalogD2ListView />
             </DataTemplate>
 
 
             <DataTemplate DataType="{x:Type vmECD:EditD1CatalogViewModel}">
-                <viewECD:EditD1CatalogView/>
+                <viewECD:EditD1CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECD:EditD2CatalogViewModel}">
-                <viewECD:EditD2CatalogView/>
+                <viewECD:EditD2CatalogView />
             </DataTemplate>
 
 
@@ -384,87 +356,87 @@
 
 
             <DataTemplate DataType="{x:Type vmItemE:EditE1ItemViewModel}">
-                <viewItemE:EditE1ItemView/>
+                <viewItemE:EditE1ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemE:EditE2ItemViewModel}">
-                <viewItemE:EditE2ItemView/>
+                <viewItemE:EditE2ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemE:EditE3ItemViewModel}">
-                <viewItemE:EditE3ItemView/>
+                <viewItemE:EditE3ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemE:EditE4ItemViewModel}">
-                <viewItemE:EditE4ItemView/>
+                <viewItemE:EditE4ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemE:EditE5ItemViewModel}">
-                <viewItemE:EditE5ItemView/>
+                <viewItemE:EditE5ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemE:EditE6ItemViewModel}">
-                <viewItemE:EditE6ItemView/>
+                <viewItemE:EditE6ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemE:EditE7ItemViewModel}">
-                <viewItemE:EditE7ItemView/>
+                <viewItemE:EditE7ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogE:CatalogE1ListViewModel}">
-                <viewCatalogE:CatalogE1ListVew/>
+                <viewCatalogE:CatalogE1ListVew />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogE:CatalogE2ListViewModel}">
-                <viewCatalogE:CatalogE2ListView/>
+                <viewCatalogE:CatalogE2ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogE:CatalogE3ListViewModel}">
-                <viewCatalogE:CatalogE3ListView/>
+                <viewCatalogE:CatalogE3ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogE:CatalogE4ListViewModel}">
-                <viewCatalogE:CatalogE4ListView/>
+                <viewCatalogE:CatalogE4ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogE:CatalogE5ListViewModel}">
-                <viewCatalogE:CatalogE5ListView/>
+                <viewCatalogE:CatalogE5ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogE:CatalogE6ListViewModel}">
-                <viewCatalogE:CatalogE6ListView/>
+                <viewCatalogE:CatalogE6ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogE:CatalogE7ListViewModel}">
-                <viewCatalogE:CatalogE7ListView/>
+                <viewCatalogE:CatalogE7ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECE:EditE1CatalogViewModel}">
-                <viewECE:EditE1CatalogView/>
+                <viewECE:EditE1CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECE:EditE2CatalogViewModel}">
-                <viewECE:EditE2CatalogView/>
+                <viewECE:EditE2CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECE:EditE3CatalogViewModel}">
-                <viewECE:EditE3CatalogView/>
+                <viewECE:EditE3CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECE:EditE4CatalogViewModel}">
-                <viewECE:EditE4CatalogView/>
+                <viewECE:EditE4CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECE:EditE5CatalogViewModel}">
-                <viewECE:EditE5CatalogView/>
+                <viewECE:EditE5CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECE:EditE6CatalogViewModel}">
-                <viewECE:EditE6CatalogView/>
+                <viewECE:EditE6CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECE:EditE7CatalogViewModel}">
-                <viewECE:EditE7CatalogView/>
+                <viewECE:EditE7CatalogView />
             </DataTemplate>
 
 
@@ -473,15 +445,15 @@
 
 
             <DataTemplate DataType="{x:Type vmItemF:EditF1ItemViewModel}">
-                <viewItemF:EditF1ItemView/>
+                <viewItemF:EditF1ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogF:CatalogF1ListViewModel}">
-                <viewCatalogF:CatalogF1ListView/>
+                <viewCatalogF:CatalogF1ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECF:EditF1CatalogViewModel}">
-                <viewECF:EditF1CatalogView/>
+                <viewECF:EditF1CatalogView />
             </DataTemplate>
 
 
@@ -493,75 +465,75 @@
 
 
             <DataTemplate DataType="{x:Type vmItemG:EditG1ItemViewModel}">
-                <viewItemG:EditG1ItemView/>
+                <viewItemG:EditG1ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemG:EditG2ItemViewModel}">
-                <viewItemG:EditG2ItemView/>
+                <viewItemG:EditG2ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemG:EditG3ItemViewModel}">
-                <viewItemG:EditG3ItemView/>
+                <viewItemG:EditG3ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemG:EditG4ItemViewModel}">
-                <viewItemG:EditG4ItemView/>
+                <viewItemG:EditG4ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemG:EditG5ItemViewModel}">
-                <viewItemG:EditG5ItemView/>
+                <viewItemG:EditG5ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemG:EditG6ItemViewModel}">
-                <viewItemG:EditG6ItemView/>
+                <viewItemG:EditG6ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogG:CatalogG1ListViewModel}">
-                <viewCatalogG:CatalogG1ListView/>
+                <viewCatalogG:CatalogG1ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogG:CatalogG2ListViewModel}">
-                <viewCatalogG:CatalogG2ListView/>
+                <viewCatalogG:CatalogG2ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogG:CatalogG3ListViewModel}">
-                <viewCatalogG:CatalogG3ListView/>
+                <viewCatalogG:CatalogG3ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogG:CatalogG4ListViewModel}">
-                <viewCatalogG:CatalogG4ListView/>
+                <viewCatalogG:CatalogG4ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogG:CatalogG5ListViewModel}">
-                <viewCatalogG:CatalogG5ListView/>
+                <viewCatalogG:CatalogG5ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogG:CatalogG6ListViewModel}">
-                <viewCatalogG:CatalogG6ListView/>
+                <viewCatalogG:CatalogG6ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECG:EditG1CatalogViewModel}">
-                <viewECG:EditG1CatalogView/>
+                <viewECG:EditG1CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECG:EditG2CatalogViewModel}">
-                <viewECG:EditG2CatalogView/>
+                <viewECG:EditG2CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECG:EditG3CatalogViewModel}">
-                <viewECG:EditG3CatalogView/>
+                <viewECG:EditG3CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECG:EditG4CatalogViewModel}">
-                <viewECG:EditG4CatalogView/>
+                <viewECG:EditG4CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECG:EditG5CatalogViewModel}">
-                <viewECG:EditG5CatalogView/>
+                <viewECG:EditG5CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECG:EditG6CatalogViewModel}">
-                <viewECG:EditG6CatalogView/>
+                <viewECG:EditG6CatalogView />
             </DataTemplate>
 
 
@@ -573,209 +545,229 @@
 
 
             <DataTemplate DataType="{x:Type vmItemH:EditH1ItemViewModel}">
-                <viewItemH:EditH1ItemView/>
+                <viewItemH:EditH1ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemH:EditH2ItemViewModel}">
-                <viewItemH:EditH2ItemView/>
+                <viewItemH:EditH2ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemH:EditH3ItemViewModel}">
-                <viewItemH:EditH3ItemView/>
+                <viewItemH:EditH3ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemH:EditH4ItemViewModel}">
-                <viewItemH:EditH4ItemView/>
+                <viewItemH:EditH4ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemH:EditH5ItemViewModel}">
-                <viewItemH:EditH5ItemView/>
+                <viewItemH:EditH5ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogH:CatalogH1ListViewModel}">
-                <viewCatalogH:CatalogH1ListView/>
+                <viewCatalogH:CatalogH1ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogH:CatalogH2ListViewModel}">
-                <viewCatalogH:CatalogH2ListView/>
+                <viewCatalogH:CatalogH2ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogH:CatalogH3ListViewModel}">
-                <viewCatalogH:CatalogH3ListView/>
+                <viewCatalogH:CatalogH3ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogH:CatalogH4ListViewModel}">
-                <viewCatalogH:CatalogH4ListView/>
+                <viewCatalogH:CatalogH4ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogH:CatalogH5ListViewModel}">
-                <viewCatalogH:CatalogH5ListView/>
+                <viewCatalogH:CatalogH5ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECH:EditH1CatalogViewModel}">
-                <viewECH:EditH1CatalogView/>
+                <viewECH:EditH1CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECH:EditH2CatalogViewModel}">
-                <viewECH:EditH2CatalogView/>
+                <viewECH:EditH2CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECH:EditH3CatalogViewModel}">
-                <viewECH:EditH3CatalogView/>
+                <viewECH:EditH3CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECH:EditH4CatalogViewModel}">
-                <viewECH:EditH4CatalogView/>
+                <viewECH:EditH4CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECH:EditH5CatalogViewModel}">
-                <viewECH:EditH5CatalogView/>
+                <viewECH:EditH5CatalogView />
             </DataTemplate>
 
 
 
             <DataTemplate DataType="{x:Type vmItemI:EditI1ItemViewModel}">
-                <viewItemI:EditI1ItemView/>
+                <viewItemI:EditI1ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemI:EditI2ItemViewModel}">
-                <viewItemI:EditI2ItemView/>
+                <viewItemI:EditI2ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogI:CatalogI1ListViewModel}">
-                <viewCatalogI:CatalogI1ListView/>
+                <viewCatalogI:CatalogI1ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogI:CatalogI2ListViewModel}">
-                <viewCatalogI:CatalogI2ListView/>
+                <viewCatalogI:CatalogI2ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECI:EditI1CatalogViewModel}">
-                <viewECI:EditI1CatalogView/>
+                <viewECI:EditI1CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECI:EditI2CatalogViewModel}">
-                <viewECI:EditI2CatalogView/>
+                <viewECI:EditI2CatalogView />
             </DataTemplate>
 
 
 
             <DataTemplate DataType="{x:Type vmItemJ:EditJ1ItemViewModel}">
-                <viewItemJ:EditJ1ItemView/>
+                <viewItemJ:EditJ1ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogJ:CatalogJ1ListViewModel}">
-                <viewCatalogJ:CatalogJ1ListView/>
+                <viewCatalogJ:CatalogJ1ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECJ:EditJ1CatalogViewModel}">
-                <viewECJ:EditJ1CatalogView/>
+                <viewECJ:EditJ1CatalogView />
             </DataTemplate>
 
 
 
             <DataTemplate DataType="{x:Type vmItemK:EditK1ItemViewModel}">
-                <viewItemK:EditK1ItemView/>
+                <viewItemK:EditK1ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemK:EditK2ItemViewModel}">
-                <viewItemK:EditK2ItemView/>
+                <viewItemK:EditK2ItemView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmItemK:EditK3ItemViewModel}">
-                <viewItemK:EditK3ItemView/>
+                <viewItemK:EditK3ItemView />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmCatalogK:CatalogK1ListViewModel}">
-                <viewCatalogK:CatalogK1ListView/>
+                <viewCatalogK:CatalogK1ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogK:CatalogK2ListViewModel}">
-                <viewCatalogK:CatalogK2ListView/>
+                <viewCatalogK:CatalogK2ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmCatalogK:CatalogK3ListViewModel}">
-                <viewCatalogK:CatalogK3ListView/>
+                <viewCatalogK:CatalogK3ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECK:EditK1CatalogViewModel}">
-                <viewECK:EditK1CatalogView/>
+                <viewECK:EditK1CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECK:EditK2CatalogViewModel}">
-                <viewECK:EditK2CatalogView/>
+                <viewECK:EditK2CatalogView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECK:EditK3CatalogViewModel}">
-                <viewECK:EditK3CatalogView/>
+                <viewECK:EditK3CatalogView />
             </DataTemplate>
 
 
-            <Style  x:Key="TxtStyle" TargetType="TextBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}">
-                <Setter Property="ctrl:TextBoxHelper.UseFloatingWatermark" Value="True"/>
-                <Setter Property="ctrl:TextBoxHelper.SelectAllOnFocus" Value="True"/>
-                <Setter Property="Margin" Value="1"/>
-                <Setter Property="Height" Value="40"/>
+            <Style
+                x:Key="TxtStyle"
+                BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}"
+                TargetType="TextBox">
+                <Setter Property="ctrl:TextBoxHelper.UseFloatingWatermark" Value="True" />
+                <Setter Property="ctrl:TextBoxHelper.SelectAllOnFocus" Value="True" />
+                <Setter Property="Margin" Value="1" />
+                <Setter Property="Height" Value="40" />
             </Style>
 
-            <Style  x:Key="CBoxStyle" TargetType="ComboBox" BasedOn="{StaticResource ResourceKey=MahApps.Styles.ComboBox}">
-                <Setter Property="ctrl:TextBoxHelper.UseFloatingWatermark" Value="True"/>
-                <Setter Property="ctrl:TextBoxHelper.SelectAllOnFocus" Value="True"/>
-                <Setter Property="Margin" Value="1"/>
-                <Setter Property="Height" Value="40"/>
+            <Style
+                x:Key="CBoxStyle"
+                BasedOn="{StaticResource ResourceKey=MahApps.Styles.ComboBox}"
+                TargetType="ComboBox">
+                <Setter Property="ctrl:TextBoxHelper.UseFloatingWatermark" Value="True" />
+                <Setter Property="ctrl:TextBoxHelper.SelectAllOnFocus" Value="True" />
+                <Setter Property="Margin" Value="1" />
+                <Setter Property="Height" Value="40" />
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}" Value="">
-                        <Setter Property="Background" Value="IndianRed"/>
-                        <Setter Property="ToolTip" Value="Missing value"/>
+                        <Setter Property="Background" Value="IndianRed" />
+                        <Setter Property="ToolTip" Value="Missing value" />
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
 
-            <Style x:Key="DGridStyle" TargetType="DataGrid" BasedOn="{StaticResource ResourceKey=MahApps.Styles.DataGrid}">
-                <Setter Property="AlternationCount" Value="1"/>
-                <Setter Property="AlternatingRowBackground" Value="#2E2D2E"/>
-                <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
-                <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
-                <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="RowHeaderWidth" Value="0"/>
-                <Setter Property="SelectionMode" Value="Single"/>
-                <Setter Property="GridLinesVisibility" Value="All"/>
-                <Setter Property="SelectionUnit" Value="FullRow"/>
-                <Setter Property="FontWeight" Value="DemiBold"/>
-                <Setter Property="AutoGenerateColumns" Value="False"/>
-                <Setter Property="CanUserResizeColumns" Value="True"/>
-                <Setter Property="CanUserResizeRows" Value="False"/>
-                <Setter Property="CanUserDeleteRows" Value="False"/>
-                <Setter Property="CanUserAddRows" Value="False"/>
-                <Setter Property="CanUserReorderColumns" Value="False"/>
+            <Style
+                x:Key="DGridStyle"
+                BasedOn="{StaticResource ResourceKey=MahApps.Styles.DataGrid}"
+                TargetType="DataGrid">
+                <Setter Property="AlternationCount" Value="1" />
+                <Setter Property="AlternatingRowBackground" Value="#2E2D2E" />
+                <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+                <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="RowHeaderWidth" Value="0" />
+                <Setter Property="SelectionMode" Value="Single" />
+                <Setter Property="GridLinesVisibility" Value="All" />
+                <Setter Property="SelectionUnit" Value="FullRow" />
+                <Setter Property="FontWeight" Value="DemiBold" />
+                <Setter Property="AutoGenerateColumns" Value="False" />
+                <Setter Property="CanUserResizeColumns" Value="True" />
+                <Setter Property="CanUserResizeRows" Value="False" />
+                <Setter Property="CanUserDeleteRows" Value="False" />
+                <Setter Property="CanUserAddRows" Value="False" />
+                <Setter Property="CanUserReorderColumns" Value="False" />
             </Style>
 
-            <Style x:Key="ColumnHeaderStyle" 
-                   BasedOn="{StaticResource ResourceKey=MahApps.Styles.DataGridColumnHeader}" 
-                   TargetType="{x:Type TypeName=DataGridColumnHeader}">
-                <Setter Property="ctrl:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
-                <Setter Property="Width" Value="auto"/>
+            <Style
+                x:Key="ColumnHeaderStyle"
+                BasedOn="{StaticResource ResourceKey=MahApps.Styles.DataGridColumnHeader}"
+                TargetType="{x:Type TypeName=DataGridColumnHeader}">
+                <Setter Property="ctrl:ControlsHelper.ContentCharacterCasing" Value="Normal" />
+                <Setter Property="Width" Value="auto" />
             </Style>
 
-            <converters:BoolToYesNoCoverter x:Key="BoolToYesNoCoverter"/>
+            <converters:BoolToYesNoCoverter x:Key="BoolToYesNoCoverter" />
 
 
             <Storyboard x:Key="BlinkAnimation" RepeatBehavior="Forever">
-                <DoubleAnimation From="0.2" To="1" Duration="0:0:1" 
-                             AutoReverse="True" Storyboard.TargetProperty="Opacity" />
+                <DoubleAnimation
+                    AutoReverse="True"
+                    Storyboard.TargetProperty="Opacity"
+                    From="0.2"
+                    To="1"
+                    Duration="0:0:1" />
             </Storyboard>
 
 
-            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}" x:Key="buttonInfoStyle">
+            <Style
+                x:Key="buttonInfoStyle"
+                BasedOn="{StaticResource MahApps.Styles.Button}"
+                TargetType="Button">
 
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
                             <Grid>
-                                <icon:PackIconFontAwesome Kind="InfoSolid" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <icon:PackIconFontAwesome
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="InfoSolid">
                                     <icon:PackIconFontAwesome.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                         </TransformGroup>
                                     </icon:PackIconFontAwesome.LayoutTransform>
                                 </icon:PackIconFontAwesome>
@@ -783,11 +775,11 @@
                                     <Style TargetType="Grid">
                                         <!--<Setter Property="Background" Value="Transparent"/>-->
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding HasTitles,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="True">
-                                                <Setter Property="Background" Value="#32B974"/>
+                                            <DataTrigger Binding="{Binding HasTitles, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="True">
+                                                <Setter Property="Background" Value="#32B974" />
                                             </DataTrigger>
-                                            <DataTrigger Binding="{Binding HasTitles,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="False">
-                                                <Setter Property="Background" Value="Transparent"/>
+                                            <DataTrigger Binding="{Binding HasTitles, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="False">
+                                                <Setter Property="Background" Value="Transparent" />
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
@@ -796,70 +788,85 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Command" Value="{Binding Path=DataContext.ShowItemTitlesCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                <Setter Property="CommandParameter" Value="{Binding}"/>
-                <Setter Property="ToolTip" Value="Item Info"/>
+                <Setter Property="Command" Value="{Binding Path=DataContext.ShowItemTitlesCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                <Setter Property="CommandParameter" Value="{Binding}" />
+                <Setter Property="ToolTip" Value="Item Info" />
 
                 <Style.Triggers>
-                    <DataTrigger Binding="{Binding HasTitles,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="False">
-                        <Setter Property="Background" Value="Transparent"/>
-                        <Setter Property="ToolTip" Value="Item Info"/>
+                    <DataTrigger Binding="{Binding HasTitles, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="False">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="ToolTip" Value="Item Info" />
                     </DataTrigger>
-                    <DataTrigger Binding="{Binding HasTitles,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Value="True">
-                        <Setter Property="Background" Value="#32B974"/>
+                    <DataTrigger Binding="{Binding HasTitles, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Value="True">
+                        <Setter Property="Background" Value="#32B974" />
                         <Setter Property="ToolTip">
                             <Setter.Value>
                                 <ToolTip MaxWidth="400">
-                                    <TreeView Grid.Row="1"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-              Name="treeView"
-          ItemsSource="{Binding Titles, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-          Style="{StaticResource MahApps.Styles.TreeView.Virtualized}">
+                                    <TreeView
+                                        Name="treeView"
+                                        Grid.Row="1"
+                                        ItemsSource="{Binding Titles, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                        Style="{StaticResource MahApps.Styles.TreeView.Virtualized}">
                                         <TreeView.ItemContainerStyle>
-                                            <Style TargetType="TreeViewItem" BasedOn="{StaticResource MahApps.Styles.TreeViewItem}">
-                                                <Setter Property="IsExpanded" Value="True"/>
+                                            <Style BasedOn="{StaticResource MahApps.Styles.TreeViewItem}" TargetType="TreeViewItem">
+                                                <Setter Property="IsExpanded" Value="True" />
                                             </Style>
                                         </TreeView.ItemContainerStyle>
                                         <TreeView.ItemTemplate>
-                                            <HierarchicalDataTemplate ItemsSource="{Binding  Specs, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" >
+                                            <HierarchicalDataTemplate ItemsSource="{Binding Specs, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
 
-                                                <Grid >
+                                                <Grid>
                                                     <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="auto"/>
-                                                        <ColumnDefinition/>
-                                                        <ColumnDefinition Width="auto"/>
-                                                        <ColumnDefinition Width="auto"/>
+                                                        <ColumnDefinition Width="auto" />
+                                                        <ColumnDefinition />
+                                                        <ColumnDefinition Width="auto" />
+                                                        <ColumnDefinition Width="auto" />
                                                     </Grid.ColumnDefinitions>
 
-                                                    <Label Grid.Column="0" Content="Title:"/>
-                                                    <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                                         ScrollViewer.VerticalScrollBarVisibility="Auto"  
-                                         ctrl:TextBoxHelper.Watermark="Title" MaxHeight="72"
-                                          Margin="1"
-                                         Background="DarkCyan"/>
+                                                    <Label Grid.Column="0" Content="Title:" />
+                                                    <TextBox
+                                                        Grid.Column="1"
+                                                        MaxHeight="72"
+                                                        Margin="1"
+                                                        ctrl:TextBoxHelper.Watermark="Title"
+                                                        Background="DarkCyan"
+                                                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                        Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                        TextWrapping="Wrap" />
 
                                                 </Grid>
 
                                                 <HierarchicalDataTemplate.ItemTemplate>
                                                     <DataTemplate>
-                                                        <Grid >
+                                                        <Grid>
                                                             <Grid.ColumnDefinitions>
-                                                                <ColumnDefinition Width="auto"/>
-                                                                <ColumnDefinition/>
-                                                                <ColumnDefinition Width="auto"/>
-                                                                <ColumnDefinition  Width="auto"/>
+                                                                <ColumnDefinition Width="auto" />
+                                                                <ColumnDefinition />
+                                                                <ColumnDefinition Width="auto" />
+                                                                <ColumnDefinition Width="auto" />
                                                             </Grid.ColumnDefinitions>
 
-                                                            <Label Grid.Column="0" Content="Spec:"/>
+                                                            <Label Grid.Column="0" Content="Spec:" />
 
 
-                                                            <TextBox Grid.Column="1" TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                                         ScrollViewer.VerticalScrollBarVisibility="Auto"  
-                                         ctrl:TextBoxHelper.Watermark="Specification" MaxHeight="72"
-                                          Margin="1"/>
+                                                            <TextBox
+                                                                Grid.Column="1"
+                                                                MaxHeight="72"
+                                                                Margin="1"
+                                                                ctrl:TextBoxHelper.Watermark="Specification"
+                                                                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                                                Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                                TextWrapping="Wrap" />
 
-                                                            <TextBox Grid.Column="2" Width="90" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="{Binding Price, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}" 
-                                             ctrl:TextBoxHelper.Watermark="Price" 
-                                              Margin="1"/>
+                                                            <TextBox
+                                                                Grid.Column="2"
+                                                                Width="90"
+                                                                Margin="1"
+                                                                VerticalContentAlignment="Center"
+                                                                ctrl:TextBoxHelper.Watermark="Price"
+                                                                Text="{Binding Price, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}"
+                                                                TextWrapping="Wrap" />
 
                                                         </Grid>
                                                     </DataTemplate>
@@ -873,14 +880,24 @@
                         <DataTrigger.EnterActions>
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" SpeedRatio="0.5" From="0.2" To="1" Duration="0:0:1" AutoReverse="True" RepeatBehavior="Forever" />
+                                    <DoubleAnimation
+                                        AutoReverse="True"
+                                        RepeatBehavior="Forever"
+                                        SpeedRatio="0.5"
+                                        Storyboard.TargetProperty="Opacity"
+                                        From="0.2"
+                                        To="1"
+                                        Duration="0:0:1" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </DataTrigger.EnterActions>
                         <DataTrigger.ExitActions>
                             <BeginStoryboard>
                                 <Storyboard FillBehavior="Stop">
-                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:1" />
+                                    <DoubleAnimation
+                                        Storyboard.TargetProperty="Opacity"
+                                        To="1"
+                                        Duration="0:0:1" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </DataTrigger.ExitActions>
@@ -888,11 +905,14 @@
                 </Style.Triggers>
             </Style>
 
-            <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}" x:Key="chekboxStyle">
-                <Setter Property="VerticalAlignment" Value="Center"/>
-                <Setter Property="VerticalContentAlignment" Value="Center"/>
-                <Setter Property="HorizontalAlignment" Value="Center"/>
-                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Style
+                x:Key="chekboxStyle"
+                BasedOn="{StaticResource MahApps.Styles.CheckBox}"
+                TargetType="CheckBox">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
                 <Setter Property="LayoutTransform">
                     <Setter.Value>
                         <ScaleTransform ScaleX="1.25" ScaleY="1.25" />
@@ -900,25 +920,34 @@
                 </Setter>
             </Style>
 
-            <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}" x:Key="overrideTextBoxStyle">
-                <Setter Property="IsReadOnly" Value="True"/>
+            <Style
+                x:Key="overrideTextBoxStyle"
+                BasedOn="{StaticResource MahApps.Styles.TextBox}"
+                TargetType="TextBox">
+                <Setter Property="IsReadOnly" Value="True" />
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding OverridePrice}" Value="True">
-                        <Setter Property="Background" Value="#32B974"/>
-                        <Setter Property="IsReadOnly" Value="False"/>
+                        <Setter Property="Background" Value="#32B974" />
+                        <Setter Property="IsReadOnly" Value="False" />
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
 
-            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}" x:Key="moveToStartButtonStyle">
+            <Style
+                x:Key="moveToStartButtonStyle"
+                BasedOn="{StaticResource MahApps.Styles.Button}"
+                TargetType="Button">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
-                            <Grid  Background="Orange">
-                                <icon:PackIconBoxIcons Kind="SolidArrowToTop" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid Background="Orange">
+                                <icon:PackIconBoxIcons
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="SolidArrowToTop">
                                     <icon:PackIconBoxIcons.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                         </TransformGroup>
                                     </icon:PackIconBoxIcons.LayoutTransform>
                                 </icon:PackIconBoxIcons>
@@ -926,20 +955,26 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Command" Value="{Binding Path=DataContext.MoveToStartCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                <Setter Property="CommandParameter" Value="{Binding}"/>
-                <Setter Property="ToolTip" Value="Move To Start"/>
+                <Setter Property="Command" Value="{Binding Path=DataContext.MoveToStartCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                <Setter Property="CommandParameter" Value="{Binding}" />
+                <Setter Property="ToolTip" Value="Move To Start" />
             </Style>
 
-            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}" x:Key="moveToUpButtonStyle">
+            <Style
+                x:Key="moveToUpButtonStyle"
+                BasedOn="{StaticResource MahApps.Styles.Button}"
+                TargetType="Button">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
-                            <Grid  Background="{StaticResource MahApps.Brushes.Accent}">
-                                <icon:PackIconFontAwesome Kind="CaretUpSolid" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid Background="{StaticResource MahApps.Brushes.Accent}">
+                                <icon:PackIconFontAwesome
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="CaretUpSolid">
                                     <icon:PackIconFontAwesome.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                         </TransformGroup>
                                     </icon:PackIconFontAwesome.LayoutTransform>
                                 </icon:PackIconFontAwesome>
@@ -947,20 +982,26 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Command" Value="{Binding Path=DataContext.MoveToUpCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                <Setter Property="CommandParameter" Value="{Binding}"/>
-                <Setter Property="ToolTip" Value="Move To Up"/>
+                <Setter Property="Command" Value="{Binding Path=DataContext.MoveToUpCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                <Setter Property="CommandParameter" Value="{Binding}" />
+                <Setter Property="ToolTip" Value="Move To Up" />
             </Style>
 
-            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}" x:Key="deleteItemButtonStyle">
+            <Style
+                x:Key="deleteItemButtonStyle"
+                BasedOn="{StaticResource MahApps.Styles.Button}"
+                TargetType="Button">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
-                            <Grid  Background="DarkRed">
-                                <icon:PackIconMaterial Kind="Delete" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid Background="DarkRed">
+                                <icon:PackIconMaterial
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="Delete">
                                     <icon:PackIconMaterial.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                         </TransformGroup>
                                     </icon:PackIconMaterial.LayoutTransform>
                                 </icon:PackIconMaterial>
@@ -968,20 +1009,26 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Command" Value="{Binding Path=DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                <Setter Property="CommandParameter" Value="{Binding}"/>
-                <Setter Property="ToolTip" Value="Delete Item"/>
+                <Setter Property="Command" Value="{Binding Path=DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                <Setter Property="CommandParameter" Value="{Binding}" />
+                <Setter Property="ToolTip" Value="Delete Item" />
             </Style>
 
-            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}" x:Key="moveToDownButtonStyle">
+            <Style
+                x:Key="moveToDownButtonStyle"
+                BasedOn="{StaticResource MahApps.Styles.Button}"
+                TargetType="Button">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
-                            <Grid  Background="{StaticResource MahApps.Brushes.Accent}">
-                                <icon:PackIconFontAwesome Kind="CaretDownSolid" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid Background="{StaticResource MahApps.Brushes.Accent}">
+                                <icon:PackIconFontAwesome
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="CaretDownSolid">
                                     <icon:PackIconFontAwesome.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                         </TransformGroup>
                                     </icon:PackIconFontAwesome.LayoutTransform>
                                 </icon:PackIconFontAwesome>
@@ -989,20 +1036,26 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Command" Value="{Binding Path=DataContext.MoveToDownCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                <Setter Property="CommandParameter" Value="{Binding}"/>
-                <Setter Property="ToolTip" Value="Move To Down"/>
+                <Setter Property="Command" Value="{Binding Path=DataContext.MoveToDownCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                <Setter Property="CommandParameter" Value="{Binding}" />
+                <Setter Property="ToolTip" Value="Move To Down" />
             </Style>
 
-            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}" x:Key="moveToEndButtonStyle">
+            <Style
+                x:Key="moveToEndButtonStyle"
+                BasedOn="{StaticResource MahApps.Styles.Button}"
+                TargetType="Button">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
-                            <Grid  Background="Orange">
-                                <icon:PackIconBoxIcons Kind="SolidArrowToBottom" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid Background="Orange">
+                                <icon:PackIconBoxIcons
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="SolidArrowToBottom">
                                     <icon:PackIconBoxIcons.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                         </TransformGroup>
                                     </icon:PackIconBoxIcons.LayoutTransform>
                                 </icon:PackIconBoxIcons>
@@ -1010,20 +1063,26 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Command" Value="{Binding Path=DataContext.MoveToEndCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                <Setter Property="CommandParameter" Value="{Binding}"/>
-                <Setter Property="ToolTip" Value="Move To End"/>
+                <Setter Property="Command" Value="{Binding Path=DataContext.MoveToEndCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                <Setter Property="CommandParameter" Value="{Binding}" />
+                <Setter Property="ToolTip" Value="Move To End" />
             </Style>
 
-            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}" x:Key="addItemToQuoteButtonStyle">
+            <Style
+                x:Key="addItemToQuoteButtonStyle"
+                BasedOn="{StaticResource MahApps.Styles.Button}"
+                TargetType="Button">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
-                            <Grid  Background="#FF87B036">
-                                <icon:PackIconMaterial Kind="PlusThick" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid Background="#FF87B036">
+                                <icon:PackIconMaterial
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="PlusThick">
                                     <icon:PackIconMaterial.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                         </TransformGroup>
                                     </icon:PackIconMaterial.LayoutTransform>
                                 </icon:PackIconMaterial>
@@ -1031,20 +1090,26 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Command" Value="{Binding Path=DataContext.AddItemCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                <Setter Property="CommandParameter" Value="{Binding}"/>
-                <Setter Property="ToolTip" Value="Add Item To Quote"/>
+                <Setter Property="Command" Value="{Binding Path=DataContext.AddItemCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                <Setter Property="CommandParameter" Value="{Binding}" />
+                <Setter Property="ToolTip" Value="Add Item To Quote" />
             </Style>
 
-            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}" x:Key="removeItemFromQuoteButtonStyle">
+            <Style
+                x:Key="removeItemFromQuoteButtonStyle"
+                BasedOn="{StaticResource MahApps.Styles.Button}"
+                TargetType="Button">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
-                            <Grid  Background="DarkRed">
-                                <icon:PackIconMaterial Kind="MinusThick" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid Background="DarkRed">
+                                <icon:PackIconMaterial
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="MinusThick">
                                     <icon:PackIconMaterial.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                         </TransformGroup>
                                     </icon:PackIconMaterial.LayoutTransform>
                                 </icon:PackIconMaterial>
@@ -1052,35 +1117,41 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Command" Value="{Binding Path=DataContext.RemoveItemCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                <Setter Property="CommandParameter" Value="{Binding}"/>
-                <Setter Property="ToolTip" Value="Remove Item From Quote"/>
+                <Setter Property="Command" Value="{Binding Path=DataContext.RemoveItemCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
+                <Setter Property="CommandParameter" Value="{Binding}" />
+                <Setter Property="ToolTip" Value="Remove Item From Quote" />
             </Style>
 
             <Style x:Key="MiComboBoxStyle" TargetType="{x:Type ComboBox}">
-                <Setter Property="Width" Value="300"/>
+                <Setter Property="Width" Value="300" />
                 <Style.Triggers>
                     <Trigger Property="IsDropDownOpen" Value="True">
-                        <Setter Property="Popup.HorizontalOffset" Value="100"/>
+                        <Setter Property="Popup.HorizontalOffset" Value="100" />
                     </Trigger>
                 </Style.Triggers>
             </Style>
 
             <Style x:Key="customNumericStyle" TargetType="ctrl:NumericUpDown">
-                <Setter Property="Minimum" Value="1"/>
-                <Setter Property="Interval" Value="1"/>
+                <Setter Property="Minimum" Value="1" />
+                <Setter Property="Interval" Value="1" />
             </Style>
 
 
 
-            <Style TargetType="local:FullItemDataGrid" x:Key="FullItemDataGridStyle" BasedOn="{StaticResource DGridStyle}">
-                <Setter Property="CanUserSortColumns" Value="False"/>
-                <Setter Property="FrozenColumnCount" Value="6"/>
+            <Style
+                x:Key="FullItemDataGridStyle"
+                BasedOn="{StaticResource DGridStyle}"
+                TargetType="local:FullItemDataGrid">
+                <Setter Property="CanUserSortColumns" Value="False" />
+                <Setter Property="FrozenColumnCount" Value="6" />
             </Style>
 
-            <Style TargetType="local:EditItemDataGrid" x:Key="EditItemDataGridStyle" BasedOn="{StaticResource DGridStyle}">
-                <Setter Property="CanUserSortColumns" Value="False"/>
-                <Setter Property="FrozenColumnCount" Value="1"/>
+            <Style
+                x:Key="EditItemDataGridStyle"
+                BasedOn="{StaticResource DGridStyle}"
+                TargetType="local:EditItemDataGrid">
+                <Setter Property="CanUserSortColumns" Value="False" />
+                <Setter Property="FrozenColumnCount" Value="1" />
             </Style>
 
         </ResourceDictionary>
