@@ -2,6 +2,7 @@
 using Orion.Binding.Binding;
 using Orion.DataAccess.Service;
 using Orion.Domain.Entity;
+using Orion.Domain.EntityCatalogABB;
 using Orion.Helper.Extension;
 using Orion.UI.Command;
 using Orion.UI.Service;
@@ -110,6 +111,10 @@ namespace Orion.UI.ViewModel
 
                 Model = "";
                 CatalogsBase = catalogService.GetCatalogs(ItemType).OrderByDescending(x => x.Id).ToObservableCollection();
+                
+                if (CatalogsBase.Any(x => x is CatalogB1))
+                    CatalogsBase = CatalogsBase.Cast<CatalogB1>().OrderBy(x => x.Hp).ToList<ICatalog>().ToObservableCollection();
+               
                 Catalogs = CatalogsBase;
 
                 await messageService.EndMessage("Catalog Items", "Catalog items has been loaded");

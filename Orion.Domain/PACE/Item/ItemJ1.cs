@@ -6,6 +6,13 @@ namespace Orion.Domain.PACE.Item
 {
     public class ItemJ1 : Entity.Item
     {
+        private string _model;
+        public string Model
+        {
+            get => _model;
+            set => SetProperty(ref _model, value);
+        }
+
         private string _cfm;
         public string Cfm
         {
@@ -49,6 +56,7 @@ namespace Orion.Domain.PACE.Item
 
         public ItemJ1() : base()
         {
+            Model = "";
             Cfm = "";
             Voltage = "";
             Weight = "";

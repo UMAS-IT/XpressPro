@@ -738,15 +738,16 @@ namespace Orion.Report.Pricing
 
         public void LoadStarupData(Document document, Project project, Quote quote)
         {
-            AddText(InitBk.projectName, project.Name, ParaStyle.style10, document);
             AddText(InitBk.to, project.Contractor, ParaStyle.style10, document);
-            AddText(InitBk.attention, project.Engineer, ParaStyle.style10, document);
-            AddText(InitBk.from, project.User.Name, ParaStyle.style10, document);
-            AddText(InitBk.email, project.User.Email, ParaStyle.style10, document);
-            AddText(InitBk.telephone, project.Contact, ParaStyle.style10, document);
+            AddText(InitBk.attention, project.Contact, ParaStyle.style10, document);
+            AddText(InitBk.engineer, project.Engineer, ParaStyle.style10, document);
+            AddText(InitBk.projectName, project.Name, ParaStyle.style10, document);
+
             AddText(InitBk.date, project.CreationDate.ToShortDateString(), ParaStyle.style10, document);
-            AddText(InitBk.quote, quote.Name, ParaStyle.style10, document);
-            AddText(InitBk.revision, "1", ParaStyle.style10, document);
+            AddText(InitBk.proposalNumber, project.ProposalNumber, ParaStyle.style10, document);
+            AddText(InitBk.revision, quote.Name, ParaStyle.style10, document);
+            AddText(InitBk.plansDate, project.PlansDate.ToShortDateString(), ParaStyle.style10, document);
+            AddText(InitBk.addendum, project.Addendum, ParaStyle.style10, document);
         }
 
         public string CreateFolders(Project project, IList<Quote> quotes)
@@ -766,15 +767,19 @@ namespace Orion.Report.Pricing
 
         public enum InitBk
         {
-            projectName,
             to,
             attention,
-            from,
-            email,
-            telephone,
+            engineer,
+            projectName,
             date,
-            quote,
+            proposalNumber,
             revision,
+            plansDate,
+            addendum,
+            //from,
+            //email,
+            //telephone,
+            //quote,
             sumaryTable,
         }
 

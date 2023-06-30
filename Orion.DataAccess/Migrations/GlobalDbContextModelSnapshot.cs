@@ -109,6 +109,8 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Addendum");
+
                     b.Property<string>("Contact");
 
                     b.Property<string>("Contractor");
@@ -124,6 +126,10 @@ namespace Orion.DataAccess.Migrations
                     b.Property<string>("Notes");
 
                     b.Property<int>("Number");
+
+                    b.Property<DateTime>("PlansDate");
+
+                    b.Property<string>("ProposalNumber");
 
                     b.Property<int>("UserId");
 
@@ -3156,6 +3162,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<bool>("IsExcluded");
 
                     b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
 
                     b.Property<bool>("OverridePrice");
 

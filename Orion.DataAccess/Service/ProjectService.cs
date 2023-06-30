@@ -69,6 +69,9 @@ namespace Orion.DataAccess.Service
                 currentProject.Engineer = projectSelected.Engineer;
                 currentProject.Contact = projectSelected.Contact;
                 currentProject.Location = projectSelected.Location;
+                currentProject.ProposalNumber = projectSelected.ProposalNumber;
+                currentProject.PlansDate = projectSelected.PlansDate;
+                currentProject.Addendum = projectSelected.Addendum;
 
                 context.Projects.Update(currentProject);
                 context.SaveChanges();

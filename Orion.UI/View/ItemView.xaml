@@ -1799,6 +1799,17 @@
                                     <local:FullItemDataGrid ItemsSource="{Binding ItemJ1s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
                                         <local:FullItemDataGrid.Columns>
 
+                                            <DataGridTemplateColumn Header="Type" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                                                <DataGridTemplateColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBox
+                                                            CharacterCasing="Upper"
+                                                            MaxLength="20"
+                                                            Text="{Binding Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                                    </DataTemplate>
+                                                </DataGridTemplateColumn.CellTemplate>
+                                            </DataGridTemplateColumn>
+
                                             <DataGridTextColumn
                                                 Width="auto"
                                                 Binding="{Binding Catalog.Description}"

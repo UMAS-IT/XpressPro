@@ -903,6 +903,7 @@ namespace Orion.DataAccess.Service
                             ItemJ1 itemJ1 = item as ItemJ1;
                             ItemJ1 dbItemJ1 = dbItem as ItemJ1;
 
+                            dbItemJ1.Model = itemJ1.Model;
                             dbItemJ1.Cfm = itemJ1.Cfm;
                             dbItemJ1.Voltage = itemJ1.Voltage;
                             dbItemJ1.Weight = itemJ1.Weight;

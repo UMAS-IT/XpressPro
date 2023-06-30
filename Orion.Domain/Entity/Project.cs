@@ -37,27 +37,46 @@ namespace Orion.Domain.Entity
         }
 
         private string _contractor;
+        // To
         public string Contractor
         {
             get => _contractor;
             set => SetProperty(ref _contractor, value);
         }
 
-        private string _engineer;
-        public string Engineer
-        {
-            get => _engineer;
-            set => SetProperty(ref _engineer, value);
-        }
-
         private string _contact;
+        // Attention
         public string Contact
         {
             get => _contact;
             set => SetProperty(ref _contact, value);
         }
 
+        private string _engineer;
+        // Engineer
+        public string Engineer
+        {
+            get => _engineer;
+            set => SetProperty(ref _engineer, value);
+        }
+
+        private string _proposalNumber;
+        public string ProposalNumber
+        {
+            get => _proposalNumber;
+            set => SetProperty(ref _proposalNumber, value);
+        }
+
+        private string _Addendum;
+        public string Addendum
+        {
+            get => _Addendum;
+            set => SetProperty(ref _Addendum, value);
+        }
+
+
         private string _location;
+        //Not Used
         public string Location
         {
             get => _location;
@@ -92,6 +111,13 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _creationDate, value);
         }
 
+        private DateTime _plansDate;
+        public DateTime PlansDate
+        {
+            get => _plansDate;
+            set => SetProperty(ref _plansDate, value);
+        }
+
         public Project()
         {
             Quotes = new ObservableCollection<Quote>();
@@ -100,6 +126,10 @@ namespace Orion.Domain.Entity
             Engineer = "";
             Contact = "";
             Location = "";
+            ProposalNumber = "";
+            Addendum = "";
+            CreationDate = DateTime.Now;
+            PlansDate = DateTime.Now;
         }
     }
 }

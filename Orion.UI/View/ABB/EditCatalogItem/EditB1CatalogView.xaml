@@ -45,7 +45,7 @@
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="HP" 
                              PreviewTextInput="IsDouble"
-                             Text="{Binding Catalog.Hp, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Text="{Binding Catalog.Hp, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
                     </TextBox>
 

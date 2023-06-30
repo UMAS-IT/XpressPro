@@ -187,7 +187,7 @@
                     <DataGridTextColumn Header="Contractor" Binding="{Binding Contractor}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                     <DataGridTextColumn Header="Engineer" Binding="{Binding Engineer}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
                     <DataGridTextColumn Header="Contact" Binding="{Binding Contact}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                    <DataGridTextColumn Header="Location" Binding="{Binding Location}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <!--<DataGridTextColumn Header="Location" Binding="{Binding Location}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>-->
                 </DataGrid.Columns>
 
             </DataGrid>

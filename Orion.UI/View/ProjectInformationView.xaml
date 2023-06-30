@@ -1,102 +1,125 @@
-﻿<UserControl x:Class="Orion.UI.View.ProjectInformationView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Orion.UI.View"
-             mc:Ignorable="d" 
-             xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
-             xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-             dialog:DialogParticipation.Register="{Binding}"
-             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks" 
-             xmlns:vm="clr-namespace:Orion.UI.ViewModel"
-             xmlns:view="clr-namespace:Orion.UI.View"
-             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
-             d:DesignHeight="600" d:DesignWidth="800"
-             d:DataContext="{d:DesignInstance Type=vm:ProjectInformationViewModel}">
+﻿<UserControl
+    x:Class="Orion.UI.View.ProjectInformationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:Orion.UI.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:Orion.UI.View"
+    xmlns:vm="clr-namespace:Orion.UI.ViewModel"
+    d:DataContext="{d:DesignInstance Type=vm:ProjectInformationViewModel}"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    dialog:DialogParticipation.Register="{Binding}"
+    mc:Ignorable="d">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadDataCommand}"/>
+            <i:InvokeCommandAction Command="{Binding LoadDataCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
-    <Border BorderThickness="1" BorderBrush="White" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
+    <Border
+        Width="250"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        BorderBrush="White"
+        BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
 
-                <TextBox  
-                             ToolTip="This number will be provided by Air Treatment Corporation staff"
-                             ctrl:TextBoxHelper.Watermark="ATC Number" 
-                             Text="{Binding Project.Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}"
-                             PreviewTextInput="NumericUpDown_PreviewTextInput">
-                </TextBox>
-                <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Project Name" 
-                             Text="{Binding Project.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-                </TextBox>
+                <TextBox
+                    ctrl:TextBoxHelper.Watermark="ATC Number"
+                    PreviewTextInput="NumericUpDown_PreviewTextInput"
+                    Style="{DynamicResource TxtStyle}"
+                    Text="{Binding Project.Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                    ToolTip="This number will be provided by Air Treatment Corporation staff" />
+                <TextBox
+                    ctrl:TextBoxHelper.Watermark="Project Name"
+                    Style="{DynamicResource TxtStyle}"
+                    Text="{Binding Project.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
-                <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Contractor (To)" 
-                             Text="{Binding Project.Contractor, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-                </TextBox>
-                
-                <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Engineer (Attention)" 
-                             Text="{Binding Project.Engineer, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-                </TextBox>
+                <TextBox
+                    ctrl:TextBoxHelper.Watermark="Contractor (To)"
+                    Style="{DynamicResource TxtStyle}"
+                    Text="{Binding Project.Contractor, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
-                <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Contact (Telephone)" 
-                             Text="{Binding Project.Contact, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-                </TextBox>
+                <TextBox
+                    ctrl:TextBoxHelper.Watermark="Attention (Contact)"
+                    Style="{DynamicResource TxtStyle}"
+                    Text="{Binding Project.Contact, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
-                <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Location (Address)" 
-                             Text="{Binding Project.Location, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-                </TextBox>
+                <TextBox
+                    ctrl:TextBoxHelper.Watermark="Engineer"
+                    Style="{DynamicResource TxtStyle}"
+                    Text="{Binding Project.Engineer, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
-                <TextBox Style="{StaticResource TxtStyle}" ctrl:TextBoxHelper.Watermark="Creation Date" IsReadOnly="True" Text="{Binding Project.CreationDate, StringFormat=dddd dd MMMM yyyy hh:mm tt}" />
+                <TextBox
+                    ctrl:TextBoxHelper.Watermark="Proposal Number"
+                    Style="{DynamicResource TxtStyle}"
+                    Text="{Binding Project.ProposalNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    ctrl:TextBoxHelper.Watermark="Addendum"
+                    Style="{DynamicResource TxtStyle}"
+                    Text="{Binding Project.Addendum, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+                <!--<TextctrBox Style="{StaticResource TxtStyle}" ctrl:TextBoxHelper.Watermark="Plans Dated"  />-->
+
+                <ctrl:DateTimePicker
+                    Height="40"
+                    Margin="1"
+                    ctrl:TextBoxHelper.UseFloatingWatermark="True"
+                    ctrl:TextBoxHelper.Watermark="Plans Dated"
+                    BorderBrush="White"
+                    BorderThickness="1"
+                    SelectedDateTime="{Binding Project.PlansDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                <TextBox
+                    ctrl:TextBoxHelper.Watermark="Creation Date"
+                    IsReadOnly="True"
+                    Style="{StaticResource TxtStyle}"
+                    Text="{Binding Project.CreationDate, StringFormat=dddd dd MMMM yyyy hh:mm tt}" />
 
             </StackPanel>
-            <TextBox Grid.Row="1" Margin="1"   
-                     VerticalScrollBarVisibility="Auto"  
-                 MinHeight="200"
-                     TextWrapping="Wrap" Text="{Binding Project.Notes}" 
-                     ToolTip="{Binding Project.Notes}" 
-                     ctrl:TextBoxHelper.Watermark="Notes" 
-                     Style="{StaticResource TxtStyle}" Height="auto"  
-                     CharacterCasing="Normal" />
-            <Button Grid.Row="2"
-                    
-                        Margin="1"
-                   
-                            Background="{StaticResource MahApps.Brushes.Accent}"
-                                        Command="{Binding UpdateProjectInformationCommand}"
-                        ToolTip="Save / Update Project Information">
+            <TextBox
+                Grid.Row="1"
+                Height="auto"
+                MinHeight="200"
+                Margin="1"
+                ctrl:TextBoxHelper.Watermark="Notes"
+                CharacterCasing="Normal"
+                Style="{StaticResource TxtStyle}"
+                Text="{Binding Project.Notes}"
+                TextWrapping="Wrap"
+                ToolTip="{Binding Project.Notes}"
+                VerticalScrollBarVisibility="Auto" />
+            <Button
+                Grid.Row="2"
+                Margin="1"
+                Background="{StaticResource MahApps.Brushes.Accent}"
+                Command="{Binding UpdateProjectInformationCommand}"
+                ToolTip="Save / Update Project Information">
                 <Button.Content>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
-                        <icon:PackIconMaterial Kind="ContentSave" 
-                                                        Grid.Column="1" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
+                        <icon:PackIconMaterial
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="ContentSave">
                             <icon:PackIconMaterial.LayoutTransform>
                                 <TransformGroup>
-                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                 </TransformGroup>
                             </icon:PackIconMaterial.LayoutTransform>
                         </icon:PackIconMaterial>

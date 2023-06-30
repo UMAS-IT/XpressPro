@@ -44,22 +44,37 @@
             </TextBox>
 
             <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Engineer (Attention)" 
-                             Text="{Binding Project.Engineer, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
-            </TextBox>
-
-            <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Contact (Telephone)" 
+                             ctrl:TextBoxHelper.Watermark="Contact (Attention)" 
                              Text="{Binding Project.Contact, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                              Style="{DynamicResource TxtStyle}">
             </TextBox>
 
             <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Location (Address)" 
-                             Text="{Binding Project.Location, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             ctrl:TextBoxHelper.Watermark="Engineer" 
+                             Text="{Binding Project.Engineer, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
                              Style="{DynamicResource TxtStyle}">
             </TextBox>
+
+            <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Proposal Number" 
+                             Text="{Binding Project.ProposalNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+            </TextBox>
+
+            <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Addendum" 
+                             Text="{Binding Project.Addendum, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+            </TextBox>
+
+            <ctrl:DateTimePicker
+                    Height="40"
+                    Margin="1"
+                    ctrl:TextBoxHelper.UseFloatingWatermark="True"
+                    ctrl:TextBoxHelper.Watermark="Plans Dated"
+                    BorderBrush="White"
+                    BorderThickness="1"
+                    SelectedDateTime="{Binding Project.PlansDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
         </StackPanel>
         <TextBox Grid.Row="1" Margin="1"   
