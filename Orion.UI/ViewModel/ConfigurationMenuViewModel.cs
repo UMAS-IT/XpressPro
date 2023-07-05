@@ -50,6 +50,9 @@ namespace Orion.UI.ViewModel
                 case "Data Sheets":
                     CurrentViewModel = new DataSheetListViewModel(dialogCoordinator);
                     break;
+                case "Users":
+                    CurrentViewModel = new UserListViewModel(dialogCoordinator);
+                    break;
                 default:
                     CurrentViewModel = new ComingSoonViewModel();
                     break;

@@ -1129,3 +1129,16 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ClosedXML.pdb
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ClosedXML.xml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ExcelNumberFormat.xml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ClosedXML.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ExcelNumberFormat.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ClosedXML.pdb
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ClosedXML.xml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ExcelNumberFormat.xml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\CloneQuoteView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\CloneQuoteView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UserListView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UserListView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditUserView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditUserView.baml

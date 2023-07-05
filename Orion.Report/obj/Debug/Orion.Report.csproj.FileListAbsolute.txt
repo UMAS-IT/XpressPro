@@ -144,3 +144,11 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ClosedXML.pdb
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ClosedXML.xml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ExcelNumberFormat.xml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ClosedXML.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ExcelNumberFormat.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\System.IO.Packaging.dll
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ClosedXML.pdb
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ClosedXML.xml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Report\bin\Debug\ExcelNumberFormat.xml

@@ -40,7 +40,45 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.Users.ToList();
+                return context.Users.Include(x => x.Permission).ToList();
+            }
+        }
+
+        public User GetUser(User user)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.Users.Include(x => x.Permission).FirstOrDefault(x => x.Id == user.Id);
+            }
+        }
+
+        public User UpdateUser(User user)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                User dbUser = user.Id != 0 ? context.Users.Include(x => x.Permission).FirstOrDefault(x => x.Id == user.Id) : user;
+
+                dbUser.Name = user.Name;
+                dbUser.LoginName = user.LoginName;
+                dbUser.PassKey = user.PassKey;
+                dbUser.Email = user.Email;
+                dbUser.Telephone = user.Telephone;
+
+                dbUser.Permission.CanEditCatalogs = user.Permission.CanEditCatalogs;
+                dbUser.Permission.IsAdmin = user.Permission.IsAdmin;
+
+                context.Update(dbUser);
+                context.SaveChanges();
+
+                return dbUser;
+            }
+        }
+
+        public bool LoginNameExist(User user)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.Users.Any(x => x.LoginName.ToFormat() == user.LoginName.ToFormat() && x.Id != user.Id);
             }
         }
     }

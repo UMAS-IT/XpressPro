@@ -249,6 +249,7 @@
     <Compile Include="ViewModel\ConfigurationMenuViewModel.cs" />
     <Compile Include="ViewModel\CreateQuoteViewModel.cs" />
     <Compile Include="ViewModel\DataSheetListViewModel.cs" />
+    <Compile Include="ViewModel\EditUserViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE1ListViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE2ListViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE3ListViewModel.cs" />
@@ -318,6 +319,7 @@
     <Compile Include="ViewModel\ReportsViewModel.cs" />
     <Compile Include="ViewModel\TitleFromItemViewModel.cs" />
     <Compile Include="ViewModel\TitleViewModel.cs" />
+    <Compile Include="ViewModel\UserListViewModel.cs" />
     <Compile Include="ViewModel\UvResources\CatalogList\CatalogF1ListViewModel.cs" />
     <Compile Include="ViewModel\UvResources\EditCatalogItem\EditF1CatalogViewModel.cs" />
     <Compile Include="ViewModel\UvResources\EditQuoteItem\EditF1ItemViewModel.cs" />
@@ -519,6 +521,9 @@
     <Compile Include="View\DataSheetListView.xaml.cs">
       <DependentUpon>DataSheetListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EditUserView.xaml.cs">
+      <DependentUpon>EditUserView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Groundfos\CatalogList\CatalogE1ListVew.xaml.cs">
       <DependentUpon>CatalogE1ListVew.xaml</DependentUpon>
     </Compile>
@@ -716,6 +721,9 @@
     </Compile>
     <Compile Include="View\TitleView.xaml.cs">
       <DependentUpon>TitleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserListView.xaml.cs">
+      <DependentUpon>UserListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UvResources\CatalogList\CatalogF1ListView.xaml.cs">
       <DependentUpon>CatalogF1ListView.xaml</DependentUpon>
@@ -991,6 +999,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DataSheetListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditUserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1281,6 +1293,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TitleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -66,6 +66,7 @@ namespace Orion.Domain.Entity
         public User()
         {
             Projects = new ObservableCollection<Project>();
+            Permission = new Permission();  
         }
     }
 }
