@@ -1,7 +1,9 @@
 ﻿using MahApps.Metro.Controls.Dialogs;
 using Orion.Binding.Binding;
 using Orion.DataAccess.Service;
+using Orion.Domain.ABB.Fake;
 using Orion.Domain.Entity;
+using Orion.Domain.EntityCatalogABB;
 using Orion.Helper.Extension;
 using Orion.UI.Command;
 using Orion.UI.Service;
@@ -17,8 +19,49 @@ namespace Orion.UI.ViewModel.ABB.CatalogList
 {
     public class CatalogB1ListViewModel : MasterCatalogListViewModel
     {
+
+        private ObservableCollection<CatalogB1HorsePower> _catalogB1HorsePowers;
+        public ObservableCollection<CatalogB1HorsePower> CatalogB1HorsePowers
+        {
+            get => _catalogB1HorsePowers;
+            set => SetProperty(ref _catalogB1HorsePowers, value);
+        }
+
+        public RelayCommand ClearHPsCommand { get; set; }
+
         public CatalogB1ListViewModel(IDialogCoordinator dialogCoordinator, ItemType itemType) : base(dialogCoordinator, itemType)
         {
+            ClearHPsCommand = new RelayCommand(OnClearHPs);
+        }
+
+        private void OnClearHPs()
+        {
+            CatalogB1HorsePowers.ToList().ForEach(x => x.IsSelected = false);
+        }
+
+        public override async Task OnLoadData()
+        {
+            try
+            {
+                await base.OnLoadData();
+
+                CatalogB1HorsePowers = new ObservableCollection<CatalogB1HorsePower>();
+
+                Catalogs.OfType<CatalogB1>().GroupBy(x => x.Hp).ToList().ForEach(x => CatalogB1HorsePowers.Add(new CatalogB1HorsePower(x.First().Hp)));
+            }
+            catch (Exception ex)
+            {
+                await messageService.ExceptionMessage(ex);
+            }
+        }
+        public override void OnSearch()
+        {
+            base.OnSearch();
+
+            if (CatalogB1HorsePowers.Any(x => x.IsSelected))
+            {
+                Catalogs = Catalogs.Where(x => CatalogB1HorsePowers.Any(y => y.IsSelected && (x as CatalogB1).Hp == y.Hp)).ToObservableCollection();
+            }
         }
     }
 }

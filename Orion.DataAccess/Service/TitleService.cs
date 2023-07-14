@@ -55,6 +55,12 @@ namespace Orion.DataAccess.Service
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemC3Id == item.Id).ToList();
                 else if (item is ItemC4)
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemC4Id == item.Id).ToList();
+                else if (item is ItemC5)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemC5Id == item.Id).ToList();
+                else if (item is ItemC6)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemC6Id == item.Id).ToList();
+                else if (item is ItemC7)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemC7Id == item.Id).ToList();
 
                 else if (item is ItemD1)
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemD1Id == item.Id).ToList();
@@ -228,6 +234,12 @@ namespace Orion.DataAccess.Service
                     dbItem = context.ItemC3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
                 else if (item is ItemC4)
                     dbItem = context.ItemC4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemC5)
+                    dbItem = context.ItemC5s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemC6)
+                    dbItem = context.ItemC6s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemC7)
+                    dbItem = context.ItemC7s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
 
                 else if (item is ItemD1)
                     dbItem = context.ItemD1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);

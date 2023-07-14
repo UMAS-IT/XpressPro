@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="clr-namespace:Orion.UI.Converters"
     xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:Orion.UI.DependencyProperties"
     xmlns:view="clr-namespace:Orion.UI.View"
@@ -98,7 +99,10 @@
             <DataTemplate DataType="{x:Type vm:EditUserViewModel}">
                 <view:EditUserView />
             </DataTemplate>
-
+            
+            <DataTemplate DataType="{x:Type vm:ExportProjectViewModel}">
+                <view:ExportProjectView />
+            </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:LoginViewModel}">
                 <view:LoginView />
@@ -299,6 +303,18 @@
                 <viewItemC:EditC4ItemView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type vmItemC:EditC5ItemViewModel}">
+                <viewItemC:EditC5ItemView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmItemC:EditC6ItemViewModel}">
+                <viewItemC:EditC6ItemView />
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vmItemC:EditC7ItemViewModel}">
+                <viewItemC:EditC7ItemView />
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type vmCatalogC:CatalogC1ListViewModel}">
                 <viewCatalogC:CatalogC1ListView />
             </DataTemplate>
@@ -313,6 +329,18 @@
 
             <DataTemplate DataType="{x:Type vmCatalogC:CatalogC4ListViewModel}">
                 <viewCatalogC:CatalogC4ListView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogC:CatalogC5ListViewModel}">
+                <viewCatalogC:CatalogC5ListView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogC:CatalogC6ListViewModel}">
+                <viewCatalogC:CatalogC6ListView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogC:CatalogC7ListViewModel}">
+                <viewCatalogC:CatalogC7ListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmECC:EditC1CatalogViewModel}">
@@ -331,8 +359,20 @@
                 <viewECC:EditC4CatalogView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type vmECC:EditC5CatalogViewModel}">
+                <viewECC:EditC5CatalogView />
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type vmECC:EditC6CatalogViewModel}">
+                <viewECC:EditC6CatalogView />
+            </DataTemplate>
 
-
+            <DataTemplate DataType="{x:Type vmECC:EditC7CatalogViewModel}">
+                <viewECC:EditC7CatalogView />
+            </DataTemplate>
+            
+            
+            
 
             <DataTemplate DataType="{x:Type vmItemD:EditD1ItemViewModel}">
                 <viewItemD:EditD1ItemView />
@@ -749,6 +789,7 @@
             </Style>
 
             <converters:BoolToYesNoCoverter x:Key="BoolToYesNoCoverter" />
+            <converters:TotalPriceConverter x:Key="TotalPriceConverter" />
 
 
             <Storyboard x:Key="BlinkAnimation" RepeatBehavior="Forever">
@@ -1129,6 +1170,29 @@
                 <Setter Property="Command" Value="{Binding Path=DataContext.RemoveItemCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" />
                 <Setter Property="CommandParameter" Value="{Binding}" />
                 <Setter Property="ToolTip" Value="Remove Item From Quote" />
+            </Style>
+
+            <Style
+                x:Key="totalPriceTextBoxStyle"
+                BasedOn="{StaticResource MahApps.Styles.TextBox}"
+                TargetType="TextBox">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TextBox">
+                            <TextBox
+                                Width="auto"
+                                IsReadOnly="True"
+                                Text="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=OneWay}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding Path=DataContext.TotalPriceChangedCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                               CommandParameter="{Binding}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
 
             <Style x:Key="MiComboBoxStyle" TargetType="{x:Type ComboBox}">

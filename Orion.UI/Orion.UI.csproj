@@ -177,6 +177,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\BoolToYesNoCoverter.cs" />
+    <Compile Include="Converters\TotalPriceConverter.cs" />
     <Compile Include="Converters\TwoParametersConverter.cs" />
     <Compile Include="DependencyProperties\DataGridColumnCollection.cs" />
     <Compile Include="DependencyProperties\EditItemDataGrid.cs" />
@@ -202,14 +203,23 @@
     <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC2ListViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC3ListViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC4ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC5ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC6ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC7ListViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC1CatalogViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC2CatalogViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC3CatalogViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC5CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC6CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC7CatalogViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC1ItemViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC2ItemViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC3ItemViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC4ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC5ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC6ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC7ItemViewModel.cs" />
     <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH1ListViewModel.cs" />
     <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH2ListViewModel.cs" />
     <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH3ListViewModel.cs" />
@@ -250,6 +260,7 @@
     <Compile Include="ViewModel\CreateQuoteViewModel.cs" />
     <Compile Include="ViewModel\DataSheetListViewModel.cs" />
     <Compile Include="ViewModel\EditUserViewModel.cs" />
+    <Compile Include="ViewModel\ExportProjectViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE1ListViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE2ListViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE3ListViewModel.cs" />
@@ -380,6 +391,15 @@
     <Compile Include="View\AmericanWheatley\CatalogList\CatalogC4ListView.xaml.cs">
       <DependentUpon>CatalogC4ListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC5ListView.xaml.cs">
+      <DependentUpon>CatalogC5ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC6ListView.xaml.cs">
+      <DependentUpon>CatalogC6ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC7ListView.xaml.cs">
+      <DependentUpon>CatalogC7ListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC1CatalogView.xaml.cs">
       <DependentUpon>EditC1CatalogView.xaml</DependentUpon>
     </Compile>
@@ -392,6 +412,15 @@
     <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC4CatalogView.xaml.cs">
       <DependentUpon>EditC4CatalogView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC5CatalogView.xaml.cs">
+      <DependentUpon>EditC5CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC6CatalogView.xaml.cs">
+      <DependentUpon>EditC6CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC7CatalogView.xaml.cs">
+      <DependentUpon>EditC7CatalogView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC1ItemView.xaml.cs">
       <DependentUpon>EditC1ItemView.xaml</DependentUpon>
     </Compile>
@@ -403,6 +432,15 @@
     </Compile>
     <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC4ItemView.xaml.cs">
       <DependentUpon>EditC4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC5ItemView.xaml.cs">
+      <DependentUpon>EditC5ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC6ItemView.xaml.cs">
+      <DependentUpon>EditC6ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC7ItemView.xaml.cs">
+      <DependentUpon>EditC7ItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\BACClosedCircuits\CatalogList\CatalogH1ListView.xaml.cs">
       <DependentUpon>CatalogH1ListView.xaml</DependentUpon>
@@ -523,6 +561,9 @@
     </Compile>
     <Compile Include="View\EditUserView.xaml.cs">
       <DependentUpon>EditUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ExportProjectView.xaml.cs">
+      <DependentUpon>ExportProjectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Groundfos\CatalogList\CatalogE1ListVew.xaml.cs">
       <DependentUpon>CatalogE1ListVew.xaml</DependentUpon>
@@ -814,6 +855,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC5ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC6ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC7ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AmericanWheatley\EditCatalogItem\EditC1CatalogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -830,6 +883,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC5CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC6CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC7CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AmericanWheatley\EditQuoteItem\EditC1ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -843,6 +908,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AmericanWheatley\EditQuoteItem\EditC4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC5ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC6ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC7ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1003,6 +1080,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ExportProjectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

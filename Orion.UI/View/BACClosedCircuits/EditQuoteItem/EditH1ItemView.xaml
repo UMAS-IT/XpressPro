@@ -293,7 +293,6 @@
                                 <DataTemplate>
                                     <TextBox
                                         CharacterCasing="Upper"
-                                        MaxLength="20"
                                         Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>

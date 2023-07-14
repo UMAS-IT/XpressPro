@@ -12,7 +12,7 @@
     xmlns:view="clr-namespace:Orion.UI.View"
     xmlns:vm="clr-namespace:Orion.UI.ViewModel"
     d:DataContext="{d:DesignInstance Type=vm:ItemViewModel}"
-    d:DesignHeight="500"
+    d:DesignHeight="1000"
     d:DesignWidth="1000"
     dialog:DialogParticipation.Register="{Binding}"
     mc:Ignorable="d">
@@ -238,28 +238,37 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Air Cooled Chillers Factory Lead Time" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemA1s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
-                                                Grid.Column="1"
-                                                Width="65"
-                                                HorizontalAlignment="Right"
-                                                Background="DarkSlateBlue"
-                                                Command="{Binding EditItemsCommand}"
-                                                CommandParameter="A1"
-                                                ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                <Button
+                                                    Grid.Column="2"
+                                                    Width="65"
+                                                    HorizontalAlignment="Right"
+                                                    Background="DarkSlateBlue"
+                                                    Command="{Binding EditItemsCommand}"
+                                                    CommandParameter="A1"
+                                                    ToolTip="Edit Items">
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Kind="PencilPlus">
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
+
                                         </Grid>
                                     </Expander.Header>
                                     <local:FullItemDataGrid ItemsSource="{Binding ItemA1s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
@@ -313,8 +322,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Air Cooled Chillers Stock Non Coated Condenser" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemA2s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -322,19 +338,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="A2"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
                                     <local:FullItemDataGrid ItemsSource="{Binding ItemA2s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
@@ -388,8 +405,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Air Cooled Chillers Stock Post Coated Condenser" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemA3s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -397,19 +421,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="A3"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
                                     <local:FullItemDataGrid ItemsSource="{Binding ItemA3s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
@@ -463,8 +488,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Water Cooled Chillers Factory Lead Time" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemA4s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -472,19 +504,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="A4"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
                                     <local:FullItemDataGrid ItemsSource="{Binding ItemA4s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
@@ -564,8 +597,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="VFD Drives" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemB1s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -573,19 +613,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="B1"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -659,8 +700,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Accesories" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemB5s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -668,19 +716,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="B5"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -720,6 +769,9 @@
                                                 <Condition Binding="{Binding ItemC2s.Count}" Value="0" />
                                                 <Condition Binding="{Binding ItemC3s.Count}" Value="0" />
                                                 <Condition Binding="{Binding ItemC4s.Count}" Value="0" />
+                                                <Condition Binding="{Binding ItemC5s.Count}" Value="0" />
+                                                <Condition Binding="{Binding ItemC6s.Count}" Value="0" />
+                                                <Condition Binding="{Binding ItemC7s.Count}" Value="0" />
                                             </MultiDataTrigger.Conditions>
                                             <Setter Property="Visibility" Value="Collapsed" />
                                         </MultiDataTrigger>
@@ -752,8 +804,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Tanks" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemC3s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -761,19 +820,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="C3"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -853,8 +913,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Separators" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemC4s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -862,19 +929,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="C4"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -916,6 +984,273 @@
                                                 Width="auto"
                                                 Binding="{Binding Catalog.WorkingPressure}"
                                                 Header="Working Pressure (PSI)"
+                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                                IsReadOnly="True" />
+
+                                        </local:FullItemDataGrid.Columns>
+                                    </local:FullItemDataGrid>
+                                </Expander>
+
+                                <Expander
+                                    Grid.Row="0"
+                                    Margin="0,5,0,0"
+                                    ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                                    IsExpanded="True">
+                                    <Expander.Style>
+                                        <Style BasedOn="{StaticResource MahApps.Styles.Expander}" TargetType="Expander">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ItemC5s.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label
+                                                Grid.Column="0"
+                                                VerticalAlignment="Center"
+                                                Content="BFT Tanks" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemC5s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
+
+                                                <Button
+                                                Grid.Column="1"
+                                                Width="65"
+                                                HorizontalAlignment="Right"
+                                                Background="DarkMagenta"
+                                                Command="{Binding EditItemsCommand}"
+                                                CommandParameter="C5"
+                                                ToolTip="Edit Items">
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Kind="PencilPlus">
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Expander.Header>
+
+
+                                    <local:FullItemDataGrid ItemsSource="{Binding ItemC5s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
+                                        <local:FullItemDataGrid.Columns>
+
+                                            <DataGridTextColumn
+                                                Width="auto"
+                                                Binding="{Binding Catalog.Description}"
+                                                Header="Description"
+                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                                IsReadOnly="True" />
+                                            <DataGridTextColumn
+                                                Width="auto"
+                                                Binding="{Binding Catalog.Volume}"
+                                                Header="Volume (gal)"
+                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                                IsReadOnly="True" />
+                                            <DataGridTextColumn
+                                                Width="auto"
+                                                Binding="{Binding Catalog.HeightA}"
+                                                Header="Height A (in)"
+                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                                IsReadOnly="True" />
+                                            <DataGridTextColumn
+                                                Width="auto"
+                                                Binding="{Binding Catalog.DiameterB}"
+                                                Header="Diameter B (in)"
+                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                                IsReadOnly="True" />
+                                            <DataGridTextColumn
+                                                Width="auto"
+                                                Binding="{Binding Catalog.Weight}"
+                                                Header="Weight (lb)"
+                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                                IsReadOnly="True" />
+
+                                        </local:FullItemDataGrid.Columns>
+                                    </local:FullItemDataGrid>
+                                </Expander>
+
+                                <Expander
+                                    Grid.Row="0"
+                                    Margin="0,5,0,0"
+                                    ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                                    IsExpanded="True">
+                                    <Expander.Style>
+                                        <Style BasedOn="{StaticResource MahApps.Styles.Expander}" TargetType="Expander">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ItemC6s.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label
+                                                Grid.Column="0"
+                                                VerticalAlignment="Center"
+                                                Content="VFT Tanks" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemC6s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
+
+                                                <Button
+                                                Grid.Column="1"
+                                                Width="65"
+                                                HorizontalAlignment="Right"
+                                                Background="DarkMagenta"
+                                                Command="{Binding EditItemsCommand}"
+                                                CommandParameter="C6"
+                                                ToolTip="Edit Items">
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Kind="PencilPlus">
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Expander.Header>
+
+
+                                    <local:FullItemDataGrid ItemsSource="{Binding ItemC6s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
+                                        <local:FullItemDataGrid.Columns>
+
+                                            <DataGridTextColumn
+                                                Width="auto"
+                                                Binding="{Binding Catalog.Description}"
+                                                Header="Description"
+                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                                IsReadOnly="True" />
+                                            <DataGridTextColumn
+                                                Width="auto"
+                                                Binding="{Binding Catalog.Volume}"
+                                                Header="Volume (gal)"
+                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                                IsReadOnly="True" />
+                                            <DataGridTextColumn
+                                                Width="auto"
+                                                Binding="{Binding Catalog.HeightA}"
+                                                Header="Height A (in)"
+                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                                IsReadOnly="True" />
+                                            <DataGridTextColumn
+                                                Width="auto"
+                                                Binding="{Binding Catalog.DiameterB}"
+                                                Header="Diameter B (in)"
+                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                                IsReadOnly="True" />
+                                            <DataGridTextColumn
+                                                Width="auto"
+                                                Binding="{Binding Catalog.Weight}"
+                                                Header="Weight (lb)"
+                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                                                IsReadOnly="True" />
+
+                                        </local:FullItemDataGrid.Columns>
+                                    </local:FullItemDataGrid>
+                                </Expander>
+
+                                <Expander
+                                    Grid.Row="0"
+                                    Margin="0,5,0,0"
+                                    ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                                    IsExpanded="True">
+                                    <Expander.Style>
+                                        <Style BasedOn="{StaticResource MahApps.Styles.Expander}" TargetType="Expander">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ItemC7s.Count}" Value="0">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label
+                                                Grid.Column="0"
+                                                VerticalAlignment="Center"
+                                                Content="Tank Accessories" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemC7s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
+
+                                                <Button
+                                                Grid.Column="1"
+                                                Width="65"
+                                                HorizontalAlignment="Right"
+                                                Background="DarkMagenta"
+                                                Command="{Binding EditItemsCommand}"
+                                                CommandParameter="C7"
+                                                ToolTip="Edit Items">
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Kind="PencilPlus">
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Expander.Header>
+
+
+                                    <local:FullItemDataGrid ItemsSource="{Binding ItemC7s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
+                                        <local:FullItemDataGrid.Columns>
+
+                                            <DataGridTextColumn
+                                                Width="auto"
+                                                Binding="{Binding Catalog.Description}"
+                                                Header="Description"
                                                 HeaderStyle="{StaticResource ColumnHeaderStyle}"
                                                 IsReadOnly="True" />
 
@@ -979,8 +1314,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Pumps" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemE1s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -988,19 +1330,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="E1"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -1139,8 +1482,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="UV" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemF1s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -1148,19 +1498,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="F1"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -1246,8 +1597,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Towers" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemG1s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -1255,19 +1613,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="G1"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -1421,8 +1780,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Towers" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemH1s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -1430,19 +1796,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="H1"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -1596,8 +1963,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Wall Mount AC/HP" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemI1s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -1605,19 +1979,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="I1"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -1679,8 +2054,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Accessories" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemI2s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -1688,19 +2070,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="I2"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -1770,8 +2153,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="AHU's" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemJ1s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -1779,19 +2169,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="J1"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -1908,8 +2299,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Chillers" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemK1s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -1917,19 +2315,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="K1"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -1973,8 +2372,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Fan Coils" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemK2s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -1982,19 +2388,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="K2"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 
@@ -2038,8 +2445,15 @@
                                                 Grid.Column="0"
                                                 VerticalAlignment="Center"
                                                 Content="Accessories And Freight" />
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Label Content="Total:" />
+                                                <TextBox
+                                                    Width="120"
+                                                    Margin="0,0,5,0"
+                                                    IsReadOnly="True"
+                                                    Text="{Binding ItemK3s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                                            <Button
+                                                <Button
                                                 Grid.Column="1"
                                                 Width="65"
                                                 HorizontalAlignment="Right"
@@ -2047,19 +2461,20 @@
                                                 Command="{Binding EditItemsCommand}"
                                                 CommandParameter="K3"
                                                 ToolTip="Edit Items">
-                                                <Button.Content>
-                                                    <icon:PackIconMaterial
+                                                    <Button.Content>
+                                                        <icon:PackIconMaterial
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Kind="PencilPlus">
-                                                        <icon:PackIconMaterial.LayoutTransform>
-                                                            <TransformGroup>
-                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                                            </TransformGroup>
-                                                        </icon:PackIconMaterial.LayoutTransform>
-                                                    </icon:PackIconMaterial>
-                                                </Button.Content>
-                                            </Button>
+                                                            <icon:PackIconMaterial.LayoutTransform>
+                                                                <TransformGroup>
+                                                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                                                </TransformGroup>
+                                                            </icon:PackIconMaterial.LayoutTransform>
+                                                        </icon:PackIconMaterial>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
                                         </Grid>
                                     </Expander.Header>
 

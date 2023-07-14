@@ -64,5 +64,80 @@ namespace Orion.Report.Pricing
             return GetPricingItems(items.ToList<IItem>(), tempItem, itemNumber);
         }
 
+        public List<PricingItem> CreateC5ItemTable(IList<ItemC5> items, Document document, Section docSection, int itemNumber)
+        {
+            items = items.Where(x => !x.IsExcluded).OrderBy(x => x.DesignIndex).ToList();
+
+            int itemsQuantity = items.Count;
+
+            IItem tempItem = items.First();
+
+            String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
+            String[] Header = { "Quantity", "Tag", "Model", "Description", "Volume (gal)", "Height A (in)", "Diameter B (in)", "Weight (lb)" };
+
+            string[][] data = new string[items.Count][];
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                ItemC5 item = items[i];
+
+                data[i] = new string[8] { item.Quantity.ToString(), item.Tag, item.CatalogC5.Model, item.CatalogC5.Description, item.CatalogC5.Volume, item.CatalogC5.HeightA, item.CatalogC5.DiameterB, item.CatalogC5.Weight };
+            }
+
+            CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
+
+            return GetPricingItems(items.ToList<IItem>(), tempItem, itemNumber);
+        }
+
+        public List<PricingItem> CreateC6ItemTable(IList<ItemC6> items, Document document, Section docSection, int itemNumber)
+        {
+            items = items.Where(x => !x.IsExcluded).OrderBy(x => x.DesignIndex).ToList();
+
+            int itemsQuantity = items.Count;
+
+            IItem tempItem = items.First();
+
+            String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
+            String[] Header = { "Quantity", "Tag", "Model", "Description", "Volume (gal)", "Height A (in)", "Diameter B (in)", "Weight (lb)" };
+
+            string[][] data = new string[items.Count][];
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                ItemC6 item = items[i];
+
+                data[i] = new string[8] { item.Quantity.ToString(), item.Tag, item.CatalogC6.Model, item.CatalogC6.Description, item.CatalogC6.Volume, item.CatalogC6.HeightA, item.CatalogC6.DiameterB, item.CatalogC6.Weight };
+            }
+
+            CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
+
+            return GetPricingItems(items.ToList<IItem>(), tempItem, itemNumber);
+        }
+
+        public List<PricingItem> CreateC7ItemTable(IList<ItemC7> items, Document document, Section docSection, int itemNumber)
+        {
+            items = items.Where(x => !x.IsExcluded).OrderBy(x => x.DesignIndex).ToList();
+
+            int itemsQuantity = items.Count;
+
+            IItem tempItem = items.First();
+
+            String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
+            String[] Header = { "Quantity", "Tag", "Model", "Description" };
+
+            string[][] data = new string[items.Count][];
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                ItemC7 item = items[i];
+
+                data[i] = new string[4] { item.Quantity.ToString(), item.Tag, item.CatalogC7.Model, item.CatalogC7.Description};
+            }
+
+            CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
+
+            return GetPricingItems(items.ToList<IItem>(), tempItem, itemNumber);
+        }
+
     }
 }

@@ -189,6 +189,27 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _itemC4s, value);
         }
 
+        private ObservableCollection<IItem> _itemC5s;
+        public ObservableCollection<IItem> ItemC5s
+        {
+            get => _itemC5s;
+            set => SetProperty(ref _itemC5s, value);
+        }
+
+        private ObservableCollection<IItem> _itemC6s;
+        public ObservableCollection<IItem> ItemC6s
+        {
+            get => _itemC6s;
+            set => SetProperty(ref _itemC6s, value);
+        }
+
+        private ObservableCollection<IItem> _itemC7s;
+        public ObservableCollection<IItem> ItemC7s
+        {
+            get => _itemC7s;
+            set => SetProperty(ref _itemC7s, value);
+        }
+
         private ObservableCollection<IItem> _itemD1s;
         public ObservableCollection<IItem> ItemD1s
         {
@@ -391,6 +412,18 @@ namespace Orion.UI.ViewModel
         public RelayCommand<IItem> MoveToDownCommand { get; set; }
         public RelayCommand<IItem> MoveToEndCommand { get; set; }
 
+        public RelayCommand<IItem> TotalPriceChangedCommand { get; set; }
+
+        #region Total Prices
+
+        private double _totalPriceA1;
+        public double TotalPriceA1
+        {
+            get => _totalPriceA1;
+            set => SetProperty(ref _totalPriceA1, value);
+        }
+        #endregion
+
         public ItemViewModel(IDialogCoordinator dialogCoordinator, int projectId, int quoteId, MainWindowViewModel mw)
         {
             this.dialogCoordinator = dialogCoordinator;
@@ -408,6 +441,7 @@ namespace Orion.UI.ViewModel
             MoveToDownCommand = new RelayCommand<IItem>(OnMoveToDown);
             MoveToEndCommand = new RelayCommand<IItem>(OnMoveToEnd);
             UpdateQuoteItemsCommand = new RelayCommand(OnUpdateQuoteItems);
+            TotalPriceChangedCommand = new RelayCommand<IItem>(OnTotalPriceChanged);
 
             projectService = new ProjectService();
             quoteService = new QuoteService();
@@ -436,6 +470,9 @@ namespace Orion.UI.ViewModel
             ItemC2s = Items.Where(x => x is ItemC2).ToObservableCollection();
             ItemC3s = Items.Where(x => x is ItemC3).ToObservableCollection();
             ItemC4s = Items.Where(x => x is ItemC4).ToObservableCollection();
+            ItemC5s = Items.Where(x => x is ItemC5).ToObservableCollection();
+            ItemC6s = Items.Where(x => x is ItemC6).ToObservableCollection();
+            ItemC7s = Items.Where(x => x is ItemC7).ToObservableCollection();
 
             ItemD1s = Items.Where(x => x is ItemD1).ToObservableCollection();
             ItemD2s = Items.Where(x => x is ItemD2).ToObservableCollection();
@@ -499,6 +536,9 @@ namespace Orion.UI.ViewModel
                 ItemC2s.ToList().ForEach(x => x.DesignIndex = ItemC2s.IndexOf(x));
                 ItemC3s.ToList().ForEach(x => x.DesignIndex = ItemC3s.IndexOf(x));
                 ItemC4s.ToList().ForEach(x => x.DesignIndex = ItemC4s.IndexOf(x));
+                ItemC5s.ToList().ForEach(x => x.DesignIndex = ItemC5s.IndexOf(x));
+                ItemC6s.ToList().ForEach(x => x.DesignIndex = ItemC6s.IndexOf(x));
+                ItemC7s.ToList().ForEach(x => x.DesignIndex = ItemC7s.IndexOf(x));
 
                 // last set of DesignIndex
                 ItemD1s.ToList().ForEach(x => x.DesignIndex = ItemD1s.IndexOf(x));
@@ -559,6 +599,9 @@ namespace Orion.UI.ViewModel
                 items.AddRange(ItemC2s);
                 items.AddRange(ItemC3s);
                 items.AddRange(ItemC4s);
+                items.AddRange(ItemC5s);
+                items.AddRange(ItemC6s);
+                items.AddRange(ItemC7s);
 
                 items.AddRange(ItemD1s);
                 items.AddRange(ItemD2s);
@@ -697,6 +740,18 @@ namespace Orion.UI.ViewModel
             else if (itemsName.ToFormat() == "c4")
             {
                 viewModel = new EditC4ItemViewModel(dialogCoordinator, Quote, ItemC4s, ItemType.ItemC4);
+            }
+            else if (itemsName.ToFormat() == "c5")
+            {
+                viewModel = new EditC5ItemViewModel(dialogCoordinator, Quote, ItemC5s, ItemType.ItemC5);
+            }
+            else if (itemsName.ToFormat() == "c6")
+            {
+                viewModel = new EditC6ItemViewModel(dialogCoordinator, Quote, ItemC6s, ItemType.ItemC6);
+            }
+            else if (itemsName.ToFormat() == "c7")
+            {
+                viewModel = new EditC7ItemViewModel(dialogCoordinator, Quote, ItemC7s, ItemType.ItemC7);
             }
 
             else if (itemsName.ToFormat() == "d1")
@@ -930,6 +985,8 @@ namespace Orion.UI.ViewModel
 
             currentItems.Remove(item);
             currentItems.ToList().ForEach(s => s.DesignIndex = currentItems.IndexOf(s));
+
+            OnTotalPriceChanged(item);
         }
 
         private void OnMoveToUp(IItem item)
@@ -994,6 +1051,12 @@ namespace Orion.UI.ViewModel
                 selectedItems = ItemC3s;
             else if (item is ItemC4)
                 selectedItems = ItemC4s;
+            else if (item is ItemC5)
+                selectedItems = ItemC5s;
+            else if (item is ItemC6)
+                selectedItems = ItemC6s;
+            else if (item is ItemC7)
+                selectedItems = ItemC7s;
 
             else if (item is ItemD1)
                 selectedItems = ItemD1s;
@@ -1060,6 +1123,109 @@ namespace Orion.UI.ViewModel
             return selectedItems;
         }
 
+
+        private void OnTotalPriceChanged(IItem item)
+        {
+            
+            if (item is ItemA1)
+                OnPropertyChange(nameof(ItemA1s));
+            else if (item is ItemA2)
+                OnPropertyChange(nameof(ItemA2s));
+            else if (item is ItemA3)
+                OnPropertyChange(nameof(ItemA3s));
+            else if (item is ItemA4)
+                OnPropertyChange(nameof(ItemA4s));
+
+            else if (item is ItemB1)
+                OnPropertyChange(nameof(ItemB1s));
+            else if (item is ItemB2)
+                OnPropertyChange(nameof(ItemB2s));
+            else if (item is ItemB3)
+                OnPropertyChange(nameof(ItemB3s));
+            else if (item is ItemB4)
+                OnPropertyChange(nameof(ItemB4s));
+            else if (item is ItemB5)
+                OnPropertyChange(nameof(ItemB5s));
+
+            else if (item is ItemC1)
+                OnPropertyChange(nameof(ItemC1s));
+            else if (item is ItemC2)
+                OnPropertyChange(nameof(ItemC2s));
+            else if (item is ItemC3)
+                OnPropertyChange(nameof(ItemC3s));
+            else if (item is ItemC4)
+                OnPropertyChange(nameof(ItemC4s));
+            else if (item is ItemC5)
+                OnPropertyChange(nameof(ItemC5s));
+            else if (item is ItemC6)
+                OnPropertyChange(nameof(ItemC6s));
+            else if (item is ItemC7)
+                OnPropertyChange(nameof(ItemC7s));
+
+            else if (item is ItemD1)
+                OnPropertyChange(nameof(ItemD1s));
+            else if (item is ItemD2)
+                OnPropertyChange(nameof(ItemC2s));
+
+            else if (item is ItemE1)
+                OnPropertyChange(nameof(ItemE1s));
+            else if (item is ItemE2)
+                OnPropertyChange(nameof(ItemE2s));
+            else if (item is ItemE3)
+                OnPropertyChange(nameof(ItemE3s));
+            else if (item is ItemE4)
+                OnPropertyChange(nameof(ItemE4s));
+            else if (item is ItemE5)
+                OnPropertyChange(nameof(ItemE5s));
+            else if (item is ItemE6)
+                OnPropertyChange(nameof(ItemE6s));
+            else if (item is ItemE7)
+                OnPropertyChange(nameof(ItemE7s));
+
+            else if (item is ItemF1)
+                OnPropertyChange(nameof(ItemF1s));
+
+            else if (item is ItemG1)
+                OnPropertyChange(nameof(ItemG1s));
+            else if (item is ItemG2)
+                OnPropertyChange(nameof(ItemG2s));
+            else if (item is ItemG3)
+                OnPropertyChange(nameof(ItemG3s));
+            else if (item is ItemG4)
+                OnPropertyChange(nameof(ItemG4s));
+            else if (item is ItemG5)
+                OnPropertyChange(nameof(ItemG5s));
+            else if (item is ItemG6)
+                OnPropertyChange(nameof(ItemG6s));
+
+            else if (item is ItemH1)
+                OnPropertyChange(nameof(ItemH1s));
+            else if (item is ItemH2)
+                OnPropertyChange(nameof(ItemH2s));
+            else if (item is ItemH3)
+                OnPropertyChange(nameof(ItemH3s));
+            else if (item is ItemH4)
+                OnPropertyChange(nameof(ItemH4s));
+            else if (item is ItemH5)
+                OnPropertyChange(nameof(ItemH5s));
+
+            else if (item is ItemI1)
+                OnPropertyChange(nameof(ItemI1s));
+            else if (item is ItemI2)
+                OnPropertyChange(nameof(ItemI2s));
+
+            else if (item is ItemJ1)
+                OnPropertyChange(nameof(ItemJ1s));
+
+            else if (item is ItemK1)
+                OnPropertyChange(nameof(ItemK1s));
+            else if (item is ItemK2)
+                OnPropertyChange(nameof(ItemK2s));
+            else if (item is ItemK3)
+                OnPropertyChange(nameof(ItemK3s));
+        }
+
+
         private void OnItemsSaved(IList<IItem> items, ItemType itemType)
         {
             items.ToList().ForEach(x => x.HasTitles = x.Titles != null && x.Titles.Count() > 0);
@@ -1092,6 +1258,12 @@ namespace Orion.UI.ViewModel
                 ItemC3s = items.ToObservableCollection();
             else if (itemType is ItemType.ItemC4)
                 ItemC4s = items.ToObservableCollection();
+            else if (itemType is ItemType.ItemC5)
+                ItemC5s = items.ToObservableCollection();
+            else if (itemType is ItemType.ItemC6)
+                ItemC6s = items.ToObservableCollection();
+            else if (itemType is ItemType.ItemC7)
+                ItemC7s = items.ToObservableCollection();
 
             else if (itemType is ItemType.ItemD1)
                 ItemD1s = items.ToObservableCollection();

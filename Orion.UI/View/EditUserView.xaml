@@ -74,7 +74,26 @@
                         ctrl:TextBoxHelper.Watermark="Telephone"
                         Style="{DynamicResource TxtStyle}"
                         Text="{Binding User.Telephone, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-
+                    <Border
+                        Margin="1"
+                        BorderBrush="White"
+                        BorderThickness="1">
+                        <CheckBox
+                            Margin="1"
+                            Content="XpressPro Access"
+                            IsChecked="{Binding User.Permission.GeneralAccess}">
+                            <CheckBox.Style>
+                                <Style BasedOn="{StaticResource MahApps.Styles.CheckBox}" TargetType="CheckBox">
+                                    <Setter Property="FontSize" Value="10" />
+                                    <Setter Property="LayoutTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </CheckBox.Style>
+                        </CheckBox>
+                    </Border>
                 </StackPanel>
             </ScrollViewer>
         </Border>

@@ -57,6 +57,12 @@ namespace Orion.DataAccess.Service
                     return context.CatalogC3s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else if (catalog is CatalogC4)
                     return context.CatalogC4s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogC5)
+                    return context.CatalogC5s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogC6)
+                    return context.CatalogC6s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+                else if (catalog is CatalogC7)
+                    return context.CatalogC7s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
 
                 else if (catalog is CatalogD1)
                     return context.CatalogD1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
@@ -156,7 +162,7 @@ namespace Orion.DataAccess.Service
                     break;
 
                 case ItemType.ItemB1:
-                    catalogs = context.CatalogB1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).ToList<ICatalog>();
+                    catalogs = context.CatalogB1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).OrderBy(x => x.Hp).ToList<ICatalog>();
                     break;
 
                 case ItemType.ItemB2:
@@ -189,6 +195,18 @@ namespace Orion.DataAccess.Service
 
                 case ItemType.ItemC4:
                     catalogs = context.CatalogC4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).ToList<ICatalog>();
+                    break;
+
+                case ItemType.ItemC5:
+                    catalogs = context.CatalogC5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).ToList<ICatalog>();
+                    break;
+
+                case ItemType.ItemC6:
+                    catalogs = context.CatalogC6s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).ToList<ICatalog>();
+                    break;
+
+                case ItemType.ItemC7:
+                    catalogs = context.CatalogC7s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).ToList<ICatalog>();
                     break;
 
                 case ItemType.ItemD1:
@@ -362,6 +380,12 @@ namespace Orion.DataAccess.Service
                 return context.CatalogC3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).Include(x => x.CatalogC3ProductType).FirstOrDefault(x => x.Id == catalog.Id);
             else if (catalog is CatalogC4)
                 return context.CatalogC4s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogC5)
+                return context.CatalogC5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogC6)
+                return context.CatalogC6s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            else if (catalog is CatalogC7)
+                return context.CatalogC7s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
 
             else if (catalog is CatalogD1)
                 return context.CatalogD1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
@@ -589,6 +613,41 @@ namespace Orion.DataAccess.Service
                     dbCatalogC4.WorkingPressure = catalogC4.WorkingPressure;
 
                     dbCatalog = dbCatalogC4;
+                }
+                else if (catalog is CatalogC5)
+                {
+                    CatalogC5 catalogC5 = catalog as CatalogC5;
+                    CatalogC5 dbCatalogC5 = catalog.Id != 0 ? context.CatalogC5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogC5;
+
+                    dbCatalogC5.Description = catalogC5.Description;
+                    dbCatalogC5.Volume = catalogC5.Volume;
+                    dbCatalogC5.HeightA = catalogC5.HeightA;
+                    dbCatalogC5.DiameterB = catalogC5.DiameterB;
+                    dbCatalogC5.Weight = catalogC5.Weight;
+
+                    dbCatalog = dbCatalogC5;
+                }
+                else if (catalog is CatalogC6)
+                {
+                    CatalogC6 catalogC6 = catalog as CatalogC6;
+                    CatalogC6 dbCatalogC6 = catalog.Id != 0 ? context.CatalogC6s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogC6;
+
+                    dbCatalogC6.Description = catalogC6.Description;
+                    dbCatalogC6.Volume = catalogC6.Volume;
+                    dbCatalogC6.HeightA = catalogC6.HeightA;
+                    dbCatalogC6.DiameterB = catalogC6.DiameterB;
+                    dbCatalogC6.Weight = catalogC6.Weight;
+
+                    dbCatalog = dbCatalogC6;
+                }
+                else if (catalog is CatalogC7)
+                {
+                    CatalogC7 catalogC7 = catalog as CatalogC7;
+                    CatalogC7 dbCatalogC7 = catalog.Id != 0 ? context.CatalogC7s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogC7;
+
+                    dbCatalogC7.Description = catalogC7.Description;
+
+                    dbCatalog = dbCatalogC7;
                 }
                 else if (catalog is CatalogD1)
                 {
@@ -861,6 +920,15 @@ namespace Orion.DataAccess.Service
                     break;
                 case ItemType.ItemC4:
                     catalog = new CatalogC4();
+                    break;
+                case ItemType.ItemC5:
+                    catalog = new CatalogC5();
+                    break;
+                case ItemType.ItemC6:
+                    catalog = new CatalogC6();
+                    break;
+                case ItemType.ItemC7:
+                    catalog = new CatalogC7();
                     break;
                 case ItemType.ItemD1:
                     catalog = new CatalogD1();

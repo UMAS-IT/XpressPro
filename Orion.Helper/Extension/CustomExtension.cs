@@ -68,28 +68,17 @@ namespace Orion.Helper.Extension
         }
 
 
-        public static double Truncate(this double value, int decimals = 5)
-        {
-            value = value * Math.Pow(10, decimals);
-            int newValue = Convert.ToInt32(value);
-            value = Convert.ToDouble(newValue) / Math.Pow(10, decimals);
-            return value;
-        }
+        //public static double Truncate(this double value, int decimals = 4)
+        //{
+        //    value = value * Math.Pow(10, decimals);
+        //    int newValue = Convert.ToInt32(value);
+        //    value = Convert.ToDouble(newValue) / Math.Pow(10, decimals);
+        //    return value;
+        //}
 
-        public static double Truncate(this float value, int decimals = 5)
+        public static double RoundUp(this double value)
         {
-            double startValue = Convert.ToDouble(value * Math.Pow(10, decimals));
-            int newValue = Convert.ToInt32(startValue);
-            startValue = Convert.ToDouble(newValue) / Math.Pow(10, decimals);
-            return startValue;
-        }
-
-        public static decimal Truncate(this decimal value, int decimals = 5)
-        {
-            decimal startValue = Convert.ToDecimal(value * Convert.ToDecimal(Math.Pow(10, decimals)));
-            int newValue = Convert.ToInt32(startValue);
-            startValue = Convert.ToDecimal(newValue) / Convert.ToDecimal(Math.Pow(10, decimals));
-            return startValue;
+            return Math.Ceiling(value);
         }
 
         public static double ToDouble(this float value)

@@ -53,7 +53,8 @@ namespace Orion.Domain.Entity
         [NotMapped]
         public double Cost
         {
-            get => (ListPrice * CostMultiplier).Truncate(2);
+            //get => (ListPrice * CostMultiplier).Truncate();//2
+            get => (ListPrice * CostMultiplier).RoundUp();//2
             set => SetProperty(ref _cost, value);
         }
 
@@ -72,7 +73,8 @@ namespace Orion.Domain.Entity
         [NotMapped]
         public double SellPrice
         {
-            get => (Cost / (1 - (SellMargin / 100))).Truncate(2);
+            //get => (Cost / (1 - (SellMargin / 100))).Truncate();//2
+            get => (Cost / (1 - (SellMargin / 100))).RoundUp();//2
             set => SetProperty(ref _SellPrice, value);
         }
 

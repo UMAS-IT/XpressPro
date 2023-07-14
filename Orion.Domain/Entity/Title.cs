@@ -233,6 +233,48 @@ namespace Orion.Domain.Entity
             get => _itemC4;
             set => SetProperty(ref _itemC4, value);
         }
+
+        private int? _itemC5Id;
+        public int? ItemC5Id
+        {
+            get => _itemC5Id;
+            set => SetProperty(ref _itemC5Id, value);
+        }
+
+        private ItemC5 _itemC5;
+        public ItemC5 ItemC5
+        {
+            get => _itemC5;
+            set => SetProperty(ref _itemC5, value);
+        }
+
+        private int? _itemC6Id;
+        public int? ItemC6Id
+        {
+            get => _itemC6Id;
+            set => SetProperty(ref _itemC6Id, value);
+        }
+
+        private ItemC6 _itemC6;
+        public ItemC6 ItemC6
+        {
+            get => _itemC6;
+            set => SetProperty(ref _itemC6, value);
+        }
+
+        private int? _itemC7Id;
+        public int? ItemC7Id
+        {
+            get => _itemC7Id;
+            set => SetProperty(ref _itemC7Id, value);
+        }
+
+        private ItemC7 _itemC7;
+        public ItemC7 ItemC7
+        {
+            get => _itemC7;
+            set => SetProperty(ref _itemC7, value);
+        }
         #endregion
 
 
@@ -581,7 +623,9 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
-        #region PACE AHU Items
+
+
+        #region PACE AHU Items Id
         private int? _itemJ1Id;
         public int? ItemJ1Id
         {
@@ -599,7 +643,7 @@ namespace Orion.Domain.Entity
 
 
 
-        #region Multiaqua Items
+        #region Multiaqua Items Id
 
         private int? _itemK1Id;
         public int? ItemK1Id

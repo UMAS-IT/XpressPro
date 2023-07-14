@@ -23,6 +23,13 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _canEditCatalogs, value);
         }
 
+        private bool _generalAccess;
+        public bool GeneralAccess
+        {
+            get => _generalAccess;
+            set => SetProperty(ref _generalAccess, value);
+        }
+
         private bool _isAdmin;
         public bool IsAdmin
         {

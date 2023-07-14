@@ -110,6 +110,12 @@ namespace Orion.DataAccess.Service
                     .Include(x => x.ItemC3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                     .Include(x => x.ItemC4s).ThenInclude(x => x.CatalogC4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                     .Include(x => x.ItemC4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemC5s).ThenInclude(x => x.CatalogC5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemC5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemC6s).ThenInclude(x => x.CatalogC6).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemC6s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemC7s).ThenInclude(x => x.CatalogC7).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemC7s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
 
                     .Include(x => x.ItemD1s).ThenInclude(x => x.CatalogD1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                     .Include(x => x.ItemD1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
@@ -197,6 +203,9 @@ namespace Orion.DataAccess.Service
                     .Include(x => x.ItemC2s)
                     .Include(x => x.ItemC3s)
                     .Include(x => x.ItemC4s)
+                    .Include(x => x.ItemC5s)
+                    .Include(x => x.ItemC6s)
+                    .Include(x => x.ItemC7s)
 
                     .Include(x => x.ItemD1s)
                     .Include(x => x.ItemD2s)
@@ -241,7 +250,7 @@ namespace Orion.DataAccess.Service
                     if (
                         !u.ItemA1s.Any() && !u.ItemA2s.Any() && !u.ItemA3s.Any() && !u.ItemA4s.Any()
                         && !u.ItemB1s.Any() && !u.ItemB2s.Any() && !u.ItemB3s.Any() && !u.ItemB4s.Any() && !u.ItemB5s.Any()
-                        && !u.ItemC1s.Any() && !u.ItemC2s.Any() && !u.ItemC3s.Any() && !u.ItemC4s.Any()
+                        && !u.ItemC1s.Any() && !u.ItemC2s.Any() && !u.ItemC3s.Any() && !u.ItemC4s.Any() && !u.ItemC5s.Any() && !u.ItemC6s.Any() && !u.ItemC7s.Any()
                         && !u.ItemD1s.Any() && !u.ItemD2s.Any()
                         && !u.ItemE1s.Any() && !u.ItemE2s.Any() && !u.ItemE3s.Any() && !u.ItemE4s.Any() && !u.ItemE5s.Any() && !u.ItemE6s.Any() && !u.ItemE7s.Any()
                         && !u.ItemF1s.Any()
@@ -282,6 +291,9 @@ namespace Orion.DataAccess.Service
                 IList<ItemC2> itemC2s = context.ItemC2s.Include(x => x.Titles).Include(x => x.CatalogC2).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemC3> itemC3s = context.ItemC3s.Include(x => x.Titles).Include(x => x.CatalogC3).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemC4> itemC4s = context.ItemC4s.Include(x => x.Titles).Include(x => x.CatalogC4).Where(x => x.QuoteId == quoteId).ToList();
+                IList<ItemC4> itemC5s = context.ItemC4s.Include(x => x.Titles).Include(x => x.CatalogC4).Where(x => x.QuoteId == quoteId).ToList();
+                IList<ItemC4> itemC6s = context.ItemC4s.Include(x => x.Titles).Include(x => x.CatalogC4).Where(x => x.QuoteId == quoteId).ToList();
+                IList<ItemC4> itemC7s = context.ItemC4s.Include(x => x.Titles).Include(x => x.CatalogC4).Where(x => x.QuoteId == quoteId).ToList();
 
                 IList<ItemD1> itemD1s = context.ItemD1s.Include(x => x.Titles).Include(x => x.CatalogD1).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemD2> itemD2s = context.ItemD2s.Include(x => x.Titles).Include(x => x.CatalogD2).Where(x => x.QuoteId == quoteId).ToList();
@@ -333,6 +345,9 @@ namespace Orion.DataAccess.Service
                 items.AddRange(itemC2s);
                 items.AddRange(itemC3s);
                 items.AddRange(itemC4s);
+                items.AddRange(itemC5s);
+                items.AddRange(itemC6s);
+                items.AddRange(itemC7s);
 
                 items.AddRange(itemD1s);
                 items.AddRange(itemD2s);

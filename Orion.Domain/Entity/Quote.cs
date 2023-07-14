@@ -147,6 +147,27 @@ namespace Orion.Domain.Entity
             get => _itemC4s;
             set => SetProperty(ref _itemC4s, value);
         }
+
+        private IList<ItemC5> _itemC5s;
+        public IList<ItemC5> ItemC5s
+        {
+            get => _itemC5s;
+            set => SetProperty(ref _itemC5s, value);
+        }
+
+        private IList<ItemC6> _itemC6s;
+        public IList<ItemC6> ItemC6s
+        {
+            get => _itemC6s;
+            set => SetProperty(ref _itemC6s, value);
+        }
+
+        private IList<ItemC7> _itemC7s;
+        public IList<ItemC7> ItemC7s
+        {
+            get => _itemC7s;
+            set => SetProperty(ref _itemC7s, value);
+        }
         #endregion
 
 
@@ -415,6 +436,9 @@ namespace Orion.Domain.Entity
             ItemC2s = new ObservableCollection<ItemC2>();
             ItemC3s = new ObservableCollection<ItemC3>();
             ItemC4s = new ObservableCollection<ItemC4>();
+            ItemC5s = new ObservableCollection<ItemC5>();
+            ItemC6s = new ObservableCollection<ItemC6>();
+            ItemC7s = new ObservableCollection<ItemC7>();
 
             ItemD1s = new ObservableCollection<ItemD1>();
             ItemD2s = new ObservableCollection<ItemD2>();

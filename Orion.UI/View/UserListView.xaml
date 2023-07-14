@@ -24,29 +24,133 @@
     </i:Interaction.Triggers>
 
 
+    <UserControl.InputBindings>
+        <KeyBinding Key="Enter" Command="{Binding Path=SearchCommand}" />
+    </UserControl.InputBindings>
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition />
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
+        <Grid Grid.Column="0" Width="200">
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsActive}" Value="True">
-                            <Setter Property="IsEnabled" Value="False"/>
+                            <Setter Property="IsEnabled" Value="False" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding IsActive}" Value="False">
-                            <Setter Property="IsEnabled" Value="True"/>
+                            <Setter Property="IsEnabled" Value="True" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
             <Grid.RowDefinitions>
-                <RowDefinition />
                 <RowDefinition Height="auto" />
+                <RowDefinition />
             </Grid.RowDefinitions>
+
+
+            <GroupBox
+                Grid.Row="0"
+                Margin="5,5,0,5"
+                ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                Header="Actions">
+                <Button
+                    Margin="1"
+                    Background="#93C039"
+                    Command="{Binding AddUserCommand}"
+                    ToolTip="Add User">
+                    <Button.Content>
+                        <StackPanel Orientation="Vertical">
+                            <icon:PackIconEntypo
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Kind="AddUser">
+                                <icon:PackIconEntypo.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                    </TransformGroup>
+                                </icon:PackIconEntypo.LayoutTransform>
+                            </icon:PackIconEntypo>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </GroupBox>
+
+
+
+            <GroupBox
+                Grid.Row="1"
+                Margin="5,0,0,5"
+                ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                Header="Search Options">
+                <StackPanel Orientation="Vertical">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox
+                            Grid.Column="0"
+                            ctrl:TextBoxHelper.ClearTextButton="True"
+                            ctrl:TextBoxHelper.Watermark="User Name"
+                            Style="{DynamicResource TxtStyle}"
+                            Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnNotifyDataErrors=True}" />
+
+                        <Button
+                            Grid.Column="1"
+                            Margin="1"
+                            Command="{Binding SearchCommand}"
+                            ToolTip="Search">
+                            <Button.Content>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <icon:PackIconMaterial
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Kind="Magnify">
+                                        <icon:PackIconMaterial.LayoutTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                            </TransformGroup>
+                                        </icon:PackIconMaterial.LayoutTransform>
+                                    </icon:PackIconMaterial>
+
+                                </Grid>
+                            </Button.Content>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+
+
+            </GroupBox>
+
+        </Grid>
+
+
+        <Grid Grid.Column="1">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsActive}" Value="True">
+                            <Setter Property="IsEnabled" Value="False" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsActive}" Value="False">
+                            <Setter Property="IsEnabled" Value="True" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
 
             <DataGrid
                 Grid.Row="0"
@@ -117,46 +221,26 @@
                         Header="Telephone"
                         HeaderStyle="{StaticResource ColumnHeaderStyle}"
                         IsReadOnly="True" />
+
+                    <DataGridTemplateColumn HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                        <DataGridTemplateColumn.Header>
+                            <StackPanel Orientation="Vertical">
+                                <Label Padding="0" Content="XpressPro" />
+                                <Label Padding="0" Content="Access" />
+                            </StackPanel>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding Permission.GeneralAccess, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource chekboxStyle}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
 
-            <GroupBox
-                Grid.Row="2"
-                Margin="5,0,5,5"
-                ctrl:ControlsHelper.ContentCharacterCasing="Normal"
-                Header="Actions">
-                <Grid>
-
-                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-
-                        <Button
-                            Width="65"
-                            Margin="1"
-                            Background="#93C039"
-                            Command="{Binding AddUserCommand}"
-                            ToolTip="Add User">
-                            <Button.Content>
-                                <StackPanel Orientation="Vertical">
-                                    <icon:PackIconEntypo
-                                        Grid.Column="1"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Kind="AddUser">
-                                        <icon:PackIconEntypo.LayoutTransform>
-                                            <TransformGroup>
-                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
-                                            </TransformGroup>
-                                        </icon:PackIconEntypo.LayoutTransform>
-                                    </icon:PackIconEntypo>
-                                </StackPanel>
-                            </Button.Content>
-                        </Button>
-                    </StackPanel>
-                </Grid>
-            </GroupBox>
         </Grid>
 
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="2">
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Style.Triggers>
@@ -169,8 +253,8 @@
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
-                
-            <ContentControl Content="{Binding CurrentViewModel}"/>
+
+            <ContentControl Content="{Binding CurrentViewModel}" />
         </Grid>
     </Grid>
 

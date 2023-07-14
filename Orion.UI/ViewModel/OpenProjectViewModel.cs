@@ -57,8 +57,23 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _user, value);
         }
 
+        private BindableBase _currentViewModel;
+        public BindableBase CurrentViewModel
+        {
+            get => _currentViewModel;
+            set => SetProperty(ref _currentViewModel, value);
+        }
+
+        private bool _isVisible;
+        public bool IsVisible
+        {
+            get => _isVisible;
+            set => SetProperty(ref _isVisible, value);
+        }
+
         public RelayCommand<dynamic> LoadDataCommand { get; set; }
         public RelayCommand<dynamic> OpenProjectCommand { get; set; }
+        public RelayCommand ExportProjectCommand { get; set; }
         public RelayCommand<object> DeleteProjectCommand { get; set; }
         public RelayCommand<object> SearchCommand { get; set; }
         public RelayCommand<object> ResetSearchCommand { get; set; }
@@ -75,6 +90,7 @@ namespace Orion.UI.ViewModel
             User = user;
             LoadDataCommand = new RelayCommand<dynamic>(OnLoadData);
             OpenProjectCommand = new RelayCommand<dynamic>(OnOpenProject);
+            ExportProjectCommand = new RelayCommand(OnExportProject);
             DeleteProjectCommand = new RelayCommand<object>(OnDeleteProject);
             SearchCommand = new RelayCommand<object>(OnSearch);
             ResetSearchCommand = new RelayCommand<object>(OnResetSearch);
@@ -83,6 +99,38 @@ namespace Orion.UI.ViewModel
 
             projectService = new ProjectService();
             messageService = new MessageService(dialogCoordinator, this);
+        }
+
+        private async void OnExportProject()
+        {
+            if (ProjectSelected == null)
+                return;
+
+            IsVisible = true;
+            CurrentViewModel = null;
+            await Task.Delay(100);
+
+            ExportProjectViewModel exportProjectViewModel = new ExportProjectViewModel(dialogCoordinator, User.Id, ProjectSelected.Id);
+            exportProjectViewModel.BackFromExportProjectRequested += OnBackFromExportProject;
+            exportProjectViewModel.ExportProjectRequested += OnExportProjectRequested;
+
+            CurrentViewModel = exportProjectViewModel;
+        }
+
+        private async void OnExportProjectRequested(Project newProject)
+        {
+            Projects.Insert(0, newProject);
+
+            IsVisible = false;
+            CurrentViewModel = null;
+            await Task.Delay(100);
+        }
+
+        private async void OnBackFromExportProject()
+        {
+            IsVisible = false;
+            CurrentViewModel = null;
+            await Task.Delay(100);
         }
 
         private void OnClose(dynamic window)

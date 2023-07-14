@@ -84,6 +84,12 @@ namespace Orion.UI.ViewModel
 
                 User = await userService.GetUserAsync(UserName, passwordBox.Password);
 
+                if (!User.Permission.GeneralAccess)
+                {
+                    await messageService.ResultMessage("Signing in", "Error. This user is not authorized for accessing this program");
+                    return;
+                }
+
                 await messageService.EndMessage($"Welcome {User.Name}");
             }
             catch (Exception ex)

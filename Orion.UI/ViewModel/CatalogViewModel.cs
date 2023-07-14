@@ -164,6 +164,12 @@ namespace Orion.UI.ViewModel
                 viewModel = new EditC3CatalogViewModel(dialogCoordinator, catalog, itemType);
             else if (CurrentViewModel is CatalogC4ListViewModel)
                 viewModel = new EditC4CatalogViewModel(dialogCoordinator, catalog, itemType);
+            else if (CurrentViewModel is CatalogC5ListViewModel)
+                viewModel = new EditC5CatalogViewModel(dialogCoordinator, catalog, itemType);
+            else if (CurrentViewModel is CatalogC6ListViewModel)
+                viewModel = new EditC6CatalogViewModel(dialogCoordinator, catalog, itemType);
+            else if (CurrentViewModel is CatalogC7ListViewModel)
+                viewModel = new EditC7CatalogViewModel(dialogCoordinator, catalog, itemType);
 
             else if (CurrentViewModel is CatalogD1ListViewModel)
                 viewModel = new EditD1CatalogViewModel(dialogCoordinator, catalog, itemType);
@@ -390,6 +396,15 @@ namespace Orion.UI.ViewModel
                     break;
                 case "c4":
                     viewModel = new CatalogC4ListViewModel(dialogCoordinator, ItemType.ItemC4);
+                    break;
+                case "c5":
+                    viewModel = new CatalogC5ListViewModel(dialogCoordinator, ItemType.ItemC5);
+                    break;
+                case "c6":
+                    viewModel = new CatalogC6ListViewModel(dialogCoordinator, ItemType.ItemC6);
+                    break;
+                case "c7":
+                    viewModel = new CatalogC7ListViewModel(dialogCoordinator, ItemType.ItemC7);
                     break;
                 case "d1":
                     viewModel = new CatalogD1ListViewModel(dialogCoordinator, ItemType.ItemD1);

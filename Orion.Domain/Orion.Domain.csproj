@@ -129,10 +129,17 @@
     <Compile Include="ABB\Catalog\CatalogB3.cs" />
     <Compile Include="ABB\Catalog\CatalogB4.cs" />
     <Compile Include="ABB\Catalog\CatalogB5.cs" />
+    <Compile Include="ABB\Fake\CatalogB1HorsePower.cs" />
     <Compile Include="AmericanWheatley\Catalog\CatalogC1.cs" />
     <Compile Include="AmericanWheatley\Catalog\CatalogC2.cs" />
     <Compile Include="AmericanWheatley\Catalog\CatalogC3.cs" />
     <Compile Include="AmericanWheatley\Catalog\CatalogC4.cs" />
+    <Compile Include="AmericanWheatley\Catalog\CatalogC5.cs" />
+    <Compile Include="AmericanWheatley\Catalog\CatalogC6.cs" />
+    <Compile Include="AmericanWheatley\Catalog\CatalogC7.cs" />
+    <Compile Include="AmericanWheatley\Item\ItemC5.cs" />
+    <Compile Include="AmericanWheatley\Item\ItemC6.cs" />
+    <Compile Include="AmericanWheatley\Item\ItemC7.cs" />
     <Compile Include="AmericanWheatley\Related\CatalogC3ProductType.cs" />
     <Compile Include="BACClosedLoopTowers\Catalog\CatalogH1.cs" />
     <Compile Include="BACClosedLoopTowers\Catalog\CatalogH2.cs" />

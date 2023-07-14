@@ -130,7 +130,9 @@ namespace Orion.Domain.Entity
         [NotMapped]
         public double Cost
         {
-            get => (ListPrice * CostMultiplier).Truncate(2);
+            //get => (ListPrice * CostMultiplier).Truncate();//2
+            get => (ListPrice * CostMultiplier).RoundUp();//2
+
             set
             {
                 if (!OverridePrice && Catalog != null)
@@ -159,7 +161,8 @@ namespace Orion.Domain.Entity
         [NotMapped]
         public double SellPrice
         {
-            get => (Cost / (1 - (SellMargin / 100))).Truncate(2);
+            //get => (Cost / (1 - (SellMargin / 100))).Truncate();//2
+            get => (Cost / (1 - (SellMargin / 100))).RoundUp();//2
             set
             {
                 if (!OverridePrice && Catalog != null)
@@ -173,7 +176,9 @@ namespace Orion.Domain.Entity
         [NotMapped]
         public double TotalPrice
         {
-            get => (SellPrice * Quantity).Truncate(2) + Freight;
+            //get => (SellPrice * Quantity).Truncate() + Freight;//2
+            get => (SellPrice * Quantity).RoundUp() + Freight;//2
+
             set
             {
                 if (!OverridePrice && Catalog != null)

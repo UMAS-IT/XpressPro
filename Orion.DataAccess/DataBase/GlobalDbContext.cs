@@ -81,6 +81,9 @@ namespace Orion.DataAccess.DataBase
         public DbSet<CatalogC2> CatalogC2s { get; set; }
         public DbSet<CatalogC3> CatalogC3s { get; set; }
         public DbSet<CatalogC4> CatalogC4s { get; set; }
+        public DbSet<CatalogC5> CatalogC5s { get; set; }
+        public DbSet<CatalogC6> CatalogC6s { get; set; }
+        public DbSet<CatalogC7> CatalogC7s { get; set; }
         #endregion
 
         #region American Wheatley Items
@@ -88,6 +91,9 @@ namespace Orion.DataAccess.DataBase
         public DbSet<ItemC2> ItemC2s { get; set; }
         public DbSet<ItemC3> ItemC3s { get; set; }
         public DbSet<ItemC4> ItemC4s { get; set; }
+        public DbSet<ItemC5> ItemC5s { get; set; }
+        public DbSet<ItemC6> ItemC6s { get; set; }
+        public DbSet<ItemC7> ItemC7s { get; set; }
         #endregion
 
         #region American Wheatley Related
@@ -219,9 +225,9 @@ namespace Orion.DataAccess.DataBase
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             #region Local Server
-            //optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = OrionDb; Trusted_Connection = True; ");
+            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = OrionDb; Trusted_Connection = True; ");
 
-            optionsBuilder.UseSqlServer("Server=tcp:airtreatment.database.windows.net,1433;Initial Catalog=OrionDb;Persist Security Info=False;User ID=airtreatmentAdb;Password=airtreatment2022.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            //optionsBuilder.UseSqlServer("Server=tcp:airtreatment.database.windows.net,1433;Initial Catalog=OrionDb;Persist Security Info=False;User ID=airtreatmentAdb;Password=airtreatment2022.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             #endregion
         }
         //User ID = umasAdb; Password=Umas2022.;
@@ -394,6 +400,21 @@ namespace Orion.DataAccess.DataBase
                         .HasMany(p => p.ItemC4s)
                         .WithOne(m => m.Quote)
                         .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemC5s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemC6s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemC7s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
             #endregion
 
             #region American Wheatley Item Titles
@@ -419,6 +440,24 @@ namespace Orion.DataAccess.DataBase
                         entry.HasOne(d => d.ItemC4)
                         .WithMany(x => x.Titles).IsRequired(false)
                         .HasForeignKey(y => y.ItemC4Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemC5)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemC5Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemC6)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemC6Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemC7)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemC7Id)
                         .OnDelete(DeleteBehavior.Restrict));
             #endregion
 

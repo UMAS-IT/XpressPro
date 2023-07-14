@@ -144,7 +144,7 @@ namespace Orion.UI.DependencyProperties
 
                 factory = new FrameworkElementFactory(typeof(TextBox));
                 factory.SetBinding(TextBox.TextProperty, new System.Windows.Data.Binding("Tag") { UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged, Mode = BindingMode.TwoWay });
-                factory.SetValue(TextBox.MaxLengthProperty, 20);
+                //factory.SetValue(TextBox.MaxLengthProperty, 20);
                 factory.SetValue(TextBox.CharacterCasingProperty, CharacterCasing.Upper);
 
                 AddColum(dataGrid, column, factory, 8);
@@ -260,13 +260,25 @@ namespace Orion.UI.DependencyProperties
 
 
 
+                //column = new DataGridTemplateColumn();
+                //column.Width = DataGridLength.Auto;
+                //column.IsReadOnly = true;
+                //AddColumnHeaderStyle(column, "Total");
+
+                //factory = new FrameworkElementFactory(typeof(TextBlock));
+                //factory.SetBinding(TextBlock.TextProperty, new System.Windows.Data.Binding("TotalPrice") { UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged, StringFormat = "{0:c}", Mode = BindingMode.TwoWay });
+
+                //AddColum(dataGrid, column, factory, 0, true);
+
+
+
                 column = new DataGridTemplateColumn();
                 column.Width = DataGridLength.Auto;
                 column.IsReadOnly = true;
                 AddColumnHeaderStyle(column, "Total");
 
-                factory = new FrameworkElementFactory(typeof(TextBlock));
-                factory.SetBinding(TextBlock.TextProperty, new System.Windows.Data.Binding("TotalPrice") { UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged, StringFormat = "{0:c}", Mode = BindingMode.TwoWay });
+                factory = new FrameworkElementFactory(typeof(TextBox));
+                factory.SetValue(TextBox.StyleProperty, Application.Current.Resources["totalPriceTextBoxStyle"]);
 
                 AddColum(dataGrid, column, factory, 0, true);
 

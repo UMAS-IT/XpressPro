@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace Orion.Domain.Entity
 {
-    public class Project : ValidatableBindableBase , IEntity
+    public class Project : ValidatableBindableBase , IEntity , ICloneable
     {
         private int _id;
         public int Id
@@ -130,6 +130,11 @@ namespace Orion.Domain.Entity
             Addendum = "";
             CreationDate = DateTime.Now;
             PlansDate = DateTime.Now;
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }

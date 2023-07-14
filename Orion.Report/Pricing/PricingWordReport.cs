@@ -1,4 +1,5 @@
 ﻿using Orion.Domain.Entity;
+using Orion.Helper.Extension;
 using Orion.Helper.Misc;
 using Spire.Doc;
 using Spire.Doc.Documents;
@@ -110,7 +111,24 @@ namespace Orion.Report.Pricing
                     AddTitlesAndSpecs(quote.ItemC4s.ToList<IItem>(), docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
-
+                if (quote.ItemC5s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.AddRange(pricingC.CreateC5ItemTable(quote.ItemC5s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemC5s.ToList<IItem>(), docSection);
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemC6s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.AddRange(pricingC.CreateC6ItemTable(quote.ItemC6s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemC6s.ToList<IItem>(), docSection);
+                    AddBlankLine(mainDocument, docSection);
+                }
+                if (quote.ItemC7s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.AddRange(pricingC.CreateC7ItemTable(quote.ItemC7s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemC7s.ToList<IItem>(), docSection);
+                    AddBlankLine(mainDocument, docSection);
+                }
 
 
                 if (quote.ItemE1s.Any(x => !x.IsExcluded))
@@ -168,6 +186,8 @@ namespace Orion.Report.Pricing
                     AddTitlesAndSpecs(quote.ItemJ1s.ToList<IItem>(), docSection);
                     AddBlankLine(mainDocument, docSection);
                 }
+
+
 
                 if (quote.ItemK1s.Any(x => !x.IsExcluded))
                 {
@@ -363,28 +383,34 @@ namespace Orion.Report.Pricing
                 {
                     PricingItem pricingItem = pricingItems[i];
 
+                    //spec with price
                     if (pricingItem.IsSpec && lastWasSpec == false)
                     {
                         lastWasSpec = true;
                         itemNumber += 1;
-                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", Math.Ceiling(pricingItem.Price))}", "", $"{string.Format("{0:C}", Math.Ceiling(pricingItem.Price))}" };
+                        //data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", (pricingItem.Price).Truncate())}", "", $"{string.Format("{0:C}", (pricingItem.Price).Truncate())}" };
+                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}", "", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
 
                     }
+                    //spec with price
                     else if (pricingItem.IsSpec && lastWasSpec == true)
                     {
                         lastWasSpec = true;
                         itemNumber += 1;
-                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", Math.Ceiling(pricingItem.Price))}", "", $"{string.Format("{0:C}", Math.Ceiling(pricingItem.Price))}" };
+                        //data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", (pricingItem.Price).Truncate())}", "", $"{string.Format("{0:C}", (pricingItem.Price).Truncate())}" };
+                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}", "", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
                     }
+                    //title
                     else if (pricingItem.IsTitle)
                     {
                         data[i] = new string[7] { $"", pricingItem.Tags, "", pricingItem.Description, "", "", "" };
                     }
+                    // item line
                     else
                     {
-
                         baseItemNumber = pricingItem.ItemNumber;
-                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal(Math.Ceiling(pricingItem.Price)))}", $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Freight))}", $"{string.Format("{0:C}", Convert.ToDecimal(Math.Ceiling(pricingItem.Price) + pricingItem.Freight))}" };
+                        //data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).Truncate()))}", $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Freight))}", $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).Truncate() + pricingItem.Freight))}" };
+                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).RoundUp()))}", $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Freight.RoundUp()))}", $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).RoundUp() + pricingItem.Freight.RoundUp()))}" };
                     }
                 }
 
@@ -403,14 +429,13 @@ namespace Orion.Report.Pricing
                     {
                         lastWasSpec = true;
                         itemNumber += 1;
-                        data[i] = new string[8] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, "", "", "", $"{string.Format("{0:C}", Math.Ceiling(pricingItem.Price))}" };
-
+                        data[i] = new string[8] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, "", "", "", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
                     }
                     else if (pricingItem.IsSpec && lastWasSpec == true)
                     {
                         lastWasSpec = true;
                         itemNumber += 1;
-                        data[i] = new string[8] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, "", "", "", $"{string.Format("{0:C}", Math.Ceiling(pricingItem.Price))}" };
+                        data[i] = new string[8] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, "", "", "", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
                     }
                     else if (pricingItem.IsTitle)
                     {
@@ -420,7 +445,7 @@ namespace Orion.Report.Pricing
                     {
                         baseItemNumber = pricingItem.ItemNumber;
 
-                        data[i] = new string[8] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), $"{pricingItem.Description}", $"{string.Format("{0:C}", Math.Ceiling(pricingItem.Price / pricingItem.Quantity))}", $"{string.Format("{0:C}", Math.Ceiling(pricingItem.Price))}", $"{string.Format("{0:C}", Math.Ceiling(pricingItem.Freight))}", $"{string.Format("{0:C}", Math.Ceiling(pricingItem.Price + pricingItem.Freight))}" };
+                        data[i] = new string[8] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), $"{pricingItem.Description}", $"{string.Format("{0:C}", (pricingItem.Price / pricingItem.Quantity).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Freight).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Price + pricingItem.Freight).RoundUp())}" };
                     }
                 }
 
@@ -434,7 +459,7 @@ namespace Orion.Report.Pricing
         {
             string[][] data = new string[1][];
 
-            data[0] = new string[1] { $"{string.Format("{0:C}", pricingItems.Sum(x => Math.Ceiling(x.Price + x.Freight)))}" };
+            data[0] = new string[1] { $"{string.Format("{0:C}", pricingItems.Sum(x => (x.Price + x.Freight).RoundUp()))}" };
 
             CreateResultTable(docSection, data);
 

@@ -66,6 +66,7 @@ namespace Orion.DataAccess.Service
 
                 dbUser.Permission.CanEditCatalogs = user.Permission.CanEditCatalogs;
                 dbUser.Permission.IsAdmin = user.Permission.IsAdmin;
+                dbUser.Permission.GeneralAccess = user.Permission.GeneralAccess;
 
                 context.Update(dbUser);
                 context.SaveChanges();

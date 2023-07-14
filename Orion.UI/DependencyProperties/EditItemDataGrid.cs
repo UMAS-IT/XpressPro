@@ -87,7 +87,7 @@ namespace Orion.UI.DependencyProperties
 
                 factory = new FrameworkElementFactory(typeof(TextBox));
                 factory.SetBinding(TextBox.TextProperty, new System.Windows.Data.Binding("Tag") { UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged, Mode = BindingMode.TwoWay });
-                factory.SetValue(TextBox.MaxLengthProperty, 20);
+                //factory.SetValue(TextBox.MaxLengthProperty, 20);
                 factory.SetValue(TextBox.CharacterCasingProperty, CharacterCasing.Upper);
 
                 AddColum(dataGrid, column, factory, 3);

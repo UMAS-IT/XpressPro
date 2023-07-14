@@ -232,7 +232,7 @@
                         <DataGridTemplateColumn Header="Tag" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="20" CharacterCasing="Upper"/>
+                                    <TextBox Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" CharacterCasing="Upper"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

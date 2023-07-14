@@ -29,6 +29,13 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _users, value);
         }
 
+        private ObservableCollection<User> _usersBase;
+        public ObservableCollection<User> UsersBase
+        {
+            get => _usersBase;
+            set => SetProperty(ref _usersBase, value);
+        }
+
         private BindableBase _currentViewModel;
         public BindableBase CurrentViewModel
         {
@@ -51,10 +58,18 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _isActive, value);
         }
 
+        private string _userName;
+        public string UserName
+        {
+            get => _userName;
+            set => SetProperty(ref _userName, value);
+        }
+
         public RelayCommand LoadDataCommad { get; set; }
         public RelayCommand EditUserCommand { get; set; }
         public RelayCommand AddUserCommand { get; set; }
-
+        public RelayCommand SearchCommand { get; set; }
+        public RelayCommand ResetSearchCommand { get; set; }
 
         public UserListViewModel(IDialogCoordinator dialogCoordinator)
         {
@@ -63,6 +78,8 @@ namespace Orion.UI.ViewModel
             LoadDataCommad = new RelayCommand(OnLoadData);
             EditUserCommand = new RelayCommand(OnEditUser);
             AddUserCommand = new RelayCommand(OnAddUser);
+            SearchCommand = new RelayCommand(OnSearch);
+            ResetSearchCommand = new RelayCommand(OnResetSearch);
 
             userService = new UserService();
             messageService = new MessageService(dialogCoordinator, this);
@@ -126,7 +143,8 @@ namespace Orion.UI.ViewModel
             {
                 await messageService.StartMessage("Loading Users", "Please Wait...");
 
-                Users = userService.GetUsers().ToObservableCollection();
+                UsersBase = userService.GetUsers().ToObservableCollection();
+                Users = UsersBase;
                 IsActive = false;
 
                 await messageService.EndMessage($"Users Loaded");
@@ -136,6 +154,17 @@ namespace Orion.UI.ViewModel
                 await messageService.ExceptionMessage(ex);
                 return;
             }
+        }
+
+        private void OnResetSearch()
+        {
+            Users = UsersBase;
+            UserName = "";
+        }
+
+        public virtual void OnSearch()
+        {
+            Users = UsersBase.Where(x => x.Name.ToFormat().Contains(UserName.ToFormat())).ToObservableCollection();
         }
     }
 }

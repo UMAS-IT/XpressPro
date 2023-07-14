@@ -52,7 +52,7 @@ namespace Orion.Report.Pricing
         {
             double sellPrice = 0;
 
-            items.ToList().ForEach(x => sellPrice += x.OverridePrice ? Math.Ceiling(x.Quantity * x.SellPrice) : Math.Ceiling(x.Quantity * x.Catalog.SellPrice));
+            items.ToList().ForEach(x => sellPrice += x.OverridePrice ? (x.Quantity * x.SellPrice.RoundUp()) : (x.Quantity * x.Catalog.SellPrice.RoundUp()));
 
             return sellPrice;
 
@@ -60,7 +60,8 @@ namespace Orion.Report.Pricing
 
         public double JoinFreights(IList<IItem> items)
         {
-            return Math.Ceiling(items.Sum(x => x.Freight));
+            return (items.Sum(x => x.Freight.RoundUp()));
+
         }
 
         public string GetColumnName(int number)
@@ -460,7 +461,7 @@ namespace Orion.Report.Pricing
                                 continue;
 
                             //pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]({item.Quantity})", 1, tempItem.Catalog.Company, false, true));
-                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company, 0, null, false, true));
+                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price.RoundUp(), $"[{item.Tag}]", 1, tempItem.Catalog.Company, 0, null, false, true));
                         }
                     }
                 }
@@ -488,7 +489,7 @@ namespace Orion.Report.Pricing
                                 continue;
 
                             //pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]({item.Quantity})", 1, tempItem.Catalog.Company, false, true));
-                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price, $"[{item.Tag}]", 1, tempItem.Catalog.Company,0, null, false, true));
+                            pricingItems.Add(new PricingItem(0, spec.Name, spec.Price.RoundUp(), $"[{item.Tag}]", 1, tempItem.Catalog.Company,0, null, false, true));
                         }
                     }
                 }
@@ -913,29 +914,32 @@ namespace Orion.Report.Pricing
                 string letter = GetColumnName(itemNumber);
 
 
-                worksheet.Cell(row, column).Value = letter;
-                worksheet.Cell(row, column + 1).Value = $"[{item.Tag}]";
-                worksheet.Cell(row, column + 2).Value = item.Quantity;
-                worksheet.Cell(row, column + 3).Value = $"{item.Catalog.Company}: {item.Catalog.Product}";
-                worksheet.Cell(row, column + 4).Value = item.OverridePrice ? Math.Ceiling(item.ListPrice) : Math.Ceiling(item.Catalog.ListPrice);
-                worksheet.Cell(row, column + 5).Value = 0;
-                worksheet.Cell(row, column + 6).Value = item.OverridePrice ? item.CostMultiplier : item.Catalog.CostMultiplier;
-                worksheet.Cell(row, column + 7).FormulaA1 = $"=CEILING((F{row}+G{row})*H{row}, 1)";
-                worksheet.Cell(row, column + 8).Value = 0;
-                worksheet.Cell(row, column + 9).Value = 0;
-                worksheet.Cell(row, column + 10).Value = item.OverridePrice ? item.SellMargin / 100.0 : item.Catalog.SellMargin / 100.0;
+                worksheet.Cell(row, column).Value = letter; // B
+                worksheet.Cell(row, column + 1).Value = $"[{item.Tag}]"; // C
+                worksheet.Cell(row, column + 2).Value = item.Quantity; // D
+                worksheet.Cell(row, column + 3).Value = $"{item.Catalog.Company}: {item.Catalog.Product}"; // E
+                worksheet.Cell(row, column + 4).Value = item.OverridePrice ? (item.ListPrice).RoundUp() : (item.Catalog.ListPrice).RoundUp(); // F
+                worksheet.Cell(row, column + 5).Value = 0; // G
+                worksheet.Cell(row, column + 6).Value = item.OverridePrice ? item.CostMultiplier : item.Catalog.CostMultiplier; // H
 
-                //worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}+J{row}+K{row})*(D{row}/(1-L{row})),1)";
-                worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}+J{row}+K{row})/(1-L{row}),1)";
+                worksheet.Cell(row, column + 7).FormulaA1 = $"=CEILING((F{row}+G{row})*H{row}, 1)";//I
+                //worksheet.Cell(row, column + 7).FormulaA1 = $"=(F{row}+G{row})*H{row}";
 
-                worksheet.Cell(row, column + 12).Value = Math.Ceiling(item.Freight);
+                worksheet.Cell(row, column + 8).Value = 0;// J
+                worksheet.Cell(row, column + 9).Value = 0;//K
+                worksheet.Cell(row, column + 10).Value = item.OverridePrice ? item.SellMargin / 100.0 : item.Catalog.SellMargin / 100.0;//L
 
-                //worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}+N{row}, 1)";
-                worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}*D{row}, 1)+N{row}";
+                worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}+J{row}+K{row})/(1-L{row}),1)"; // M
+                //worksheet.Cell(row, column + 11).FormulaA1 = $"=(I{row}+J{row}+K{row})/(1-L{row})";
+
+                worksheet.Cell(row, column + 12).Value = (item.Freight).RoundUp();//N
+
+                //worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}*D{row}, 1)+N{row}";
+                worksheet.Cell(row, column + 13).FormulaA1 = $"=M{row}*D{row}+N{row}";//O
 
 
-                //worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(O{row}-SUM(I{row},J{row},K{row},N{row}), 1)";
-                worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(((O{row}-N{row})-(SUM(I{row},J{row},K{row})*D{row})+N{row}), 1)";
+                //worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(((O{row}-N{row})-(SUM(I{row},J{row},K{row})*D{row})+N{row}), 1)";
+                worksheet.Cell(row, column + 15).FormulaA1 = $"=((O{row}-N{row})-(SUM(I{row},J{row},K{row})*D{row})+N{row})";
 
 
                 IXLRange itemRange = worksheet.Range(row, column, row, column + 15);
@@ -959,10 +963,14 @@ namespace Orion.Report.Pricing
 
                         worksheet.Cell(row, column).Value = letter + specNumber;
                         worksheet.Cell(row, column + 3).Value = $"{spec.Name}";
-                        worksheet.Cell(row, column + 11).Value = Math.Ceiling(spec.Price);
+                        worksheet.Cell(row, column + 11).Value = (spec.Price).RoundUp();
                         worksheet.Cell(row, column + 12).Value = 0;
-                        worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}+N{row}, 1)";
-                        worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(O{row}-SUM(I{row},J{row},K{row},N{row}), 1)";
+                        //worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}+N{row}, 1)";
+                        worksheet.Cell(row, column + 13).FormulaA1 = $"=M{row}+N{row}";
+
+                        //worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(O{row}-SUM(I{row},J{row},K{row},N{row}), 1)";
+                        worksheet.Cell(row, column + 15).FormulaA1 = $"=O{row}-SUM(I{row},J{row},K{row},N{row})";
+
 
                         row++;
                     }

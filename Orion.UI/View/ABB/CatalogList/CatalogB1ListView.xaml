@@ -30,18 +30,19 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Width="150">
+        <Grid Grid.Column="0" Width="200">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition />
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
 
             <GroupBox Header="Actions" 
                       ctrl:ControlsHelper.ContentCharacterCasing="Normal"
                       Grid.Row="0"
-                                  Margin="5,5,0,5" HorizontalAlignment="Left" Width="145">
+                                  Margin="5,5,0,5" >
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -109,25 +110,90 @@
                       ctrl:ControlsHelper.ContentCharacterCasing="Normal"
                                   Margin="5,0,0,5">
                 <StackPanel Orientation="Vertical">
-                    <TextBox  
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox  
                              Grid.Column="0"
                              ctrl:TextBoxHelper.Watermark="Model Name"                          
-                             ToolTip="Press ENTER to update searching"
                              ctrl:TextBoxHelper.ClearTextButton="True"
-                             ctrl:TextBoxHelper.ButtonCommand="{Binding ResetSearchCommand}"
                              Text="{Binding Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnNotifyDataErrors=True}"
                              Style="{DynamicResource TxtStyle}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </TextBox>
+                        </TextBox>
+
+                        <Button Grid.Column="1"  
+                        Margin="1"
+                            ToolTip="Search"
+                                        Command="{Binding SearchCommand}">
+                            <Button.Content>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
 
 
+                                    <icon:PackIconMaterial Kind="Magnify" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                        <icon:PackIconMaterial.LayoutTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            </TransformGroup>
+                                        </icon:PackIconMaterial.LayoutTransform>
+                                    </icon:PackIconMaterial>
+
+                                </Grid>
+                            </Button.Content>
+                        </Button>
+                    </Grid>
                 </StackPanel>
 
 
+            </GroupBox>
+
+            <GroupBox  Grid.Row="2"
+                      ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                                  Margin="5,0,0,5">
+                <GroupBox.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="HP's" Padding="0" VerticalAlignment="Center"/>
+                        <Button Grid.Column="1" Margin="-2" Command="{Binding ClearHPsCommand}">
+                            <icon:PackIconMaterialDesign Kind="ClearAll" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                <icon:PackIconMaterialDesign.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                    </TransformGroup>
+                                </icon:PackIconMaterialDesign.LayoutTransform>
+                            </icon:PackIconMaterialDesign>
+                        </Button>
+                    </Grid>
+                </GroupBox.Header>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <ItemsControl ItemsSource="{Binding CatalogB1HorsePowers, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="1" BorderBrush="White" Margin="0,2">
+                                    <CheckBox Grid.Column="0" Margin="5,0,0,0" IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                        <CheckBox.Content>
+                                            <TextBlock Grid.Column="1" Text="{Binding Hp}" TextWrapping="Wrap" TextAlignment="Left" Margin="0,5" />
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
             </GroupBox>
 
         </Grid>

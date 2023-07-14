@@ -67,7 +67,10 @@ namespace Orion.DataAccess.Service
             catalogs.AddRange(context.CatalogC2s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
             catalogs.AddRange(context.CatalogC3s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
             catalogs.AddRange(context.CatalogC4s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
-           
+            catalogs.AddRange(context.CatalogC5s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogC6s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogC7s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
             catalogs.AddRange(context.CatalogD1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
             catalogs.AddRange(context.CatalogD2s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
             

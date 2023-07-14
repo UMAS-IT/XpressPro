@@ -18,13 +18,10 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                //User dbUser = context.Users.First(x => x.Id == user.Id);
-
                 if (user.Permission.IsAdmin)
                     return context.Projects.Include(x => x.User).OrderByDescending(x => x.Id).ToList();
                 else
                     return context.Projects.Include(x => x.User).Where(x => x.UserId == user.Id).OrderByDescending(x => x.Id).ToList();
-
             }
         }
 
@@ -91,7 +88,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.Projects.Include(x => x.User).FirstOrDefault(p => p.Id == projectId);
+                return context.Projects.Include(x => x.User).Include(x => x.Quotes).FirstOrDefault(p => p.Id == projectId);
             }
         }
 
@@ -105,18 +102,40 @@ namespace Orion.DataAccess.Service
             }
         }
 
-        //public Project GetProjectData(int projectId)
-        //{
-        //    using (GlobalDbContext context = new GlobalDbContext())
-        //    {
-        //        return context.Projects.AsNoTracking()
-        //            .Include(p => p.User)
-        //            .Include(x => x.Quotes).ThenInclude(x => x.ItemAirCooledChiller).ThenInclude(x => x.ItemAirCooledChillerCatalogAirCooledChillers).ThenInclude(x => x.Catalog)
-        //            .Include(x => x.Quotes).ThenInclude(x => x.ItemPump).ThenInclude(x => x.ItemPumpCatalogPumps).ThenInclude(x => x.CatalogPump)
-        //            .Include(x => x.Quotes).ThenInclude(x => x.ItemUnit).ThenInclude(x => x.ItemUnitCatalogUnits).ThenInclude(x => x.CatalogUnit)
-        //            .Include(x => x.Quotes).ThenInclude(x => x.ItemVfd).ThenInclude(x => x.ItemVfdCatalogVfds).ThenInclude(x => x.CatalogVfd)
-        //            .FirstOrDefault(x => x.Id == projectId);
-        //    }
-        //}
+        public bool ProjectNameExist(string name)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.Projects.Any(x => x.Name.ToFormat() == name.ToFormat());
+            }
+        }
+
+        public async Task<Project> CloneProject(int selectedProjectId, int targetUserId, string newProjectName)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                Project sourceProject = context.Projects.FirstOrDefault(p => p.Id == selectedProjectId);
+                User newUser = context.Users.FirstOrDefault(x => x.Id == targetUserId);
+
+                Project newProject = (Project)sourceProject.Clone();
+                newProject.Id = 0;
+                newProject.Name = newProjectName;
+                newProject.User = newUser;
+                newProject.UserId = newUser.Id;
+
+                int projectNumber = GV.RandomProjectNumber();
+
+                while (context.Projects.Any(x => x.Number == projectNumber))
+                {
+                    projectNumber = GV.RandomProjectNumber();
+                }
+                newProject.Number = projectNumber;
+
+                context.Projects.Update(newProject);
+                await context.SaveChangesAsync();
+
+                return newProject;
+            }
+        }
     }
 }
