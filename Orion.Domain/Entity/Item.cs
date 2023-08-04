@@ -71,7 +71,8 @@ namespace Orion.Domain.Entity
             set
             {
                 SetProperty(ref _quantity, value);
-                TotalPrice = (SellPrice * value) + Freight;
+                TotalEachPrice = Cost + Freight;
+                TotalPrice = SellPrice * value;
             }
         }
 
@@ -88,7 +89,8 @@ namespace Orion.Domain.Entity
                     Cost = Catalog.Cost;
                     SellMargin = Catalog.SellMargin;
                     SellPrice = Catalog.SellPrice;
-                    TotalPrice = (Catalog.SellPrice * Quantity) + Freight;
+                    TotalEachPrice = Cost + Freight;
+                    TotalPrice = SellPrice * Quantity;
                 }
                 SetProperty(ref _overridePrice, value);
             }
@@ -105,8 +107,9 @@ namespace Orion.Domain.Entity
 
                 SetProperty(ref _listPrice, value);
                 Cost = value * CostMultiplier;
-                SellPrice = Cost / (1 - (SellMargin / 100));
-                TotalPrice = (SellPrice * Quantity) + Freight;
+                TotalEachPrice = Cost + Freight;
+                SellPrice = TotalEachPrice / (1 - (SellMargin / 100));
+                TotalPrice = SellPrice * Quantity;
             }
         }
 
@@ -121,8 +124,9 @@ namespace Orion.Domain.Entity
 
                 SetProperty(ref _costMultiplier, value);
                 Cost = value * ListPrice;
-                SellPrice = Cost / (1 - (SellMargin / 100));
-                TotalPrice = (SellPrice * Quantity) + Freight;
+                TotalEachPrice = Cost + Freight;
+                SellPrice = TotalEachPrice / (1 - (SellMargin / 100));
+                TotalPrice = SellPrice * Quantity;
             }
         }
 
@@ -130,7 +134,6 @@ namespace Orion.Domain.Entity
         [NotMapped]
         public double Cost
         {
-            //get => (ListPrice * CostMultiplier).Truncate();//2
             get => (ListPrice * CostMultiplier).RoundUp();//2
 
             set
@@ -152,8 +155,9 @@ namespace Orion.Domain.Entity
                     value = Catalog.SellMargin;
 
                 SetProperty(ref _sellMargin, value);
-                SellPrice = Cost / (1 - (value / 100));
-                TotalPrice = (SellPrice * Quantity) + Freight;
+                TotalEachPrice = Cost + Freight;
+                SellPrice = TotalEachPrice / (1 - (value / 100));
+                TotalPrice = SellPrice * Quantity;
             }
         }
 
@@ -161,12 +165,11 @@ namespace Orion.Domain.Entity
         [NotMapped]
         public double SellPrice
         {
-            //get => (Cost / (1 - (SellMargin / 100))).Truncate();//2
-            get => (Cost / (1 - (SellMargin / 100))).RoundUp();//2
+            get => (TotalEachPrice / (1 - (SellMargin / 100))).RoundUp();//2
             set
             {
                 if (!OverridePrice && Catalog != null)
-                    value = Catalog.SellPrice;
+                    value = Catalog.SellPrice + Freight;
 
                 SetProperty(ref _sellPrice, value);
             }
@@ -176,17 +179,16 @@ namespace Orion.Domain.Entity
         [NotMapped]
         public double TotalPrice
         {
-            //get => (SellPrice * Quantity).Truncate() + Freight;//2
-            get => (SellPrice * Quantity).RoundUp() + Freight;//2
-
+            get => (SellPrice * Quantity).RoundUp();//2
             set
             {
                 if (!OverridePrice && Catalog != null)
-                    value = (Catalog.SellPrice * Quantity) + Freight;
+                    value = (Catalog.SellPrice + Freight) * Quantity;
 
                 SetProperty(ref _totalPrice, value);
             }
         }
+        
 
         private double _freight;
         public double Freight
@@ -195,7 +197,21 @@ namespace Orion.Domain.Entity
             set
             {
                 SetProperty(ref _freight, value);
-                TotalPrice = (SellPrice * Quantity) + value;
+                TotalEachPrice = Cost + value;
+                SellPrice = TotalEachPrice / (1 - (value / 100));
+                TotalPrice = SellPrice * Quantity;
+            }
+        }
+
+        private double _totalEachPrice;
+        [NotMapped]
+        public double TotalEachPrice
+        {
+            get => Cost + Freight;
+            set
+            {
+                SetProperty(ref _totalEachPrice, value);
+                TotalPrice = SellPrice * Quantity;
             }
         }
 

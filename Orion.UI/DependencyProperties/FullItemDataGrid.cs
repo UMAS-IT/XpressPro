@@ -41,6 +41,7 @@ namespace Orion.UI.DependencyProperties
             || x.Header.ToString().ToFormat() == "total"
             || x.Header.ToString().ToFormat() == "model"
             || x.Header.ToString().ToFormat() == "freight"
+            || x.Header.ToString().ToFormat() == "total cost"
             || x.Header.ToString().ToFormat() == "tag"))
             {
 
@@ -206,15 +207,46 @@ namespace Orion.UI.DependencyProperties
 
 
 
+
                 column = new DataGridTemplateColumn();
                 column.Width = DataGridLength.Auto;
                 column.IsReadOnly = true;
-                AddColumnHeaderStyle(column, "Cost");
+                AddColumnHeaderStyle(column, "Each Cost");
 
                 factory = new FrameworkElementFactory(typeof(TextBlock));
                 factory.SetBinding(TextBlock.TextProperty, new System.Windows.Data.Binding("Cost") { UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged, StringFormat = "{0:c}", Mode = BindingMode.TwoWay });
 
                 AddColum(dataGrid, column, factory, 0, true);
+
+
+
+
+                column = new DataGridTemplateColumn();
+
+                AddColumnHeaderStyle(column, "Each Freight");
+
+                factory = new FrameworkElementFactory(typeof(TextBox));
+                //factory.SetValue(TextBox.StyleProperty, Application.Current.Resources["overrideTextBoxStyle"]);
+                factory.SetBinding(TextBox.TextProperty, new System.Windows.Data.Binding("Freight") { UpdateSourceTrigger = UpdateSourceTrigger.LostFocus, StringFormat = "{0:c}", Mode = BindingMode.TwoWay });
+                factory.SetValue(TextBox.MaxLengthProperty, 20);
+                factory.SetValue(TextBoxHelper.SelectAllOnFocusProperty, true);
+                factory.AddHandler(PreviewTextInputEvent, new TextCompositionEventHandler(IsDouble));
+
+                AddColum(dataGrid, column, factory, 0, true);
+
+
+
+
+                column = new DataGridTemplateColumn();
+                column.Width = DataGridLength.Auto;
+                column.IsReadOnly = true;
+                AddColumnHeaderStyle(column, "Total Cost");
+
+                factory = new FrameworkElementFactory(typeof(TextBlock));
+                factory.SetBinding(TextBlock.TextProperty, new System.Windows.Data.Binding("TotalEachPrice") { UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged, StringFormat = "{0:c}", Mode = BindingMode.TwoWay });
+
+                AddColum(dataGrid, column, factory, 0, true);
+
 
 
 
@@ -240,21 +272,6 @@ namespace Orion.UI.DependencyProperties
 
                 factory = new FrameworkElementFactory(typeof(TextBlock));
                 factory.SetBinding(TextBlock.TextProperty, new System.Windows.Data.Binding("SellPrice") { UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged, StringFormat = "{0:c}", Mode = BindingMode.TwoWay });
-
-                AddColum(dataGrid, column, factory, 0, true);
-
-
-
-                column = new DataGridTemplateColumn();
-
-                AddColumnHeaderStyle(column, "Freight");
-
-                factory = new FrameworkElementFactory(typeof(TextBox));
-                //factory.SetValue(TextBox.StyleProperty, Application.Current.Resources["overrideTextBoxStyle"]);
-                factory.SetBinding(TextBox.TextProperty, new System.Windows.Data.Binding("Freight") { UpdateSourceTrigger = UpdateSourceTrigger.LostFocus, StringFormat = "{0:c}", Mode = BindingMode.TwoWay });
-                factory.SetValue(TextBox.MaxLengthProperty, 20);
-                factory.SetValue(TextBoxHelper.SelectAllOnFocusProperty, true);
-                factory.AddHandler(PreviewTextInputEvent, new TextCompositionEventHandler(IsDouble));
 
                 AddColum(dataGrid, column, factory, 0, true);
 

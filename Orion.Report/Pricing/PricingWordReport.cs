@@ -387,7 +387,7 @@ namespace Orion.Report.Pricing
             if (!GV.Extended)
             {
                 String[] title = { $"Pricing" };
-                String[] Header = { "Item", "Tags", "Quantity", "Description", "Price Per Line", "Freight", "Total" };
+                String[] Header = { "Item", "Tags", "Quantity", "Description", "Price Per Line", "Total" };
 
                 for (int i = 0; i < pricingItems.Count; i++)
                 {
@@ -398,8 +398,7 @@ namespace Orion.Report.Pricing
                     {
                         lastWasSpec = true;
                         itemNumber += 1;
-                        //data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", (pricingItem.Price).Truncate())}", "", $"{string.Format("{0:C}", (pricingItem.Price).Truncate())}" };
-                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}", "", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
+                        data[i] = new string[6] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
 
                     }
                     //spec with price
@@ -407,20 +406,18 @@ namespace Orion.Report.Pricing
                     {
                         lastWasSpec = true;
                         itemNumber += 1;
-                        //data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", (pricingItem.Price).Truncate())}", "", $"{string.Format("{0:C}", (pricingItem.Price).Truncate())}" };
-                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}", "", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
+                        data[i] = new string[6] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
                     }
                     //title
                     else if (pricingItem.IsTitle)
                     {
-                        data[i] = new string[7] { $"", pricingItem.Tags, "", pricingItem.Description, "", "", "" };
+                        data[i] = new string[6] { $"", pricingItem.Tags, "", pricingItem.Description, "", "" };
                     }
                     // item line
                     else
                     {
                         baseItemNumber = pricingItem.ItemNumber;
-                        //data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).Truncate()))}", $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Freight))}", $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).Truncate() + pricingItem.Freight))}" };
-                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), $"{pricingItem.Item.Catalog.Company}: {pricingItem.Item.Catalog.Product}", $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).RoundUp()))}", $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Freight.RoundUp()))}", $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).RoundUp() + pricingItem.Freight.RoundUp()))}" };
+                        data[i] = new string[6] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), $"{pricingItem.Item.Catalog.Company}: {pricingItem.Item.Catalog.Product}", $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).RoundUp()))}", $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).RoundUp()))}" };
                     }
                 }
 
@@ -429,7 +426,7 @@ namespace Orion.Report.Pricing
             else
             {
                 String[] title = { $"Pricing" };
-                String[] Header = { "Item", "Tags", "Quantity", "Description", "Price Each", "Extended Price", "Freight", "Total" };
+                String[] Header = { "Item", "Tags", "Quantity", "Description", "Price Each", "Extended Price", "Total" };
 
                 for (int i = 0; i < pricingItems.Count; i++)
                 {
@@ -439,23 +436,23 @@ namespace Orion.Report.Pricing
                     {
                         lastWasSpec = true;
                         itemNumber += 1;
-                        data[i] = new string[8] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, "", "", "", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
+                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, "", "", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
                     }
                     else if (pricingItem.IsSpec && lastWasSpec == true)
                     {
                         lastWasSpec = true;
                         itemNumber += 1;
-                        data[i] = new string[8] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, "", "", "", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
+                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)baseItemNumber)))}{itemNumber}", "", "", pricingItem.Description, "", "", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
                     }
                     else if (pricingItem.IsTitle)
                     {
-                        data[i] = new string[8] { $"", pricingItem.Tags, "", pricingItem.Description, "", "", "", "" };
+                        data[i] = new string[7] { $"", pricingItem.Tags, "", pricingItem.Description, "", "", "" };
                     }
                     else
                     {
                         baseItemNumber = pricingItem.ItemNumber;
 
-                        data[i] = new string[8] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), $"{pricingItem.Item.Catalog.Company}: {pricingItem.Item.Catalog.Product}", $"{string.Format("{0:C}", (pricingItem.Price / pricingItem.Quantity).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Freight).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Price + pricingItem.Freight).RoundUp())}" };
+                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), $"{pricingItem.Item.Catalog.Company}: {pricingItem.Item.Catalog.Product}", $"{string.Format("{0:C}", (pricingItem.Price / pricingItem.Quantity).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}" };
                     }
                 }
 
@@ -469,7 +466,7 @@ namespace Orion.Report.Pricing
         {
             string[][] data = new string[1][];
 
-            data[0] = new string[1] { $"{string.Format("{0:C}", pricingItems.Sum(x => (x.Price + x.Freight).RoundUp()))}" };
+            data[0] = new string[1] { $"{string.Format("{0:C}", pricingItems.Sum(x => (x.Price).RoundUp()))}" };
 
             CreateResultTable(docSection, data);
 

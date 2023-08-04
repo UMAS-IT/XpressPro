@@ -24,7 +24,8 @@ namespace Orion.Domain.Entity
         [NotMapped]
         bool HasTitles { get; set; }
         double Freight { get; set; }
-
+        [NotMapped]
+        double TotalEachPrice { get; set; }
     }
 }
 

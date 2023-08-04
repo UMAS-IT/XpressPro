@@ -332,6 +332,13 @@ namespace Orion.DataAccess.Service
                         .ToList<ICatalog>();
                     break;
 
+                case ItemType.ItemK3:
+                    catalogs = context.CatalogK3s.Include(c => c.DataSheet)
+                        .ThenInclude(ds => ds.Titles)
+                        .ThenInclude(t => t.Specs)
+                        .ToList<ICatalog>();
+                    break;
+
                 case ItemType.ItemL1:
                     catalogs = context.CatalogL1s.Include(c => c.DataSheet)
                         .ThenInclude(ds => ds.Titles)

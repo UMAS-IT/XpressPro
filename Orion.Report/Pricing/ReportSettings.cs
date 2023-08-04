@@ -925,22 +925,17 @@ namespace Orion.Report.Pricing
                 worksheet.Cell(row, column + 6).Value = item.OverridePrice ? item.CostMultiplier : item.Catalog.CostMultiplier; // H
 
                 worksheet.Cell(row, column + 7).FormulaA1 = $"=CEILING((F{row}+G{row})*H{row}, 1)";//I
-                //worksheet.Cell(row, column + 7).FormulaA1 = $"=(F{row}+G{row})*H{row}";
 
                 worksheet.Cell(row, column + 8).Value = 0;// J
                 worksheet.Cell(row, column + 9).Value = 0;//K
                 worksheet.Cell(row, column + 10).Value = item.OverridePrice ? item.SellMargin / 100.0 : item.Catalog.SellMargin / 100.0;//L
 
                 worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}+J{row}+K{row})/(1-L{row}),1)"; // M
-                //worksheet.Cell(row, column + 11).FormulaA1 = $"=(I{row}+J{row}+K{row})/(1-L{row})";
 
                 worksheet.Cell(row, column + 12).Value = (item.Freight).RoundUp();//N
 
-                //worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}*D{row}, 1)+N{row}";
                 worksheet.Cell(row, column + 13).FormulaA1 = $"=M{row}*D{row}+N{row}";//O
 
-
-                //worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(((O{row}-N{row})-(SUM(I{row},J{row},K{row})*D{row})+N{row}), 1)";
                 worksheet.Cell(row, column + 15).FormulaA1 = $"=((O{row}-N{row})-(SUM(I{row},J{row},K{row})*D{row})+N{row})";
 
 
