@@ -313,6 +313,7 @@ namespace Orion.UI.DependencyProperties
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
         private void IsDouble(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !DoubleValidator(e.Text, sender as TextBox);
@@ -328,7 +329,6 @@ namespace Orion.UI.DependencyProperties
             Regex regex = new Regex("[^0-9.]");
             return !regex.IsMatch(text);
         }
-
 
         private static void OnMyColumnsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

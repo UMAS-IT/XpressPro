@@ -5,6 +5,7 @@ using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
 using Orion.Domain.EntityItemBACClosedLoopTowers;
 using Orion.Domain.EntityItemBACOpenLoopTowers;
+using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
@@ -688,6 +689,24 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
+
+
+        #region General Product Items Id
+
+        private int? _itemL1Id;
+        public int? ItemL1Id
+        {
+            get => _itemL1Id;
+            set => SetProperty(ref _itemL1Id, value);
+        }
+
+        private ItemL1 _itemL1;
+        public ItemL1 ItemL1
+        {
+            get => _itemL1;
+            set => SetProperty(ref _itemL1, value);
+        }
+        #endregion
 
 
         #region DataSheet Id

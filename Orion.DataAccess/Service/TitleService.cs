@@ -7,6 +7,7 @@ using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
 using Orion.Domain.EntityItemBACClosedLoopTowers;
 using Orion.Domain.EntityItemBACOpenLoopTowers;
+using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
@@ -124,6 +125,9 @@ namespace Orion.DataAccess.Service
                 else if (item is ItemK3)
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemK3Id == item.Id).ToList();
 
+
+                else if (item is ItemL1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemL1Id == item.Id).ToList();
                 return titles;
             }
         }
@@ -302,6 +306,9 @@ namespace Orion.DataAccess.Service
                     dbItem = context.ItemK2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
                 else if (item is ItemK3)
                     dbItem = context.ItemK3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+
+                else if (item is ItemL1)
+                    dbItem = context.ItemL1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
 
                 foreach (Title title in titles)
                 {

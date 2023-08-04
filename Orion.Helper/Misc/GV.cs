@@ -54,6 +54,7 @@ namespace Orion.Helper.Misc
             ItemK1,
             ItemK2,
             ItemK3,
+            ItemL1,
         }
 
 

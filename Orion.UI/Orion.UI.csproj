@@ -261,6 +261,9 @@
     <Compile Include="ViewModel\DataSheetListViewModel.cs" />
     <Compile Include="ViewModel\EditUserViewModel.cs" />
     <Compile Include="ViewModel\ExportProjectViewModel.cs" />
+    <Compile Include="ViewModel\GeneralProduct\CatalogList\CatalogL1ListViewModel.cs" />
+    <Compile Include="ViewModel\GeneralProduct\EditCatalogItem\EditL1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\GeneralProduct\EditQuoteItem\EditL1ItemViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE1ListViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE2ListViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE3ListViewModel.cs" />
@@ -564,6 +567,15 @@
     </Compile>
     <Compile Include="View\ExportProjectView.xaml.cs">
       <DependentUpon>ExportProjectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GeneralProduct\CatalogList\CatalogL1ListView.xaml.cs">
+      <DependentUpon>CatalogL1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GeneralProduct\EditCatalogItem\EditL1CatalogView.xaml.cs">
+      <DependentUpon>EditL1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GeneralProduct\EditQuoteItem\EditL1ItemView.xaml.cs">
+      <DependentUpon>EditL1ItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Groundfos\CatalogList\CatalogE1ListVew.xaml.cs">
       <DependentUpon>CatalogE1ListVew.xaml</DependentUpon>
@@ -1084,6 +1096,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ExportProjectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GeneralProduct\CatalogList\CatalogL1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GeneralProduct\EditCatalogItem\EditL1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GeneralProduct\EditQuoteItem\EditL1ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

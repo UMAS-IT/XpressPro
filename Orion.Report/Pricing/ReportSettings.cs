@@ -469,7 +469,9 @@ namespace Orion.Report.Pricing
             else
             {
 
-                pricingItems.Add(new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()), tempItem.Catalog.Company, JoinFreights(items.ToList<IItem>())));
+                pricingItems.Add(new PricingItem(itemNumber, tempItem.Catalog.Product, JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()), tempItem.Catalog.Company, JoinFreights(items.ToList<IItem>()),items.First()));
+
+                //pricingItems.Add(new PricingItem(itemNumber,$"{tempItem.Catalog.Company}: {tempItem.Catalog.Product}", JoinSellPrices(items.ToList<IItem>()), JoinTags(items.ToList<IItem>()), JoinQuantities(items.ToList<IItem>()), tempItem.Catalog.Company, JoinFreights(items.ToList<IItem>())));
 
 
                 foreach (IItem item in items.Where(x => x.Titles.Any()))
@@ -760,7 +762,7 @@ namespace Orion.Report.Pricing
 
             foreach (Quote quote in quotes)
             {
-                File.Copy(pricingFilePath, currentProjectPath + $@"\Pricing\{quote.Name.ToUpper()}.docx", true);
+                File.Copy(pricingFilePath, currentProjectPath + $@"\Pricing\{project.Name} ({quote.Name.ToUpper()}).docx", true);
             }
 
             return currentProjectPath;

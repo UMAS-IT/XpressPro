@@ -1,4 +1,4 @@
-﻿
+﻿C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\App.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\ABB\CatalogList\CatalogB1ListView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\ABB\CatalogList\CatalogB2ListView.xaml;;
@@ -78,6 +78,9 @@ FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\CreateQuoteView
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\DataSheetListView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\EditUserView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\ExportProjectView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\GeneralProduct\CatalogList\CatalogL1ListView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\GeneralProduct\EditCatalogItem\EditL1CatalogView.xaml;;
+FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\GeneralProduct\EditQuoteItem\EditL1ItemView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Groundfos\CatalogList\CatalogE1ListVew.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Groundfos\CatalogList\CatalogE2ListView.xaml;;
 FC:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\View\Groundfos\CatalogList\CatalogE3ListView.xaml;;

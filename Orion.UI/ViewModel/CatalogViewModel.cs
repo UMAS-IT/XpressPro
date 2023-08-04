@@ -14,6 +14,8 @@ using Orion.UI.ViewModel.BACClosedCircuits.CatalogList;
 using Orion.UI.ViewModel.BACClosedCircuits.EditCatalogItem;
 using Orion.UI.ViewModel.BACCoolingTowers.CatalogList;
 using Orion.UI.ViewModel.BACCoolingTowers.EditCatalogItem;
+using Orion.UI.ViewModel.GeneralProduct.CatalogList;
+using Orion.UI.ViewModel.GeneralProduct.EditCatalogItem;
 using Orion.UI.ViewModel.Groundfos.CatalogList;
 using Orion.UI.ViewModel.Groundfos.EditCatalogItem;
 using Orion.UI.ViewModel.Mavair.CatalogList;
@@ -232,6 +234,8 @@ namespace Orion.UI.ViewModel
                 viewModel = new EditK2CatalogViewModel(dialogCoordinator, catalog, itemType);
             else if (CurrentViewModel is CatalogK3ListViewModel)
                 viewModel = new EditK3CatalogViewModel(dialogCoordinator, catalog, itemType);
+            else if (CurrentViewModel is CatalogL1ListViewModel)
+                viewModel = new EditL1CatalogViewModel(dialogCoordinator, catalog, itemType);
 
             viewModel.BackFromEditRequested += OnBackFromEdit;
             viewModel.BackFromEditItemSavedRequested += OnBackFromEditItemSaved;
@@ -487,6 +491,9 @@ namespace Orion.UI.ViewModel
                 case "k3":
                     viewModel = new CatalogK3ListViewModel(dialogCoordinator, ItemType.ItemK3);
                     break;
+                case "l1":
+                    viewModel = new CatalogL1ListViewModel(dialogCoordinator, ItemType.ItemL1);
+                    break;
                 default:
                     throw new ArgumentException($"Catalog name {catalogName} is not recognized.");
             }
@@ -550,6 +557,7 @@ namespace Orion.UI.ViewModel
                 await messageService.ExceptionMessage(ex);
             }
         }
+       
         private async void OnUpdateDataSheetSelected()
         {
             try

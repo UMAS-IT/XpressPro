@@ -272,6 +272,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int?>("ItemK3Id");
 
+                    b.Property<int?>("ItemL1Id");
+
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
@@ -363,6 +365,8 @@ namespace Orion.DataAccess.Migrations
                     b.HasIndex("ItemK2Id");
 
                     b.HasIndex("ItemK3Id");
+
+                    b.HasIndex("ItemL1Id");
 
                     b.ToTable("Titles");
                 });
@@ -1019,6 +1023,29 @@ namespace Orion.DataAccess.Migrations
                     b.HasIndex("DataSheetId");
 
                     b.ToTable("CatalogG6s");
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityCatalogGeneralProduct.CatalogL1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int?>("DataSheetId");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<double>("SellMargin");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DataSheetId");
+
+                    b.ToTable("CatalogL1s");
                 });
 
             modelBuilder.Entity("Orion.Domain.EntityCatalogGroundfos.CatalogE1", b =>
@@ -2550,6 +2577,47 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemG6s");
                 });
 
+            modelBuilder.Entity("Orion.Domain.EntityItemGeneralProduct.ItemL1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CatalogL1Id");
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("QuoteId");
+
+                    b.Property<double>("SellMargin");
+
+                    b.Property<string>("Tag");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogL1Id");
+
+                    b.HasIndex("QuoteId");
+
+                    b.ToTable("ItemL1s");
+                });
+
             modelBuilder.Entity("Orion.Domain.EntityItemGroundfos.ItemE1", b =>
                 {
                     b.Property<int>("Id")
@@ -3686,6 +3754,11 @@ namespace Orion.DataAccess.Migrations
                         .WithMany("Titles")
                         .HasForeignKey("ItemK3Id")
                         .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.EntityItemGeneralProduct.ItemL1", "ItemL1")
+                        .WithMany("Titles")
+                        .HasForeignKey("ItemL1Id")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Orion.Domain.EntityCatalogABB.CatalogB1", b =>
@@ -3847,6 +3920,13 @@ namespace Orion.DataAccess.Migrations
                 });
 
             modelBuilder.Entity("Orion.Domain.EntityCatalogBACOpenLoopTowers.CatalogG6", b =>
+                {
+                    b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
+                        .WithMany()
+                        .HasForeignKey("DataSheetId");
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityCatalogGeneralProduct.CatalogL1", b =>
                 {
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
@@ -4275,6 +4355,18 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasOne("Orion.Domain.Entity.Quote", "Quote")
                         .WithMany("ItemG6s")
+                        .HasForeignKey("QuoteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.EntityItemGeneralProduct.ItemL1", b =>
+                {
+                    b.HasOne("Orion.Domain.EntityCatalogGeneralProduct.CatalogL1", "CatalogL1")
+                        .WithMany()
+                        .HasForeignKey("CatalogL1Id");
+
+                    b.HasOne("Orion.Domain.Entity.Quote", "Quote")
+                        .WithMany("ItemL1s")
                         .HasForeignKey("QuoteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

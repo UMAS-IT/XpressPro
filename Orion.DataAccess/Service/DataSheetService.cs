@@ -105,6 +105,8 @@ namespace Orion.DataAccess.Service
             catalogs.AddRange(context.CatalogK1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
             catalogs.AddRange(context.CatalogK2s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
             catalogs.AddRange(context.CatalogK3s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            
+            catalogs.AddRange(context.CatalogL1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
 
 
         }

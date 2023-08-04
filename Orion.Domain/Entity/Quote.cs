@@ -5,6 +5,7 @@ using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
 using Orion.Domain.EntityItemBACClosedLoopTowers;
 using Orion.Domain.EntityItemBACOpenLoopTowers;
+using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
@@ -394,6 +395,22 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
+
+
+        #region General Product
+        private IList<ItemL1> _itemL1s;
+        public IList<ItemL1> ItemL1s
+        {
+            get => _itemL1s;
+            set => SetProperty(ref _itemL1s, value);
+        }
+
+
+
+        #endregion
+
+
+
         private bool _isSelected;
         [NotMapped]
         public bool IsSelected
@@ -475,6 +492,7 @@ namespace Orion.Domain.Entity
             ItemK2s = new ObservableCollection<ItemK2>();
             ItemK3s = new ObservableCollection<ItemK3>();
 
+            ItemL1s = new ObservableCollection<ItemL1>();
 
             Name = "";
         }

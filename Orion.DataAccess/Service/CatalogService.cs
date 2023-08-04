@@ -20,6 +20,7 @@ using System.Linq;
 using static Orion.Helper.Misc.GV;
 using Orion.Domain.EntityCatalogBACOpenLoopTowers;
 using Orion.Domain.EntityCatalogBACClosedLoopTowers;
+using Orion.Domain.EntityCatalogGeneralProduct;
 
 namespace Orion.DataAccess.Service
 {
@@ -125,6 +126,9 @@ namespace Orion.DataAccess.Service
                     return context.CatalogK2s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else if (catalog is CatalogK2)
                     return context.CatalogK3s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
+
+                else if (catalog is CatalogL1)
+                    return context.CatalogL1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
 
                 else
                     return true;
@@ -328,8 +332,8 @@ namespace Orion.DataAccess.Service
                         .ToList<ICatalog>();
                     break;
 
-                case ItemType.ItemK3:
-                    catalogs = context.CatalogK3s.Include(c => c.DataSheet)
+                case ItemType.ItemL1:
+                    catalogs = context.CatalogL1s.Include(c => c.DataSheet)
                         .ThenInclude(ds => ds.Titles)
                         .ThenInclude(t => t.Specs)
                         .ToList<ICatalog>();
@@ -448,6 +452,9 @@ namespace Orion.DataAccess.Service
                 return context.CatalogK2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
             else if (catalog is CatalogK3)
                 return context.CatalogK3s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+
+            else if (catalog is CatalogL1)
+                return context.CatalogL1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
 
             else
                 return null;
@@ -859,6 +866,13 @@ namespace Orion.DataAccess.Service
 
                     dbCatalog = dbCatalogK3;
                 }
+                else if (catalog is CatalogL1)
+                {
+                    CatalogL1 catalogL1 = catalog as CatalogL1;
+                    CatalogL1 dbCatalogL1 = catalog.Id != 0 ? context.CatalogL1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogL1;
+
+                    dbCatalog = dbCatalogL1;
+                }
 
                 dbCatalog.Model = catalog.Model;
                 dbCatalog.ListPrice = catalog.ListPrice;
@@ -1010,6 +1024,9 @@ namespace Orion.DataAccess.Service
                     break;
                 case ItemType.ItemK3:
                     catalog = new CatalogK3();
+                    break;
+                case ItemType.ItemL1:
+                    catalog = new CatalogL1();
                     break;
                 default:
                     throw new ArgumentException($"Invalid ItemType value: {itemType}");

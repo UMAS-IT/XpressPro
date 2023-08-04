@@ -7,6 +7,7 @@ using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
 using Orion.Domain.EntityCatalogBACClosedLoopTowers;
 using Orion.Domain.EntityCatalogBACOpenLoopTowers;
+using Orion.Domain.EntityCatalogGeneralProduct;
 using Orion.Domain.EntityCatalogGroundfos;
 using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
@@ -16,6 +17,7 @@ using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
 using Orion.Domain.EntityItemBACClosedLoopTowers;
 using Orion.Domain.EntityItemBACOpenLoopTowers;
+using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
@@ -343,6 +345,13 @@ namespace Orion.DataAccess.Service
                         .FirstOrDefault(x => x.Id == quote.Id);
                     break;
 
+                case ItemType.ItemL1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemL1s).ThenInclude(x => x.CatalogL1)
+                        .Include(x => x.ItemL1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+
                 default:
                     throw new ArgumentException($"Invalid ItemType: {itemType}");
             }
@@ -611,6 +620,12 @@ namespace Orion.DataAccess.Service
                     quote.ItemK3s.Add(newItemK3);
                     break;
 
+                case ItemType.ItemL1:
+                    ItemL1 newItemL1 = item as ItemL1;
+                    newItemL1.CatalogL1 = catalogs.OfType<CatalogL1>().FirstOrDefault(x => x.Id == item.CatalogId);
+                    quote.ItemL1s.Add(newItemL1);
+                    break;
+
                 default:
                     throw new ArgumentException("Invalid ItemType value.");
             }
@@ -750,6 +765,9 @@ namespace Orion.DataAccess.Service
                     break;
                 case ItemType.ItemK3:
                     dbItems = quote.ItemK3s.ToList<IItem>();
+                    break;
+                case ItemType.ItemL1:
+                    dbItems = quote.ItemL1s.ToList<IItem>();
                     break;
                 default:
                     throw new ArgumentException("Invalid item type.");
@@ -906,6 +924,9 @@ namespace Orion.DataAccess.Service
                 case ItemType.ItemK3:
                     dbItem = quote.ItemK3s.First(x => x.Id == item.Id);
                     break;
+                case ItemType.ItemL1:
+                    dbItem = quote.ItemL1s.First(x => x.Id == item.Id);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(itemType), itemType, "Item type not supported.");
             }
@@ -995,6 +1016,14 @@ namespace Orion.DataAccess.Service
                             dbItemH.PumpMotor = itemH.PumpMotor;
                             dbItemH.Voltage = itemH.Voltage;
                         }
+                        else if (dbItem is ItemL1)
+                        {
+                            ItemL1 itemL = item as ItemL1;
+                            ItemL1 dbItemL1 = dbItem as ItemL1;
+
+                            dbItemL1.Model = itemL.Model;
+                            dbItemL1.Description = itemL.Description;
+                        }
                     }
                     else
                     {
@@ -1058,6 +1087,7 @@ namespace Orion.DataAccess.Service
             itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemK1>().ToList<IItem>(), ItemType.ItemK1));
             itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemK2>().ToList<IItem>(), ItemType.ItemK2));
             itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemK3>().ToList<IItem>(), ItemType.ItemK3));
+            itemsToReturn.AddRange(UpdateItems(quote, items.OfType<ItemL1>().ToList<IItem>(), ItemType.ItemL1));
 
             return itemsToReturn;
         }
@@ -1109,6 +1139,7 @@ namespace Orion.DataAccess.Service
             message += ValidataItemsTag(items.OfType<ItemK1>().ToList<IItem>());
             message += ValidataItemsTag(items.OfType<ItemK2>().ToList<IItem>());
             message += ValidataItemsTag(items.OfType<ItemK3>().ToList<IItem>());
+            message += ValidataItemsTag(items.OfType<ItemL1>().ToList<IItem>());
 
             return message;
         }
@@ -1188,6 +1219,7 @@ namespace Orion.DataAccess.Service
             items.AddRange(context.ItemK1s.Include(x => x.CatalogK1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
             items.AddRange(context.ItemK2s.Include(x => x.CatalogK2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
             items.AddRange(context.ItemK3s.Include(x => x.CatalogK3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
+            items.AddRange(context.ItemL1s.Include(x => x.CatalogL1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
 
             if (sortByDesignIndex)
                 items = items.OrderBy(x => x.DesignIndex).ToList();
@@ -1630,6 +1662,16 @@ namespace Orion.DataAccess.Service
                     };
 
                     item = newItemK3;
+                    break;
+
+                case ItemType.ItemL1:
+                    ItemL1 newItemL1 = new ItemL1()
+                    {
+                        CatalogL1 = catalog as CatalogL1,
+                        CatalogL1Id = catalog.Id,
+                    };
+
+                    item = newItemL1;
                     break;
 
                 default:

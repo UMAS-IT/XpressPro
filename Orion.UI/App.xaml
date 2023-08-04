@@ -19,6 +19,7 @@
     xmlns:viewCatalogI="clr-namespace:Orion.UI.View.Marvair.CatalogList"
     xmlns:viewCatalogJ="clr-namespace:Orion.UI.View.PACE.CatalogList"
     xmlns:viewCatalogK="clr-namespace:Orion.UI.View.Multiaqua.CatalogList"
+    xmlns:viewCatalogL="clr-namespace:Orion.UI.View.GeneralProduct.CatalogList"
     xmlns:viewECA="clr-namespace:Orion.UI.View.Quantech.EditCatalogItem"
     xmlns:viewECB="clr-namespace:Orion.UI.View.ABB.EditCatalogItem"
     xmlns:viewECC="clr-namespace:Orion.UI.View.AmericanWheatley.EditCatalogItem"
@@ -30,6 +31,7 @@
     xmlns:viewECI="clr-namespace:Orion.UI.View.Marvair.EditCatalogItem"
     xmlns:viewECJ="clr-namespace:Orion.UI.View.PACE.EditCatalogItem"
     xmlns:viewECK="clr-namespace:Orion.UI.View.Multiaqua.EditCatalogItem"
+    xmlns:viewECL="clr-namespace:Orion.UI.View.GeneralProduct.EditCatalogItem"
     xmlns:viewItemA="clr-namespace:Orion.UI.View.Quantech.EditQuoteItem"
     xmlns:viewItemB="clr-namespace:Orion.UI.View.ABB.EditQuoteItem"
     xmlns:viewItemC="clr-namespace:Orion.UI.View.AmericanWheatley.EditQuoteItem"
@@ -41,6 +43,7 @@
     xmlns:viewItemI="clr-namespace:Orion.UI.View.Marvair.EditQuoteItem"
     xmlns:viewItemJ="clr-namespace:Orion.UI.View.PACE.EditQuoteItem"
     xmlns:viewItemK="clr-namespace:Orion.UI.View.Multiaqua.EditQuoteItem"
+    xmlns:viewItemL="clr-namespace:Orion.UI.View.GeneralProduct.EditQuoteItem"
     xmlns:vm="clr-namespace:Orion.UI.ViewModel"
     xmlns:vmCatalogA="clr-namespace:Orion.UI.ViewModel.Quantech.CatalogList"
     xmlns:vmCatalogB="clr-namespace:Orion.UI.ViewModel.ABB.CatalogList"
@@ -53,6 +56,7 @@
     xmlns:vmCatalogI="clr-namespace:Orion.UI.ViewModel.Mavair.CatalogList"
     xmlns:vmCatalogJ="clr-namespace:Orion.UI.ViewModel.PACE.CatalogList"
     xmlns:vmCatalogK="clr-namespace:Orion.UI.ViewModel.Multiaqua.CatalogList"
+    xmlns:vmCatalogL="clr-namespace:Orion.UI.ViewModel.GeneralProduct.CatalogList"
     xmlns:vmECA="clr-namespace:Orion.UI.ViewModel.Quantech.EditCatalogItem"
     xmlns:vmECB="clr-namespace:Orion.UI.ViewModel.ABB.EditCatalogItem"
     xmlns:vmECC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.EditCatalogItem"
@@ -64,6 +68,7 @@
     xmlns:vmECI="clr-namespace:Orion.UI.ViewModel.Mavair.EditCatalogItem"
     xmlns:vmECJ="clr-namespace:Orion.UI.ViewModel.PACE.EditCatalogItem"
     xmlns:vmECK="clr-namespace:Orion.UI.ViewModel.Multiaqua.EditCatalogItem"
+    xmlns:vmECL="clr-namespace:Orion.UI.ViewModel.GeneralProduct.EditCatalogItem"
     xmlns:vmItemA="clr-namespace:Orion.UI.ViewModel.Quantech.EditQuoteItem"
     xmlns:vmItemB="clr-namespace:Orion.UI.ViewModel.ABB.EditQuoteItem"
     xmlns:vmItemC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.EditQuoteItem"
@@ -75,6 +80,7 @@
     xmlns:vmItemI="clr-namespace:Orion.UI.ViewModel.Mavair.EditQuoteItem"
     xmlns:vmItemJ="clr-namespace:Orion.UI.ViewModel.PACE.EditQuoteItem"
     xmlns:vmItemK="clr-namespace:Orion.UI.ViewModel.Multiaqua.EditQuoteItem"
+    xmlns:vmItemL="clr-namespace:Orion.UI.ViewModel.GeneralProduct.EditQuoteItem"
     ShutdownMode="OnMainWindowClose"
     StartupUri="View/MainWindow.xaml">
     <Application.Resources>
@@ -731,7 +737,20 @@
                 <viewECK:EditK3CatalogView />
             </DataTemplate>
 
+            
 
+            <DataTemplate DataType="{x:Type vmItemL:EditL1ItemViewModel}">
+                <viewItemL:EditL1ItemView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogL:CatalogL1ListViewModel}">
+                <viewCatalogL:CatalogL1ListView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECL:EditL1CatalogViewModel}">
+                <viewECL:EditL1CatalogView />
+            </DataTemplate>
+            
             <Style
                 x:Key="TxtStyle"
                 BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}"

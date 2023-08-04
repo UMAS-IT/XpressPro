@@ -7,6 +7,7 @@ using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
 using Orion.Domain.EntityItemBACClosedLoopTowers;
 using Orion.Domain.EntityItemBACOpenLoopTowers;
+using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
@@ -20,6 +21,7 @@ using Orion.UI.ViewModel.ABB.EditQuoteItem;
 using Orion.UI.ViewModel.AmericanWheatley.EditQuoteItem;
 using Orion.UI.ViewModel.BACClosedCircuits.EditQuoteItem;
 using Orion.UI.ViewModel.BACCoolingTowers.EditQuoteItem;
+using Orion.UI.ViewModel.GeneralProduct.EditQuoteItem;
 using Orion.UI.ViewModel.Groundfos.EditQuoteItem;
 using Orion.UI.ViewModel.Mavair.EditQuoteItem;
 using Orion.UI.ViewModel.Multiaqua.EditQuoteItem;
@@ -399,6 +401,13 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _itemK3s, value);
         }
 
+        private ObservableCollection<IItem> _itemL1s;
+        public ObservableCollection<IItem> ItemL1s
+        {
+            get => _itemL1s;
+            set => SetProperty(ref _itemL1s, value);
+        }
+
         public RelayCommand BackToQuotesCommad { get; set; }
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand<string> EditItemsCommand { get; set; }
@@ -508,6 +517,8 @@ namespace Orion.UI.ViewModel
             ItemK1s = Items.Where(x => x is ItemK1).ToObservableCollection();
             ItemK2s = Items.Where(x => x is ItemK2).ToObservableCollection();
             ItemK3s = Items.Where(x => x is ItemK3).ToObservableCollection();
+
+            ItemL1s = Items.Where(x => x is ItemL1).ToObservableCollection();
         }
 
         private async void OnUpdateQuoteItems()
@@ -583,6 +594,9 @@ namespace Orion.UI.ViewModel
                 ItemK2s.ToList().ForEach(x => x.DesignIndex = ItemK2s.IndexOf(x));
                 ItemK3s.ToList().ForEach(x => x.DesignIndex = ItemK3s.IndexOf(x));
 
+                ItemL1s.ToList().ForEach(x => x.DesignIndex = ItemL1s.IndexOf(x));
+
+
                 //add all items in one list
                 items.AddRange(ItemA1s);
                 items.AddRange(ItemA2s);
@@ -637,6 +651,9 @@ namespace Orion.UI.ViewModel
                 items.AddRange(ItemK1s);
                 items.AddRange(ItemK2s);
                 items.AddRange(ItemK3s);
+
+                items.AddRange(ItemL1s);
+
 
                 if (!await CanUpdateQuoteItems(items))
                     return;
@@ -868,6 +885,10 @@ namespace Orion.UI.ViewModel
             else if (itemsName.ToFormat() == "k3")
             {
                 viewModel = new EditK3ItemViewModel(dialogCoordinator, Quote, ItemK3s, ItemType.ItemK3);
+            }
+            else if (itemsName.ToFormat() == "l1")
+            {
+                viewModel = new EditL1ItemViewModel(dialogCoordinator, Quote, ItemL1s, ItemType.ItemL1);
             }
 
             Product product = companyService.GetProduct(Companies, itemsName);
@@ -1120,6 +1141,9 @@ namespace Orion.UI.ViewModel
             else if (item is ItemK3)
                 selectedItems = ItemK3s;
 
+            else if (item is ItemL1)
+                selectedItems = ItemL1s;
+
             return selectedItems;
         }
 
@@ -1223,6 +1247,8 @@ namespace Orion.UI.ViewModel
                 OnPropertyChange(nameof(ItemK2s));
             else if (item is ItemK3)
                 OnPropertyChange(nameof(ItemK3s));
+            else if (item is ItemL1)
+                OnPropertyChange(nameof(ItemL1s));
         }
 
 
@@ -1326,6 +1352,9 @@ namespace Orion.UI.ViewModel
                 ItemK2s = items.ToObservableCollection();
             else if (itemType is ItemType.ItemK3)
                 ItemK3s = items.ToObservableCollection();
+
+            else if (itemType is ItemType.ItemL1)
+                ItemL1s = items.ToObservableCollection();
         }
 
     }

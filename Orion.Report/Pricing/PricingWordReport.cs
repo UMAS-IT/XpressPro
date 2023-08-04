@@ -44,13 +44,14 @@ namespace Orion.Report.Pricing
             PricingI pricingI = new PricingI();
             PricingJ pricingJ = new PricingJ();
             PricingK pricingK = new PricingK();
+            PricingL pricingL = new PricingL();
             List<PricingItem> pricingItems = new List<PricingItem>();
 
             foreach (Quote quote in quotes)
             {
                 int itemNumber = 1;
 
-                mainDocument = LoadDocument(currentProjectPath + $@"\Pricing\{quote.Name.ToUpper()}.docx");
+                mainDocument = LoadDocument(currentProjectPath + $@"\Pricing\{project.Name} ({quote.Name.ToUpper()}).docx");
 
                 LoadStarupData(mainDocument, project, quote);
 
@@ -208,6 +209,15 @@ namespace Orion.Report.Pricing
                     AddBlankLine(mainDocument, docSection);
                 }
 
+
+
+                if (quote.ItemL1s.Any(x => !x.IsExcluded))
+                {
+                    pricingItems.AddRange(pricingL.CreateL1ItemTable(quote.ItemL1s, mainDocument, docSection, itemNumber++));
+                    AddTitlesAndSpecs(quote.ItemK1s.ToList<IItem>(), docSection);
+                    AddBlankLine(mainDocument, docSection);
+                }
+
                 CreateSummaryTable(pricingItems, docSection);
 
                 CreatePricingTable(pricingItems, docSection);
@@ -221,7 +231,7 @@ namespace Orion.Report.Pricing
 
                 AddTermsAndConditions();
 
-                SaveAndConvertToPdf(mainDocument, currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.docx");
+                SaveAndConvertToPdf(mainDocument, currentProjectPath + $@"\Pricing\\{project.Name} ({quote.Name.ToUpper()}).docx");
 
                 //Process.Start(currentProjectPath + $@"\Pricing");
                 //Process.Start(currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.pdf");
@@ -410,7 +420,7 @@ namespace Orion.Report.Pricing
                     {
                         baseItemNumber = pricingItem.ItemNumber;
                         //data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).Truncate()))}", $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Freight))}", $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).Truncate() + pricingItem.Freight))}" };
-                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), pricingItem.Description, $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).RoundUp()))}", $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Freight.RoundUp()))}", $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).RoundUp() + pricingItem.Freight.RoundUp()))}" };
+                        data[i] = new string[7] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), $"{pricingItem.Item.Catalog.Company}: {pricingItem.Item.Catalog.Product}", $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).RoundUp()))}", $"{string.Format("{0:C}", Convert.ToDecimal(pricingItem.Freight.RoundUp()))}", $"{string.Format("{0:C}", Convert.ToDecimal((pricingItem.Price).RoundUp() + pricingItem.Freight.RoundUp()))}" };
                     }
                 }
 
@@ -445,7 +455,7 @@ namespace Orion.Report.Pricing
                     {
                         baseItemNumber = pricingItem.ItemNumber;
 
-                        data[i] = new string[8] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), $"{pricingItem.Description}", $"{string.Format("{0:C}", (pricingItem.Price / pricingItem.Quantity).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Freight).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Price + pricingItem.Freight).RoundUp())}" };
+                        data[i] = new string[8] { $"{GetColumnName(Convert.ToInt32(Math.Floor((decimal)pricingItem.ItemNumber)))}", pricingItem.Tags, pricingItem.Quantity.ToString(), $"{pricingItem.Item.Catalog.Company}: {pricingItem.Item.Catalog.Product}", $"{string.Format("{0:C}", (pricingItem.Price / pricingItem.Quantity).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Price).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Freight).RoundUp())}", $"{string.Format("{0:C}", (pricingItem.Price + pricingItem.Freight).RoundUp())}" };
                     }
                 }
 

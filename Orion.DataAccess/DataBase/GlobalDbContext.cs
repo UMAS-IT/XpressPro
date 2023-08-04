@@ -5,6 +5,7 @@ using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
 using Orion.Domain.EntityCatalogBACClosedLoopTowers;
 using Orion.Domain.EntityCatalogBACOpenLoopTowers;
+using Orion.Domain.EntityCatalogGeneralProduct;
 using Orion.Domain.EntityCatalogGroundfos;
 using Orion.Domain.EntityCatalogPuroflux;
 using Orion.Domain.EntityCatalogQuantech;
@@ -14,6 +15,7 @@ using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
 using Orion.Domain.EntityItemBACClosedLoopTowers;
 using Orion.Domain.EntityItemBACOpenLoopTowers;
+using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
@@ -209,6 +211,8 @@ namespace Orion.DataAccess.DataBase
         public DbSet<ItemJ1> ItemJ1s { get; set; }
         #endregion
 
+
+
         #region Multiaqua Catalogs
         public DbSet<CatalogK1> CatalogK1s { get; set; }
         public DbSet<CatalogK2> CatalogK2s { get; set; }
@@ -219,6 +223,16 @@ namespace Orion.DataAccess.DataBase
         public DbSet<ItemK1> ItemK1s { get; set; }
         public DbSet<ItemK2> ItemK2s { get; set; }
         public DbSet<ItemK3> ItemK3s { get; set; }
+        #endregion
+
+
+
+        #region General Product Catalogs
+        public DbSet<CatalogL1> CatalogL1s { get; set; }
+        #endregion
+
+        #region General Product Items
+        public DbSet<ItemL1> ItemL1s { get; set; }
         #endregion
 
 
@@ -803,6 +817,23 @@ namespace Orion.DataAccess.DataBase
                         entry.HasOne(d => d.ItemK3)
                         .WithMany(x => x.Titles).IsRequired(false)
                         .HasForeignKey(y => y.ItemK3Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region General Product Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemL1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region General Product Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemL1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemL1Id)
                         .OnDelete(DeleteBehavior.Restrict));
             #endregion
         }

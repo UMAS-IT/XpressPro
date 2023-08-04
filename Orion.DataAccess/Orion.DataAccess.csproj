@@ -253,6 +253,10 @@
     <Compile Include="Migrations\20230713232117_mig-32.designer.cs">
       <DependentUpon>20230713232117_mig-32.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20230728180723_mig-33.cs" />
+    <Compile Include="Migrations\20230728180723_mig-33.designer.cs">
+      <DependentUpon>20230728180723_mig-33.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GlobalDbContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CatalogService.cs" />

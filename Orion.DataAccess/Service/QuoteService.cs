@@ -6,6 +6,7 @@ using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
 using Orion.Domain.EntityItemBACClosedLoopTowers;
 using Orion.Domain.EntityItemBACOpenLoopTowers;
+using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
@@ -179,6 +180,8 @@ namespace Orion.DataAccess.Service
                     .Include(x => x.ItemK3s).ThenInclude(x => x.CatalogK3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                     .Include(x => x.ItemK3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
 
+                    .Include(x => x.ItemL1s).ThenInclude(x => x.CatalogL1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.ItemL1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                     .FirstOrDefault(u => u.Id == quoteId);
             }
         }
@@ -242,6 +245,8 @@ namespace Orion.DataAccess.Service
                     .Include(x => x.ItemK2s)
                     .Include(x => x.ItemK3s)
 
+                    .Include(x => x.ItemL1s)
+
                     .Where(u => u.ProjectId == projectId).ToList();
 
                 quotes.ForEach(u =>
@@ -259,6 +264,7 @@ namespace Orion.DataAccess.Service
                         && !u.ItemI1s.Any() && !u.ItemI2s.Any()
                         && !u.ItemJ1s.Any()
                         && !u.ItemK1s.Any() && !u.ItemK2s.Any() && !u.ItemK3s.Any() 
+                        && !u.ItemL1s.Any()
                         )
 
                         u.CanCreateReports = false;
@@ -330,6 +336,9 @@ namespace Orion.DataAccess.Service
                 IList<ItemK2> itemK2s = context.ItemK2s.Include(x => x.Titles).Include(x => x.CatalogK2).Where(x => x.QuoteId == quoteId).ToList();
                 IList<ItemK3> itemK3s = context.ItemK3s.Include(x => x.Titles).Include(x => x.CatalogK3).Where(x => x.QuoteId == quoteId).ToList();
 
+                IList<ItemL1> itemL1s = context.ItemL1s.Include(x => x.Titles).Include(x => x.CatalogL1).Where(x => x.QuoteId == quoteId).ToList();
+
+
                 items.AddRange(itemA1s);
                 items.AddRange(itemA2s);
                 items.AddRange(itemA3s);
@@ -383,6 +392,8 @@ namespace Orion.DataAccess.Service
                 items.AddRange(itemK1s);
                 items.AddRange(itemK2s);
                 items.AddRange(itemK3s);
+
+                items.AddRange(itemL1s);
 
                 List<Title> titles = items.SelectMany(x => x.Titles).ToList();
 

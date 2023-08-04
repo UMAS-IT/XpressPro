@@ -160,6 +160,8 @@
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\Permission.cs" />
     <Compile Include="Entity\Product.cs" />
+    <Compile Include="GeneralProduct\Catalog\CatalogL1.cs" />
+    <Compile Include="GeneralProduct\Item\ItemL1.cs" />
     <Compile Include="Groundfos\Catalog\CatalogE1.cs" />
     <Compile Include="Groundfos\Catalog\CatalogE2.cs" />
     <Compile Include="Groundfos\Catalog\CatalogE3.cs" />
