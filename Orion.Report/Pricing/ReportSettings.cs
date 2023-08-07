@@ -866,18 +866,19 @@ namespace Orion.Report.Pricing
             worksheet.Cell(row, column + 4).Value = "List Price";
             worksheet.Cell(row, column + 5).Value = "List Adders";
             worksheet.Cell(row, column + 6).Value = "Cost Multiplier";
-            worksheet.Cell(row, column + 7).Value = "Cost";
-            worksheet.Cell(row, column + 8).Value = "Start-Up";
-            worksheet.Cell(row, column + 9).Value = "Net Adders";
-            worksheet.Cell(row, column + 10).Value = "Sell Margin (%)";
-            worksheet.Cell(row, column + 11).Value = "Unit Sell Price";
-            worksheet.Cell(row, column + 12).Value = "Freight";
-            worksheet.Cell(row, column + 13).Value = "Total";
+            worksheet.Cell(row, column + 7).Value = "Each Cost";
+            worksheet.Cell(row, column + 8).Value = "Each Freight";
+            worksheet.Cell(row, column + 9).Value = "Start-Up";
+            worksheet.Cell(row, column + 10).Value = "Net Adders";
+            worksheet.Cell(row, column + 11).Value = "Total Cost";
+            worksheet.Cell(row, column + 12).Value = "Sell Margin (%)";
+            worksheet.Cell(row, column + 13).Value = "Unit Sell Price";
+            worksheet.Cell(row, column + 14).Value = "Total";
 
-            worksheet.Cell(row, column + 15).Value = "Profit";
+            worksheet.Cell(row, column + 16).Value = "Profit";
 
 
-            IXLRange range = worksheet.Range(row, column, row, column + 15);
+            IXLRange range = worksheet.Range(row, column, row, column + 16);
 
             range.Style.Font.FontSize = 10;
             range.Style.Font.FontName = "Century Gothic";
@@ -890,7 +891,7 @@ namespace Orion.Report.Pricing
             range.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
             range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
 
-            worksheet.Columns(column, column + 15).AdjustToContents();
+            worksheet.Columns(column, column + 16).AdjustToContents();
 
             return (column, row + 1);
         }
@@ -921,25 +922,26 @@ namespace Orion.Report.Pricing
                 worksheet.Cell(row, column + 2).Value = item.Quantity; // D
                 worksheet.Cell(row, column + 3).Value = $"{item.Catalog.Company}: {item.Catalog.Product}"; // E
                 worksheet.Cell(row, column + 4).Value = item.OverridePrice ? (item.ListPrice).RoundUp() : (item.Catalog.ListPrice).RoundUp(); // F
-                worksheet.Cell(row, column + 5).Value = 0; // G
+                worksheet.Cell(row, column + 5).Value = 0; // G -- List Adders
                 worksheet.Cell(row, column + 6).Value = item.OverridePrice ? item.CostMultiplier : item.Catalog.CostMultiplier; // H
 
-                worksheet.Cell(row, column + 7).FormulaA1 = $"=CEILING((F{row}+G{row})*H{row}, 1)";//I
+                worksheet.Cell(row, column + 7).FormulaA1 = $"=CEILING((F{row}+G{row})*H{row}, 1)";//I -- Each Cost
 
-                worksheet.Cell(row, column + 8).Value = 0;// J
-                worksheet.Cell(row, column + 9).Value = 0;//K
-                worksheet.Cell(row, column + 10).Value = item.OverridePrice ? item.SellMargin / 100.0 : item.Catalog.SellMargin / 100.0;//L
+                worksheet.Cell(row, column + 8).Value = (item.Freight).RoundUp();//J -- Each Freight
 
-                worksheet.Cell(row, column + 11).FormulaA1 = $"=CEILING((I{row}+J{row}+K{row})/(1-L{row}),1)"; // M
+                worksheet.Cell(row, column + 9).Value = 0;// K -- Start-Up
+                worksheet.Cell(row, column + 10).Value = 0;//L -- Net Adders
+                worksheet.Cell(row, column + 11).FormulaA1 = $"=SUM(I{row}:L{row})";//M -- Total Each Cost
 
-                worksheet.Cell(row, column + 12).Value = (item.Freight).RoundUp();//N
+                worksheet.Cell(row, column + 12).Value = item.OverridePrice ? item.SellMargin / 100.0 : item.Catalog.SellMargin / 100.0;// N -- Sell Margin
 
-                worksheet.Cell(row, column + 13).FormulaA1 = $"=M{row}*D{row}+N{row}";//O
+                worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING((I{row}+K{row}+L{row}+J{row})/(1-N{row}),1)"; // O -- Unit Sell Price
 
-                worksheet.Cell(row, column + 15).FormulaA1 = $"=((O{row}-N{row})-(SUM(I{row},J{row},K{row})*D{row})+N{row})";
+                worksheet.Cell(row, column + 14).FormulaA1 = $"=O{row}*D{row}";//P -- Total
 
+                worksheet.Cell(row, column + 16).FormulaA1 = $"=((P{row}) - (SUM(I{row}, K{row}, L{row}) * D{row}))";// -- Profit
 
-                IXLRange itemRange = worksheet.Range(row, column, row, column + 15);
+                IXLRange itemRange = worksheet.Range(row, column, row, column + 16);
                 itemRange.Style.Font.SetBold(true);
 
                 row++;
@@ -960,13 +962,11 @@ namespace Orion.Report.Pricing
 
                         worksheet.Cell(row, column).Value = letter + specNumber;
                         worksheet.Cell(row, column + 3).Value = $"{spec.Name}";
-                        worksheet.Cell(row, column + 11).Value = (spec.Price).RoundUp();
-                        worksheet.Cell(row, column + 12).Value = 0;
-                        //worksheet.Cell(row, column + 13).FormulaA1 = $"=CEILING(M{row}+N{row}, 1)";
-                        worksheet.Cell(row, column + 13).FormulaA1 = $"=M{row}+N{row}";
-
-                        //worksheet.Cell(row, column + 15).FormulaA1 = $"=CEILING(O{row}-SUM(I{row},J{row},K{row},N{row}), 1)";
-                        worksheet.Cell(row, column + 15).FormulaA1 = $"=O{row}-SUM(I{row},J{row},K{row},N{row})";
+                        worksheet.Cell(row, column + 14).Value = (spec.Price).RoundUp();
+                        worksheet.Cell(row, column + 16).Value = (spec.Price).RoundUp();
+                        //worksheet.Cell(row, column + 12).Value = 0;
+                        //worksheet.Cell(row, column + 14).FormulaA1 = $"=M{row}+N{row}";
+                        //worksheet.Cell(row, column + 16).FormulaA1 = $"=O{row}-SUM(I{row},J{row},K{row},N{row})";
 
 
                         row++;
@@ -976,7 +976,7 @@ namespace Orion.Report.Pricing
                 oldItem = item;
             }
 
-            IXLRange range = worksheet.Range(startRow, column, row - 1, column + 15);
+            IXLRange range = worksheet.Range(startRow, column, row - 1, column + 16);
 
             range.Style.Font.FontSize = 10;
             range.Style.Font.FontName = "Century Gothic";
@@ -987,7 +987,7 @@ namespace Orion.Report.Pricing
             range.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
             range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
 
-            worksheet.Column(12).Style.NumberFormat.Format = "0%";
+            worksheet.Column(14).Style.NumberFormat.Format = "0%";
 
             var currencyFormat = "$ #,##0.00";
             worksheet.Column(6).Style.NumberFormat.Format = currencyFormat;
@@ -995,10 +995,11 @@ namespace Orion.Report.Pricing
             worksheet.Column(9).Style.NumberFormat.Format = currencyFormat;
             worksheet.Column(10).Style.NumberFormat.Format = currencyFormat;
             worksheet.Column(11).Style.NumberFormat.Format = currencyFormat;
+            worksheet.Column(12).Style.NumberFormat.Format = currencyFormat;
             worksheet.Column(13).Style.NumberFormat.Format = currencyFormat;
-            worksheet.Column(14).Style.NumberFormat.Format = currencyFormat;
             worksheet.Column(15).Style.NumberFormat.Format = currencyFormat;
-            worksheet.Column(17).Style.NumberFormat.Format = currencyFormat;
+            worksheet.Column(16).Style.NumberFormat.Format = currencyFormat;
+            worksheet.Column(18).Style.NumberFormat.Format = currencyFormat;
 
 
             IXLRange dataRange = worksheet.Range(startRow, column + 4, row - 1, column + 8);
@@ -1010,7 +1011,7 @@ namespace Orion.Report.Pricing
             dataRange.Style.Font.FontColor = XLColor.FromHtml("#c65911");
 
 
-            dataRange = worksheet.Range(startRow, column + 10, row - 1, column + 15);
+            dataRange = worksheet.Range(startRow, column + 10, row - 1, column + 16);
             dataRange.Style.Font.SetBold(true);
             dataRange.Style.Font.FontColor = XLColor.FromHtml("#4472c4");
 
@@ -1020,57 +1021,57 @@ namespace Orion.Report.Pricing
 
         public void AddTotalAndProfit(IXLWorksheet worksheet, int column, int startItemsRow, int row)
         {
-            worksheet.Cell(row + 1, column + 13).Value = "Grand Total";
-            worksheet.Cell(row + 1, column + 13).Style.Font.FontSize = 10;
-            worksheet.Cell(row + 1, column + 13).Style.Font.FontName = "Century Gothic";
-            worksheet.Cell(row + 1, column + 13).Style.Fill.BackgroundColor = XLColor.FromArgb(155, 194, 230);
-            worksheet.Cell(row + 1, column + 13).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 1, column + 13).Style.Border.TopBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 1, column + 13).Style.Border.RightBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 1, column + 13).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 1, column + 13).Style.Font.SetBold(true);
-            worksheet.Cell(row + 1, column + 13).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-            worksheet.Cell(row + 1, column + 13).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+            worksheet.Cell(row + 1, column + 14).Value = "Grand Total";
+            worksheet.Cell(row + 1, column + 14).Style.Font.FontSize = 10;
+            worksheet.Cell(row + 1, column + 14).Style.Font.FontName = "Century Gothic";
+            worksheet.Cell(row + 1, column + 14).Style.Fill.BackgroundColor = XLColor.FromArgb(155, 194, 230);
+            worksheet.Cell(row + 1, column + 14).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 14).Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 14).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 14).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 14).Style.Font.SetBold(true);
+            worksheet.Cell(row + 1, column + 14).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            worksheet.Cell(row + 1, column + 14).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
 
-            worksheet.Cell(row + 2, column + 13).FormulaA1 = $"=SUM(O{startItemsRow}:O{row})";
-            worksheet.Cell(row + 2, column + 13).Style.Font.FontSize = 10;
-            worksheet.Cell(row + 2, column + 13).Style.Font.FontName = "Century Gothic";
-            worksheet.Cell(row + 2, column + 13).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 2, column + 13).Style.Border.TopBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 2, column + 13).Style.Border.RightBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 2, column + 13).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 2, column + 13).Style.Font.SetBold(true);
-            worksheet.Cell(row + 2, column + 13).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-            worksheet.Cell(row + 2, column + 13).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
-            worksheet.Cell(row + 2, column + 13).Style.Font.FontColor = XLColor.FromHtml("#4472c4");
+            worksheet.Cell(row + 2, column + 14).FormulaA1 = $"=SUM(P{startItemsRow}:P{row})";
+            worksheet.Cell(row + 2, column + 14).Style.Font.FontSize = 10;
+            worksheet.Cell(row + 2, column + 14).Style.Font.FontName = "Century Gothic";
+            worksheet.Cell(row + 2, column + 14).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 14).Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 14).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 14).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 14).Style.Font.SetBold(true);
+            worksheet.Cell(row + 2, column + 14).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            worksheet.Cell(row + 2, column + 14).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+            worksheet.Cell(row + 2, column + 14).Style.Font.FontColor = XLColor.FromHtml("#4472c4");
 
-            worksheet.Cell(row + 1, column + 15).Value = "Grand Total Profit";
-            worksheet.Cell(row + 1, column + 15).Style.Font.FontSize = 10;
-            worksheet.Cell(row + 1, column + 15).Style.Font.FontName = "Century Gothic";
-            worksheet.Cell(row + 1, column + 15).Style.Fill.BackgroundColor = XLColor.FromArgb(155, 194, 230);
-            worksheet.Cell(row + 1, column + 15).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 1, column + 15).Style.Border.TopBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 1, column + 15).Style.Border.RightBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 1, column + 15).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 1, column + 15).Style.Font.SetBold(true);
-            worksheet.Cell(row + 1, column + 15).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-            worksheet.Cell(row + 1, column + 15).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+            worksheet.Cell(row + 1, column + 16).Value = "Grand Total Profit";
+            worksheet.Cell(row + 1, column + 16).Style.Font.FontSize = 10;
+            worksheet.Cell(row + 1, column + 16).Style.Font.FontName = "Century Gothic";
+            worksheet.Cell(row + 1, column + 16).Style.Fill.BackgroundColor = XLColor.FromArgb(155, 194, 230);
+            worksheet.Cell(row + 1, column + 16).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 16).Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 16).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 16).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 1, column + 16).Style.Font.SetBold(true);
+            worksheet.Cell(row + 1, column + 16).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            worksheet.Cell(row + 1, column + 16).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
 
-            worksheet.Cell(row + 2, column + 15).FormulaA1 = $"=SUM(Q{startItemsRow}:Q{row})";
-            worksheet.Cell(row + 2, column + 15).Style.Font.FontSize = 10;
-            worksheet.Cell(row + 2, column + 15).Style.Font.FontName = "Century Gothic";
-            worksheet.Cell(row + 2, column + 15).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 2, column + 15).Style.Border.TopBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 2, column + 15).Style.Border.RightBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 2, column + 15).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
-            worksheet.Cell(row + 2, column + 15).Style.Font.SetBold(true);
-            worksheet.Cell(row + 2, column + 15).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-            worksheet.Cell(row + 2, column + 15).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
-            worksheet.Cell(row + 2, column + 15).Style.Font.FontColor = XLColor.FromHtml("#4472c4");
+            worksheet.Cell(row + 2, column + 16).FormulaA1 = $"=SUM(R{startItemsRow}:R{row})";
+            worksheet.Cell(row + 2, column + 16).Style.Font.FontSize = 10;
+            worksheet.Cell(row + 2, column + 16).Style.Font.FontName = "Century Gothic";
+            worksheet.Cell(row + 2, column + 16).Style.Border.LeftBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 16).Style.Border.TopBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 16).Style.Border.RightBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 16).Style.Border.BottomBorder = XLBorderStyleValues.Thin;
+            worksheet.Cell(row + 2, column + 16).Style.Font.SetBold(true);
+            worksheet.Cell(row + 2, column + 16).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            worksheet.Cell(row + 2, column + 16).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+            worksheet.Cell(row + 2, column + 16).Style.Font.FontColor = XLColor.FromHtml("#4472c4");
 
 
 
-            worksheet.Columns(column, column + 15).AdjustToContents();
+            worksheet.Columns(column, column + 16).AdjustToContents();
 
         }
 
