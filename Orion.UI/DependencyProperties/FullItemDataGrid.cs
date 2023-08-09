@@ -41,7 +41,7 @@ namespace Orion.UI.DependencyProperties
             || x.Header.ToString().ToFormat() == "total"
             || x.Header.ToString().ToFormat() == "model"
             || x.Header.ToString().ToFormat() == "freight"
-            || x.Header.ToString().ToFormat() == "total cost"
+            || x.Header.ToString().ToFormat() == "total each cost"
             || x.Header.ToString().ToFormat() == "tag"))
             {
 
@@ -240,7 +240,7 @@ namespace Orion.UI.DependencyProperties
                 column = new DataGridTemplateColumn();
                 column.Width = DataGridLength.Auto;
                 column.IsReadOnly = true;
-                AddColumnHeaderStyle(column, "Total Cost");
+                AddColumnHeaderStyle(column, "Total Each Cost");
 
                 factory = new FrameworkElementFactory(typeof(TextBlock));
                 factory.SetBinding(TextBlock.TextProperty, new System.Windows.Data.Binding("TotalEachPrice") { UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged, StringFormat = "{0:c}", Mode = BindingMode.TwoWay });

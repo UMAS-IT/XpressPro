@@ -1,94 +1,99 @@
-﻿<UserControl x:Class="Orion.UI.View.OpenProjectView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Orion.UI.View"
-             mc:Ignorable="d" 
-             xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
-             xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-             dialog:DialogParticipation.Register="{Binding}"
-             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks" 
-             xmlns:vm="clr-namespace:Orion.UI.ViewModel"
-             xmlns:view="clr-namespace:Orion.UI.View"
-             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
-             d:DesignHeight="600" d:DesignWidth="800"
-             d:DataContext="{d:DesignInstance Type=vm:OpenProjectViewModel}">
+﻿<UserControl
+    x:Class="Orion.UI.View.OpenProjectView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:Orion.UI.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:Orion.UI.View"
+    xmlns:vm="clr-namespace:Orion.UI.ViewModel"
+    d:DataContext="{d:DesignInstance Type=vm:OpenProjectViewModel}"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    dialog:DialogParticipation.Register="{Binding}"
+    mc:Ignorable="d">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadDataCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}"/>
+            <i:InvokeCommandAction Command="{Binding LoadDataCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}" />
         </i:EventTrigger>
         <!--<i:EventTrigger SourceObject="{Binding RelativeSource={RelativeSource AncestorType=ctrl:MetroWindow}}" EventName="Closed">
             <i:InvokeCommandAction Command="{Binding ExitCommand}" />
         </i:EventTrigger>-->
     </i:Interaction.Triggers>
     <UserControl.InputBindings>
-        <KeyBinding Command="{Binding Path=SearchCommand}" Key="Enter"/>
+        <KeyBinding Key="Enter" Command="{Binding Path=SearchCommand}" />
     </UserControl.InputBindings>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Width="150">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsVisible}" Value="True">
-                            <Setter Property="IsEnabled" Value="False"/>
+                            <Setter Property="IsEnabled" Value="False" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
 
-            <GroupBox Header="Search Options" 
-                      ctrl:ControlsHelper.ContentCharacterCasing="Normal"
-                                  Margin="5,5,0,5">
+            <GroupBox
+                Margin="5,5,0,5"
+                ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                Header="Search Options">
                 <StackPanel Orientation="Vertical">
-                    <TextBox  
-                             Grid.Column="0"
-                             ctrl:TextBoxHelper.Watermark="Project Name"                          
-                             ToolTip="Press ENTER to update searching"
-                             ctrl:TextBoxHelper.ClearTextButton="True"
-                             ctrl:TextBoxHelper.ButtonCommand="{Binding ResetSearchCommand}"
-                             Text="{Binding ProjectName, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
-                             Style="{DynamicResource TxtStyle}">
+                    <TextBox
+                        Grid.Column="0"
+                        ctrl:TextBoxHelper.ButtonCommand="{Binding ResetSearchCommand}"
+                        ctrl:TextBoxHelper.ClearTextButton="True"
+                        ctrl:TextBoxHelper.Watermark="Project Name"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding ProjectName, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                        ToolTip="Press ENTER to update searching">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
+                                <i:InvokeCommandAction Command="{Binding SearchCommand}" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </TextBox>
 
 
 
-                    <Button Grid.Column="1"  Visibility="Collapsed"
+                    <Button
+                        Grid.Column="1"
                         Margin="1"
-                                        Command="{Binding ReloadCommand}"
-                             Background="#93C039"
-                            
-                        ToolTip="Reload Projects">
+                        Background="#93C039"
+                        Command="{Binding ReloadCommand}"
+                        ToolTip="Reload Projects"
+                        Visibility="Collapsed">
                         <Button.Content>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Content="Reload Projects"/>
+                                <Label Grid.Column="0" Content="Reload Projects" />
 
-                                <icon:PackIconMaterial Kind="Reload" 
-                                                        Grid.Column="1" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
+                                <icon:PackIconMaterial
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="Reload">
                                     <icon:PackIconMaterial.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
                                         </TransformGroup>
                                     </icon:PackIconMaterial.LayoutTransform>
                                 </icon:PackIconMaterial>
@@ -101,32 +106,35 @@
                 </StackPanel>
             </GroupBox>
 
-            <GroupBox Header="Actions" 
-                      ctrl:ControlsHelper.ContentCharacterCasing="Normal"
-                      Grid.Row="2"
-                                  Margin="5,0,0,5">
+            <GroupBox
+                Grid.Row="2"
+                Margin="5,0,0,5"
+                ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                Header="Actions">
 
-                <Button Grid.Column="1"  
-                        Margin="1"
-                            Background="Orange"
-                                        Command="{Binding CloseCommand}"
-                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}">
+                <Button
+                    Grid.Column="1"
+                    Margin="1"
+                    Background="Orange"
+                    Command="{Binding CloseCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}">
                     <Button.Content>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
                             </Grid.ColumnDefinitions>
 
                             <!--<Label Grid.Column="0" Content="Back"/>-->
 
-                            <icon:PackIconMaterial Kind="KeyboardReturn" 
-                                                        Grid.Column="1" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
+                            <icon:PackIconMaterial
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Kind="KeyboardReturn">
                                 <icon:PackIconMaterial.LayoutTransform>
                                     <TransformGroup>
-                                        <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                        <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                     </TransformGroup>
                                 </icon:PackIconMaterial.LayoutTransform>
                             </icon:PackIconMaterial>
@@ -141,58 +149,74 @@
 
         <Grid Grid.Column="1" Margin="5,5,5,5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition/>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsVisible}" Value="True">
-                            <Setter Property="IsEnabled" Value="False"/>
+                            <Setter Property="IsEnabled" Value="False" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
 
-            <Border Grid.Row="0" Margin="0,0,0,5" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
-                <Label Content="All Projects" HorizontalAlignment="Center" FontSize="12" />
+            <Border
+                Grid.Row="0"
+                Margin="0,0,0,5"
+                Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}"
+                BorderBrush="{StaticResource MahApps.Brushes.Accent}"
+                BorderThickness="1">
+                <Label
+                    HorizontalAlignment="Center"
+                    Content="All Projects"
+                    FontSize="12" />
             </Border>
 
-            <DataGrid Grid.Row="1" 
-                          ItemsSource="{Binding Projects}"  
-                          SelectedItem="{Binding ProjectSelected}"          
-                      Style="{StaticResource DGridStyle}"
-                FrozenColumnCount="2">
+            <DataGrid
+                Grid.Row="1"
+                FrozenColumnCount="2"
+                ItemsSource="{Binding Projects}"
+                SelectedItem="{Binding ProjectSelected}"
+                Style="{StaticResource DGridStyle}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding OpenProjectCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}"/>
+                        <i:InvokeCommandAction Command="{Binding OpenProjectCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
 
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                    <DataGridTemplateColumn Width="auto" CanUserResize="False">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button ToolTip="Export Project"  Background="{StaticResource MahApps.Brushes.Accent}" Command="{Binding DataContext.OpenProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}">
-                                    <icon:PackIconFontAwesome Kind="PencilAltSolid" 
-                                                        Grid.Column="1" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
-                                    </icon:PackIconFontAwesome>
+                                <Button
+                                    Background="{StaticResource MahApps.Brushes.Accent}"
+                                    Command="{Binding DataContext.OpenProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}"
+                                    ToolTip="Open Project">
+                                    <icon:PackIconFontAwesome
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Kind="PencilAltSolid" />
                                 </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                    <DataGridTemplateColumn Width="auto" CanUserResize="False">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button ToolTip="Open Project"  Background="#93C039" Command="{Binding DataContext.ExportProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
-                                    <icon:PackIconFontAwesome Kind="FileExportSolid" 
-                                                        Grid.Column="1" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
-                                    </icon:PackIconFontAwesome>
+                                <Button
+                                    Background="#93C039"
+                                    Command="{Binding DataContext.ExportProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                    ToolTip="Export Project">
+                                    <icon:PackIconFontAwesome
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Kind="FileExportSolid" />
                                 </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -202,8 +226,8 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button ToolTip="Delete Project"  Background="IndianRed" Command="{Binding DataContext.DeleteProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
-                                    <icon:PackIconMaterial Kind="Delete" 
-                                                        Grid.Column="1" 
+                                    <icon:PackIconMaterial Kind="Delete"
+                                                        Grid.Column="1"
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
                                     </icon:PackIconMaterial>
@@ -212,28 +236,64 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>-->
 
-                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" CanUserResize="False"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                    <DataGridTextColumn Header="Project Number" Binding="{Binding Number}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                    <DataGridTextColumn Header="Project Name" Binding="{Binding Name}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                    <DataGridTextColumn Header="Created By" Binding="{Binding User.Name}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                    <DataGridTextColumn Header="Contractor" Binding="{Binding Contractor}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                    <DataGridTextColumn Header="Engineer" Binding="{Binding Engineer}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
-                    <DataGridTextColumn Header="Contact" Binding="{Binding Contact}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Id}"
+                        CanUserResize="False"
+                        Header="Id"
+                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                        IsReadOnly="True" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Number}"
+                        Header="Project Number"
+                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                        IsReadOnly="True" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Name}"
+                        Header="Project Name"
+                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                        IsReadOnly="True" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding User.Name}"
+                        Header="Created By"
+                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                        IsReadOnly="True" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Contractor}"
+                        Header="Contractor"
+                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                        IsReadOnly="True" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Engineer}"
+                        Header="Engineer"
+                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                        IsReadOnly="True" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Contact}"
+                        Header="Contact"
+                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                        IsReadOnly="True" />
                     <!--<DataGridTextColumn Header="Location" Binding="{Binding Location}" HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>-->
                 </DataGrid.Columns>
 
             </DataGrid>
         </Grid>
-        
+
         <ContentControl Grid.Column="2" Content="{Binding CurrentViewModel}">
             <ContentControl.Style>
                 <Style TargetType="ContentControl">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsVisible}" Value="True">
-                            <Setter Property="Visibility" Value="Visible"/>
+                            <Setter Property="Visibility" Value="Visible" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding IsVisible}" Value="False">
-                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Setter Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
@@ -247,7 +307,7 @@
             </Grid.RowDefinitions>
 
 
-            <GroupBox Header="Search Options" 
+            <GroupBox Header="Search Options"
                       ctrl:ControlsHelper.ContentCharacterCasing="Normal"
                                   Margin="5,5,0,5">
                 <StackPanel Orientation="Vertical">
@@ -257,9 +317,9 @@
                         IsReadOnly="True"
                         Text="{Binding ProjectSelected.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
-                    <ComboBox  
+                    <ComboBox
                               Style="{StaticResource CBoxStyle}"
-                              ctrl:TextBoxHelper.Watermark="Target User" 
+                              ctrl:TextBoxHelper.Watermark="Target User"
                               ItemsSource="{Binding Users, Mode=TwoWay}"
                               SelectedItem="{Binding TargetUser, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True, Mode=TwoWay}"
                               DisplayMemberPath="Name"
@@ -270,7 +330,7 @@
                         Margin="1"
                                         Command="{Binding ReloadCommand}"
                              Background="#93C039"
-                            
+
                         ToolTip="Reload Projects">
                         <Button.Content>
                             <Grid>
@@ -280,8 +340,8 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Content="Reload Projects"/>
 
-                                <icon:PackIconMaterial Kind="Reload" 
-                                                        Grid.Column="1" 
+                                <icon:PackIconMaterial Kind="Reload"
+                                                        Grid.Column="1"
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center">
                                     <icon:PackIconMaterial.LayoutTransform>

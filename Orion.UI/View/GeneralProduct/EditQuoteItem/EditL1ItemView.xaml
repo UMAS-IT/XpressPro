@@ -313,12 +313,12 @@
                         <DataGridTextColumn
                             Width="auto"
                             Binding="{Binding Catalog.Model}"
-                            Header="Base"
+                            Header="Model"
                             HeaderStyle="{StaticResource ColumnHeaderStyle}"
                             IsReadOnly="True" />
 
 
-                        <DataGridTemplateColumn Header="Model" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                        <DataGridTemplateColumn Header="Model Type" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox

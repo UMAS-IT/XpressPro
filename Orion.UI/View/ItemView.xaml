@@ -2580,7 +2580,7 @@
                                     <local:FullItemDataGrid ItemsSource="{Binding ItemL1s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
                                         <local:FullItemDataGrid.Columns>
 
-                                            <DataGridTemplateColumn Header="Type" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                                            <DataGridTemplateColumn Header="Model Type" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                                                 <DataGridTemplateColumn.CellTemplate>
                                                     <DataTemplate>
                                                         <TextBox
