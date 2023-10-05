@@ -665,6 +665,36 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ClosedXML.pdb
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ClosedXML.xml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ExcelNumberFormat.xml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC5ListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC6ListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC7ListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditCatalogItem\EditC5CatalogView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditCatalogItem\EditC6CatalogView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditCatalogItem\EditC7CatalogView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC5ItemView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC6ItemView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC7ItemView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditUserView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ExportProjectView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\CatalogList\CatalogL1ListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditCatalogItem\EditL1CatalogView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditQuoteItem\EditL1ItemView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UserListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC5ListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC6ListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC7ListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditCatalogItem\EditC5CatalogView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditCatalogItem\EditC6CatalogView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditCatalogItem\EditC7CatalogView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC5ItemView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC6ItemView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC7ItemView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditUserView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ExportProjectView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\CatalogList\CatalogL1ListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditCatalogItem\EditL1CatalogView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditQuoteItem\EditL1ItemView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UserListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ResourcePricing\PricingTemplate.docx
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ResourcePricing\TermsAndConditionsTemplate.docx
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.UI.exe.config
@@ -1168,33 +1198,3 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.csproj.CopyComplete
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.exe
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.pdb
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC5ListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC6ListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC7ListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditCatalogItem\EditC5CatalogView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditCatalogItem\EditC6CatalogView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditCatalogItem\EditC7CatalogView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC5ItemView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC6ItemView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC7ItemView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditUserView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ExportProjectView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\CatalogList\CatalogL1ListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditCatalogItem\EditL1CatalogView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditQuoteItem\EditL1ItemView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UserListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC5ListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC6ListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC7ListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditCatalogItem\EditC5CatalogView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditCatalogItem\EditC6CatalogView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditCatalogItem\EditC7CatalogView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC5ItemView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC6ItemView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC7ItemView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\EditUserView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ExportProjectView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\CatalogList\CatalogL1ListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditCatalogItem\EditL1CatalogView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditQuoteItem\EditL1ItemView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UserListView.baml

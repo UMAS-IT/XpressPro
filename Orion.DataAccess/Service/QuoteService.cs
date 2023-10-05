@@ -77,114 +77,269 @@ namespace Orion.DataAccess.Service
             }
         }
 
+
         public Quote GetQuoteForReportsByQuoteId(int quoteId)
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.Quotes
-                    .Include(x => x.ItemA1s).ThenInclude(x => x.CatalogA1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemA1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemA2s).ThenInclude(x => x.CatalogA2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemA2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemA3s).ThenInclude(x => x.CatalogA3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemA3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemA4s).ThenInclude(x => x.CatalogA4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemA4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                Quote quote = context.Quotes.FirstOrDefault(x => x.Id == quoteId);
 
-                    .Include(x => x.ItemB1s).ThenInclude(x => x.CatalogB1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemB1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemB2s).ThenInclude(x => x.CatalogB2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemB2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemB3s).ThenInclude(x => x.CatalogB3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemB3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemB4s).ThenInclude(x => x.CatalogB4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemB4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemB5s).ThenInclude(x => x.CatalogB5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemB5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                quote.ItemA1s = context.ItemA1s.Include(x => x.CatalogA1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
 
-                    .Include(x => x.ItemC1s).ThenInclude(x => x.CatalogC1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC2s).ThenInclude(x => x.CatalogC2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC3s).ThenInclude(x => x.CatalogC3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC3s).ThenInclude(x => x.CatalogC3).ThenInclude(x => x.CatalogC3ProductType)
-                    .Include(x => x.ItemC3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC4s).ThenInclude(x => x.CatalogC4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC5s).ThenInclude(x => x.CatalogC5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC6s).ThenInclude(x => x.CatalogC6).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC6s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC7s).ThenInclude(x => x.CatalogC7).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemC7s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                quote.ItemA2s = context.ItemA2s.Include(x => x.CatalogA2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
 
-                    .Include(x => x.ItemD1s).ThenInclude(x => x.CatalogD1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemD1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemD2s).ThenInclude(x => x.CatalogD2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemD2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                quote.ItemA3s = context.ItemA3s.Include(x => x.CatalogA3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
 
-                    .Include(x => x.ItemE1s).ThenInclude(x => x.CatalogE1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE2s).ThenInclude(x => x.CatalogE2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE3s).ThenInclude(x => x.CatalogE3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE4s).ThenInclude(x => x.CatalogE4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE5s).ThenInclude(x => x.CatalogE5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE6s).ThenInclude(x => x.CatalogE6).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE6s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE7s).ThenInclude(x => x.CatalogE7).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemE7s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                quote.ItemA4s = context.ItemA4s.Include(x => x.CatalogA4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
 
-                    .Include(x => x.ItemF1s).ThenInclude(x => x.CatalogF1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemF1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                quote.ItemB1s = context.ItemB1s.Include(x => x.CatalogB1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
 
-                    .Include(x => x.ItemG1s).ThenInclude(x => x.CatalogG1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemG1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemG2s).ThenInclude(x => x.CatalogG2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemG2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemG3s).ThenInclude(x => x.CatalogG3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemG3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemG4s).ThenInclude(x => x.CatalogG4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemG4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemG5s).ThenInclude(x => x.CatalogG5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemG5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemG6s).ThenInclude(x => x.CatalogG6).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemG6s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                                       
-                    .Include(x => x.ItemH1s).ThenInclude(x => x.CatalogH1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemH1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemH2s).ThenInclude(x => x.CatalogH2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemH2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemH3s).ThenInclude(x => x.CatalogH3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemH3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemH4s).ThenInclude(x => x.CatalogH4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemH4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemH5s).ThenInclude(x => x.CatalogH5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemH5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                quote.ItemB2s = context.ItemB2s.Include(x => x.CatalogB2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
 
-                    .Include(x => x.ItemI1s).ThenInclude(x => x.CatalogI1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemI1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemI2s).ThenInclude(x => x.CatalogI2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemI2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                quote.ItemB3s = context.ItemB3s.Include(x => x.CatalogB3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
 
-                    .Include(x => x.ItemJ1s).ThenInclude(x => x.CatalogJ1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemJ1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                quote.ItemB4s = context.ItemB4s.Include(x => x.CatalogB4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
 
-                    .Include(x => x.ItemK1s).ThenInclude(x => x.CatalogK1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemK1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemK2s).ThenInclude(x => x.CatalogK2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemK2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemK3s).ThenInclude(x => x.CatalogK3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemK3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                quote.ItemB5s = context.ItemB5s.Include(x => x.CatalogB5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
 
-                    .Include(x => x.ItemL1s).ThenInclude(x => x.CatalogL1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .Include(x => x.ItemL1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
-                    .FirstOrDefault(u => u.Id == quoteId);
+                quote.ItemC1s = context.ItemC1s.Include(x => x.CatalogC1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemC2s = context.ItemC2s.Include(x => x.CatalogC2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemC3s = context.ItemC3s.Include(x => x.CatalogC3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.CatalogC3).ThenInclude(x => x.CatalogC3ProductType)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemC4s = context.ItemC4s.Include(x => x.CatalogC4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemC5s = context.ItemC5s.Include(x => x.CatalogC5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemC6s = context.ItemC6s.Include(x => x.CatalogC6).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemC7s = context.ItemC7s.Include(x => x.CatalogC7).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemD1s = context.ItemD1s.Include(x => x.CatalogD1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemD2s = context.ItemD2s.Include(x => x.CatalogD2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemE1s = context.ItemE1s.Include(x => x.CatalogE1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemE2s = context.ItemE2s.Include(x => x.CatalogE2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemE3s = context.ItemE3s.Include(x => x.CatalogE3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemE4s = context.ItemE4s.Include(x => x.CatalogE4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemE5s = context.ItemE5s.Include(x => x.CatalogE5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemE6s = context.ItemE6s.Include(x => x.CatalogE6).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemE7s = context.ItemE7s.Include(x => x.CatalogE7).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemF1s = context.ItemF1s.Include(x => x.CatalogF1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemG1s = context.ItemG1s.Include(x => x.CatalogG1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemG2s = context.ItemG2s.Include(x => x.CatalogG2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemG3s = context.ItemG3s.Include(x => x.CatalogG3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemG4s = context.ItemG4s.Include(x => x.CatalogG4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemG5s = context.ItemG5s.Include(x => x.CatalogG5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemG6s = context.ItemG6s.Include(x => x.CatalogG6).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemH1s = context.ItemH1s.Include(x => x.CatalogH1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemH2s = context.ItemH2s.Include(x => x.CatalogH2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemH3s = context.ItemH3s.Include(x => x.CatalogH3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemH4s = context.ItemH4s.Include(x => x.CatalogH4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemH5s = context.ItemH5s.Include(x => x.CatalogH5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemI1s = context.ItemI1s.Include(x => x.CatalogI1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemI2s = context.ItemI2s.Include(x => x.CatalogI2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemJ1s = context.ItemJ1s.Include(x => x.CatalogJ1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemK1s = context.ItemK1s.Include(x => x.CatalogK1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemK2s = context.ItemK2s.Include(x => x.CatalogK2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemK3s = context.ItemK3s.Include(x => x.CatalogK3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                quote.ItemL1s = context.ItemL1s.Include(x => x.CatalogL1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+                return quote;
             }
         }
+
+        //public Quote GetQuoteForReportsByQuoteId(int quoteId)
+        //{
+        //    using (GlobalDbContext context = new GlobalDbContext())
+        //    {
+        //        Quote quote = context.Quotes.FirstOrDefault(x => x.Id == quoteId);
+
+        //        quote.ItemA1s = context.ItemA1s.Include(x => x.CatalogA1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //                                       .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+        //        quote.ItemA2s = context.ItemA2s.Include(x => x.CatalogA2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //                       .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
+
+        //        //return context.Quotes
+        //        //    .Include(x => x.ItemA1s).ThenInclude(x => x.CatalogA1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemA1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemA2s).ThenInclude(x => x.CatalogA2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemA2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemA3s).ThenInclude(x => x.CatalogA3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemA3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemA4s).ThenInclude(x => x.CatalogA4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemA4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+        //        //    .Include(x => x.ItemB1s).ThenInclude(x => x.CatalogB1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemB1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemB2s).ThenInclude(x => x.CatalogB2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemB2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemB3s).ThenInclude(x => x.CatalogB3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemB3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemB4s).ThenInclude(x => x.CatalogB4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemB4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemB5s).ThenInclude(x => x.CatalogB5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemB5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+        //        //    .Include(x => x.ItemC1s).ThenInclude(x => x.CatalogC1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC2s).ThenInclude(x => x.CatalogC2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC3s).ThenInclude(x => x.CatalogC3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC3s).ThenInclude(x => x.CatalogC3).ThenInclude(x => x.CatalogC3ProductType)
+        //        //    .Include(x => x.ItemC3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC4s).ThenInclude(x => x.CatalogC4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC5s).ThenInclude(x => x.CatalogC5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC6s).ThenInclude(x => x.CatalogC6).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC6s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC7s).ThenInclude(x => x.CatalogC7).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemC7s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+        //        //    .Include(x => x.ItemD1s).ThenInclude(x => x.CatalogD1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemD1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemD2s).ThenInclude(x => x.CatalogD2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemD2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+        //        //    .Include(x => x.ItemE1s).ThenInclude(x => x.CatalogE1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE2s).ThenInclude(x => x.CatalogE2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE3s).ThenInclude(x => x.CatalogE3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE4s).ThenInclude(x => x.CatalogE4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE5s).ThenInclude(x => x.CatalogE5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE6s).ThenInclude(x => x.CatalogE6).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE6s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE7s).ThenInclude(x => x.CatalogE7).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemE7s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+        //        //    .Include(x => x.ItemF1s).ThenInclude(x => x.CatalogF1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemF1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+        //        //    .Include(x => x.ItemG1s).ThenInclude(x => x.CatalogG1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemG1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemG2s).ThenInclude(x => x.CatalogG2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemG2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemG3s).ThenInclude(x => x.CatalogG3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemG3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemG4s).ThenInclude(x => x.CatalogG4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemG4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemG5s).ThenInclude(x => x.CatalogG5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemG5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemG6s).ThenInclude(x => x.CatalogG6).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemG6s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+        //        //    .Include(x => x.ItemH1s).ThenInclude(x => x.CatalogH1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemH1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemH2s).ThenInclude(x => x.CatalogH2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemH2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemH3s).ThenInclude(x => x.CatalogH3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemH3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemH4s).ThenInclude(x => x.CatalogH4).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemH4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemH5s).ThenInclude(x => x.CatalogH5).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemH5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+        //        //    .Include(x => x.ItemI1s).ThenInclude(x => x.CatalogI1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemI1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemI2s).ThenInclude(x => x.CatalogI2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemI2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+        //        //    .Include(x => x.ItemJ1s).ThenInclude(x => x.CatalogJ1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemJ1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+        //        //    .Include(x => x.ItemK1s).ThenInclude(x => x.CatalogK1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemK1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemK2s).ThenInclude(x => x.CatalogK2).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemK2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemK3s).ThenInclude(x => x.CatalogK3).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemK3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+
+        //        //    .Include(x => x.ItemL1s).ThenInclude(x => x.CatalogL1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .Include(x => x.ItemL1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+        //        //    .FirstOrDefault(u => u.Id == quoteId);
+
+        //        return quote;
+        //    }
+        //}
 
         public IList<Quote> GetQuotesForReportsByProjectId(int projectId)
         {
