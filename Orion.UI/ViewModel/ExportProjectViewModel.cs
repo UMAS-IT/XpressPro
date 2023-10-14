@@ -101,6 +101,8 @@ namespace Orion.UI.ViewModel
                 {
                     Quote newQuote = quoteService.CreateQuote(NewProject.Id, quote.Name);
 
+                    quoteService.CloneQuoteCompanies(quote, newQuote);
+
                     itemService.CloneQuoteItems(quote,newQuote);
                 }
 

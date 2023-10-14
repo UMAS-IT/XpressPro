@@ -10,11 +10,6 @@
     xmlns:view="clr-namespace:Orion.UI.View"
     xmlns:viewAItemList="clr-namespace:Orion.UI.View.Quantech.QuoteItemList"
     xmlns:viewBItemList="clr-namespace:Orion.UI.View.ABB.QouteItemList"
-    
-    xmlns:vmAItemList="clr-namespace:Orion.UI.ViewModel.Quantech.QuoteItemList"
-    xmlns:vmBItemList="clr-namespace:Orion.UI.ViewModel.ABB.QuoteItemList"
-    
-    
     xmlns:viewCatalogA="clr-namespace:Orion.UI.View.Quantech.CatalogList"
     xmlns:viewCatalogB="clr-namespace:Orion.UI.View.ABB.CatalogList"
     xmlns:viewCatalogC="clr-namespace:Orion.UI.View.AmericanWheatley.CatalogList"
@@ -52,6 +47,8 @@
     xmlns:viewItemK="clr-namespace:Orion.UI.View.Multiaqua.EditQuoteItem"
     xmlns:viewItemL="clr-namespace:Orion.UI.View.GeneralProduct.EditQuoteItem"
     xmlns:vm="clr-namespace:Orion.UI.ViewModel"
+    xmlns:vmAItemList="clr-namespace:Orion.UI.ViewModel.Quantech.QuoteItemList"
+    xmlns:vmBItemList="clr-namespace:Orion.UI.ViewModel.ABB.QuoteItemList"
     xmlns:vmCatalogA="clr-namespace:Orion.UI.ViewModel.Quantech.CatalogList"
     xmlns:vmCatalogB="clr-namespace:Orion.UI.ViewModel.ABB.CatalogList"
     xmlns:vmCatalogC="clr-namespace:Orion.UI.ViewModel.AmericanWheatley.CatalogList"

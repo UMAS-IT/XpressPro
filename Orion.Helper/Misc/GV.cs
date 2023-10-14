@@ -86,24 +86,6 @@ namespace Orion.Helper.Misc
             L,
         }
 
-        public static ItemType GetItemType(string itemsName)
-        {
-            return (ItemType)Enum.Parse(typeof(ItemType), "Item" + itemsName.ToFormat(), true);
-        }
-
-        public static Subfix GetSubfix(ItemType itemType)
-        {
-            string itemName = itemType.ToString().Substring(4);
-            string subfixPart = Regex.Replace(itemName, "[0-9]", "");
-            return (Subfix)Enum.Parse(typeof(Subfix), subfixPart, true);
-        }
-
-        public static Subfix GetSubfix(string itemsName)
-        {
-            ItemType itemType= GetItemType(itemsName);
-
-            return GetSubfix(itemType);
-        }
 
 
         //public enum CatalogType

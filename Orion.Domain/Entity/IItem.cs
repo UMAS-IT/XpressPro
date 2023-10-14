@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using static Orion.Helper.Misc.GV;
 
 namespace Orion.Domain.Entity
 {
@@ -26,6 +27,8 @@ namespace Orion.Domain.Entity
         double Freight { get; set; }
         [NotMapped]
         double TotalEachPrice { get; set; }
+        [NotMapped]
+        ItemType ItemType { get; set; }
     }
 }
 

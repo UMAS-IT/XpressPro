@@ -79,6 +79,76 @@ namespace Orion.DataAccess.Service
             }
         }
 
+        public void CloneQuoteCompanies(Quote refQuote, Quote newQuote)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                // Carga el Quote original de la base de datos.
+                Quote dbrefQuote = context.Quotes
+                    .Include(x => x.QuoteCompanies)
+                    .ThenInclude(x => x.Company)
+                    .FirstOrDefault(x => x.Id == refQuote.Id);
+
+                Quote dbNewQuote = context.Quotes
+                    .Include(x => x.QuoteCompanies)
+                    .ThenInclude(x => x.Company)
+                    .FirstOrDefault(x => x.Id == newQuote.Id);
+
+                List<Company> dbCompanies = context.Companies.ToList();
+
+                foreach (QuoteCompanies quoteCompany in dbrefQuote.QuoteCompanies)
+                {
+                    QuoteCompanies newQuoteCompany = new QuoteCompanies()
+                    {
+                        Quote = dbNewQuote,
+                        Company = dbCompanies.FirstOrDefault(x => x.Id == quoteCompany.Company.Id),
+                        DesignIndex = quoteCompany.DesignIndex,
+                    };
+                    dbNewQuote.QuoteCompanies.Add(newQuoteCompany);
+                }
+                context.SaveChanges();
+            }
+        }
+
+        public IList<QuoteCompanies> UpdateQuoteCompanies(Quote quote)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                // Carga el Quote original de la base de datos.
+                Quote dbQuote = context.Quotes
+                    .Include(x => x.QuoteCompanies)
+                    .ThenInclude(x => x.Company)
+                    .FirstOrDefault(x => x.Id == quote.Id);
+
+                List<Company> dbCompanies = context.Companies.ToList();
+
+                if (dbQuote != null)
+                {
+                    // Elimina todas las QuoteCompanies existentes para este Quote.
+                    context.QuoteCompanies.RemoveRange(dbQuote.QuoteCompanies);
+
+                    foreach (QuoteCompanies quoteCompany in quote.QuoteCompanies)
+                    {
+                        QuoteCompanies newQuoteCompany = new QuoteCompanies()
+                        {
+                            Quote = dbQuote,
+                            Company = dbCompanies.FirstOrDefault(x => x.Id == quoteCompany.Company.Id),
+                            DesignIndex = quoteCompany.DesignIndex,
+                        };
+                        dbQuote.QuoteCompanies.Add(newQuoteCompany);
+                    }
+
+                    // Guarda los cambios en la base de datos.
+                    context.SaveChanges();
+
+                    // Devuelve la lista actualizada de QuoteCompanies.
+                    return dbQuote.QuoteCompanies.ToList();
+                }
+
+                return null; // Puedes manejar el caso si el Quote no se encuentra en la base de datos.
+            }
+        }
+
 
         public Quote GetQuoteForReportsByQuoteId(int quoteId)
         {

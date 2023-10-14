@@ -64,6 +64,8 @@ namespace Orion.UI.ViewModel
 
                 Quote newQuote = quoteService.CreateQuote(project.Id, QuoteName);
 
+                quoteService.CloneQuoteCompanies(Quote, newQuote);
+
                 itemService.CloneQuoteItems(Quote, newQuote);
 
                 await messageService.EndMessage($"Quote Cloned");

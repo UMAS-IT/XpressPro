@@ -24,6 +24,7 @@
     <Expander
                             Margin="5,5,5,0"
                             BorderBrush="DarkSlateBlue"
+                            
                             IsExpanded="False">
         <Expander.Header>
             <Label

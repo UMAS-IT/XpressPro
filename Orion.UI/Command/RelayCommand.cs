@@ -235,4 +235,22 @@ namespace Orion.UI.Command
         Action<IList<IItem>, ItemType> OnItemsSavedRequested { get; set; }
     }
 
+    public interface IListViewModel
+    {
+        ObservableCollection<IItem> Items { get; set; }
+        ObservableCollection<Company> Companies { get; set; }
+        Quote Quote { get; set; }
+        QuoteCompanies QuoteCompany { get; set; }
+        ObservableCollection<IItem> GetSelectedItems(ItemType itemType);
+
+        void OnItemsSaved(IList<IItem> items, ItemType itemType);
+
+        Action<IItem> ShowTitlesRequested { get; set; }
+
+        Action<IListViewModel> DeleteItemListViewRequested { get; set; }
+
+        IList<IItem> GetItems();
+
+    }
+
 }

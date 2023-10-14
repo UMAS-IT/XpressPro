@@ -16,6 +16,7 @@ using Orion.Domain.PACE.Item;
 using Orion.Helper.Extension;
 using Orion.Helper.Misc;
 using Orion.UI.Command;
+using Orion.UI.Misc;
 using Orion.UI.ViewModel.ABB.QuoteItemList;
 using Orion.UI.ViewModel.Quantech.EditQuoteItem;
 using System;
@@ -66,12 +67,35 @@ namespace Orion.UI.ViewModel.Quantech.QuoteItemList
 
         public override void OnLoadData()
         {
-            ItemA1s = Items.Where(x => x is ItemA1).ToObservableCollection();
-            ItemA2s = Items.Where(x => x is ItemA2).ToObservableCollection();
-            ItemA3s = Items.Where(x => x is ItemA3).ToObservableCollection();
-            ItemA4s = Items.Where(x => x is ItemA4).ToObservableCollection();
+            ItemA1s = Items.Where(x => x is ItemA1).OrderBy(x => x.DesignIndex).ToObservableCollection();
+            ItemA2s = Items.Where(x => x is ItemA2).OrderBy(x => x.DesignIndex).ToObservableCollection();
+            ItemA3s = Items.Where(x => x is ItemA3).OrderBy(x => x.DesignIndex).ToObservableCollection();
+            ItemA4s = Items.Where(x => x is ItemA4).OrderBy(x => x.DesignIndex).ToObservableCollection();
         }
 
+        public override IList<IItem> GetItems()
+        {
+            ItemA1s.ToList().ForEach(x => x.DesignIndex = ItemA1s.IndexOf(x));
+            ItemA2s.ToList().ForEach(x => x.DesignIndex = ItemA2s.IndexOf(x));
+            ItemA3s.ToList().ForEach(x => x.DesignIndex = ItemA3s.IndexOf(x));
+            ItemA4s.ToList().ForEach(x => x.DesignIndex = ItemA4s.IndexOf(x));
 
+            List<IItem> items = new List<IItem>();
+
+            items.AddRange(ItemA1s);
+            items.AddRange(ItemA2s);
+            items.AddRange(ItemA3s);
+            items.AddRange(ItemA4s);
+
+            return items;
+        }
+
+        public override void OnDeleteItem(IItem item)
+        {
+            base.OnDeleteItem(item);
+
+            if (GetItems().Count <= 0)
+                DeleteItemListViewRequested(this);
+        }
     }
 }

@@ -182,6 +182,7 @@
     <Compile Include="DependencyProperties\DataGridColumnCollection.cs" />
     <Compile Include="DependencyProperties\EditItemDataGrid.cs" />
     <Compile Include="DependencyProperties\FullItemDataGrid.cs" />
+    <Compile Include="Misc\VmHelper.cs" />
     <Compile Include="Service\MessageService.cs" />
     <Compile Include="Service\WindowService.cs" />
     <Compile Include="ViewModel\ABB\CatalogList\CatalogB1ListViewModel.cs" />
@@ -286,7 +287,6 @@
     <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE5ItemViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE6ItemViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE7ItemViewModel.cs" />
-    <Compile Include="ViewModel\IListViewModel.cs" />
     <Compile Include="ViewModel\ItemListViewModel.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
     <Compile Include="ViewModel\MasterCatalogListViewModel.cs" />

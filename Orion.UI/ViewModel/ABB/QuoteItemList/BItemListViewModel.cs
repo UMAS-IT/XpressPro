@@ -4,6 +4,7 @@ using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Helper.Extension;
 using Orion.UI.Command;
+using Orion.UI.Misc;
 using Orion.UI.ViewModel.ABB.EditQuoteItem;
 using Orion.UI.ViewModel.Quantech.EditQuoteItem;
 using System;
@@ -60,11 +61,38 @@ namespace Orion.UI.ViewModel.ABB.QuoteItemList
 
         public override void OnLoadData()
         {
-            ItemB1s = Items.Where(x => x is ItemB1).ToObservableCollection();
-            ItemB2s = Items.Where(x => x is ItemB2).ToObservableCollection();
-            ItemB3s = Items.Where(x => x is ItemB3).ToObservableCollection();
-            ItemB4s = Items.Where(x => x is ItemB4).ToObservableCollection();
-            ItemB5s = Items.Where(x => x is ItemB5).ToObservableCollection();
+            ItemB1s = Items.Where(x => x is ItemB1).OrderBy(x => x.DesignIndex).ToObservableCollection();
+            ItemB2s = Items.Where(x => x is ItemB2).OrderBy(x => x.DesignIndex).ToObservableCollection();
+            ItemB3s = Items.Where(x => x is ItemB3).OrderBy(x => x.DesignIndex).ToObservableCollection();
+            ItemB4s = Items.Where(x => x is ItemB4).OrderBy(x => x.DesignIndex).ToObservableCollection();
+            ItemB5s = Items.Where(x => x is ItemB5).OrderBy(x => x.DesignIndex).ToObservableCollection();
+        }
+
+        public override IList<IItem> GetItems()
+        {
+            ItemB1s.ToList().ForEach(x => x.DesignIndex = ItemB1s.IndexOf(x));
+            ItemB2s.ToList().ForEach(x => x.DesignIndex = ItemB2s.IndexOf(x));
+            ItemB3s.ToList().ForEach(x => x.DesignIndex = ItemB3s.IndexOf(x));
+            ItemB4s.ToList().ForEach(x => x.DesignIndex = ItemB4s.IndexOf(x));
+            ItemB5s.ToList().ForEach(x => x.DesignIndex = ItemB4s.IndexOf(x));
+
+            List<IItem> items = new List<IItem>();
+
+            items.AddRange(ItemB1s);
+            items.AddRange(ItemB2s);
+            items.AddRange(ItemB3s);
+            items.AddRange(ItemB4s);
+            items.AddRange(ItemB5s);
+
+            return items;
+        }
+
+        public override void OnDeleteItem(IItem item)
+        {
+            base.OnDeleteItem(item);
+
+            if (GetItems().Count <= 0)
+                DeleteItemListViewRequested(this);
         }
     }
 }

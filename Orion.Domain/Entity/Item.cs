@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Orion.Helper.Misc.GV;
 
 namespace Orion.Domain.Entity
 {
@@ -241,6 +242,14 @@ namespace Orion.Domain.Entity
         public object Clone()
         {
             return this.MemberwiseClone();
+        }
+
+        private ItemType _itemType;
+        [NotMapped]
+        public ItemType ItemType
+        {
+            get => _itemType;
+            set => SetProperty(ref _itemType, value);
         }
 
         public Item()

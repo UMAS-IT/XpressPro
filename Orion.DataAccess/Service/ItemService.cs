@@ -1092,6 +1092,7 @@ namespace Orion.DataAccess.Service
             return itemsToReturn;
         }
 
+
         public string ValidateAllItemsTag(IList<IItem>items)
         {
             string message = "";
