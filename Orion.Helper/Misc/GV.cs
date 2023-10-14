@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Orion.Helper.Extension;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Orion.Helper.Misc
@@ -15,11 +17,13 @@ namespace Orion.Helper.Misc
             ItemA2,
             ItemA3,
             ItemA4,
+
             ItemB1,
             ItemB2,
             ItemB3,
             ItemB4,
             ItemB5,
+
             ItemC1,
             ItemC2,
             ItemC3,
@@ -27,8 +31,10 @@ namespace Orion.Helper.Misc
             ItemC5,
             ItemC6,
             ItemC7,
+
             ItemD1,
             ItemD2,
+
             ItemE1,
             ItemE2,
             ItemE3,
@@ -36,25 +42,67 @@ namespace Orion.Helper.Misc
             ItemE5,
             ItemE6,
             ItemE7,
+
             ItemF1,
+
             ItemG1,
             ItemG2,
             ItemG3,
             ItemG4,
             ItemG5,
             ItemG6,
+
             ItemH1,
             ItemH2,
             ItemH3,
             ItemH4,
             ItemH5,
+
             ItemI1,
             ItemI2,
+
             ItemJ1,
+
             ItemK1,
             ItemK2,
             ItemK3,
+
             ItemL1,
+        }
+
+        public enum Subfix
+        {
+            A,
+            B,
+            C,
+            D,
+            E,
+            F,
+            G,
+            H,
+            I,
+            J,
+            K,
+            L,
+        }
+
+        public static ItemType GetItemType(string itemsName)
+        {
+            return (ItemType)Enum.Parse(typeof(ItemType), "Item" + itemsName.ToFormat(), true);
+        }
+
+        public static Subfix GetSubfix(ItemType itemType)
+        {
+            string itemName = itemType.ToString().Substring(4);
+            string subfixPart = Regex.Replace(itemName, "[0-9]", "");
+            return (Subfix)Enum.Parse(typeof(Subfix), subfixPart, true);
+        }
+
+        public static Subfix GetSubfix(string itemsName)
+        {
+            ItemType itemType= GetItemType(itemsName);
+
+            return GetSubfix(itemType);
         }
 
 
@@ -101,16 +149,6 @@ namespace Orion.Helper.Misc
         //    CatalogK2,
         //    CatalogK3,
         //}
-
-        public enum CatalogType
-        {
-            CatalogI1,
-            CatalogI2,
-            CatalogJ1,
-            CatalogK1,
-            CatalogK2,
-            CatalogK3,
-        }
 
         public static bool Extended { get; set; }
 

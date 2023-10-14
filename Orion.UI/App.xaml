@@ -8,6 +8,13 @@
     xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:Orion.UI.DependencyProperties"
     xmlns:view="clr-namespace:Orion.UI.View"
+    xmlns:viewAItemList="clr-namespace:Orion.UI.View.Quantech.QuoteItemList"
+    xmlns:viewBItemList="clr-namespace:Orion.UI.View.ABB.QouteItemList"
+    
+    xmlns:vmAItemList="clr-namespace:Orion.UI.ViewModel.Quantech.QuoteItemList"
+    xmlns:vmBItemList="clr-namespace:Orion.UI.ViewModel.ABB.QuoteItemList"
+    
+    
     xmlns:viewCatalogA="clr-namespace:Orion.UI.View.Quantech.CatalogList"
     xmlns:viewCatalogB="clr-namespace:Orion.UI.View.ABB.CatalogList"
     xmlns:viewCatalogC="clr-namespace:Orion.UI.View.AmericanWheatley.CatalogList"
@@ -94,6 +101,16 @@
             </ResourceDictionary.MergedDictionaries>
 
 
+            <DataTemplate DataType="{x:Type vmAItemList:AItemListViewModel}">
+                <viewAItemList:AItemListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmBItemList:BItemListViewModel}">
+                <viewBItemList:BItemListView />
+            </DataTemplate>
+
+
+
+
             <DataTemplate DataType="{x:Type vm:CloneQuoteViewModel}">
                 <view:CloneQuoteView />
             </DataTemplate>
@@ -105,7 +122,7 @@
             <DataTemplate DataType="{x:Type vm:EditUserViewModel}">
                 <view:EditUserView />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vm:ExportProjectViewModel}">
                 <view:ExportProjectView />
             </DataTemplate>
@@ -316,7 +333,7 @@
             <DataTemplate DataType="{x:Type vmItemC:EditC6ItemViewModel}">
                 <viewItemC:EditC6ItemView />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmItemC:EditC7ItemViewModel}">
                 <viewItemC:EditC7ItemView />
             </DataTemplate>
@@ -368,7 +385,7 @@
             <DataTemplate DataType="{x:Type vmECC:EditC5CatalogViewModel}">
                 <viewECC:EditC5CatalogView />
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vmECC:EditC6CatalogViewModel}">
                 <viewECC:EditC6CatalogView />
             </DataTemplate>
@@ -376,9 +393,9 @@
             <DataTemplate DataType="{x:Type vmECC:EditC7CatalogViewModel}">
                 <viewECC:EditC7CatalogView />
             </DataTemplate>
-            
-            
-            
+
+
+
 
             <DataTemplate DataType="{x:Type vmItemD:EditD1ItemViewModel}">
                 <viewItemD:EditD1ItemView />
@@ -737,7 +754,7 @@
                 <viewECK:EditK3CatalogView />
             </DataTemplate>
 
-            
+
 
             <DataTemplate DataType="{x:Type vmItemL:EditL1ItemViewModel}">
                 <viewItemL:EditL1ItemView />
@@ -750,7 +767,7 @@
             <DataTemplate DataType="{x:Type vmECL:EditL1CatalogViewModel}">
                 <viewECL:EditL1CatalogView />
             </DataTemplate>
-            
+
             <Style
                 x:Key="TxtStyle"
                 BasedOn="{StaticResource ResourceKey=MahApps.Styles.TextBox}"
@@ -1204,8 +1221,7 @@
                                 Text="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=OneWay}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="TextChanged">
-                                        <i:InvokeCommandAction Command="{Binding Path=DataContext.TotalPriceChangedCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
-                                                               CommandParameter="{Binding}"/>
+                                        <i:InvokeCommandAction Command="{Binding Path=DataContext.TotalPriceChangedCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </TextBox>

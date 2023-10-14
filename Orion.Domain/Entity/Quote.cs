@@ -436,6 +436,13 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _items, value);
         }
 
+        private IList<QuoteCompanies> _quoteCompanies;
+        public IList<QuoteCompanies> QuoteCompanies
+        {
+            get => _quoteCompanies;
+            set => SetProperty(ref _quoteCompanies, value);
+        }
+
         public Quote()
         {
             ItemA1s = new ObservableCollection<ItemA1>();
@@ -495,6 +502,8 @@ namespace Orion.Domain.Entity
             ItemL1s = new ObservableCollection<ItemL1>();
 
             Name = "";
+
+            QuoteCompanies = new ObservableCollection<QuoteCompanies>(); 
         }
     }
     

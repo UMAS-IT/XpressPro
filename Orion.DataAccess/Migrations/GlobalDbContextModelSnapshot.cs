@@ -40,6 +40,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("Subfix");
+
                     b.HasKey("Id");
 
                     b.ToTable("Companies");
@@ -157,6 +159,21 @@ namespace Orion.DataAccess.Migrations
                     b.HasIndex("ProjectId");
 
                     b.ToTable("Quotes");
+                });
+
+            modelBuilder.Entity("Orion.Domain.Entity.QuoteCompanies", b =>
+                {
+                    b.Property<int>("QuoteId");
+
+                    b.Property<int>("CompanyId");
+
+                    b.Property<int>("DesignIndex");
+
+                    b.HasKey("QuoteId", "CompanyId");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("QuoteCompanies");
                 });
 
             modelBuilder.Entity("Orion.Domain.Entity.Spec", b =>
@@ -3522,6 +3539,19 @@ namespace Orion.DataAccess.Migrations
                     b.HasOne("Orion.Domain.Entity.Project", "Project")
                         .WithMany("Quotes")
                         .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.Entity.QuoteCompanies", b =>
+                {
+                    b.HasOne("Orion.Domain.Entity.Company", "Company")
+                        .WithMany("QuoteCompanies")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Orion.Domain.Entity.Quote", "Quote")
+                        .WithMany("QuoteCompanies")
+                        .HasForeignKey("QuoteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

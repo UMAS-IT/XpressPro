@@ -1,4 +1,5 @@
-﻿<UserControl x:Class="Orion.UI.View.GeneralProduct.EditQuoteItem.EditL1ItemView"
+﻿<UserControl
+    x:Class="Orion.UI.View.GeneralProduct.EditQuoteItem.EditL1ItemView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
@@ -292,9 +293,7 @@
                         <DataGridTemplateColumn Header="Tag" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox
-                                        CharacterCasing="Upper"
-                                        Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                    <TextBox CharacterCasing="Upper" Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -332,9 +331,7 @@
                         <DataGridTemplateColumn Header="Description" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox
-                                        CharacterCasing="Upper"
-                                        Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                    <TextBox CharacterCasing="Upper" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -400,7 +397,7 @@
                                         ctrl:TextBoxHelper.SelectAllOnFocus="True"
                                         MaxLength="20"
                                         PreviewTextInput="IsDouble"
-                                        Text="{Binding Freight, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c}, Mode=TwoWay}" />
+                                        Text="{Binding Freight, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

@@ -31,9 +31,24 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _products, value);
         }
 
+        private IList<QuoteCompanies> _quoteCompanies;
+        public IList<QuoteCompanies> QuoteCompanies
+        {
+            get => _quoteCompanies;
+            set => SetProperty(ref _quoteCompanies, value);
+        }
+
+        private string _subfix;
+        public string Subfix
+        {
+            get => _subfix;
+            set => SetProperty(ref _subfix, value);
+        }
+
         public Company()
         {
             Products = new ObservableCollection<Product>();
+            QuoteCompanies = new ObservableCollection<QuoteCompanies>();
         }
     }
 }

@@ -14,7 +14,9 @@ using Orion.Domain.Marvair.Item;
 using Orion.Domain.Multiaqua.Item;
 using Orion.Domain.PACE.Item;
 using Orion.Helper.Extension;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -73,7 +75,7 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                return context.Quotes.FirstOrDefault(x => x.Id == quoteId);
+                return context.Quotes.Include(x => x.QuoteCompanies).ThenInclude(x => x.Company).FirstOrDefault(x => x.Id == quoteId);
             }
         }
 

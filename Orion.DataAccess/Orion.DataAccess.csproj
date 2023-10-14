@@ -257,6 +257,22 @@
     <Compile Include="Migrations\20230728180723_mig-33.designer.cs">
       <DependentUpon>20230728180723_mig-33.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20231012004312_mig-34.cs" />
+    <Compile Include="Migrations\20231012004312_mig-34.designer.cs">
+      <DependentUpon>20231012004312_mig-34.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20231012005308_mig-35.cs" />
+    <Compile Include="Migrations\20231012005308_mig-35.designer.cs">
+      <DependentUpon>20231012005308_mig-35.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20231012230933_mig-36.cs" />
+    <Compile Include="Migrations\20231012230933_mig-36.designer.cs">
+      <DependentUpon>20231012230933_mig-36.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20231012233936_mig-37.cs" />
+    <Compile Include="Migrations\20231012233936_mig-37.designer.cs">
+      <DependentUpon>20231012233936_mig-37.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GlobalDbContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CatalogService.cs" />

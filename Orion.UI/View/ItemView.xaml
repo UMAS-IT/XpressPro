@@ -186,8 +186,100 @@
                     Grid.Row="1"
                     HorizontalScrollBarVisibility="Disabled"
                     VerticalScrollBarVisibility="Auto">
-                    <StackPanel Orientation="Vertical">
-                        <Expander
+
+                    <ItemsControl ItemsSource="{Binding ItemListViewModels, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        <ItemsControl.ItemTemplate>
+                            <ItemContainerTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <ContentControl Grid.Column="1" Content="{Binding}"/>
+
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" VerticalAlignment="Top">
+
+                                        <Button
+                                                            Grid.Row="0"
+                                                            Margin="0,6,0,0"
+                                                            Background="Orange"
+                                                            Command="{Binding Path=DataContext.MoveToStartCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}"
+                                                            ToolTip="Move To Start">
+                                            <icon:PackIconBoxIcons Kind="SolidArrowToTop" >
+                                                <icon:PackIconBoxIcons.LayoutTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                                                    </TransformGroup>
+                                                </icon:PackIconBoxIcons.LayoutTransform>
+                                            </icon:PackIconBoxIcons>
+                                        </Button>
+
+                                        <Button
+                                                            Grid.Row="1"
+                                                            Margin="0,6,0,0"
+                                                            Background="{StaticResource MahApps.Brushes.Accent}"
+                                                            Command="{Binding Path=DataContext.MoveToUpCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}"
+                                                            ToolTip="Move To Up">
+                                            <icon:PackIconFontAwesome
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Kind="CaretUpSolid" >
+                                                <icon:PackIconFontAwesome.LayoutTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                                                    </TransformGroup>
+                                                </icon:PackIconFontAwesome.LayoutTransform>
+                                            </icon:PackIconFontAwesome>
+                                        </Button>
+
+                                        <Button
+                                                            Grid.Row="3"
+                                                            Margin="0,6,0,0"
+                                                            Background="{StaticResource MahApps.Brushes.Accent}"
+                                                            Command="{Binding Path=DataContext.MoveToDownCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}"
+                                                            ToolTip="Move To Down">
+                                            <icon:PackIconFontAwesome
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Kind="CaretDownSolid" >
+                                                <icon:PackIconFontAwesome.LayoutTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                                                    </TransformGroup>
+                                                </icon:PackIconFontAwesome.LayoutTransform>
+                                            </icon:PackIconFontAwesome>
+                                        </Button>
+
+                                        <Button
+                                                            Grid.Row="4"
+                                                            Margin="0,6,10,0"
+                                                            Background="Orange"
+                                                            Command="{Binding Path=DataContext.MoveToEndCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
+                                                            CommandParameter="{Binding}"
+                                                            ToolTip="Move To End">
+                                            <icon:PackIconBoxIcons Kind="SolidArrowToBottom" >
+                                                <icon:PackIconBoxIcons.LayoutTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                                                    </TransformGroup>
+                                                </icon:PackIconBoxIcons.LayoutTransform>
+                                            </icon:PackIconBoxIcons>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </ItemContainerTemplate>
+                        </ItemsControl.ItemTemplate>
+
+                    </ItemsControl>
+                    <!--<StackPanel Orientation="Vertical">-->
+                        
+                        
+                        <!--<Expander
                             Margin="5,5,5,0"
                             BorderBrush="DarkSlateBlue"
                             IsExpanded="False">
@@ -548,6 +640,8 @@
                             </StackPanel>
                         </Expander>
 
+                        
+                        
                         <Expander
                             Margin="5,5,5,0"
                             BorderBrush="DarkCyan"
@@ -750,6 +844,8 @@
                             </StackPanel>
                         </Expander>
 
+                        
+                        
                         <Expander
                             Margin="5,5,5,0"
                             BorderBrush="DarkMagenta"
@@ -1260,6 +1356,8 @@
                             </StackPanel>
                         </Expander>
 
+                        
+                        
                         <Expander
                             Margin="5,5,5,0"
                             BorderBrush="DarkOliveGreen"
@@ -1434,6 +1532,8 @@
                             </StackPanel>
                         </Expander>
 
+                        
+                        
                         <Expander
                             Margin="5,5,5,0"
                             BorderBrush="DeepSkyBlue"
@@ -1544,6 +1644,8 @@
                             </StackPanel>
                         </Expander>
 
+                        
+                        
                         <Expander
                             Margin="5,5,5,0"
                             BorderBrush="DarkSlateGray"
@@ -1728,6 +1830,8 @@
                             </StackPanel>
                         </Expander>
 
+                        
+                        
                         <Expander
                             Margin="5,5,5,0"
                             BorderBrush="Firebrick"
@@ -2104,6 +2208,7 @@
                             </StackPanel>
                         </Expander>
 
+                        
 
                         <Expander
                             Margin="5,5,5,0"
@@ -2248,6 +2353,8 @@
                             </StackPanel>
                         </Expander>
 
+                        
+                        
                         <Expander
                             Margin="5,5,5,0"
                             BorderBrush="DarkKhaki"
@@ -2496,6 +2603,7 @@
                         </Expander>
 
 
+                        
                         <Expander
                             Margin="5,5,5,0"
                             BorderBrush="DarkOrchid"
@@ -2605,10 +2713,10 @@
 
                                 </Expander>
                             </StackPanel>
-                        </Expander>
+                        </Expander>-->
 
 
-                    </StackPanel>
+                    <!--</StackPanel>-->
                 </ScrollViewer>
             </Border>
         </Grid>

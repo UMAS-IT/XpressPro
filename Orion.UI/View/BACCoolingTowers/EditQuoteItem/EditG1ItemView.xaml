@@ -293,9 +293,7 @@
                         <DataGridTemplateColumn Header="Tag" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox
-                                        CharacterCasing="Upper"
-                                        Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                    <TextBox CharacterCasing="Upper" Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -469,7 +467,7 @@
                                         ctrl:TextBoxHelper.SelectAllOnFocus="True"
                                         MaxLength="20"
                                         PreviewTextInput="IsDouble"
-                                        Text="{Binding Freight, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c}, Mode=TwoWay}" />
+                                        Text="{Binding Freight, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

@@ -55,8 +55,8 @@ namespace Orion.UI.ViewModel
         private void OnLoadData(object obj)
         {
             UserName = "";
-            //UserName = "jcastaneda";
-            //OnSignInAsync(new PasswordBox() { Password = "1256" });
+            UserName = "jcastaneda";
+            OnSignInAsync(new PasswordBox() { Password = "1256" });
         }
 
         private void OnClose(dynamic window)
