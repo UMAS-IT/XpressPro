@@ -18,7 +18,7 @@ namespace Orion.DataAccess.Service
             {
                 List<Company> companies = context.Companies.Include(x => x.Products).ToList();
 
-                companies.ForEach(x => x.Products = x.Products.Where(y => y.InService).ToList());
+                companies.ForEach(x => x.Products = x.Products.Where(y => y.InService).OrderBy(y => y.Name).ToList());
 
                 return companies;
             }

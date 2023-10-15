@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orion.DataAccess.DataBase;
+using Orion.DataAccess.Misc;
 using Orion.Domain.BACClosedLoopTowers.Related;
 using Orion.Domain.BACOpenLoopTowers.Related;
 using Orion.Domain.Entity;
@@ -31,7 +32,10 @@ using Orion.Domain.PACE.Catalog;
 using Orion.Domain.PACE.Item;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using static Orion.Helper.Misc.GV;
 
 namespace Orion.DataAccess.Service
@@ -1091,7 +1095,6 @@ namespace Orion.DataAccess.Service
 
             return itemsToReturn;
         }
-
 
         public string ValidateAllItemsTag(IList<IItem>items)
         {

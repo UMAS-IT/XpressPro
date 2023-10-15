@@ -120,7 +120,6 @@ namespace Orion.UI.ViewModel
         public RelayCommand<IListViewModel> MoveToDownCommand { get; set; }
         public RelayCommand<IListViewModel> MoveToEndCommand { get; set; }
 
-        
         public Action BackToQuotesRequested = delegate { };
 
         public ItemViewModel(IDialogCoordinator dialogCoordinator, int projectId, int quoteId, MainWindowViewModel mw)
