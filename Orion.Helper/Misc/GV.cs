@@ -69,7 +69,6 @@ namespace Orion.Helper.Misc
             CatalogL1,
         }
 
-
         public enum ItemType
         {
             ItemA1,

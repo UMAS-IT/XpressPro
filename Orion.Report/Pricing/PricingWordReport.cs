@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Orion.Helper.Misc.GV;
 
 namespace Orion.Report.Pricing
 {
@@ -29,10 +30,8 @@ namespace Orion.Report.Pricing
             this.extendedVersion = extendedVersion;
         }
 
-        public void CreateReport()
+        private void CreateReportByQuoteCompanies(Quote quote)
         {
-            GV.Extended = extendedVersion;
-
             PricingA pricingA = new PricingA();
             PricingB pricingB = new PricingB();
             PricingC pricingC = new PricingC();
@@ -47,195 +46,420 @@ namespace Orion.Report.Pricing
             PricingL pricingL = new PricingL();
             List<PricingItem> pricingItems = new List<PricingItem>();
 
+            int itemNumber = 1;
+
+            mainDocument = LoadDocument(currentProjectPath + $@"\Pricing\{project.Name} ({quote.Name.ToUpper()}).docx");
+
+            LoadStarupData(mainDocument, project, quote);
+
+            Section docSection = mainDocument.Sections[0];
+
+            foreach (QuoteCompanies quoteCompany in quote.QuoteCompanies.OrderBy(x => x.DesignIndex))
+            {
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.A.ToString())
+                {
+                    if (quote.ItemA1s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingA.CreateA1ItemTable(quote.ItemA1s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemA1s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                    if (quote.ItemA2s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingA.CreateA2ItemTable(quote.ItemA2s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemA2s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                    if (quote.ItemA3s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingA.CreateA3ItemTable(quote.ItemA3s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemA3s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                    if (quote.ItemA4s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingA.CreateA4ItemTable(quote.ItemA4s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemA4s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                }
+
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.B.ToString())
+                {
+                    if (quote.ItemB1s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingB.CreateB1ItemTable(quote.ItemB1s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemB1s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                    if (quote.ItemB5s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingB.CreateB5ItemTable(quote.ItemB5s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemB5s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                }
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.C.ToString())
+                {
+                    if (quote.ItemC3s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingC.CreateC3ItemTable(quote.ItemC3s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemC3s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                    if (quote.ItemC4s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingC.CreateC4ItemTable(quote.ItemC4s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemC4s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                    if (quote.ItemC5s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingC.CreateC5ItemTable(quote.ItemC5s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemC5s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                    if (quote.ItemC6s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingC.CreateC6ItemTable(quote.ItemC6s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemC6s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                    if (quote.ItemC7s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingC.CreateC7ItemTable(quote.ItemC7s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemC7s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                }
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.D.ToString())
+                {
+                }
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.E.ToString())
+                {
+                    if (quote.ItemE1s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingE.CreateE1ItemTable(quote.ItemE1s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemE1s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                }
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.F.ToString())
+                {
+                    if (quote.ItemF1s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingF.CreateF1ItemTable(quote.ItemF1s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemF1s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                }
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.G.ToString())
+                {
+                    if (quote.ItemG1s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingG.CreateG1ItemTable(quote.ItemG1s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemG1s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                }
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.H.ToString())
+                {
+                    if (quote.ItemH1s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingH.CreateH1ItemTable(quote.ItemH1s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemH1s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                }
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.I.ToString())
+                {
+                    if (quote.ItemI1s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingI.CreateI1ItemTable(quote.ItemI1s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemI1s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                    if (quote.ItemI2s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingI.CreateI2ItemTable(quote.ItemI2s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemI2s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                }
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.J.ToString())
+                {
+                    if (quote.ItemJ1s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingJ.CreateJ1ItemTable(quote.ItemJ1s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemJ1s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                }
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.K.ToString())
+                {
+                    if (quote.ItemK1s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingK.CreateK1ItemTable(quote.ItemK1s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemK1s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                    if (quote.ItemK2s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingK.CreateK2ItemTable(quote.ItemK2s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemK2s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                    if (quote.ItemK3s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingK.CreateK3ItemTable(quote.ItemK3s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemK3s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                }
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.L.ToString())
+                {
+                    if (quote.ItemL1s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingL.CreateL1ItemTable(quote.ItemL1s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemK1s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                }
+            }
+
+            CreateSummaryTable(pricingItems, docSection);
+
+            CreatePricingTable(pricingItems, docSection);
+
+            AddBlankLine(mainDocument, docSection);
+
+            CreateGrandTotalPriceTable(pricingItems, docSection);
+
+            AddPleaseNote(docSection, project);
+
+
+            AddTermsAndConditions();
+
+            SaveAndConvertToPdf(mainDocument, currentProjectPath + $@"\Pricing\\{project.Name} ({quote.Name.ToUpper()}).docx");
+
+            //Process.Start(currentProjectPath + $@"\Pricing");
+            //Process.Start(currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.pdf");
+        }
+
+        private void CreateStandardReport(Quote quote)
+        {
+            PricingA pricingA = new PricingA();
+            PricingB pricingB = new PricingB();
+            PricingC pricingC = new PricingC();
+            PricingD pricingD = new PricingD();
+            PricingE pricingE = new PricingE();
+            PricingF pricingF = new PricingF();
+            PricingG pricingG = new PricingG();
+            PricingH pricingH = new PricingH();
+            PricingI pricingI = new PricingI();
+            PricingJ pricingJ = new PricingJ();
+            PricingK pricingK = new PricingK();
+            PricingL pricingL = new PricingL();
+            List<PricingItem> pricingItems = new List<PricingItem>();
+
+            int itemNumber = 1;
+
+            mainDocument = LoadDocument(currentProjectPath + $@"\Pricing\{project.Name} ({quote.Name.ToUpper()}).docx");
+
+            LoadStarupData(mainDocument, project, quote);
+
+            Section docSection = mainDocument.Sections[0];
+
+
+            if (quote.ItemA1s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingA.CreateA1ItemTable(quote.ItemA1s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemA1s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+            if (quote.ItemA2s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingA.CreateA2ItemTable(quote.ItemA2s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemA2s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+            if (quote.ItemA3s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingA.CreateA3ItemTable(quote.ItemA3s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemA3s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+            if (quote.ItemA4s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingA.CreateA4ItemTable(quote.ItemA4s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemA4s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+
+
+
+            if (quote.ItemB1s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingB.CreateB1ItemTable(quote.ItemB1s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemB1s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+            if (quote.ItemB5s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingB.CreateB5ItemTable(quote.ItemB5s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemB5s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+
+
+
+            if (quote.ItemC3s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingC.CreateC3ItemTable(quote.ItemC3s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemC3s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+            if (quote.ItemC4s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingC.CreateC4ItemTable(quote.ItemC4s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemC4s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+            if (quote.ItemC5s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingC.CreateC5ItemTable(quote.ItemC5s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemC5s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+            if (quote.ItemC6s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingC.CreateC6ItemTable(quote.ItemC6s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemC6s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+            if (quote.ItemC7s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingC.CreateC7ItemTable(quote.ItemC7s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemC7s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+
+
+            if (quote.ItemE1s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingE.CreateE1ItemTable(quote.ItemE1s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemE1s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+
+
+
+            if (quote.ItemF1s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingF.CreateF1ItemTable(quote.ItemF1s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemF1s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+
+
+
+            if (quote.ItemG1s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingG.CreateG1ItemTable(quote.ItemG1s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemG1s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+
+
+
+            if (quote.ItemH1s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingH.CreateH1ItemTable(quote.ItemH1s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemH1s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+
+
+
+            if (quote.ItemI1s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingI.CreateI1ItemTable(quote.ItemI1s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemI1s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+            if (quote.ItemI2s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingI.CreateI2ItemTable(quote.ItemI2s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemI2s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+
+            if (quote.ItemJ1s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingJ.CreateJ1ItemTable(quote.ItemJ1s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemJ1s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+
+
+
+            if (quote.ItemK1s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingK.CreateK1ItemTable(quote.ItemK1s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemK1s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+            if (quote.ItemK2s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingK.CreateK2ItemTable(quote.ItemK2s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemK2s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+            if (quote.ItemK3s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingK.CreateK3ItemTable(quote.ItemK3s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemK3s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+
+
+
+            if (quote.ItemL1s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingL.CreateL1ItemTable(quote.ItemL1s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemK1s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+
+            CreateSummaryTable(pricingItems, docSection);
+
+            CreatePricingTable(pricingItems, docSection);
+
+            AddBlankLine(mainDocument, docSection);
+
+            CreateGrandTotalPriceTable(pricingItems, docSection);
+
+            AddPleaseNote(docSection, project);
+
+
+            AddTermsAndConditions();
+
+            SaveAndConvertToPdf(mainDocument, currentProjectPath + $@"\Pricing\\{project.Name} ({quote.Name.ToUpper()}).docx");
+
+            //Process.Start(currentProjectPath + $@"\Pricing");
+            //Process.Start(currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.pdf");
+        }
+
+        public void CreateReport()
+        {
+            GV.Extended = extendedVersion;
+
             foreach (Quote quote in quotes)
             {
-                int itemNumber = 1;
-
-                mainDocument = LoadDocument(currentProjectPath + $@"\Pricing\{project.Name} ({quote.Name.ToUpper()}).docx");
-
-                LoadStarupData(mainDocument, project, quote);
-
-                Section docSection = mainDocument.Sections[0];
-
-
-                if (quote.ItemA1s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingA.CreateA1ItemTable(quote.ItemA1s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemA1s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-                if (quote.ItemA2s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingA.CreateA2ItemTable(quote.ItemA2s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemA2s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-                if (quote.ItemA3s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingA.CreateA3ItemTable(quote.ItemA3s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemA3s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-                if (quote.ItemA4s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingA.CreateA4ItemTable(quote.ItemA4s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemA4s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-
-
-
-                if (quote.ItemB1s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingB.CreateB1ItemTable(quote.ItemB1s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemB1s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-                if (quote.ItemB5s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingB.CreateB5ItemTable(quote.ItemB5s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemB5s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-
-
-
-                if (quote.ItemC3s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingC.CreateC3ItemTable(quote.ItemC3s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemC3s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-                if (quote.ItemC4s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingC.CreateC4ItemTable(quote.ItemC4s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemC4s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-                if (quote.ItemC5s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingC.CreateC5ItemTable(quote.ItemC5s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemC5s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-                if (quote.ItemC6s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingC.CreateC6ItemTable(quote.ItemC6s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemC6s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-                if (quote.ItemC7s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingC.CreateC7ItemTable(quote.ItemC7s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemC7s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-
-
-                if (quote.ItemE1s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingE.CreateE1ItemTable(quote.ItemE1s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemE1s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-
-
-
-                if (quote.ItemF1s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingF.CreateF1ItemTable(quote.ItemF1s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemF1s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-
-
-
-                if (quote.ItemG1s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingG.CreateG1ItemTable(quote.ItemG1s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemG1s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-
-
-
-                if (quote.ItemH1s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingH.CreateH1ItemTable(quote.ItemH1s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemH1s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-
-
-
-                if (quote.ItemI1s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingI.CreateI1ItemTable(quote.ItemI1s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemI1s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-                if (quote.ItemI2s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingI.CreateI2ItemTable(quote.ItemI2s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemI2s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-
-                if (quote.ItemJ1s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingJ.CreateJ1ItemTable(quote.ItemJ1s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemJ1s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-
-
-
-                if (quote.ItemK1s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingK.CreateK1ItemTable(quote.ItemK1s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemK1s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-                if (quote.ItemK2s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingK.CreateK2ItemTable(quote.ItemK2s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemK2s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-                if (quote.ItemK3s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingK.CreateK3ItemTable(quote.ItemK3s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemK3s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-
-
-
-                if (quote.ItemL1s.Any(x => !x.IsExcluded))
-                {
-                    pricingItems.AddRange(pricingL.CreateL1ItemTable(quote.ItemL1s, mainDocument, docSection, itemNumber++));
-                    AddTitlesAndSpecs(quote.ItemK1s.ToList<IItem>(), docSection);
-                    AddBlankLine(mainDocument, docSection);
-                }
-
-                CreateSummaryTable(pricingItems, docSection);
-
-                CreatePricingTable(pricingItems, docSection);
-
-                AddBlankLine(mainDocument, docSection);
-
-                CreateGrandTotalPriceTable(pricingItems, docSection);
-
-                AddPleaseNote(docSection, project);
-
-
-                AddTermsAndConditions();
-
-                SaveAndConvertToPdf(mainDocument, currentProjectPath + $@"\Pricing\\{project.Name} ({quote.Name.ToUpper()}).docx");
-
-                //Process.Start(currentProjectPath + $@"\Pricing");
-                //Process.Start(currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.pdf");
-                pricingItems.Clear();
+                if (quote.QuoteCompanies != null && quote.QuoteCompanies.Count > 0)
+                    CreateReportByQuoteCompanies(quote);
+                else
+                    CreateStandardReport(quote);
             }
         }
 

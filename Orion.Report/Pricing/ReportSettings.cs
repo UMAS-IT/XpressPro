@@ -964,10 +964,6 @@ namespace Orion.Report.Pricing
                         worksheet.Cell(row, column + 3).Value = $"{spec.Name}";
                         worksheet.Cell(row, column + 14).Value = (spec.Price).RoundUp();
                         worksheet.Cell(row, column + 16).Value = (spec.Price).RoundUp();
-                        //worksheet.Cell(row, column + 12).Value = 0;
-                        //worksheet.Cell(row, column + 14).FormulaA1 = $"=M{row}+N{row}";
-                        //worksheet.Cell(row, column + 16).FormulaA1 = $"=O{row}-SUM(I{row},J{row},K{row},N{row})";
-
 
                         row++;
                     }
