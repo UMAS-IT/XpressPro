@@ -438,7 +438,6 @@ namespace Orion.UI.ViewModel
             Product product = companyService.GetProduct(Companies, itemsName);
             viewModel.OnItemsSavedRequested += OnItemsSaved;
             windowService.EditItemsWndow(viewModel, $"Edit {product.Name}");
-
         }
 
         private void OnItemsSaved(IList<IItem> items, ItemType itemType)

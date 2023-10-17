@@ -37,6 +37,24 @@ namespace Orion.DataAccess.Misc
 {
     public static class EntityHelper
     {
+        //public struct ItemsData
+        //{
+        //    public Subfix Subfix;
+        //    public ItemType ItemType;
+        //    public CatalogType CatalogType;
+        //    public Type ItemClassType;
+        //    public Type CatalogClassType;
+
+        //    public ItemsData(Subfix subfix, ItemType itemType, CatalogType catalogType, Type itemClassType, Type CatalogClassType)
+        //    {
+        //        this.Subfix = subfix;
+        //        this.ItemType = itemType;
+        //        this.CatalogType = catalogType;
+        //        this.ItemClassType = itemClassType;
+        //        this.CatalogClassType = CatalogClassType;
+        //    }
+        //}
+
         public static readonly Dictionary<Type, ItemType> ItemTypeForItemMap = new Dictionary<Type, ItemType>()
         {
             { typeof(ItemA1), ItemType.ItemA1 },

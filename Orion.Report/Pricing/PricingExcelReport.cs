@@ -36,11 +36,6 @@ namespace Orion.Report.Pricing
 
                 if (quote.QuoteCompanies != null && quote.QuoteCompanies.Count > 0)
                 {
-                    Random random = new Random();
-
-                    items = items.OrderBy(x => random.Next()).ToList();
-
-
                     Dictionary<Subfix, IList<IItem>> subfixGroups = new Dictionary<Subfix, IList<IItem>>();
 
                     foreach (QuoteCompanies quoteCompany in quote.QuoteCompanies.OrderBy(x => x.DesignIndex))
@@ -61,66 +56,9 @@ namespace Orion.Report.Pricing
                         subfixGroups[subfix].Add(item);
                     }
 
-                    foreach (var group in subfixGroups)
-                    {
-                        var orderedItems = group.Value.OrderBy(item => item.ItemType).ThenBy(item => item.DesignIndex).ToList();
-                        subfixGroups[group.Key] = orderedItems;
-                    }
+                    subfixGroups.ToList().ForEach(x => subfixGroups[x.Key] = x.Value.OrderBy(y => y.ItemType).ThenBy(y => y.DesignIndex).ToList());
 
-
-                    subfixGroups.ToList().ForEach(x => subfixGroups[x.Key] = x.Value.OrderBy(y => y.ItemType).ToList());
-
-
-
-                    //foreach (var subfixGrup in subfixGroups)
-                    //{
-                    //    Subfix subfix = EntityHelper.ConvertIItemToItemType()
-                    //}
-
-                    //foreach (IItem item in items)
-                    //{
-                    //    Subfix subfix = EntityHelper.ConvertIItemToItemType(item);
-
-                    //    if (!itemGroups.ContainsKey(itemType))
-                    //    {
-                    //        itemGroups[itemType] = new List<IItem>();
-                    //    }
-
-                    //    itemGroups[itemType].Add(item);
-                    //}
-
-
-
-
-
-                    //Dictionary<ItemType, IList<IItem>> itemGroups = new Dictionary<ItemType, IList<IItem>>();
-
-                    //foreach (IItem item in items)
-                    //{
-                    //    ItemType itemType = EntityHelper.ConvertIItemToItemType(item);
-
-                    //    if (!itemGroups.ContainsKey(itemType))
-                    //    {
-                    //        itemGroups[itemType] = new List<IItem>();
-                    //    }
-
-                    //    itemGroups[itemType].Add(item);
-                    //}
-
-                    //// sorteo por Item.DesignIndex
-                    //itemGroups.ToList().ForEach(x => itemGroups[x.Key] = x.Value.OrderBy(y => y.DesignIndex).ToList());
-
-                    //// sorteo por Item Type 
-                    //Dictionary<ItemType, IList<IItem>> sortedItemGroups = itemGroups
-                    //    .OrderBy(x => x.Key)
-                    //    .ToDictionary(x => x.Key, x => x.Value);
-
-                    //Dictionary<Subfix, IList<IItem>> subfixGroups = new Dictionary<Subfix, IList<IItem>>();
-
-                    //foreach (QuoteCompanies quoteCompany in quote.QuoteCompanies.OrderBy(x => x.DesignIndex))
-                    //{
-                    //    Subfix subfix = EntityHelper.GetSubfixFromCompanty(quoteCompany.Company);
-                    //}
+                    items = subfixGroups.SelectMany(x => x.Value).ToList();
                 }
 
                 int row = 2;
