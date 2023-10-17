@@ -1202,7 +1202,27 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quante
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\QuoteItemList\AItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QouteItemList\BItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QouteItemList\BItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QouteItemList\BItemListView.g.cs
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\QuoteItemList\AItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QouteItemList\BItemListView.baml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\QuoteItemList\AItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QuoteItemList\BItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QuoteItemList\BItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\QuoteItemList\CItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\QuoteItemList\HItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\QuoteItemList\GItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\QuoteItemList\LItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\QuoteItemList\EItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\QuoteItemList\IItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\QuoteItemList\KItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\QuoteItemList\JItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\QuoteItemList\DItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\QuoteItemList\FItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\QuoteItemList\CItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\QuoteItemList\HItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\QuoteItemList\GItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\QuoteItemList\LItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\QuoteItemList\EItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\QuoteItemList\IItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\QuoteItemList\KItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\QuoteItemList\JItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\QuoteItemList\DItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\QuoteItemList\FItemListView.baml

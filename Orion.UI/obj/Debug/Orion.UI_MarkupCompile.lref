@@ -1,4 +1,4 @@
-﻿
+﻿C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\App.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ABB\CatalogList\CatalogB1ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ABB\CatalogList\CatalogB2ListView.xaml;;
@@ -15,7 +15,7 @@ FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ABB\EditQuoteItem\Edi
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ABB\EditQuoteItem\EditB3ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ABB\EditQuoteItem\EditB4ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ABB\EditQuoteItem\EditB5ItemView.xaml;;
-FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ABB\QouteItemList\BItemListView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ABB\QuoteItemList\BItemListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\AirTreatmentView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\AmericanWheatley\CatalogList\CatalogC1ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\AmericanWheatley\CatalogList\CatalogC2ListView.xaml;;
@@ -38,6 +38,7 @@ FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\AmericanWheatley\Edit
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\AmericanWheatley\EditQuoteItem\EditC5ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\AmericanWheatley\EditQuoteItem\EditC6ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\AmericanWheatley\EditQuoteItem\EditC7ItemView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\AmericanWheatley\QuoteItemList\CItemListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACClosedCircuits\CatalogList\CatalogH1ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACClosedCircuits\CatalogList\CatalogH2ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACClosedCircuits\CatalogList\CatalogH3ListView.xaml;;
@@ -53,6 +54,7 @@ FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACClosedCircuits\Edi
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACClosedCircuits\EditQuoteItem\EditH3ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACClosedCircuits\EditQuoteItem\EditH4ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACClosedCircuits\EditQuoteItem\EditH5ItemView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACClosedCircuits\QuoteItemList\HItemListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACCoolingTowers\CatalogList\CatalogG1ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACCoolingTowers\CatalogList\CatalogG2ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACCoolingTowers\CatalogList\CatalogG3ListView.xaml;;
@@ -71,6 +73,7 @@ FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACCoolingTowers\Edit
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACCoolingTowers\EditQuoteItem\EditG4ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACCoolingTowers\EditQuoteItem\EditG5ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACCoolingTowers\EditQuoteItem\EditG6ItemView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\BACCoolingTowers\QuoteItemList\GItemListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\CatalogView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\CloneQuoteView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ComingSoonView.xaml;;
@@ -82,6 +85,7 @@ FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ExportProjectView.xam
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\GeneralProduct\CatalogList\CatalogL1ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\GeneralProduct\EditCatalogItem\EditL1CatalogView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\GeneralProduct\EditQuoteItem\EditL1ItemView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\GeneralProduct\QuoteItemList\LItemListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Groundfos\CatalogList\CatalogE1ListVew.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Groundfos\CatalogList\CatalogE2ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Groundfos\CatalogList\CatalogE3ListView.xaml;;
@@ -103,6 +107,7 @@ FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Groundfos\EditQuoteIt
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Groundfos\EditQuoteItem\EditE5ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Groundfos\EditQuoteItem\EditE6ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Groundfos\EditQuoteItem\EditE7ItemView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Groundfos\QuoteItemList\EItemListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\LoginView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\MainWindow.xaml;;
@@ -112,6 +117,7 @@ FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Marvair\EditCatalogIt
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Marvair\EditCatalogItem\EditI2CatalogView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Marvair\EditQuoteItem\EditI1ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Marvair\EditQuoteItem\EditI2ItemView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Marvair\QuoteItemList\IItemListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\MenuView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\CatalogList\CatalogK1ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\CatalogList\CatalogK2ListView.xaml;;
@@ -122,11 +128,13 @@ FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\EditCatalog
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\EditQuoteItem\EditK1ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\EditQuoteItem\EditK2ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\EditQuoteItem\EditK3ItemView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Multiaqua\QuoteItemList\KItemListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\NewProjectView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\OpenProjectView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\PACE\CatalogList\CatalogJ1ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\PACE\EditCatalogItem\EditJ1CatalogView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\PACE\EditQuoteItem\EditJ1ItemView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\PACE\QuoteItemList\JItemListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\ProjectInformationView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\PuroFlux\CatalogList\CatalogD1ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\PuroFlux\CatalogList\CatalogD2ListView.xaml;;
@@ -134,6 +142,7 @@ FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\PuroFlux\EditCatalogI
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\PuroFlux\EditCatalogItem\EditD2CatalogView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\PuroFlux\EditQuoteItem\EditD1ItemView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\PuroFlux\EditQuoteItem\EditD2ItemView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\PuroFlux\QuoteItemList\DItemListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Quantech\CatalogList\CatalogA1ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Quantech\CatalogList\CatalogA2ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\Quantech\CatalogList\CatalogA3ListView.xaml;;
@@ -155,4 +164,5 @@ FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\UserListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\UvResources\CatalogList\CatalogF1ListView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\UvResources\EditCatalogItem\EditF1CatalogView.xaml;;
 FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\UvResources\EditQuoteItem\EditF1ItemView.xaml;;
+FC:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\View\UvResources\QuoteItemList\FItemListView.xaml;;
 

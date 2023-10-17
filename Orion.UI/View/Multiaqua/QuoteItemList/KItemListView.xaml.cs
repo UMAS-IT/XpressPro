@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Orion.UI.View.ABB.QouteItemList
+namespace Orion.UI.View.Multiaqua.QuoteItemList
 {
     /// <summary>
-    /// Interaction logic for BItemListView.xaml
+    /// Interaction logic for KItemListView.xaml
     /// </summary>
-    public partial class BItemListView : UserControl
+    public partial class KItemListView : UserControl
     {
-        public BItemListView()
+        public KItemListView()
         {
             InitializeComponent();
         }

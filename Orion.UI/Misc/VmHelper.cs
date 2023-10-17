@@ -20,30 +20,39 @@ using Orion.UI.ViewModel.ABB.QuoteItemList;
 using Orion.UI.ViewModel.AmericanWheatley.CatalogList;
 using Orion.UI.ViewModel.AmericanWheatley.EditCatalogItem;
 using Orion.UI.ViewModel.AmericanWheatley.EditQuoteItem;
+using Orion.UI.ViewModel.AmericanWheatley.QuoteItemList;
 using Orion.UI.ViewModel.BACClosedCircuits.CatalogList;
 using Orion.UI.ViewModel.BACClosedCircuits.EditCatalogItem;
 using Orion.UI.ViewModel.BACClosedCircuits.EditQuoteItem;
+using Orion.UI.ViewModel.BACClosedCircuits.QuoteItemList;
 using Orion.UI.ViewModel.BACCoolingTowers.CatalogList;
 using Orion.UI.ViewModel.BACCoolingTowers.EditCatalogItem;
 using Orion.UI.ViewModel.BACCoolingTowers.EditQuoteItem;
+using Orion.UI.ViewModel.BACCoolingTowers.QuoteItemList;
 using Orion.UI.ViewModel.GeneralProduct.CatalogList;
 using Orion.UI.ViewModel.GeneralProduct.EditCatalogItem;
 using Orion.UI.ViewModel.GeneralProduct.EditQuoteItem;
+using Orion.UI.ViewModel.GeneralProduct.QuoteItemList;
 using Orion.UI.ViewModel.Groundfos.CatalogList;
 using Orion.UI.ViewModel.Groundfos.EditCatalogItem;
 using Orion.UI.ViewModel.Groundfos.EditQuoteItem;
+using Orion.UI.ViewModel.Groundfos.QuoteItemList;
 using Orion.UI.ViewModel.Mavair.CatalogList;
 using Orion.UI.ViewModel.Mavair.EditCatalogItem;
 using Orion.UI.ViewModel.Mavair.EditQuoteItem;
+using Orion.UI.ViewModel.Mavair.QuoteItemList;
 using Orion.UI.ViewModel.Multiaqua.CatalogList;
 using Orion.UI.ViewModel.Multiaqua.EditCatalogItem;
 using Orion.UI.ViewModel.Multiaqua.EditQuoteItem;
+using Orion.UI.ViewModel.Multiaqua.QuoteItemList;
 using Orion.UI.ViewModel.PACE.CatalogList;
 using Orion.UI.ViewModel.PACE.EditCatalogItem;
 using Orion.UI.ViewModel.PACE.EditQuoteItem;
+using Orion.UI.ViewModel.PACE.QuoteItemList;
 using Orion.UI.ViewModel.Puroflux.CatalogList;
 using Orion.UI.ViewModel.Puroflux.EditCatalogItem;
 using Orion.UI.ViewModel.Puroflux.EditQuoteItem;
+using Orion.UI.ViewModel.Puroflux.QuoteItemList;
 using Orion.UI.ViewModel.Quantech.CatalogList;
 using Orion.UI.ViewModel.Quantech.EditCatalogItem;
 using Orion.UI.ViewModel.Quantech.EditQuoteItem;
@@ -51,6 +60,7 @@ using Orion.UI.ViewModel.Quantech.QuoteItemList;
 using Orion.UI.ViewModel.UvResources.CatalogList;
 using Orion.UI.ViewModel.UvResources.EditCatalogItem;
 using Orion.UI.ViewModel.UvResources.EditQuoteItem;
+using Orion.UI.ViewModel.UvResources.QuoteItemList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -243,8 +253,17 @@ namespace Orion.UI.Misc
         public static Dictionary<Subfix, Type> ItemListViewModelTypeMap = new Dictionary<Subfix, Type>
     {
         { Subfix.A, typeof(AItemListViewModel) },
-
         { Subfix.B, typeof(BItemListViewModel) },
+        { Subfix.C, typeof(CItemListViewModel) },
+        { Subfix.D, typeof(DItemListViewModel) },
+        { Subfix.E, typeof(EItemListViewModel) },
+        { Subfix.F, typeof(FItemListViewModel) },
+        { Subfix.G, typeof(GItemListViewModel) },
+        { Subfix.H, typeof(HItemListViewModel) },
+        { Subfix.I, typeof(IItemListViewModel) },
+        { Subfix.J, typeof(JItemListViewModel) },
+        { Subfix.K, typeof(KItemListViewModel) },
+        { Subfix.L, typeof(LItemListViewModel) },
 
     };
 

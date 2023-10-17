@@ -222,6 +222,7 @@
     <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC5ItemViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC6ItemViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC7ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\QuoteItemList\CItemListViewModel.cs" />
     <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH1ListViewModel.cs" />
     <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH2ListViewModel.cs" />
     <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH3ListViewModel.cs" />
@@ -237,6 +238,7 @@
     <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH3ItemViewModel.cs" />
     <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH4ItemViewModel.cs" />
     <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH5ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\QuoteItemList\HItemListViewModel.cs" />
     <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG1ListViewModel.cs" />
     <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG2ListViewModel.cs" />
     <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG3ListViewModel.cs" />
@@ -255,6 +257,7 @@
     <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG4ItemViewModel.cs" />
     <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG5ItemViewModel.cs" />
     <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG6ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\QuoteItemList\GItemListViewModel.cs" />
     <Compile Include="ViewModel\CatalogViewModel.cs" />
     <Compile Include="ViewModel\CloneQuoteViewModel.cs" />
     <Compile Include="ViewModel\ComingSoonViewModel.cs" />
@@ -266,6 +269,7 @@
     <Compile Include="ViewModel\GeneralProduct\CatalogList\CatalogL1ListViewModel.cs" />
     <Compile Include="ViewModel\GeneralProduct\EditCatalogItem\EditL1CatalogViewModel.cs" />
     <Compile Include="ViewModel\GeneralProduct\EditQuoteItem\EditL1ItemViewModel.cs" />
+    <Compile Include="ViewModel\GeneralProduct\QuoteItemList\LItemListViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE1ListViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE2ListViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE3ListViewModel.cs" />
@@ -287,6 +291,7 @@
     <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE5ItemViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE6ItemViewModel.cs" />
     <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE7ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\QuoteItemList\EItemListViewModel.cs" />
     <Compile Include="ViewModel\ItemListViewModel.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
     <Compile Include="ViewModel\MasterCatalogListViewModel.cs" />
@@ -298,6 +303,7 @@
     <Compile Include="ViewModel\Mavair\EditCatalogItem\EditI2CatalogViewModel.cs" />
     <Compile Include="ViewModel\Mavair\EditQuoteItem\EditI1ItemViewModel.cs" />
     <Compile Include="ViewModel\Mavair\EditQuoteItem\EditI2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\QuoteItemList\IItemListViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\Multiaqua\CatalogList\CatalogK1ListViewModel.cs" />
     <Compile Include="ViewModel\Multiaqua\CatalogList\CatalogK2ListViewModel.cs" />
@@ -308,11 +314,13 @@
     <Compile Include="ViewModel\Multiaqua\EditQuoteItem\EditK1ItemViewModel.cs" />
     <Compile Include="ViewModel\Multiaqua\EditQuoteItem\EditK2ItemViewModel.cs" />
     <Compile Include="ViewModel\Multiaqua\EditQuoteItem\EditK3ItemViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\QuoteItemList\KItemListViewModel.cs" />
     <Compile Include="ViewModel\NewProjectViewModel.cs" />
     <Compile Include="ViewModel\OpenProjectViewModel.cs" />
     <Compile Include="ViewModel\PACE\CatalogList\CatalogJ1ListViewModel.cs" />
     <Compile Include="ViewModel\PACE\EditCatalogItem\EditJ1CatalogViewModel.cs" />
     <Compile Include="ViewModel\PACE\EditQuoteItem\EditJ1ItemViewModel.cs" />
+    <Compile Include="ViewModel\PACE\QuoteItemList\JItemListViewModel.cs" />
     <Compile Include="ViewModel\ProjectInformationViewModel.cs" />
     <Compile Include="ViewModel\Puroflux\CatalogList\CatalogD1ListViewModel.cs" />
     <Compile Include="ViewModel\Puroflux\CatalogList\CatalogD2ListViewModel.cs" />
@@ -320,6 +328,7 @@
     <Compile Include="ViewModel\Puroflux\EditCatalogItem\EditD2CatalogViewModoel.cs" />
     <Compile Include="ViewModel\Puroflux\EditQuoteItem\EditD1ItemViewModel.cs" />
     <Compile Include="ViewModel\Puroflux\EditQuoteItem\EditD2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Puroflux\QuoteItemList\DItemListViewModel.cs" />
     <Compile Include="ViewModel\Quantech\CatalogList\CatalogA1ListViewModel.cs" />
     <Compile Include="ViewModel\Quantech\CatalogList\CatalogA2ListViewModel.cs" />
     <Compile Include="ViewModel\Quantech\CatalogList\CatalogA3ListViewModel.cs" />
@@ -341,6 +350,7 @@
     <Compile Include="ViewModel\UvResources\CatalogList\CatalogF1ListViewModel.cs" />
     <Compile Include="ViewModel\UvResources\EditCatalogItem\EditF1CatalogViewModel.cs" />
     <Compile Include="ViewModel\UvResources\EditQuoteItem\EditF1ItemViewModel.cs" />
+    <Compile Include="ViewModel\UvResources\QuoteItemList\FItemListViewModel.cs" />
     <Compile Include="View\ABB\CatalogList\CatalogB1ListView.xaml.cs">
       <DependentUpon>CatalogB1ListView.xaml</DependentUpon>
     </Compile>
@@ -386,7 +396,7 @@
     <Compile Include="View\ABB\EditQuoteItem\EditB5ItemView.xaml.cs">
       <DependentUpon>EditB5ItemView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ABB\QouteItemList\BItemListView.xaml.cs">
+    <Compile Include="View\ABB\QuoteItemList\BItemListView.xaml.cs">
       <DependentUpon>BItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AmericanWheatley\CatalogList\CatalogC1ListView.xaml.cs">
@@ -452,6 +462,9 @@
     <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC7ItemView.xaml.cs">
       <DependentUpon>EditC7ItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AmericanWheatley\QuoteItemList\CItemListView.xaml.cs">
+      <DependentUpon>CItemListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\BACClosedCircuits\CatalogList\CatalogH1ListView.xaml.cs">
       <DependentUpon>CatalogH1ListView.xaml</DependentUpon>
     </Compile>
@@ -496,6 +509,9 @@
     </Compile>
     <Compile Include="View\BACClosedCircuits\EditQuoteItem\EditH5ItemView.xaml.cs">
       <DependentUpon>EditH5ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\QuoteItemList\HItemListView.xaml.cs">
+      <DependentUpon>HItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG1ListView.xaml.cs">
       <DependentUpon>CatalogG1ListView.xaml</DependentUpon>
@@ -551,6 +567,9 @@
     <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG6ItemView.xaml.cs">
       <DependentUpon>EditG6ItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\BACCoolingTowers\QuoteItemList\GItemListView.xaml.cs">
+      <DependentUpon>GItemListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CatalogView.xaml.cs">
       <DependentUpon>CatalogView.xaml</DependentUpon>
     </Compile>
@@ -583,6 +602,9 @@
     </Compile>
     <Compile Include="View\GeneralProduct\EditQuoteItem\EditL1ItemView.xaml.cs">
       <DependentUpon>EditL1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GeneralProduct\QuoteItemList\LItemListView.xaml.cs">
+      <DependentUpon>LItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Groundfos\CatalogList\CatalogE1ListVew.xaml.cs">
       <DependentUpon>CatalogE1ListVew.xaml</DependentUpon>
@@ -647,6 +669,9 @@
     <Compile Include="View\Groundfos\EditQuoteItem\EditE7ItemView.xaml.cs">
       <DependentUpon>EditE7ItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Groundfos\QuoteItemList\EItemListView.xaml.cs">
+      <DependentUpon>EItemListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ItemView.xaml.cs">
       <DependentUpon>ItemView.xaml</DependentUpon>
     </Compile>
@@ -667,6 +692,9 @@
     </Compile>
     <Compile Include="View\Marvair\EditQuoteItem\EditI2ItemView.xaml.cs">
       <DependentUpon>EditI2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\QuoteItemList\IItemListView.xaml.cs">
+      <DependentUpon>IItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
@@ -698,6 +726,9 @@
     <Compile Include="View\Multiaqua\EditQuoteItem\EditK3ItemView.xaml.cs">
       <DependentUpon>EditK3ItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Multiaqua\QuoteItemList\KItemListView.xaml.cs">
+      <DependentUpon>KItemListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\NewProjectView.xaml.cs">
       <DependentUpon>NewProjectView.xaml</DependentUpon>
     </Compile>
@@ -712,6 +743,9 @@
     </Compile>
     <Compile Include="View\PACE\EditQuoteItem\EditJ1ItemView.xaml.cs">
       <DependentUpon>EditJ1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PACE\QuoteItemList\JItemListView.xaml.cs">
+      <DependentUpon>JItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProjectInformationView.xaml.cs">
       <DependentUpon>ProjectInformationView.xaml</DependentUpon>
@@ -733,6 +767,9 @@
     </Compile>
     <Compile Include="View\PuroFlux\EditQuoteItem\EditD2ItemView.xaml.cs">
       <DependentUpon>EditD2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\QuoteItemList\DItemListView.xaml.cs">
+      <DependentUpon>DItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Quantech\CatalogList\CatalogA1ListView.xaml.cs">
       <DependentUpon>CatalogA1ListView.xaml</DependentUpon>
@@ -797,6 +834,9 @@
     <Compile Include="View\UvResources\EditQuoteItem\EditF1ItemView.xaml.cs">
       <DependentUpon>EditF1ItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UvResources\QuoteItemList\FItemListView.xaml.cs">
+      <DependentUpon>FItemListView.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\ABB\CatalogList\CatalogB1ListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -857,7 +897,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ABB\QouteItemList\BItemListView.xaml">
+    <Page Include="View\ABB\QuoteItemList\BItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -949,6 +989,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AmericanWheatley\QuoteItemList\CItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\BACClosedCircuits\CatalogList\CatalogH1ListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1006,6 +1050,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\BACClosedCircuits\EditQuoteItem\EditH5ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\QuoteItemList\HItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1081,6 +1129,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\BACCoolingTowers\QuoteItemList\GItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CatalogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1122,6 +1174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\GeneralProduct\EditQuoteItem\EditL1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GeneralProduct\QuoteItemList\LItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1209,6 +1265,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Groundfos\QuoteItemList\EItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1263,6 +1323,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Marvair\QuoteItemList\IItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1303,6 +1367,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Multiaqua\QuoteItemList\KItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\NewProjectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1320,6 +1388,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PACE\EditQuoteItem\EditJ1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PACE\QuoteItemList\JItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1348,6 +1420,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PuroFlux\EditQuoteItem\EditD2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\QuoteItemList\DItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1432,6 +1508,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UvResources\EditQuoteItem\EditF1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UvResources\QuoteItemList\FItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
