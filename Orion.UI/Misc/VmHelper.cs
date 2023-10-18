@@ -131,7 +131,6 @@ namespace Orion.UI.Misc
                                     
         { ItemType.ItemL1, typeof(CatalogL1ListViewModel) }
     };                            
-
         public static Dictionary<ItemType, Type> EditCatalogViewModelForItemTypeMap = new Dictionary<ItemType, Type>
     {
         { ItemType.ItemA1, typeof(EditA1CatalogViewModel) },
@@ -266,6 +265,8 @@ namespace Orion.UI.Misc
         { Subfix.L, typeof(LItemListViewModel) },
 
     };
+
+
 
         public static ItemType GetItemType(string itemsName)
         {

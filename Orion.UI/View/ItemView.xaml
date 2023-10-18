@@ -199,7 +199,7 @@
 
                                     <ContentControl Grid.Column="1" Content="{Binding}"/>
 
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" VerticalAlignment="Top">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Top">
 
                                         <Button
                                                             Grid.Row="0"

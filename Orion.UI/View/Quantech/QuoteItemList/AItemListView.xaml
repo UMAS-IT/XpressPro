@@ -7,10 +7,10 @@
     xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:Orion.UI.DependencyProperties"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:view="clr-namespace:Orion.UI.View.Quantech.QuoteItemList"
     xmlns:vm="clr-namespace:Orion.UI.ViewModel.Quantech.QuoteItemList"
-    xmlns:local="clr-namespace:Orion.UI.DependencyProperties"
     d:DataContext="{d:DesignInstance Type=vm:AItemListViewModel}"
     d:DesignHeight="600"
     d:DesignWidth="800"
@@ -22,15 +22,14 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Expander
-                            Margin="5,5,5,0"
-                            BorderBrush="DarkSlateBlue"
-                            
-                            IsExpanded="False">
+        Margin="5"
+        BorderBrush="DarkSlateBlue"
+        IsExpanded="False">
         <Expander.Header>
             <Label
-                                    Margin="-26,-2,-2,-2"
-                                    Background="DarkSlateBlue"
-                                    Content="Quantech" />
+                Margin="45,-2,-2,-2"
+                Background="DarkSlateBlue"
+                Content="Quantech" />
         </Expander.Header>
         <Expander.Style>
             <Style BasedOn="{StaticResource MahApps.Styles.Expander}" TargetType="Expander">
@@ -49,10 +48,10 @@
         </Expander.Style>
         <StackPanel Orientation="Vertical">
             <Expander
-                                    Grid.Row="0"
-                                    Margin="0,0,0,0"
-                                    ctrl:ControlsHelper.ContentCharacterCasing="Normal"
-                                    IsExpanded="True">
+                Grid.Row="0"
+                Margin="0,0,0,0"
+                ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                IsExpanded="True">
                 <Expander.Style>
                     <Style BasedOn="{StaticResource MahApps.Styles.Expander}" TargetType="Expander">
                         <Style.Triggers>
@@ -70,30 +69,30 @@
                         </Grid.ColumnDefinitions>
 
                         <Label
-                                                Grid.Column="0"
-                                                VerticalAlignment="Center"
-                                                Content="Air Cooled Chillers Factory Lead Time" />
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Content="Air Cooled Chillers Factory Lead Time" />
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
                             <Label Content="Total:" />
                             <TextBox
-                                                    Width="120"
-                                                    Margin="0,0,5,0"
-                                                    IsReadOnly="True"
-                                                    Text="{Binding ItemA1s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
+                                Width="120"
+                                Margin="0,0,5,0"
+                                IsReadOnly="True"
+                                Text="{Binding ItemA1s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
                             <Button
-                                                    Grid.Column="2"
-                                                    Width="65"
-                                                    HorizontalAlignment="Right"
-                                                    Background="DarkSlateBlue"
-                                                    Command="{Binding EditItemsCommand}"
-                                                    CommandParameter="A1"
-                                                    ToolTip="Edit Items">
+                                Grid.Column="2"
+                                Width="65"
+                                HorizontalAlignment="Right"
+                                Background="DarkSlateBlue"
+                                Command="{Binding EditItemsCommand}"
+                                CommandParameter="A1"
+                                ToolTip="Edit Items">
                                 <Button.Content>
                                     <icon:PackIconMaterial
-                                                            HorizontalAlignment="Center"
-                                                            VerticalAlignment="Center"
-                                                            Kind="PencilPlus">
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Kind="PencilPlus">
                                         <icon:PackIconMaterial.LayoutTransform>
                                             <TransformGroup>
                                                 <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
@@ -110,33 +109,33 @@
                     <local:FullItemDataGrid.Columns>
 
                         <DataGridTextColumn
-                                                Width="auto"
-                                                Binding="{Binding Catalog.UnitSize}"
-                                                Header="Unit Size"
-                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                                                IsReadOnly="True" />
+                            Width="auto"
+                            Binding="{Binding Catalog.UnitSize}"
+                            Header="Unit Size"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
                         <DataGridTextColumn
-                                                Width="auto"
-                                                Binding="{Binding Catalog.Description}"
-                                                Header="Description"
-                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                                                IsReadOnly="True" />
+                            Width="auto"
+                            Binding="{Binding Catalog.Description}"
+                            Header="Description"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
                         <DataGridTextColumn
-                                                Width="auto"
-                                                Binding="{Binding Catalog.Voltage}"
-                                                Header="Voltage"
-                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                                                IsReadOnly="True" />
+                            Width="auto"
+                            Binding="{Binding Catalog.Voltage}"
+                            Header="Voltage"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
 
                     </local:FullItemDataGrid.Columns>
                 </local:FullItemDataGrid>
             </Expander>
 
             <Expander
-                                    Grid.Row="0"
-                                    Margin="0,5,0,0"
-                                    ctrl:ControlsHelper.ContentCharacterCasing="Normal"
-                                    IsExpanded="True">
+                Grid.Row="0"
+                Margin="0,5,0,0"
+                ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                IsExpanded="True">
                 <Expander.Style>
                     <Style BasedOn="{StaticResource MahApps.Styles.Expander}" TargetType="Expander">
                         <Style.Triggers>
@@ -154,30 +153,30 @@
                         </Grid.ColumnDefinitions>
 
                         <Label
-                                                Grid.Column="0"
-                                                VerticalAlignment="Center"
-                                                Content="Air Cooled Chillers Stock Non Coated Condenser" />
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Content="Air Cooled Chillers Stock Non Coated Condenser" />
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
                             <Label Content="Total:" />
                             <TextBox
-                                                    Width="120"
-                                                    Margin="0,0,5,0"
-                                                    IsReadOnly="True"
-                                                    Text="{Binding ItemA2s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
+                                Width="120"
+                                Margin="0,0,5,0"
+                                IsReadOnly="True"
+                                Text="{Binding ItemA2s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
                             <Button
-                                                Grid.Column="1"
-                                                Width="65"
-                                                HorizontalAlignment="Right"
-                                                Background="DarkSlateBlue"
-                                                Command="{Binding EditItemsCommand}"
-                                                CommandParameter="A2"
-                                                ToolTip="Edit Items">
+                                Grid.Column="1"
+                                Width="65"
+                                HorizontalAlignment="Right"
+                                Background="DarkSlateBlue"
+                                Command="{Binding EditItemsCommand}"
+                                CommandParameter="A2"
+                                ToolTip="Edit Items">
                                 <Button.Content>
                                     <icon:PackIconMaterial
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        Kind="PencilPlus">
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Kind="PencilPlus">
                                         <icon:PackIconMaterial.LayoutTransform>
                                             <TransformGroup>
                                                 <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
@@ -193,33 +192,33 @@
                     <local:FullItemDataGrid.Columns>
 
                         <DataGridTextColumn
-                                                Width="auto"
-                                                Binding="{Binding Catalog.UnitSize}"
-                                                Header="Unit Size"
-                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                                                IsReadOnly="True" />
+                            Width="auto"
+                            Binding="{Binding Catalog.UnitSize}"
+                            Header="Unit Size"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
                         <DataGridTextColumn
-                                                Width="auto"
-                                                Binding="{Binding Catalog.Description}"
-                                                Header="Description"
-                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                                                IsReadOnly="True" />
+                            Width="auto"
+                            Binding="{Binding Catalog.Description}"
+                            Header="Description"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
                         <DataGridTextColumn
-                                                Width="auto"
-                                                Binding="{Binding Catalog.Voltage}"
-                                                Header="Voltage"
-                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                                                IsReadOnly="True" />
+                            Width="auto"
+                            Binding="{Binding Catalog.Voltage}"
+                            Header="Voltage"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
 
                     </local:FullItemDataGrid.Columns>
                 </local:FullItemDataGrid>
             </Expander>
 
             <Expander
-                                    Grid.Row="0"
-                                    Margin="0,5,0,0"
-                                    ctrl:ControlsHelper.ContentCharacterCasing="Normal"
-                                    IsExpanded="True">
+                Grid.Row="0"
+                Margin="0,5,0,0"
+                ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                IsExpanded="True">
                 <Expander.Style>
                     <Style BasedOn="{StaticResource MahApps.Styles.Expander}" TargetType="Expander">
                         <Style.Triggers>
@@ -237,30 +236,30 @@
                         </Grid.ColumnDefinitions>
 
                         <Label
-                                                Grid.Column="0"
-                                                VerticalAlignment="Center"
-                                                Content="Air Cooled Chillers Stock Post Coated Condenser" />
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Content="Air Cooled Chillers Stock Post Coated Condenser" />
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
                             <Label Content="Total:" />
                             <TextBox
-                                                    Width="120"
-                                                    Margin="0,0,5,0"
-                                                    IsReadOnly="True"
-                                                    Text="{Binding ItemA3s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
+                                Width="120"
+                                Margin="0,0,5,0"
+                                IsReadOnly="True"
+                                Text="{Binding ItemA3s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
                             <Button
-                                                Grid.Column="1"
-                                                Width="65"
-                                                HorizontalAlignment="Right"
-                                                Background="DarkSlateBlue"
-                                                Command="{Binding EditItemsCommand}"
-                                                CommandParameter="A3"
-                                                ToolTip="Edit Items">
+                                Grid.Column="1"
+                                Width="65"
+                                HorizontalAlignment="Right"
+                                Background="DarkSlateBlue"
+                                Command="{Binding EditItemsCommand}"
+                                CommandParameter="A3"
+                                ToolTip="Edit Items">
                                 <Button.Content>
                                     <icon:PackIconMaterial
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        Kind="PencilPlus">
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Kind="PencilPlus">
                                         <icon:PackIconMaterial.LayoutTransform>
                                             <TransformGroup>
                                                 <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
@@ -276,33 +275,33 @@
                     <local:FullItemDataGrid.Columns>
 
                         <DataGridTextColumn
-                                                Width="auto"
-                                                Binding="{Binding Catalog.UnitSize}"
-                                                Header="Unit Size"
-                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                                                IsReadOnly="True" />
+                            Width="auto"
+                            Binding="{Binding Catalog.UnitSize}"
+                            Header="Unit Size"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
                         <DataGridTextColumn
-                                                Width="auto"
-                                                Binding="{Binding Catalog.Description}"
-                                                Header="Description"
-                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                                                IsReadOnly="True" />
+                            Width="auto"
+                            Binding="{Binding Catalog.Description}"
+                            Header="Description"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
                         <DataGridTextColumn
-                                                Width="auto"
-                                                Binding="{Binding Catalog.Voltage}"
-                                                Header="Voltage"
-                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                                                IsReadOnly="True" />
+                            Width="auto"
+                            Binding="{Binding Catalog.Voltage}"
+                            Header="Voltage"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
 
                     </local:FullItemDataGrid.Columns>
                 </local:FullItemDataGrid>
             </Expander>
 
             <Expander
-                                    Grid.Row="0"
-                                    Margin="0,5,0,0"
-                                    ctrl:ControlsHelper.ContentCharacterCasing="Normal"
-                                    IsExpanded="True">
+                Grid.Row="0"
+                Margin="0,5,0,0"
+                ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                IsExpanded="True">
                 <Expander.Style>
                     <Style BasedOn="{StaticResource MahApps.Styles.Expander}" TargetType="Expander">
                         <Style.Triggers>
@@ -320,30 +319,30 @@
                         </Grid.ColumnDefinitions>
 
                         <Label
-                                                Grid.Column="0"
-                                                VerticalAlignment="Center"
-                                                Content="Water Cooled Chillers Factory Lead Time" />
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Content="Water Cooled Chillers Factory Lead Time" />
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
                             <Label Content="Total:" />
                             <TextBox
-                                                    Width="120"
-                                                    Margin="0,0,5,0"
-                                                    IsReadOnly="True"
-                                                    Text="{Binding ItemA4s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
+                                Width="120"
+                                Margin="0,0,5,0"
+                                IsReadOnly="True"
+                                Text="{Binding ItemA4s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
 
                             <Button
-                                                Grid.Column="1"
-                                                Width="65"
-                                                HorizontalAlignment="Right"
-                                                Background="DarkSlateBlue"
-                                                Command="{Binding EditItemsCommand}"
-                                                CommandParameter="A4"
-                                                ToolTip="Edit Items">
+                                Grid.Column="1"
+                                Width="65"
+                                HorizontalAlignment="Right"
+                                Background="DarkSlateBlue"
+                                Command="{Binding EditItemsCommand}"
+                                CommandParameter="A4"
+                                ToolTip="Edit Items">
                                 <Button.Content>
                                     <icon:PackIconMaterial
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        Kind="PencilPlus">
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Kind="PencilPlus">
                                         <icon:PackIconMaterial.LayoutTransform>
                                             <TransformGroup>
                                                 <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
@@ -359,23 +358,23 @@
                     <local:FullItemDataGrid.Columns>
 
                         <DataGridTextColumn
-                                                Width="auto"
-                                                Binding="{Binding Catalog.UnitSize}"
-                                                Header="Unit Size"
-                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                                                IsReadOnly="True" />
+                            Width="auto"
+                            Binding="{Binding Catalog.UnitSize}"
+                            Header="Unit Size"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
                         <DataGridTextColumn
-                                                Width="auto"
-                                                Binding="{Binding Catalog.Description}"
-                                                Header="Description"
-                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                                                IsReadOnly="True" />
+                            Width="auto"
+                            Binding="{Binding Catalog.Description}"
+                            Header="Description"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
                         <DataGridTextColumn
-                                                Width="auto"
-                                                Binding="{Binding Catalog.Voltage}"
-                                                Header="Voltage"
-                                                HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                                                IsReadOnly="True" />
+                            Width="auto"
+                            Binding="{Binding Catalog.Voltage}"
+                            Header="Voltage"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
 
                     </local:FullItemDataGrid.Columns>
                 </local:FullItemDataGrid>

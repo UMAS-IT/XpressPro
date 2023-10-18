@@ -124,9 +124,36 @@
             <DataTemplate DataType="{x:Type vmBItemList:BItemListViewModel}">
                 <viewBItemList:BItemListView />
             </DataTemplate>
-
-
-
+            <DataTemplate DataType="{x:Type vmCItemList:CItemListViewModel}">
+                <viewCItemList:CItemListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmDItemList:DItemListViewModel}">
+                <viewDItemList:DItemListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmEItemList:EItemListViewModel}">
+                <viewEItemList:EItemListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmFItemList:FItemListViewModel}">
+                <viewFItemList:FItemListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmGItemList:GItemListViewModel}">
+                <viewGItemList:GItemListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmHItemList:HItemListViewModel}">
+                <viewHItemList:HItemListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmIItemList:IItemListViewModel}">
+                <viewIItemList:IItemListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmJItemList:JItemListViewModel}">
+                <viewJItemList:JItemListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmKItemList:KItemListViewModel}">
+                <viewKItemList:KItemListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmLItemList:LItemListViewModel}">
+                <viewLItemList:LItemListView />
+            </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:CloneQuoteViewModel}">
                 <view:CloneQuoteView />
