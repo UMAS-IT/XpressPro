@@ -16,7 +16,6 @@
     d:DesignWidth="2000"
     dialog:DialogParticipation.Register="{Binding}"
     mc:Ignorable="d">
-
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadDataCommand}" />
@@ -33,9 +32,10 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Width="150">
+        <Grid Grid.Column="0" Width="200">
 
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
@@ -117,25 +117,104 @@
                 Margin="5,0,0,5"
                 ctrl:ControlsHelper.ContentCharacterCasing="Normal"
                 Header="Search Options">
-                <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
                     <TextBox
                         Grid.Column="0"
-                        ctrl:TextBoxHelper.ButtonCommand="{Binding ResetSearchCommand}"
                         ctrl:TextBoxHelper.ClearTextButton="True"
                         ctrl:TextBoxHelper.Watermark="Model Name"
                         Style="{DynamicResource TxtStyle}"
-                        Text="{Binding Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnNotifyDataErrors=True}"
-                        ToolTip="Press ENTER to update searching">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding SearchCommand}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </TextBox>
+                        Text="{Binding Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnNotifyDataErrors=True}" />
+
+                    <Button
+                        Grid.Column="1"
+                        Margin="1"
+                        Command="{Binding SearchCommand}"
+                        ToolTip="Search">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
 
 
-                </StackPanel>
+                                <icon:PackIconMaterial
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="Magnify">
+                                    <icon:PackIconMaterial.LayoutTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                        </TransformGroup>
+                                    </icon:PackIconMaterial.LayoutTransform>
+                                </icon:PackIconMaterial>
 
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox
+                Grid.Row="2"
+                Margin="5,0,0,5"
+                ctrl:ControlsHelper.ContentCharacterCasing="Normal">
+                <GroupBox.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Padding="0"
+                            VerticalAlignment="Center"
+                            Content="Product Types" />
+                        <Button
+                            Grid.Column="1"
+                            Margin="-2"
+                            Command="{Binding ClearProductTypesCommand}">
+                            <icon:PackIconMaterialDesign
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Kind="ClearAll">
+                                <icon:PackIconMaterialDesign.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                    </TransformGroup>
+                                </icon:PackIconMaterialDesign.LayoutTransform>
+                            </icon:PackIconMaterialDesign>
+                        </Button>
+                    </Grid>
+                </GroupBox.Header>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding CatalogC1ProductTypes, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border
+                                    Margin="0,2"
+                                    BorderBrush="White"
+                                    BorderThickness="1">
+                                    <CheckBox Grid.Column="0" IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                        <CheckBox.Content>
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                Margin="0,5"
+                                                Text="{Binding Name}"
+                                                TextAlignment="Left"
+                                                TextWrapping="Wrap" />
+                                        </CheckBox.Content>
+                                    </CheckBox>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
 
             </GroupBox>
 
@@ -168,6 +247,12 @@
                 ItemsSource="{Binding Catalogs, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                 Style="{StaticResource DGridStyle}">
 
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding EditCatalogItemCommand}" CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
                 <DataGrid.Columns>
 
                     <DataGridTemplateColumn Width="auto" CanUserResize="False">
@@ -194,18 +279,25 @@
                     <DataGridTemplateColumn Width="auto" CanUserResize="False">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button
-                                    Command="{Binding DataContext.EditCatalogTitlesCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
-                                    CommandParameter="{Binding}"
-                                    ToolTip="Item Info">
-                                    <icon:PackIconFontAwesome Kind="InfoSolid">
-                                        <icon:PackIconFontAwesome.LayoutTransform>
+                                <Button Command="{Binding DataContext.EditCatalogTitlesCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}">
+                                    <icon:PackIconUnicons Kind="FilesLandscapesAlt">
+                                        <icon:PackIconUnicons.LayoutTransform>
                                             <TransformGroup>
                                                 <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
                                             </TransformGroup>
-                                        </icon:PackIconFontAwesome.LayoutTransform>
-                                    </icon:PackIconFontAwesome>
-
+                                        </icon:PackIconUnicons.LayoutTransform>
+                                    </icon:PackIconUnicons>
+                                    <Button.Style>
+                                        <Style BasedOn="{StaticResource MahApps.Styles.Button}" TargetType="Button">
+                                            <Setter Property="ToolTip" Value="Item Info" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding DataSheet}" Value="{x:Null}">
+                                                    <Setter Property="Background" Value="DarkRed" />
+                                                    <Setter Property="ToolTip" Value="No Data Sheet Assigned" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
                                 </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -217,6 +309,38 @@
                         Header="Model"
                         HeaderStyle="{StaticResource ColumnHeaderStyle}"
                         IsReadOnly="True" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Description}"
+                        Header="Description"
+                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                        IsReadOnly="True" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Size}"
+                        Header="Size (in)"
+                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                        IsReadOnly="True" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding ShippingWeight}"
+                        Header="Shipping Weight"
+                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                        IsReadOnly="True" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding EndConnection}"
+                        Header="End Connection"
+                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                        IsReadOnly="True" />
+
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding CatalogC1ProductType.Name}"
+                        Header="Product Type"
+                        HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                        IsReadOnly="True" />
+
                     <DataGridTextColumn
                         Width="auto"
                         Binding="{Binding ListPrice, StringFormat={}{0:c}}"

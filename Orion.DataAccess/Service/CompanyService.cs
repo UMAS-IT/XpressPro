@@ -16,9 +16,9 @@ namespace Orion.DataAccess.Service
         {
             using (GlobalDbContext context = new GlobalDbContext())
             {
-                List<Company> companies = context.Companies.Include(x => x.Products).ToList();
+                List<Company> companies = context.Companies.Include(x => x.Products).OrderBy(x => x.Name).ToList();
 
-                companies.ForEach(x => x.Products = x.Products.Where(y => y.InService).OrderBy(y => y.Name).ToList());
+                companies.ForEach(x => x.Products = x.Products.Where(y => y.InService).ToList());
 
                 return companies;
             }

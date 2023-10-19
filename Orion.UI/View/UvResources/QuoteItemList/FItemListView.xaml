@@ -29,7 +29,6 @@
         <Expander.Header>
             <Label
                 Margin="45,-2,-2,-2"
-                
                 Background="DeepSkyBlue"
                 Content="UV Resources" />
         </Expander.Header>

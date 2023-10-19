@@ -108,12 +108,24 @@
                 <local:FullItemDataGrid ItemsSource="{Binding ItemA1s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
                     <local:FullItemDataGrid.Columns>
 
-                        <DataGridTextColumn
+                        <!--<DataGridTextColumn
                             Width="auto"
                             Binding="{Binding Catalog.UnitSize}"
                             Header="Unit Size"
                             HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                            IsReadOnly="True" />
+                            IsReadOnly="True" />-->
+
+                        <DataGridTemplateColumn Header="Tons" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        CharacterCasing="Upper"
+                                        MaxLength="20"
+                                        Text="{Binding Tons, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
                         <DataGridTextColumn
                             Width="auto"
                             Binding="{Binding Catalog.Description}"
@@ -191,12 +203,23 @@
                 <local:FullItemDataGrid ItemsSource="{Binding ItemA2s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
                     <local:FullItemDataGrid.Columns>
 
-                        <DataGridTextColumn
+                        <!--<DataGridTextColumn
                             Width="auto"
                             Binding="{Binding Catalog.UnitSize}"
                             Header="Unit Size"
                             HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                            IsReadOnly="True" />
+                            IsReadOnly="True" />-->
+
+                        <DataGridTemplateColumn Header="Tons" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        CharacterCasing="Upper"
+                                        MaxLength="20"
+                                        Text="{Binding Tons, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <DataGridTextColumn
                             Width="auto"
                             Binding="{Binding Catalog.Description}"
@@ -274,12 +297,23 @@
                 <local:FullItemDataGrid ItemsSource="{Binding ItemA3s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
                     <local:FullItemDataGrid.Columns>
 
-                        <DataGridTextColumn
+                        <!--<DataGridTextColumn
                             Width="auto"
                             Binding="{Binding Catalog.UnitSize}"
                             Header="Unit Size"
                             HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                            IsReadOnly="True" />
+                            IsReadOnly="True" />-->
+
+                        <DataGridTemplateColumn Header="Tons" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        CharacterCasing="Upper"
+                                        MaxLength="20"
+                                        Text="{Binding Tons, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <DataGridTextColumn
                             Width="auto"
                             Binding="{Binding Catalog.Description}"
@@ -357,12 +391,23 @@
                 <local:FullItemDataGrid ItemsSource="{Binding ItemA4s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
                     <local:FullItemDataGrid.Columns>
 
-                        <DataGridTextColumn
+                        <!--<DataGridTextColumn
                             Width="auto"
                             Binding="{Binding Catalog.UnitSize}"
                             Header="Unit Size"
                             HeaderStyle="{StaticResource ColumnHeaderStyle}"
-                            IsReadOnly="True" />
+                            IsReadOnly="True" />-->
+
+                        <DataGridTemplateColumn Header="Tons" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        CharacterCasing="Upper"
+                                        MaxLength="20"
+                                        Text="{Binding Tons, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <DataGridTextColumn
                             Width="auto"
                             Binding="{Binding Catalog.Description}"

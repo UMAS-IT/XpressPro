@@ -19,6 +19,19 @@ namespace Orion.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Orion.Domain.AmericanWheatley.Related.CatalogC1ProductType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CatalogC1ProductTypes");
+                });
+
             modelBuilder.Entity("Orion.Domain.AmericanWheatley.Related.CatalogC3ProductType", b =>
                 {
                     b.Property<int>("Id")
@@ -182,6 +195,8 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Highlighted");
+
                     b.Property<string>("Name");
 
                     b.Property<double>("Price");
@@ -202,6 +217,8 @@ namespace Orion.DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("DataSheetId");
+
+                    b.Property<bool>("Highlighted");
 
                     b.Property<int?>("ItemA1Id");
 
@@ -580,9 +597,15 @@ namespace Orion.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CatalogC1ProductTypeId");
+
                     b.Property<double>("CostMultiplier");
 
                     b.Property<int?>("DataSheetId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("EndConnection");
 
                     b.Property<double>("ListPrice");
 
@@ -590,7 +613,13 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<double>("SellMargin");
 
+                    b.Property<string>("ShippingWeight");
+
+                    b.Property<string>("Size");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("CatalogC1ProductTypeId");
 
                     b.HasIndex("DataSheetId");
 
@@ -611,7 +640,13 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Model");
 
+                    b.Property<string>("PumpFlange");
+
                     b.Property<double>("SellMargin");
+
+                    b.Property<string>("ShippingWeight");
+
+                    b.Property<string>("SystemFlange");
 
                     b.HasKey("Id");
 
@@ -1447,6 +1482,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Tag");
 
+                    b.Property<string>("Tons");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CatalogA1Id");
@@ -1483,6 +1520,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Tons");
 
                     b.HasKey("Id");
 
@@ -1521,6 +1560,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<string>("Tag");
 
+                    b.Property<string>("Tons");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CatalogA3Id");
@@ -1557,6 +1598,8 @@ namespace Orion.DataAccess.Migrations
                     b.Property<double>("SellMargin");
 
                     b.Property<string>("Tag");
+
+                    b.Property<string>("Tons");
 
                     b.HasKey("Id");
 
@@ -3828,6 +3871,10 @@ namespace Orion.DataAccess.Migrations
 
             modelBuilder.Entity("Orion.Domain.EntityCatalogAmericanWheatley.CatalogC1", b =>
                 {
+                    b.HasOne("Orion.Domain.AmericanWheatley.Related.CatalogC1ProductType", "CatalogC1ProductType")
+                        .WithMany()
+                        .HasForeignKey("CatalogC1ProductTypeId");
+
                     b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
                         .WithMany()
                         .HasForeignKey("DataSheetId");

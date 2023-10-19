@@ -19,7 +19,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Orion.Domain.Entity
 {
-    public class Title : ValidatableBindableBase, IEntity, ICloneable
+    public class Title : ValidatableBindableBase, IEntity, ICloneable, ITexteable
     {
         private int _id;
         public int Id
@@ -732,6 +732,13 @@ namespace Orion.Domain.Entity
         {
             get => _saved;
             set => SetProperty(ref _saved, value);
+        }
+
+        private bool _highlighted;
+        public bool Highlighted
+        {
+            get => _highlighted;
+            set => SetProperty(ref _highlighted, value);
         }
 
         public object Clone()

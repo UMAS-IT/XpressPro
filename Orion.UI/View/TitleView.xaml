@@ -114,6 +114,7 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
                                 <Label Grid.Column="0" Content="Title:"/>
@@ -123,9 +124,53 @@
                                          ctrl:TextBoxHelper.SelectAllOnFocus="True"
                                               Margin="1"
                                          IsReadOnly="{Binding DataContext.SelectionMode,  RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                             Background="DarkCyan"/>
+                                             Background="DarkCyan">
+                                    <TextBox.Style>
+                                        <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Highlighted}" Value="True">
+                                                    <Setter Property="Foreground" Value="DarkRed"/>
+                                                    <Setter Property="FontWeight" Value="Bold"/>
+                                                    <Setter Property="TextDecorations" Value="Underline"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBox.Style>
+                                </TextBox>
 
                                 <Button   Grid.Column="2"
+                                          
+                                    Margin="1"
+                                    Background="{StaticResource MahApps.Brushes.Accent}"
+                                    Command="{Binding ElementName=treeView, Path=DataContext.HighlightTextCommand}" CommandParameter="{Binding}"
+                                    ToolTip="Highlight Text" >
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding DataContext.SelectionMode,  RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" Value="true">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+
+                                    <Button.Content>
+                                        <StackPanel Orientation="Vertical">
+                                            <icon:PackIconBoxIcons Kind="RegularHighlight" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                                <icon:PackIconBoxIcons.LayoutTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                    </TransformGroup>
+                                                </icon:PackIconBoxIcons.LayoutTransform>
+                                            </icon:PackIconBoxIcons>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+
+                                <Button   Grid.Column="3"
                                           
                                     Margin="1"
                                     Background="DarkRed"
@@ -159,7 +204,7 @@
                                     </Button.Content>
                                 </Button>
 
-                                <Button   Grid.Column="3"
+                                <Button   Grid.Column="4"
                                     Margin="1"
                                     Background="#FF87B036"
                                     Command="{Binding ElementName=treeView, Path=DataContext.AddSpecCommand}" CommandParameter="{Binding}"
@@ -198,6 +243,7 @@
                                             <ColumnDefinition/>
                                             <ColumnDefinition Width="auto"/>
                                             <ColumnDefinition  Width="auto"/>
+                                            <ColumnDefinition  Width="auto"/>
                                         </Grid.ColumnDefinitions>
 
                                         <Label Grid.Column="0" Content="Spec:"/>
@@ -208,7 +254,19 @@
                                              ctrl:TextBoxHelper.Watermark="Specification" MaxHeight="72"
                                                  ctrl:TextBoxHelper.SelectAllOnFocus="True"
                                                  IsReadOnly="{Binding DataContext.SelectionMode,  RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                              Margin="1"/>
+                                              Margin="1">
+                                            <TextBox.Style>
+                                                <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Highlighted}" Value="True">
+                                                            <Setter Property="Foreground" Value="DarkRed"/>
+                                                            <Setter Property="FontWeight" Value="Bold"/>
+                                                            <Setter Property="TextDecorations" Value="Underline"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBox.Style>
+                                        </TextBox>
 
                                         <TextBox Grid.Column="2" Width="90" TextWrapping="Wrap" ctrl:TextBoxHelper.SelectAllOnFocus="True" PreviewTextInput="IsDouble" VerticalContentAlignment="Center" Text="{Binding Price, UpdateSourceTrigger=LostFocus,StringFormat={}{0:c} , Mode=TwoWay}" 
                                              ctrl:TextBoxHelper.Watermark="Price" 
@@ -216,6 +274,38 @@
                                               Margin="1"/>
 
                                         <Button   Grid.Column="3"
+                                          
+                                    Margin="1"
+                                    Background="{StaticResource MahApps.Brushes.Accent}"
+                                    Command="{Binding ElementName=treeView, Path=DataContext.HighlightTextCommand}" CommandParameter="{Binding}"
+                                    ToolTip="Highlight Text" >
+                                            <Button.Style>
+                                                <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding DataContext.SelectionMode,  RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" Value="true">
+                                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+
+                                            <Button.Content>
+                                                <StackPanel Orientation="Vertical">
+                                                    <icon:PackIconBoxIcons Kind="RegularHighlight" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                                        <icon:PackIconBoxIcons.LayoutTransform>
+                                                            <TransformGroup>
+                                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                                            </TransformGroup>
+                                                        </icon:PackIconBoxIcons.LayoutTransform>
+                                                    </icon:PackIconBoxIcons>
+                                                </StackPanel>
+                                            </Button.Content>
+                                        </Button>
+
+                                        <Button   Grid.Column="4"
                                     Margin="1"
                                     Background="DarkRed"
                                     Command="{Binding ElementName=treeView, Path=DataContext.DeleteSpecCommand}" CommandParameter="{Binding}"

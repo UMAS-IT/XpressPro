@@ -1,6 +1,7 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogQuantech;
+using Orion.Domain.Quantech.Related;
 using Orion.Helper.Extension;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,7 +10,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Orion.Domain.EntityItem
 {
     // QUANTECH - Air Cooled Stock Post Coated
-    public class ItemA3 : Item
+    public class ItemA3 : ItemA
     {
         private int? _catalogA3Id;
         public int? CatalogA3Id

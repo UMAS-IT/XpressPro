@@ -42,45 +42,55 @@
                              Style="{DynamicResource TxtStyle}">
                     </TextBox>
 
-                    <TextBox  
-                             ctrl:TextBoxHelper.Watermark="List Price" 
-                             Background="#32B974"
-                             PreviewTextInput="IsDouble"
-                             Text="{Binding Catalog.ListPrice, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
-                    </TextBox>
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="System Flange"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.SystemFlange, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
-                    <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Cost Multiplier" 
-                             Background="#32B974"
-                             PreviewTextInput="IsDouble"
-                             Text="{Binding Catalog.CostMultiplier, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
-                    </TextBox>
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="Pump Flange"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.PumpFlange, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
-                    <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Cost" 
-                             Background="DarkOrange"
-                             IsReadOnly="True"
-                             Text="{Binding Catalog.Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c},  Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
-                    </TextBox>
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="Shipping Weight"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.ShippingWeight, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
-                    <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Sell Margin" 
-                             Background="#32B974"
-                             PreviewTextInput="IsDouble"
-                             Text="{Binding Catalog.SellMargin, UpdateSourceTrigger=LostFocus, StringFormat={}{0}%, Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
-                    </TextBox>
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="List Price"
+                        Background="#32B974"
+                        PreviewTextInput="IsDouble"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.ListPrice, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}" />
 
-                    <TextBox  
-                             ctrl:TextBoxHelper.Watermark="Unit Sell Price" 
-                             Background="DarkOrange"
-                             IsReadOnly="True"
-                             Text="{Binding Catalog.SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}"
-                             Style="{DynamicResource TxtStyle}">
-                    </TextBox>
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="Cost Multiplier"
+                        Background="#32B974"
+                        PreviewTextInput="IsDouble"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.CostMultiplier, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" />
+
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="Cost"
+                        Background="{StaticResource MahApps.Brushes.Accent}"
+                        IsReadOnly="True"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
+
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="Sell Margin"
+                        Background="#32B974"
+                        PreviewTextInput="IsDouble"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.SellMargin, UpdateSourceTrigger=LostFocus, StringFormat={}{0}%, Mode=TwoWay}" />
+
+                    <TextBox
+                        ctrl:TextBoxHelper.Watermark="Unit Sell Price"
+                        Background="{StaticResource MahApps.Brushes.Accent}"
+                        IsReadOnly="True"
+                        Style="{DynamicResource TxtStyle}"
+                        Text="{Binding Catalog.SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
                 </StackPanel>
 
             </ScrollViewer>

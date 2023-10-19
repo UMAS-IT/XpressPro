@@ -188,7 +188,7 @@ namespace Orion.DataAccess.Service
                     break;
 
                 case ItemType.ItemC1:
-                    catalogs = context.CatalogC1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).ToList<ICatalog>();
+                    catalogs = context.CatalogC1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).Include(x => x.CatalogC1ProductType).ToList<ICatalog>();
                     break;
 
                 case ItemType.ItemC2:
@@ -386,7 +386,7 @@ namespace Orion.DataAccess.Service
                 return context.CatalogB5s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
 
             else if (catalog is CatalogC1)
-                return context.CatalogC1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+                return context.CatalogC1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).Include(x => x.CatalogC1ProductType).FirstOrDefault(x => x.Id == catalog.Id);
             else if (catalog is CatalogC2)
                 return context.CatalogC2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
             else if (catalog is CatalogC3)
@@ -589,12 +589,22 @@ namespace Orion.DataAccess.Service
                     CatalogC1 catalogC1 = catalog as CatalogC1;
                     CatalogC1 dbCatalogC1 = catalog.Id != 0 ? context.CatalogC1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogC1;
 
+                    CatalogC1ProductType dbCatalogC1ProductType = catalogC1.CatalogC1ProductType != null ? context.CatalogC1ProductTypes.FirstOrDefault(x => x.Id == catalogC1.CatalogC1ProductType.Id) : null;
+                    dbCatalogC1.Description = catalogC1.Description;
+                    dbCatalogC1.Size = catalogC1.Size;
+                    dbCatalogC1.ShippingWeight = catalogC1.ShippingWeight;
+                    dbCatalogC1.EndConnection = catalogC1.EndConnection;
+
                     dbCatalog = dbCatalogC1;
                 }
                 else if (catalog is CatalogC2)
                 {
                     CatalogC2 catalogC2 = catalog as CatalogC2;
                     CatalogC2 dbCatalogC2 = catalog.Id != 0 ? context.CatalogC2s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogC2;
+
+                    dbCatalogC2.SystemFlange = catalogC2.SystemFlange;
+                    dbCatalogC2.PumpFlange = catalogC2.PumpFlange;
+                    dbCatalogC2.ShippingWeight = catalogC2.ShippingWeight;
 
                     dbCatalog = dbCatalogC2;
                 }

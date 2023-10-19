@@ -144,6 +144,7 @@ namespace Orion.DataAccess.Service
                     {
                         Title dbTitle = dbDataSheet.Titles.FirstOrDefault(x => x.Id == title.Id && !x.Saved);
                         dbTitle.Name = title.Name;
+                        dbTitle.Highlighted = title.Highlighted;
 
                         foreach (Spec spec in title.Specs)
                         {
@@ -153,6 +154,7 @@ namespace Orion.DataAccess.Service
                                 dbSpec.Name = spec.Name;
                                 dbSpec.Price = spec.Price;
                                 dbSpec.Saved = true;
+                                dbSpec.Highlighted = spec.Highlighted;
                             }
                             else
                             {

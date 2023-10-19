@@ -14,6 +14,26 @@ namespace Orion.Domain.EntityCatalogAmericanWheatley
     // American Wheatley - Suction Diffusers
     public class CatalogC2 : Catalog
     {
+        private string _systemFlange;
+        public string SystemFlange
+        {
+            get => _systemFlange;
+            set => SetProperty(ref _systemFlange, value);
+        }
+
+        private string _pumpFlange;
+        public string PumpFlange
+        {
+            get => _pumpFlange;
+            set => SetProperty(ref _pumpFlange, value);
+        }
+
+        private string _shippingWeight;
+        public string ShippingWeight
+        {
+            get => _shippingWeight;
+            set => SetProperty(ref _shippingWeight, value);
+        }
         [NotMapped]
         public override string Company { get => "American Wheatley"; }
         [NotMapped]
@@ -23,6 +43,9 @@ namespace Orion.Domain.EntityCatalogAmericanWheatley
 
         public CatalogC2() : base()
         {
+            SystemFlange = "";
+            PumpFlange = "";
+            ShippingWeight = "";
         }
     }
 }

@@ -26,5 +26,13 @@ namespace Orion.DataAccess.Service
                 return context.CatalogC3ProductTypes.ToList();
             }
         }
+
+        public IList<CatalogC1ProductType> GetCatalogC1ProductTypes()
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.CatalogC1ProductTypes.ToList();
+            }
+        }
     }
 }

@@ -101,6 +101,18 @@ namespace Orion.Report.Pricing
                 }
                 if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.C.ToString())
                 {
+                    if (quote.ItemC1s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingC.CreateC1ItemTable(quote.ItemC1s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemC1s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                    if (quote.ItemC2s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingC.CreateC2ItemTable(quote.ItemC2s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemC2s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
                     if (quote.ItemC3s.Any(x => !x.IsExcluded))
                     {
                         pricingItems.AddRange(pricingC.CreateC3ItemTable(quote.ItemC3s, mainDocument, docSection, itemNumber++));
@@ -312,7 +324,18 @@ namespace Orion.Report.Pricing
             }
 
 
-
+            if (quote.ItemC1s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingC.CreateC1ItemTable(quote.ItemC1s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemC1s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+            if (quote.ItemC2s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingC.CreateC2ItemTable(quote.ItemC2s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemC2s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
             if (quote.ItemC3s.Any(x => !x.IsExcluded))
             {
                 pricingItems.AddRange(pricingC.CreateC3ItemTable(quote.ItemC3s, mainDocument, docSection, itemNumber++));

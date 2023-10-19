@@ -140,6 +140,7 @@
     <Compile Include="AmericanWheatley\Item\ItemC5.cs" />
     <Compile Include="AmericanWheatley\Item\ItemC6.cs" />
     <Compile Include="AmericanWheatley\Item\ItemC7.cs" />
+    <Compile Include="AmericanWheatley\Related\CatalogC1ProductType.cs" />
     <Compile Include="AmericanWheatley\Related\CatalogC3ProductType.cs" />
     <Compile Include="BACClosedLoopTowers\Catalog\CatalogH1.cs" />
     <Compile Include="BACClosedLoopTowers\Catalog\CatalogH2.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="Entity\Catalog.cs" />
     <Compile Include="Entity\Company.cs" />
     <Compile Include="Entity\DataSheet.cs" />
+    <Compile Include="Entity\ITexteable.cs" />
     <Compile Include="Entity\QuoteCompanies.cs" />
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Entity\Permission.cs" />
@@ -189,6 +191,7 @@
     <Compile Include="Quantech\Catalog\CatalogA2.cs" />
     <Compile Include="Quantech\Catalog\CatalogA3.cs" />
     <Compile Include="Quantech\Catalog\CatalogA4.cs" />
+    <Compile Include="Quantech\Related\ItemA.cs" />
     <Compile Include="UvResources\Catalog\CatalogF1.cs" />
     <Compile Include="ABB\Item\ItemB1.cs" />
     <Compile Include="ABB\Item\ItemB2.cs" />

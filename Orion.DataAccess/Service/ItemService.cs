@@ -31,6 +31,7 @@ using Orion.Domain.Multiaqua.Catalog;
 using Orion.Domain.Multiaqua.Item;
 using Orion.Domain.PACE.Catalog;
 using Orion.Domain.PACE.Item;
+using Orion.Domain.Quantech.Related;
 using Orion.Helper.Misc;
 using System;
 using System.Collections;
@@ -116,7 +117,7 @@ namespace Orion.DataAccess.Service
 
                 case ItemType.ItemC1:
                     dbQuote = context.Quotes
-                        .Include(x => x.ItemC1s).ThenInclude(x => x.CatalogC1)
+                        .Include(x => x.ItemC1s).ThenInclude(x => x.CatalogC1).ThenInclude(x => x.CatalogC1ProductType)
                         .Include(x => x.ItemC1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                         .FirstOrDefault(x => x.Id == quote.Id);
                     break;
@@ -459,7 +460,16 @@ namespace Orion.DataAccess.Service
                         dbItem.SellPrice = item.SellPrice;
                         dbItem.Freight = item.Freight;
 
-                        if (dbItem is ItemE)
+                        if (dbItem is ItemA)
+                        {
+                            ItemA itemA = item as ItemA;
+                            ItemA dbItemA = dbItem as ItemA;
+
+                            dbItemA.Tons = itemA.Tons;
+
+                            //dbItem = dbItemA;
+                        }
+                        else if (dbItem is ItemE)
                         {
                             ItemE itemE = item as ItemE;
                             ItemE dbItemE = dbItem as ItemE;
@@ -472,7 +482,7 @@ namespace Orion.DataAccess.Service
                             dbItemE.Rpm = itemE.Rpm;
                             dbItemE.Electrical = itemE.Electrical;
 
-                            dbItem = dbItemE;
+                            //dbItem = dbItemE;
                         }
                         else if (dbItem is  ItemJ1)
                         {
@@ -484,7 +494,7 @@ namespace Orion.DataAccess.Service
                             dbItemJ1.Voltage = itemJ1.Voltage;
                             dbItemJ1.Weight = itemJ1.Weight;
 
-                            dbItem = dbItemJ1;
+                            //dbItem = dbItemJ1;
                         }
                         else if (dbItem is ItemG)
                         {
@@ -634,7 +644,7 @@ namespace Orion.DataAccess.Service
             items.AddRange(context.ItemB3s.Include(x => x.CatalogB3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
             items.AddRange(context.ItemB4s.Include(x => x.CatalogB4).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
             items.AddRange(context.ItemB5s.Include(x => x.CatalogB5).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
-            items.AddRange(context.ItemC1s.Include(x => x.CatalogC1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
+            items.AddRange(context.ItemC1s.Include(x => x.CatalogC1).ThenInclude(x => x.CatalogC1ProductType).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
             items.AddRange(context.ItemC2s.Include(x => x.CatalogC2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
             items.AddRange(context.ItemC3s.Include(x => x.CatalogC3).ThenInclude(x => x.CatalogC3ProductType).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
             items.AddRange(context.ItemC4s.Include(x => x.CatalogC4).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());

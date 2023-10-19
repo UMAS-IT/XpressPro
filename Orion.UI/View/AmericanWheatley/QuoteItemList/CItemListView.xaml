@@ -58,6 +58,190 @@
                 <Expander.Style>
                     <Style BasedOn="{StaticResource MahApps.Styles.Expander}" TargetType="Expander">
                         <Style.Triggers>
+                            <DataTrigger Binding="{Binding ItemC1s.Count}" Value="0">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Expander.Style>
+                <Expander.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Content="Triple Duty Valves" />
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <Label Content="Total:" />
+                            <TextBox
+                                Width="120"
+                                Margin="0,0,5,0"
+                                IsReadOnly="True"
+                                Text="{Binding ItemC1s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
+
+                            <Button
+                                Grid.Column="1"
+                                Width="65"
+                                HorizontalAlignment="Right"
+                                Background="DarkMagenta"
+                                Command="{Binding EditItemsCommand}"
+                                CommandParameter="C1"
+                                ToolTip="Edit Items">
+                                <Button.Content>
+                                    <icon:PackIconMaterial
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Kind="PencilPlus">
+                                        <icon:PackIconMaterial.LayoutTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                            </TransformGroup>
+                                        </icon:PackIconMaterial.LayoutTransform>
+                                    </icon:PackIconMaterial>
+                                </Button.Content>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Expander.Header>
+
+
+                <local:FullItemDataGrid ItemsSource="{Binding ItemC1s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
+                    <local:FullItemDataGrid.Columns>
+
+                        <DataGridTextColumn
+                            Width="auto"
+                            Binding="{Binding Catalog.Description}"
+                            Header="Description"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="auto"
+                            Binding="{Binding Catalog.Size}"
+                            Header="Size (in)"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="auto"
+                            Binding="{Binding Catalog.ShippingWeight}"
+                            Header="Shipping Weight"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="auto"
+                            Binding="{Binding Catalog.EndConnection}"
+                            Header="End Connection"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
+
+                        <DataGridTextColumn
+                            Width="auto"
+                            Binding="{Binding Catalog.CatalogC1ProductType.Name}"
+                            Header="Product Type"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
+
+                    </local:FullItemDataGrid.Columns>
+                </local:FullItemDataGrid>
+            </Expander>
+
+            <Expander
+                Grid.Row="0"
+                Margin="0,5,0,0"
+                ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                IsExpanded="True">
+                <Expander.Style>
+                    <Style BasedOn="{StaticResource MahApps.Styles.Expander}" TargetType="Expander">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ItemC2s.Count}" Value="0">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Expander.Style>
+                <Expander.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Content="Suction Diffussers" />
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <Label Content="Total:" />
+                            <TextBox
+                                Width="120"
+                                Margin="0,0,5,0"
+                                IsReadOnly="True"
+                                Text="{Binding ItemC2s, Converter={StaticResource TotalPriceConverter}, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}" />
+
+                            <Button
+                                Grid.Column="1"
+                                Width="65"
+                                HorizontalAlignment="Right"
+                                Background="DarkMagenta"
+                                Command="{Binding EditItemsCommand}"
+                                CommandParameter="C2"
+                                ToolTip="Edit Items">
+                                <Button.Content>
+                                    <icon:PackIconMaterial
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Kind="PencilPlus">
+                                        <icon:PackIconMaterial.LayoutTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75" />
+                                            </TransformGroup>
+                                        </icon:PackIconMaterial.LayoutTransform>
+                                    </icon:PackIconMaterial>
+                                </Button.Content>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Expander.Header>
+
+
+                <local:FullItemDataGrid ItemsSource="{Binding ItemC2s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
+                    <local:FullItemDataGrid.Columns>
+
+                        <DataGridTextColumn
+                            Width="auto"
+                            Binding="{Binding Catalog.SystemFlange}"
+                            Header="System Flange"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="auto"
+                            Binding="{Binding Catalog.PumpFlange}"
+                            Header="Pump Flange"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="auto"
+                            Binding="{Binding Catalog.ShippingWeight}"
+                            Header="Shipping Weight"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
+
+                    </local:FullItemDataGrid.Columns>
+                </local:FullItemDataGrid>
+            </Expander>
+
+
+            <Expander
+                Grid.Row="0"
+                Margin="0,5,0,0"
+                ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                IsExpanded="True">
+                <Expander.Style>
+                    <Style BasedOn="{StaticResource MahApps.Styles.Expander}" TargetType="Expander">
+                        <Style.Triggers>
                             <DataTrigger Binding="{Binding ItemC3s.Count}" Value="0">
                                 <Setter Property="Visibility" Value="Collapsed" />
                             </DataTrigger>

@@ -49,6 +49,7 @@ namespace Orion.UI.ViewModel
         }
 
         public RelayCommand<Title> DeleteTitleCommand { get; set; }
+        public RelayCommand<ITexteable> HighlightTextCommand { get; set; }
         public RelayCommand<Title> AddSpecCommand { get; set; }
         public RelayCommand<Spec> DeleteSpecCommand { get; set; }
         public RelayCommand AddTitleCommand { get; set; }
@@ -71,10 +72,16 @@ namespace Orion.UI.ViewModel
             AddTitleCommand = new RelayCommand(OnAddTitle);
             UpdateTitlesCommand = new RelayCommand(OnUpdateTitles);
             DeleteDataSheetCommand = new RelayCommand(OnDeleteDataSheet);
+            HighlightTextCommand = new RelayCommand<ITexteable>(OnHighlightText);
 
             titleService = new TitleService();
             dataSheetService = new DataSheetService();
             messageService = new MessageService(dialogCoordinator, this);
+        }
+
+        private void OnHighlightText(ITexteable texteable)
+        {
+            texteable.Highlighted = !texteable.Highlighted;
         }
 
         private async void OnDeleteDataSheet()

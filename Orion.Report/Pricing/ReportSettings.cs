@@ -395,11 +395,11 @@ namespace Orion.Report.Pricing
 
                 foreach (Title title in dataSheet.Titles)
                 {
-                    AddTitlesAndSpecsText(section, title.Name + " " + JoinTags(dataSheetItems), true);
+                    AddTitlesAndSpecsText(section, title.Name + " " + JoinTags(dataSheetItems), title, true);
 
                     foreach (Spec spec in title.Specs)
                     {
-                        AddTitlesAndSpecsText(section, spec.Name);
+                        AddTitlesAndSpecsText(section, spec.Name, spec);
                     }
                 }
 
@@ -408,12 +408,12 @@ namespace Orion.Report.Pricing
                     foreach (Title title in item .Titles)
                     {
                         //AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]({item.Quantity})", true);
-                        AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]", true);
+                        AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]", title, true);
 
 
                         foreach (Spec spec in title.Specs)
                         {
-                            AddTitlesAndSpecsText(section, spec.Name);
+                            AddTitlesAndSpecsText(section, spec.Name, spec);
                         }
                     }
                 }
@@ -426,12 +426,12 @@ namespace Orion.Report.Pricing
                 foreach (Title title in item.Titles)
                 {
                     //AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]({item.Quantity})", true);
-                    AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]", true);
+                    AddTitlesAndSpecsText(section, title.Name + $" [{item.Tag}]", title, true);
 
 
                     foreach (Spec spec in title.Specs)
                     {
-                        AddTitlesAndSpecsText(section, spec.Name);
+                        AddTitlesAndSpecsText(section, spec.Name, spec);
                     }
                 }
             }
@@ -500,7 +500,7 @@ namespace Orion.Report.Pricing
             return pricingItems;
         }
 
-        public void AddTitlesAndSpecsText(Section docSection, string text, bool isTitle = false)
+        public void AddTitlesAndSpecsText(Section docSection, string text, ITexteable texteable, bool isTitle = false)
         {
 
             Paragraph paragraph = docSection.AddParagraph();
@@ -518,6 +518,14 @@ namespace Orion.Report.Pricing
                 paragraph.ApplyStyle(BuiltinStyle.ListBullet);
             }
             textRange.CharacterFormat.FontName = "Arial Narrow";
+
+            if (texteable.Highlighted)
+            {
+               textRange.CharacterFormat.Bold = true;
+               textRange.CharacterFormat.TextColor = Color.Red;
+                textRange.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
+            }
+
             paragraph.Format.BeforeSpacing = 0;
             paragraph.Format.AfterSpacing = 0;
             paragraph.Format.LineSpacing = 10;

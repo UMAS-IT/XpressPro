@@ -41,11 +41,11 @@
                              Text="{Binding Catalog.Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
                     </TextBox>
-                    <TextBox  
+                    <!--<TextBox  
                              ctrl:TextBoxHelper.Watermark="Unit Size" 
                              Text="{Binding Catalog.UnitSize, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              Style="{DynamicResource TxtStyle}">
-                    </TextBox>
+                    </TextBox>-->
 
                     <TextBox  
                              ctrl:TextBoxHelper.Watermark="Description" 

@@ -25,7 +25,8 @@ namespace Orion.Report.Pricing
             IItem tempItem = items.First();
 
             String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
-            String[] Header = { "Quantity", "Tag", "Model", "Unit Size", "Description", "Voltage" };
+            //String[] Header = { "Quantity", "Tag", "Model", "Unit Size", "Description", "Voltage" };
+            String[] Header = { "Quantity", "Tag", "Model", "Tons", "Description", "Voltage" };
 
             string[][] data = new string[items.Count][];
 
@@ -33,7 +34,7 @@ namespace Orion.Report.Pricing
             {
                 ItemA1 item = items[i];
 
-                data[i] = new string[6] { item.Quantity.ToString(), item.Tag, item.CatalogA1.Model, item.CatalogA1.UnitSize, item.CatalogA1.Description, item.CatalogA1.Voltage};
+                data[i] = new string[6] { item.Quantity.ToString(), item.Tag, item.CatalogA1.Model, item.Tons, item.CatalogA1.Description, item.CatalogA1.Voltage};
             }
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
@@ -50,7 +51,8 @@ namespace Orion.Report.Pricing
             IItem tempItem = items.First();
 
             String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
-            String[] Header = { "Quantity", "Tag", "Model", "Unit Size", "Description", "Voltage" };
+            //String[] Header = { "Quantity", "Tag", "Model", "Unit Size", "Description", "Voltage" };
+            String[] Header = { "Quantity", "Tag", "Model", "Tons", "Description", "Voltage" };
 
             string[][] data = new string[items.Count][];
 
@@ -58,7 +60,7 @@ namespace Orion.Report.Pricing
             {
                 ItemA2 item = items[i];
 
-                data[i] = new string[6] { item.Quantity.ToString(), item.Tag, item.CatalogA2.Model, item.CatalogA2.UnitSize, item.CatalogA2.Description, item.CatalogA2.Voltage };
+                data[i] = new string[6] { item.Quantity.ToString(), item.Tag, item.CatalogA2.Model, item.Tons, item.CatalogA2.Description, item.CatalogA2.Voltage };
             }
 
 
@@ -76,7 +78,8 @@ namespace Orion.Report.Pricing
             IItem tempItem = items.First();
 
             String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
-            String[] Header = { "Quantity", "Tag", "Model", "Unit Size", "Description", "Voltage" };
+            //String[] Header = { "Quantity", "Tag", "Model", "Unit Size", "Description", "Voltage" };
+            String[] Header = { "Quantity", "Tag", "Model", "Tons", "Description", "Voltage" };
 
             string[][] data = new string[items.Count][];
 
@@ -84,7 +87,7 @@ namespace Orion.Report.Pricing
             {
                 ItemA3 item = items[i];
 
-                data[i] = new string[6] { item.Quantity.ToString(), item.Tag, item.CatalogA3.Model, item.CatalogA3.UnitSize, item.CatalogA3.Description, item.CatalogA3.Voltage };
+                data[i] = new string[6] { item.Quantity.ToString(), item.Tag, item.CatalogA3.Model, item.Tons, item.CatalogA3.Description, item.CatalogA3.Voltage };
             }
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
@@ -101,7 +104,8 @@ namespace Orion.Report.Pricing
             IItem tempItem = items.First();
 
             String[] sectionTitle = CreateSectionTitle(tempItem, itemNumber);
-            String[] Header = { "Quantity", "Tag", "Model", "Unit Size", "Description", "Voltage" };
+            //String[] Header = { "Quantity", "Tag", "Model", "Unit Size", "Description", "Voltage" };
+            String[] Header = { "Quantity", "Tag", "Model", "Tons", "Description", "Voltage" };
 
             string[][] data = new string[items.Count][];
 
@@ -109,7 +113,7 @@ namespace Orion.Report.Pricing
             {
                 ItemA4 item = items[i];
 
-                data[i] = new string[6] { item.Quantity.ToString(), item.Tag, item.CatalogA4.Model, item.CatalogA4.UnitSize, item.CatalogA4.Description, item.CatalogA4.Voltage };
+                data[i] = new string[6] { item.Quantity.ToString(), item.Tag, item.CatalogA4.Model, item.Tons, item.CatalogA4.Description, item.CatalogA4.Voltage };
             }
 
             CreateItemTable(docSection, itemsQuantity, sectionTitle, Header, data);
