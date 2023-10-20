@@ -21,31 +21,50 @@ namespace Orion.Report.Pricing
         private Document mainDocument;
         private IList<Quote> quotes;
         private bool extendedVersion;
+        List<PricingItem> pricingItems;
 
+        // [new]
+        PricingA pricingA;
+        PricingB pricingB;
+        PricingC pricingC;
+        PricingD pricingD;
+        PricingE pricingE;
+        PricingF pricingF;
+        PricingG pricingG;
+        PricingH pricingH;
+        PricingI pricingI;
+        PricingJ pricingJ;
+        PricingK pricingK;
+        PricingL pricingL;
+        PricingM pricingM;
+
+        // [new]
         public PricingWordReport(Project project, string currentProjectPath, IList<Quote> quotes, bool extendedVersion)
         {
             this.project = project;
             this.currentProjectPath = currentProjectPath;
             this.quotes = quotes;
             this.extendedVersion = extendedVersion;
-        }
+            this.pricingItems = new List<PricingItem>();
 
+            pricingA = new PricingA();
+            pricingB = new PricingB();
+            pricingC = new PricingC();
+            pricingD = new PricingD();
+            pricingE = new PricingE();
+            pricingF = new PricingF();
+            pricingG = new PricingG();
+            pricingH = new PricingH();
+            pricingI = new PricingI();
+            pricingJ = new PricingJ();
+            pricingK = new PricingK();
+            pricingL = new PricingL();
+            pricingM = new PricingM();
+
+        }
+        // [new]
         private void CreateReportByQuoteCompanies(Quote quote)
         {
-            PricingA pricingA = new PricingA();
-            PricingB pricingB = new PricingB();
-            PricingC pricingC = new PricingC();
-            PricingD pricingD = new PricingD();
-            PricingE pricingE = new PricingE();
-            PricingF pricingF = new PricingF();
-            PricingG pricingG = new PricingG();
-            PricingH pricingH = new PricingH();
-            PricingI pricingI = new PricingI();
-            PricingJ pricingJ = new PricingJ();
-            PricingK pricingK = new PricingK();
-            PricingL pricingL = new PricingL();
-            List<PricingItem> pricingItems = new List<PricingItem>();
-
             int itemNumber = 1;
 
             mainDocument = LoadDocument(currentProjectPath + $@"\Pricing\{project.Name} ({quote.Name.ToUpper()}).docx");
@@ -233,7 +252,16 @@ namespace Orion.Report.Pricing
                     if (quote.ItemL1s.Any(x => !x.IsExcluded))
                     {
                         pricingItems.AddRange(pricingL.CreateL1ItemTable(quote.ItemL1s, mainDocument, docSection, itemNumber++));
-                        AddTitlesAndSpecs(quote.ItemK1s.ToList<IItem>(), docSection);
+                        AddTitlesAndSpecs(quote.ItemL1s.ToList<IItem>(), docSection);
+                        AddBlankLine(mainDocument, docSection);
+                    }
+                }
+                if (quoteCompany.Company.Subfix.ToUpper().Trim() == Subfix.M.ToString())
+                {
+                    if (quote.ItemM1s.Any(x => !x.IsExcluded))
+                    {
+                        pricingItems.AddRange(pricingM.CreateM1ItemTable(quote.ItemM1s, mainDocument, docSection, itemNumber++));
+                        AddTitlesAndSpecs(quote.ItemM1s.ToList<IItem>(), docSection);
                         AddBlankLine(mainDocument, docSection);
                     }
                 }
@@ -257,23 +285,9 @@ namespace Orion.Report.Pricing
             //Process.Start(currentProjectPath + $@"\Pricing");
             //Process.Start(currentProjectPath + $@"\Pricing\\{quote.Name.ToUpper()}.pdf");
         }
-
+        // [new]
         private void CreateStandardReport(Quote quote)
         {
-            PricingA pricingA = new PricingA();
-            PricingB pricingB = new PricingB();
-            PricingC pricingC = new PricingC();
-            PricingD pricingD = new PricingD();
-            PricingE pricingE = new PricingE();
-            PricingF pricingF = new PricingF();
-            PricingG pricingG = new PricingG();
-            PricingH pricingH = new PricingH();
-            PricingI pricingI = new PricingI();
-            PricingJ pricingJ = new PricingJ();
-            PricingK pricingK = new PricingK();
-            PricingL pricingL = new PricingL();
-            List<PricingItem> pricingItems = new List<PricingItem>();
-
             int itemNumber = 1;
 
             mainDocument = LoadDocument(currentProjectPath + $@"\Pricing\{project.Name} ({quote.Name.ToUpper()}).docx");
@@ -450,7 +464,16 @@ namespace Orion.Report.Pricing
             if (quote.ItemL1s.Any(x => !x.IsExcluded))
             {
                 pricingItems.AddRange(pricingL.CreateL1ItemTable(quote.ItemL1s, mainDocument, docSection, itemNumber++));
-                AddTitlesAndSpecs(quote.ItemK1s.ToList<IItem>(), docSection);
+                AddTitlesAndSpecs(quote.ItemL1s.ToList<IItem>(), docSection);
+                AddBlankLine(mainDocument, docSection);
+            }
+
+
+
+            if (quote.ItemM1s.Any(x => !x.IsExcluded))
+            {
+                pricingItems.AddRange(pricingM.CreateM1ItemTable(quote.ItemM1s, mainDocument, docSection, itemNumber++));
+                AddTitlesAndSpecs(quote.ItemM1s.ToList<IItem>(), docSection);
                 AddBlankLine(mainDocument, docSection);
             }
 

@@ -24,6 +24,8 @@ using Orion.Domain.Multiaqua.Catalog;
 using Orion.Domain.Multiaqua.Item;
 using Orion.Domain.PACE.Catalog;
 using Orion.Domain.PACE.Item;
+using Orion.Domain.UMAS.Catalog;
+using Orion.Domain.UMAS.Item;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -37,24 +39,7 @@ namespace Orion.DataAccess.Misc
 {
     public static class EntityHelper
     {
-        //public struct ItemsData
-        //{
-        //    public Subfix Subfix;
-        //    public ItemType ItemType;
-        //    public CatalogType CatalogType;
-        //    public Type ItemClassType;
-        //    public Type CatalogClassType;
-
-        //    public ItemsData(Subfix subfix, ItemType itemType, CatalogType catalogType, Type itemClassType, Type CatalogClassType)
-        //    {
-        //        this.Subfix = subfix;
-        //        this.ItemType = itemType;
-        //        this.CatalogType = catalogType;
-        //        this.ItemClassType = itemClassType;
-        //        this.CatalogClassType = CatalogClassType;
-        //    }
-        //}
-
+        // [new]
         public static readonly Dictionary<Type, ItemType> ItemTypeForItemMap = new Dictionary<Type, ItemType>()
         {
             { typeof(ItemA1), ItemType.ItemA1 },
@@ -111,9 +96,11 @@ namespace Orion.DataAccess.Misc
             { typeof(ItemK2), ItemType.ItemK2 },
             { typeof(ItemK3), ItemType.ItemK3 },
                              
-            { typeof(ItemL1), ItemType.ItemL1 }
-        };
+            { typeof(ItemL1), ItemType.ItemL1 },
 
+            { typeof(ItemM1), ItemType.ItemM1 }
+        };
+        // [new]
         public static readonly Dictionary<ItemType, Type> ItemForItemTypeMap = new Dictionary<ItemType, Type>()
         {
             { ItemType.ItemA1, typeof(ItemA1) },
@@ -170,9 +157,11 @@ namespace Orion.DataAccess.Misc
             { ItemType.ItemK2, typeof(ItemK2) },
             { ItemType.ItemK3, typeof(ItemK3) },
 
-            { ItemType.ItemL1, typeof(ItemL1) }
-        };
+            { ItemType.ItemL1, typeof(ItemL1) },
 
+            { ItemType.ItemM1, typeof(ItemM1) },
+        };
+        // [new]
         public static readonly Dictionary<ItemType, Type> CatalogForItemTypeMap = new Dictionary<ItemType, Type>
     {
         { ItemType.ItemA1, typeof(CatalogA1) },
@@ -229,7 +218,10 @@ namespace Orion.DataAccess.Misc
         { ItemType.ItemK2, typeof(CatalogK2) },
         { ItemType.ItemK3, typeof(CatalogK3) },
 
-        { ItemType.ItemL1, typeof(CatalogL1) }
+        { ItemType.ItemL1, typeof(CatalogL1) },
+
+        { ItemType.ItemM1, typeof(CatalogM1) }
+
     };
 
         public static ItemType ConvertIItemToItemType(IItem item)
@@ -265,3 +257,23 @@ namespace Orion.DataAccess.Misc
         }
     }
 }
+
+
+
+//public struct ItemsData
+//{
+//    public Subfix Subfix;
+//    public ItemType ItemType;
+//    public CatalogType CatalogType;
+//    public Type ItemClassType;
+//    public Type CatalogClassType;
+
+//    public ItemsData(Subfix subfix, ItemType itemType, CatalogType catalogType, Type itemClassType, Type CatalogClassType)
+//    {
+//        this.Subfix = subfix;
+//        this.ItemType = itemType;
+//        this.CatalogType = catalogType;
+//        this.ItemClassType = itemClassType;
+//        this.CatalogClassType = CatalogClassType;
+//    }
+//}

@@ -180,10 +180,5 @@ namespace Orion.UI.ViewModel
 
             selectedTitle.Specs.Remove(spec);
         }
-
-        public static explicit operator TitleViewModel(List<BindableBase> v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

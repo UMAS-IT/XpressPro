@@ -57,6 +57,10 @@ using Orion.UI.ViewModel.Quantech.CatalogList;
 using Orion.UI.ViewModel.Quantech.EditCatalogItem;
 using Orion.UI.ViewModel.Quantech.EditQuoteItem;
 using Orion.UI.ViewModel.Quantech.QuoteItemList;
+using Orion.UI.ViewModel.UMAS.CatalogList;
+using Orion.UI.ViewModel.UMAS.EditCatalogItem;
+using Orion.UI.ViewModel.UMAS.EditQuoteItem;
+using Orion.UI.ViewModel.UMAS.QuoteItemList;
 using Orion.UI.ViewModel.UvResources.CatalogList;
 using Orion.UI.ViewModel.UvResources.EditCatalogItem;
 using Orion.UI.ViewModel.UvResources.EditQuoteItem;
@@ -73,6 +77,7 @@ namespace Orion.UI.Misc
 {
     public static class VmHelper
     {
+        // [new]
         public static Dictionary<ItemType, Type> CatalogListViewModelForItemTypeMap = new Dictionary<ItemType, Type>
     {
         { ItemType.ItemA1, typeof(CatalogA1ListViewModel) },
@@ -129,8 +134,12 @@ namespace Orion.UI.Misc
         { ItemType.ItemK2, typeof(CatalogK2ListViewModel) },
         { ItemType.ItemK3, typeof(CatalogK3ListViewModel) },
                                     
-        { ItemType.ItemL1, typeof(CatalogL1ListViewModel) }
-    };                            
+        { ItemType.ItemL1, typeof(CatalogL1ListViewModel) },
+
+        { ItemType.ItemM1, typeof(CatalogM1ListViewModel) }
+
+    };
+        // [new]
         public static Dictionary<ItemType, Type> EditCatalogViewModelForItemTypeMap = new Dictionary<ItemType, Type>
     {
         { ItemType.ItemA1, typeof(EditA1CatalogViewModel) },
@@ -187,9 +196,11 @@ namespace Orion.UI.Misc
         { ItemType.ItemK2, typeof(EditK2CatalogViewModel) },
         { ItemType.ItemK3, typeof(EditK3CatalogViewModel) },
                                         
-        { ItemType.ItemL1, typeof(EditL1CatalogViewModel) }
-    };
+        { ItemType.ItemL1, typeof(EditL1CatalogViewModel) },
 
+        { ItemType.ItemM1, typeof(EditM1CatalogViewModel) }
+    };
+        // [new]
         public static Dictionary<ItemType, Type> EditItemViewModelForItemTypeMap = new Dictionary<ItemType, Type>
     {
         { ItemType.ItemA1, typeof(EditA1ItemViewModel) },
@@ -246,9 +257,11 @@ namespace Orion.UI.Misc
         { ItemType.ItemK2, typeof(EditK2ItemViewModel) },
         { ItemType.ItemK3, typeof(EditK3ItemViewModel) },
 
-        { ItemType.ItemL1, typeof(EditL1ItemViewModel) }
-    };
+        { ItemType.ItemL1, typeof(EditL1ItemViewModel) },
 
+        { ItemType.ItemM1, typeof(EditM1ItemViewModel) }
+    };
+        // [new]
         public static Dictionary<Subfix, Type> ItemListViewModelTypeMap = new Dictionary<Subfix, Type>
     {
         { Subfix.A, typeof(AItemListViewModel) },
@@ -263,10 +276,8 @@ namespace Orion.UI.Misc
         { Subfix.J, typeof(JItemListViewModel) },
         { Subfix.K, typeof(KItemListViewModel) },
         { Subfix.L, typeof(LItemListViewModel) },
-
+        { Subfix.M, typeof(MItemListViewModel) },
     };
-
-
 
         public static ItemType GetItemType(string itemsName)
         {

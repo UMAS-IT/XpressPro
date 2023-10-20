@@ -26,6 +26,8 @@ using Orion.Domain.Multiaqua.Catalog;
 using Orion.Domain.Multiaqua.Item;
 using Orion.Domain.PACE.Catalog;
 using Orion.Domain.PACE.Item;
+using Orion.Domain.UMAS.Catalog;
+using Orion.Domain.UMAS.Item;
 using Orion.Domain.UvResources.Related;
 
 namespace Orion.DataAccess.DataBase
@@ -236,6 +238,19 @@ namespace Orion.DataAccess.DataBase
         #region General Product Items
         public DbSet<ItemL1> ItemL1s { get; set; }
         #endregion
+
+
+
+        #region UMAS AHU Catalogs
+        public DbSet<CatalogM1> CatalogM1s { get; set; }
+        #endregion
+
+        #region UMAS AHU Items
+        public DbSet<ItemM1> ItemM1s { get; set; }
+        #endregion
+
+
+
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -839,6 +854,24 @@ namespace Orion.DataAccess.DataBase
                         entry.HasOne(d => d.ItemL1)
                         .WithMany(x => x.Titles).IsRequired(false)
                         .HasForeignKey(y => y.ItemL1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+
+            #region UMAS AHU Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemM1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region UMAS AHU Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemM1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemM1Id)
                         .OnDelete(DeleteBehavior.Restrict));
             #endregion
         }

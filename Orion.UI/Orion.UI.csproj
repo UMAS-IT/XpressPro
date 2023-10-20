@@ -346,6 +346,10 @@
     <Compile Include="ViewModel\ReportsViewModel.cs" />
     <Compile Include="ViewModel\TitleFromItemViewModel.cs" />
     <Compile Include="ViewModel\TitleViewModel.cs" />
+    <Compile Include="ViewModel\UMAS\CatalogList\CatalogM1ListViewModel.cs" />
+    <Compile Include="ViewModel\UMAS\EditCatalogItem\EditM1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\UMAS\EditQuoteItem\EditM1ItemViewModel.cs" />
+    <Compile Include="ViewModel\UMAS\QuoteItemList\MItemListViewModel.cs" />
     <Compile Include="ViewModel\UserListViewModel.cs" />
     <Compile Include="ViewModel\UvResources\CatalogList\CatalogF1ListViewModel.cs" />
     <Compile Include="ViewModel\UvResources\EditCatalogItem\EditF1CatalogViewModel.cs" />
@@ -821,6 +825,18 @@
     </Compile>
     <Compile Include="View\TitleView.xaml.cs">
       <DependentUpon>TitleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UMAS\CatalogList\CatalogM1ListView.xaml.cs">
+      <DependentUpon>CatalogM1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UMAS\EditCatalogItem\EditM1CatalogView.xaml.cs">
+      <DependentUpon>EditM1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UMAS\EditQuoteItem\EditM1ItemView.xaml.cs">
+      <DependentUpon>EditM1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UMAS\QuoteItemList\MItemListView.xaml.cs">
+      <DependentUpon>MItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserListView.xaml.cs">
       <DependentUpon>UserListView.xaml</DependentUpon>
@@ -1492,6 +1508,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TitleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UMAS\CatalogList\CatalogM1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UMAS\EditCatalogItem\EditM1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UMAS\EditQuoteItem\EditM1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UMAS\QuoteItemList\MItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

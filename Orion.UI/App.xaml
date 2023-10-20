@@ -105,6 +105,21 @@
     xmlns:vmJItemList="clr-namespace:Orion.UI.ViewModel.PACE.QuoteItemList"
     xmlns:vmKItemList="clr-namespace:Orion.UI.ViewModel.Multiaqua.QuoteItemList"
     xmlns:vmLItemList="clr-namespace:Orion.UI.ViewModel.GeneralProduct.QuoteItemList"
+    
+    
+    
+    xmlns:viewCatalogM="clr-namespace:Orion.UI.View.UMAS.CatalogList"
+    xmlns:vmCatalogM="clr-namespace:Orion.UI.ViewModel.UMAS.CatalogList"
+    
+    xmlns:viewMItemList="clr-namespace:Orion.UI.View.UMAS.QuoteItemList"
+    xmlns:vmMItemList="clr-namespace:Orion.UI.ViewModel.UMAS.QuoteItemList"
+    
+    xmlns:viewItemM="clr-namespace:Orion.UI.View.UMAS.EditQuoteItem"
+    xmlns:vmItemM="clr-namespace:Orion.UI.ViewModel.UMAS.EditQuoteItem"
+    
+    xmlns:viewECM="clr-namespace:Orion.UI.View.UMAS.EditCatalogItem"
+    xmlns:vmECM="clr-namespace:Orion.UI.ViewModel.UMAS.EditCatalogItem"
+    
     ShutdownMode="OnMainWindowClose"
     StartupUri="View/MainWindow.xaml">
     <Application.Resources>
@@ -153,6 +168,9 @@
             </DataTemplate>
             <DataTemplate DataType="{x:Type vmLItemList:LItemListViewModel}">
                 <viewLItemList:LItemListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmMItemList:MItemListViewModel}">
+                <viewMItemList:MItemListView />
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:CloneQuoteViewModel}">
@@ -810,6 +828,20 @@
 
             <DataTemplate DataType="{x:Type vmECL:EditL1CatalogViewModel}">
                 <viewECL:EditL1CatalogView />
+            </DataTemplate>
+
+
+
+            <DataTemplate DataType="{x:Type vmItemM:EditM1ItemViewModel}">
+                <viewItemM:EditM1ItemView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmCatalogM:CatalogM1ListViewModel}">
+                <viewCatalogM:CatalogM1ListView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmECM:EditM1CatalogViewModel}">
+                <viewECM:EditM1CatalogView />
             </DataTemplate>
 
             <Style

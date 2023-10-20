@@ -12,6 +12,7 @@ using Orion.Domain.EntityItemUvResources;
 using Orion.Domain.Marvair.Item;
 using Orion.Domain.Multiaqua.Item;
 using Orion.Domain.PACE.Item;
+using Orion.Domain.UMAS.Item;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -725,6 +726,25 @@ namespace Orion.Domain.Entity
             set => SetProperty(ref _dataSheet, value);
         }
         #endregion
+
+
+        #region UMAS AHU Items Id
+        private int? _itemM1Id;
+        public int? ItemM1Id
+        {
+            get => _itemM1Id;
+            set => SetProperty(ref _itemM1Id, value);
+        }
+
+        private ItemM1 _itemM1;
+        public ItemM1 ItemM1
+        {
+            get => _itemM1;
+            set => SetProperty(ref _itemM1, value);
+        }
+        #endregion
+
+
 
         private bool _saved;
         [NotMapped]

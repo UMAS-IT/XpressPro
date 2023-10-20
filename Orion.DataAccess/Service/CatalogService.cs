@@ -23,11 +23,13 @@ using Orion.Domain.EntityCatalogBACClosedLoopTowers;
 using Orion.Domain.EntityCatalogGeneralProduct;
 using System.Data.SqlClient;
 using Orion.DataAccess.Misc;
+using Orion.Domain.UMAS.Catalog;
 
 namespace Orion.DataAccess.Service
 {
     public class CatalogService
     {
+        // [new]
         public bool CatalogModelNameExist(ICatalog catalog)
         {
             using (GlobalDbContext context = new GlobalDbContext())
@@ -132,6 +134,8 @@ namespace Orion.DataAccess.Service
                 else if (catalog is CatalogL1)
                     return context.CatalogL1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
 
+                else if (catalog is CatalogM1)
+                    return context.CatalogM1s.Any(x => x.Model.ToFormat() == catalog.Model.ToFormat() && x.Id != catalog.Id);
                 else
                     return true;
             }
@@ -144,7 +148,8 @@ namespace Orion.DataAccess.Service
                 return GetCatalogs(itemType, context);
             }
         }
-
+        
+        // [new]
         public IList<ICatalog> GetCatalogs(ItemType itemType, GlobalDbContext context)
         {
             IList<ICatalog> catalogs = null;
@@ -348,6 +353,13 @@ namespace Orion.DataAccess.Service
                         .ToList<ICatalog>();
                     break;
 
+                case ItemType.ItemM1:
+                    catalogs = context.CatalogM1s.Include(c => c.DataSheet)
+                        .ThenInclude(ds => ds.Titles)
+                        .ThenInclude(t => t.Specs)
+                        .ToList<ICatalog>();
+                    break;
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(itemType), itemType, null);
             }
@@ -362,7 +374,7 @@ namespace Orion.DataAccess.Service
                 return GetCatalog(catalog, context);
             }
         }
-
+        // [new]
         public ICatalog GetCatalog(ICatalog catalog, GlobalDbContext context)
         {
             if (catalog is CatalogA1)
@@ -464,6 +476,9 @@ namespace Orion.DataAccess.Service
 
             else if (catalog is CatalogL1)
                 return context.CatalogL1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
+            
+            else if (catalog is CatalogM1)
+                return context.CatalogM1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id);
 
             else
                 return null;
@@ -489,7 +504,8 @@ namespace Orion.DataAccess.Service
                 return dbCatalog;
             }
         }
-
+       
+        // [new]
         public ICatalog UpdateCatalogItem(ICatalog catalog)
         {
             using (GlobalDbContext context = new GlobalDbContext())
@@ -891,6 +907,15 @@ namespace Orion.DataAccess.Service
                     CatalogL1 dbCatalogL1 = catalog.Id != 0 ? context.CatalogL1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogL1;
 
                     dbCatalog = dbCatalogL1;
+                }
+                else if (catalog is CatalogM1)
+                {
+                    CatalogM1 catalogM1 = catalog as CatalogM1;
+                    CatalogM1 dbCatalogM1 = catalog.Id != 0 ? context.CatalogM1s.Include(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == catalog.Id) : catalogM1;
+
+                    dbCatalogM1.Description = catalogM1.Description;
+
+                    dbCatalog = dbCatalogM1;
                 }
 
                 dbCatalog.Model = catalog.Model;

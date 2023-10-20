@@ -14,6 +14,7 @@ using Orion.Domain.EntityItemUvResources;
 using Orion.Domain.Marvair.Item;
 using Orion.Domain.Multiaqua.Item;
 using Orion.Domain.PACE.Item;
+using Orion.Domain.UMAS.Item;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -128,6 +129,9 @@ namespace Orion.DataAccess.Service
 
                 else if (item is ItemL1)
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemL1Id == item.Id).ToList();
+
+                else if (item is ItemM1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemM1Id == item.Id).ToList();
                 return titles;
             }
         }
@@ -205,7 +209,7 @@ namespace Orion.DataAccess.Service
                 return context.Titles.Include(x => x.Specs).Where(x => x.DataSheetId == dbDataSheet.Id).ToList();
             }
         }
-
+        // [new]
         public IList<Title> UpdateTitlesFromItem(IItem item, IList<Title> titles)
         {
             using (GlobalDbContext context = new GlobalDbContext())
@@ -311,6 +315,9 @@ namespace Orion.DataAccess.Service
 
                 else if (item is ItemL1)
                     dbItem = context.ItemL1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+
+                else if (item is ItemM1)
+                    dbItem = context.ItemM1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
 
                 foreach (Title title in titles)
                 {

@@ -46,6 +46,7 @@ namespace Orion.DataAccess.Service
 {
     public class ItemService
     {
+        // [new]
         public Quote GetQuote(Quote quote, ItemType itemType, GlobalDbContext context)
         {
             Quote dbQuote = null;
@@ -360,6 +361,13 @@ namespace Orion.DataAccess.Service
                         .FirstOrDefault(x => x.Id == quote.Id);
                     break;
 
+                case ItemType.ItemM1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemM1s).ThenInclude(x => x.CatalogM1)
+                        .Include(x => x.ItemM1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+
                 default:
                     throw new ArgumentException($"Invalid ItemType: {itemType}");
             }
@@ -629,7 +637,7 @@ namespace Orion.DataAccess.Service
                 return GetAllItemByQuoteId(quoteId, context, sortByDesignIndex);
             }
         }
-
+        // [new]
         public IList<IItem> GetAllItemByQuoteId(int quoteId, GlobalDbContext context, bool sortByDesignIndex = true)
         {
 
@@ -680,6 +688,7 @@ namespace Orion.DataAccess.Service
             items.AddRange(context.ItemK2s.Include(x => x.CatalogK2).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
             items.AddRange(context.ItemK3s.Include(x => x.CatalogK3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
             items.AddRange(context.ItemL1s.Include(x => x.CatalogL1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
+            items.AddRange(context.ItemM1s.Include(x => x.CatalogM1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
 
             if (sortByDesignIndex)
                 items = items.OrderBy(x => x.DesignIndex).ToList();

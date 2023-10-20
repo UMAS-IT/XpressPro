@@ -308,6 +308,8 @@ namespace Orion.DataAccess.Migrations
 
                     b.Property<int?>("ItemL1Id");
 
+                    b.Property<int?>("ItemM1Id");
+
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
@@ -401,6 +403,8 @@ namespace Orion.DataAccess.Migrations
                     b.HasIndex("ItemK3Id");
 
                     b.HasIndex("ItemL1Id");
+
+                    b.HasIndex("ItemM1Id");
 
                     b.ToTable("Titles");
                 });
@@ -3532,6 +3536,76 @@ namespace Orion.DataAccess.Migrations
                     b.ToTable("ItemJ1s");
                 });
 
+            modelBuilder.Entity("Orion.Domain.UMAS.Catalog.CatalogM1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int?>("DataSheetId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<double>("SellMargin");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DataSheetId");
+
+                    b.ToTable("CatalogM1s");
+                });
+
+            modelBuilder.Entity("Orion.Domain.UMAS.Item.ItemM1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CatalogM1Id");
+
+                    b.Property<string>("Cfm");
+
+                    b.Property<double>("CostMultiplier");
+
+                    b.Property<int>("DesignIndex");
+
+                    b.Property<double>("Freight");
+
+                    b.Property<bool>("IsExcluded");
+
+                    b.Property<double>("ListPrice");
+
+                    b.Property<string>("Model");
+
+                    b.Property<bool>("OverridePrice");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int>("QuoteId");
+
+                    b.Property<double>("SellMargin");
+
+                    b.Property<string>("Tag");
+
+                    b.Property<string>("Voltage");
+
+                    b.Property<string>("Weight");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogM1Id");
+
+                    b.HasIndex("QuoteId");
+
+                    b.ToTable("ItemM1s");
+                });
+
             modelBuilder.Entity("Orion.Domain.UvResources.Related.CatalogF1ProductType", b =>
                 {
                     b.Property<int>("Id")
@@ -3831,6 +3905,11 @@ namespace Orion.DataAccess.Migrations
                     b.HasOne("Orion.Domain.EntityItemGeneralProduct.ItemL1", "ItemL1")
                         .WithMany("Titles")
                         .HasForeignKey("ItemL1Id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Orion.Domain.UMAS.Item.ItemM1", "ItemM1")
+                        .WithMany("Titles")
+                        .HasForeignKey("ItemM1Id")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
@@ -4678,6 +4757,25 @@ namespace Orion.DataAccess.Migrations
 
                     b.HasOne("Orion.Domain.Entity.Quote", "Quote")
                         .WithMany("ItemJ1s")
+                        .HasForeignKey("QuoteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Orion.Domain.UMAS.Catalog.CatalogM1", b =>
+                {
+                    b.HasOne("Orion.Domain.Entity.DataSheet", "DataSheet")
+                        .WithMany()
+                        .HasForeignKey("DataSheetId");
+                });
+
+            modelBuilder.Entity("Orion.Domain.UMAS.Item.ItemM1", b =>
+                {
+                    b.HasOne("Orion.Domain.UMAS.Catalog.CatalogM1", "CatalogM1")
+                        .WithMany()
+                        .HasForeignKey("CatalogM1Id");
+
+                    b.HasOne("Orion.Domain.Entity.Quote", "Quote")
+                        .WithMany("ItemM1s")
                         .HasForeignKey("QuoteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

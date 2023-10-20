@@ -10,6 +10,7 @@ namespace Orion.Helper.Misc
 {
     public static class GV
     {
+        // [new]
         public enum CatalogType
         {
             CatalogA1,
@@ -67,8 +68,10 @@ namespace Orion.Helper.Misc
             CatalogK3,
             
             CatalogL1,
-        }
 
+            CatalogM1,
+        }
+        // [new]
         public enum ItemType
         {
             ItemA1,
@@ -126,8 +129,10 @@ namespace Orion.Helper.Misc
             ItemK3,
 
             ItemL1,
-        }
 
+            ItemM1,
+        }
+        // [new]
         public enum Subfix
         {
             A,
@@ -142,6 +147,7 @@ namespace Orion.Helper.Misc
             J,
             K,
             L,
+            M,
         }
 
         public static bool Extended { get; set; }

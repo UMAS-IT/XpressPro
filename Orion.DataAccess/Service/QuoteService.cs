@@ -148,8 +148,7 @@ namespace Orion.DataAccess.Service
                 return null; // Puedes manejar el caso si el Quote no se encuentra en la base de datos.
             }
         }
-
-
+        // [new]
         public Quote GetQuoteForReportsByQuoteId(int quoteId)
         {
             using (GlobalDbContext context = new GlobalDbContext())
@@ -290,10 +289,13 @@ namespace Orion.DataAccess.Service
                 quote.ItemL1s = context.ItemL1s.Include(x => x.CatalogL1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                     .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
 
+                quote.ItemM1s = context.ItemM1s.Include(x => x.CatalogM1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
+
                 return quote;
             }
         }
-
+        // [new]
         public IList<Quote> GetQuotesForReportsByProjectId(int projectId)
         {
             using (GlobalDbContext context = new GlobalDbContext())
@@ -355,6 +357,8 @@ namespace Orion.DataAccess.Service
 
                     .Include(x => x.ItemL1s)
 
+                    .Include(x => x.ItemM1s)
+
                     .Where(u => u.ProjectId == projectId).ToList();
 
                 quotes.ForEach(u =>
@@ -373,6 +377,7 @@ namespace Orion.DataAccess.Service
                         && !u.ItemJ1s.Any()
                         && !u.ItemK1s.Any() && !u.ItemK2s.Any() && !u.ItemK3s.Any() 
                         && !u.ItemL1s.Any()
+                        && !u.ItemM1s.Any()
                         )
 
                         u.CanCreateReports = false;
@@ -381,7 +386,7 @@ namespace Orion.DataAccess.Service
                 return quotes;
             }
         }
-
+        // [new]
         public async Task DeleteQuoteAsync(int quoteId)
         {
             using (GlobalDbContext context = new GlobalDbContext())
@@ -445,6 +450,8 @@ namespace Orion.DataAccess.Service
                 items.AddRange(context.ItemK3s.Include(x => x.Titles).Include(x => x.CatalogK3).Where(x => x.QuoteId == quoteId).ToList());
                                                                                                                           
                 items.AddRange(context.ItemL1s.Include(x => x.Titles).Include(x => x.CatalogL1).Where(x => x.QuoteId == quoteId).ToList());
+
+                items.AddRange(context.ItemM1s.Include(x => x.Titles).Include(x => x.CatalogM1).Where(x => x.QuoteId == quoteId).ToList());
 
                 List<Title> titles = items.SelectMany(x => x.Titles).ToList();
 

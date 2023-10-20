@@ -12,6 +12,7 @@ using Orion.Domain.EntityItemUvResources;
 using Orion.Domain.Marvair.Item;
 using Orion.Domain.Multiaqua.Item;
 using Orion.Domain.PACE.Item;
+using Orion.Domain.UMAS.Item;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -411,6 +412,17 @@ namespace Orion.Domain.Entity
 
 
 
+        #region UMAS AHU Items       
+        private IList<ItemM1> _itemM1s;
+        public IList<ItemM1> ItemM1s
+        {
+            get => _itemM1s;
+            set => SetProperty(ref _itemM1s, value);
+        }
+        #endregion
+
+
+
         private bool _isSelected;
         [NotMapped]
         public bool IsSelected
@@ -500,6 +512,8 @@ namespace Orion.Domain.Entity
             ItemK3s = new ObservableCollection<ItemK3>();
 
             ItemL1s = new ObservableCollection<ItemL1>();
+
+            ItemM1s = new ObservableCollection<ItemM1>();
 
             Name = "";
 

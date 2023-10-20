@@ -289,6 +289,10 @@
     <Compile Include="Migrations\20231018225009_mig-41.designer.cs">
       <DependentUpon>20231018225009_mig-41.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20231020012229_mig-42.cs" />
+    <Compile Include="Migrations\20231020012229_mig-42.designer.cs">
+      <DependentUpon>20231020012229_mig-42.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\GlobalDbContextModelSnapshot.cs" />
     <Compile Include="Misc\EntityHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

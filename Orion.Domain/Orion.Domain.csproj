@@ -192,6 +192,8 @@
     <Compile Include="Quantech\Catalog\CatalogA3.cs" />
     <Compile Include="Quantech\Catalog\CatalogA4.cs" />
     <Compile Include="Quantech\Related\ItemA.cs" />
+    <Compile Include="UMAS\Catalog\CatalogM1.cs" />
+    <Compile Include="UMAS\Item\ItemM1.cs" />
     <Compile Include="UvResources\Catalog\CatalogF1.cs" />
     <Compile Include="ABB\Item\ItemB1.cs" />
     <Compile Include="ABB\Item\ItemB2.cs" />
