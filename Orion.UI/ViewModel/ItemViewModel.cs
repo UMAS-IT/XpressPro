@@ -291,24 +291,51 @@ namespace Orion.UI.ViewModel
 
             Items.ToList().ForEach(x => x.HasTitles = x.Titles != null && x.Titles.Count() > 0);
 
-            bool hasIndex = Quote.QuoteCompanies.Any();
+            Dictionary<Subfix, IList<IItem>> SubfixGroups = new Dictionary<Subfix, IList<IItem>>();
 
             foreach (IItem item in Items)
             {
                 ItemType itemType = VmHelper.GetItemType(item);
                 Subfix subfix = VmHelper.GetSubfix(itemType);
 
-                Type viewModelType = VmHelper.GetItemListViewModelTypeForSubfix(subfix);
+                item.ItemType = itemType;
 
-                // Find the list view model from the collection
-                IListViewModel itemListViewModel = ItemListViewModels.FirstOrDefault(x => viewModelType.IsAssignableFrom(x.GetType()));
-
-                if (itemListViewModel == null)
+                if (!SubfixGroups.ContainsKey(subfix))
                 {
-                    itemListViewModel = (IListViewModel)Activator.CreateInstance(viewModelType, dialogCoordinator, Items, Quote, Companies);
-                    CreateAddItemListViewModelAndQuoteCompany(subfix, itemListViewModel, hasIndex);
+                    SubfixGroups[subfix] = new List<IItem>();
                 }
+                SubfixGroups[subfix].Add(item);
             }
+
+            foreach (var subfixGroup in SubfixGroups)
+            {
+                Type viewModelType = VmHelper.GetItemListViewModelTypeForSubfix(subfixGroup.Key);
+
+                IListViewModel itemListViewModel = (IListViewModel)Activator.CreateInstance(viewModelType, dialogCoordinator, subfixGroup.Value, Quote, Companies);
+
+                bool quoteCompanyExist = Quote.QuoteCompanies.Any(x => x.Company.Subfix == subfixGroup.Key.ToString());
+
+                CreateAddItemListViewModelAndQuoteCompany(subfixGroup.Key, itemListViewModel, quoteCompanyExist);
+            }
+
+            //bool hasIndex = Quote.QuoteCompanies.Any();
+
+            //foreach (IItem item in Items)
+            //{
+            //    ItemType itemType = VmHelper.GetItemType(item);
+            //    Subfix subfix = VmHelper.GetSubfix(itemType);
+
+            //    Type viewModelType = VmHelper.GetItemListViewModelTypeForSubfix(subfix);
+
+            //    // Find the list view model from the collection
+            //    IListViewModel itemListViewModel = ItemListViewModels.FirstOrDefault(x => viewModelType.IsAssignableFrom(x.GetType()));
+
+            //    if (itemListViewModel == null)
+            //    {
+            //        itemListViewModel = (IListViewModel)Activator.CreateInstance(viewModelType, dialogCoordinator, Items, Quote, Companies);
+            //        CreateAddItemListViewModelAndQuoteCompany(subfix, itemListViewModel, hasIndex);
+            //    }
+            //}
 
             OrderItemListViewModels();
         }
@@ -320,12 +347,15 @@ namespace Orion.UI.ViewModel
             if (!hasIndex)
             {
                 int currentIndex = ItemListViewModels.ToList().IndexOf(itemListViewModel);
+                Company company = Companies.FirstOrDefault(x => x.Subfix == subfix.ToString());
 
-                QuoteCompanies quoteCompany = new QuoteCompanies()
-                {
-                    Company = Companies.FirstOrDefault(x => x.Subfix == subfix.ToString()),
-                    DesignIndex = currentIndex
-                };
+                QuoteCompanies quoteCompany = quoteService.CreateQuoteCompany(Quote, company, currentIndex);
+
+                //QuoteCompanies quoteCompany = new QuoteCompanies()
+                //{
+                //    Company = Companies.FirstOrDefault(x => x.Subfix == subfix.ToString()),
+                //    DesignIndex = currentIndex
+                //};
 
                 Quote.QuoteCompanies.Add(quoteCompany);
                 itemListViewModel.QuoteCompany = quoteCompany;

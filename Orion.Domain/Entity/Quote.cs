@@ -1,5 +1,6 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
+using Orion.Domain.ABOVEAIR.Item;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
@@ -423,6 +424,17 @@ namespace Orion.Domain.Entity
 
 
 
+        #region ABOVE AIR Items       
+        private IList<ItemN1> _itemN1s;
+        public IList<ItemN1> ItemN1s
+        {
+            get => _itemN1s;
+            set => SetProperty(ref _itemN1s, value);
+        }
+        #endregion
+
+
+
         private bool _isSelected;
         [NotMapped]
         public bool IsSelected
@@ -514,6 +526,8 @@ namespace Orion.Domain.Entity
             ItemL1s = new ObservableCollection<ItemL1>();
 
             ItemM1s = new ObservableCollection<ItemM1>();
+
+            ItemN1s = new ObservableCollection<ItemN1>();
 
             Name = "";
 

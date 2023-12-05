@@ -1,5 +1,6 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
+using Orion.Domain.ABOVEAIR.Item;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
@@ -741,6 +742,23 @@ namespace Orion.Domain.Entity
         {
             get => _itemM1;
             set => SetProperty(ref _itemM1, value);
+        }
+        #endregion
+
+
+        #region ABOVE AIR Items Id
+        private int? _itemN1Id;
+        public int? ItemN1Id
+        {
+            get => _itemN1Id;
+            set => SetProperty(ref _itemN1Id, value);
+        }
+
+        private ItemN1 _itemN1;
+        public ItemN1 ItemN1
+        {
+            get => _itemN1;
+            set => SetProperty(ref _itemN1, value);
         }
         #endregion
 

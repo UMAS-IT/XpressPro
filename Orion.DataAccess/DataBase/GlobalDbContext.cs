@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Orion.Domain.ABOVEAIR.Catalog;
+using Orion.Domain.ABOVEAIR.Item;
 using Orion.Domain.AmericanWheatley.Related;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
@@ -250,15 +252,21 @@ namespace Orion.DataAccess.DataBase
         #endregion
 
 
+        #region ABOVEAIR Catalogs
+        public DbSet<CatalogN1> CatalogN1s { get; set; }
+        #endregion
 
+        #region ABOVEAIR Items
+        public DbSet<ItemN1> ItemN1s { get; set; }
+        #endregion
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             #region Local Server
-            //optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = OrionDb; Trusted_Connection = True; ");
+            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = OrionDb; Trusted_Connection = True; ");
 
-            optionsBuilder.UseSqlServer("Server=tcp:airtreatment.database.windows.net,1433;Initial Catalog=OrionDb;Persist Security Info=False;User ID=airtreatmentAdb;Password=airtreatment2022.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            //optionsBuilder.UseSqlServer("Server=tcp:airtreatment.database.windows.net,1433;Initial Catalog=OrionDb;Persist Security Info=False;User ID=airtreatmentAdb;Password=airtreatment2022.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             #endregion
         }
         //User ID = umasAdb; Password=Umas2022.;
@@ -859,7 +867,6 @@ namespace Orion.DataAccess.DataBase
 
 
 
-
             #region UMAS AHU Items
             modelBuilder.Entity<Quote>()
                         .HasMany(p => p.ItemM1s)
@@ -872,6 +879,23 @@ namespace Orion.DataAccess.DataBase
                         entry.HasOne(d => d.ItemM1)
                         .WithMany(x => x.Titles).IsRequired(false)
                         .HasForeignKey(y => y.ItemM1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region AVOBEAIR Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemN1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region AVOBEAIR Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemN1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemN1Id)
                         .OnDelete(DeleteBehavior.Restrict));
             #endregion
         }

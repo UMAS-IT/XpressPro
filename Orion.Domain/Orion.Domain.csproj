@@ -130,6 +130,8 @@
     <Compile Include="ABB\Catalog\CatalogB4.cs" />
     <Compile Include="ABB\Catalog\CatalogB5.cs" />
     <Compile Include="ABB\Fake\CatalogB1HorsePower.cs" />
+    <Compile Include="ABOVEAIR\Catalog\CatalogN1.cs" />
+    <Compile Include="ABOVEAIR\Item\ItemN1.cs" />
     <Compile Include="AmericanWheatley\Catalog\CatalogC1.cs" />
     <Compile Include="AmericanWheatley\Catalog\CatalogC2.cs" />
     <Compile Include="AmericanWheatley\Catalog\CatalogC3.cs" />

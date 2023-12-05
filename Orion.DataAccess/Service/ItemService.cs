@@ -32,6 +32,7 @@ using Orion.Domain.Multiaqua.Item;
 using Orion.Domain.PACE.Catalog;
 using Orion.Domain.PACE.Item;
 using Orion.Domain.Quantech.Related;
+using Orion.Domain.UMAS.Item;
 using Orion.Helper.Misc;
 using System;
 using System.Collections;
@@ -540,6 +541,16 @@ namespace Orion.DataAccess.Service
                             dbItemL1.Model = itemL.Model;
                             dbItemL1.Description = itemL.Description;
                         }
+                        else if (dbItem is ItemM1)
+                        {
+                            ItemM1 itemM = item as ItemM1;
+                            ItemM1 dbItemM1 = dbItem as ItemM1;
+
+                            dbItemM1.Model = itemM.Model;
+                            dbItemM1.Cfm = itemM.Cfm;
+                            dbItemM1.Voltage = itemM.Voltage;
+                            dbItemM1.Weight = itemM.Weight;
+                        }
                     }
                     else
                     {
@@ -756,5 +767,7 @@ namespace Orion.DataAccess.Service
             }
             UpdateQuoteAllItems(newQuote, clonedItems);
         }
+
+
     }
 }

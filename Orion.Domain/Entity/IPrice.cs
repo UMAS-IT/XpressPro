@@ -11,6 +11,5 @@ namespace Orion.Domain.Entity
         double SellMargin { get; set; }
         [NotMapped]
         double SellPrice { get; set; }
-
     }
 }

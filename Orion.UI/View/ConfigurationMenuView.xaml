@@ -1,63 +1,83 @@
-﻿<UserControl x:Class="Orion.UI.View.ConfigurationMenuView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Orion.UI.View"
-             mc:Ignorable="d" 
-             xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
-             xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-             dialog:DialogParticipation.Register="{Binding}"
-             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks" 
-             xmlns:vm="clr-namespace:Orion.UI.ViewModel"
-             xmlns:view="clr-namespace:Orion.UI.View"
-             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
-             d:DesignHeight="600" d:DesignWidth="800"
-             d:DataContext="{d:DesignInstance Type=vm:ConfigurationMenuViewModel}">
+﻿<UserControl
+    x:Class="Orion.UI.View.ConfigurationMenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:Orion.UI.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:Orion.UI.View"
+    xmlns:vm="clr-namespace:Orion.UI.ViewModel"
+    d:DataContext="{d:DesignInstance Type=vm:ConfigurationMenuViewModel}"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    dialog:DialogParticipation.Register="{Binding}"
+    mc:Ignorable="d">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadDataCommand}"/>
+            <i:InvokeCommandAction Command="{Binding LoadDataCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
 
     <Grid>
-        <Grid Grid.Column="1" Grid.Row="1">
-            <Border Height="39"   Background="#2E2D2E" VerticalAlignment="Top"  BorderBrush="{StaticResource MahApps.Brushes.Accent}" />
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Border
+                Height="39"
+                VerticalAlignment="Top"
+                Background="#2E2D2E"
+                BorderBrush="{StaticResource MahApps.Brushes.Accent}" />
 
-            <ctrl:MetroAnimatedSingleRowTabControl  TabStripPlacement="Top" SelectedIndex="0" Background="Transparent"  x:Name="menuControler" SelectionChanged="mainControler_SelectionChanged">
+            <ctrl:MetroAnimatedSingleRowTabControl
+                x:Name="menuControler"
+                Background="Transparent"
+                SelectedIndex="0"
+                SelectionChanged="mainControler_SelectionChanged"
+                TabStripPlacement="Top">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
-                        <i:InvokeCommandAction Command="{Binding NavCommand}" CommandParameter="{Binding ElementName=menuControler, Path=SelectedItem.Header}"/>
+                        <i:InvokeCommandAction Command="{Binding NavCommand}" CommandParameter="{Binding ElementName=menuControler, Path=SelectedItem.Header}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
 
-                <!--solo informacion de pcb-->
-                <TabItem Header="Catalogs"  Width="180" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <!--  solo informacion de pcb  -->
+                <TabItem
+                    Width="180"
+                    Height="39"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Header="Catalogs">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Grid HorizontalAlignment="Center">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="40"/>
-                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="40" />
+                                    <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
-                                <icon:PackIconOcticons Kind="ListUnordered" 
-                                                        Grid.Column="0" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
+                                <icon:PackIconOcticons
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="ListUnordered">
                                     <icon:PackIconOcticons.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
                                         </TransformGroup>
                                     </icon:PackIconOcticons.LayoutTransform>
                                 </icon:PackIconOcticons>
-                                <TextBlock Grid.Column="1" Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabItem}}, Path=Header}"
-                                           VerticalAlignment="Center" FontSize="15">
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    FontSize="15"
+                                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabItem}}, Path=Header}">
                                     <TextBlock.Style>
-                                        <Style TargetType="TextBlock" >
+                                        <Style TargetType="TextBlock">
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabItem}}, Path=IsSelected}" Value="False">
-                                                    <Setter Property="Foreground" Value="White"/>
+                                                    <Setter Property="Foreground" Value="White" />
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
@@ -66,36 +86,45 @@
                             </Grid>
                         </DataTemplate>
                     </TabItem.HeaderTemplate>
-                    <ContentControl Content="{Binding CurrentViewModel}"/>
+                    <ContentControl Content="{Binding CurrentViewModel}" />
                 </TabItem>
 
 
 
-                <TabItem Header="Data Sheets"  Width="180"  Height="39" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <TabItem
+                    Width="180"
+                    Height="39"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Header="Data Sheets">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Grid HorizontalAlignment="Center">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="40"/>
-                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="40" />
+                                    <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
-                                <icon:PackIconUnicons Kind="FilesLandscapesAlt" 
-                                                        Grid.Column="0" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
+                                <icon:PackIconUnicons
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="FilesLandscapesAlt">
                                     <icon:PackIconUnicons.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
                                         </TransformGroup>
                                     </icon:PackIconUnicons.LayoutTransform>
                                 </icon:PackIconUnicons>
-                                <TextBlock Grid.Column="1" Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabItem}}, Path=Header}"
-                                           VerticalAlignment="Center" FontSize="15">
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    FontSize="15"
+                                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabItem}}, Path=Header}">
                                     <TextBlock.Style>
-                                        <Style TargetType="TextBlock" >
+                                        <Style TargetType="TextBlock">
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabItem}}, Path=IsSelected}" Value="False">
-                                                    <Setter Property="Foreground" Value="White"/>
+                                                    <Setter Property="Foreground" Value="White" />
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
@@ -104,34 +133,43 @@
                             </Grid>
                         </DataTemplate>
                     </TabItem.HeaderTemplate>
-                    <ContentControl Content="{Binding CurrentViewModel}"/>
+                    <ContentControl Content="{Binding CurrentViewModel}" />
                 </TabItem>
 
-                <TabItem Header="Users"  Width="180"  Height="39" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <TabItem
+                    Width="180"
+                    Height="39"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Header="Users">
                     <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <Grid HorizontalAlignment="Center">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="40"/>
-                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="40" />
+                                    <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
-                                <icon:PackIconMaterial Kind="AccountGroup" 
-                                                        Grid.Column="0" 
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center">
+                                <icon:PackIconMaterial
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Kind="AccountGroup">
                                     <icon:PackIconMaterial.LayoutTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                                            <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
                                         </TransformGroup>
                                     </icon:PackIconMaterial.LayoutTransform>
                                 </icon:PackIconMaterial>
-                                <TextBlock Grid.Column="1" Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabItem}}, Path=Header}"
-                                           VerticalAlignment="Center" FontSize="15">
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    FontSize="15"
+                                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabItem}}, Path=Header}">
                                     <TextBlock.Style>
-                                        <Style TargetType="TextBlock" >
+                                        <Style TargetType="TextBlock">
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TabItem}}, Path=IsSelected}" Value="False">
-                                                    <Setter Property="Foreground" Value="White"/>
+                                                    <Setter Property="Foreground" Value="White" />
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
@@ -140,7 +178,7 @@
                             </Grid>
                         </DataTemplate>
                     </TabItem.HeaderTemplate>
-                    <ContentControl Content="{Binding CurrentViewModel}"/>
+                    <ContentControl Content="{Binding CurrentViewModel}" />
                 </TabItem>
 
             </ctrl:MetroAnimatedSingleRowTabControl>

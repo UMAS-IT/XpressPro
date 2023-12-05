@@ -465,5 +465,28 @@ namespace Orion.DataAccess.Service
                 await context.SaveChangesAsync();
             }
         }
+
+        public QuoteCompanies CreateQuoteCompany(Quote quote, Company company, int designIndex)
+        {
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                Company dbCompany = context.Companies.FirstOrDefault(x => x.Id == company.Id);
+                Quote dbQuote = context.Quotes.FirstOrDefault(x => x.Id == quote.Id);
+
+                QuoteCompanies quoteCompany = new QuoteCompanies()
+                {
+                    Quote = dbQuote,
+                    Company = dbCompany,
+                    DesignIndex = designIndex
+                };
+
+                dbQuote.QuoteCompanies.Add(quoteCompany);
+
+                context.SaveChanges();
+
+                return quoteCompany;
+
+            }
+        }
     }
 }

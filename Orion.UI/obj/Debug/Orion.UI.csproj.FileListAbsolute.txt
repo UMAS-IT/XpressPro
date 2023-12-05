@@ -695,6 +695,30 @@ C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProdu
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditCatalogItem\EditL1CatalogView.baml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditQuoteItem\EditL1ItemView.baml
 C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UserListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\QuoteItemList\AItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\QuoteItemList\AItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QuoteItemList\BItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QuoteItemList\BItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\QuoteItemList\CItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\QuoteItemList\HItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\QuoteItemList\GItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\QuoteItemList\LItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\QuoteItemList\EItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\QuoteItemList\IItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\QuoteItemList\KItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\QuoteItemList\JItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\QuoteItemList\DItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\QuoteItemList\FItemListView.g.cs
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\QuoteItemList\CItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\QuoteItemList\HItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\QuoteItemList\GItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\QuoteItemList\LItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\QuoteItemList\EItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\QuoteItemList\IItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\QuoteItemList\KItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\QuoteItemList\JItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\QuoteItemList\DItemListView.baml
+C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\QuoteItemList\FItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ResourcePricing\PricingTemplate.docx
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\ResourcePricing\TermsAndConditionsTemplate.docx
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\Orion.UI.exe.config
@@ -895,6 +919,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\Ed
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\EditQuoteItem\EditB3ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\EditQuoteItem\EditB4ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\EditQuoteItem\EditB5ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QuoteItemList\BItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AirTreatmentView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC1ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC2ListView.g.cs
@@ -917,6 +942,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Americ
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC5ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC6ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC7ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\QuoteItemList\CItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\CatalogList\CatalogH1ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\CatalogList\CatalogH2ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\CatalogList\CatalogH3ListView.g.cs
@@ -932,6 +958,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClo
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\EditQuoteItem\EditH3ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\EditQuoteItem\EditH4ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\EditQuoteItem\EditH5ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\QuoteItemList\HItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\CatalogList\CatalogG1ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\CatalogList\CatalogG2ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\CatalogList\CatalogG3ListView.g.cs
@@ -950,6 +977,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoo
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\EditQuoteItem\EditG4ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\EditQuoteItem\EditG5ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\EditQuoteItem\EditG6ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\QuoteItemList\GItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\CatalogView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\CloneQuoteView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ComingSoonView.g.cs
@@ -961,6 +989,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Export
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\CatalogList\CatalogL1ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditCatalogItem\EditL1CatalogView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditQuoteItem\EditL1ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\QuoteItemList\LItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\CatalogList\CatalogE1ListVew.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\CatalogList\CatalogE2ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\CatalogList\CatalogE3ListView.g.cs
@@ -982,6 +1011,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Ground
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\EditQuoteItem\EditE5ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\EditQuoteItem\EditE6ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\EditQuoteItem\EditE7ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\QuoteItemList\EItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\LoginView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\MainWindow.g.cs
@@ -991,6 +1021,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvai
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\EditCatalogItem\EditI2CatalogView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\EditQuoteItem\EditI1ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\EditQuoteItem\EditI2ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\QuoteItemList\IItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\MenuView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\CatalogList\CatalogK1ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\CatalogList\CatalogK2ListView.g.cs
@@ -1001,11 +1032,13 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multia
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\EditQuoteItem\EditK1ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\EditQuoteItem\EditK2ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\EditQuoteItem\EditK3ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\QuoteItemList\KItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\NewProjectView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\OpenProjectView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\CatalogList\CatalogJ1ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\EditCatalogItem\EditJ1CatalogView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\EditQuoteItem\EditJ1ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\QuoteItemList\JItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ProjectInformationView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\CatalogList\CatalogD1ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\CatalogList\CatalogD2ListView.g.cs
@@ -1013,6 +1046,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFl
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditCatalogItem\EditD2CatalogView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditQuoteItem\EditD1ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditQuoteItem\EditD2ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\QuoteItemList\DItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\CatalogList\CatalogA1ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\CatalogList\CatalogA2ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\CatalogList\CatalogA3ListView.g.cs
@@ -1025,14 +1059,20 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quante
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\EditQuoteItem\EditA2ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\EditQuoteItem\EditA3ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\EditQuoteItem\EditA4ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\QuoteItemList\AItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\QuoteView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ReportsView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\TitleFromItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\TitleView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\CatalogList\CatalogM1ListView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\EditCatalogItem\EditM1CatalogView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\EditQuoteItem\EditM1ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\QuoteItemList\MItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UserListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\CatalogList\CatalogF1ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\EditCatalogItem\EditF1CatalogView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\EditQuoteItem\EditF1ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\QuoteItemList\FItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\App.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI_MarkupCompile.cache
@@ -1053,6 +1093,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\Ed
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\EditQuoteItem\EditB3ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\EditQuoteItem\EditB4ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\EditQuoteItem\EditB5ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QuoteItemList\BItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AirTreatmentView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC1ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\CatalogList\CatalogC2ListView.baml
@@ -1075,6 +1116,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Americ
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC5ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC6ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\EditQuoteItem\EditC7ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\QuoteItemList\CItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\CatalogList\CatalogH1ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\CatalogList\CatalogH2ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\CatalogList\CatalogH3ListView.baml
@@ -1090,6 +1132,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClo
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\EditQuoteItem\EditH3ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\EditQuoteItem\EditH4ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\EditQuoteItem\EditH5ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\QuoteItemList\HItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\CatalogList\CatalogG1ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\CatalogList\CatalogG2ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\CatalogList\CatalogG3ListView.baml
@@ -1108,6 +1151,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoo
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\EditQuoteItem\EditG4ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\EditQuoteItem\EditG5ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\EditQuoteItem\EditG6ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\QuoteItemList\GItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\CatalogView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\CloneQuoteView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ComingSoonView.baml
@@ -1119,6 +1163,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Export
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\CatalogList\CatalogL1ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditCatalogItem\EditL1CatalogView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\EditQuoteItem\EditL1ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\QuoteItemList\LItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\CatalogList\CatalogE1ListVew.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\CatalogList\CatalogE2ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\CatalogList\CatalogE3ListView.baml
@@ -1140,6 +1185,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Ground
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\EditQuoteItem\EditE5ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\EditQuoteItem\EditE6ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\EditQuoteItem\EditE7ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\QuoteItemList\EItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\LoginView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\MainWindow.baml
@@ -1149,6 +1195,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvai
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\EditCatalogItem\EditI2CatalogView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\EditQuoteItem\EditI1ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\EditQuoteItem\EditI2ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\QuoteItemList\IItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\MenuView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\CatalogList\CatalogK1ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\CatalogList\CatalogK2ListView.baml
@@ -1159,11 +1206,13 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multia
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\EditQuoteItem\EditK1ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\EditQuoteItem\EditK2ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\EditQuoteItem\EditK3ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\QuoteItemList\KItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\NewProjectView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\OpenProjectView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\CatalogList\CatalogJ1ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\EditCatalogItem\EditJ1CatalogView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\EditQuoteItem\EditJ1ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\QuoteItemList\JItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ProjectInformationView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\CatalogList\CatalogD1ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\CatalogList\CatalogD2ListView.baml
@@ -1171,6 +1220,7 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFl
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditCatalogItem\EditD2CatalogView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditQuoteItem\EditD1ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\EditQuoteItem\EditD2ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\QuoteItemList\DItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\CatalogList\CatalogA1ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\CatalogList\CatalogA2ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\CatalogList\CatalogA3ListView.baml
@@ -1183,14 +1233,20 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quante
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\EditQuoteItem\EditA2ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\EditQuoteItem\EditA3ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\EditQuoteItem\EditA4ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\QuoteItemList\AItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\QuoteView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ReportsView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\TitleFromItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\TitleView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\CatalogList\CatalogM1ListView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\EditCatalogItem\EditM1CatalogView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\EditQuoteItem\EditM1ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\QuoteItemList\MItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UserListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\CatalogList\CatalogF1ListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\EditCatalogItem\EditF1CatalogView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\EditQuoteItem\EditF1ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\QuoteItemList\FItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.g.resources
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.Properties.Resources.resources
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.csproj.GenerateResource.cache
@@ -1198,59 +1254,3 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.csproj.CopyComplete
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.exe
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.pdb
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\QuoteItemList\AItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\QuoteItemList\AItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\QuoteItemList\AItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Quantech\QuoteItemList\AItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QuoteItemList\BItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QuoteItemList\BItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\QuoteItemList\CItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\QuoteItemList\HItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\QuoteItemList\GItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\QuoteItemList\LItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\QuoteItemList\EItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\QuoteItemList\IItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\QuoteItemList\KItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\QuoteItemList\JItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\QuoteItemList\DItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\QuoteItemList\FItemListView.g.cs
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\QuoteItemList\CItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\QuoteItemList\HItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\QuoteItemList\GItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\QuoteItemList\LItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\QuoteItemList\EItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\QuoteItemList\IItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\QuoteItemList\KItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\QuoteItemList\JItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\QuoteItemList\DItemListView.baml
-C:\Users\Usuario\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\QuoteItemList\FItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QuoteItemList\BItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\QuoteItemList\CItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\QuoteItemList\HItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\QuoteItemList\GItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\QuoteItemList\LItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\QuoteItemList\EItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\QuoteItemList\IItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\QuoteItemList\KItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\QuoteItemList\JItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\QuoteItemList\DItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\QuoteItemList\FItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\QuoteItemList\BItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\AmericanWheatley\QuoteItemList\CItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACClosedCircuits\QuoteItemList\HItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\BACCoolingTowers\QuoteItemList\GItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\GeneralProduct\QuoteItemList\LItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Groundfos\QuoteItemList\EItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Marvair\QuoteItemList\IItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Multiaqua\QuoteItemList\KItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PACE\QuoteItemList\JItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PuroFlux\QuoteItemList\DItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UvResources\QuoteItemList\FItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\CatalogList\CatalogM1ListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\EditCatalogItem\EditM1CatalogView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\EditQuoteItem\EditM1ItemView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\QuoteItemList\MItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\CatalogList\CatalogM1ListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\EditCatalogItem\EditM1CatalogView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\EditQuoteItem\EditM1ItemView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\UMAS\QuoteItemList\MItemListView.baml
