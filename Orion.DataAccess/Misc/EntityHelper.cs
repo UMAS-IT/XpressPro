@@ -1,4 +1,12 @@
-﻿using Orion.Domain.Entity;
+﻿using Orion.Domain.ABOVEAIR.Catalog;
+using Orion.Domain.ABOVEAIR.Item;
+using Orion.Domain.AERCO.Catalog;
+using Orion.Domain.AERCO.Item;
+using Orion.Domain.Baldor.Catalog;
+using Orion.Domain.Baldor.Item;
+using Orion.Domain.Condair.Catalog;
+using Orion.Domain.Condair.Item;
+using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
 using Orion.Domain.EntityCatalogBACClosedLoopTowers;
@@ -17,15 +25,35 @@ using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.EnviroTec.Catalog;
+using Orion.Domain.EnviroTec.Item;
+using Orion.Domain.LYNC.Catalog;
+using Orion.Domain.LYNC.Item;
 using Orion.Domain.Marvair;
 using Orion.Domain.Marvair.Catalog;
 using Orion.Domain.Marvair.Item;
 using Orion.Domain.Multiaqua.Catalog;
 using Orion.Domain.Multiaqua.Item;
+using Orion.Domain.Nortek.Catalog;
+using Orion.Domain.Nortek.Item;
+using Orion.Domain.NYLE.Catalog;
+using Orion.Domain.NYLE.Item;
 using Orion.Domain.PACE.Catalog;
 using Orion.Domain.PACE.Item;
+using Orion.Domain.PlasmaAir.Catalog;
+using Orion.Domain.PlasmaAir.Item;
+using Orion.Domain.Polaris.Catalog;
+using Orion.Domain.Polaris.Item;
+using Orion.Domain.PVI.Catalog;
+using Orion.Domain.PVI.Item;
+using Orion.Domain.Robur.Catalog;
+using Orion.Domain.Robur.Item;
 using Orion.Domain.UMAS.Catalog;
 using Orion.Domain.UMAS.Item;
+using Orion.Domain.Valent.Catalog;
+using Orion.Domain.Valent.Item;
+using Orion.Domain.Whalen.Catalog;
+using Orion.Domain.Whalen.Item;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -98,7 +126,48 @@ namespace Orion.DataAccess.Misc
                              
             { typeof(ItemL1), ItemType.ItemL1 },
 
-            { typeof(ItemM1), ItemType.ItemM1 }
+            { typeof(ItemM1), ItemType.ItemM1 },
+
+            { typeof(ItemN1), ItemType.ItemN1 },
+
+            { typeof(ItemO1), ItemType.ItemO1 },
+            { typeof(ItemO2), ItemType.ItemO2 },
+
+            { typeof(ItemP1), ItemType.ItemP1 },
+
+            { typeof(ItemQ1), ItemType.ItemQ1 },
+            { typeof(ItemQ2), ItemType.ItemQ2 },
+            { typeof(ItemQ3), ItemType.ItemQ3 },
+            { typeof(ItemQ4), ItemType.ItemQ4 },
+
+            { typeof(ItemR1), ItemType.ItemR1 },
+            { typeof(ItemR2), ItemType.ItemR2 },
+            { typeof(ItemR3), ItemType.ItemR3 },
+            { typeof(ItemR4), ItemType.ItemR4 },
+
+            { typeof(ItemS1), ItemType.ItemS1 },
+
+            { typeof(ItemT1), ItemType.ItemT1 },
+            { typeof(ItemT2), ItemType.ItemT2 },
+            { typeof(ItemT3), ItemType.ItemT3 },
+
+            { typeof(ItemU1), ItemType.ItemU1 },
+
+            { typeof(ItemV1), ItemType.ItemV1 },
+
+            { typeof(ItemW1), ItemType.ItemW1 },
+
+            { typeof(ItemX1), ItemType.ItemX1 },
+            { typeof(ItemX2), ItemType.ItemX2 },
+            { typeof(ItemX3), ItemType.ItemX3 },
+            { typeof(ItemX4), ItemType.ItemX4 },
+            { typeof(ItemX5), ItemType.ItemX5 },
+
+            { typeof(ItemY1), ItemType.ItemY1 },
+
+            { typeof(ItemZ1), ItemType.ItemZ1 },
+
+            { typeof(ItemAA1), ItemType.ItemAA1 },
         };
         // [new]
         public static readonly Dictionary<ItemType, Type> ItemForItemTypeMap = new Dictionary<ItemType, Type>()
@@ -160,6 +229,47 @@ namespace Orion.DataAccess.Misc
             { ItemType.ItemL1, typeof(ItemL1) },
 
             { ItemType.ItemM1, typeof(ItemM1) },
+
+            { ItemType.ItemN1, typeof(ItemN1) },
+
+            { ItemType.ItemO1, typeof(ItemO1) },
+            { ItemType.ItemO2, typeof(ItemO2) },
+
+            { ItemType.ItemP1, typeof(ItemP1) },
+
+            { ItemType.ItemQ1, typeof(ItemQ1) },
+            { ItemType.ItemQ2, typeof(ItemQ2) },
+            { ItemType.ItemQ3, typeof(ItemQ3) },
+            { ItemType.ItemQ4, typeof(ItemQ4) },
+
+            { ItemType.ItemR1, typeof(ItemR1) },
+            { ItemType.ItemR2, typeof(ItemR2) },
+            { ItemType.ItemR3, typeof(ItemR3) },
+            { ItemType.ItemR4, typeof(ItemR4) },
+
+            { ItemType.ItemS1, typeof(ItemS1) },
+
+            { ItemType.ItemT1, typeof(ItemT1) },
+            { ItemType.ItemT2, typeof(ItemT2) },
+            { ItemType.ItemT3, typeof(ItemT3) },
+
+            { ItemType.ItemU1, typeof(ItemU1) },
+
+            { ItemType.ItemV1, typeof(ItemV1) },
+
+            { ItemType.ItemW1, typeof(ItemW1) },
+
+            { ItemType.ItemX1, typeof(ItemX1) },
+            { ItemType.ItemX2, typeof(ItemX2) },
+            { ItemType.ItemX3, typeof(ItemX3) },
+            { ItemType.ItemX4, typeof(ItemX4) },
+            { ItemType.ItemX5, typeof(ItemX5) },
+              
+            { ItemType.ItemY1, typeof(ItemY1) },
+             
+            { ItemType.ItemZ1, typeof(ItemZ1) },
+              
+            { ItemType.ItemAA1, typeof(ItemAA1) },
         };
         // [new]
         public static readonly Dictionary<ItemType, Type> CatalogForItemTypeMap = new Dictionary<ItemType, Type>
@@ -220,7 +330,48 @@ namespace Orion.DataAccess.Misc
 
         { ItemType.ItemL1, typeof(CatalogL1) },
 
-        { ItemType.ItemM1, typeof(CatalogM1) }
+        { ItemType.ItemM1, typeof(CatalogM1) },
+
+        { ItemType.ItemN1, typeof(CatalogN1) },
+                                  
+        { ItemType.ItemO1, typeof(CatalogO1) },
+        { ItemType.ItemO2, typeof(CatalogO2) },
+                                  
+        { ItemType.ItemP1, typeof(CatalogP1) },
+                                  
+        { ItemType.ItemQ1, typeof(CatalogQ1) },
+        { ItemType.ItemQ2, typeof(CatalogQ2) },
+        { ItemType.ItemQ3, typeof(CatalogQ3) },
+        { ItemType.ItemQ4, typeof(CatalogQ4) },
+                                  
+        { ItemType.ItemR1, typeof(CatalogR1) },
+        { ItemType.ItemR2, typeof(CatalogR2) },
+        { ItemType.ItemR3, typeof(CatalogR3) },
+        { ItemType.ItemR4, typeof(CatalogR4) },
+                                  
+        { ItemType.ItemS1, typeof(CatalogS1) },
+                                  
+        { ItemType.ItemT1, typeof(CatalogT1) },
+        { ItemType.ItemT2, typeof(CatalogT2) },
+        { ItemType.ItemT3, typeof(CatalogT3) },
+                                  
+        { ItemType.ItemU1, typeof(CatalogU1) },
+                                  
+        { ItemType.ItemV1, typeof(CatalogV1) },
+                                  
+        { ItemType.ItemW1, typeof(CatalogW1) },
+                                  
+        { ItemType.ItemX1, typeof(CatalogX1) },
+        { ItemType.ItemX2, typeof(CatalogX2) },
+        { ItemType.ItemX3, typeof(CatalogX3) },
+        { ItemType.ItemX4, typeof(CatalogX4) },
+        { ItemType.ItemX5, typeof(CatalogX5) },
+                                  
+        { ItemType.ItemY1, typeof(CatalogY1) },
+                                  
+        { ItemType.ItemZ1, typeof(CatalogZ1) },
+
+        { ItemType.ItemAA1, typeof(CatalogAA1) },
 
     };
 
@@ -236,12 +387,12 @@ namespace Orion.DataAccess.Misc
 
         public static Type GetItemClassTypeForItemType(ItemType itemType)
         {
-                return ItemForItemTypeMap[itemType];
+            return ItemForItemTypeMap[itemType];
         }
 
         public static Type GetCatalogClassTypeForItemType(ItemType itemType)
         {
-                return CatalogForItemTypeMap[itemType];
+            return CatalogForItemTypeMap[itemType];
         }
 
         public static Subfix ConvertItemTypeToSubfix(ItemType itemType)

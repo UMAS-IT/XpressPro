@@ -2,8 +2,12 @@
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Orion.DataAccess.DataBase;
 using Orion.DataAccess.Misc;
+using Orion.Domain.ABOVEAIR.Item;
+using Orion.Domain.AERCO.Related;
 using Orion.Domain.BACClosedLoopTowers.Related;
 using Orion.Domain.BACOpenLoopTowers.Related;
+using Orion.Domain.Baldor.Item;
+using Orion.Domain.Condair.Item;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
@@ -23,16 +27,26 @@ using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.EnviroTec.Related;
 using Orion.Domain.Groundfos.Related;
+using Orion.Domain.LYNC.Item;
 using Orion.Domain.Marvair;
 using Orion.Domain.Marvair.Catalog;
 using Orion.Domain.Marvair.Item;
 using Orion.Domain.Multiaqua.Catalog;
 using Orion.Domain.Multiaqua.Item;
+using Orion.Domain.Nortek.Item;
+using Orion.Domain.NYLE.Item;
 using Orion.Domain.PACE.Catalog;
 using Orion.Domain.PACE.Item;
+using Orion.Domain.PlasmaAir.Item;
+using Orion.Domain.Polaris.Item;
+using Orion.Domain.PVI.Item;
 using Orion.Domain.Quantech.Related;
+using Orion.Domain.Robur.Item;
 using Orion.Domain.UMAS.Item;
+using Orion.Domain.Valent.Item;
+using Orion.Domain.Whalen.Item;
 using Orion.Helper.Misc;
 using System;
 using System.Collections;
@@ -369,6 +383,169 @@ namespace Orion.DataAccess.Service
                         .FirstOrDefault(x => x.Id == quote.Id);
                     break;
 
+                case ItemType.ItemN1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemN1s).ThenInclude(x => x.CatalogN1)
+                        .Include(x => x.ItemN1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemO1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemO1s).ThenInclude(x => x.CatalogO1)
+                        .Include(x => x.ItemO1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemO2:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemO2s).ThenInclude(x => x.CatalogO2)
+                        .Include(x => x.ItemO2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemP1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemP1s).ThenInclude(x => x.CatalogP1)
+                        .Include(x => x.ItemP1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemQ1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemQ1s).ThenInclude(x => x.CatalogQ1)
+                        .Include(x => x.ItemQ1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemQ2:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemQ2s).ThenInclude(x => x.CatalogQ2)
+                        .Include(x => x.ItemQ2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemQ3:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemQ3s).ThenInclude(x => x.CatalogQ3)
+                        .Include(x => x.ItemQ3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemQ4:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemQ4s).ThenInclude(x => x.CatalogQ4)
+                        .Include(x => x.ItemQ4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemR1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemR1s).ThenInclude(x => x.CatalogR1)
+                        .Include(x => x.ItemR1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemR2:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemR2s).ThenInclude(x => x.CatalogR2)
+                        .Include(x => x.ItemR2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemR3:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemR3s).ThenInclude(x => x.CatalogR3)
+                        .Include(x => x.ItemR3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemR4:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemR4s).ThenInclude(x => x.CatalogR4)
+                        .Include(x => x.ItemR4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemS1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemS1s).ThenInclude(x => x.CatalogS1)
+                        .Include(x => x.ItemS1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemT1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemT1s).ThenInclude(x => x.CatalogT1)
+                        .Include(x => x.ItemT1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemT2:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemT2s).ThenInclude(x => x.CatalogT2)
+                        .Include(x => x.ItemT2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemT3:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemT3s).ThenInclude(x => x.CatalogT3)
+                        .Include(x => x.ItemT3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemU1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemU1s).ThenInclude(x => x.CatalogU1)
+                        .Include(x => x.ItemU1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemV1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemV1s).ThenInclude(x => x.CatalogV1)
+                        .Include(x => x.ItemV1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemW1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemW1s).ThenInclude(x => x.CatalogW1)
+                        .Include(x => x.ItemW1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemX1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemX1s).ThenInclude(x => x.CatalogX1)
+                        .Include(x => x.ItemX1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemX2:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemX2s).ThenInclude(x => x.CatalogX2)
+                        .Include(x => x.ItemX2s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemX3:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemX3s).ThenInclude(x => x.CatalogX3)
+                        .Include(x => x.ItemX3s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemX4:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemX4s).ThenInclude(x => x.CatalogX4)
+                        .Include(x => x.ItemX4s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemX5:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemX5s).ThenInclude(x => x.CatalogX5)
+                        .Include(x => x.ItemX5s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemY1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemY1s).ThenInclude(x => x.CatalogY1)
+                        .Include(x => x.ItemY1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemZ1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemZ1s).ThenInclude(x => x.CatalogZ1)
+                        .Include(x => x.ItemZ1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+                case ItemType.ItemAA1:
+                    dbQuote = context.Quotes
+                        .Include(x => x.ItemAA1s).ThenInclude(x => x.CatalogAA1)
+                        .Include(x => x.ItemAA1s).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
+                        .FirstOrDefault(x => x.Id == quote.Id);
+                    break;
+
                 default:
                     throw new ArgumentException($"Invalid ItemType: {itemType}");
             }
@@ -551,6 +728,243 @@ namespace Orion.DataAccess.Service
                             dbItemM1.Voltage = itemM.Voltage;
                             dbItemM1.Weight = itemM.Weight;
                         }
+                        else if (dbItem is ItemN1)
+                        {
+                            ItemN1 itemN = item as ItemN1;
+                            ItemN1 dbItemN1 = dbItem as ItemN1;
+
+                            dbItemN1.Model = itemN.Model;
+                            dbItemN1.Cfm = itemN.Cfm;
+                            dbItemN1.Voltage = itemN.Voltage;
+                            dbItemN1.CoolingCapacity = itemN.CoolingCapacity;
+                            dbItemN1.Refrigerant = itemN.Refrigerant;
+                        }
+                        else if (dbItem is ItemO)
+                        {
+                            ItemO itemO = item as ItemO;
+                            ItemO dbItemO = dbItem as ItemO;
+
+                            dbItemO.Model = itemO.Model;
+                            dbItemO.FuelType = itemO.FuelType;
+                            dbItemO.Capacity = itemO.Capacity;
+                            dbItemO.Voltage = itemO.Voltage;
+                        }
+                        else if (dbItem is ItemP1)
+                        {
+                            ItemP1 itemP1 = item as ItemP1;
+                            ItemP1 dbItemP1 = dbItem as ItemP1;
+
+                            dbItemP1.Model = itemP1.Model;
+                            dbItemP1.Frame = itemP1.Frame;
+                            dbItemP1.Hp = itemP1.Hp;
+                            dbItemP1.Rpm = itemP1.Rpm;
+                            dbItemP1.Voltage = itemP1.Voltage;
+                            dbItemP1.Enclosure = itemP1.Enclosure;
+                            dbItemP1.Efficiency = itemP1.Efficiency;
+                            dbItemP1.Weight = itemP1.Weight;
+                        }
+                        else if (dbItem is ItemQ1)
+                        {
+                            ItemQ1 itemQ1 = item as ItemQ1;
+                            ItemQ1 dbItemQ1 = dbItem as ItemQ1;
+
+                            dbItemQ1.Model = itemQ1.Model;
+                            dbItemQ1.Capacity = itemQ1.Capacity;
+                            dbItemQ1.Voltage = itemQ1.Voltage;
+                        }
+                        else if (dbItem is ItemQ2)
+                        {
+                            ItemQ2 itemQ2 = item as ItemQ2;
+                            ItemQ2 dbItemQ2 = dbItem as ItemQ2;
+
+                            dbItemQ2.Model = itemQ2.Model;
+                            dbItemQ2.WaterType = itemQ2.WaterType;
+                            dbItemQ2.LbsHr = itemQ2.LbsHr;
+                            dbItemQ2.Voltage = itemQ2.Voltage;
+                        }
+                        else if (dbItem is ItemQ3)
+                        {
+                            ItemQ3 itemQ3 = item as ItemQ3;
+                            ItemQ3 dbItemQ3 = dbItem as ItemQ3;
+
+                            dbItemQ3.Model = itemQ3.Model;
+                            dbItemQ3.RateCapacity = itemQ3.RateCapacity;
+                            dbItemQ3.RoSystemOutput = itemQ3.RoSystemOutput;
+                            dbItemQ3.Voltage = itemQ3.Voltage;
+                        }
+                        else if (dbItem is ItemQ4)
+                        {
+                            ItemQ4 itemQ4 = item as ItemQ4;
+                            ItemQ4 dbItemQ4 = dbItem as ItemQ4;
+
+                            dbItemQ4.Model = itemQ4.Model;
+                            dbItemQ4.Capacity = itemQ4.Capacity;
+                            dbItemQ4.Distributor = itemQ4.Distributor;
+                            dbItemQ4.Voltage = itemQ4.Voltage;
+                        }
+                        else if (dbItem is ItemR)
+                        {
+                            ItemR itemR = item as ItemR;
+                            ItemR dbItemR = dbItem as ItemR;
+
+                            dbItemR.Model = itemR.Model;
+                            dbItemR.Cfm = itemR.Cfm;
+                            dbItemR.ChwCapacity = itemR.ChwCapacity;
+                            dbItemR.ChwRowsFpi = itemR.ChwRowsFpi;
+                            dbItemR.HwCapacity = itemR.HwCapacity;
+                            dbItemR.HwRowsFpi = itemR.HwRowsFpi;
+                            dbItemR.Voltage = itemR.Voltage;
+                        }
+                        else if (dbItem is ItemS1)
+                        {
+                            ItemS1 itemS1 = item as ItemS1;
+                            ItemS1 dbItemS1 = dbItem as ItemS1;
+
+                            dbItemS1.Model = itemS1.Model;
+                            dbItemS1.HeatingCapacity = itemS1.HeatingCapacity;
+                            dbItemS1.CoolingCapacity = itemS1.CoolingCapacity;
+                            dbItemS1.Refrigerant = itemS1.Refrigerant;
+                            dbItemS1.Voltage = itemS1.Voltage;
+                        }
+                        else if (dbItem is ItemT1)
+                        {
+                            ItemT1 itemT1 = item as ItemT1;
+                            ItemT1 dbItemT1 = dbItem as ItemT1;
+
+                            dbItemT1.Model = itemT1.Model;
+                            dbItemT1.Cfm = itemT1.Cfm;
+                            dbItemT1.Size = itemT1.Size;
+                            dbItemT1.Rows = itemT1.Rows;
+                            dbItemT1.Fpi = itemT1.Fpi;
+                        }
+                        else if (dbItem is ItemT2)
+                        {
+                            ItemT2 itemT2 = item as ItemT2;
+                            ItemT2 dbItemT2 = dbItem as ItemT2;
+
+                            dbItemT2.Model = itemT2.Model;
+                            dbItemT2.Cfm = itemT2.Cfm;
+                            dbItemT2.Voltage = itemT2.Voltage;
+                        }
+                        else if (dbItem is ItemT3)
+                        {
+                            ItemT3 itemT3 = item as ItemT3;
+                            ItemT3 dbItemT3 = dbItem as ItemT3;
+
+                            dbItemT3.Model = itemT3.Model;
+                            dbItemT3.Cfm = itemT3.Cfm;
+                            dbItemT3.Tsp = itemT3.Tsp;
+                            dbItemT3.Bhp = itemT3.Bhp;
+                            dbItemT3.TotalHp = itemT3.TotalHp;
+                            dbItemT3.VfdHp = itemT3.VfdHp;
+                            dbItemT3.ActiveFans = itemT3.ActiveFans;
+                            dbItemT3.FanArrays = itemT3.FanArrays;
+                            dbItemT3.Cell = itemT3.Cell;
+                            dbItemT3.Array = itemT3.Array;
+                        }
+                        else if (dbItem is ItemU1)
+                        {
+                            ItemU1 itemU1 = item as ItemU1;
+                            ItemU1 dbItemU1 = dbItem as ItemU1;
+
+                            dbItemU1.Model = itemU1.Model;
+                            dbItemU1.HeatingCapacity = itemU1.HeatingCapacity;
+                            dbItemU1.CoolingCapacity = itemU1.CoolingCapacity;
+                            dbItemU1.Compressor = itemU1.Compressor;
+                            dbItemU1.Voltage = itemU1.Voltage;
+                        }
+                        else if (dbItem is ItemV1)
+                        {
+                            ItemV1 itemV1 = item as ItemV1;
+                            ItemV1 dbItemV1 = dbItem as ItemV1;
+
+                            dbItemV1.Model = itemV1.Model;
+                            dbItemV1.AirFlowCapacity = itemV1.AirFlowCapacity;
+                            dbItemV1.NoIonizationModules = itemV1.NoIonizationModules;
+                            dbItemV1.Voltage = itemV1.Voltage;
+                        }
+                        else if (dbItem is ItemW1)
+                        {
+                            ItemW1 itemW1 = item as ItemW1;
+                            ItemW1 dbItemW1 = dbItem as ItemW1;
+
+                            dbItemW1.Model = itemW1.Model;
+                            dbItemW1.Cfm = itemW1.Cfm;
+                            dbItemW1.HotSideGpm = itemW1.HotSideGpm;
+                            dbItemW1.HotSideEwt = itemW1.HotSideEwt;
+                            dbItemW1.ColdSideGpm = itemW1.ColdSideGpm;
+                            dbItemW1.ColdSideEwt = itemW1.ColdSideEwt;
+                        }
+                        else if (dbItem is ItemX1)
+                        {
+                            ItemX1 itemX1 = item as ItemX1;
+                            ItemX1 dbItemX1 = dbItem as ItemX1;
+
+                            dbItemX1.Model = itemX1.Model;
+                            dbItemX1.Weight = itemX1.Weight;
+                        }
+                        else if (dbItem is ItemX2)
+                        {
+                            ItemX2 itemX2 = item as ItemX2;
+                            ItemX2 dbItemX2 = dbItem as ItemX2;
+
+                            dbItemX2.Model = itemX2.Model;
+                            dbItemX2.Capacity = itemX2.Capacity;
+                        }
+                        else if (dbItem is ItemX3)
+                        {
+                            ItemX3 itemX3 = item as ItemX3;
+                            ItemX3 dbItemX3 = dbItem as ItemX3;
+
+                            dbItemX3.Model = itemX3.Model;
+                            dbItemX3.Tank = itemX3.Tank;
+                            dbItemX3.Connection = itemX3.Connection;
+                            dbItemX3.Location = itemX3.Location;
+                        }
+                        else if (dbItem is ItemX4)
+                        {
+                            ItemX4 itemX4 = item as ItemX4;
+                            ItemX4 dbItemX4 = dbItem as ItemX4;
+
+                            dbItemX4.Model = itemX4.Model;
+                            dbItemX4.Weight = itemX4.Weight;
+                        }
+                        else if (dbItem is ItemX5)
+                        {
+                            ItemX5 itemX5 = item as ItemX5;
+                            ItemX5 dbItemX5 = dbItem as ItemX5;
+
+                            dbItemX5.Model = itemX5.Model;
+                            dbItemX5.Weight = itemX5.Weight;
+                        }
+                        else if (dbItem is ItemY1)
+                        {
+                            ItemY1 itemY1 = item as ItemY1;
+                            ItemY1 dbItemY1 = dbItem as ItemY1;
+
+                            dbItemY1.Model = itemY1.Model;
+                            dbItemY1.CoolingNominalTons = itemY1.CoolingNominalTons;
+                            dbItemY1.HeatingMbhOutput = itemY1.HeatingMbhOutput;
+                            dbItemY1.Fuel = itemY1.Fuel;
+                            dbItemY1.Voltage = itemY1.Voltage;
+                        }
+                        else if (dbItem is ItemZ1)
+                        {
+                            ItemZ1 itemZ1 = item as ItemZ1;
+                            ItemZ1 dbItemZ1 = dbItem as ItemZ1;
+
+                            dbItemZ1.Model = itemZ1.Model;
+                            dbItemZ1.Cfm = itemZ1.Cfm;
+                            dbItemZ1.Voltage = itemZ1.Voltage;
+                        }
+                        else if (dbItem is ItemAA1)
+                        {
+                            ItemAA1 itemAA1 = item as ItemAA1;
+                            ItemAA1 dbItemAA1 = dbItem as ItemAA1;
+
+                            dbItemAA1.Model = itemAA1.Model;
+                            dbItemAA1.Voltage = itemAA1.Voltage;
+                        }
                     }
                     else
                     {
@@ -700,6 +1114,194 @@ namespace Orion.DataAccess.Service
             items.AddRange(context.ItemK3s.Include(x => x.CatalogK3).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
             items.AddRange(context.ItemL1s.Include(x => x.CatalogL1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
             items.AddRange(context.ItemM1s.Include(x => x.CatalogM1).Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList());
+            // Para ItemN1
+            items.AddRange(context.ItemN1s
+                .Include(x => x.CatalogN1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemO1
+            items.AddRange(context.ItemO1s
+                .Include(x => x.CatalogO1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemO2
+            items.AddRange(context.ItemO2s
+                .Include(x => x.CatalogO2)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemP1
+            items.AddRange(context.ItemP1s
+                .Include(x => x.CatalogP1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemQ1
+            items.AddRange(context.ItemQ1s
+                .Include(x => x.CatalogQ1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemQ2
+            items.AddRange(context.ItemQ2s
+                .Include(x => x.CatalogQ2)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemQ3
+            items.AddRange(context.ItemQ3s
+                .Include(x => x.CatalogQ3)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemQ4
+            items.AddRange(context.ItemQ4s
+                .Include(x => x.CatalogQ4)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemR1
+            items.AddRange(context.ItemR1s
+                .Include(x => x.CatalogR1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemR2
+            items.AddRange(context.ItemR2s
+                .Include(x => x.CatalogR2)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemR3
+            items.AddRange(context.ItemR3s
+                .Include(x => x.CatalogR3)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemR4
+            items.AddRange(context.ItemR4s
+                .Include(x => x.CatalogR4)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemS1
+            items.AddRange(context.ItemS1s
+                .Include(x => x.CatalogS1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemT1
+            items.AddRange(context.ItemT1s
+                .Include(x => x.CatalogT1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemT2
+            items.AddRange(context.ItemT2s
+                .Include(x => x.CatalogT2)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemT3
+            items.AddRange(context.ItemT3s
+                .Include(x => x.CatalogT3)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemU1
+            items.AddRange(context.ItemU1s
+                .Include(x => x.CatalogU1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemV1
+            items.AddRange(context.ItemV1s
+                .Include(x => x.CatalogV1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemW1
+            items.AddRange(context.ItemW1s
+                .Include(x => x.CatalogW1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemX1
+            items.AddRange(context.ItemX1s
+                .Include(x => x.CatalogX1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemX2
+            items.AddRange(context.ItemX2s
+                .Include(x => x.CatalogX2)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemX3
+            items.AddRange(context.ItemX3s
+                .Include(x => x.CatalogX3)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemX4
+            items.AddRange(context.ItemX4s
+                .Include(x => x.CatalogX4)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemX5
+            items.AddRange(context.ItemX5s
+                .Include(x => x.CatalogX5)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemY1
+            items.AddRange(context.ItemY1s
+                .Include(x => x.CatalogY1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemZ1
+            items.AddRange(context.ItemZ1s
+                .Include(x => x.CatalogZ1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
+
+            // Para ItemAA1
+            items.AddRange(context.ItemAA1s
+                .Include(x => x.CatalogAA1)
+                .Include(x => x.Titles).ThenInclude(x => x.Specs)
+                .Where(x => x.QuoteId == quoteId)
+                .ToList());
 
             if (sortByDesignIndex)
                 items = items.OrderBy(x => x.DesignIndex).ToList();

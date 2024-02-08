@@ -292,6 +292,302 @@ namespace Orion.DataAccess.Service
                 quote.ItemM1s = context.ItemM1s.Include(x => x.CatalogM1).ThenInclude(x => x.DataSheet).ThenInclude(x => x.Titles).ThenInclude(x => x.Specs)
                     .Include(x => x.Titles).ThenInclude(x => x.Specs).Where(x => x.QuoteId == quoteId).ToList();
 
+                // Para ItemN1
+                quote.ItemN1s = context.ItemN1s
+                    .Include(x => x.CatalogN1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemO1
+                quote.ItemO1s = context.ItemO1s
+                    .Include(x => x.CatalogO1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemO2
+                quote.ItemO2s = context.ItemO2s
+                    .Include(x => x.CatalogO2)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemP1
+                quote.ItemP1s = context.ItemP1s
+                    .Include(x => x.CatalogP1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemQ1
+                quote.ItemQ1s = context.ItemQ1s
+                    .Include(x => x.CatalogQ1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemQ2
+                quote.ItemQ2s = context.ItemQ2s
+                    .Include(x => x.CatalogQ2)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemQ3
+                quote.ItemQ3s = context.ItemQ3s
+                    .Include(x => x.CatalogQ3)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemQ4
+                quote.ItemQ4s = context.ItemQ4s
+                    .Include(x => x.CatalogQ4)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemR1
+                quote.ItemR1s = context.ItemR1s
+                    .Include(x => x.CatalogR1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemR2
+                quote.ItemR2s = context.ItemR2s
+                    .Include(x => x.CatalogR2)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemR3
+                quote.ItemR3s = context.ItemR3s
+                    .Include(x => x.CatalogR3)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemR4
+                quote.ItemR4s = context.ItemR4s
+                    .Include(x => x.CatalogR4)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemS1
+                quote.ItemS1s = context.ItemS1s
+                    .Include(x => x.CatalogS1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemT1
+                quote.ItemT1s = context.ItemT1s
+                    .Include(x => x.CatalogT1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemT2
+                quote.ItemT2s = context.ItemT2s
+                    .Include(x => x.CatalogT2)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemT3
+                quote.ItemT3s = context.ItemT3s
+                    .Include(x => x.CatalogT3)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemU1
+                quote.ItemU1s = context.ItemU1s
+                    .Include(x => x.CatalogU1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemV1
+                quote.ItemV1s = context.ItemV1s
+                    .Include(x => x.CatalogV1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemW1
+                quote.ItemW1s = context.ItemW1s
+                    .Include(x => x.CatalogW1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemX1
+                quote.ItemX1s = context.ItemX1s
+                    .Include(x => x.CatalogX1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemX2
+                quote.ItemX2s = context.ItemX2s
+                    .Include(x => x.CatalogX2)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemX3
+                quote.ItemX3s = context.ItemX3s
+                    .Include(x => x.CatalogX3)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemX4
+                quote.ItemX4s = context.ItemX4s
+                    .Include(x => x.CatalogX4)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemX5
+                quote.ItemX5s = context.ItemX5s
+                    .Include(x => x.CatalogX5)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemY1
+                quote.ItemY1s = context.ItemY1s
+                    .Include(x => x.CatalogY1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemZ1
+                quote.ItemZ1s = context.ItemZ1s
+                    .Include(x => x.CatalogZ1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
+
+                // Para ItemAA1
+                quote.ItemAA1s = context.ItemAA1s
+                    .Include(x => x.CatalogAA1)
+                        .ThenInclude(x => x.DataSheet)
+                            .ThenInclude(x => x.Titles)
+                                .ThenInclude(x => x.Specs)
+                    .Include(x => x.Titles)
+                        .ThenInclude(x => x.Specs)
+                    .Where(x => x.QuoteId == quoteId)
+                    .ToList();
                 return quote;
             }
         }
@@ -359,6 +655,35 @@ namespace Orion.DataAccess.Service
 
                     .Include(x => x.ItemM1s)
 
+                    .Include(x => x.ItemM1s)
+                    .Include(x => x.ItemN1s)
+                    .Include(x => x.ItemO1s)
+                    .Include(x => x.ItemO2s)
+                    .Include(x => x.ItemP1s)
+                    .Include(x => x.ItemQ1s)
+                    .Include(x => x.ItemQ2s)
+                    .Include(x => x.ItemQ3s)
+                    .Include(x => x.ItemQ4s)
+                    .Include(x => x.ItemR1s)
+                    .Include(x => x.ItemR2s)
+                    .Include(x => x.ItemR3s)
+                    .Include(x => x.ItemR4s)
+                    .Include(x => x.ItemS1s)
+                    .Include(x => x.ItemT1s)
+                    .Include(x => x.ItemT2s)
+                    .Include(x => x.ItemT3s)
+                    .Include(x => x.ItemU1s)
+                    .Include(x => x.ItemV1s)
+                    .Include(x => x.ItemW1s)
+                    .Include(x => x.ItemX1s)
+                    .Include(x => x.ItemX2s)
+                    .Include(x => x.ItemX3s)
+                    .Include(x => x.ItemX4s)
+                    .Include(x => x.ItemX5s)
+                    .Include(x => x.ItemY1s)
+                    .Include(x => x.ItemZ1s)
+                    .Include(x => x.ItemAA1s)
+
                     .Where(u => u.ProjectId == projectId).ToList();
 
                 quotes.ForEach(u =>
@@ -378,6 +703,33 @@ namespace Orion.DataAccess.Service
                         && !u.ItemK1s.Any() && !u.ItemK2s.Any() && !u.ItemK3s.Any() 
                         && !u.ItemL1s.Any()
                         && !u.ItemM1s.Any()
+                        && !u.ItemN1s.Any()
+                        && !u.ItemO1s.Any()
+                        && !u.ItemO2s.Any()
+                        && !u.ItemP1s.Any()
+                        && !u.ItemQ1s.Any()
+                        && !u.ItemQ2s.Any()
+                        && !u.ItemQ3s.Any()
+                        && !u.ItemQ4s.Any()
+                        && !u.ItemR1s.Any()
+                        && !u.ItemR2s.Any()
+                        && !u.ItemR3s.Any()
+                        && !u.ItemR4s.Any()
+                        && !u.ItemS1s.Any()
+                        && !u.ItemT1s.Any()
+                        && !u.ItemT2s.Any()
+                        && !u.ItemT3s.Any()
+                        && !u.ItemU1s.Any()
+                        && !u.ItemV1s.Any()
+                        && !u.ItemW1s.Any()
+                        && !u.ItemX1s.Any()
+                        && !u.ItemX2s.Any()
+                        && !u.ItemX3s.Any()
+                        && !u.ItemX4s.Any()
+                        && !u.ItemX5s.Any()
+                        && !u.ItemY1s.Any()
+                        && !u.ItemZ1s.Any()
+                        && !u.ItemAA1s.Any()
                         )
 
                         u.CanCreateReports = false;

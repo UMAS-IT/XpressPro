@@ -903,7 +903,6 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\System.Nume
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\System.Buffers.xml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\bin\Debug\de\MahApps.Metro.resources.dll
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.csproj.AssemblyReference.cache
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\Orion.UI.csproj.SuggestedBindingRedirects.cache
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\CatalogList\CatalogB1ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\CatalogList\CatalogB2ListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\ABB\CatalogList\CatalogB3ListView.g.cs

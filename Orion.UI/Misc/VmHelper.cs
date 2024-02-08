@@ -13,6 +13,7 @@ using Orion.Domain.Multiaqua.Item;
 using Orion.Domain.PACE.Item;
 using Orion.Helper.Extension;
 using Orion.Helper.Misc;
+using Orion.UI.ViewModel;
 using Orion.UI.ViewModel.ABB.CatalogList;
 using Orion.UI.ViewModel.ABB.EditCatalogItem;
 using Orion.UI.ViewModel.ABB.EditQuoteItem;
@@ -136,7 +137,48 @@ namespace Orion.UI.Misc
                                     
         { ItemType.ItemL1, typeof(CatalogL1ListViewModel) },
 
-        { ItemType.ItemM1, typeof(CatalogM1ListViewModel) }
+        { ItemType.ItemM1, typeof(CatalogM1ListViewModel) },
+        
+        { ItemType.ItemN1, typeof(CatalogN1ListViewModel) },
+
+        { ItemType.ItemO1, typeof(CatalogO1ListViewModel) },
+        { ItemType.ItemO2, typeof(CatalogO2ListViewModel) },
+
+        { ItemType.ItemP1, typeof(CatalogP1ListViewModel) },
+
+        { ItemType.ItemQ1, typeof(CatalogQ1ListViewModel) },
+        { ItemType.ItemQ2, typeof(CatalogQ2ListViewModel) },
+        { ItemType.ItemQ3, typeof(CatalogQ3ListViewModel) },
+        { ItemType.ItemQ4, typeof(CatalogQ4ListViewModel) },
+
+        { ItemType.ItemR1, typeof(CatalogR1ListViewModel) },
+        { ItemType.ItemR2, typeof(CatalogR2ListViewModel) },
+        { ItemType.ItemR3, typeof(CatalogR3ListViewModel) },
+        { ItemType.ItemR4, typeof(CatalogR4ListViewModel) },
+
+        { ItemType.ItemS1, typeof(CatalogS1ListViewModel) },
+
+        { ItemType.ItemT1, typeof(CatalogT1ListViewModel) },
+        { ItemType.ItemT2, typeof(CatalogT2ListViewModel) },
+        { ItemType.ItemT3, typeof(CatalogT3ListViewModel) },
+
+        { ItemType.ItemU1, typeof(CatalogU1ListViewModel) },
+
+        { ItemType.ItemV1, typeof(CatalogV1ListViewModel) },
+
+        { ItemType.ItemW1, typeof(CatalogW1ListViewModel) },
+
+        { ItemType.ItemX1, typeof(CatalogX1ListViewModel) },
+        { ItemType.ItemX2, typeof(CatalogX2ListViewModel) },
+        { ItemType.ItemX3, typeof(CatalogX3ListViewModel) },
+        { ItemType.ItemX4, typeof(CatalogX4ListViewModel) },
+        { ItemType.ItemX5, typeof(CatalogX5ListViewModel) },
+
+        { ItemType.ItemY1, typeof(CatalogY1ListViewModel) },
+
+        { ItemType.ItemZ1, typeof(CatalogZ1ListViewModel) },
+
+        { ItemType.ItemAA1, typeof(CatalogAA1ListViewModel) }
 
     };
         // [new]
@@ -198,7 +240,48 @@ namespace Orion.UI.Misc
                                         
         { ItemType.ItemL1, typeof(EditL1CatalogViewModel) },
 
-        { ItemType.ItemM1, typeof(EditM1CatalogViewModel) }
+        { ItemType.ItemM1, typeof(EditM1CatalogViewModel) },
+
+        { ItemType.ItemN1, typeof(EditN1CatalogViewModel) },
+
+        { ItemType.ItemO1, typeof(EditO1CatalogViewModel) },
+        { ItemType.ItemO2, typeof(EditO2CatalogViewModel) },
+
+        { ItemType.ItemP1, typeof(EditP1CatalogViewModel) },
+
+        { ItemType.ItemQ1, typeof(EditQ1CatalogViewModel) },
+        { ItemType.ItemQ2, typeof(EditQ2CatalogViewModel) },
+        { ItemType.ItemQ3, typeof(EditQ3CatalogViewModel) },
+        { ItemType.ItemQ4, typeof(EditQ4CatalogViewModel) },
+
+        { ItemType.ItemR1, typeof(EditR1CatalogViewModel) },
+        { ItemType.ItemR2, typeof(EditR2CatalogViewModel) },
+        { ItemType.ItemR3, typeof(EditR3CatalogViewModel) },
+        { ItemType.ItemR4, typeof(EditR4CatalogViewModel) },
+
+        { ItemType.ItemS1, typeof(EditS1CatalogViewModel) },
+
+        { ItemType.ItemT1, typeof(EditT1CatalogViewModel) },
+        { ItemType.ItemT2, typeof(EditT2CatalogViewModel) },
+        { ItemType.ItemT3, typeof(EditT3CatalogViewModel) },
+
+        { ItemType.ItemU1, typeof(EditU1CatalogViewModel) },
+
+        { ItemType.ItemV1, typeof(EditV1CatalogViewModel) },
+
+        { ItemType.ItemW1, typeof(EditW1CatalogViewModel) },
+
+        { ItemType.ItemX1, typeof(EditX1CatalogViewModel) },
+        { ItemType.ItemX2, typeof(EditX2CatalogViewModel) },
+        { ItemType.ItemX3, typeof(EditX3CatalogViewModel) },
+        { ItemType.ItemX4, typeof(EditX4CatalogViewModel) },
+        { ItemType.ItemX5, typeof(EditX5CatalogViewModel) },
+
+        { ItemType.ItemY1, typeof(EditY1CatalogViewModel) },
+
+        { ItemType.ItemZ1, typeof(EditZ1CatalogViewModel) },
+
+        { ItemType.ItemAA1, typeof(EditAA1CatalogViewModel) }
     };
         // [new]
         public static Dictionary<ItemType, Type> EditItemViewModelForItemTypeMap = new Dictionary<ItemType, Type>
@@ -259,7 +342,48 @@ namespace Orion.UI.Misc
 
         { ItemType.ItemL1, typeof(EditL1ItemViewModel) },
 
-        { ItemType.ItemM1, typeof(EditM1ItemViewModel) }
+        { ItemType.ItemM1, typeof(EditM1ItemViewModel) },
+
+        { ItemType.ItemN1, typeof(EditN1ItemViewModel) },
+
+        { ItemType.ItemO1, typeof(EditO1ItemViewModel) },
+        { ItemType.ItemO2, typeof(EditO2ItemViewModel) },
+
+        { ItemType.ItemP1, typeof(EditP1ItemViewModel) },
+
+        { ItemType.ItemQ1, typeof(EditQ1ItemViewModel) },
+        { ItemType.ItemQ2, typeof(EditQ2ItemViewModel) },
+        { ItemType.ItemQ3, typeof(EditQ3ItemViewModel) },
+        { ItemType.ItemQ4, typeof(EditQ4ItemViewModel) },
+
+        { ItemType.ItemR1, typeof(EditR1ItemViewModel) },
+        { ItemType.ItemR2, typeof(EditR2ItemViewModel) },
+        { ItemType.ItemR3, typeof(EditR3ItemViewModel) },
+        { ItemType.ItemR4, typeof(EditR4ItemViewModel) },
+
+        { ItemType.ItemS1, typeof(EditS1ItemViewModel) },
+
+        { ItemType.ItemT1, typeof(EditT1ItemViewModel) },
+        { ItemType.ItemT2, typeof(EditT2ItemViewModel) },
+        { ItemType.ItemT3, typeof(EditT3ItemViewModel) },
+
+        { ItemType.ItemU1, typeof(EditU1ItemViewModel) },
+
+        { ItemType.ItemV1, typeof(EditV1ItemViewModel) },
+
+        { ItemType.ItemW1, typeof(EditW1ItemViewModel) },
+
+        { ItemType.ItemX1, typeof(EditX1ItemViewModel) },
+        { ItemType.ItemX2, typeof(EditX2ItemViewModel) },
+        { ItemType.ItemX3, typeof(EditX3ItemViewModel) },
+        { ItemType.ItemX4, typeof(EditX4ItemViewModel) },
+        { ItemType.ItemX5, typeof(EditX5ItemViewModel) },
+
+        { ItemType.ItemY1, typeof(EditY1ItemViewModel) },
+
+        { ItemType.ItemZ1, typeof(EditZ1ItemViewModel) },
+
+        { ItemType.ItemAA1, typeof(EditAA1ItemViewModel) }
     };
         // [new]
         public static Dictionary<Subfix, Type> ItemListViewModelTypeMap = new Dictionary<Subfix, Type>
@@ -277,6 +401,20 @@ namespace Orion.UI.Misc
         { Subfix.K, typeof(KItemListViewModel) },
         { Subfix.L, typeof(LItemListViewModel) },
         { Subfix.M, typeof(MItemListViewModel) },
+        { Subfix.N, typeof(NItemListViewModel) },
+        { Subfix.O, typeof(OItemListViewModel) },
+        { Subfix.P, typeof(PItemListViewModel) },
+        { Subfix.Q, typeof(QItemListViewModel) },
+        { Subfix.R, typeof(RItemListViewModel) },
+        { Subfix.S, typeof(SItemListViewModel) },
+        { Subfix.T, typeof(TItemListViewModel) },
+        { Subfix.U, typeof(UItemListViewModel) },
+        { Subfix.V, typeof(VItemListViewModel) },
+        { Subfix.W, typeof(WItemListViewModel) },
+        { Subfix.X, typeof(XItemListViewModel) },
+        { Subfix.Y, typeof(YItemListViewModel) },
+        { Subfix.Z, typeof(ZItemListViewModel) },
+        { Subfix.AA, typeof(AAItemListViewModel) }
     };
 
         public static ItemType GetItemType(string itemsName)

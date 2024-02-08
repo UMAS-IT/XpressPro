@@ -180,7 +180,6 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Domain\bin\Debug\System.
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Domain\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Domain\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Domain\obj\Debug\Orion.Domain.csproj.AssemblyReference.cache
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Domain\obj\Debug\Orion.Domain.csproj.SuggestedBindingRedirects.cache
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Domain\obj\Debug\Orion.Domain.csproj.CoreCompileInputs.cache
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Domain\obj\Debug\Orion.Domain.csproj.CopyComplete
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.Domain\obj\Debug\Orion.Domain.dll

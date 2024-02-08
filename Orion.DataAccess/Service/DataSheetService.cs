@@ -108,7 +108,48 @@ namespace Orion.DataAccess.Service
             
             catalogs.AddRange(context.CatalogL1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
 
+            catalogs.AddRange(context.CatalogM1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
 
+            catalogs.AddRange(context.CatalogN1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogO1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogO2s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogP1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogQ1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogQ2s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogQ3s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogQ4s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogR1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogR2s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogR3s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogR4s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogS1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogT1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogT2s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogT3s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogU1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogV1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogW1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogX1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogX2s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogX3s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogX4s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+            catalogs.AddRange(context.CatalogX5s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogY1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+
+            catalogs.AddRange(context.CatalogZ1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
+          
+            catalogs.AddRange(context.CatalogAA1s.Include(x => x.DataSheet).Where(x => x.DataSheetId == dataSheet.Id).ToList());
         }
 
         public IList<DataSheet> GetDataSheetsByIndex(string index)

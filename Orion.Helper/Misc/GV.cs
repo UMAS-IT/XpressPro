@@ -11,66 +11,66 @@ namespace Orion.Helper.Misc
     public static class GV
     {
         // [new]
-        public enum CatalogType
-        {
-            CatalogA1,
-            CatalogA2,
-            CatalogA3,
-            CatalogA4,
+        //public enum CatalogType
+        //{
+        //    CatalogA1,
+        //    CatalogA2,
+        //    CatalogA3,
+        //    CatalogA4,
             
-            CatalogB1,
-            CatalogB2,
-            CatalogB3,
-            CatalogB4,
-            CatalogB5,
+        //    CatalogB1,
+        //    CatalogB2,
+        //    CatalogB3,
+        //    CatalogB4,
+        //    CatalogB5,
             
-            CatalogC1,
-            CatalogC2,
-            CatalogC3,
-            CatalogC4,
-            CatalogC5,
-            CatalogC6,
-            CatalogC7,
+        //    CatalogC1,
+        //    CatalogC2,
+        //    CatalogC3,
+        //    CatalogC4,
+        //    CatalogC5,
+        //    CatalogC6,
+        //    CatalogC7,
             
-            CatalogD1,
-            CatalogD2,
+        //    CatalogD1,
+        //    CatalogD2,
             
-            CatalogE1,
-            CatalogE2,
-            CatalogE3,
-            CatalogE4,
-            CatalogE5,
-            CatalogE6,
-            CatalogE7,
+        //    CatalogE1,
+        //    CatalogE2,
+        //    CatalogE3,
+        //    CatalogE4,
+        //    CatalogE5,
+        //    CatalogE6,
+        //    CatalogE7,
             
-            CatalogF1,
+        //    CatalogF1,
             
-            CatalogG1,
-            CatalogG2,
-            CatalogG3,
-            CatalogG4,
-            CatalogG5,
-            CatalogG6,
+        //    CatalogG1,
+        //    CatalogG2,
+        //    CatalogG3,
+        //    CatalogG4,
+        //    CatalogG5,
+        //    CatalogG6,
             
-            CatalogH1,
-            CatalogH2,
-            CatalogH3,
-            CatalogH4,
-            CatalogH5,
+        //    CatalogH1,
+        //    CatalogH2,
+        //    CatalogH3,
+        //    CatalogH4,
+        //    CatalogH5,
             
-            CatalogI1,
-            CatalogI2,
+        //    CatalogI1,
+        //    CatalogI2,
             
-            CatalogJ1,
+        //    CatalogJ1,
             
-            CatalogK1,
-            CatalogK2,
-            CatalogK3,
+        //    CatalogK1,
+        //    CatalogK2,
+        //    CatalogK3,
             
-            CatalogL1,
+        //    CatalogL1,
 
-            CatalogM1,
-        }
+        //    CatalogM1,
+        //}
         // [new]
         public enum ItemType
         {
@@ -131,6 +131,47 @@ namespace Orion.Helper.Misc
             ItemL1,
 
             ItemM1,
+
+            ItemN1,
+
+            ItemO1,
+            ItemO2,
+
+            ItemP1,
+
+            ItemQ1,
+            ItemQ2,
+            ItemQ3,
+            ItemQ4,
+
+            ItemR1,
+            ItemR2,
+            ItemR3,
+            ItemR4,
+
+            ItemS1,
+
+            ItemT1,
+            ItemT2,
+            ItemT3,
+
+            ItemU1,
+
+            ItemV1,
+
+            ItemW1,
+
+            ItemX1,
+            ItemX2,
+            ItemX3,
+            ItemX4,
+            ItemX5,
+
+            ItemY1,
+
+            ItemZ1,
+
+            ItemAA1,
         }
         // [new]
         public enum Subfix
@@ -148,6 +189,20 @@ namespace Orion.Helper.Misc
             K,
             L,
             M,
+            N,
+            O,
+            P,
+            Q,
+            R,
+            S,
+            T,
+            U,
+            V,
+            W,
+            X,
+            Y,
+            Z,
+            AA,
         }
 
         public static bool Extended { get; set; }

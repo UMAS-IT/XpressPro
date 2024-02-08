@@ -1,6 +1,10 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
 using Orion.Domain.ABOVEAIR.Item;
+using Orion.Domain.AERCO.Item;
+using Orion.Domain.AERCO.Related;
+using Orion.Domain.Baldor.Item;
+using Orion.Domain.Condair.Item;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
@@ -10,10 +14,20 @@ using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.EnviroTec.Item;
+using Orion.Domain.LYNC.Item;
 using Orion.Domain.Marvair.Item;
 using Orion.Domain.Multiaqua.Item;
+using Orion.Domain.Nortek.Item;
+using Orion.Domain.NYLE.Item;
 using Orion.Domain.PACE.Item;
+using Orion.Domain.PlasmaAir.Item;
+using Orion.Domain.Polaris.Item;
+using Orion.Domain.PVI.Item;
+using Orion.Domain.Robur.Item;
 using Orion.Domain.UMAS.Item;
+using Orion.Domain.Valent.Item;
+using Orion.Domain.Whalen.Item;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -435,6 +449,253 @@ namespace Orion.Domain.Entity
 
 
 
+        #region AERCO Items
+
+        private IList<ItemO1>  _itemO1s;
+        public IList<ItemO1> ItemO1s
+        {
+            get => _itemO1s;
+            set => SetProperty(ref _itemO1s, value);
+        }
+
+        private IList<ItemO2> _itemO2s;
+        public IList<ItemO2> ItemO2s
+        {
+            get => _itemO2s;
+            set => SetProperty(ref _itemO2s, value);
+        }
+        #endregion
+
+
+
+        #region Baldor Items
+
+        private IList<ItemP1> _itemP1s;
+        public IList<ItemP1> ItemP1s
+        {
+            get => _itemP1s;
+            set => SetProperty(ref _itemP1s, value);
+        }
+        #endregion
+
+
+
+        #region Coindair Items
+
+        private IList<ItemQ1> _itemQ1s;
+        public IList<ItemQ1> ItemQ1s
+        {
+            get => _itemQ1s;
+            set => SetProperty(ref _itemQ1s, value);
+        }
+
+        private IList<ItemQ2> _itemQ2s;
+        public IList<ItemQ2> ItemQ2s
+        {
+            get => _itemQ2s;
+            set => SetProperty(ref _itemQ2s, value);
+        }
+
+        private IList<ItemQ3> _itemQ3s;
+        public IList<ItemQ3> ItemQ3s
+        {
+            get => _itemQ3s;
+            set => SetProperty(ref _itemQ3s, value);
+        }
+
+        private IList<ItemQ4> _itemQ4s;
+        public IList<ItemQ4> ItemQ4s
+        {
+            get => _itemQ4s;
+            set => SetProperty(ref _itemQ4s, value);
+        }
+        #endregion
+
+
+
+        #region Enviro-Tec Items
+
+        private IList<ItemR1> _itemR1s;
+        public IList<ItemR1> ItemR1s
+        {
+            get => _itemR1s;
+            set => SetProperty(ref _itemR1s, value);
+        }
+
+        private IList<ItemR2> _itemR2s;
+        public IList<ItemR2> ItemR2s
+        {
+            get => _itemR2s;
+            set => SetProperty(ref _itemR2s, value);
+        }
+
+        private IList<ItemR3> _itemR3s;
+        public IList<ItemR3> ItemR3s
+        {
+            get => _itemR3s;
+            set => SetProperty(ref _itemR3s, value);
+        }
+
+        private IList<ItemR4> _itemR4s;
+        public IList<ItemR4> ItemR4s
+        {
+            get => _itemR4s;
+            set => SetProperty(ref _itemR4s, value);
+        }
+        #endregion
+
+
+
+        #region LYNC Items
+
+        private IList<ItemS1> _itemS1s;
+        public IList<ItemS1> ItemS1s
+        {
+            get => _itemS1s;
+            set => SetProperty(ref _itemS1s, value);
+        }
+        #endregion
+
+
+
+        #region Nortek Items
+
+        private IList<ItemT1> _itemT1s;
+        public IList<ItemT1> ItemT1s
+        {
+            get => _itemT1s;
+            set => SetProperty(ref _itemT1s, value);
+        }
+
+        private IList<ItemT2> _itemT2s;
+        public IList<ItemT2> ItemT2s
+        {
+            get => _itemT2s;
+            set => SetProperty(ref _itemT2s, value);
+        }
+
+        private IList<ItemT3> _itemT3s;
+        public IList<ItemT3> ItemT3s
+        {
+            get => _itemT3s;
+            set => SetProperty(ref _itemT3s, value);
+        }
+        #endregion
+
+
+
+        #region NYLE Items
+
+        private IList<ItemU1> _itemU1s;
+        public IList<ItemU1> ItemU1s
+        {
+            get => _itemU1s;
+            set => SetProperty(ref _itemU1s, value);
+        }
+        #endregion
+
+
+
+        #region Plasma Air Items
+
+        private IList<ItemV1> _itemV1s;
+        public IList<ItemV1> ItemV1s
+        {
+            get => _itemV1s;
+            set => SetProperty(ref _itemV1s, value);
+        }
+
+        #endregion
+
+
+
+        #region Polaris Items
+
+        private IList<ItemW1> _itemW1s;
+        public IList<ItemW1> ItemW1s
+        {
+            get => _itemW1s;
+            set => SetProperty(ref _itemW1s, value);
+        }
+        #endregion
+
+
+
+        #region PVI Items
+
+        private IList<ItemX1> _itemX1s;
+        public IList<ItemX1> ItemX1s
+        {
+            get => _itemX1s;
+            set => SetProperty(ref _itemX1s, value);
+        }
+
+        private IList<ItemX2> _itemX2s;
+        public IList<ItemX2> ItemX2s
+        {
+            get => _itemX2s;
+            set => SetProperty(ref _itemX2s, value);
+        }
+
+        private IList<ItemX3> _itemX3s;
+        public IList<ItemX3> ItemX3s
+        {
+            get => _itemX3s;
+            set => SetProperty(ref _itemX3s, value);
+        }
+
+        private IList<ItemX4> _itemX4s;
+        public IList<ItemX4> ItemX4s
+        {
+            get => _itemX4s;
+            set => SetProperty(ref _itemX4s, value);
+        }
+
+        private IList<ItemX5> _itemX5s;
+        public IList<ItemX5> ItemX5s
+        {
+            get => _itemX5s;
+            set => SetProperty(ref _itemX5s, value);
+        }
+        #endregion
+
+
+
+        #region Robur Items
+
+        private IList<ItemY1> _itemY1s;
+        public IList<ItemY1> ItemY1s
+        {
+            get => _itemY1s;
+            set => SetProperty(ref _itemY1s, value);
+        }
+        #endregion
+
+
+
+        #region Valent Items
+
+        private IList<ItemZ1> _itemZ1s;
+        public IList<ItemZ1> ItemZ1s
+        {
+            get => _itemZ1s;
+            set => SetProperty(ref _itemZ1s, value);
+        }
+        #endregion
+
+
+
+        #region Whalen Items
+
+        private IList<ItemAA1> _itemAA1s;
+        public IList<ItemAA1> ItemAA1s
+        {
+            get => _itemAA1s;
+            set => SetProperty(ref _itemAA1s, value);
+        }
+        #endregion
+
+
         private bool _isSelected;
         [NotMapped]
         public bool IsSelected
@@ -528,6 +789,45 @@ namespace Orion.Domain.Entity
             ItemM1s = new ObservableCollection<ItemM1>();
 
             ItemN1s = new ObservableCollection<ItemN1>();
+
+            ItemO1s = new ObservableCollection<ItemO1>();
+            ItemO2s = new ObservableCollection<ItemO2>();
+
+            ItemP1s = new ObservableCollection<ItemP1>();
+
+            ItemQ1s = new ObservableCollection<ItemQ1>();
+            ItemQ2s = new ObservableCollection<ItemQ2>();
+            ItemQ3s = new ObservableCollection<ItemQ3>();
+            ItemQ4s = new ObservableCollection<ItemQ4>();
+
+            ItemR1s = new ObservableCollection<ItemR1>();
+            ItemR2s = new ObservableCollection<ItemR2>();
+            ItemR3s = new ObservableCollection<ItemR3>();
+            ItemR4s = new ObservableCollection<ItemR4>();
+
+            ItemS1s = new ObservableCollection<ItemS1>();
+
+            ItemT1s = new ObservableCollection<ItemT1>();
+            ItemT2s = new ObservableCollection<ItemT2>();
+            ItemT3s = new ObservableCollection<ItemT3>();
+
+            ItemU1s = new ObservableCollection<ItemU1>();
+
+            ItemV1s = new ObservableCollection<ItemV1>();
+
+            ItemW1s = new ObservableCollection<ItemW1>();   
+
+            ItemX1s = new ObservableCollection<ItemX1>();
+            ItemX2s = new ObservableCollection<ItemX2>();
+            ItemX3s = new ObservableCollection<ItemX3>();
+            ItemX4s = new ObservableCollection<ItemX4>();
+            ItemX5s = new ObservableCollection<ItemX5>();
+
+            ItemY1s = new ObservableCollection<ItemY1>();
+            
+            ItemZ1s = new ObservableCollection<ItemZ1>();
+
+            ItemAA1s = new ObservableCollection<ItemAA1>();
 
             Name = "";
 

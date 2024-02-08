@@ -1,7 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orion.Domain.ABOVEAIR.Catalog;
 using Orion.Domain.ABOVEAIR.Item;
+using Orion.Domain.AERCO.Catalog;
+using Orion.Domain.AERCO.Item;
 using Orion.Domain.AmericanWheatley.Related;
+using Orion.Domain.Baldor.Catalog;
+using Orion.Domain.Baldor.Item;
+using Orion.Domain.Condair.Catalog;
+using Orion.Domain.Condair.Item;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityCatalogABB;
 using Orion.Domain.EntityCatalogAmericanWheatley;
@@ -21,16 +27,36 @@ using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.EnviroTec.Catalog;
+using Orion.Domain.EnviroTec.Item;
+using Orion.Domain.LYNC.Catalog;
+using Orion.Domain.LYNC.Item;
 using Orion.Domain.Marvair;
 using Orion.Domain.Marvair.Catalog;
 using Orion.Domain.Marvair.Item;
 using Orion.Domain.Multiaqua.Catalog;
 using Orion.Domain.Multiaqua.Item;
+using Orion.Domain.Nortek.Catalog;
+using Orion.Domain.Nortek.Item;
+using Orion.Domain.NYLE.Catalog;
+using Orion.Domain.NYLE.Item;
 using Orion.Domain.PACE.Catalog;
 using Orion.Domain.PACE.Item;
+using Orion.Domain.PlasmaAir.Catalog;
+using Orion.Domain.PlasmaAir.Item;
+using Orion.Domain.Polaris.Catalog;
+using Orion.Domain.Polaris.Item;
+using Orion.Domain.PVI.Catalog;
+using Orion.Domain.PVI.Item;
+using Orion.Domain.Robur.Catalog;
+using Orion.Domain.Robur.Item;
 using Orion.Domain.UMAS.Catalog;
 using Orion.Domain.UMAS.Item;
 using Orion.Domain.UvResources.Related;
+using Orion.Domain.Valent.Catalog;
+using Orion.Domain.Valent.Item;
+using Orion.Domain.Whalen.Catalog;
+using Orion.Domain.Whalen.Item;
 
 namespace Orion.DataAccess.DataBase
 {
@@ -258,6 +284,162 @@ namespace Orion.DataAccess.DataBase
 
         #region ABOVEAIR Items
         public DbSet<ItemN1> ItemN1s { get; set; }
+        #endregion
+
+
+
+        #region AERCO Catalogs
+        public DbSet<CatalogO1> CatalogO1s { get; set; }
+        public DbSet<CatalogO2> CatalogO2s { get; set; }
+        #endregion
+
+        #region AERCO Items
+        public DbSet<ItemO1> ItemO1s { get; set; }
+        public DbSet<ItemO2> ItemO2s { get; set; }
+        #endregion
+
+
+
+        #region Baldor Catalogs
+        public DbSet<CatalogP1> CatalogP1s { get; set; }
+        #endregion
+
+        #region Baldor Items
+        public DbSet<ItemP1> ItemP1s { get; set; }
+        #endregion
+
+
+
+        #region Condair Catalogs
+        public DbSet<CatalogQ1> CatalogQ1s { get; set; }
+        public DbSet<CatalogQ2> CatalogQ2s { get; set; }
+        public DbSet<CatalogQ3> CatalogQ3s { get; set; }
+        public DbSet<CatalogQ4> CatalogQ4s { get; set; }
+        #endregion
+
+        #region Condair Items
+        public DbSet<ItemQ1> ItemQ1s { get; set; }
+        public DbSet<ItemQ2> ItemQ2s { get; set; }
+        public DbSet<ItemQ3> ItemQ3s { get; set; }
+        public DbSet<ItemQ4> ItemQ4s { get; set; }
+        #endregion
+
+
+
+        #region Enviro-Tec Catalogs
+        public DbSet<CatalogR1> CatalogR1s { get; set; }
+        public DbSet<CatalogR2> CatalogR2s { get; set; }
+        public DbSet<CatalogR3> CatalogR3s { get; set; }
+        public DbSet<CatalogR4> CatalogR4s { get; set; }
+        #endregion
+
+        #region Enviro-Tec Items
+        public DbSet<ItemR1> ItemR1s { get; set; }
+        public DbSet<ItemR2> ItemR2s { get; set; }
+        public DbSet<ItemR3> ItemR3s { get; set; }
+        public DbSet<ItemR4> ItemR4s { get; set; }
+        #endregion
+
+
+
+        #region LYNC Catalogs
+        public DbSet<CatalogS1> CatalogS1s { get; set; }
+        #endregion
+
+        #region LYNC Items
+        public DbSet<ItemS1> ItemS1s { get; set; }
+        #endregion
+
+
+
+        #region Nortek Catalogs
+        public DbSet<CatalogT1> CatalogT1s { get; set; }
+        public DbSet<CatalogT2> CatalogT2s { get; set; }
+        public DbSet<CatalogT3> CatalogT3s { get; set; }
+        #endregion
+
+        #region Nortek Items
+        public DbSet<ItemT1> ItemT1s { get; set; }
+        public DbSet<ItemT2> ItemT2s { get; set; }
+        public DbSet<ItemT3> ItemT3s { get; set; }
+        #endregion
+
+
+
+        #region NYLE Catalogs
+        public DbSet<CatalogU1> CatalogU1s { get; set; }
+        #endregion
+
+        #region NYLE Items
+        public DbSet<ItemU1> ItemU1s { get; set; }
+        #endregion
+
+
+
+        #region Plasma Air Catalogs
+        public DbSet<CatalogV1> CatalogV1s { get; set; }
+        #endregion
+
+        #region Plasma Air Items
+        public DbSet<ItemV1> ItemV1s { get; set; }
+        #endregion
+
+
+
+        #region Polaris Catalogs
+        public DbSet<CatalogW1> CatalogW1s { get; set; }
+        #endregion
+
+        #region Polaris Items
+        public DbSet<ItemW1> ItemW1s { get; set; }
+        #endregion
+
+
+
+        #region PVI Catalogs
+        public DbSet<CatalogX1> CatalogX1s { get; set; }
+        public DbSet<CatalogX2> CatalogX2s { get; set; }
+        public DbSet<CatalogX3> CatalogX3s { get; set; }
+        public DbSet<CatalogX4> CatalogX4s { get; set; }
+        public DbSet<CatalogX5> CatalogX5s { get; set; }
+        #endregion
+
+        #region PVI Items
+        public DbSet<ItemX1> ItemX1s { get; set; }
+        public DbSet<ItemX2> ItemX2s { get; set; }
+        public DbSet<ItemX3> ItemX3s { get; set; }
+        public DbSet<ItemX4> ItemX4s { get; set; }
+        public DbSet<ItemX5> ItemX5s { get; set; }
+        #endregion
+
+
+
+        #region Robur Catalogs
+        public DbSet<CatalogY1> CatalogY1s { get; set; }
+        #endregion
+
+        #region Robur Items
+        public DbSet<ItemY1> ItemY1s { get; set; }
+        #endregion
+
+
+
+        #region Valent Catalogs
+        public DbSet<CatalogZ1> CatalogZ1s { get; set; }
+        #endregion
+
+        #region Valent Items
+        public DbSet<ItemZ1> ItemZ1s { get; set; }
+        #endregion
+
+
+
+        #region Whalen Catalogs
+        public DbSet<CatalogAA1> CatalogAA1s { get; set; }
+        #endregion
+
+        #region Whalen Items
+        public DbSet<ItemAA1> ItemAA1s { get; set; }
         #endregion
 
 
@@ -896,6 +1078,370 @@ namespace Orion.DataAccess.DataBase
                         entry.HasOne(d => d.ItemN1)
                         .WithMany(x => x.Titles).IsRequired(false)
                         .HasForeignKey(y => y.ItemN1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region AERCO Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemO1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+            .HasMany(p => p.ItemO2s)
+            .WithOne(m => m.Quote)
+            .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region AERCO Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemO1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemO1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+            entry.HasOne(d => d.ItemO2)
+            .WithMany(x => x.Titles).IsRequired(false)
+            .HasForeignKey(y => y.ItemO2Id)
+            .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region Baldor Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemP1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region Baldor Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemP1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemP1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region Condair Quote Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemQ1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemQ2s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemQ3s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemQ4s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region Condair Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemQ1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemQ1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemQ2)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemQ2Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemQ3)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemQ3Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemQ4)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemQ4Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region Enviro-Tec Quote Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemR1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemR2s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemR3s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemR4s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region Enviro-Tec Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemR1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemR1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemR2)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemR2Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemR3)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemR3Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemR4)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemR4Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region LYNC Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemS1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region LYNC Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemS1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemS1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region Nortek Quote Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemT1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemT2s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemT3s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region Nortek Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemT1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemT1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemT2)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemT2Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemT3)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemT3Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region NYLE Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemU1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region NYLE Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemU1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemU1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region PlasmaAir Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemV1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region PlasmaAir Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemV1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemV1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region Polaris Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemW1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region Polaris Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemW1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemW1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region PVI Quote Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemX1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemX2s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemX3s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemX4s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemX5s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region PVI Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemX1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemX1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemX2)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemX2Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemX3)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemX3Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemX4)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemX4Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemX5)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemX5Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region Robur Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemY1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region Robur Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemY1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemY1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region Valent Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemZ1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region Valent Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemZ1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemZ1Id)
+                        .OnDelete(DeleteBehavior.Restrict));
+            #endregion
+
+
+
+            #region Whalen Items
+            modelBuilder.Entity<Quote>()
+                        .HasMany(p => p.ItemAA1s)
+                        .WithOne(m => m.Quote)
+                        .HasForeignKey(m => m.QuoteId);
+            #endregion
+
+            #region Whalen Item Titles
+            modelBuilder.Entity<Title>(entry =>
+                        entry.HasOne(d => d.ItemAA1)
+                        .WithMany(x => x.Titles).IsRequired(false)
+                        .HasForeignKey(y => y.ItemAA1Id)
                         .OnDelete(DeleteBehavior.Restrict));
             #endregion
         }

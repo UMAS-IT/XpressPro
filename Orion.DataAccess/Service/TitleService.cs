@@ -1,6 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using Orion.DataAccess.DataBase;
+using Orion.Domain.ABOVEAIR.Item;
+using Orion.Domain.AERCO.Item;
+using Orion.Domain.Baldor.Item;
+using Orion.Domain.Condair.Item;
 using Orion.Domain.Entity;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
@@ -11,10 +15,20 @@ using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.EnviroTec.Item;
+using Orion.Domain.LYNC.Item;
 using Orion.Domain.Marvair.Item;
 using Orion.Domain.Multiaqua.Item;
+using Orion.Domain.Nortek.Item;
+using Orion.Domain.NYLE.Item;
 using Orion.Domain.PACE.Item;
+using Orion.Domain.PlasmaAir.Item;
+using Orion.Domain.Polaris.Item;
+using Orion.Domain.PVI.Item;
+using Orion.Domain.Robur.Item;
 using Orion.Domain.UMAS.Item;
+using Orion.Domain.Valent.Item;
+using Orion.Domain.Whalen.Item;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -23,6 +37,7 @@ namespace Orion.DataAccess.Service
 {
     public class TitleService
     {
+        // [new]
         public IList<Title> GetTitlesFromItem(IItem item)
         {
             using (GlobalDbContext context = new GlobalDbContext())
@@ -132,6 +147,60 @@ namespace Orion.DataAccess.Service
 
                 else if (item is ItemM1)
                     titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemM1Id == item.Id).ToList();
+                else if (item is ItemN1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemN1Id == item.Id).ToList();
+                else if (item is ItemO1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemO1Id == item.Id).ToList();
+                else if (item is ItemO2)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemO2Id == item.Id).ToList();
+                else if (item is ItemP1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemP1Id == item.Id).ToList();
+                else if (item is ItemQ1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemQ1Id == item.Id).ToList();
+                else if (item is ItemQ2)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemQ2Id == item.Id).ToList();
+                else if (item is ItemQ3)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemQ3Id == item.Id).ToList();
+                else if (item is ItemQ4)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemQ4Id == item.Id).ToList();
+                else if (item is ItemR1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemR1Id == item.Id).ToList();
+                else if (item is ItemR2)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemR2Id == item.Id).ToList();
+                else if (item is ItemR3)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemR3Id == item.Id).ToList();
+                else if (item is ItemR4)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemR4Id == item.Id).ToList();
+                else if (item is ItemS1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemS1Id == item.Id).ToList();
+                else if (item is ItemT1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemT1Id == item.Id).ToList();
+                else if (item is ItemT2)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemT2Id == item.Id).ToList();
+                else if (item is ItemT3)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemT3Id == item.Id).ToList();
+                else if (item is ItemU1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemU1Id == item.Id).ToList();
+                else if (item is ItemV1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemV1Id == item.Id).ToList();
+                else if (item is ItemW1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemW1Id == item.Id).ToList();
+                else if (item is ItemX1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemX1Id == item.Id).ToList();
+                else if (item is ItemX2)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemX2Id == item.Id).ToList();
+                else if (item is ItemX3)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemX3Id == item.Id).ToList();
+                else if (item is ItemX4)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemX4Id == item.Id).ToList();
+                else if (item is ItemX5)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemX5Id == item.Id).ToList();
+                else if (item is ItemY1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemY1Id == item.Id).ToList();
+                else if (item is ItemZ1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemZ1Id == item.Id).ToList();
+                else if (item is ItemAA1)
+                    titles = context.Titles.Include(x => x.Specs).Where(x => x.ItemAA1Id == item.Id).ToList();
                 return titles;
             }
         }
@@ -318,6 +387,61 @@ namespace Orion.DataAccess.Service
 
                 else if (item is ItemM1)
                     dbItem = context.ItemM1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+
+                else if (item is ItemN1)
+                    dbItem = context.ItemN1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemO1)
+                    dbItem = context.ItemO1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemO2)
+                    dbItem = context.ItemO2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemP1)
+                    dbItem = context.ItemP1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemQ1)
+                    dbItem = context.ItemQ1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemQ2)
+                    dbItem = context.ItemQ2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemQ3)
+                    dbItem = context.ItemQ3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemQ4)
+                    dbItem = context.ItemQ4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemR1)
+                    dbItem = context.ItemR1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemR2)
+                    dbItem = context.ItemR2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemR3)
+                    dbItem = context.ItemR3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemR4)
+                    dbItem = context.ItemR4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemS1)
+                    dbItem = context.ItemS1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemT1)
+                    dbItem = context.ItemT1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemT2)
+                    dbItem = context.ItemT2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemT3)
+                    dbItem = context.ItemT3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemU1)
+                    dbItem = context.ItemU1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemV1)
+                    dbItem = context.ItemV1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemW1)
+                    dbItem = context.ItemW1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemX1)
+                    dbItem = context.ItemX1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemX2)
+                    dbItem = context.ItemX2s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemX3)
+                    dbItem = context.ItemX3s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemX4)
+                    dbItem = context.ItemX4s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemX5)
+                    dbItem = context.ItemX5s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemY1)
+                    dbItem = context.ItemY1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemZ1)
+                    dbItem = context.ItemZ1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
+                else if (item is ItemAA1)
+                    dbItem = context.ItemAA1s.Include(x => x.Titles).ThenInclude(x => x.Specs).FirstOrDefault(x => x.Id == item.Id);
 
                 foreach (Title title in titles)
                 {

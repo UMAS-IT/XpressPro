@@ -1,6 +1,9 @@
 ﻿using Orion.Binding.Binding;
 using Orion.Binding.Interfaces;
 using Orion.Domain.ABOVEAIR.Item;
+using Orion.Domain.AERCO.Item;
+using Orion.Domain.Baldor.Item;
+using Orion.Domain.Condair.Item;
 using Orion.Domain.EntityItem;
 using Orion.Domain.EntityItemABB;
 using Orion.Domain.EntityItemAmericanWheatley;
@@ -10,10 +13,20 @@ using Orion.Domain.EntityItemGeneralProduct;
 using Orion.Domain.EntityItemGroundfos;
 using Orion.Domain.EntityItemPuroFlux;
 using Orion.Domain.EntityItemUvResources;
+using Orion.Domain.EnviroTec.Item;
+using Orion.Domain.LYNC.Item;
 using Orion.Domain.Marvair.Item;
 using Orion.Domain.Multiaqua.Item;
+using Orion.Domain.Nortek.Item;
+using Orion.Domain.NYLE.Item;
 using Orion.Domain.PACE.Item;
+using Orion.Domain.PlasmaAir.Item;
+using Orion.Domain.Polaris.Item;
+using Orion.Domain.PVI.Item;
+using Orion.Domain.Robur.Item;
 using Orion.Domain.UMAS.Item;
+using Orion.Domain.Valent.Item;
+using Orion.Domain.Whalen.Item;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -762,6 +775,410 @@ namespace Orion.Domain.Entity
         }
         #endregion
 
+        
+        #region AERCO Items Id
+
+        private int? _itemO1Id;
+        public int? ItemO1Id
+        {
+            get => _itemO1Id;
+            set => SetProperty(ref _itemO1Id, value);
+        }
+
+        private ItemO1 _itemO1;
+        public ItemO1 ItemO1
+        {
+            get => _itemO1;
+            set => SetProperty(ref _itemO1, value);
+        }
+
+        private int? _itemO2Id;
+        public int? ItemO2Id
+        {
+            get => _itemO2Id;
+            set => SetProperty(ref _itemO2Id, value);
+        }
+
+        private ItemO2 _itemO2;
+        public ItemO2 ItemO2
+        {
+            get => _itemO2;
+            set => SetProperty(ref _itemO2, value);
+        }
+        #endregion
+
+
+        #region Baldor Items Id
+
+        private int? _itemP1Id;
+        public int? ItemP1Id
+        {
+            get => _itemP1Id;
+            set => SetProperty(ref _itemP1Id, value);
+        }
+
+        private ItemP1 _itemP1;
+        public ItemP1 ItemP1
+        {
+            get => _itemP1;
+            set => SetProperty(ref _itemP1, value);
+        }
+        #endregion
+
+
+        #region Condair Items Id
+        private int? _itemQ1Id;
+        public int? ItemQ1Id
+        {
+            get => _itemQ1Id;
+            set => SetProperty(ref _itemQ1Id, value);
+        }
+
+        private ItemQ1 _itemQ1;
+        public ItemQ1 ItemQ1
+        {
+            get => _itemQ1;
+            set => SetProperty(ref _itemQ1, value);
+        }
+
+        private int? _itemQ2Id;
+        public int? ItemQ2Id
+        {
+            get => _itemQ2Id;
+            set => SetProperty(ref _itemQ2Id, value);
+        }
+
+        private ItemQ2 _itemQ2;
+        public ItemQ2 ItemQ2
+        {
+            get => _itemQ2;
+            set => SetProperty(ref _itemQ2, value);
+        }
+
+        private int? _itemQ3Id;
+        public int? ItemQ3Id
+        {
+            get => _itemQ3Id;
+            set => SetProperty(ref _itemQ3Id, value);
+        }
+
+        private ItemQ3 _itemQ3;
+        public ItemQ3 ItemQ3
+        {
+            get => _itemQ3;
+            set => SetProperty(ref _itemQ3, value);
+        }
+
+        private int? _itemQ4Id;
+        public int? ItemQ4Id
+        {
+            get => _itemQ4Id;
+            set => SetProperty(ref _itemQ4Id, value);
+        }
+
+        private ItemQ4 _itemQ4;
+        public ItemQ4 ItemQ4
+        {
+            get => _itemQ4;
+            set => SetProperty(ref _itemQ4, value);
+        }
+        #endregion
+
+
+        #region Enviro-Tec Items Id
+        private int? _itemR1Id;
+        public int? ItemR1Id
+        {
+            get => _itemR1Id;
+            set => SetProperty(ref _itemR1Id, value);
+        }
+
+        private ItemR1 _itemR1;
+        public ItemR1 ItemR1
+        {
+            get => _itemR1;
+            set => SetProperty(ref _itemR1, value);
+        }
+
+        private int? _itemR2Id;
+        public int? ItemR2Id
+        {
+            get => _itemR2Id;
+            set => SetProperty(ref _itemR2Id, value);
+        }
+
+        private ItemR2 _itemR2;
+        public ItemR2 ItemR2
+        {
+            get => _itemR2;
+            set => SetProperty(ref _itemR2, value);
+        }
+
+        private int? _itemR3Id;
+        public int? ItemR3Id
+        {
+            get => _itemR3Id;
+            set => SetProperty(ref _itemR3Id, value);
+        }
+
+        private ItemR3 _itemR3;
+        public ItemR3 ItemR3
+        {
+            get => _itemR3;
+            set => SetProperty(ref _itemR3, value);
+        }
+
+        private int? _itemR4Id;
+        public int? ItemR4Id
+        {
+            get => _itemR4Id;
+            set => SetProperty(ref _itemR4Id, value);
+        }
+
+        private ItemR4 _itemR4;
+        public ItemR4 ItemR4
+        {
+            get => _itemR4;
+            set => SetProperty(ref _itemR4, value);
+        }
+        #endregion
+
+
+        #region LYNC Items Id
+        private int? _itemS1Id;
+        public int? ItemS1Id
+        {
+            get => _itemS1Id;
+            set => SetProperty(ref _itemS1Id, value);
+        }
+
+        private ItemS1 _itemS1;
+        public ItemS1 ItemS1
+        {
+            get => _itemS1;
+            set => SetProperty(ref _itemS1, value);
+        }
+        #endregion
+
+
+        #region Nortek Items Id
+        private int? _itemT1Id;
+        public int? ItemT1Id
+        {
+            get => _itemT1Id;
+            set => SetProperty(ref _itemT1Id, value);
+        }
+
+        private ItemT1 _itemT1;
+        public ItemT1 ItemT1
+        {
+            get => _itemT1;
+            set => SetProperty(ref _itemT1, value);
+        }
+
+        private int? _itemT2Id;
+        public int? ItemT2Id
+        {
+            get => _itemT2Id;
+            set => SetProperty(ref _itemT2Id, value);
+        }
+
+        private ItemT2 _itemT2;
+        public ItemT2 ItemT2
+        {
+            get => _itemT2;
+            set => SetProperty(ref _itemT2, value);
+        }
+
+        private int? _itemT3Id;
+        public int? ItemT3Id
+        {
+            get => _itemT3Id;
+            set => SetProperty(ref _itemT3Id, value);
+        }
+
+        private ItemT3 _itemT3;
+        public ItemT3 ItemT3
+        {
+            get => _itemT3;
+            set => SetProperty(ref _itemT3, value);
+        }
+        #endregion
+
+
+        #region NYLE Items Id
+        private int? _itemU1Id;
+        public int? ItemU1Id
+        {
+            get => _itemU1Id;
+            set => SetProperty(ref _itemU1Id, value);
+        }
+
+        private ItemU1 _itemU1;
+        public ItemU1 ItemU1
+        {
+            get => _itemU1;
+            set => SetProperty(ref _itemU1, value);
+        }
+        #endregion
+
+
+        #region Plasma Air Items Id
+        private int? _itemV1Id;
+        public int? ItemV1Id
+        {
+            get => _itemV1Id;
+            set => SetProperty(ref _itemV1Id, value);
+        }
+
+        private ItemV1 _itemV1;
+        public ItemV1 ItemV1
+        {
+            get => _itemV1;
+            set => SetProperty(ref _itemV1, value);
+        }
+        #endregion
+
+
+        #region Polaris Items Id
+        private int? _itemW1Id;
+        public int? ItemW1Id
+        {
+            get => _itemW1Id;
+            set => SetProperty(ref _itemW1Id, value);
+        }
+
+        private ItemW1 _itemW1;
+        public ItemW1 ItemW1
+        {
+            get => _itemW1;
+            set => SetProperty(ref _itemW1, value);
+        }
+        #endregion
+
+
+        #region PVI Items Id
+        private int? _itemX1Id;
+        public int? ItemX1Id
+        {
+            get => _itemX1Id;
+            set => SetProperty(ref _itemX1Id, value);
+        }
+
+        private ItemX1 _itemX1;
+        public ItemX1 ItemX1
+        {
+            get => _itemX1;
+            set => SetProperty(ref _itemX1, value);
+        }
+
+        private int? _itemX2Id;
+        public int? ItemX2Id
+        {
+            get => _itemX2Id;
+            set => SetProperty(ref _itemX2Id, value);
+        }
+
+        private ItemX2 _itemX2;
+        public ItemX2 ItemX2
+        {
+            get => _itemX2;
+            set => SetProperty(ref _itemX2, value);
+        }
+
+        private int? _itemX3Id;
+        public int? ItemX3Id
+        {
+            get => _itemX3Id;
+            set => SetProperty(ref _itemX3Id, value);
+        }
+
+        private ItemX3 _itemX3;
+        public ItemX3 ItemX3
+        {
+            get => _itemX3;
+            set => SetProperty(ref _itemX3, value);
+        }
+
+        private int? _itemX4Id;
+        public int? ItemX4Id
+        {
+            get => _itemX4Id;
+            set => SetProperty(ref _itemX4Id, value);
+        }
+
+        private ItemX4 _itemX4;
+        public ItemX4 ItemX4
+        {
+            get => _itemX4;
+            set => SetProperty(ref _itemX4, value);
+        }
+
+        private int? _itemX5Id;
+        public int? ItemX5Id
+        {
+            get => _itemX5Id;
+            set => SetProperty(ref _itemX5Id, value);
+        }
+
+        private ItemX5 _itemX5;
+        public ItemX5 ItemX5
+        {
+            get => _itemX5;
+            set => SetProperty(ref _itemX5, value);
+        }
+        #endregion
+
+
+        #region Robur Items Id
+        private int? _itemY1Id;
+        public int? ItemY1Id
+        {
+            get => _itemY1Id;
+            set => SetProperty(ref _itemY1Id, value);
+        }
+
+        private ItemY1 _itemY1;
+        public ItemY1 ItemY1
+        {
+            get => _itemY1;
+            set => SetProperty(ref _itemY1, value);
+        }
+        #endregion
+
+
+        #region Valent Items Id
+        private int? _itemZ1Id;
+        public int? ItemZ1Id
+        {
+            get => _itemZ1Id;
+            set => SetProperty(ref _itemZ1Id, value);
+        }
+
+        private ItemZ1 _itemZ1;
+        public ItemZ1 ItemZ1
+        {
+            get => _itemZ1;
+            set => SetProperty(ref _itemZ1, value);
+        }
+        #endregion
+
+
+        #region Whalen Items Id
+        private int? _itemAA1Id;
+        public int? ItemAA1Id
+        {
+            get => _itemAA1Id;
+            set => SetProperty(ref _itemAA1Id, value);
+        }
+
+        private ItemAA1 _itemAA1;
+        public ItemAA1 ItemAA1
+        {
+            get => _itemAA1;
+            set => SetProperty(ref _itemAA1, value);
+        }
+        #endregion
 
 
         private bool _saved;
