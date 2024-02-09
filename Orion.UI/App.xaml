@@ -23,6 +23,7 @@
     xmlns:viewCatalogJ="clr-namespace:Orion.UI.View.PACE.CatalogList"
     xmlns:viewCatalogK="clr-namespace:Orion.UI.View.Multiaqua.CatalogList"
     xmlns:viewCatalogL="clr-namespace:Orion.UI.View.GeneralProduct.CatalogList"
+    xmlns:viewCatalogM="clr-namespace:Orion.UI.View.UMAS.CatalogList"
     xmlns:viewDItemList="clr-namespace:Orion.UI.View.PuroFlux.QuoteItemList"
     xmlns:viewECA="clr-namespace:Orion.UI.View.Quantech.EditCatalogItem"
     xmlns:viewECB="clr-namespace:Orion.UI.View.ABB.EditCatalogItem"
@@ -36,6 +37,7 @@
     xmlns:viewECJ="clr-namespace:Orion.UI.View.PACE.EditCatalogItem"
     xmlns:viewECK="clr-namespace:Orion.UI.View.Multiaqua.EditCatalogItem"
     xmlns:viewECL="clr-namespace:Orion.UI.View.GeneralProduct.EditCatalogItem"
+    xmlns:viewECM="clr-namespace:Orion.UI.View.UMAS.EditCatalogItem"
     xmlns:viewEItemList="clr-namespace:Orion.UI.View.Groundfos.QuoteItemList"
     xmlns:viewFItemList="clr-namespace:Orion.UI.View.UvResources.QuoteItemList"
     xmlns:viewGItemList="clr-namespace:Orion.UI.View.BACCoolingTowers.QuoteItemList"
@@ -53,9 +55,11 @@
     xmlns:viewItemJ="clr-namespace:Orion.UI.View.PACE.EditQuoteItem"
     xmlns:viewItemK="clr-namespace:Orion.UI.View.Multiaqua.EditQuoteItem"
     xmlns:viewItemL="clr-namespace:Orion.UI.View.GeneralProduct.EditQuoteItem"
+    xmlns:viewItemM="clr-namespace:Orion.UI.View.UMAS.EditQuoteItem"
     xmlns:viewJItemList="clr-namespace:Orion.UI.View.PACE.QuoteItemList"
     xmlns:viewKItemList="clr-namespace:Orion.UI.View.Multiaqua.QuoteItemList"
     xmlns:viewLItemList="clr-namespace:Orion.UI.View.GeneralProduct.QuoteItemList"
+    xmlns:viewMItemList="clr-namespace:Orion.UI.View.UMAS.QuoteItemList"
     xmlns:vm="clr-namespace:Orion.UI.ViewModel"
     xmlns:vmAItemList="clr-namespace:Orion.UI.ViewModel.Quantech.QuoteItemList"
     xmlns:vmBItemList="clr-namespace:Orion.UI.ViewModel.ABB.QuoteItemList"
@@ -72,6 +76,7 @@
     xmlns:vmCatalogJ="clr-namespace:Orion.UI.ViewModel.PACE.CatalogList"
     xmlns:vmCatalogK="clr-namespace:Orion.UI.ViewModel.Multiaqua.CatalogList"
     xmlns:vmCatalogL="clr-namespace:Orion.UI.ViewModel.GeneralProduct.CatalogList"
+    xmlns:vmCatalogM="clr-namespace:Orion.UI.ViewModel.UMAS.CatalogList"
     xmlns:vmDItemList="clr-namespace:Orion.UI.ViewModel.Puroflux.QuoteItemList"
     xmlns:vmECA="clr-namespace:Orion.UI.ViewModel.Quantech.EditCatalogItem"
     xmlns:vmECB="clr-namespace:Orion.UI.ViewModel.ABB.EditCatalogItem"
@@ -85,6 +90,7 @@
     xmlns:vmECJ="clr-namespace:Orion.UI.ViewModel.PACE.EditCatalogItem"
     xmlns:vmECK="clr-namespace:Orion.UI.ViewModel.Multiaqua.EditCatalogItem"
     xmlns:vmECL="clr-namespace:Orion.UI.ViewModel.GeneralProduct.EditCatalogItem"
+    xmlns:vmECM="clr-namespace:Orion.UI.ViewModel.UMAS.EditCatalogItem"
     xmlns:vmEItemList="clr-namespace:Orion.UI.ViewModel.Groundfos.QuoteItemList"
     xmlns:vmFItemList="clr-namespace:Orion.UI.ViewModel.UvResources.QuoteItemList"
     xmlns:vmGItemList="clr-namespace:Orion.UI.ViewModel.BACCoolingTowers.QuoteItemList"
@@ -102,23 +108,24 @@
     xmlns:vmItemJ="clr-namespace:Orion.UI.ViewModel.PACE.EditQuoteItem"
     xmlns:vmItemK="clr-namespace:Orion.UI.ViewModel.Multiaqua.EditQuoteItem"
     xmlns:vmItemL="clr-namespace:Orion.UI.ViewModel.GeneralProduct.EditQuoteItem"
+    xmlns:vmItemM="clr-namespace:Orion.UI.ViewModel.UMAS.EditQuoteItem"
     xmlns:vmJItemList="clr-namespace:Orion.UI.ViewModel.PACE.QuoteItemList"
     xmlns:vmKItemList="clr-namespace:Orion.UI.ViewModel.Multiaqua.QuoteItemList"
     xmlns:vmLItemList="clr-namespace:Orion.UI.ViewModel.GeneralProduct.QuoteItemList"
-    
-    
-    
-    xmlns:viewCatalogM="clr-namespace:Orion.UI.View.UMAS.CatalogList"
-    xmlns:vmCatalogM="clr-namespace:Orion.UI.ViewModel.UMAS.CatalogList"
-    
-    xmlns:viewMItemList="clr-namespace:Orion.UI.View.UMAS.QuoteItemList"
     xmlns:vmMItemList="clr-namespace:Orion.UI.ViewModel.UMAS.QuoteItemList"
     
-    xmlns:viewItemM="clr-namespace:Orion.UI.View.UMAS.EditQuoteItem"
-    xmlns:vmItemM="clr-namespace:Orion.UI.ViewModel.UMAS.EditQuoteItem"
     
-    xmlns:viewECM="clr-namespace:Orion.UI.View.UMAS.EditCatalogItem"
-    xmlns:vmECM="clr-namespace:Orion.UI.ViewModel.UMAS.EditCatalogItem"
+    xmlns:viewNItemList="clr-namespace:Orion.UI.View.AboveAir.QuoteItemList"
+    xmlns:viewCatalogN="clr-namespace:Orion.UI.View.AboveAir.CatalogList"
+    xmlns:viewECN="clr-namespace:Orion.UI.View.AboveAir.EditCatalogItem"
+    xmlns:viewItemN="clr-namespace:Orion.UI.View.AboveAir.EditQuoteItem"
+    
+    xmlns:vmNItemList="clr-namespace:Orion.UI.ViewModel.AboveAir.QuoteItemList"
+    xmlns:vmCatalogN="clr-namespace:Orion.UI.ViewModel.AboveAir.CatalogList"
+    xmlns:vmECN="clr-namespace:Orion.UI.ViewModel.AboveAir.EditCatalogItem"
+    xmlns:vmItemN="clr-namespace:Orion.UI.ViewModel.AboveAir.EditQuoteItem"
+    
+    
     
     ShutdownMode="OnMainWindowClose"
     StartupUri="View/MainWindow.xaml">
@@ -132,6 +139,18 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Blue.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
+            <DataTemplate DataType="{x:Type vmNItemList:NItemListViewModel}">
+                <viewNItemList:NItemListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmCatalogN:CatalogN1ListViewModel}">
+                <viewCatalogN:CatalogN1ListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmECN:EditN1CatalogViewModel}">
+                <viewECN:EditN1CatalogView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmItemN:EditN1ItemViewModel}">
+                <viewItemN:EditN1ItemView />
+            </DataTemplate>
 
             <DataTemplate DataType="{x:Type vmAItemList:AItemListViewModel}">
                 <viewAItemList:AItemListView />

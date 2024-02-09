@@ -201,6 +201,17 @@
     <Compile Include="ViewModel\ABB\EditQuoteItem\EditB4ItemViewModel.cs" />
     <Compile Include="ViewModel\ABB\EditQuoteItem\EditB5ItemViewModel.cs" />
     <Compile Include="ViewModel\ABB\QuoteItemList\BItemListViewModel.cs" />
+    <Compile Include="ViewModel\AboveAir\CatalogList\CatalogN1ListViewModel.cs" />
+    <Compile Include="ViewModel\AboveAir\EditCatalogItem\EditN1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AboveAir\EditQuoteItem\EditN1ItemViewModel.cs" />
+    <Compile Include="ViewModel\AboveAir\QuoteItemList\NItemListViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\CatalogList\CatalogO1ListViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\CatalogList\CatalogO2ListViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\EditCatalogItem\EditO1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\EditCatalogItem\EditO2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\EditQuoteItem\EditO1ItemViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\EditQuoteItem\EditO2ItemViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\QuoteItemList\OItemListViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC1ListViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC2ListViewModel.cs" />
     <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC3ListViewModel.cs" />
@@ -258,13 +269,43 @@
     <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG5ItemViewModel.cs" />
     <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG6ItemViewModel.cs" />
     <Compile Include="ViewModel\BACCoolingTowers\QuoteItemList\GItemListViewModel.cs" />
+    <Compile Include="ViewModel\Baldor\CatalogList\CatalogP1ListViewModel.cs" />
+    <Compile Include="ViewModel\Baldor\EditCatalogItem\EditP1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Baldor\EditQuoteItem\EditP1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Baldor\QuoteItemList\PItemListViewModel.cs" />
     <Compile Include="ViewModel\CatalogViewModel.cs" />
     <Compile Include="ViewModel\CloneQuoteViewModel.cs" />
     <Compile Include="ViewModel\ComingSoonViewModel.cs" />
+    <Compile Include="ViewModel\Condair\CatalogList\CatalogQ1ListViewModel.cs" />
+    <Compile Include="ViewModel\Condair\CatalogList\CatalogQ2ListViewModel.cs" />
+    <Compile Include="ViewModel\Condair\CatalogList\CatalogQ3ListViewModel.cs" />
+    <Compile Include="ViewModel\Condair\CatalogList\CatalogQ4ListViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditCatalogItem\EditQ1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditCatalogItem\EditQ2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditCatalogItem\EditQ3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditCatalogItem\EditQ4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditQuoteItem\EditQ1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditQuoteItem\EditQ2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditQuoteItem\EditQ3ItemViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditQuoteItem\EditQ4ItemViewModel.cs" />
+    <Compile Include="ViewModel\Condair\QuoteItemList\QItemListViewModel.cs" />
     <Compile Include="ViewModel\ConfigurationMenuViewModel.cs" />
     <Compile Include="ViewModel\CreateQuoteViewModel.cs" />
     <Compile Include="ViewModel\DataSheetListViewModel.cs" />
     <Compile Include="ViewModel\EditUserViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\CatalogList\CatalogR1ListViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\CatalogList\CatalogR2ListViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\CatalogList\CatalogR3ListViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\CatalogList\CatalogR4ListViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditCatalogItem\EditR1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditCatalogItem\EditR2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditCatalogItem\EditR3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditCatalogItem\EditR4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditQuoteItem\EditR1ItemViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditQuoteItem\EditR2ItemViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditQuoteItem\EditR3ItemViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditQuoteItem\EditR4ItemViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\QuoteItemList\RItemListViewModel.cs" />
     <Compile Include="ViewModel\ExportProjectViewModel.cs" />
     <Compile Include="ViewModel\GeneralProduct\CatalogList\CatalogL1ListViewModel.cs" />
     <Compile Include="ViewModel\GeneralProduct\EditCatalogItem\EditL1CatalogViewModel.cs" />
@@ -294,6 +335,10 @@
     <Compile Include="ViewModel\Groundfos\QuoteItemList\EItemListViewModel.cs" />
     <Compile Include="ViewModel\ItemListViewModel.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
+    <Compile Include="ViewModel\LYNC\CatalogList\CatalogS1ListViewModel.cs" />
+    <Compile Include="ViewModel\LYNC\EditCatalogItem\EditS1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\LYNC\EditQuoteItem\EditS1ItemViewModel.cs" />
+    <Compile Include="ViewModel\LYNC\QuoteItemList\SItemListViewModel.cs" />
     <Compile Include="ViewModel\MasterCatalogListViewModel.cs" />
     <Compile Include="ViewModel\MasterEditCatalogViewModel.cs" />
     <Compile Include="ViewModel\MasterEditItemViewModel.cs" />
@@ -316,11 +361,33 @@
     <Compile Include="ViewModel\Multiaqua\EditQuoteItem\EditK3ItemViewModel.cs" />
     <Compile Include="ViewModel\Multiaqua\QuoteItemList\KItemListViewModel.cs" />
     <Compile Include="ViewModel\NewProjectViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\CatalogList\CatalogT1ListViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\CatalogList\CatalogT2ListViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\CatalogList\CatalogT3ListViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\EditCatalogItem\EditT1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\EditCatalogItem\EditT2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\EditCatalogItem\EditT3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\EditQuoteItem\EditT1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\EditQuoteItem\EditT2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\EditQuoteItem\EditT3ItemViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\QuoteItemList\TItemListViewModel.cs" />
+    <Compile Include="ViewModel\NYLE\CatalogList\CatalogU1ListViewModel.cs" />
+    <Compile Include="ViewModel\NYLE\EditCatalogItem\EditU1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\NYLE\EditQuoteItem\EditU1ItemViewModel.cs" />
+    <Compile Include="ViewModel\NYLE\QuoteItemList\UItemListViewModel.cs" />
     <Compile Include="ViewModel\OpenProjectViewModel.cs" />
     <Compile Include="ViewModel\PACE\CatalogList\CatalogJ1ListViewModel.cs" />
     <Compile Include="ViewModel\PACE\EditCatalogItem\EditJ1CatalogViewModel.cs" />
     <Compile Include="ViewModel\PACE\EditQuoteItem\EditJ1ItemViewModel.cs" />
     <Compile Include="ViewModel\PACE\QuoteItemList\JItemListViewModel.cs" />
+    <Compile Include="ViewModel\PlasmaAir\CatalogList\CatalogV1ListViewModel.cs" />
+    <Compile Include="ViewModel\PlasmaAir\EditCatalogItem\EditV1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PlasmaAir\EditQuoteItem\EditV1ItemViewModel.cs" />
+    <Compile Include="ViewModel\PlasmaAir\QuoteItemList\VItemListViewModel.cs" />
+    <Compile Include="ViewModel\Polaris\CatalogList\CatalogW1ListViewModel.cs" />
+    <Compile Include="ViewModel\Polaris\EditCatalogItem\EditW1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Polaris\EditQuoteItem\EditW1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Polaris\QuoteItemList\WItemListViewModel.cs" />
     <Compile Include="ViewModel\ProjectInformationViewModel.cs" />
     <Compile Include="ViewModel\Puroflux\CatalogList\CatalogD1ListViewModel.cs" />
     <Compile Include="ViewModel\Puroflux\CatalogList\CatalogD2ListViewModel.cs" />
@@ -329,6 +396,22 @@
     <Compile Include="ViewModel\Puroflux\EditQuoteItem\EditD1ItemViewModel.cs" />
     <Compile Include="ViewModel\Puroflux\EditQuoteItem\EditD2ItemViewModel.cs" />
     <Compile Include="ViewModel\Puroflux\QuoteItemList\DItemListViewModel.cs" />
+    <Compile Include="ViewModel\PVI\CatalogList\CatalogX1ListViewModel.cs" />
+    <Compile Include="ViewModel\PVI\CatalogList\CatalogX2ListViewModel.cs" />
+    <Compile Include="ViewModel\PVI\CatalogList\CatalogX3ListViewModel.cs" />
+    <Compile Include="ViewModel\PVI\CatalogList\CatalogX4ListViewModel.cs" />
+    <Compile Include="ViewModel\PVI\CatalogList\CatalogX5ListViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditCatalogItem\EditX1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditCatalogItem\EditX2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditCatalogItem\EditX3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditCatalogItem\EditX4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditCatalogItem\EditX5CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditQuoteItem\EditX1ItemViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditQuoteItem\EditX2ItemViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditQuoteItem\EditX3ItemViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditQuoteItem\EditX4ItemViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditQuoteItem\EditX5ItemViewModel.cs" />
+    <Compile Include="ViewModel\PVI\QuoteItemList\XItemListViewModel.cs" />
     <Compile Include="ViewModel\Quantech\CatalogList\CatalogA1ListViewModel.cs" />
     <Compile Include="ViewModel\Quantech\CatalogList\CatalogA2ListViewModel.cs" />
     <Compile Include="ViewModel\Quantech\CatalogList\CatalogA3ListViewModel.cs" />
@@ -344,6 +427,10 @@
     <Compile Include="ViewModel\Quantech\QuoteItemList\AItemListViewModel.cs" />
     <Compile Include="ViewModel\QuoteViewModel.cs" />
     <Compile Include="ViewModel\ReportsViewModel.cs" />
+    <Compile Include="ViewModel\Robur\CatalogList\CatalogY1ListViewModel.cs" />
+    <Compile Include="ViewModel\Robur\EditCatalogItem\EditY1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Robur\EditQuoteItem\EditY1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Robur\QuoteItemList\YItemListViewModel.cs" />
     <Compile Include="ViewModel\TitleFromItemViewModel.cs" />
     <Compile Include="ViewModel\TitleViewModel.cs" />
     <Compile Include="ViewModel\UMAS\CatalogList\CatalogM1ListViewModel.cs" />
@@ -355,6 +442,14 @@
     <Compile Include="ViewModel\UvResources\EditCatalogItem\EditF1CatalogViewModel.cs" />
     <Compile Include="ViewModel\UvResources\EditQuoteItem\EditF1ItemViewModel.cs" />
     <Compile Include="ViewModel\UvResources\QuoteItemList\FItemListViewModel.cs" />
+    <Compile Include="ViewModel\Valent\CatalogList\CatalogZ1ListViewModel.cs" />
+    <Compile Include="ViewModel\Valent\EditCatalogItem\EditZ1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Valent\EditQuoteItem\EditZ1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Valent\QuoteItemList\ZItemListViewModel.cs" />
+    <Compile Include="ViewModel\Whalen\CatalogList\CatalogAA1ListViewModel.cs" />
+    <Compile Include="ViewModel\Whalen\EditCatalogItem\EditAA1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Whalen\EditQuoteItem\EditAA1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Whalen\QuoteItemList\AAItemListViewModel.cs" />
     <Compile Include="View\ABB\CatalogList\CatalogB1ListView.xaml.cs">
       <DependentUpon>CatalogB1ListView.xaml</DependentUpon>
     </Compile>
@@ -402,6 +497,39 @@
     </Compile>
     <Compile Include="View\ABB\QuoteItemList\BItemListView.xaml.cs">
       <DependentUpon>BItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AboveAir\CatalogList\CatalogN1ListView.xaml.cs">
+      <DependentUpon>CatalogN1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AboveAir\EditCatalogItem\EditN1CatalogView.xaml.cs">
+      <DependentUpon>EditN1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AboveAir\EditQuoteItem\EditN1ItemView.xaml.cs">
+      <DependentUpon>EditN1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AboveAir\QuoteItemList\NItemListView.xaml.cs">
+      <DependentUpon>NItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\CatalogList\CatalogO1ListView.xaml.cs">
+      <DependentUpon>CatalogO1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\CatalogList\CatalogO2ListView.xaml.cs">
+      <DependentUpon>CatalogO2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\EditCatalogItem\EditO1CatalogView.xaml.cs">
+      <DependentUpon>EditO1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\EditCatalogItem\EditO2CatalogView.xaml.cs">
+      <DependentUpon>EditO2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\EditQuoteItem\EditO1ItemView.xaml.cs">
+      <DependentUpon>EditO1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\EditQuoteItem\EditO2ItemView.xaml.cs">
+      <DependentUpon>EditO2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\QuoteItemList\OItemListView.xaml.cs">
+      <DependentUpon>OItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AmericanWheatley\CatalogList\CatalogC1ListView.xaml.cs">
       <DependentUpon>CatalogC1ListView.xaml</DependentUpon>
@@ -574,6 +702,18 @@
     <Compile Include="View\BACCoolingTowers\QuoteItemList\GItemListView.xaml.cs">
       <DependentUpon>GItemListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Baldor\CatalogList\CatalogP1ListView.xaml.cs">
+      <DependentUpon>CatalogP1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Baldor\EditCatalogItem\EditP1CatalogView.xaml.cs">
+      <DependentUpon>EditP1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Baldor\EditQuoteItem\EditP1ItemView.xaml.cs">
+      <DependentUpon>EditP1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Baldor\QuoteItemList\PItemListView.xaml.cs">
+      <DependentUpon>PItemListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CatalogView.xaml.cs">
       <DependentUpon>CatalogView.xaml</DependentUpon>
     </Compile>
@@ -582,6 +722,45 @@
     </Compile>
     <Compile Include="View\ComingSoonView.xaml.cs">
       <DependentUpon>ComingSoonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\CatalogList\CatalogQ1ListView.xaml.cs">
+      <DependentUpon>CatalogQ1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\CatalogList\CatalogQ2ListView.xaml.cs">
+      <DependentUpon>CatalogQ2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\CatalogList\CatalogQ3ListView.xaml.cs">
+      <DependentUpon>CatalogQ3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\CatalogList\CatalogQ4ListView.xaml.cs">
+      <DependentUpon>CatalogQ4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditCatalogItem\EditQ1CatalogView.xaml.cs">
+      <DependentUpon>EditQ1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditCatalogItem\EditQ2CatalogView.xaml.cs">
+      <DependentUpon>EditQ2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditCatalogItem\EditQ3CatalogView.xaml.cs">
+      <DependentUpon>EditQ3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditCatalogItem\EditQ4CatalogView.xaml.cs">
+      <DependentUpon>EditQ4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditQuoteItem\EditQ1ItemView.xaml.cs">
+      <DependentUpon>EditQ1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditQuoteItem\EditQ2ItemView.xaml.cs">
+      <DependentUpon>EditQ2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditQuoteItem\EditQ3ItemView.xaml.cs">
+      <DependentUpon>EditQ3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditQuoteItem\EditQ4ItemView.xaml.cs">
+      <DependentUpon>EditQ4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\QuoteItemList\QItemListView.xaml.cs">
+      <DependentUpon>QItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ConfigurationMenuView.xaml.cs">
       <DependentUpon>ConfigurationMenuView.xaml</DependentUpon>
@@ -594,6 +773,45 @@
     </Compile>
     <Compile Include="View\EditUserView.xaml.cs">
       <DependentUpon>EditUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\CatalogList\CatalogR1ListView.xaml.cs">
+      <DependentUpon>CatalogR1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\CatalogList\CatalogR2ListView.xaml.cs">
+      <DependentUpon>CatalogR2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\CatalogList\CatalogR3ListView.xaml.cs">
+      <DependentUpon>CatalogR3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\CatalogList\CatalogR4ListView.xaml.cs">
+      <DependentUpon>CatalogR4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditCatalogItem\EditR1CatalogView.xaml.cs">
+      <DependentUpon>EditR1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditCatalogItem\EditR2CatalogView.xaml.cs">
+      <DependentUpon>EditR2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditCatalogItem\EditR3CatalogView.xaml.cs">
+      <DependentUpon>EditR3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditCatalogItem\EditR4CatalogView.xaml.cs">
+      <DependentUpon>EditR4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditQuoteItem\EditR1ItemView.xaml.cs">
+      <DependentUpon>EditR1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditQuoteItem\EditR2ItemView.xaml.cs">
+      <DependentUpon>EditR2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditQuoteItem\EditR3ItemView.xaml.cs">
+      <DependentUpon>EditR3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditQuoteItem\EditR4ItemView.xaml.cs">
+      <DependentUpon>EditR4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\QuoteItemList\RItemListView.xaml.cs">
+      <DependentUpon>RItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ExportProjectView.xaml.cs">
       <DependentUpon>ExportProjectView.xaml</DependentUpon>
@@ -679,6 +897,18 @@
     <Compile Include="View\ItemView.xaml.cs">
       <DependentUpon>ItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\LYNC\CatalogList\CatalogS1ListView.xaml.cs">
+      <DependentUpon>CatalogS1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LYNC\EditCatalogItem\EditS1CatalogView.xaml.cs">
+      <DependentUpon>EditS1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LYNC\EditQuoteItem\EditS1ItemView.xaml.cs">
+      <DependentUpon>EditS1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LYNC\QuoteItemList\SItemListView.xaml.cs">
+      <DependentUpon>SItemListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Marvair\CatalogList\CatalogI1ListView.xaml.cs">
       <DependentUpon>CatalogI1ListView.xaml</DependentUpon>
     </Compile>
@@ -736,6 +966,48 @@
     <Compile Include="View\NewProjectView.xaml.cs">
       <DependentUpon>NewProjectView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Nortek\CatalogList\CatalogT1ListView.xaml.cs">
+      <DependentUpon>CatalogT1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\CatalogList\CatalogT2ListView.xaml.cs">
+      <DependentUpon>CatalogT2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\CatalogList\CatalogT3ListView.xaml.cs">
+      <DependentUpon>CatalogT3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\EditCatalogItem\EditT1CatalogView.xaml.cs">
+      <DependentUpon>EditT1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\EditCatalogItem\EditT2CatalogView.xaml.cs">
+      <DependentUpon>EditT2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\EditCatalogItem\EditT3CatalogView.xaml.cs">
+      <DependentUpon>EditT3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\EditQuoteItem\EditT1ItemView.xaml.cs">
+      <DependentUpon>EditT1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\EditQuoteItem\EditT2ItemView.xaml.cs">
+      <DependentUpon>EditT2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\EditQuoteItem\EditT3ItemView.xaml.cs">
+      <DependentUpon>EditT3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\QuoteItemList\TItemListView.xaml.cs">
+      <DependentUpon>TItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NYLE\CatalogList\CatalogU1ListView.xaml.cs">
+      <DependentUpon>CatalogU1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NYLE\EditCatalogItem\EditU1CatalogView.xaml.cs">
+      <DependentUpon>EditU1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NYLE\EditQuoteItem\EditU1ItemView.xaml.cs">
+      <DependentUpon>EditU1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NYLE\QuoteItemList\UItemListView.xaml.cs">
+      <DependentUpon>UItemListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\OpenProjectView.xaml.cs">
       <DependentUpon>OpenProjectView.xaml</DependentUpon>
     </Compile>
@@ -750,6 +1022,30 @@
     </Compile>
     <Compile Include="View\PACE\QuoteItemList\JItemListView.xaml.cs">
       <DependentUpon>JItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlasmaAir\CatalogList\CatalogV1ListView.xaml.cs">
+      <DependentUpon>CatalogV1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlasmaAir\EditCatalogItem\EditV1CatalogView.xaml.cs">
+      <DependentUpon>EditV1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlasmaAir\EditQuoteItem\EditV1ItemView.xaml.cs">
+      <DependentUpon>EditV1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlasmaAir\QuoteItemList\VItemListView.xaml.cs">
+      <DependentUpon>VItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Polaris\CatalogList\CatalogW1ListView.xaml.cs">
+      <DependentUpon>CatalogW1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Polaris\EditCatalogItem\EditW1CatalogView.xaml.cs">
+      <DependentUpon>EditW1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Polaris\EditQuoteItem\EditW1ItemView.xaml.cs">
+      <DependentUpon>EditW1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Polaris\QuoteItemList\WItemListView.xaml.cs">
+      <DependentUpon>WItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProjectInformationView.xaml.cs">
       <DependentUpon>ProjectInformationView.xaml</DependentUpon>
@@ -774,6 +1070,45 @@
     </Compile>
     <Compile Include="View\PuroFlux\QuoteItemList\DItemListView.xaml.cs">
       <DependentUpon>DItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\CatalogList\CatalogX1ListView.xaml.cs">
+      <DependentUpon>CatalogX1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\CatalogList\CatalogX2ListView.xaml.cs">
+      <DependentUpon>CatalogX2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\CatalogList\CatalogX3ListView.xaml.cs">
+      <DependentUpon>CatalogX3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\CatalogList\CatalogX4ListView.xaml.cs">
+      <DependentUpon>CatalogX4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditCatalogItem\EditX1CatalogView.xaml.cs">
+      <DependentUpon>EditX1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditCatalogItem\EditX2CatalogView.xaml.cs">
+      <DependentUpon>EditX2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditCatalogItem\EditX3CatalogView.xaml.cs">
+      <DependentUpon>EditX3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditCatalogItem\EditX4CatalogView.xaml.cs">
+      <DependentUpon>EditX4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditQuoteItem\EditX1ItemView.xaml.cs">
+      <DependentUpon>EditX1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditQuoteItem\EditX2ItemView.xaml.cs">
+      <DependentUpon>EditX2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditQuoteItem\EditX3ItemView.xaml.cs">
+      <DependentUpon>EditX3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditQuoteItem\EditX4ItemView.xaml.cs">
+      <DependentUpon>EditX4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\QuoteItemList\XItemListView.xaml.cs">
+      <DependentUpon>XItemListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Quantech\CatalogList\CatalogA1ListView.xaml.cs">
       <DependentUpon>CatalogA1ListView.xaml</DependentUpon>
@@ -820,6 +1155,18 @@
     <Compile Include="View\ReportsView.xaml.cs">
       <DependentUpon>ReportsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Robur\CatalogList\CatalogY1ListView.xaml.cs">
+      <DependentUpon>CatalogY1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Robur\EditCatalogItem\EditY1CatalogView.xaml.cs">
+      <DependentUpon>EditY1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Robur\EditQuoteItem\EditY1ItemView.xaml.cs">
+      <DependentUpon>EditY1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Robur\QuoteItemList\YItemListView.xaml.cs">
+      <DependentUpon>YItemListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TitleFromItemView.xaml.cs">
       <DependentUpon>TitleFromItemView.xaml</DependentUpon>
     </Compile>
@@ -852,6 +1199,30 @@
     </Compile>
     <Compile Include="View\UvResources\QuoteItemList\FItemListView.xaml.cs">
       <DependentUpon>FItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Valent\CatalogList\CatalogZ1ListView.xaml.cs">
+      <DependentUpon>CatalogZ1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Valent\EditCatalogItem\EditZ1CatalogView.xaml.cs">
+      <DependentUpon>EditZ1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Valent\EditQuoteItem\EditZ1ItemView.xaml.cs">
+      <DependentUpon>EditZ1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Valent\QuoteItemList\ZItemListView.xaml.cs">
+      <DependentUpon>ZItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Whalen\CatalogList\CatalogAA1ItemListView.xaml.cs">
+      <DependentUpon>CatalogAA1ItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Whalen\EditCatalogItem\EditAA1CatalogView.xaml.cs">
+      <DependentUpon>EditAA1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Whalen\EditQuoteItem\EditAA1ItemView.xaml.cs">
+      <DependentUpon>EditAA1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Whalen\QuoteItemList\AAItemListView.xaml.cs">
+      <DependentUpon>AAItemListView.xaml</DependentUpon>
     </Compile>
     <Page Include="View\ABB\CatalogList\CatalogB1ListView.xaml">
       <SubType>Designer</SubType>
@@ -914,6 +1285,50 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ABB\QuoteItemList\BItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboveAir\CatalogList\CatalogN1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboveAir\EditCatalogItem\EditN1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboveAir\EditQuoteItem\EditN1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboveAir\QuoteItemList\NItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\CatalogList\CatalogO1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\CatalogList\CatalogO2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\EditCatalogItem\EditO1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\EditCatalogItem\EditO2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\EditQuoteItem\EditO1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\EditQuoteItem\EditO2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\QuoteItemList\OItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1149,6 +1564,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Baldor\CatalogList\CatalogP1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Baldor\EditCatalogItem\EditP1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Baldor\EditQuoteItem\EditP1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Baldor\QuoteItemList\PItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CatalogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1158,6 +1589,58 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ComingSoonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\CatalogList\CatalogQ1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\CatalogList\CatalogQ2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\CatalogList\CatalogQ3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\CatalogList\CatalogQ4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditCatalogItem\EditQ1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditCatalogItem\EditQ2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditCatalogItem\EditQ3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditCatalogItem\EditQ4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditQuoteItem\EditQ1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditQuoteItem\EditQ2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditQuoteItem\EditQ3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditQuoteItem\EditQ4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\QuoteItemList\QItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1174,6 +1657,58 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\CatalogList\CatalogR1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\CatalogList\CatalogR2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\CatalogList\CatalogR3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\CatalogList\CatalogR4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditCatalogItem\EditR1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditCatalogItem\EditR2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditCatalogItem\EditR3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditCatalogItem\EditR4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditQuoteItem\EditR1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditQuoteItem\EditR2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditQuoteItem\EditR3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditQuoteItem\EditR4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\QuoteItemList\RItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1293,6 +1828,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\LYNC\CatalogList\CatalogS1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LYNC\EditCatalogItem\EditS1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LYNC\EditQuoteItem\EditS1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LYNC\QuoteItemList\SItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1391,6 +1942,62 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Nortek\CatalogList\CatalogT1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\CatalogList\CatalogT2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\CatalogList\CatalogT3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\EditCatalogItem\EditT1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\EditCatalogItem\EditT2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\EditCatalogItem\EditT3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\EditQuoteItem\EditT1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\EditQuoteItem\EditT2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\EditQuoteItem\EditT3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\QuoteItemList\TItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NYLE\CatalogList\CatalogU1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NYLE\EditCatalogItem\EditU1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NYLE\EditQuoteItem\EditU1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NYLE\QuoteItemList\UItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\OpenProjectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1408,6 +2015,38 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PACE\QuoteItemList\JItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PlasmaAir\CatalogList\CatalogV1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PlasmaAir\EditCatalogItem\EditV1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PlasmaAir\EditQuoteItem\EditV1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PlasmaAir\QuoteItemList\VItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Polaris\CatalogList\CatalogW1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Polaris\EditCatalogItem\EditW1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Polaris\EditQuoteItem\EditW1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Polaris\QuoteItemList\WItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1440,6 +2079,58 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PuroFlux\QuoteItemList\DItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\CatalogList\CatalogX1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\CatalogList\CatalogX2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\CatalogList\CatalogX3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\CatalogList\CatalogX4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditCatalogItem\EditX1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditCatalogItem\EditX2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditCatalogItem\EditX3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditCatalogItem\EditX4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditQuoteItem\EditX1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditQuoteItem\EditX2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditQuoteItem\EditX3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditQuoteItem\EditX4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\QuoteItemList\XItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1503,6 +2194,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Robur\CatalogList\CatalogY1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Robur\EditCatalogItem\EditY1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Robur\EditQuoteItem\EditY1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Robur\QuoteItemList\YItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TitleFromItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1544,6 +2251,38 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UvResources\QuoteItemList\FItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Valent\CatalogList\CatalogZ1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Valent\EditCatalogItem\EditZ1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Valent\EditQuoteItem\EditZ1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Valent\QuoteItemList\ZItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Whalen\CatalogList\CatalogAA1ItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Whalen\EditCatalogItem\EditAA1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Whalen\EditQuoteItem\EditAA1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Whalen\QuoteItemList\AAItemListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
