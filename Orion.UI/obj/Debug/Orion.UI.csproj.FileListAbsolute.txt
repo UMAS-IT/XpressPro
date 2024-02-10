@@ -1341,7 +1341,6 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Valent
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Valent\EditCatalogItem\EditZ1CatalogView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Valent\EditQuoteItem\EditZ1ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Valent\QuoteItemList\ZItemListView.g.cs
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Whalen\CatalogList\CatalogAA1ItemListView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Whalen\EditCatalogItem\EditAA1CatalogView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Whalen\EditQuoteItem\EditAA1ItemView.g.cs
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Whalen\QuoteItemList\AAItemListView.g.cs
@@ -1433,7 +1432,14 @@ C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Valent
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Valent\EditCatalogItem\EditZ1CatalogView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Valent\EditQuoteItem\EditZ1ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Valent\QuoteItemList\ZItemListView.baml
-C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Whalen\CatalogList\CatalogAA1ItemListView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Whalen\EditCatalogItem\EditAA1CatalogView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Whalen\EditQuoteItem\EditAA1ItemView.baml
 C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Whalen\QuoteItemList\AAItemListView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PVI\CatalogList\CatalogX5ListView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PVI\EditCatalogItem\EditX5CatalogView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PVI\EditQuoteItem\EditX5ItemView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PVI\CatalogList\CatalogX5ListView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PVI\EditCatalogItem\EditX5CatalogView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\PVI\EditQuoteItem\EditX5ItemView.baml
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Whalen\CatalogList\CatalogAA1ListView.g.cs
+C:\Users\TRINITY BUILD\Documents\GitHub\XpressPro\Orion.UI\obj\Debug\View\Whalen\CatalogList\CatalogAA1ListView.baml

@@ -1083,6 +1083,9 @@
     <Compile Include="View\PVI\CatalogList\CatalogX4ListView.xaml.cs">
       <DependentUpon>CatalogX4ListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PVI\CatalogList\CatalogX5ListView.xaml.cs">
+      <DependentUpon>CatalogX5ListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PVI\EditCatalogItem\EditX1CatalogView.xaml.cs">
       <DependentUpon>EditX1CatalogView.xaml</DependentUpon>
     </Compile>
@@ -1095,6 +1098,9 @@
     <Compile Include="View\PVI\EditCatalogItem\EditX4CatalogView.xaml.cs">
       <DependentUpon>EditX4CatalogView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PVI\EditCatalogItem\EditX5CatalogView.xaml.cs">
+      <DependentUpon>EditX5CatalogView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PVI\EditQuoteItem\EditX1ItemView.xaml.cs">
       <DependentUpon>EditX1ItemView.xaml</DependentUpon>
     </Compile>
@@ -1106,6 +1112,9 @@
     </Compile>
     <Compile Include="View\PVI\EditQuoteItem\EditX4ItemView.xaml.cs">
       <DependentUpon>EditX4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditQuoteItem\EditX5ItemView.xaml.cs">
+      <DependentUpon>EditX5ItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PVI\QuoteItemList\XItemListView.xaml.cs">
       <DependentUpon>XItemListView.xaml</DependentUpon>
@@ -1212,8 +1221,8 @@
     <Compile Include="View\Valent\QuoteItemList\ZItemListView.xaml.cs">
       <DependentUpon>ZItemListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Whalen\CatalogList\CatalogAA1ItemListView.xaml.cs">
-      <DependentUpon>CatalogAA1ItemListView.xaml</DependentUpon>
+    <Compile Include="View\Whalen\CatalogList\CatalogAA1ListView.xaml.cs">
+      <DependentUpon>CatalogAA1ListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Whalen\EditCatalogItem\EditAA1CatalogView.xaml.cs">
       <DependentUpon>EditAA1CatalogView.xaml</DependentUpon>
@@ -2098,6 +2107,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\PVI\CatalogList\CatalogX5ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PVI\EditCatalogItem\EditX1CatalogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -2114,6 +2127,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\PVI\EditCatalogItem\EditX5CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PVI\EditQuoteItem\EditX1ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -2127,6 +2144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PVI\EditQuoteItem\EditX4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditQuoteItem\EditX5ItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -2270,7 +2291,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Whalen\CatalogList\CatalogAA1ItemListView.xaml">
+    <Page Include="View\Whalen\CatalogList\CatalogAA1ListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

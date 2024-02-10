@@ -66,37 +66,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pricing\PricingA.cs" />
-    <Compile Include="Pricing\PricingAA.cs" />
-    <Compile Include="Pricing\PricingB.cs" />
-    <Compile Include="Pricing\PricingC.cs" />
-    <Compile Include="Pricing\PricingD.cs" />
-    <Compile Include="Pricing\PricingE.cs" />
     <Compile Include="Pricing\PricingExcelReport.cs" />
-    <Compile Include="Pricing\PricingF.cs" />
-    <Compile Include="Pricing\PricingG.cs" />
-    <Compile Include="Pricing\PricingH.cs" />
-    <Compile Include="Pricing\PricingI.cs" />
     <Compile Include="Pricing\PricingItem.cs" />
-    <Compile Include="Pricing\PricingJ.cs" />
-    <Compile Include="Pricing\PricingK.cs" />
-    <Compile Include="Pricing\PricingL.cs" />
-    <Compile Include="Pricing\PricingM.cs" />
-    <Compile Include="Pricing\PricingN.cs" />
-    <Compile Include="Pricing\PricingO.cs" />
-    <Compile Include="Pricing\PricingP.cs" />
-    <Compile Include="Pricing\PricingQ.cs" />
-    <Compile Include="Pricing\PricingR.cs" />
     <Compile Include="Pricing\PricingReport.cs" />
-    <Compile Include="Pricing\PricingS.cs" />
-    <Compile Include="Pricing\PricingT.cs" />
-    <Compile Include="Pricing\PricingU.cs" />
-    <Compile Include="Pricing\PricingV.cs" />
-    <Compile Include="Pricing\PricingW.cs" />
     <Compile Include="Pricing\PricingWordReport.cs" />
-    <Compile Include="Pricing\PricingX.cs" />
-    <Compile Include="Pricing\PricingY.cs" />
-    <Compile Include="Pricing\PricingZ.cs" />
     <Compile Include="Pricing\ReportSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
