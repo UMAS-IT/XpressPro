@@ -1404,5 +1404,15 @@ namespace Orion.DataAccess.Service
 
             return (ICatalog)Activator.CreateInstance(catalogClassType);
         }
+
+        public string GetProductName(ItemType itemType)
+        {
+            string productIndex = itemType.ToString().Substring(4);
+
+            using (GlobalDbContext context = new GlobalDbContext())
+            {
+                return context.Products.FirstOrDefault(x => x.Index.ToFormat() == productIndex.ToFormat()).Name;
+            }
+        }
     }
 }

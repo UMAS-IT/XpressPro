@@ -48,6 +48,14 @@ namespace Orion.UI.ViewModel
             get => _itemType;
             set => SetProperty(ref _itemType, value);
         }
+
+        private string _productName;
+        public string ProductName
+        {
+            get => _productName;
+            set => SetProperty(ref _productName, value);
+        }
+
         public AsyncRelayCommand LoadDataCommand { get; set; }
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand ResetSearchCommand { get; set; }
@@ -111,7 +119,8 @@ namespace Orion.UI.ViewModel
 
                 Model = "";
                 CatalogsBase = catalogService.GetCatalogs(ItemType).OrderByDescending(x => x.Id).ToObservableCollection();
-                
+                ProductName = catalogService.GetProductName(ItemType);
+
                 if (CatalogsBase.Any(x => x is CatalogB1))
                     CatalogsBase = CatalogsBase.Cast<CatalogB1>().OrderBy(x => x.Hp).ToList<ICatalog>().ToObservableCollection();
                
