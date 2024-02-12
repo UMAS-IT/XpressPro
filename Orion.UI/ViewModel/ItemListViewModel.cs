@@ -74,6 +74,7 @@ namespace Orion.UI.ViewModel
             get => _quoteCompany;
             set => SetProperty(ref _quoteCompany, value);
         }
+
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand<string> EditItemsCommand { get; set; }
         public RelayCommand<IItem> MoveToStartCommand { get; set; }

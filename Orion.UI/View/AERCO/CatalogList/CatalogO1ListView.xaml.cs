@@ -24,5 +24,6 @@ namespace Orion.UI.View.AERCO.CatalogList
         {
             InitializeComponent();
         }
+
     }
 }
