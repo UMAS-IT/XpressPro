@@ -1,4 +1,5 @@
-﻿<UserControl x:Class="Orion.UI.View.NYLE.EditQuoteItem.EditU1ItemView"
+﻿<UserControl
+    x:Class="Orion.UI.View.NYLE.EditQuoteItem.EditU1ItemView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
@@ -248,7 +249,7 @@
 
                 <DataGrid
                     Grid.Row="1"
-                    Margin="5,5,5,5"
+                    Margin="-2504,1343,2514,-1333"
                     CanUserSortColumns="False"
                     FrozenColumnCount="1"
                     ItemsSource="{Binding Items, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
