@@ -9,6 +9,8 @@
     xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:Orion.UI.DependencyProperties"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Orion.UI.ViewModel.AboveAir.QuoteItemList"
+    d:DataContext="{d:DesignInstance Type=vm:NItemListViewModel}"
     d:DesignHeight="600"
     d:DesignWidth="800"
     dialog:DialogParticipation.Register="{Binding}"
@@ -103,7 +105,7 @@
                 <local:FullItemDataGrid ItemsSource="{Binding ItemN1s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
                     <local:FullItemDataGrid.Columns>
 
-                        <DataGridTemplateColumn Header="Model" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                        <DataGridTemplateColumn Header="Type" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox

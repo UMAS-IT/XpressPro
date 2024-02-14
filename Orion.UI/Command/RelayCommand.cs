@@ -238,6 +238,7 @@ namespace Orion.UI.Command
     public interface IListViewModel
     {
         ObservableCollection<IItem> Items { get; set; }
+        ObservableCollection<IItem> DeletedItems { get; set; }
         ObservableCollection<Company> Companies { get; set; }
         Quote Quote { get; set; }
         QuoteCompanies QuoteCompany { get; set; }

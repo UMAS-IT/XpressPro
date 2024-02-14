@@ -104,6 +104,13 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _items, value);
         }
 
+        private ObservableCollection<IItem> _deletedItems;
+        public ObservableCollection<IItem> DeletedItems
+        {
+            get => _deletedItems;
+            set => SetProperty(ref _deletedItems, value);
+        }
+
         private ObservableCollection<IListViewModel> _itemListViewModels;
         public ObservableCollection<IListViewModel> ItemListViewModels
         {
@@ -166,6 +173,12 @@ namespace Orion.UI.ViewModel
                     return;
 
                 Items = itemService.UpdateQuoteAllItems(Quote, items).ToObservableCollection();
+
+                itemService.RemoveDeletedItems(Quote, DeletedItems);
+                
+                DeletedItems.Clear();
+
+                ItemListViewModels.ToList().ForEach(x => x.DeletedItems.Clear());
 
                 Quote.QuoteCompanies = ItemListViewModels.Select(x => x.QuoteCompany).ToList();
 
@@ -266,14 +279,13 @@ namespace Orion.UI.ViewModel
             {
                 await messageService.StartMessage("Quote Items", "Loading items, please wait...");
 
-                //ProductsActive = true;
+                DeletedItems = new ObservableCollection<IItem>();
                 Project = projectService.GetProjectById(projectId);
                 Quote = quoteService.GetQuoteByQuoteId(quoteId);
                 mw.Title = $@"XpressPro ({Project.Name} / {Quote.Name})";
                 Companies = companyService.GetCompanies().ToObservableCollection();
                 Items = itemService.GetAllItemByQuoteId(quoteId).ToObservableCollection();
 
-                //LoadItemLists();
                 ItemListViewModels = new ObservableCollection<IListViewModel>();
                 FillItemListViewModels();
 
@@ -318,25 +330,6 @@ namespace Orion.UI.ViewModel
                 CreateAddItemListViewModelAndQuoteCompany(subfixGroup.Key, itemListViewModel, quoteCompanyExist);
             }
 
-            //bool hasIndex = Quote.QuoteCompanies.Any();
-
-            //foreach (IItem item in Items)
-            //{
-            //    ItemType itemType = VmHelper.GetItemType(item);
-            //    Subfix subfix = VmHelper.GetSubfix(itemType);
-
-            //    Type viewModelType = VmHelper.GetItemListViewModelTypeForSubfix(subfix);
-
-            //    // Find the list view model from the collection
-            //    IListViewModel itemListViewModel = ItemListViewModels.FirstOrDefault(x => viewModelType.IsAssignableFrom(x.GetType()));
-
-            //    if (itemListViewModel == null)
-            //    {
-            //        itemListViewModel = (IListViewModel)Activator.CreateInstance(viewModelType, dialogCoordinator, Items, Quote, Companies);
-            //        CreateAddItemListViewModelAndQuoteCompany(subfix, itemListViewModel, hasIndex);
-            //    }
-            //}
-
             OrderItemListViewModels();
         }
 
@@ -350,12 +343,6 @@ namespace Orion.UI.ViewModel
                 Company company = Companies.FirstOrDefault(x => x.Subfix == subfix.ToString());
 
                 QuoteCompanies quoteCompany = quoteService.CreateQuoteCompany(Quote, company, currentIndex);
-
-                //QuoteCompanies quoteCompany = new QuoteCompanies()
-                //{
-                //    Company = Companies.FirstOrDefault(x => x.Subfix == subfix.ToString()),
-                //    DesignIndex = currentIndex
-                //};
 
                 Quote.QuoteCompanies.Add(quoteCompany);
                 itemListViewModel.QuoteCompany = quoteCompany;
@@ -371,6 +358,8 @@ namespace Orion.UI.ViewModel
 
         private void OnDeleteItemListViewModel(IListViewModel itemListViewModel)
         {
+            itemListViewModel.DeletedItems.ToList().ForEach(x => DeletedItems.Add(x));
+
             ItemListViewModels.Remove(itemListViewModel);
 
             ItemListViewModels.ToList().ForEach(x => x.QuoteCompany.DesignIndex = ItemListViewModels.IndexOf(x));
@@ -495,6 +484,8 @@ namespace Orion.UI.ViewModel
                 itemListViewModel = (IListViewModel)Activator.CreateInstance(viewModelType,dialogCoordinator, items, Quote, Companies);
                 CreateAddItemListViewModelAndQuoteCompany(subfix, itemListViewModel);
             }
+
+            itemListViewModel.DeletedItems.Clear();
         }
     }
 }

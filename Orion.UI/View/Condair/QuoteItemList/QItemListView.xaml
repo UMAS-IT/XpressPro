@@ -106,7 +106,7 @@
                 <local:FullItemDataGrid ItemsSource="{Binding ItemQ1s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
                     <local:FullItemDataGrid.Columns>
 
-                        <DataGridTemplateColumn Header="Model" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                        <DataGridTemplateColumn Header="Type" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox
@@ -117,35 +117,13 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Frame" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                        <DataGridTemplateColumn Header="Capacity" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox
                                         CharacterCasing="Upper"
                                         MaxLength="20"
-                                        Text="{Binding Frame, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn Header="HP" HeaderStyle="{StaticResource ColumnHeaderStyle}">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBox
-                                        CharacterCasing="Upper"
-                                        MaxLength="20"
-                                        Text="{Binding Hp, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn Header="RPM" HeaderStyle="{StaticResource ColumnHeaderStyle}">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBox
-                                        CharacterCasing="Upper"
-                                        MaxLength="20"
-                                        Text="{Binding Rpm, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                        Text="{Binding Capacity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -157,39 +135,6 @@
                                         CharacterCasing="Upper"
                                         MaxLength="20"
                                         Text="{Binding Voltage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn Header="Enclosure" HeaderStyle="{StaticResource ColumnHeaderStyle}">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBox
-                                        CharacterCasing="Upper"
-                                        MaxLength="20"
-                                        Text="{Binding Enclosure, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn Header="Efficiency" HeaderStyle="{StaticResource ColumnHeaderStyle}">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBox
-                                        CharacterCasing="Upper"
-                                        MaxLength="20"
-                                        Text="{Binding Efficiency, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn Header="Weight" HeaderStyle="{StaticResource ColumnHeaderStyle}">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBox
-                                        CharacterCasing="Upper"
-                                        MaxLength="20"
-                                        Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -260,7 +205,7 @@
                 <local:FullItemDataGrid ItemsSource="{Binding ItemQ2s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
                     <local:FullItemDataGrid.Columns>
 
-                        <DataGridTemplateColumn Header="Model" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                        <DataGridTemplateColumn Header="Type" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox
@@ -371,7 +316,7 @@
                 <local:FullItemDataGrid ItemsSource="{Binding ItemQ3s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
                     <local:FullItemDataGrid.Columns>
 
-                        <DataGridTemplateColumn Header="Model" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                        <DataGridTemplateColumn Header="Type" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox
@@ -484,7 +429,7 @@
                 <local:FullItemDataGrid ItemsSource="{Binding ItemQ4s, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Style="{StaticResource FullItemDataGridStyle}">
                     <local:FullItemDataGrid.Columns>
 
-                        <DataGridTemplateColumn Header="Model" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                        <DataGridTemplateColumn Header="Type" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox

@@ -1009,6 +1009,58 @@ namespace Orion.DataAccess.Service
             return itemsToReturn;
         }
 
+        public void RemoveDeletedItems(Quote quote, IList<IItem> items)
+        {
+            Dictionary<Type, List<IItem>> itemGroups = new Dictionary<Type, List<IItem>>();
+
+            foreach (IItem item in items)
+            {
+                Type itemClassType = item.GetType();
+
+                if (!itemGroups.ContainsKey(itemClassType))
+                {
+                    itemGroups[itemClassType] = new List<IItem>();
+                }
+
+                itemGroups[itemClassType].Add(item);
+            }
+
+            foreach (var itemGroup in itemGroups)
+            {
+                ItemType itemType = EntityHelper.GetItemTypeForItemClassType(itemGroup.Key);
+
+                using (GlobalDbContext context = new GlobalDbContext())
+                {
+                    Quote dbQuote = GetQuote(quote, itemType, context);
+
+                    IList<IItem> dbItems = null;
+
+                    Type itemClassType = EntityHelper.GetItemClassTypeForItemType(itemType);
+                    PropertyInfo itemListPropertyInfo = quote.GetType().GetProperty(itemClassType.Name + "s");
+
+                    dbItems = ((IEnumerable)itemListPropertyInfo.GetValue(dbQuote)).Cast<IItem>().ToList();
+
+                    //IList<IItem> itemsToDelete = dbItems.Where(a => !items.Select(b => b.Id).Contains(a.Id)).ToList();
+                    //IList<IItem> itemsToReturn = dbItems.Where(a => items.Select(b => b.Id).Contains(a.Id)).ToList();
+
+                    foreach (IItem item in dbItems)
+                    {
+                        foreach (Title title in item.Titles)
+                        {
+                            context.Remove(title);
+                        }
+                        context.Remove(item);
+                        context.Entry(item).State = EntityState.Deleted;
+                    }
+
+                    context.Quotes.Update(dbQuote);
+                    context.SaveChanges();
+
+                }
+            }
+
+        }
+
         public string ValidateAllItemsTag(IList<IItem> items)
         {
             string message = "";

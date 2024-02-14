@@ -446,6 +446,206 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
+
+                <DataGrid
+                    Grid.Row="1"
+                    Margin="5,5,5,5"
+                    CanUserSortColumns="False"
+                    FrozenColumnCount="1"
+                    ItemsSource="{Binding Items, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    Style="{StaticResource DGridStyle}">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTemplateColumn Width="auto" CanUserResize="False">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Style="{StaticResource removeItemFromQuoteButtonStyle}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Exclude" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox
+                                        IsChecked="{Binding IsExcluded, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        Style="{StaticResource chekboxStyle}"
+                                        ToolTip="Exclude item from quote" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Override" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox
+                                        IsChecked="{Binding OverridePrice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        Style="{StaticResource chekboxStyle}"
+                                        ToolTip="Override item prices" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Tag" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox CharacterCasing="Upper" Text="{Binding Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Quantity" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ctrl:NumericUpDown
+                                        Interval="1"
+                                        Minimum="1"
+                                        Value="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn
+                            Width="auto"
+                            Binding="{Binding Catalog.Model}"
+                            Header="Base"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
+
+
+
+                        <DataGridTemplateColumn Header="Model" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        CharacterCasing="Upper"
+                                        MaxLength="20"
+                                        Text="{Binding Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Heating Capacity" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        CharacterCasing="Upper"
+                                        MaxLength="20"
+                                        Text="{Binding HeatingCapacity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Cooling Capacity" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        CharacterCasing="Upper"
+                                        MaxLength="20"
+                                        Text="{Binding CoolingCapacity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Compressor" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        CharacterCasing="Upper"
+                                        MaxLength="20"
+                                        Text="{Binding Compressor, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Voltage" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        CharacterCasing="Upper"
+                                        MaxLength="20"
+                                        Text="{Binding Voltage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+
+                        <DataGridTemplateColumn Header="List Price" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        ctrl:TextBoxHelper.SelectAllOnFocus="True"
+                                        MaxLength="20"
+                                        PreviewTextInput="IsDouble"
+                                        Style="{StaticResource overrideTextBoxStyle}"
+                                        Text="{Binding ListPrice, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Cost Multiplier" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        ctrl:TextBoxHelper.SelectAllOnFocus="True"
+                                        MaxLength="20"
+                                        PreviewTextInput="IsDouble"
+                                        Style="{StaticResource overrideTextBoxStyle}"
+                                        Text="{Binding CostMultiplier, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn
+                            Width="auto"
+                            Binding="{Binding Cost, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}"
+                            Header="Cost"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
+
+                        <DataGridTemplateColumn Header="Sell Margin" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        ctrl:TextBoxHelper.SelectAllOnFocus="True"
+                                        MaxLength="20"
+                                        PreviewTextInput="IsDouble"
+                                        Style="{StaticResource overrideTextBoxStyle}"
+                                        Text="{Binding SellMargin, UpdateSourceTrigger=LostFocus, StringFormat={}{0}%, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn
+                            Width="auto"
+                            Binding="{Binding SellPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}"
+                            Header="Unit Sell Price"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
+
+                        <DataGridTemplateColumn Header="Freight" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        ctrl:TextBoxHelper.SelectAllOnFocus="True"
+                                        MaxLength="20"
+                                        PreviewTextInput="IsDouble"
+                                        Text="{Binding Freight, UpdateSourceTrigger=LostFocus, StringFormat={}{0:c}, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn
+                            Width="auto"
+                            Binding="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c}, Mode=TwoWay}"
+                            Header="Total"
+                            HeaderStyle="{StaticResource ColumnHeaderStyle}"
+                            IsReadOnly="True" />
+
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
         </Grid>
 

@@ -28,9 +28,12 @@ using Orion.Domain.Robur.Item;
 using Orion.Domain.UMAS.Item;
 using Orion.Domain.Valent.Item;
 using Orion.Domain.Whalen.Item;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using static Orion.Helper.Misc.GV;
 
 namespace Orion.Domain.Entity
 {
@@ -451,7 +454,7 @@ namespace Orion.Domain.Entity
 
         #region AERCO Items
 
-        private IList<ItemO1>  _itemO1s;
+        private IList<ItemO1> _itemO1s;
         public IList<ItemO1> ItemO1s
         {
             get => _itemO1s;
@@ -713,19 +716,103 @@ namespace Orion.Domain.Entity
         }
 
 
-        private IList<IItem> _items;
-        [NotMapped]
-        public IList<IItem> Items
-        {
-            get => _items;
-            set => SetProperty(ref _items, value);
-        }
+        //private IList<IItem> _items;
+        //[NotMapped]
+        //public IList<IItem> Items
+        //{
+        //    get => _items;
+        //    set => SetProperty(ref _items, value);
+        //}
 
         private IList<QuoteCompanies> _quoteCompanies;
         public IList<QuoteCompanies> QuoteCompanies
         {
             get => _quoteCompanies;
             set => SetProperty(ref _quoteCompanies, value);
+        }
+
+        [NotMapped]
+        public IList<IItem> Items
+        {
+            get
+            {
+                List<IItem> items = new List<IItem>();
+
+                items.AddRange(ItemA1s);
+                items.AddRange(ItemA2s);
+                items.AddRange(ItemA3s);
+                items.AddRange(ItemA4s);
+                items.AddRange(ItemB1s);
+                items.AddRange(ItemB2s);
+                items.AddRange(ItemB3s);
+                items.AddRange(ItemB4s);
+                items.AddRange(ItemB5s);
+                items.AddRange(ItemC1s);
+                items.AddRange(ItemC2s);
+                items.AddRange(ItemC3s);
+                items.AddRange(ItemC4s);
+                items.AddRange(ItemC5s);
+                items.AddRange(ItemC6s);
+                items.AddRange(ItemC7s);
+                items.AddRange(ItemD1s);
+                items.AddRange(ItemD2s);
+                items.AddRange(ItemE1s);
+                items.AddRange(ItemE2s);
+                items.AddRange(ItemE3s);
+                items.AddRange(ItemE4s);
+                items.AddRange(ItemE5s);
+                items.AddRange(ItemE6s);
+                items.AddRange(ItemE7s);
+                items.AddRange(ItemF1s);
+                items.AddRange(ItemG1s);
+                items.AddRange(ItemG2s);
+                items.AddRange(ItemG3s);
+                items.AddRange(ItemG4s);
+                items.AddRange(ItemG5s);
+                items.AddRange(ItemG6s);
+                items.AddRange(ItemH1s);
+                items.AddRange(ItemH2s);
+                items.AddRange(ItemH3s);
+                items.AddRange(ItemH4s);
+                items.AddRange(ItemH5s);
+                items.AddRange(ItemI1s);
+                items.AddRange(ItemI2s);
+                items.AddRange(ItemJ1s);
+                items.AddRange(ItemK1s);
+                items.AddRange(ItemK2s);
+                items.AddRange(ItemK3s);
+                items.AddRange(ItemL1s);
+                items.AddRange(ItemM1s);
+                items.AddRange(ItemN1s);
+                items.AddRange(ItemO1s);
+                items.AddRange(ItemO2s);
+                items.AddRange(ItemP1s);
+                items.AddRange(ItemQ1s);
+                items.AddRange(ItemQ2s);
+                items.AddRange(ItemQ3s);
+                items.AddRange(ItemQ4s);
+                items.AddRange(ItemR1s);
+                items.AddRange(ItemR2s);
+                items.AddRange(ItemR3s);
+                items.AddRange(ItemR4s);
+                items.AddRange(ItemS1s);
+                items.AddRange(ItemT1s);
+                items.AddRange(ItemT2s);
+                items.AddRange(ItemT3s);
+                items.AddRange(ItemU1s);
+                items.AddRange(ItemV1s);
+                items.AddRange(ItemW1s);
+                items.AddRange(ItemX1s);
+                items.AddRange(ItemX2s);
+                items.AddRange(ItemX3s);
+                items.AddRange(ItemX4s);
+                items.AddRange(ItemX5s);
+                items.AddRange(ItemY1s);
+                items.AddRange(ItemZ1s);
+                items.AddRange(ItemAA1s);
+
+                return items;
+            }
         }
 
         public Quote()

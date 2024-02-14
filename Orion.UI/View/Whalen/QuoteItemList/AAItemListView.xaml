@@ -103,7 +103,7 @@
                     <local:FullItemDataGrid.Columns>
 
 
-                        <DataGridTemplateColumn Header="Model" HeaderStyle="{StaticResource ColumnHeaderStyle}">
+                        <DataGridTemplateColumn Header="Type" HeaderStyle="{StaticResource ColumnHeaderStyle}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox

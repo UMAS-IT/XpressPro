@@ -75,6 +75,13 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _quoteCompany, value);
         }
 
+        private ObservableCollection<IItem> _deletedItems;
+        public ObservableCollection<IItem> DeletedItems
+        {
+            get => _deletedItems;
+            set => SetProperty(ref _deletedItems, value);
+        }
+
         public RelayCommand LoadDataCommand { get; set; }
         public RelayCommand<string> EditItemsCommand { get; set; }
         public RelayCommand<IItem> MoveToStartCommand { get; set; }
@@ -105,6 +112,7 @@ namespace Orion.UI.ViewModel
             TotalPriceChangedCommand = new RelayCommand<IItem>(OnTotalPriceChanged);
             ShowItemTitlesCommand = new RelayCommand<IItem>(OnShowTitles);
 
+            DeletedItems = new ObservableCollection<IItem>();
             companyService = new CompanyService();
             windowService = new WindowService();
             itemService = new ItemService();
@@ -152,6 +160,7 @@ namespace Orion.UI.ViewModel
 
             ObservableCollection<IItem> currentItems = GetSelectedItems(item);
 
+            DeletedItems.Add(item);
             currentItems.Remove(item);
             currentItems.ToList().ForEach(s => s.DesignIndex = currentItems.IndexOf(s));
         }
