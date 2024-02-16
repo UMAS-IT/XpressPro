@@ -282,7 +282,7 @@ namespace Orion.UI.ViewModel
                 DeletedItems = new ObservableCollection<IItem>();
                 Project = projectService.GetProjectById(projectId);
                 Quote = quoteService.GetQuoteByQuoteId(quoteId);
-                mw.Title = $@"XpressPro ({Project.Name} / {Quote.Name})";
+                mw.Title = $@"{GV.Version} ({Project.Name} / {Quote.Name})";
                 Companies = companyService.GetCompanies().ToObservableCollection();
                 Items = itemService.GetAllItemByQuoteId(quoteId).ToObservableCollection();
 

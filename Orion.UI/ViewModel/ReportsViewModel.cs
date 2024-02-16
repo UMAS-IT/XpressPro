@@ -3,6 +3,7 @@ using Orion.Binding.Binding;
 using Orion.DataAccess.Service;
 using Orion.Domain.Entity;
 using Orion.Helper.Extension;
+using Orion.Helper.Misc;
 using Orion.Report.Pricing;
 using Orion.UI.Command;
 using Orion.UI.Service;
@@ -175,7 +176,7 @@ namespace Orion.UI.ViewModel
 
                 Quotes = quoteService.GetQuotesForReportsByProjectId(projectId).ToObservableCollection();
 
-                mw.Title = $"XpressPro ({projectService.GetProjectById(projectId).Name})";
+                mw.Title = $"{GV.Version} ({projectService.GetProjectById(projectId).Name})";
 
                 await messageService.EndMessage("Loaded");
             }

@@ -3,6 +3,7 @@ using Orion.Binding.Binding;
 using Orion.DataAccess.Service;
 using Orion.Domain.Entity;
 using Orion.Helper.Extension;
+using Orion.Helper.Misc;
 using Orion.UI.Command;
 using Orion.UI.Service;
 using System;
@@ -99,7 +100,7 @@ namespace Orion.UI.ViewModel
                 IsEnabled = true;
                 Quotes = quoteService.GetQuotesByProjectId(projectId).ToObservableCollection();
                 Project = new ProjectService().GetProjectById(projectId);
-                mw.Title = $@"XpressPro ({Project.Name})";
+                mw.Title = $@"{GV.Version} ({Project.Name})";
                 CurrentViewModel = airTreatmentViewModel;
                 await messageService.EndMessage("Project Information", "Quote(s) has been loaded");
             }
@@ -195,7 +196,7 @@ namespace Orion.UI.ViewModel
 
         private async void OkBackToQuote()
         {
-            mw.Title = $@"XpressPro ({Project.Name})";
+            mw.Title = $@"{GV.Version} ({Project.Name})";
             IsVisible = true;
             IsEnabled = true;
             CurrentViewModel = null;

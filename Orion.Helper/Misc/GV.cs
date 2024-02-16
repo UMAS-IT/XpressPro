@@ -205,6 +205,8 @@ namespace Orion.Helper.Misc
             AA,
         }
 
+        public static string Version { get { return "XpressPro 1.1"; } }
+
         public static bool Extended { get; set; }
 
         public static int RandomProjectNumber()

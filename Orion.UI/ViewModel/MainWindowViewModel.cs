@@ -2,6 +2,7 @@
 using Orion.Binding.Binding;
 using Orion.DataAccess.DataBase;
 using Orion.Domain.Entity;
+using Orion.Helper.Misc;
 using Orion.UI.Command;
 using Orion.UI.Service;
 using System;
@@ -68,7 +69,7 @@ namespace Orion.UI.ViewModel
         public MainWindowViewModel()
         {
             //UserName = "";
-            Title = "XpressPro";
+            Title = GV.Version;
             UserVisibility = Visibility.Collapsed;
 
             CurrentViewModel = _loginViewModel;
@@ -152,7 +153,7 @@ namespace Orion.UI.ViewModel
 
         private void OnLogOut(object obj)
         {
-            Title = "XpressPro";
+            Title = GV.Version;
             _loginViewModel.UserRequestLogOut = true;
             UserVisibility = Visibility.Collapsed;
             CurrentViewModel = _loginViewModel;

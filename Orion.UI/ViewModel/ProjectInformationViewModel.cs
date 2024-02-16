@@ -3,6 +3,7 @@ using Orion.Binding.Binding;
 using Orion.DataAccess.Service;
 using Orion.Domain.Entity;
 using Orion.Helper.Extension;
+using Orion.Helper.Misc;
 using Orion.UI.Command;
 using Orion.UI.Service;
 using System;
@@ -71,7 +72,7 @@ namespace Orion.UI.ViewModel
                 await messageService.StartMessage("Project Information", "Loading project data, please wait...");
 
                 Project = projectService.GetProjectById(projectId);
-                mw.Title = $@"XpressPro ({Project.Name})";
+                mw.Title = $@"{GV.Version} ({Project.Name})";
 
                 Users = userService.GetUsers().ToObservableCollection();
 
