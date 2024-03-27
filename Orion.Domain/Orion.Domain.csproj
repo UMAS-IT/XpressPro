@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.EntityFrameworkCore.Design.2.1.0\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.Design.2.1.0\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BC860056-A6ED-4785-BC94-2F84135FF8CE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Orion.Domain</RootNamespace>
+    <AssemblyName>Orion.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.1.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.1.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Design, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Design.2.1.0\lib\net461\Microsoft.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.2.1.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.SqlServer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.SqlServer.2.1.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.1.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.1.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.5.0\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Interactive.Async, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.0\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ABB\Catalog\CatalogB1.cs" />
+    <Compile Include="ABB\Catalog\CatalogB2.cs" />
+    <Compile Include="ABB\Catalog\CatalogB3.cs" />
+    <Compile Include="ABB\Catalog\CatalogB4.cs" />
+    <Compile Include="ABB\Catalog\CatalogB5.cs" />
+    <Compile Include="ABB\Fake\CatalogB1HorsePower.cs" />
+    <Compile Include="AboveAir\Catalog\CatalogN1.cs" />
+    <Compile Include="AboveAir\Item\ItemN1.cs" />
+    <Compile Include="AERCO\Catalog\CatalogO1.cs" />
+    <Compile Include="AERCO\Catalog\CatalogO2.cs" />
+    <Compile Include="AERCO\Item\ItemO1.cs" />
+    <Compile Include="AERCO\Item\ItemO2.cs" />
+    <Compile Include="AERCO\Related\ItemO.cs" />
+    <Compile Include="AmericanWheatley\Catalog\CatalogC1.cs" />
+    <Compile Include="AmericanWheatley\Catalog\CatalogC2.cs" />
+    <Compile Include="AmericanWheatley\Catalog\CatalogC3.cs" />
+    <Compile Include="AmericanWheatley\Catalog\CatalogC4.cs" />
+    <Compile Include="AmericanWheatley\Catalog\CatalogC5.cs" />
+    <Compile Include="AmericanWheatley\Catalog\CatalogC6.cs" />
+    <Compile Include="AmericanWheatley\Catalog\CatalogC7.cs" />
+    <Compile Include="AmericanWheatley\Item\ItemC5.cs" />
+    <Compile Include="AmericanWheatley\Item\ItemC6.cs" />
+    <Compile Include="AmericanWheatley\Item\ItemC7.cs" />
+    <Compile Include="AmericanWheatley\Related\CatalogC1ProductType.cs" />
+    <Compile Include="AmericanWheatley\Related\CatalogC3ProductType.cs" />
+    <Compile Include="BACClosedLoopTowers\Catalog\CatalogH1.cs" />
+    <Compile Include="BACClosedLoopTowers\Catalog\CatalogH2.cs" />
+    <Compile Include="BACClosedLoopTowers\Catalog\CatalogH3.cs" />
+    <Compile Include="BACClosedLoopTowers\Catalog\CatalogH4.cs" />
+    <Compile Include="BACClosedLoopTowers\Catalog\CatalogH5.cs" />
+    <Compile Include="BACClosedLoopTowers\Related\ItemH.cs" />
+    <Compile Include="BACOpenLoopTowers\Catalog\CatalogG1.cs" />
+    <Compile Include="BACOpenLoopTowers\Catalog\CatalogG2.cs" />
+    <Compile Include="BACOpenLoopTowers\Catalog\CatalogG3.cs" />
+    <Compile Include="BACOpenLoopTowers\Catalog\CatalogG4.cs" />
+    <Compile Include="BACOpenLoopTowers\Catalog\CatalogG5.cs" />
+    <Compile Include="BACOpenLoopTowers\Catalog\CatalogG6.cs" />
+    <Compile Include="BACOpenLoopTowers\Related\ItemG.cs" />
+    <Compile Include="Baldor\Catalog\CatalogP1.cs" />
+    <Compile Include="Baldor\Item\ItemP1.cs" />
+    <Compile Include="Condair\Catalog\CatalogQ1.cs" />
+    <Compile Include="Condair\Catalog\CatalogQ2.cs" />
+    <Compile Include="Condair\Catalog\CatalogQ3.cs" />
+    <Compile Include="Condair\Catalog\CatalogQ4.cs" />
+    <Compile Include="Condair\Item\ItemQ1.cs" />
+    <Compile Include="Condair\Item\ItemQ2.cs" />
+    <Compile Include="Condair\Item\ItemQ3.cs" />
+    <Compile Include="Condair\Item\ItemQ4.cs" />
+    <Compile Include="Entity\Catalog.cs" />
+    <Compile Include="Entity\Company.cs" />
+    <Compile Include="Entity\DataSheet.cs" />
+    <Compile Include="Entity\ITexteable.cs" />
+    <Compile Include="Entity\QuoteCompanies.cs" />
+    <Compile Include="Entity\Item.cs" />
+    <Compile Include="Entity\Permission.cs" />
+    <Compile Include="Entity\Product.cs" />
+    <Compile Include="EnviroTec\Catalog\CatalogR1.cs" />
+    <Compile Include="EnviroTec\Catalog\CatalogR2.cs" />
+    <Compile Include="EnviroTec\Catalog\CatalogR3.cs" />
+    <Compile Include="EnviroTec\Catalog\CatalogR4.cs" />
+    <Compile Include="EnviroTec\Item\ItemR1.cs" />
+    <Compile Include="EnviroTec\Item\ItemR2.cs" />
+    <Compile Include="EnviroTec\Item\ItemR3.cs" />
+    <Compile Include="EnviroTec\Item\ItemR4.cs" />
+    <Compile Include="EnviroTec\Related\ItemR.cs" />
+    <Compile Include="GeneralProduct\Catalog\CatalogL1.cs" />
+    <Compile Include="GeneralProduct\Item\ItemL1.cs" />
+    <Compile Include="Groundfos\Catalog\CatalogE1.cs" />
+    <Compile Include="Groundfos\Catalog\CatalogE2.cs" />
+    <Compile Include="Groundfos\Catalog\CatalogE3.cs" />
+    <Compile Include="Groundfos\Catalog\CatalogE4.cs" />
+    <Compile Include="Groundfos\Catalog\CatalogE5.cs" />
+    <Compile Include="Groundfos\Catalog\CatalogE6.cs" />
+    <Compile Include="Groundfos\Catalog\CatalogE7.cs" />
+    <Compile Include="Groundfos\Related\ItemE.cs" />
+    <Compile Include="LYNC\Catalog\CatalogS1.cs" />
+    <Compile Include="LYNC\Item\ItemS1.cs" />
+    <Compile Include="Marvair\Catalog\CatalogI1.cs" />
+    <Compile Include="Marvair\Catalog\CatalogI2.cs" />
+    <Compile Include="Marvair\Item\ItemI1.cs" />
+    <Compile Include="Marvair\Item\ItemI2.cs" />
+    <Compile Include="Multiaqua\Catalog\CatalogK1.cs" />
+    <Compile Include="Multiaqua\Catalog\CatalogK2.cs" />
+    <Compile Include="Multiaqua\Catalog\CatalogK3.cs" />
+    <Compile Include="Multiaqua\Item\ItemK1.cs" />
+    <Compile Include="Multiaqua\Item\ItemK2.cs" />
+    <Compile Include="Multiaqua\Item\ItemK3.cs" />
+    <Compile Include="Nortek\Catalog\CatalogT1.cs" />
+    <Compile Include="Nortek\Catalog\CatalogT2.cs" />
+    <Compile Include="Nortek\Catalog\CatalogT3.cs" />
+    <Compile Include="Nortek\Item\ItemT1.cs" />
+    <Compile Include="Nortek\Item\ItemT2.cs" />
+    <Compile Include="Nortek\Item\ItemT3.cs" />
+    <Compile Include="NYLE\Catalog\CatalogU1.cs" />
+    <Compile Include="NYLE\Item\ItemU1.cs" />
+    <Compile Include="PACE\Catalog\CatalogJ1.cs" />
+    <Compile Include="PACE\Item\ItemJ1.cs" />
+    <Compile Include="PlasmaAir\Catalog\CatalogV1.cs" />
+    <Compile Include="PlasmaAir\Item\ItemV1.cs" />
+    <Compile Include="Polaris\Catalog\CatalogW1.cs" />
+    <Compile Include="Polaris\Item\ItemW1.cs" />
+    <Compile Include="Puroflux\Catalog\CatalogD1.cs" />
+    <Compile Include="Puroflux\Catalog\CatalogD2.cs" />
+    <Compile Include="PVI\Catalog\CatalogX1.cs" />
+    <Compile Include="PVI\Catalog\CatalogX2.cs" />
+    <Compile Include="PVI\Catalog\CatalogX3.cs" />
+    <Compile Include="PVI\Catalog\CatalogX4.cs" />
+    <Compile Include="PVI\Catalog\CatalogX5.cs" />
+    <Compile Include="PVI\Item\ItemX1.cs" />
+    <Compile Include="PVI\Item\ItemX2.cs" />
+    <Compile Include="PVI\Item\ItemX3.cs" />
+    <Compile Include="PVI\Item\ItemX4.cs" />
+    <Compile Include="PVI\Item\ItemX5.cs" />
+    <Compile Include="Quantech\Catalog\CatalogA1.cs" />
+    <Compile Include="Quantech\Catalog\CatalogA2.cs" />
+    <Compile Include="Quantech\Catalog\CatalogA3.cs" />
+    <Compile Include="Quantech\Catalog\CatalogA4.cs" />
+    <Compile Include="Quantech\Related\ItemA.cs" />
+    <Compile Include="Robur\Catalog\CatalogY1.cs" />
+    <Compile Include="Robur\Item\ItemY1.cs" />
+    <Compile Include="UMAS\Catalog\CatalogM1.cs" />
+    <Compile Include="UMAS\Item\ItemM1.cs" />
+    <Compile Include="UvResources\Catalog\CatalogF1.cs" />
+    <Compile Include="ABB\Item\ItemB1.cs" />
+    <Compile Include="ABB\Item\ItemB2.cs" />
+    <Compile Include="ABB\Item\ItemB3.cs" />
+    <Compile Include="ABB\Item\ItemB4.cs" />
+    <Compile Include="ABB\Item\ItemB5.cs" />
+    <Compile Include="AmericanWheatley\Item\ItemC1.cs" />
+    <Compile Include="AmericanWheatley\Item\ItemC2.cs" />
+    <Compile Include="AmericanWheatley\Item\ItemC3.cs" />
+    <Compile Include="AmericanWheatley\Item\ItemC4.cs" />
+    <Compile Include="BACClosedLoopTowers\Item\ItemH1.cs" />
+    <Compile Include="BACClosedLoopTowers\Item\ItemH2.cs" />
+    <Compile Include="BACClosedLoopTowers\Item\ItemH3.cs" />
+    <Compile Include="BACClosedLoopTowers\Item\ItemH4.cs" />
+    <Compile Include="BACClosedLoopTowers\Item\ItemH5.cs" />
+    <Compile Include="BACOpenLoopTowers\Item\ItemG1.cs" />
+    <Compile Include="BACOpenLoopTowers\Item\ItemG2.cs" />
+    <Compile Include="BACOpenLoopTowers\Item\ItemG3.cs" />
+    <Compile Include="BACOpenLoopTowers\Item\ItemG4.cs" />
+    <Compile Include="BACOpenLoopTowers\Item\ItemG5.cs" />
+    <Compile Include="BACOpenLoopTowers\Item\ItemG6.cs" />
+    <Compile Include="Groundfos\Item\ItemE1.cs" />
+    <Compile Include="Groundfos\Item\ItemE2.cs" />
+    <Compile Include="Groundfos\Item\ItemE3.cs" />
+    <Compile Include="Groundfos\Item\ItemE4.cs" />
+    <Compile Include="Groundfos\Item\ItemE5.cs" />
+    <Compile Include="Groundfos\Item\ItemE6.cs" />
+    <Compile Include="Groundfos\Item\ItemE7.cs" />
+    <Compile Include="Puroflux\Item\ItemD1.cs" />
+    <Compile Include="Puroflux\Item\ItemD2.cs" />
+    <Compile Include="UvResources\Item\ItemF1.cs" />
+    <Compile Include="Entity\ICatalog.cs" />
+    <Compile Include="Quantech\Item\ItemA1.cs" />
+    <Compile Include="Quantech\Item\ItemA2.cs" />
+    <Compile Include="Quantech\Item\ItemA3.cs" />
+    <Compile Include="Quantech\Item\ItemA4.cs" />
+    <Compile Include="Entity\IItem.cs" />
+    <Compile Include="Entity\IPrice.cs" />
+    <Compile Include="Entity\Spec.cs" />
+    <Compile Include="Entity\Title.cs" />
+    <Compile Include="Entity\Project.cs" />
+    <Compile Include="Entity\Quote.cs" />
+    <Compile Include="Entity\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UvResources\Related\CatalogF1ProductType.cs" />
+    <Compile Include="Valent\Catalog\CatalogZ1.cs" />
+    <Compile Include="Valent\Item\ItemZ1.cs" />
+    <Compile Include="Whalen\Catalog\CatalogAA1.cs" />
+    <Compile Include="Whalen\Item\ItemAA1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Orion.Binding\Orion.Binding.csproj">
+      <Project>{6c9fd30b-658a-416b-b60f-b75240f3b06e}</Project>
+      <Name>Orion.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orion.Helper\Orion.Helper.csproj">
+      <Project>{D9E23B8F-1A1B-467D-A46F-07D97A7112F5}</Project>
+      <Name>Orion.Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.EntityFrameworkCore.Design.2.1.0\build\net461\Microsoft.EntityFrameworkCore.Design.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.EntityFrameworkCore.Design.2.1.0\build\net461\Microsoft.EntityFrameworkCore.Design.props'))" />
+  </Target>
+</Project>

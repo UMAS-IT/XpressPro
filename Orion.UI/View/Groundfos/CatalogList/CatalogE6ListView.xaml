@@ -1,0 +1,221 @@
+﻿<UserControl x:Class="Orion.UI.View.Groundfos.CatalogList.CatalogE6ListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Orion.UI.View.Groundfos.CatalogList"
+             mc:Ignorable="d" 
+             xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             dialog:DialogParticipation.Register="{Binding}"
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+             d:DesignHeight="600" d:DesignWidth="2000"
+             d:DataContext="{d:DesignInstance Type=vm:CatalogE6ListViewModel}"
+             xmlns:vm="clr-namespace:Orion.UI.ViewModel.Groundfos.CatalogList"
+             xmlns:view="clr-namespace:Orion.UI.View.Groundfos.CatalogList">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadDataCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding Path=SearchCommand}" Key="Enter"/>
+    </UserControl.InputBindings>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Width="150">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+
+            <GroupBox Header="Actions" 
+                      ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                      Grid.Row="0"
+                                  Margin="5,5,0,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button 
+                                    Margin="1"
+                                    Background="Orange"
+                                    Command="{Binding BackToProductsCommand}"
+                                    ToolTip="Back" >
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <icon:PackIconMaterial Kind="KeyboardReturn" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                    <icon:PackIconMaterial.LayoutTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                        </TransformGroup>
+                                    </icon:PackIconMaterial.LayoutTransform>
+                                </icon:PackIconMaterial>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Column="1"  
+                        Margin="1"
+                            Background="#FF87B036"
+                            ToolTip="Add Catalog Item"
+                                        Command="{Binding AddCatalogItemCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+
+
+                                <icon:PackIconMaterial Kind="Plus" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                    <icon:PackIconMaterial.LayoutTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                        </TransformGroup>
+                                    </icon:PackIconMaterial.LayoutTransform>
+                                </icon:PackIconMaterial>
+
+                            </Grid>
+                        </Button.Content>
+
+                    </Button>
+
+
+                </Grid>
+
+            </GroupBox>
+
+
+
+            <GroupBox Header="Search Options" Grid.Row="1"
+                      ctrl:ControlsHelper.ContentCharacterCasing="Normal"
+                                  Margin="5,0,0,5">
+                <StackPanel Orientation="Vertical">
+                    <TextBox  
+                             Grid.Column="0"
+                             ctrl:TextBoxHelper.Watermark="Model Name"                          
+                             ToolTip="Press ENTER to update searching"
+                             ctrl:TextBoxHelper.ClearTextButton="True"
+                             ctrl:TextBoxHelper.ButtonCommand="{Binding ResetSearchCommand}"
+                             Text="{Binding Model, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBox>
+
+
+                </StackPanel>
+
+
+            </GroupBox>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Margin="5,5,5,0" BorderThickness="1"  Background="{StaticResource MahApps.Brushes.Gray.SemiTransparent}" BorderBrush="{StaticResource MahApps.Brushes.Accent}">
+                <Label Content="VLS" HorizontalAlignment="Center" FontSize="12" />
+            </Border>
+
+            <DataGrid       Grid.Row="1"
+                            Margin="5,5,5,5"
+                            ItemsSource="{Binding Catalogs, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  
+                            Style="{StaticResource DGridStyle}"
+                            CanUserSortColumns="False"
+                            FrozenColumnCount="2">
+
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding EditCatalogItemCommand}" CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor,
+                                                                                           AncestorType={x:Type DataGrid}}}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
+                <DataGrid.Columns>
+
+                    <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Grid.Row="0"
+                                                        Background="{StaticResource MahApps.Brushes.Accent}"
+                                                        ToolTip="Edit"
+                                                        Command="{Binding Path=DataContext.EditCatalogItemCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}" >
+                                    <icon:PackIconForkAwesome Kind="Pencil" >
+                                        <icon:PackIconForkAwesome.LayoutTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            </TransformGroup>
+                                        </icon:PackIconForkAwesome.LayoutTransform>
+                                    </icon:PackIconForkAwesome>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn   CanUserResize="False"  Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Command="{Binding DataContext.EditCatalogTitlesCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding}">
+                                    <icon:PackIconUnicons Kind="FilesLandscapesAlt">
+                                        <icon:PackIconUnicons.LayoutTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                            </TransformGroup>
+                                        </icon:PackIconUnicons.LayoutTransform>
+                                    </icon:PackIconUnicons>
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}">
+                                            <Setter Property="ToolTip" Value="Item Info" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding DataSheet}" Value="{x:Null}">
+                                                    <Setter Property="Background" Value="DarkRed" />
+                                                    <Setter Property="ToolTip" Value="No Data Sheet Assigned" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="Model" Binding="{Binding Model}"  HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+
+                    <DataGridTextColumn Header="List Price" Binding="{Binding ListPrice, StringFormat={}{0:c}}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Cost Multiplier" Binding="{Binding CostMultiplier}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Cost" Binding="{Binding Cost, StringFormat={}{0:c}}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Sell Margin" Binding="{Binding SellMargin, StringFormat={}{0}% }"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                    <DataGridTextColumn Header="Unit Sell Price" Binding="{Binding SellPrice, StringFormat={}{0:c}}"   HeaderStyle="{StaticResource ColumnHeaderStyle}"    IsReadOnly="True" Width="auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</UserControl>

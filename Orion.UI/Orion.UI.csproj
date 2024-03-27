@@ -1,0 +1,2377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{812727EA-C324-4D6C-ACEE-34022F0A67C7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Orion.UI</RootNamespace>
+    <AssemblyName>Orion.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>xpress.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.4.4.0\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.2.4.9\lib\net47\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.BootstrapIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.BootstrapIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.BoxIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.BoxIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Codicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Codicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Coolicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Coolicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Entypo, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Entypo.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.EvaIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.EvaIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.FeatherIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.FeatherIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.FileIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.FileIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Fontaudio, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Fontaudio.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.FontAwesome, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.FontAwesome.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Fontisto, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Fontisto.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.ForkAwesome, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.ForkAwesome.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Ionicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Ionicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.JamIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.JamIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Material, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Material.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.MaterialDesign, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.MaterialDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.MaterialLight, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.MaterialLight.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Microns, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Microns.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Modern, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Modern.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Octicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Octicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.PicolIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.PicolIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.PixelartIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.PixelartIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.RadixIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.RadixIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.RemixIcon, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.RemixIcon.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.RPGAwesome, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.RPGAwesome.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.SimpleIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.SimpleIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Typicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Typicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Unicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Unicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.VaadinIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.VaadinIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.WeatherIcons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.WeatherIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Zondicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.4.11.0\lib\net47\MahApps.Metro.IconPacks.Zondicons.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Doc, Version=10.11.9.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.Doc.10.11.9\lib\net40\Spire.Doc.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=8.11.10.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.Doc.10.11.9\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converters\BoolToYesNoCoverter.cs" />
+    <Compile Include="Converters\TotalPriceConverter.cs" />
+    <Compile Include="Converters\TwoParametersConverter.cs" />
+    <Compile Include="DependencyProperties\DataGridColumnCollection.cs" />
+    <Compile Include="DependencyProperties\EditItemDataGrid.cs" />
+    <Compile Include="DependencyProperties\FullItemDataGrid.cs" />
+    <Compile Include="Misc\VmHelper.cs" />
+    <Compile Include="Service\MessageService.cs" />
+    <Compile Include="Service\WindowService.cs" />
+    <Compile Include="ViewModel\ABB\CatalogList\CatalogB1ListViewModel.cs" />
+    <Compile Include="ViewModel\ABB\CatalogList\CatalogB2ListViewModel.cs" />
+    <Compile Include="ViewModel\ABB\CatalogList\CatalogB3ListViewModel.cs" />
+    <Compile Include="ViewModel\ABB\CatalogList\CatalogB4ListViewModel.cs" />
+    <Compile Include="ViewModel\ABB\CatalogList\CatalogB5ListViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditCatalogItem\EditB1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditCatalogItem\EditB2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditCatalogItem\EditB3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditCatalogItem\EditB4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditCatalogItem\EditB5CatalogViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditQuoteItem\EditB1ItemViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditQuoteItem\EditB2ItemViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditQuoteItem\EditB3ItemViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditQuoteItem\EditB4ItemViewModel.cs" />
+    <Compile Include="ViewModel\ABB\EditQuoteItem\EditB5ItemViewModel.cs" />
+    <Compile Include="ViewModel\ABB\QuoteItemList\BItemListViewModel.cs" />
+    <Compile Include="ViewModel\AboveAir\CatalogList\CatalogN1ListViewModel.cs" />
+    <Compile Include="ViewModel\AboveAir\EditCatalogItem\EditN1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AboveAir\EditQuoteItem\EditN1ItemViewModel.cs" />
+    <Compile Include="ViewModel\AboveAir\QuoteItemList\NItemListViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\CatalogList\CatalogO1ListViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\CatalogList\CatalogO2ListViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\EditCatalogItem\EditO1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\EditCatalogItem\EditO2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\EditQuoteItem\EditO1ItemViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\EditQuoteItem\EditO2ItemViewModel.cs" />
+    <Compile Include="ViewModel\AERCO\QuoteItemList\OItemListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC1ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC2ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC3ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC4ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC5ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC6ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\CatalogList\CatalogC7ListViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC5CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC6CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditCatalogItem\EditC7CatalogViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC1ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC2ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC3ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC4ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC5ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC6ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\EditQuoteItem\EditC7ItemViewModel.cs" />
+    <Compile Include="ViewModel\AmericanWheatley\QuoteItemList\CItemListViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH1ListViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH2ListViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH3ListViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH4ListViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\CatalogList\CatalogH5ListViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditCatalogItem\EditH1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditCatalogItem\EditH2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditCatalogItem\EditH3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditCatalogItem\EditH4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditCatalogItem\EditH5CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH1ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH2ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH3ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH4ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\EditQuoteItem\EditH5ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACClosedCircuits\QuoteItemList\HItemListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG1ListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG2ListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG3ListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG4ListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG5ListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\CatalogList\CatalogG6ListViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditCatalogItem\EditG1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditCatalogItem\EditG2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditCatalogItem\EditG3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditCatalogItem\EditG4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditCatalogItem\EditG5CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditCatalogItem\EditG6CatalogViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG1ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG2ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG3ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG4ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG5ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\EditQuoteItem\EditG6ItemViewModel.cs" />
+    <Compile Include="ViewModel\BACCoolingTowers\QuoteItemList\GItemListViewModel.cs" />
+    <Compile Include="ViewModel\Baldor\CatalogList\CatalogP1ListViewModel.cs" />
+    <Compile Include="ViewModel\Baldor\EditCatalogItem\EditP1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Baldor\EditQuoteItem\EditP1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Baldor\QuoteItemList\PItemListViewModel.cs" />
+    <Compile Include="ViewModel\CatalogViewModel.cs" />
+    <Compile Include="ViewModel\CloneQuoteViewModel.cs" />
+    <Compile Include="ViewModel\ComingSoonViewModel.cs" />
+    <Compile Include="ViewModel\Condair\CatalogList\CatalogQ1ListViewModel.cs" />
+    <Compile Include="ViewModel\Condair\CatalogList\CatalogQ2ListViewModel.cs" />
+    <Compile Include="ViewModel\Condair\CatalogList\CatalogQ3ListViewModel.cs" />
+    <Compile Include="ViewModel\Condair\CatalogList\CatalogQ4ListViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditCatalogItem\EditQ1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditCatalogItem\EditQ2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditCatalogItem\EditQ3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditCatalogItem\EditQ4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditQuoteItem\EditQ1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditQuoteItem\EditQ2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditQuoteItem\EditQ3ItemViewModel.cs" />
+    <Compile Include="ViewModel\Condair\EditQuoteItem\EditQ4ItemViewModel.cs" />
+    <Compile Include="ViewModel\Condair\QuoteItemList\QItemListViewModel.cs" />
+    <Compile Include="ViewModel\ConfigurationMenuViewModel.cs" />
+    <Compile Include="ViewModel\CreateQuoteViewModel.cs" />
+    <Compile Include="ViewModel\DataSheetListViewModel.cs" />
+    <Compile Include="ViewModel\EditUserViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\CatalogList\CatalogR1ListViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\CatalogList\CatalogR2ListViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\CatalogList\CatalogR3ListViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\CatalogList\CatalogR4ListViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditCatalogItem\EditR1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditCatalogItem\EditR2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditCatalogItem\EditR3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditCatalogItem\EditR4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditQuoteItem\EditR1ItemViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditQuoteItem\EditR2ItemViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditQuoteItem\EditR3ItemViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\EditQuoteItem\EditR4ItemViewModel.cs" />
+    <Compile Include="ViewModel\EnviroTec\QuoteItemList\RItemListViewModel.cs" />
+    <Compile Include="ViewModel\ExportProjectViewModel.cs" />
+    <Compile Include="ViewModel\GeneralProduct\CatalogList\CatalogL1ListViewModel.cs" />
+    <Compile Include="ViewModel\GeneralProduct\EditCatalogItem\EditL1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\GeneralProduct\EditQuoteItem\EditL1ItemViewModel.cs" />
+    <Compile Include="ViewModel\GeneralProduct\QuoteItemList\LItemListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE1ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE2ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE3ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE4ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE5ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE6ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\CatalogList\CatalogE7ListViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE5CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE6CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditCatalogItem\EditE7CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE3ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE4ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE5ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE6ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\EditQuoteItem\EditE7ItemViewModel.cs" />
+    <Compile Include="ViewModel\Groundfos\QuoteItemList\EItemListViewModel.cs" />
+    <Compile Include="ViewModel\ItemListViewModel.cs" />
+    <Compile Include="ViewModel\ItemViewModel.cs" />
+    <Compile Include="ViewModel\LYNC\CatalogList\CatalogS1ListViewModel.cs" />
+    <Compile Include="ViewModel\LYNC\EditCatalogItem\EditS1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\LYNC\EditQuoteItem\EditS1ItemViewModel.cs" />
+    <Compile Include="ViewModel\LYNC\QuoteItemList\SItemListViewModel.cs" />
+    <Compile Include="ViewModel\MasterCatalogListViewModel.cs" />
+    <Compile Include="ViewModel\MasterEditCatalogViewModel.cs" />
+    <Compile Include="ViewModel\MasterEditItemViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\CatalogList\CatalogI1ListViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\CatalogList\CatalogI2ListViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\EditCatalogItem\EditI1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\EditCatalogItem\EditI2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\EditQuoteItem\EditI1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\EditQuoteItem\EditI2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Mavair\QuoteItemList\IItemListViewModel.cs" />
+    <Compile Include="ViewModel\MenuViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\CatalogList\CatalogK1ListViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\CatalogList\CatalogK2ListViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\CatalogList\CatalogK3ListViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\EditCatalogItem\EditK1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\EditCatalogItem\EditK2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\EditCatalogItem\EditK3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\EditQuoteItem\EditK1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\EditQuoteItem\EditK2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\EditQuoteItem\EditK3ItemViewModel.cs" />
+    <Compile Include="ViewModel\Multiaqua\QuoteItemList\KItemListViewModel.cs" />
+    <Compile Include="ViewModel\NewProjectViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\CatalogList\CatalogT1ListViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\CatalogList\CatalogT2ListViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\CatalogList\CatalogT3ListViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\EditCatalogItem\EditT1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\EditCatalogItem\EditT2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\EditCatalogItem\EditT3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\EditQuoteItem\EditT1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\EditQuoteItem\EditT2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\EditQuoteItem\EditT3ItemViewModel.cs" />
+    <Compile Include="ViewModel\Nortek\QuoteItemList\TItemListViewModel.cs" />
+    <Compile Include="ViewModel\NYLE\CatalogList\CatalogU1ListViewModel.cs" />
+    <Compile Include="ViewModel\NYLE\EditCatalogItem\EditU1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\NYLE\EditQuoteItem\EditU1ItemViewModel.cs" />
+    <Compile Include="ViewModel\NYLE\QuoteItemList\UItemListViewModel.cs" />
+    <Compile Include="ViewModel\OpenProjectViewModel.cs" />
+    <Compile Include="ViewModel\PACE\CatalogList\CatalogJ1ListViewModel.cs" />
+    <Compile Include="ViewModel\PACE\EditCatalogItem\EditJ1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PACE\EditQuoteItem\EditJ1ItemViewModel.cs" />
+    <Compile Include="ViewModel\PACE\QuoteItemList\JItemListViewModel.cs" />
+    <Compile Include="ViewModel\PlasmaAir\CatalogList\CatalogV1ListViewModel.cs" />
+    <Compile Include="ViewModel\PlasmaAir\EditCatalogItem\EditV1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PlasmaAir\EditQuoteItem\EditV1ItemViewModel.cs" />
+    <Compile Include="ViewModel\PlasmaAir\QuoteItemList\VItemListViewModel.cs" />
+    <Compile Include="ViewModel\Polaris\CatalogList\CatalogW1ListViewModel.cs" />
+    <Compile Include="ViewModel\Polaris\EditCatalogItem\EditW1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Polaris\EditQuoteItem\EditW1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Polaris\QuoteItemList\WItemListViewModel.cs" />
+    <Compile Include="ViewModel\ProjectInformationViewModel.cs" />
+    <Compile Include="ViewModel\Puroflux\CatalogList\CatalogD1ListViewModel.cs" />
+    <Compile Include="ViewModel\Puroflux\CatalogList\CatalogD2ListViewModel.cs" />
+    <Compile Include="ViewModel\Puroflux\EditCatalogItem\EditD1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Puroflux\EditCatalogItem\EditD2CatalogViewModoel.cs" />
+    <Compile Include="ViewModel\Puroflux\EditQuoteItem\EditD1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Puroflux\EditQuoteItem\EditD2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Puroflux\QuoteItemList\DItemListViewModel.cs" />
+    <Compile Include="ViewModel\PVI\CatalogList\CatalogX1ListViewModel.cs" />
+    <Compile Include="ViewModel\PVI\CatalogList\CatalogX2ListViewModel.cs" />
+    <Compile Include="ViewModel\PVI\CatalogList\CatalogX3ListViewModel.cs" />
+    <Compile Include="ViewModel\PVI\CatalogList\CatalogX4ListViewModel.cs" />
+    <Compile Include="ViewModel\PVI\CatalogList\CatalogX5ListViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditCatalogItem\EditX1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditCatalogItem\EditX2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditCatalogItem\EditX3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditCatalogItem\EditX4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditCatalogItem\EditX5CatalogViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditQuoteItem\EditX1ItemViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditQuoteItem\EditX2ItemViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditQuoteItem\EditX3ItemViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditQuoteItem\EditX4ItemViewModel.cs" />
+    <Compile Include="ViewModel\PVI\EditQuoteItem\EditX5ItemViewModel.cs" />
+    <Compile Include="ViewModel\PVI\QuoteItemList\XItemListViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\CatalogList\CatalogA1ListViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\CatalogList\CatalogA2ListViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\CatalogList\CatalogA3ListViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\CatalogList\CatalogA4ListViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditCatalogItem\EditA1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditCatalogItem\EditA2CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditCatalogItem\EditA3CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditCatalogItem\EditA4CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA2ItemViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA4ItemViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\EditQuoteItem\EditA3ItemViewModel.cs" />
+    <Compile Include="ViewModel\Quantech\QuoteItemList\AItemListViewModel.cs" />
+    <Compile Include="ViewModel\QuoteViewModel.cs" />
+    <Compile Include="ViewModel\ReportsViewModel.cs" />
+    <Compile Include="ViewModel\Robur\CatalogList\CatalogY1ListViewModel.cs" />
+    <Compile Include="ViewModel\Robur\EditCatalogItem\EditY1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Robur\EditQuoteItem\EditY1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Robur\QuoteItemList\YItemListViewModel.cs" />
+    <Compile Include="ViewModel\TitleFromItemViewModel.cs" />
+    <Compile Include="ViewModel\TitleViewModel.cs" />
+    <Compile Include="ViewModel\UMAS\CatalogList\CatalogM1ListViewModel.cs" />
+    <Compile Include="ViewModel\UMAS\EditCatalogItem\EditM1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\UMAS\EditQuoteItem\EditM1ItemViewModel.cs" />
+    <Compile Include="ViewModel\UMAS\QuoteItemList\MItemListViewModel.cs" />
+    <Compile Include="ViewModel\UserListViewModel.cs" />
+    <Compile Include="ViewModel\UvResources\CatalogList\CatalogF1ListViewModel.cs" />
+    <Compile Include="ViewModel\UvResources\EditCatalogItem\EditF1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\UvResources\EditQuoteItem\EditF1ItemViewModel.cs" />
+    <Compile Include="ViewModel\UvResources\QuoteItemList\FItemListViewModel.cs" />
+    <Compile Include="ViewModel\Valent\CatalogList\CatalogZ1ListViewModel.cs" />
+    <Compile Include="ViewModel\Valent\EditCatalogItem\EditZ1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Valent\EditQuoteItem\EditZ1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Valent\QuoteItemList\ZItemListViewModel.cs" />
+    <Compile Include="ViewModel\Whalen\CatalogList\CatalogAA1ListViewModel.cs" />
+    <Compile Include="ViewModel\Whalen\EditCatalogItem\EditAA1CatalogViewModel.cs" />
+    <Compile Include="ViewModel\Whalen\EditQuoteItem\EditAA1ItemViewModel.cs" />
+    <Compile Include="ViewModel\Whalen\QuoteItemList\AAItemListViewModel.cs" />
+    <Compile Include="View\ABB\CatalogList\CatalogB1ListView.xaml.cs">
+      <DependentUpon>CatalogB1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\CatalogList\CatalogB2ListView.xaml.cs">
+      <DependentUpon>CatalogB2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\CatalogList\CatalogB3ListView.xaml.cs">
+      <DependentUpon>CatalogB3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\CatalogList\CatalogB4ListView.xaml.cs">
+      <DependentUpon>CatalogB4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\CatalogList\CatalogB5ListView.xaml.cs">
+      <DependentUpon>CatalogB5ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditCatalogItem\EditB1CatalogView.xaml.cs">
+      <DependentUpon>EditB1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditCatalogItem\EditB2CatalogView.xaml.cs">
+      <DependentUpon>EditB2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditCatalogItem\EditB3CatalogView.xaml.cs">
+      <DependentUpon>EditB3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditCatalogItem\EditB4CatalogView.xaml.cs">
+      <DependentUpon>EditB4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditCatalogItem\EditB5CatalogView.xaml.cs">
+      <DependentUpon>EditB5CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditQuoteItem\EditB1ItemView.xaml.cs">
+      <DependentUpon>EditB1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditQuoteItem\EditB2ItemView.xaml.cs">
+      <DependentUpon>EditB2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditQuoteItem\EditB3ItemView.xaml.cs">
+      <DependentUpon>EditB3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditQuoteItem\EditB4ItemView.xaml.cs">
+      <DependentUpon>EditB4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\EditQuoteItem\EditB5ItemView.xaml.cs">
+      <DependentUpon>EditB5ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ABB\QuoteItemList\BItemListView.xaml.cs">
+      <DependentUpon>BItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AboveAir\CatalogList\CatalogN1ListView.xaml.cs">
+      <DependentUpon>CatalogN1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AboveAir\EditCatalogItem\EditN1CatalogView.xaml.cs">
+      <DependentUpon>EditN1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AboveAir\EditQuoteItem\EditN1ItemView.xaml.cs">
+      <DependentUpon>EditN1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AboveAir\QuoteItemList\NItemListView.xaml.cs">
+      <DependentUpon>NItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\CatalogList\CatalogO1ListView.xaml.cs">
+      <DependentUpon>CatalogO1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\CatalogList\CatalogO2ListView.xaml.cs">
+      <DependentUpon>CatalogO2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\EditCatalogItem\EditO1CatalogView.xaml.cs">
+      <DependentUpon>EditO1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\EditCatalogItem\EditO2CatalogView.xaml.cs">
+      <DependentUpon>EditO2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\EditQuoteItem\EditO1ItemView.xaml.cs">
+      <DependentUpon>EditO1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\EditQuoteItem\EditO2ItemView.xaml.cs">
+      <DependentUpon>EditO2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AERCO\QuoteItemList\OItemListView.xaml.cs">
+      <DependentUpon>OItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC1ListView.xaml.cs">
+      <DependentUpon>CatalogC1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC2ListView.xaml.cs">
+      <DependentUpon>CatalogC2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC3ListView.xaml.cs">
+      <DependentUpon>CatalogC3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC4ListView.xaml.cs">
+      <DependentUpon>CatalogC4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC5ListView.xaml.cs">
+      <DependentUpon>CatalogC5ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC6ListView.xaml.cs">
+      <DependentUpon>CatalogC6ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\CatalogList\CatalogC7ListView.xaml.cs">
+      <DependentUpon>CatalogC7ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC1CatalogView.xaml.cs">
+      <DependentUpon>EditC1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC2CatalogView.xaml.cs">
+      <DependentUpon>EditC2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC3CatalogView.xaml.cs">
+      <DependentUpon>EditC3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC4CatalogView.xaml.cs">
+      <DependentUpon>EditC4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC5CatalogView.xaml.cs">
+      <DependentUpon>EditC5CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC6CatalogView.xaml.cs">
+      <DependentUpon>EditC6CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditCatalogItem\EditC7CatalogView.xaml.cs">
+      <DependentUpon>EditC7CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC1ItemView.xaml.cs">
+      <DependentUpon>EditC1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC2ItemView.xaml.cs">
+      <DependentUpon>EditC2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC3ItemView.xaml.cs">
+      <DependentUpon>EditC3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC4ItemView.xaml.cs">
+      <DependentUpon>EditC4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC5ItemView.xaml.cs">
+      <DependentUpon>EditC5ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC6ItemView.xaml.cs">
+      <DependentUpon>EditC6ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\EditQuoteItem\EditC7ItemView.xaml.cs">
+      <DependentUpon>EditC7ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AmericanWheatley\QuoteItemList\CItemListView.xaml.cs">
+      <DependentUpon>CItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\CatalogList\CatalogH1ListView.xaml.cs">
+      <DependentUpon>CatalogH1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\CatalogList\CatalogH2ListView.xaml.cs">
+      <DependentUpon>CatalogH2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\CatalogList\CatalogH3ListView.xaml.cs">
+      <DependentUpon>CatalogH3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\CatalogList\CatalogH4ListView.xaml.cs">
+      <DependentUpon>CatalogH4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\CatalogList\CatalogH5ListView.xaml.cs">
+      <DependentUpon>CatalogH5ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditCatalogItem\EditH1CatalogView.xaml.cs">
+      <DependentUpon>EditH1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditCatalogItem\EditH2CatalogView.xaml.cs">
+      <DependentUpon>EditH2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditCatalogItem\EditH3CatalogView.xaml.cs">
+      <DependentUpon>EditH3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditCatalogItem\EditH4CatalogView.xaml.cs">
+      <DependentUpon>EditH4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditCatalogItem\EditH5CatalogView.xaml.cs">
+      <DependentUpon>EditH5CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditQuoteItem\EditH1ItemView.xaml.cs">
+      <DependentUpon>EditH1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditQuoteItem\EditH2ItemView.xaml.cs">
+      <DependentUpon>EditH2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditQuoteItem\EditH3ItemView.xaml.cs">
+      <DependentUpon>EditH3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditQuoteItem\EditH4ItemView.xaml.cs">
+      <DependentUpon>EditH4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\EditQuoteItem\EditH5ItemView.xaml.cs">
+      <DependentUpon>EditH5ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACClosedCircuits\QuoteItemList\HItemListView.xaml.cs">
+      <DependentUpon>HItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG1ListView.xaml.cs">
+      <DependentUpon>CatalogG1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG2ListView.xaml.cs">
+      <DependentUpon>CatalogG2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG3ListView.xaml.cs">
+      <DependentUpon>CatalogG3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG4ListView.xaml.cs">
+      <DependentUpon>CatalogG4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG5ListView.xaml.cs">
+      <DependentUpon>CatalogG5ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\CatalogList\CatalogG6ListView.xaml.cs">
+      <DependentUpon>CatalogG6ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditCatalogItem\EditG1CatalogView.xaml.cs">
+      <DependentUpon>EditG1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditCatalogItem\EditG2CatalogView.xaml.cs">
+      <DependentUpon>EditG2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditCatalogItem\EditG3CatalogView.xaml.cs">
+      <DependentUpon>EditG3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditCatalogItem\EditG4CatalogView.xaml.cs">
+      <DependentUpon>EditG4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditCatalogItem\EditG5CatalogView.xaml.cs">
+      <DependentUpon>EditG5CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditCatalogItem\EditG6CatalogView.xaml.cs">
+      <DependentUpon>EditG6CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG1ItemView.xaml.cs">
+      <DependentUpon>EditG1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG2ItemView.xaml.cs">
+      <DependentUpon>EditG2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG3ItemView.xaml.cs">
+      <DependentUpon>EditG3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG4ItemView.xaml.cs">
+      <DependentUpon>EditG4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG5ItemView.xaml.cs">
+      <DependentUpon>EditG5ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\EditQuoteItem\EditG6ItemView.xaml.cs">
+      <DependentUpon>EditG6ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\BACCoolingTowers\QuoteItemList\GItemListView.xaml.cs">
+      <DependentUpon>GItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Baldor\CatalogList\CatalogP1ListView.xaml.cs">
+      <DependentUpon>CatalogP1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Baldor\EditCatalogItem\EditP1CatalogView.xaml.cs">
+      <DependentUpon>EditP1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Baldor\EditQuoteItem\EditP1ItemView.xaml.cs">
+      <DependentUpon>EditP1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Baldor\QuoteItemList\PItemListView.xaml.cs">
+      <DependentUpon>PItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CatalogView.xaml.cs">
+      <DependentUpon>CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CloneQuoteView.xaml.cs">
+      <DependentUpon>CloneQuoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ComingSoonView.xaml.cs">
+      <DependentUpon>ComingSoonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\CatalogList\CatalogQ1ListView.xaml.cs">
+      <DependentUpon>CatalogQ1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\CatalogList\CatalogQ2ListView.xaml.cs">
+      <DependentUpon>CatalogQ2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\CatalogList\CatalogQ3ListView.xaml.cs">
+      <DependentUpon>CatalogQ3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\CatalogList\CatalogQ4ListView.xaml.cs">
+      <DependentUpon>CatalogQ4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditCatalogItem\EditQ1CatalogView.xaml.cs">
+      <DependentUpon>EditQ1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditCatalogItem\EditQ2CatalogView.xaml.cs">
+      <DependentUpon>EditQ2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditCatalogItem\EditQ3CatalogView.xaml.cs">
+      <DependentUpon>EditQ3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditCatalogItem\EditQ4CatalogView.xaml.cs">
+      <DependentUpon>EditQ4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditQuoteItem\EditQ1ItemView.xaml.cs">
+      <DependentUpon>EditQ1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditQuoteItem\EditQ2ItemView.xaml.cs">
+      <DependentUpon>EditQ2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditQuoteItem\EditQ3ItemView.xaml.cs">
+      <DependentUpon>EditQ3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\EditQuoteItem\EditQ4ItemView.xaml.cs">
+      <DependentUpon>EditQ4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Condair\QuoteItemList\QItemListView.xaml.cs">
+      <DependentUpon>QItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConfigurationMenuView.xaml.cs">
+      <DependentUpon>ConfigurationMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CreateQuoteView.xaml.cs">
+      <DependentUpon>CreateQuoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DataSheetListView.xaml.cs">
+      <DependentUpon>DataSheetListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditUserView.xaml.cs">
+      <DependentUpon>EditUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\CatalogList\CatalogR1ListView.xaml.cs">
+      <DependentUpon>CatalogR1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\CatalogList\CatalogR2ListView.xaml.cs">
+      <DependentUpon>CatalogR2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\CatalogList\CatalogR3ListView.xaml.cs">
+      <DependentUpon>CatalogR3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\CatalogList\CatalogR4ListView.xaml.cs">
+      <DependentUpon>CatalogR4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditCatalogItem\EditR1CatalogView.xaml.cs">
+      <DependentUpon>EditR1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditCatalogItem\EditR2CatalogView.xaml.cs">
+      <DependentUpon>EditR2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditCatalogItem\EditR3CatalogView.xaml.cs">
+      <DependentUpon>EditR3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditCatalogItem\EditR4CatalogView.xaml.cs">
+      <DependentUpon>EditR4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditQuoteItem\EditR1ItemView.xaml.cs">
+      <DependentUpon>EditR1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditQuoteItem\EditR2ItemView.xaml.cs">
+      <DependentUpon>EditR2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditQuoteItem\EditR3ItemView.xaml.cs">
+      <DependentUpon>EditR3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\EditQuoteItem\EditR4ItemView.xaml.cs">
+      <DependentUpon>EditR4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EnviroTec\QuoteItemList\RItemListView.xaml.cs">
+      <DependentUpon>RItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ExportProjectView.xaml.cs">
+      <DependentUpon>ExportProjectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GeneralProduct\CatalogList\CatalogL1ListView.xaml.cs">
+      <DependentUpon>CatalogL1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GeneralProduct\EditCatalogItem\EditL1CatalogView.xaml.cs">
+      <DependentUpon>EditL1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GeneralProduct\EditQuoteItem\EditL1ItemView.xaml.cs">
+      <DependentUpon>EditL1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GeneralProduct\QuoteItemList\LItemListView.xaml.cs">
+      <DependentUpon>LItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE1ListVew.xaml.cs">
+      <DependentUpon>CatalogE1ListVew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE2ListView.xaml.cs">
+      <DependentUpon>CatalogE2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE3ListView.xaml.cs">
+      <DependentUpon>CatalogE3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE4ListView.xaml.cs">
+      <DependentUpon>CatalogE4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE5ListView.xaml.cs">
+      <DependentUpon>CatalogE5ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE6ListView.xaml.cs">
+      <DependentUpon>CatalogE6ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\CatalogList\CatalogE7ListView.xaml.cs">
+      <DependentUpon>CatalogE7ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE1CatalogView.xaml.cs">
+      <DependentUpon>EditE1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE2CatalogView.xaml.cs">
+      <DependentUpon>EditE2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE3CatalogView.xaml.cs">
+      <DependentUpon>EditE3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE4CatalogView.xaml.cs">
+      <DependentUpon>EditE4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE5CatalogView.xaml.cs">
+      <DependentUpon>EditE5CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE6CatalogView.xaml.cs">
+      <DependentUpon>EditE6CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditCatalogItem\EditE7CatalogView.xaml.cs">
+      <DependentUpon>EditE7CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE1ItemView.xaml.cs">
+      <DependentUpon>EditE1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE2ItemView.xaml.cs">
+      <DependentUpon>EditE2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE3ItemView.xaml.cs">
+      <DependentUpon>EditE3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE4ItemView.xaml.cs">
+      <DependentUpon>EditE4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE5ItemView.xaml.cs">
+      <DependentUpon>EditE5ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE6ItemView.xaml.cs">
+      <DependentUpon>EditE6ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\EditQuoteItem\EditE7ItemView.xaml.cs">
+      <DependentUpon>EditE7ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Groundfos\QuoteItemList\EItemListView.xaml.cs">
+      <DependentUpon>EItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemView.xaml.cs">
+      <DependentUpon>ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LYNC\CatalogList\CatalogS1ListView.xaml.cs">
+      <DependentUpon>CatalogS1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LYNC\EditCatalogItem\EditS1CatalogView.xaml.cs">
+      <DependentUpon>EditS1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LYNC\EditQuoteItem\EditS1ItemView.xaml.cs">
+      <DependentUpon>EditS1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LYNC\QuoteItemList\SItemListView.xaml.cs">
+      <DependentUpon>SItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\CatalogList\CatalogI1ListView.xaml.cs">
+      <DependentUpon>CatalogI1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\CatalogList\CatalogI2ListView.xaml.cs">
+      <DependentUpon>CatalogI2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\EditCatalogItem\EditI1CatalogView.xaml.cs">
+      <DependentUpon>EditI1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\EditCatalogItem\EditI2CatalogView.xaml.cs">
+      <DependentUpon>EditI2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\EditQuoteItem\EditI1ItemView.xaml.cs">
+      <DependentUpon>EditI1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\EditQuoteItem\EditI2ItemView.xaml.cs">
+      <DependentUpon>EditI2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Marvair\QuoteItemList\IItemListView.xaml.cs">
+      <DependentUpon>IItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\CatalogList\CatalogK1ListView.xaml.cs">
+      <DependentUpon>CatalogK1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\CatalogList\CatalogK2ListView.xaml.cs">
+      <DependentUpon>CatalogK2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\CatalogList\CatalogK3ListView.xaml.cs">
+      <DependentUpon>CatalogK3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\EditCatalogItem\EditK1CatalogView.xaml.cs">
+      <DependentUpon>EditK1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\EditCatalogItem\EditK2CatalogView.xaml.cs">
+      <DependentUpon>EditK2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\EditCatalogItem\EditK3CatalogView.xaml.cs">
+      <DependentUpon>EditK3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\EditQuoteItem\EditK1ItemView.xaml.cs">
+      <DependentUpon>EditK1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\EditQuoteItem\EditK2ItemView.xaml.cs">
+      <DependentUpon>EditK2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\EditQuoteItem\EditK3ItemView.xaml.cs">
+      <DependentUpon>EditK3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Multiaqua\QuoteItemList\KItemListView.xaml.cs">
+      <DependentUpon>KItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewProjectView.xaml.cs">
+      <DependentUpon>NewProjectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\CatalogList\CatalogT1ListView.xaml.cs">
+      <DependentUpon>CatalogT1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\CatalogList\CatalogT2ListView.xaml.cs">
+      <DependentUpon>CatalogT2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\CatalogList\CatalogT3ListView.xaml.cs">
+      <DependentUpon>CatalogT3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\EditCatalogItem\EditT1CatalogView.xaml.cs">
+      <DependentUpon>EditT1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\EditCatalogItem\EditT2CatalogView.xaml.cs">
+      <DependentUpon>EditT2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\EditCatalogItem\EditT3CatalogView.xaml.cs">
+      <DependentUpon>EditT3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\EditQuoteItem\EditT1ItemView.xaml.cs">
+      <DependentUpon>EditT1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\EditQuoteItem\EditT2ItemView.xaml.cs">
+      <DependentUpon>EditT2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\EditQuoteItem\EditT3ItemView.xaml.cs">
+      <DependentUpon>EditT3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Nortek\QuoteItemList\TItemListView.xaml.cs">
+      <DependentUpon>TItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NYLE\CatalogList\CatalogU1ListView.xaml.cs">
+      <DependentUpon>CatalogU1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NYLE\EditCatalogItem\EditU1CatalogView.xaml.cs">
+      <DependentUpon>EditU1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NYLE\EditQuoteItem\EditU1ItemView.xaml.cs">
+      <DependentUpon>EditU1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NYLE\QuoteItemList\UItemListView.xaml.cs">
+      <DependentUpon>UItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OpenProjectView.xaml.cs">
+      <DependentUpon>OpenProjectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PACE\CatalogList\CatalogJ1ListView.xaml.cs">
+      <DependentUpon>CatalogJ1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PACE\EditCatalogItem\EditJ1CatalogView.xaml.cs">
+      <DependentUpon>EditJ1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PACE\EditQuoteItem\EditJ1ItemView.xaml.cs">
+      <DependentUpon>EditJ1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PACE\QuoteItemList\JItemListView.xaml.cs">
+      <DependentUpon>JItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlasmaAir\CatalogList\CatalogV1ListView.xaml.cs">
+      <DependentUpon>CatalogV1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlasmaAir\EditCatalogItem\EditV1CatalogView.xaml.cs">
+      <DependentUpon>EditV1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlasmaAir\EditQuoteItem\EditV1ItemView.xaml.cs">
+      <DependentUpon>EditV1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlasmaAir\QuoteItemList\VItemListView.xaml.cs">
+      <DependentUpon>VItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Polaris\CatalogList\CatalogW1ListView.xaml.cs">
+      <DependentUpon>CatalogW1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Polaris\EditCatalogItem\EditW1CatalogView.xaml.cs">
+      <DependentUpon>EditW1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Polaris\EditQuoteItem\EditW1ItemView.xaml.cs">
+      <DependentUpon>EditW1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Polaris\QuoteItemList\WItemListView.xaml.cs">
+      <DependentUpon>WItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProjectInformationView.xaml.cs">
+      <DependentUpon>ProjectInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\CatalogList\CatalogD1ListView.xaml.cs">
+      <DependentUpon>CatalogD1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\CatalogList\CatalogD2ListView.xaml.cs">
+      <DependentUpon>CatalogD2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\EditCatalogItem\EditD1CatalogView.xaml.cs">
+      <DependentUpon>EditD1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\EditCatalogItem\EditD2CatalogView.xaml.cs">
+      <DependentUpon>EditD2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\EditQuoteItem\EditD1ItemView.xaml.cs">
+      <DependentUpon>EditD1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\EditQuoteItem\EditD2ItemView.xaml.cs">
+      <DependentUpon>EditD2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PuroFlux\QuoteItemList\DItemListView.xaml.cs">
+      <DependentUpon>DItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\CatalogList\CatalogX1ListView.xaml.cs">
+      <DependentUpon>CatalogX1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\CatalogList\CatalogX2ListView.xaml.cs">
+      <DependentUpon>CatalogX2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\CatalogList\CatalogX3ListView.xaml.cs">
+      <DependentUpon>CatalogX3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\CatalogList\CatalogX4ListView.xaml.cs">
+      <DependentUpon>CatalogX4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\CatalogList\CatalogX5ListView.xaml.cs">
+      <DependentUpon>CatalogX5ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditCatalogItem\EditX1CatalogView.xaml.cs">
+      <DependentUpon>EditX1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditCatalogItem\EditX2CatalogView.xaml.cs">
+      <DependentUpon>EditX2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditCatalogItem\EditX3CatalogView.xaml.cs">
+      <DependentUpon>EditX3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditCatalogItem\EditX4CatalogView.xaml.cs">
+      <DependentUpon>EditX4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditCatalogItem\EditX5CatalogView.xaml.cs">
+      <DependentUpon>EditX5CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditQuoteItem\EditX1ItemView.xaml.cs">
+      <DependentUpon>EditX1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditQuoteItem\EditX2ItemView.xaml.cs">
+      <DependentUpon>EditX2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditQuoteItem\EditX3ItemView.xaml.cs">
+      <DependentUpon>EditX3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditQuoteItem\EditX4ItemView.xaml.cs">
+      <DependentUpon>EditX4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\EditQuoteItem\EditX5ItemView.xaml.cs">
+      <DependentUpon>EditX5ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PVI\QuoteItemList\XItemListView.xaml.cs">
+      <DependentUpon>XItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\CatalogList\CatalogA1ListView.xaml.cs">
+      <DependentUpon>CatalogA1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\CatalogList\CatalogA2ListView.xaml.cs">
+      <DependentUpon>CatalogA2ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\CatalogList\CatalogA3ListView.xaml.cs">
+      <DependentUpon>CatalogA3ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\CatalogList\CatalogA4ListView.xaml.cs">
+      <DependentUpon>CatalogA4ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditCatalogItem\EditA1CatalogView.xaml.cs">
+      <DependentUpon>EditA1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditCatalogItem\EditA2CatalogView.xaml.cs">
+      <DependentUpon>EditA2CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditCatalogItem\EditA3CatalogView.xaml.cs">
+      <DependentUpon>EditA3CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditCatalogItem\EditA4CatalogView.xaml.cs">
+      <DependentUpon>EditA4CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditQuoteItem\EditA1ItemView.xaml.cs">
+      <DependentUpon>EditA1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditQuoteItem\EditA2ItemView.xaml.cs">
+      <DependentUpon>EditA2ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditQuoteItem\EditA3ItemView.xaml.cs">
+      <DependentUpon>EditA3ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\EditQuoteItem\EditA4ItemView.xaml.cs">
+      <DependentUpon>EditA4ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Quantech\QuoteItemList\AItemListView.xaml.cs">
+      <DependentUpon>AItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\QuoteView.xaml.cs">
+      <DependentUpon>QuoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportsView.xaml.cs">
+      <DependentUpon>ReportsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Robur\CatalogList\CatalogY1ListView.xaml.cs">
+      <DependentUpon>CatalogY1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Robur\EditCatalogItem\EditY1CatalogView.xaml.cs">
+      <DependentUpon>EditY1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Robur\EditQuoteItem\EditY1ItemView.xaml.cs">
+      <DependentUpon>EditY1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Robur\QuoteItemList\YItemListView.xaml.cs">
+      <DependentUpon>YItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TitleFromItemView.xaml.cs">
+      <DependentUpon>TitleFromItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TitleView.xaml.cs">
+      <DependentUpon>TitleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UMAS\CatalogList\CatalogM1ListView.xaml.cs">
+      <DependentUpon>CatalogM1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UMAS\EditCatalogItem\EditM1CatalogView.xaml.cs">
+      <DependentUpon>EditM1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UMAS\EditQuoteItem\EditM1ItemView.xaml.cs">
+      <DependentUpon>EditM1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UMAS\QuoteItemList\MItemListView.xaml.cs">
+      <DependentUpon>MItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserListView.xaml.cs">
+      <DependentUpon>UserListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UvResources\CatalogList\CatalogF1ListView.xaml.cs">
+      <DependentUpon>CatalogF1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UvResources\EditCatalogItem\EditF1CatalogView.xaml.cs">
+      <DependentUpon>EditF1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UvResources\EditQuoteItem\EditF1ItemView.xaml.cs">
+      <DependentUpon>EditF1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UvResources\QuoteItemList\FItemListView.xaml.cs">
+      <DependentUpon>FItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Valent\CatalogList\CatalogZ1ListView.xaml.cs">
+      <DependentUpon>CatalogZ1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Valent\EditCatalogItem\EditZ1CatalogView.xaml.cs">
+      <DependentUpon>EditZ1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Valent\EditQuoteItem\EditZ1ItemView.xaml.cs">
+      <DependentUpon>EditZ1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Valent\QuoteItemList\ZItemListView.xaml.cs">
+      <DependentUpon>ZItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Whalen\CatalogList\CatalogAA1ListView.xaml.cs">
+      <DependentUpon>CatalogAA1ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Whalen\EditCatalogItem\EditAA1CatalogView.xaml.cs">
+      <DependentUpon>EditAA1CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Whalen\EditQuoteItem\EditAA1ItemView.xaml.cs">
+      <DependentUpon>EditAA1ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Whalen\QuoteItemList\AAItemListView.xaml.cs">
+      <DependentUpon>AAItemListView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\ABB\CatalogList\CatalogB1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\CatalogList\CatalogB2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\CatalogList\CatalogB3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\CatalogList\CatalogB4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\CatalogList\CatalogB5ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditCatalogItem\EditB1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditCatalogItem\EditB2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditCatalogItem\EditB3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditCatalogItem\EditB4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditCatalogItem\EditB5CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditQuoteItem\EditB1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditQuoteItem\EditB2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditQuoteItem\EditB3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditQuoteItem\EditB4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\EditQuoteItem\EditB5ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ABB\QuoteItemList\BItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboveAir\CatalogList\CatalogN1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboveAir\EditCatalogItem\EditN1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboveAir\EditQuoteItem\EditN1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboveAir\QuoteItemList\NItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\CatalogList\CatalogO1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\CatalogList\CatalogO2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\EditCatalogItem\EditO1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\EditCatalogItem\EditO2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\EditQuoteItem\EditO1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\EditQuoteItem\EditO2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AERCO\QuoteItemList\OItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AirTreatmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC5ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC6ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\CatalogList\CatalogC7ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC5CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC6CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditCatalogItem\EditC7CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC5ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC6ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\EditQuoteItem\EditC7ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AmericanWheatley\QuoteItemList\CItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\CatalogList\CatalogH1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\CatalogList\CatalogH2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\CatalogList\CatalogH3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\CatalogList\CatalogH4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\CatalogList\CatalogH5ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditCatalogItem\EditH1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditCatalogItem\EditH2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditCatalogItem\EditH3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditCatalogItem\EditH4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditCatalogItem\EditH5CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditQuoteItem\EditH1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditQuoteItem\EditH2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditQuoteItem\EditH3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditQuoteItem\EditH4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\EditQuoteItem\EditH5ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACClosedCircuits\QuoteItemList\HItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\CatalogList\CatalogG1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\CatalogList\CatalogG2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\CatalogList\CatalogG3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\CatalogList\CatalogG4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\CatalogList\CatalogG5ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\CatalogList\CatalogG6ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditCatalogItem\EditG1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditCatalogItem\EditG2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditCatalogItem\EditG3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditCatalogItem\EditG4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditCatalogItem\EditG5CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditCatalogItem\EditG6CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditQuoteItem\EditG1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditQuoteItem\EditG2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditQuoteItem\EditG3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditQuoteItem\EditG4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditQuoteItem\EditG5ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\EditQuoteItem\EditG6ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BACCoolingTowers\QuoteItemList\GItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Baldor\CatalogList\CatalogP1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Baldor\EditCatalogItem\EditP1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Baldor\EditQuoteItem\EditP1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Baldor\QuoteItemList\PItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CloneQuoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ComingSoonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\CatalogList\CatalogQ1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\CatalogList\CatalogQ2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\CatalogList\CatalogQ3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\CatalogList\CatalogQ4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditCatalogItem\EditQ1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditCatalogItem\EditQ2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditCatalogItem\EditQ3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditCatalogItem\EditQ4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditQuoteItem\EditQ1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditQuoteItem\EditQ2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditQuoteItem\EditQ3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\EditQuoteItem\EditQ4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Condair\QuoteItemList\QItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ConfigurationMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CreateQuoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DataSheetListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\CatalogList\CatalogR1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\CatalogList\CatalogR2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\CatalogList\CatalogR3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\CatalogList\CatalogR4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditCatalogItem\EditR1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditCatalogItem\EditR2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditCatalogItem\EditR3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditCatalogItem\EditR4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditQuoteItem\EditR1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditQuoteItem\EditR2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditQuoteItem\EditR3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\EditQuoteItem\EditR4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnviroTec\QuoteItemList\RItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ExportProjectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GeneralProduct\CatalogList\CatalogL1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GeneralProduct\EditCatalogItem\EditL1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GeneralProduct\EditQuoteItem\EditL1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GeneralProduct\QuoteItemList\LItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE1ListVew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE5ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE6ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\CatalogList\CatalogE7ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE5CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE6CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditCatalogItem\EditE7CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE5ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE6ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\EditQuoteItem\EditE7ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Groundfos\QuoteItemList\EItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LYNC\CatalogList\CatalogS1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LYNC\EditCatalogItem\EditS1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LYNC\EditQuoteItem\EditS1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LYNC\QuoteItemList\SItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="ViewModel\AirTreatmentViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="View\AirTreatmentView.xaml.cs">
+      <DependentUpon>AirTreatmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\Marvair\CatalogList\CatalogI1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Marvair\CatalogList\CatalogI2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Marvair\EditCatalogItem\EditI1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Marvair\EditCatalogItem\EditI2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Marvair\EditQuoteItem\EditI1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Marvair\EditQuoteItem\EditI2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Marvair\QuoteItemList\IItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\CatalogList\CatalogK1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\CatalogList\CatalogK2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\CatalogList\CatalogK3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\EditCatalogItem\EditK1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\EditCatalogItem\EditK2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\EditCatalogItem\EditK3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\EditQuoteItem\EditK1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\EditQuoteItem\EditK2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\EditQuoteItem\EditK3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Multiaqua\QuoteItemList\KItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewProjectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\CatalogList\CatalogT1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\CatalogList\CatalogT2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\CatalogList\CatalogT3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\EditCatalogItem\EditT1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\EditCatalogItem\EditT2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\EditCatalogItem\EditT3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\EditQuoteItem\EditT1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\EditQuoteItem\EditT2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\EditQuoteItem\EditT3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Nortek\QuoteItemList\TItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NYLE\CatalogList\CatalogU1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NYLE\EditCatalogItem\EditU1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NYLE\EditQuoteItem\EditU1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NYLE\QuoteItemList\UItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OpenProjectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PACE\CatalogList\CatalogJ1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PACE\EditCatalogItem\EditJ1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PACE\EditQuoteItem\EditJ1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PACE\QuoteItemList\JItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PlasmaAir\CatalogList\CatalogV1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PlasmaAir\EditCatalogItem\EditV1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PlasmaAir\EditQuoteItem\EditV1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PlasmaAir\QuoteItemList\VItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Polaris\CatalogList\CatalogW1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Polaris\EditCatalogItem\EditW1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Polaris\EditQuoteItem\EditW1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Polaris\QuoteItemList\WItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProjectInformationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\CatalogList\CatalogD1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\CatalogList\CatalogD2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\EditCatalogItem\EditD1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\EditCatalogItem\EditD2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\EditQuoteItem\EditD1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\EditQuoteItem\EditD2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PuroFlux\QuoteItemList\DItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\CatalogList\CatalogX1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\CatalogList\CatalogX2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\CatalogList\CatalogX3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\CatalogList\CatalogX4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\CatalogList\CatalogX5ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditCatalogItem\EditX1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditCatalogItem\EditX2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditCatalogItem\EditX3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditCatalogItem\EditX4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditCatalogItem\EditX5CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditQuoteItem\EditX1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditQuoteItem\EditX2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditQuoteItem\EditX3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditQuoteItem\EditX4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\EditQuoteItem\EditX5ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PVI\QuoteItemList\XItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\CatalogList\CatalogA1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\CatalogList\CatalogA2ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\CatalogList\CatalogA3ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\CatalogList\CatalogA4ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditCatalogItem\EditA1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditCatalogItem\EditA2CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditCatalogItem\EditA3CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditCatalogItem\EditA4CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditQuoteItem\EditA1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditQuoteItem\EditA2ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditQuoteItem\EditA3ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\EditQuoteItem\EditA4ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Quantech\QuoteItemList\AItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\QuoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ReportsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Robur\CatalogList\CatalogY1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Robur\EditCatalogItem\EditY1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Robur\EditQuoteItem\EditY1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Robur\QuoteItemList\YItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TitleFromItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TitleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UMAS\CatalogList\CatalogM1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UMAS\EditCatalogItem\EditM1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UMAS\EditQuoteItem\EditM1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UMAS\QuoteItemList\MItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UvResources\CatalogList\CatalogF1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UvResources\EditCatalogItem\EditF1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UvResources\EditQuoteItem\EditF1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UvResources\QuoteItemList\FItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Valent\CatalogList\CatalogZ1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Valent\EditCatalogItem\EditZ1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Valent\EditQuoteItem\EditZ1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Valent\QuoteItemList\ZItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Whalen\CatalogList\CatalogAA1ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Whalen\EditCatalogItem\EditAA1CatalogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Whalen\EditQuoteItem\EditAA1ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Whalen\QuoteItemList\AAItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Orion.Binding\Orion.Binding.csproj">
+      <Project>{6C9FD30B-658A-416B-B60F-B75240F3B06E}</Project>
+      <Name>Orion.Binding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orion.DataAccess\Orion.DataAccess.csproj">
+      <Project>{816C5680-10A4-439A-9B27-6276460D85D8}</Project>
+      <Name>Orion.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orion.Domain\Orion.Domain.csproj">
+      <Project>{BC860056-A6ED-4785-BC94-2F84135FF8CE}</Project>
+      <Name>Orion.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orion.Helper\Orion.Helper.csproj">
+      <Project>{d9e23b8f-1a1b-467d-a46f-07d97a7112f5}</Project>
+      <Name>Orion.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orion.Report\Orion.Report.csproj">
+      <Project>{5da6f26f-1695-490d-a655-368c967e5bb1}</Project>
+      <Name>Orion.Report</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\xpress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xpress.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="xpressx.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\AtcSquareLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\AtcRectangleLogo.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

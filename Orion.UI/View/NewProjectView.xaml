@@ -1,0 +1,153 @@
+﻿<UserControl x:Class="Orion.UI.View.NewProjectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Orion.UI.View"
+             mc:Ignorable="d" 
+             xmlns:ctrl="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             dialog:DialogParticipation.Register="{Binding}"
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks" 
+             xmlns:vm="clr-namespace:Orion.UI.ViewModel"
+             xmlns:view="clr-namespace:Orion.UI.View"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+             d:DesignHeight="600" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type=vm:NewProjectViewModel}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadDataCommand}"/>
+        </i:EventTrigger>
+        <!--<i:EventTrigger SourceObject="{Binding RelativeSource={RelativeSource AncestorType=ctrl:MetroWindow}}" EventName="Closed">
+        <i:InvokeCommandAction Command="{Binding ExitCommand}" />
+    </i:EventTrigger>-->
+    </i:Interaction.Triggers>
+
+    <Grid Grid.Column="1" Grid.Row="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+
+            <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Project Name" 
+                             Text="{Binding Project.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+            </TextBox>
+
+            <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Contractor (To)" 
+                             Text="{Binding Project.Contractor, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+            </TextBox>
+
+            <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Contact (Attention)" 
+                             Text="{Binding Project.Contact, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+            </TextBox>
+
+            <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Engineer" 
+                             Text="{Binding Project.Engineer, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+            </TextBox>
+
+            <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Proposal Number" 
+                             Text="{Binding Project.ProposalNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+            </TextBox>
+
+            <TextBox  
+                             ctrl:TextBoxHelper.Watermark="Addendum" 
+                             Text="{Binding Project.Addendum, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
+                             Style="{DynamicResource TxtStyle}">
+            </TextBox>
+
+            <ctrl:DateTimePicker
+                    Height="40"
+                    Margin="1"
+                    ctrl:TextBoxHelper.UseFloatingWatermark="True"
+                    ctrl:TextBoxHelper.Watermark="Plans Dated"
+                    BorderBrush="White"
+                    BorderThickness="1"
+                    SelectedDateTime="{Binding Project.PlansDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        </StackPanel>
+        <TextBox Grid.Row="1" Margin="1"   
+                     VerticalScrollBarVisibility="Auto"  
+                     TextWrapping="Wrap" Text="{Binding Project.Notes}" 
+                     ToolTip="{Binding Project.Notes}" 
+                     ctrl:TextBoxHelper.Watermark="Project description" 
+                     Style="{StaticResource TxtStyle}" Height="auto"  
+                     CharacterCasing="Normal" />
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button 
+                    Grid.Column="1"
+                    
+                        Margin="1"
+                   
+                            Background="{StaticResource MahApps.Brushes.Accent}"
+                                        Command="{Binding CreateProjectCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}"
+                        ToolTip="Save / Create New Project">
+                <Button.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <icon:PackIconMaterial Kind="ContentSave" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                            <icon:PackIconMaterial.LayoutTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                </TransformGroup>
+                            </icon:PackIconMaterial.LayoutTransform>
+                        </icon:PackIconMaterial>
+                    </Grid>
+                </Button.Content>
+            </Button>
+
+            <Button 
+                    Grid.Column="0"
+                        Margin="1"
+            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ctrl:MetroWindow}}}"
+                            Background="Orange"
+                                        Command="{Binding CancelCommand}"
+                        ToolTip="Back">
+                <Button.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <icon:PackIconMaterial Kind="KeyboardReturn" 
+                                                        Grid.Column="1" 
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                            <icon:PackIconMaterial.LayoutTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                                </TransformGroup>
+                            </icon:PackIconMaterial.LayoutTransform>
+                        </icon:PackIconMaterial>
+                    </Grid>
+                </Button.Content>
+            </Button>
+
+        </Grid>
+    </Grid>
+
+</UserControl>
