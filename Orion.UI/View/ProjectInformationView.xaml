@@ -45,6 +45,7 @@
                 <TextBox
                     ctrl:TextBoxHelper.Watermark="Project Name"
                     Style="{DynamicResource TxtStyle}"
+                    PreviewTextInput="NoSlashInput"
                     Text="{Binding Project.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBox

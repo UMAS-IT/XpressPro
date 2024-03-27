@@ -24,5 +24,13 @@ namespace Orion.UI.View
         {
             InitializeComponent();
         }
+
+        private void NoSlashInput(object sender, TextCompositionEventArgs e)
+        {
+            if (e.Text.Contains("/"))
+            {
+                e.Handled = true; // Cancela la entrada del texto
+            }
+        }
     }
 }

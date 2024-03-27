@@ -45,6 +45,13 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _pricingSelected, value);
         }
 
+        private bool _submitalCoverSelected;
+        public bool SubmittalCoverSelected
+        {
+            get => _submitalCoverSelected;
+            set => SetProperty(ref _submitalCoverSelected, value);
+        }
+
         private bool _allUnitTagsSelected;
         public bool AllUnitTagsSelected
         {
@@ -66,11 +73,11 @@ namespace Orion.UI.ViewModel
             set => SetProperty(ref _user, value);
         }
 
-        private Project _porject;
+        private Project _project;
         public Project Project
         {
-            get => _porject;
-            set => SetProperty(ref _porject, value);
+            get => _project;
+            set => SetProperty(ref _project, value);
         }
 
         private bool _extended;
@@ -133,11 +140,12 @@ namespace Orion.UI.ViewModel
         private void OnAllReportsSelected(object obj)
         {
             PricingSelected = AllReportsSelected;
+            SubmittalCoverSelected = AllReportsSelected;
         }
 
         private void OnSingleReportSelected(object obj)
         {
-            if (PricingSelected)
+            if (PricingSelected & SubmittalCoverSelected)
             {
                 AllReportsSelected = true;
             }

@@ -82,6 +82,9 @@
     <EmbeddedResource Include="ResourcePricing\TermsAndConditionsTemplate.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResourcePricing\SubmittalCoverTemplate.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Orion.Binding\Orion.Binding.csproj">
@@ -100,6 +103,9 @@
       <Project>{d9e23b8f-1a1b-467d-a46f-07d97a7112f5}</Project>
       <Name>Orion.Helper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SubmittalCover\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -63,12 +63,28 @@
                 </GroupBox.Header>
 
                 <StackPanel  Orientation="Vertical" >
-
                     <Border BorderThickness="1" BorderBrush="White" Background="#FF87B036" Margin="1">
                         <CheckBox Margin="1" 
-                                          Content="Pricing" 
-                                          IsChecked="{Binding Path=PricingSelected}" 
-                                          Command="{Binding DataContext.SingleReportSelectedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                Content="Pricing" 
+                                IsChecked="{Binding Path=PricingSelected}" 
+                                Command="{Binding DataContext.SingleReportSelectedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                            <CheckBox.Style>
+                                <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                                    <Setter Property="FontSize" Value="8"/>
+                                    <Setter Property="LayoutTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.25" ScaleY="1.25"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </CheckBox.Style>
+                        </CheckBox>
+                    </Border>
+                    <Border BorderThickness="1" BorderBrush="White" Background="#FF87B036" Margin="1">
+                        <CheckBox Margin="1" 
+                                Content="Submittal Cover"
+                                IsChecked="{Binding Path=SubmittalCoverSelected}"
+                                Command="{Binding DataContext.SingleReportSelectedCommand, RelativeSource={RelativeSource AncestorType=UserControl}}">
                             <CheckBox.Style>
                                 <Style TargetType="CheckBox" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
                                     <Setter Property="FontSize" Value="8"/>
